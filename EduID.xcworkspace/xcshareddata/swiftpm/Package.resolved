@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TiqrCore",
+        "repositoryURL": "https://github.com/SURFnet/tiqr-app-core-ios",
+        "state": {
+          "branch": "develop",
+          "revision": "c95190bbffb4c6e14fbae8fb1202d298f98983e0",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
