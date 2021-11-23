@@ -5,8 +5,8 @@
         "package": "TiqrCore",
         "repositoryURL": "https://github.com/SURFnet/tiqr-app-core-ios",
         "state": {
-          "branch": "feature/TIQR-215",
-          "revision": "162a487432ee3243c90d5f76a9646611e4e23b08",
+          "branch": "develop",
+          "revision": "c95190bbffb4c6e14fbae8fb1202d298f98983e0",
           "version": null
         }
       }
