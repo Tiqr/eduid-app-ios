@@ -6,5 +6,5 @@
   Copyright © 2016 Egeniq. All rights reserved.
 */
 
-NSCameraUsageDescription = "Tiqr gebruikt de camera om QR-codes te scannen";
-NSFaceIDUsageDescription = "Tiqr gebruikt Face ID om in te loggen zonder een PIN";
+NSCameraUsageDescription = "De eduID-app gebruikt de camera om QR-codes te scannen";
+NSFaceIDUsageDescription = "De eduID-app gebruikt Face ID om in te loggen zonder een PIN";

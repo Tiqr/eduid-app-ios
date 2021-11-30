@@ -28,6 +28,7 @@
  */
 
 import UIKit
+import Tiqr
 import TiqrCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -41,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TiqrCore.shared.startWithOptions(options: connectionOptions)
+        window?.rootViewController = Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
         window?.makeKeyAndVisible()
     }
 
