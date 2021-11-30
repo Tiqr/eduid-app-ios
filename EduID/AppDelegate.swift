@@ -28,7 +28,7 @@
  */
 
 import UIKit
-import TiqrCore
+import Tiqr
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        TiqrCore.shared.startChallenge(challenge: url.absoluteString)
+        Tiqr.shared.startChallenge(challenge: url.absoluteString)
         return true
     }
 }
@@ -74,7 +74,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
-            TiqrCore.shared.startChallenge(challenge: challenge)
+            Tiqr.shared.startChallenge(challenge: challenge)
         }
     }
 }
@@ -86,7 +86,7 @@ extension AppDelegate {
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        TiqrCore.shared.registerDeviceToken(token: deviceToken)
+        Tiqr.shared.registerDeviceToken(token: deviceToken)
         print("Successfully registered for notifications")
     }
 
