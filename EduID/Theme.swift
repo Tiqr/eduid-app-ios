@@ -33,11 +33,11 @@ import TiqrCore
 final class Theme: TiqrThemeType {
     let primaryColor: UIColor = UIColor(named: "PrimaryColor")!
 
-    let headerFont: UIFont = UIFont(name: "Nunito-Bold", size: 16)!
+    let headerFont: UIFont = UIFont(name: "Nunito-Bold", size: 20)!
     let bodyBoldFont: UIFont = UIFont(name: "Nunito-Bold", size: 16)!
-    let bodyFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 14)!
+    let bodyFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 16)!
 
-    let buttonFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 14)!
+    let buttonFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 16)!
     let buttonTintColor: UIColor = .white
     let buttonBackgroundColor: UIColor = UIColor(named: "PrimaryColor")!
 
