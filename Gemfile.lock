@@ -212,7 +212,7 @@ GEM
       xcpretty (~> 0.2, >= 0.0.7)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   fastlane (~> 2.180.1)
@@ -220,4 +220,4 @@ DEPENDENCIES
   xcode-install (~> 2.8.0)
 
 BUNDLED WITH
-   1.17.2
+   2.2.32
