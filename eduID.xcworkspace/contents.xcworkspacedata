@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/bramegeniq/Development/eduid-app-ios/eduID.xcodeproj">
+      location = "group:eduID.xcodeproj">
    </FileRef>
 </Workspace>
