@@ -37,5 +37,30 @@
 			</array>
 		</dict>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>nl.eduid.auth</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>eduidauth</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>nl.eduid.enroll</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>eduidenroll</string>
+            </array>
+        </dict>
+    </array>
+    <key>NSFaceIDUsageDescription</key>
+    <string>eduID uses Face ID to login without a PIN</string>
 </dict>
 </plist>
