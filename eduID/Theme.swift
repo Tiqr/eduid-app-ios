@@ -37,7 +37,7 @@ final class Theme: TiqrThemeType {
     let bodyBoldFont: UIFont = UIFont(name: "Nunito-Bold", size: 16)!
     let bodyFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 16)!
 
-    let buttonFont: UIFont = UIFont(name: "SourceSansPro-Regular", size: 16)!
+    let buttonFont: UIFont = UIFont(name: "Nunito-Bold", size: 20)!
     let buttonTintColor: UIColor = .white
     let buttonBackgroundColor: UIColor = UIColor(named: "PrimaryColor")!
 
