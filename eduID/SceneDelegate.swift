@@ -44,6 +44,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
         window?.makeKeyAndVisible()
+
+        if let url = connectionOptions.urlContexts.first?.url {
+            Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        }
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
