@@ -42,6 +42,14 @@
 	<string>eduidauth</string>
 	<key>TIQREnrollmentURLScheme</key>
 	<string>eduidenroll</string>
+	<key>TIQRAuthenticationURLPathParameter</key>
+	<string>tiqrauth</string>
+	<key>TIQREnrollmentURLPathParameter</key>
+	<string>tiqrenroll</string>
+	<key>TIQREnforceChallengeHost</key>
+	<string>eduid.nl</string>
+	<key>TIQRTokenExchangeEnabled</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Nunito-Bold.ttf</string>

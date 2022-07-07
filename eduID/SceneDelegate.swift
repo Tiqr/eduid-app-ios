@@ -55,6 +55,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
     }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let url = userActivity.webpageURL {
+            Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        }
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
