@@ -39,9 +39,17 @@
 		</dict>
 	</dict>
 	<key>TIQRAuthenticationURLScheme</key>
-	<string>eduidauth</string>
+	<string>$(TIQR_AUTHENTICATION_URL_SCHEME)</string>
 	<key>TIQREnrollmentURLScheme</key>
-	<string>eduidenroll</string>
+	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
+	<key>TIQRAuthenticationURLPathParameter</key>
+	<string>$(TIQR_AUTHENTICATION_URL_PATH_PARAMETER)</string>
+	<key>TIQREnrollmentURLPathParameter</key>
+	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
+	<key>TIQREnforceChallengeHost</key>
+	<string>$(TIQR_ENFORCE_CHALLENGE_HOST)</string>
+	<key>TIQRTokenExchangeEnabled</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Nunito-Bold.ttf</string>

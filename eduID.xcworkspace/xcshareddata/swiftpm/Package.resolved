@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Tiqr",
-        "repositoryURL": "https://github.com/SURFnet/tiqr-app-core-ios",
-        "state": {
-          "branch": "develop",
-          "revision": "cfd2551fc4f0d21c5ca932b1bb5fff3968976218",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "tiqr-app-core-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SURFnet/tiqr-app-core-ios",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "2056d2d5d389e897aa2f36742d7ae8c71cbea277"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
