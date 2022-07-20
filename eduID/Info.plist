@@ -38,6 +38,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Access camera to scan QR codes</string>
 	<key>TIQRAuthenticationURLScheme</key>
 	<string>$(TIQR_AUTHENTICATION_URL_SCHEME)</string>
 	<key>TIQREnrollmentURLScheme</key>
