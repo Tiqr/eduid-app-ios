@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A61B9F22756698D005A48EC /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 0A61B9F12756698D005A48EC /* Tiqr */; };
 		0A95849227B53C01002B8723 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A95849427B53C01002B8723 /* Localizable.strings */; };
 		0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F8D44274F8D0200F24188 /* Theme.swift */; };
 		0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */; };
@@ -31,6 +30,7 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
+		F59D9E78289825C20059965E /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = F59D9E77289825C20059965E /* Tiqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A61B9F22756698D005A48EC /* Tiqr in Frameworks */,
+				F59D9E78289825C20059965E /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +189,7 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				0A61B9F12756698D005A48EC /* Tiqr */,
+				F59D9E77289825C20059965E /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -741,7 +741,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0A61B9F12756698D005A48EC /* Tiqr */ = {
+		F59D9E77289825C20059965E /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
