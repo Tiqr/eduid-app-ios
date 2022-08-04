@@ -71,6 +71,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if (UIApplication.shared.applicationState == .inactive || UIApplication.shared.applicationState == .background) {
+            if #available(iOS 14.0, *) {
+                completionHandler([[.banner, .sound]])
+            } else {
+                completionHandler([.alert, .sound])
+            }
+        } else {
+            // App is already open, handle the notification
+            let userInfo = notification.request.content.userInfo
+            if let challenge = userInfo["challenge"] as? String {
+                DispatchQueue.main.async {
+                    Tiqr.shared.startChallenge(challenge: challenge)
+                }
+            }
+            completionHandler([])
+        }
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
