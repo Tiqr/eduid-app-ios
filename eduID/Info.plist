@@ -50,8 +50,8 @@
 	<string>$(TIQR_AUTHENTICATION_URL_PATH_PARAMETER)</string>
 	<key>TIQREnrollmentURLPathParameter</key>
 	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
-	<key>TIQREnforceChallengeHost</key>
-	<string>$(TIQR_ENFORCE_CHALLENGE_HOST)</string>
+	<key>TIQREnforceChallengeHosts</key>
+	<string>$(TIQR_ENFORCE_CHALLENGE_HOSTS)</string>
 	<key>TIQRTokenExchangeEnabled</key>
 	<false/>
 	<key>UIAppFonts</key>
@@ -76,7 +76,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 </dict>
 </plist>
