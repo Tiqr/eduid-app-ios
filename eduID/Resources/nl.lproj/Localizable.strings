@@ -7,3 +7,6 @@
 
 /* Blocked */
 "main_text_blocked" = "<b>Wat nu?</b><br/><br/>Verwijder je eduID app registratie door naar je account overzicht rechtsboven te gaan. Ga vervolgens naar <a href=\"https://mijn.eduid.nl\">mijn.eduid.nl</a> en verwijder daar ook je app registratie. Hiervoor heb je je eerder gekozen herstelmethode voor nodig. Daarna kun je de eduID app opnieuw registreren.";
+
+/* TouchID */
+"touch_id_reason" = "eduID wil de identiteit opslaan";
