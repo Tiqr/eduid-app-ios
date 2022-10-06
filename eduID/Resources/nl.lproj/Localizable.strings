@@ -1,4 +1,3 @@
-﻿"main_text_welcome" = "%@";
 
 /* Welcome */
 "main_text_welcome" = "<b>Met de eduID app kun je veilig en vertrouwd inloggen bij verschillende webdiensten.</b><br/> <br/> Ga naar <a href=\"https://mijn.eduid.nl\">eduid.nl</a> om je eduID app te activeren<br/> <br/>Tijdens het activatieproces moet je een QR code scannen. Druk op <b>Scan</> als hierom gevraagd wordt.";
