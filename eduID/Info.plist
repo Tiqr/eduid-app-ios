@@ -25,6 +25,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -38,20 +40,16 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Access camera to scan QR codes</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>TIQRAuthenticationURLScheme</key>
-	<string>$(TIQR_AUTHENTICATION_URL_SCHEME)</string>
-	<key>TIQREnrollmentURLScheme</key>
-	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
 	<key>TIQRAuthenticationURLPathParameter</key>
 	<string>$(TIQR_AUTHENTICATION_URL_PATH_PARAMETER)</string>
-	<key>TIQREnrollmentURLPathParameter</key>
-	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
+	<key>TIQRAuthenticationURLScheme</key>
+	<string>$(TIQR_AUTHENTICATION_URL_SCHEME)</string>
 	<key>TIQREnforceChallengeHosts</key>
 	<string>$(TIQR_ENFORCE_CHALLENGE_HOSTS)</string>
+	<key>TIQREnrollmentURLPathParameter</key>
+	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
+	<key>TIQREnrollmentURLScheme</key>
+	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
 	<key>TIQRTokenExchangeEnabled</key>
 	<false/>
 	<key>UIAppFonts</key>

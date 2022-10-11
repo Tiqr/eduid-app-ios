@@ -383,7 +383,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
-				INFOPLIST_KEY_NSCameraUsageDescription = "eduID uses the camera to scan QR-codes";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -394,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -481,8 +481,8 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = eduID;
-				INFOPLIST_KEY_NSCameraUsageDescription = "eduID uses the camera to scan QR-codes";
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -493,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -648,8 +648,8 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = eduID;
-				INFOPLIST_KEY_NSCameraUsageDescription = "eduID uses the camera to scan QR-codes";
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -660,7 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -686,7 +686,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
-				INFOPLIST_KEY_NSCameraUsageDescription = "eduID uses the camera to scan QR-codes";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -697,7 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
