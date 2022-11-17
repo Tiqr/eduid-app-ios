@@ -50,6 +50,8 @@
 	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
 	<key>TIQREnrollmentURLScheme</key>
 	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
+	<key>TIQRGitReleaseVersion</key>
+	<string></string>
 	<key>TIQRTokenExchangeEnabled</key>
 	<false/>
 	<key>UIAppFonts</key>

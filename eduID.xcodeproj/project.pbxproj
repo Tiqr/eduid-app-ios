@@ -182,6 +182,7 @@
 				0AFD9DFD2745579900D48C01 /* Sources */,
 				0AFD9DFE2745579900D48C01 /* Frameworks */,
 				0AFD9DFF2745579900D48C01 /* Resources */,
+				C773FF2529263B2400A82451 /* Set Git Release Version */,
 			);
 			buildRules = (
 			);
@@ -260,6 +261,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C773FF2529263B2400A82451 /* Set Git Release Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Git Release Version";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n  fi\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AFD9DFD2745579900D48C01 /* Sources */ = {
