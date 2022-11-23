@@ -1,0 +1,10 @@
+
+/* Welcome */
+"main_text_welcome" = "<b>With the eduID app you can log in safely and securely to various web services.</b><br/><br/>Go to <a href=\"https://mijn.eduid.nl\">eduid.nl</a> to activate your eduID app<br/> <br/>During the activation process you will need to scan a QR code. Press <b>Scan</b> when asked.";
+
+/* Instructions */
+"main_text_instructions" = "<b>Use eduID to log in</b> <br/>
+<br/>1. Open the push message or press <b>Scan</b> and scan the QR-code on the website.<br/><br/>2. Confirm with your biometric or enter your PIN<br/><br/>3. You are logged in!";
+
+/* Blocked */
+"main_text_blocked" = "<b>Now what?</b><br/><br/>Remove your eduID app registration by going to your account overview at the top right. Then go to <a href=\"https://mijn.eduid.nl\">mijn.eduid.nl</a> and delete your app registration. You will need your previously chosen recovery method for this. After that you can register the eduID app again.";

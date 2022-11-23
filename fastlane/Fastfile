@@ -1,0 +1,163 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'fileutils'
+
+default_platform(:ios)
+
+platform :ios do
+
+  def provisioning_profile(type:)
+    "eduID" + type
+  end
+
+  def install_intermediate_certificate
+    certificate_path = ".secret/AppleWWDRCA.cer"
+    
+    import_certificate(
+      certificate_path: certificate_path,
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"] || "eduID-Fastlane",
+      keychain_password: "",
+      log_output: true
+    )
+  end
+
+  def configure_signing(development: nil, adhoc: nil)
+    certificate_path = development ? ENV['DEVELOPMENT_CERTIFICATE_PATH'] : ENV['APP_STORE_CERTIFICATE_PATH']
+
+    create_keychain(
+      name: "eduID-Fastlane",
+      password: "",
+      default_keychain: false,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+    
+    import_certificate(
+      certificate_path: certificate_path,
+      certificate_password: ENV["CERTIFICATE_PASSWORD"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"] || "eduID-Fastlane",
+      keychain_password: "",
+      log_output: true
+    )
+
+    install_intermediate_certificate
+
+    get_provisioning_profile(
+      development: development,
+      adhoc: adhoc,
+      api_key_path: ENV['APP_STORE_CONNECT_API_KEY_FILE_PATH']
+    )
+  end
+
+  desc "Set build number using the last commit date and the github runner number"
+  lane :set_build_number do
+
+    # Gets the YYYY-MM-DD format for the date of the last commit and trim it
+    commit_date = `git show -s --format=%cd --date=short`.gsub(/-|\n/, "")
+
+    increment_build_number(
+      build_number: commit_date + "." + ENV['GITHUB_RUN_NUMBER'],
+      xcodeproj: "eduID.xcodeproj"
+    )
+  end
+  
+  def build(config_name: "App Store", method_name: "app-store", profile_type: "App Store")
+    build_app(
+      workspace: "eduID.xcworkspace", 
+      scheme: "eduID",
+      configuration: config_name,
+      export_options: {
+        method: method_name,
+        provisioningProfiles: {
+          CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) => provisioning_profile(type: profile_type)
+        }
+      }
+    )
+  end
+
+  def distribute_via_firebase
+    base_groups = ["internal-testers-eduid"]
+    firebase_app_distribution(
+      app: ENV['FIREBASE_TEST_APP_ID'],
+      groups: base_groups.join(", "),
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"]
+    )
+  end
+
+  def distribute_via_testflight
+    upload_to_testflight(
+      skip_submission: true,
+      skip_waiting_for_build_processing: true,
+      api_key_path: ENV['APP_STORE_CONNECT_API_KEY_FILE_PATH']
+    )
+  end
+
+  def check_env_vars
+    ensure_env_vars(
+      env_vars: ['CERTIFICATE_PASSWORD', 'APP_STORE_CONNECT_API_KEY_FILE_PATH', 'FIREBASE_TEST_APP_ID', 'FIREBASE_CLI_TOKEN']
+    )
+  end
+  
+  private_lane :prepare do
+    xcversion(version: "13.0")
+  end
+
+  desc "Push a new build connected to Test to Firebase App Distribution"
+  lane :deploy_test do
+    check_env_vars
+
+    configure_signing(adhoc: true)
+
+    prepare
+
+    build(config_name: "Test", method_name: "ad-hoc", profile_type: "Test")
+
+    distribute_via_firebase
+  end
+
+  desc "Push a new build connected to Test to Firebase App Distribution from GitHub Actions"
+  lane :deploy_test_ci do
+    check_env_vars
+
+    setup_ci(provider: "travis", force: true)
+    
+    deploy_test
+  end
+
+  desc "Push a new App Store build to TestFlight"
+  lane :deploy_appstore_testflight do
+    configure_signing
+
+    prepare
+
+    build(config_name: "App Store")
+
+    distribute_via_testflight
+  end
+
+  desc "Push a new App Store build to TestFlight from GitHub Actions"
+  lane :deploy_appstore_testflight_ci do
+    ensure_env_vars(
+      env_vars: ['CERTIFICATE_PASSWORD', 'APP_STORE_CONNECT_API_KEY_FILE_PATH', 'APP_STORE_CERTIFICATE_PATH']
+    )
+
+    setup_ci(provider: "travis", force: true)
+
+    deploy_appstore_testflight
+  end
+
+end

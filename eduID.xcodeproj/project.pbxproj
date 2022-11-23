@@ -1,0 +1,761 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A95849227B53C01002B8723 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A95849427B53C01002B8723 /* Localizable.strings */; };
+		0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F8D44274F8D0200F24188 /* Theme.swift */; };
+		0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */; };
+		0A9F8DC6274FB01D00F24188 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB6274FB01D00F24188 /* Nunito-Bold.ttf */; };
+		0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB8274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf */; };
+		0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB9274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBA274FB01D00F24188 /* SourceSansPro-Regular.ttf */; };
+		0A9F8DCA274FB01D00F24188 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBB274FB01D00F24188 /* SourceSansPro-Bold.ttf */; };
+		0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBC274FB01D00F24188 /* SourceSansPro-LightItalic.ttf */; };
+		0A9F8DCC274FB01D00F24188 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBD274FB01D00F24188 /* SourceSansPro-Light.ttf */; };
+		0A9F8DCD274FB01D00F24188 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBE274FB01D00F24188 /* SourceSansPro-Black.ttf */; };
+		0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBF274FB01D00F24188 /* OFL.txt */; };
+		0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC0274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf */; };
+		0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC1274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf */; };
+		0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC2274FB01D00F24188 /* SourceSansPro-SemiBold.ttf */; };
+		0A9F8DD2274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC3274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC4274FB01D00F24188 /* SourceSansPro-Italic.ttf */; };
+		0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E042745579900D48C01 /* AppDelegate.swift */; };
+		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
+		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
+		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
+		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
+		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
+		F59D9E78289825C20059965E /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = F59D9E77289825C20059965E /* Tiqr */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A95849327B53C01002B8723 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A95849527B53C03002B8723 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A9F8D44274F8D0200F24188 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0A9F8DB6274FB01D00F24188 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		0A9F8DB8274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		0A9F8DB9274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		0A9F8DBA274FB01D00F24188 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		0A9F8DBB274FB01D00F24188 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		0A9F8DBC274FB01D00F24188 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
+		0A9F8DBD274FB01D00F24188 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		0A9F8DBE274FB01D00F24188 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
+		0A9F8DBF274FB01D00F24188 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		0A9F8DC0274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		0A9F8DC1274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldItalic.ttf"; sourceTree = "<group>"; };
+		0A9F8DC2274FB01D00F24188 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
+		0A9F8DC3274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		0A9F8DC4274FB01D00F24188 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
+		0AFD9E012745579900D48C01 /* eduID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eduID.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFD9E042745579900D48C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0AFD9E062745579900D48C01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0AFD9E082745579900D48C01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0AFD9E0D2745579C00D48C01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0AFD9DFE2745579900D48C01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59D9E78289825C20059965E /* Tiqr in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A95848D27B53B01002B8723 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				0A95849427B53C01002B8723 /* Localizable.strings */,
+				0AFD9E232745590D00D48C01 /* InfoPlist.strings */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		0A974847274E8F12000D9CED /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		0A9F8DB3274FB00300F24188 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
+				0A95848D27B53B01002B8723 /* General */,
+				0A9F8DB4274FB01D00F24188 /* Nunito */,
+				0A9F8DB7274FB01D00F24188 /* Source_Sans_Pro */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A9F8DB4274FB01D00F24188 /* Nunito */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */,
+				0A9F8DB6274FB01D00F24188 /* Nunito-Bold.ttf */,
+			);
+			path = Nunito;
+			sourceTree = "<group>";
+		};
+		0A9F8DB7274FB01D00F24188 /* Source_Sans_Pro */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F8DB8274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf */,
+				0A9F8DB9274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf */,
+				0A9F8DBA274FB01D00F24188 /* SourceSansPro-Regular.ttf */,
+				0A9F8DBB274FB01D00F24188 /* SourceSansPro-Bold.ttf */,
+				0A9F8DBC274FB01D00F24188 /* SourceSansPro-LightItalic.ttf */,
+				0A9F8DBD274FB01D00F24188 /* SourceSansPro-Light.ttf */,
+				0A9F8DBE274FB01D00F24188 /* SourceSansPro-Black.ttf */,
+				0A9F8DBF274FB01D00F24188 /* OFL.txt */,
+				0A9F8DC0274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf */,
+				0A9F8DC1274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf */,
+				0A9F8DC2274FB01D00F24188 /* SourceSansPro-SemiBold.ttf */,
+				0A9F8DC3274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf */,
+				0A9F8DC4274FB01D00F24188 /* SourceSansPro-Italic.ttf */,
+			);
+			path = Source_Sans_Pro;
+			sourceTree = "<group>";
+		};
+		0AFD9DF82745579900D48C01 = {
+			isa = PBXGroup;
+			children = (
+				0A974847274E8F12000D9CED /* Packages */,
+				0AFD9E032745579900D48C01 /* EduID */,
+				0AFD9E022745579900D48C01 /* Products */,
+				0AFD9E27274559AD00D48C01 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0AFD9E022745579900D48C01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD9E012745579900D48C01 /* eduID.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0AFD9E032745579900D48C01 /* EduID */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
+				0A9F8D44274F8D0200F24188 /* Theme.swift */,
+				0AFD9E042745579900D48C01 /* AppDelegate.swift */,
+				0AFD9E062745579900D48C01 /* SceneDelegate.swift */,
+				0AFD9E082745579900D48C01 /* ViewController.swift */,
+				0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */,
+				0A9F8DB3274FB00300F24188 /* Resources */,
+				0AFD9E122745579C00D48C01 /* Info.plist */,
+			);
+			path = EduID;
+			sourceTree = "<group>";
+		};
+		0AFD9E27274559AD00D48C01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0AFD9E002745579900D48C01 /* eduID */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AFD9E152745579C00D48C01 /* Build configuration list for PBXNativeTarget "eduID" */;
+			buildPhases = (
+				0AFD9DFD2745579900D48C01 /* Sources */,
+				0AFD9DFE2745579900D48C01 /* Frameworks */,
+				0AFD9DFF2745579900D48C01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eduID;
+			packageProductDependencies = (
+				F59D9E77289825C20059965E /* Tiqr */,
+			);
+			productName = EduID;
+			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0AFD9DF92745579900D48C01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					0AFD9E002745579900D48C01 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 0AFD9DFC2745579900D48C01 /* Build configuration list for PBXProject "eduID" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				nl,
+			);
+			mainGroup = 0AFD9DF82745579900D48C01;
+			packageReferences = (
+				0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+			);
+			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0AFD9E002745579900D48C01 /* eduID */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AFD9DFF2745579900D48C01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
+				0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				0A9F8DCC274FB01D00F24188 /* SourceSansPro-Light.ttf in Resources */,
+				0A9F8DCA274FB01D00F24188 /* SourceSansPro-Bold.ttf in Resources */,
+				0A9F8DCD274FB01D00F24188 /* SourceSansPro-Black.ttf in Resources */,
+				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
+				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
+				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
+				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
+				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
+				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */,
+				0A9F8DC6274FB01D00F24188 /* Nunito-Bold.ttf in Resources */,
+				0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */,
+				0A9F8DD2274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				0A95849227B53C01002B8723 /* Localizable.strings in Resources */,
+				0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */,
+				0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0AFD9DFD2745579900D48C01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,
+				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
+				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
+				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0A95849427B53C01002B8723 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A95849327B53C01002B8723 /* en */,
+				0A95849527B53C03002B8723 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AFD9E102745579C00D48C01 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0AFD9E232745590D00D48C01 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AFD9E222745590D00D48C01 /* en */,
+				0AFD9E242745591400D48C01 /* nl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0A1858CB27578912000B3236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = eduID/EduID.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0A1858CC27578912000B3236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eduID/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TIQR_AUTHENTICATION_URL_PATH_PARAMETER = tiqrauth/;
+				TIQR_AUTHENTICATION_URL_SCHEME = eduidauth;
+				TIQR_ENFORCE_CHALLENGE_HOSTS = "eduid.nl,surfconext.nl";
+				TIQR_ENROLLMENT_URL_PATH_PARAMETER = tiqrenroll/;
+				TIQR_ENROLLMENT_URL_SCHEME = eduidenroll;
+			};
+			name = Debug;
+		};
+		0A1858CD27578916000B3236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = eduID/EduID.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0A1858CE27578916000B3236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eduID/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TIQR_AUTHENTICATION_URL_PATH_PARAMETER = tiqrauth/;
+				TIQR_AUTHENTICATION_URL_SCHEME = eduidauth;
+				TIQR_ENFORCE_CHALLENGE_HOSTS = "eduid.nl,surfconext.nl";
+				TIQR_ENROLLMENT_URL_PATH_PARAMETER = tiqrenroll/;
+				TIQR_ENROLLMENT_URL_SCHEME = eduidenroll;
+			};
+			name = Release;
+		};
+		0AFD9E132745579C00D48C01 /* Debug Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = eduID/EduID.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug Test";
+		};
+		0AFD9E142745579C00D48C01 /* Release Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = eduID/EduID.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = "Release Test";
+		};
+		0AFD9E162745579C00D48C01 /* Debug Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eduID/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TIQR_AUTHENTICATION_URL_PATH_PARAMETER = tiqrauth/;
+				TIQR_AUTHENTICATION_URL_SCHEME = eduidauth;
+				TIQR_ENFORCE_CHALLENGE_HOSTS = "eduid.nl,surfconext.nl";
+				TIQR_ENROLLMENT_URL_PATH_PARAMETER = tiqrenroll/;
+				TIQR_ENROLLMENT_URL_SCHEME = eduidenroll;
+			};
+			name = "Debug Test";
+		};
+		0AFD9E172745579C00D48C01 /* Release Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eduID/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TIQR_AUTHENTICATION_URL_PATH_PARAMETER = tiqrauth/;
+				TIQR_AUTHENTICATION_URL_SCHEME = eduidauth;
+				TIQR_ENFORCE_CHALLENGE_HOSTS = "eduid.nl,surfconext.nl";
+				TIQR_ENROLLMENT_URL_PATH_PARAMETER = tiqrenroll/;
+				TIQR_ENROLLMENT_URL_SCHEME = eduidenroll;
+			};
+			name = "Release Test";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD9DFC2745579900D48C01 /* Build configuration list for PBXProject "eduID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD9E132745579C00D48C01 /* Debug Test */,
+				0A1858CB27578912000B3236 /* Debug */,
+				0AFD9E142745579C00D48C01 /* Release Test */,
+				0A1858CD27578916000B3236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AFD9E152745579C00D48C01 /* Build configuration list for PBXNativeTarget "eduID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD9E162745579C00D48C01 /* Debug Test */,
+				0A1858CC27578912000B3236 /* Debug */,
+				0AFD9E172745579C00D48C01 /* Release Test */,
+				0A1858CE27578916000B3236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F59D9E77289825C20059965E /* Tiqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			productName = Tiqr;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0AFD9DF92745579900D48C01 /* Project object */;
+}
