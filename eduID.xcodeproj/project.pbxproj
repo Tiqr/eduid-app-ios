@@ -30,7 +30,8 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		F59D9E78289825C20059965E /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = F59D9E77289825C20059965E /* Tiqr */; };
+		C773FF2D29263E6B00A82451 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C773FF2C29263E6B00A82451 /* Tiqr */; };
+		C798E9A3292E25D200423577 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C798E9A2292E25D200423577 /* Tiqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59D9E78289825C20059965E /* Tiqr in Frameworks */,
+				C798E9A3292E25D200423577 /* Tiqr in Frameworks */,
+				C773FF2D29263E6B00A82451 /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,13 +85,6 @@
 				0AFD9E232745590D00D48C01 /* InfoPlist.strings */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		0A974847274E8F12000D9CED /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
@@ -135,7 +130,6 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
-				0A974847274E8F12000D9CED /* Packages */,
 				0AFD9E032745579900D48C01 /* EduID */,
 				0AFD9E022745579900D48C01 /* Products */,
 				0AFD9E27274559AD00D48C01 /* Frameworks */,
@@ -182,7 +176,7 @@
 				0AFD9DFD2745579900D48C01 /* Sources */,
 				0AFD9DFE2745579900D48C01 /* Frameworks */,
 				0AFD9DFF2745579900D48C01 /* Resources */,
-				C773FF2529263B2400A82451 /* Set Git Release Version */,
+				C773FF2529263B2400A82451 /* Set Git Release and Library Version */,
 			);
 			buildRules = (
 			);
@@ -190,7 +184,8 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				F59D9E77289825C20059965E /* Tiqr */,
+				C773FF2C29263E6B00A82451 /* Tiqr */,
+				C798E9A2292E25D200423577 /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -222,7 +217,7 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -263,7 +258,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C773FF2529263B2400A82451 /* Set Git Release Version */ = {
+		C773FF2529263B2400A82451 /* Set Git Release and Library Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -273,14 +268,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Set Git Release Version";
+			name = "Set Git Release and Library Version";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n  fi\ndone\n";
+			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\necho \"git_release_version: $git_release_version\" \n\nread -r -d '' PARSE_PACKAGE_RESOLVED <<EOF\nvar app = Application.currentApplication();\napp.includeStandardAdditions = true;\n\nfunction parseJSON(path) {\n    const data = app.read(path);\n    return JSON.parse(data);\n}\n\nfunction run() {\n    const parsed = parseJSON(\"${PROJECT_FILE_PATH}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved\");\n    return parsed.pins[0].state.revision.substring(0,7);\n}\n\nEOF\n\ncore_library_commit=$( osascript -l 'JavaScript' <<< \"${PARSE_PACKAGE_RESOLVED}\" )\n\necho \"core_library_commit: $core_library_commit\" \n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n    /usr/libexec/PlistBuddy -c \"Set :TIQRLibraryVersion $core_library_commit\" \"$plist\"\n  fi\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -417,7 +412,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -516,7 +511,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -683,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -720,7 +715,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -762,20 +757,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+		C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = revision;
+				revision = 0df261306c7601599a9cbc65380090ef6204ec40;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F59D9E77289825C20059965E /* Tiqr */ = {
+		C773FF2C29263E6B00A82451 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			productName = Tiqr;
+		};
+		C798E9A2292E25D200423577 /* Tiqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
 		};
 /* End XCSwiftPackageProductDependency section */
