@@ -40,6 +40,8 @@ final class Theme: TiqrThemeType {
     let buttonFont: UIFont = UIFont(name: "Nunito-Bold", size: 20)!
     let buttonTintColor: UIColor = .white
     let buttonBackgroundColor: UIColor = UIColor(named: "PrimaryColor")!
+    let secondaryButtonTintColor: UIColor = .black
+    let secondaryButtonBackgroundColor: UIColor = UIColor(named: "SecondaryColor")!
 
     let aboutIcon: UIImage? = UIImage(named: "logo_eduID")
     let topBarIcon: UIImage? = UIImage(named: "logo_eduID")
