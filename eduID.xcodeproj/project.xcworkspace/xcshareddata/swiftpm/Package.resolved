@@ -5,7 +5,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Tiqr/tiqr-app-core-ios",
       "state" : {
-        "revision" : "0df261306c7601599a9cbc65380090ef6204ec40"
+        "revision" : "b4fa942f4b21fd7655f04fb5ff3ada9049e0176e"
       }
     }
   ],
