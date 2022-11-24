@@ -51,7 +51,9 @@
 	<key>TIQREnrollmentURLScheme</key>
 	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
 	<key>TIQRGitReleaseVersion</key>
-	<string></string>
+	<string>?</string>
+	<key>TIQRLibraryVersion</key>
+	<string>?</string>
 	<key>TIQRTokenExchangeEnabled</key>
 	<false/>
 	<key>UIAppFonts</key>
