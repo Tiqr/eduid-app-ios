@@ -30,8 +30,7 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		C773FF2D29263E6B00A82451 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C773FF2C29263E6B00A82451 /* Tiqr */; };
-		C798E9A3292E25D200423577 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C798E9A2292E25D200423577 /* Tiqr */; };
+		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +62,32 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8614292FCC2F00BDEB69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8615292FCC3200BDEB69 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8616292FCC3500BDEB69 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8617292FCC3800BDEB69 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8618292FCC3A00BDEB69 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8619292FCC3D00BDEB69 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861A292FCC3F00BDEB69 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861B292FCC4400BDEB69 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861C292FCC4700BDEB69 /* fy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fy; path = fy.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861D292FCC5F00BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF861E292FCC6700BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF861F292FCC6B00BDEB69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8620292FCC6D00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8621292FCC7000BDEB69 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8622292FCC7200BDEB69 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8623292FCC7300BDEB69 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8624292FCC7500BDEB69 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8625292FCC7600BDEB69 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8626292FCC7800BDEB69 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8627292FCC7900BDEB69 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8628292FCC7C00BDEB69 /* fy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fy; path = fy.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C798E9A3292E25D200423577 /* Tiqr in Frameworks */,
-				C773FF2D29263E6B00A82451 /* Tiqr in Frameworks */,
+				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +154,8 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
+				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
+				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
 				0AFD9E022745579900D48C01 /* Products */,
 				0AFD9E27274559AD00D48C01 /* Frameworks */,
@@ -184,8 +210,7 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				C773FF2C29263E6B00A82451 /* Tiqr */,
-				C798E9A2292E25D200423577 /* Tiqr */,
+				C7F601672938B15800AF2FFF /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -214,10 +239,22 @@
 				en,
 				Base,
 				nl,
+				fr,
+				sr,
+				ja,
+				fy,
+				hr,
+				es,
+				da,
+				sl,
+				ro,
+				nb,
+				de,
+				sk,
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -299,6 +336,18 @@
 			children = (
 				0A95849327B53C01002B8723 /* en */,
 				0A95849527B53C03002B8723 /* nl */,
+				C7AF8611292FCC0300BDEB69 /* hr */,
+				C7AF8612292FCC1600BDEB69 /* da */,
+				C7AF8613292FCC2C00BDEB69 /* de */,
+				C7AF8614292FCC2F00BDEB69 /* fr */,
+				C7AF8615292FCC3200BDEB69 /* ja */,
+				C7AF8616292FCC3500BDEB69 /* nb */,
+				C7AF8617292FCC3800BDEB69 /* ro */,
+				C7AF8618292FCC3A00BDEB69 /* sr */,
+				C7AF8619292FCC3D00BDEB69 /* sk */,
+				C7AF861A292FCC3F00BDEB69 /* sl */,
+				C7AF861B292FCC4400BDEB69 /* es */,
+				C7AF861C292FCC4700BDEB69 /* fy */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -316,6 +365,18 @@
 			children = (
 				0AFD9E222745590D00D48C01 /* en */,
 				0AFD9E242745591400D48C01 /* nl */,
+				C7AF861D292FCC5F00BDEB69 /* da */,
+				C7AF861E292FCC6700BDEB69 /* hr */,
+				C7AF861F292FCC6B00BDEB69 /* fr */,
+				C7AF8620292FCC6D00BDEB69 /* de */,
+				C7AF8621292FCC7000BDEB69 /* ja */,
+				C7AF8622292FCC7200BDEB69 /* nb */,
+				C7AF8623292FCC7300BDEB69 /* ro */,
+				C7AF8624292FCC7500BDEB69 /* sr */,
+				C7AF8625292FCC7600BDEB69 /* sk */,
+				C7AF8626292FCC7800BDEB69 /* sl */,
+				C7AF8627292FCC7900BDEB69 /* es */,
+				C7AF8628292FCC7C00BDEB69 /* fy */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -757,24 +818,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+		C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = 0df261306c7601599a9cbc65380090ef6204ec40;
+				revision = b4fa942f4b21fd7655f04fb5ff3ada9049e0176e;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C773FF2C29263E6B00A82451 /* Tiqr */ = {
+		C7F601672938B15800AF2FFF /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Tiqr;
-		};
-		C798E9A2292E25D200423577 /* Tiqr */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C798E9A1292E25D200423577 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			package = C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
 		};
 /* End XCSwiftPackageProductDependency section */

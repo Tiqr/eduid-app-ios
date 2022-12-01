@@ -1,0 +1,10 @@
+/* infoPlist.strings
+  Tiqr
+
+  Created by Thom Hoekstra on 07-11-16.
+  Copyright © 2016 Egeniq. All rights reserved. */
+"NSCameraUsageDescription" = "eduID uses the camera to scan QR-codes";
+
+/* Privacy - Face ID Usage Description */
+"NSFaceIDUsageDescription" = "eduID uses Face ID to login without a PIN";
+
