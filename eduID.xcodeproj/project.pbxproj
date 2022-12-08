@@ -31,7 +31,18 @@
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
 		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
+		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7F8389F294265B3002015A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AFD9DF92745579900D48C01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AFD9E002745579900D48C01;
+			remoteInfo = eduID;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A95849327B53C01002B8723 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -88,6 +99,8 @@
 		C7AF8628292FCC7C00BDEB69 /* fy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fy; path = fy.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F8389D294265B3002015A8 /* eduIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eduIDTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +109,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F83898294265B3002015A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +177,7 @@
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
+				C7F8389C294265B3002015A8 /* eduIDTests */,
 				0AFD9E022745579900D48C01 /* Products */,
 				0AFD9E27274559AD00D48C01 /* Frameworks */,
 			);
@@ -166,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0AFD9E012745579900D48C01 /* eduID.app */,
+				C7F8389B294265B3002015A8 /* eduIDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +214,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7F8389C294265B3002015A8 /* eduIDTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7F8389D294265B3002015A8 /* eduIDTests.swift */,
+			);
+			path = eduIDTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +246,24 @@
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C7F8389A294265B3002015A8 /* eduIDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7F838A1294265B3002015A8 /* Build configuration list for PBXNativeTarget "eduIDTests" */;
+			buildPhases = (
+				C7F83897294265B3002015A8 /* Sources */,
+				C7F83898294265B3002015A8 /* Frameworks */,
+				C7F83899294265B3002015A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7F838A0294265B3002015A8 /* PBXTargetDependency */,
+			);
+			name = eduIDTests;
+			productName = eduIDTests;
+			productReference = C7F8389B294265B3002015A8 /* eduIDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,11 +271,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					0AFD9E002745579900D48C01 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					C7F8389A294265B3002015A8 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 0AFD9E002745579900D48C01;
 					};
 				};
 			};
@@ -261,6 +313,7 @@
 			projectRoot = "";
 			targets = (
 				0AFD9E002745579900D48C01 /* eduID */,
+				C7F8389A294265B3002015A8 /* eduIDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -289,6 +342,13 @@
 				0A95849227B53C01002B8723 /* Localizable.strings in Resources */,
 				0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */,
 				0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F83899294265B3002015A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +388,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7F83897294265B3002015A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7F838A0294265B3002015A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AFD9E002745579900D48C01 /* eduID */;
+			targetProxy = C7F8389F294265B3002015A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A95849427B53C01002B8723 /* Localizable.strings */ = {
@@ -790,6 +866,98 @@
 			};
 			name = "Release Test";
 		};
+		C7F838A2294265B3002015A8 /* Debug Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = "Debug Test";
+		};
+		C7F838A3294265B3002015A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = Debug;
+		};
+		C7F838A4294265B3002015A8 /* Release Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = "Release Test";
+		};
+		C7F838A5294265B3002015A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -811,6 +979,17 @@
 				0A1858CC27578912000B3236 /* Debug */,
 				0AFD9E172745579C00D48C01 /* Release Test */,
 				0A1858CE27578916000B3236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7F838A1294265B3002015A8 /* Build configuration list for PBXNativeTarget "eduIDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F838A2294265B3002015A8 /* Debug Test */,
+				C7F838A3294265B3002015A8 /* Debug */,
+				C7F838A4294265B3002015A8 /* Release Test */,
+				C7F838A5294265B3002015A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
