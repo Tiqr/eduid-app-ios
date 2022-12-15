@@ -1002,7 +1002,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = 6f9e71ea05bacc14f49ed45df6a1102ba809cd9c;
+				revision = ae89c9aabead8dab444dfee7c2da01b916221457;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
