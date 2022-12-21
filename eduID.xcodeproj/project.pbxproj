@@ -30,8 +30,19 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		F59D9E78289825C20059965E /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = F59D9E77289825C20059965E /* Tiqr */; };
+		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
+		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7F8389F294265B3002015A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AFD9DF92745579900D48C01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AFD9E002745579900D48C01;
+			remoteInfo = eduID;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A95849327B53C01002B8723 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -62,6 +73,34 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8614292FCC2F00BDEB69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8615292FCC3200BDEB69 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8616292FCC3500BDEB69 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8617292FCC3800BDEB69 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8618292FCC3A00BDEB69 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF8619292FCC3D00BDEB69 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861A292FCC3F00BDEB69 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861B292FCC4400BDEB69 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861C292FCC4700BDEB69 /* fy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fy; path = fy.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7AF861D292FCC5F00BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF861E292FCC6700BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF861F292FCC6B00BDEB69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8620292FCC6D00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8621292FCC7000BDEB69 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8622292FCC7200BDEB69 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8623292FCC7300BDEB69 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8624292FCC7500BDEB69 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8625292FCC7600BDEB69 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8626292FCC7800BDEB69 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8627292FCC7900BDEB69 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7AF8628292FCC7C00BDEB69 /* fy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fy; path = fy.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F8389D294265B3002015A8 /* eduIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eduIDTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +108,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59D9E78289825C20059965E /* Tiqr in Frameworks */,
+				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F83898294265B3002015A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,13 +129,6 @@
 				0AFD9E232745590D00D48C01 /* InfoPlist.strings */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		0A974847274E8F12000D9CED /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
@@ -135,8 +174,10 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
-				0A974847274E8F12000D9CED /* Packages */,
+				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
+				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
+				C7F8389C294265B3002015A8 /* eduIDTests */,
 				0AFD9E022745579900D48C01 /* Products */,
 				0AFD9E27274559AD00D48C01 /* Frameworks */,
 			);
@@ -146,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0AFD9E012745579900D48C01 /* eduID.app */,
+				C7F8389B294265B3002015A8 /* eduIDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +214,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7F8389C294265B3002015A8 /* eduIDTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7F8389D294265B3002015A8 /* eduIDTests.swift */,
+			);
+			path = eduIDTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,6 +232,7 @@
 				0AFD9DFD2745579900D48C01 /* Sources */,
 				0AFD9DFE2745579900D48C01 /* Frameworks */,
 				0AFD9DFF2745579900D48C01 /* Resources */,
+				C773FF2529263B2400A82451 /* Set Git Release and Library Version */,
 			);
 			buildRules = (
 			);
@@ -189,11 +240,29 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				F59D9E77289825C20059965E /* Tiqr */,
+				C7F601672938B15800AF2FFF /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C7F8389A294265B3002015A8 /* eduIDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7F838A1294265B3002015A8 /* Build configuration list for PBXNativeTarget "eduIDTests" */;
+			buildPhases = (
+				C7F83897294265B3002015A8 /* Sources */,
+				C7F83898294265B3002015A8 /* Frameworks */,
+				C7F83899294265B3002015A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7F838A0294265B3002015A8 /* PBXTargetDependency */,
+			);
+			name = eduIDTests;
+			productName = eduIDTests;
+			productReference = C7F8389B294265B3002015A8 /* eduIDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -202,11 +271,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					0AFD9E002745579900D48C01 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					C7F8389A294265B3002015A8 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 0AFD9E002745579900D48C01;
 					};
 				};
 			};
@@ -218,16 +291,29 @@
 				en,
 				Base,
 				nl,
+				fr,
+				sr,
+				ja,
+				fy,
+				hr,
+				es,
+				da,
+				sl,
+				ro,
+				nb,
+				de,
+				sk,
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0AFD9E002745579900D48C01 /* eduID */,
+				C7F8389A294265B3002015A8 /* eduIDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +345,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7F83899294265B3002015A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C773FF2529263B2400A82451 /* Set Git Release and Library Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Git Release and Library Version";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\necho \"git_release_version: $git_release_version\" \n\nread -r -d '' PARSE_PACKAGE_RESOLVED <<EOF\nvar app = Application.currentApplication();\napp.includeStandardAdditions = true;\n\nfunction parseJSON(path) {\n    const data = app.read(path);\n    return JSON.parse(data);\n}\n\nfunction run() {\n    const parsed = parseJSON(\"${PROJECT_FILE_PATH}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved\");\n    return parsed.pins[0].state.revision.substring(0,7);\n}\n\nEOF\n\ncore_library_commit=$( osascript -l 'JavaScript' <<< \"${PARSE_PACKAGE_RESOLVED}\" )\n\necho \"core_library_commit: $core_library_commit\" \n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n    /usr/libexec/PlistBuddy -c \"Set :TIQRLibraryVersion $core_library_commit\" \"$plist\"\n  fi\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AFD9DFD2745579900D48C01 /* Sources */ = {
@@ -273,7 +388,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7F83897294265B3002015A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7F838A0294265B3002015A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AFD9E002745579900D48C01 /* eduID */;
+			targetProxy = C7F8389F294265B3002015A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A95849427B53C01002B8723 /* Localizable.strings */ = {
@@ -281,6 +412,18 @@
 			children = (
 				0A95849327B53C01002B8723 /* en */,
 				0A95849527B53C03002B8723 /* nl */,
+				C7AF8611292FCC0300BDEB69 /* hr */,
+				C7AF8612292FCC1600BDEB69 /* da */,
+				C7AF8613292FCC2C00BDEB69 /* de */,
+				C7AF8614292FCC2F00BDEB69 /* fr */,
+				C7AF8615292FCC3200BDEB69 /* ja */,
+				C7AF8616292FCC3500BDEB69 /* nb */,
+				C7AF8617292FCC3800BDEB69 /* ro */,
+				C7AF8618292FCC3A00BDEB69 /* sr */,
+				C7AF8619292FCC3D00BDEB69 /* sk */,
+				C7AF861A292FCC3F00BDEB69 /* sl */,
+				C7AF861B292FCC4400BDEB69 /* es */,
+				C7AF861C292FCC4700BDEB69 /* fy */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -298,6 +441,18 @@
 			children = (
 				0AFD9E222745590D00D48C01 /* en */,
 				0AFD9E242745591400D48C01 /* nl */,
+				C7AF861D292FCC5F00BDEB69 /* da */,
+				C7AF861E292FCC6700BDEB69 /* hr */,
+				C7AF861F292FCC6B00BDEB69 /* fr */,
+				C7AF8620292FCC6D00BDEB69 /* de */,
+				C7AF8621292FCC7000BDEB69 /* ja */,
+				C7AF8622292FCC7200BDEB69 /* nb */,
+				C7AF8623292FCC7300BDEB69 /* ro */,
+				C7AF8624292FCC7500BDEB69 /* sr */,
+				C7AF8625292FCC7600BDEB69 /* sk */,
+				C7AF8626292FCC7800BDEB69 /* sl */,
+				C7AF8627292FCC7900BDEB69 /* es */,
+				C7AF8628292FCC7C00BDEB69 /* fy */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -382,7 +537,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -394,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -481,7 +636,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -493,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -660,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -697,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -710,6 +865,98 @@
 				TIQR_ENROLLMENT_URL_SCHEME = eduidenroll;
 			};
 			name = "Release Test";
+		};
+		C7F838A2294265B3002015A8 /* Debug Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = "Debug Test";
+		};
+		C7F838A3294265B3002015A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = Debug;
+		};
+		C7F838A4294265B3002015A8 /* Release Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = "Release Test";
+		};
+		C7F838A5294265B3002015A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.eduIDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eduID.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eduID";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -736,23 +983,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C7F838A1294265B3002015A8 /* Build configuration list for PBXNativeTarget "eduIDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F838A2294265B3002015A8 /* Debug Test */,
+				C7F838A3294265B3002015A8 /* Debug */,
+				C7F838A4294265B3002015A8 /* Release Test */,
+				C7F838A5294265B3002015A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+		C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = revision;
+				revision = ae89c9aabead8dab444dfee7c2da01b916221457;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F59D9E77289825C20059965E /* Tiqr */ = {
+		C7F601672938B15800AF2FFF /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A61B9F02756698D005A48EC /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			package = C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
 		};
 /* End XCSwiftPackageProductDependency section */
