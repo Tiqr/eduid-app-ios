@@ -58,11 +58,12 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SourceSansPro-Light.ttf</string>
 		<string>SourceSansPro-Regular.ttf</string>
-		<string>Proxima Soft Semibold.otf</string>
-		<string>Proxima Soft Light.otf</string>
-		<string>Proxima Soft Medium.otf</string>
-		<string>Proxima Soft Bold.otf</string>
+		<string>ProximaSoft-Semibold.otf</string>
+		<string>ProximaSoft-Light.otf</string>
+		<string>ProximaSoft-Medium.otf</string>
+		<string>ProximaSoft-Bold.otf</string>
 		<string>Nunito-Bold.ttf</string>
 		<string>SourceSansPro-Regular.ttf</string>
 	</array>

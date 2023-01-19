@@ -30,7 +30,21 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		4111B26429794757001BB028 /* ProximaNovaSoft in Resources */ = {isa = PBXBuildFile; fileRef = 4111B26329794757001BB028 /* ProximaNovaSoft */; };
+		4111B26829794DEB001BB028 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26729794DEB001BB028 /* LandingPageViewController.swift */; };
+		4111B26B29794E77001BB028 /* EduIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26A29794E77001BB028 /* EduIDButton.swift */; };
+		4111B26E29794F38001BB028 /* UIColor+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26D29794F38001BB028 /* UIColor+Styling.swift */; };
+		4111B2702979515B001BB028 /* UIFont+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26F2979515B001BB028 /* UIFont+Styling.swift */; };
+		4111B273297958EE001BB028 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 4111B272297958EE001BB028 /* TinyConstraints */; };
+		4111B2752979596D001BB028 /* UIImage+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B2742979596D001BB028 /* UIImage+Styling.swift */; };
+		4111B27729795A8A001BB028 /* UILabel+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B27629795A8A001BB028 /* UILabel+Styling.swift */; };
+		4111B27D29795DB6001BB028 /* Proxima Soft Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27929795DB6001BB028 /* Proxima Soft Light.otf */; };
+		4111B27E29795DB6001BB028 /* Proxima Soft Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27A29795DB6001BB028 /* Proxima Soft Semibold.otf */; };
+		4111B27F29795DB6001BB028 /* Proxima Soft Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27B29795DB6001BB028 /* Proxima Soft Medium.otf */; };
+		4111B28029795DB6001BB028 /* Proxima Soft Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27C29795DB6001BB028 /* Proxima Soft Bold.otf */; };
+		41BF5AB4297966EE00E534B8 /* EduIDNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB3297966EE00E534B8 /* EduIDNavigationItem.swift */; };
+		41BF5AB62979685200E534B8 /* CreateEduIDLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB52979685200E534B8 /* CreateEduIDLandingPageViewController.swift */; };
+		41BF5AB829796FA300E534B8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB729796FA300E534B8 /* UIViewController+Extensions.swift */; };
+		41BF5ABA297970AD00E534B8 /* EduIDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB9297970AD00E534B8 /* EduIDBaseViewController.swift */; };
 		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +88,20 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4111B26329794757001BB028 /* ProximaNovaSoft */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ProximaNovaSoft; path = eduID/Resources/ProximaNovaSoft; sourceTree = SOURCE_ROOT; };
+		4111B26729794DEB001BB028 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LandingPageViewController.swift; path = eduID/Landing/LandingPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		4111B26A29794E77001BB028 /* EduIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDButton.swift; path = eduID/SharedViews/EduIDButton.swift; sourceTree = SOURCE_ROOT; };
+		4111B26D29794F38001BB028 /* UIColor+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Styling.swift"; path = "eduID/Styling/UIColor+Styling.swift"; sourceTree = SOURCE_ROOT; };
+		4111B26F2979515B001BB028 /* UIFont+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+Styling.swift"; path = "eduID/Styling/UIFont+Styling.swift"; sourceTree = SOURCE_ROOT; };
+		4111B2742979596D001BB028 /* UIImage+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImage+Styling.swift"; path = "eduID/Styling/UIImage+Styling.swift"; sourceTree = SOURCE_ROOT; };
+		4111B27629795A8A001BB028 /* UILabel+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel+Styling.swift"; path = "eduID/Styling/UILabel+Styling.swift"; sourceTree = SOURCE_ROOT; };
+		4111B27929795DB6001BB028 /* Proxima Soft Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Soft Light.otf"; sourceTree = "<group>"; };
+		4111B27A29795DB6001BB028 /* Proxima Soft Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Soft Semibold.otf"; sourceTree = "<group>"; };
+		4111B27B29795DB6001BB028 /* Proxima Soft Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Soft Medium.otf"; sourceTree = "<group>"; };
+		4111B27C29795DB6001BB028 /* Proxima Soft Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Soft Bold.otf"; sourceTree = "<group>"; };
+		41BF5AB3297966EE00E534B8 /* EduIDNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDNavigationItem.swift; path = eduID/Controllers/EduIDNavigationItem.swift; sourceTree = SOURCE_ROOT; };
+		41BF5AB52979685200E534B8 /* CreateEduIDLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateEduIDLandingPageViewController.swift; path = eduID/Landing/CreateEduIDLandingPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		41BF5AB729796FA300E534B8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "eduID/Controllers/UIViewController+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		41BF5AB9297970AD00E534B8 /* EduIDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDBaseViewController.swift; path = eduID/Controllers/EduIDBaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -111,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
+				4111B273297958EE001BB028 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +164,7 @@
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4111B26329794757001BB028 /* ProximaNovaSoft */,
+				4111B27829795DB6001BB028 /* ProximaNovaSoft */,
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
@@ -198,6 +226,10 @@
 		0AFD9E032745579900D48C01 /* EduID */ = {
 			isa = PBXGroup;
 			children = (
+				41BF5AB2297966BC00E534B8 /* Controllers */,
+				4111B26C29794F28001BB028 /* Styling */,
+				4111B26929794E52001BB028 /* SharedViews */,
+				4111B26629794DD0001BB028 /* Landing */,
 				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
 				0A9F8D44274F8D0200F24188 /* Theme.swift */,
 				0AFD9E042745579900D48C01 /* AppDelegate.swift */,
@@ -215,6 +247,56 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4111B26629794DD0001BB028 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				4111B26729794DEB001BB028 /* LandingPageViewController.swift */,
+				41BF5AB52979685200E534B8 /* CreateEduIDLandingPageViewController.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		4111B26929794E52001BB028 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				4111B26A29794E77001BB028 /* EduIDButton.swift */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
+		4111B26C29794F28001BB028 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				4111B26D29794F38001BB028 /* UIColor+Styling.swift */,
+				4111B26F2979515B001BB028 /* UIFont+Styling.swift */,
+				4111B2742979596D001BB028 /* UIImage+Styling.swift */,
+				4111B27629795A8A001BB028 /* UILabel+Styling.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		4111B27829795DB6001BB028 /* ProximaNovaSoft */ = {
+			isa = PBXGroup;
+			children = (
+				4111B27929795DB6001BB028 /* Proxima Soft Light.otf */,
+				4111B27A29795DB6001BB028 /* Proxima Soft Semibold.otf */,
+				4111B27B29795DB6001BB028 /* Proxima Soft Medium.otf */,
+				4111B27C29795DB6001BB028 /* Proxima Soft Bold.otf */,
+			);
+			name = ProximaNovaSoft;
+			path = eduID/Resources/ProximaNovaSoft;
+			sourceTree = SOURCE_ROOT;
+		};
+		41BF5AB2297966BC00E534B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41BF5AB3297966EE00E534B8 /* EduIDNavigationItem.swift */,
+				41BF5AB729796FA300E534B8 /* UIViewController+Extensions.swift */,
+				41BF5AB9297970AD00E534B8 /* EduIDBaseViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C7F8389C294265B3002015A8 /* eduIDTests */ = {
@@ -244,6 +326,7 @@
 			name = eduID;
 			packageProductDependencies = (
 				C7F601672938B15800AF2FFF /* Tiqr */,
+				4111B272297958EE001BB028 /* TinyConstraints */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -310,6 +393,7 @@
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
 				C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				4111B271297958EE001BB028 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -329,15 +413,19 @@
 				0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 				0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				4111B27E29795DB6001BB028 /* Proxima Soft Semibold.otf in Resources */,
 				0A9F8DCC274FB01D00F24188 /* SourceSansPro-Light.ttf in Resources */,
 				0A9F8DCA274FB01D00F24188 /* SourceSansPro-Bold.ttf in Resources */,
 				0A9F8DCD274FB01D00F24188 /* SourceSansPro-Black.ttf in Resources */,
 				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
 				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
+				4111B28029795DB6001BB028 /* Proxima Soft Bold.otf in Resources */,
 				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
 				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
 				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
 				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				4111B27F29795DB6001BB028 /* Proxima Soft Medium.otf in Resources */,
+				4111B27D29795DB6001BB028 /* Proxima Soft Light.otf in Resources */,
 				0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */,
 				0A9F8DC6274FB01D00F24188 /* Nunito-Bold.ttf in Resources */,
 				0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */,
@@ -345,7 +433,6 @@
 				0A95849227B53C01002B8723 /* Localizable.strings in Resources */,
 				0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */,
 				0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */,
-				4111B26429794757001BB028 /* ProximaNovaSoft in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,10 +472,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4111B26E29794F38001BB028 /* UIColor+Styling.swift in Sources */,
+				41BF5AB62979685200E534B8 /* CreateEduIDLandingPageViewController.swift in Sources */,
+				41BF5AB829796FA300E534B8 /* UIViewController+Extensions.swift in Sources */,
+				4111B2702979515B001BB028 /* UIFont+Styling.swift in Sources */,
+				4111B26829794DEB001BB028 /* LandingPageViewController.swift in Sources */,
+				4111B27729795A8A001BB028 /* UILabel+Styling.swift in Sources */,
+				4111B2752979596D001BB028 /* UIImage+Styling.swift in Sources */,
 				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
+				4111B26B29794E77001BB028 /* EduIDButton.swift in Sources */,
+				41BF5AB4297966EE00E534B8 /* EduIDNavigationItem.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,
+				41BF5ABA297970AD00E534B8 /* EduIDBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1098,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4111B271297958EE001BB028 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
@@ -1012,6 +1117,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4111B272297958EE001BB028 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4111B271297958EE001BB028 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
 		C7F601672938B15800AF2FFF /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;

@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        let families = UIFont.familyNames.forEach { family in
+            print(UIFont.fontNames(forFamilyName: family))
+            
+        }
+        
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
