@@ -16,6 +16,9 @@ class CreateEduIDLandingPageViewController: EduIDBaseViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(nextScreen)))
+
     }
     
     //MARK: - setup UI
@@ -26,9 +29,10 @@ class CreateEduIDLandingPageViewController: EduIDBaseViewController {
         
         //MARK: - create the textView
         let textView = UITextView()
+        textView.isUserInteractionEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.font = UIFont.sourceSansProLight(size: 16)
-        textView.textColor = UIColor.secondaryColor
+        textView.font = .sourceSansProLight(size: 16)
+        textView.textColor = .secondaryColor
         textView.text =
 """
 eduID is a central account for users\nassociated with Dutch education and\nresearch. It is yours and exists independent\nof an educational institution.\n\n\t• Use it to login to several services\n\tconnected to SURFconext.
@@ -58,5 +62,12 @@ eduID is a central account for users\nassociated with Dutch education and\nresea
         textView.height(268)
         horizontalEdgesToView(aView: textView, offset: 32)
         
+    }
+    
+    @objc
+    private func nextScreen() {
+        navigationController?.pushViewController(EnterPersonalInfoViewController(), animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
     }
 }

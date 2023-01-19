@@ -58,6 +58,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SourceSansPro-SemiBold.ttf</string>
 		<string>SourceSansPro-Light.ttf</string>
 		<string>SourceSansPro-Regular.ttf</string>
 		<string>ProximaSoft-Semibold.otf</string>

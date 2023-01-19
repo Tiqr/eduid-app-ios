@@ -25,7 +25,7 @@ class LandingPageViewController: UIViewController {
         view.backgroundColor = .white
         
         //MARK: - add logo
-        let logo = UIImageView(image: UIImage.eduIDLogo)
+        let logo = UIImageView(image: .eduIDLogo)
         logo.height(60)
         logo.width(150)
         
@@ -34,7 +34,8 @@ class LandingPageViewController: UIViewController {
         posterLabel.numberOfLines = 0
         
         //MARK: add image
-        let imageView = UIImageView(image: UIImage.landingPageImage)
+        let imageView = UIImageView(image: .landingPageImage)
+        imageView.contentMode = .scaleAspectFit
         imageView.height(252)
         imageView.width(141)
         

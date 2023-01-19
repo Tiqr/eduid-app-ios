@@ -14,6 +14,9 @@ extension UIFont {
     static func sourceSansProLight(size: CGFloat) -> UIFont {
         return UIFont(name: "SourceSansPro-Light", size: size)!
     }
+    static func sourceSansProSemiBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "SourceSansPro-SemiBold", size: size)!
+    }
     static func proximaNovaSoftSemiBold(size: CGFloat) -> UIFont {
         return UIFont(name: "ProximaSoft-SemiBold", size: size)!
     }

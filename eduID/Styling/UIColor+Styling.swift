@@ -14,4 +14,6 @@ extension UIColor {
     static let disabledGray = UIColor(named: "GrayDisabled")!
     static let disabledGrayBackground = UIColor(named: "GrayDisabledBackground")!
     static let grayGhost = UIColor(named: "GrayGhost")!
+    static let charcoal = UIColor(named: "Charcoal")!
+    static let tertiary = UIColor(named: "TertiaryColor")!
 }
