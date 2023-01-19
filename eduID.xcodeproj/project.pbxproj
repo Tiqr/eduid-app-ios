@@ -30,6 +30,7 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
+		4111B26429794757001BB028 /* ProximaNovaSoft in Resources */ = {isa = PBXBuildFile; fileRef = 4111B26329794757001BB028 /* ProximaNovaSoft */; };
 		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4111B26329794757001BB028 /* ProximaNovaSoft */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ProximaNovaSoft; path = eduID/Resources/ProximaNovaSoft; sourceTree = SOURCE_ROOT; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4111B26329794757001BB028 /* ProximaNovaSoft */,
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
@@ -342,6 +345,7 @@
 				0A95849227B53C01002B8723 /* Localizable.strings in Resources */,
 				0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */,
 				0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */,
+				4111B26429794757001BB028 /* ProximaNovaSoft in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

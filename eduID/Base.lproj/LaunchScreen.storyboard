@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Soft Medium.otf">
+            <string>ProximaSoft-Medium</string>
+        </array>
+        <array key="Proxima Soft Semibold.otf">
+            <string>ProximaSoft-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,25 +25,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_eduID" translatesAutoresizingMaskIntoConstraints="NO" id="QLf-ni-tGE">
-                                <rect key="frame" x="154.5" y="426" width="105" height="44"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="PVZ-eg-gf4">
+                                <rect key="frame" x="0.0" y="333.5" width="414" height="243"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eduID_logo_vector" translatesAutoresizingMaskIntoConstraints="NO" id="dZv-iL-C7Q">
+                                        <rect key="frame" x="85" y="0.0" width="244" height="88"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="Yds-nX-A9K"/>
+                                            <constraint firstAttribute="width" constant="244" id="l9j-AX-Eum"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-Vo-rbb">
+                                        <rect key="frame" x="84" y="123" width="246.5" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y27-xO-NQZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="246.5" height="32"/>
+                                                <fontDescription key="fontDescription" name="ProximaSoft-Semibold" family="Proxima Soft" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for Education" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqi-b4-nBJ">
+                                                <rect key="frame" x="28" y="44" width="190.5" height="32"/>
+                                                <fontDescription key="fontDescription" name="ProximaSoft-Semibold" family="Proxima Soft" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and Research" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJU-sJ-xJO">
+                                                <rect key="frame" x="26" y="88" width="194.5" height="32"/>
+                                                <fontDescription key="fontDescription" name="ProximaSoft-Semibold" family="Proxima Soft" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qfp-cm-Cy2">
+                                <rect key="frame" x="139.5" y="807" width="135.5" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-i9-kjy">
+                                        <rect key="frame" x="0.0" y="10" width="63.5" height="12"/>
+                                        <fontDescription key="fontDescription" name="ProximaSoft-Medium" family="Proxima Soft" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surf_logo_vector" translatesAutoresizingMaskIntoConstraints="NO" id="ima-Ps-xlZ">
+                                        <rect key="frame" x="72.5" y="0.0" width="63" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="pdJ-Xv-bbT"/>
+                                            <constraint firstAttribute="width" constant="63" id="vXY-5j-1MY"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BrandColor"/>
                         <constraints>
-                            <constraint firstItem="QLf-ni-tGE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eeA-bu-v0M"/>
-                            <constraint firstItem="QLf-ni-tGE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zJ5-ZG-AaL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qfp-cm-Cy2" secondAttribute="bottom" constant="23" id="MoD-RK-iFf"/>
+                            <constraint firstItem="PVZ-eg-gf4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rej-a9-qcY"/>
+                            <constraint firstItem="qfp-cm-Cy2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b3w-ep-vHp"/>
+                            <constraint firstItem="PVZ-eg-gf4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="o9f-tl-H4y"/>
+                            <constraint firstItem="PVZ-eg-gf4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y02-rS-5NX"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo_eduID" width="105" height="44"/>
+        <image name="eduID_logo_vector" width="225" height="88"/>
+        <image name="surf_logo_vector" width="63" height="32"/>
         <namedColor name="BrandColor">
             <color red="0.0" green="0.38400000333786011" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
