@@ -10,6 +10,8 @@ import TinyConstraints
 
 class CreateEduIDLandingPageViewController: EduIDBaseViewController {
 
+    var stack: AnimatedStackView!
+    
     //MARK: -lifecycle
     
     override func viewDidLoad() {
@@ -19,6 +21,12 @@ class CreateEduIDLandingPageViewController: EduIDBaseViewController {
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(nextScreen)))
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        stack.animate()
     }
     
     //MARK: - setup UI
@@ -43,7 +51,7 @@ eduID is a central account for users\nassociated with Dutch education and\nresea
         let button = EduIDButton(type: .primary, buttonTitle: "Create a new eduID")
         
         //MARK: - create the stackview
-        let stack = UIStackView(arrangedSubviews: [posterLabel, textView, button])
+        stack = AnimatedStackView(arrangedSubviews: [posterLabel, textView, button])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -60,6 +68,8 @@ eduID is a central account for users\nassociated with Dutch education and\nresea
         
         textView.height(268)
         horizontalEdgesToView(aView: textView, offset: 32)
+        
+        stack.hideAndTriggerAll()
         
     }
     

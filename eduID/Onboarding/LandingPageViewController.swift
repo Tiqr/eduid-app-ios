@@ -3,6 +3,8 @@ import TinyConstraints
 
 class LandingPageViewController: UIViewController {
     
+    var stack: AnimatedStackView!
+    
     //MARK: - lifecycle
     
     override func viewDidLoad() {
@@ -20,6 +22,13 @@ class LandingPageViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        stack?.animate()
+    }
+    
+    //MARK: - setupUI
     private func setupUI() {
         
         view.backgroundColor = .white
@@ -44,7 +53,7 @@ class LandingPageViewController: UIViewController {
         let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle: "I don't have an eduId")
         
         //MARK: - create the stackview
-        let stack = UIStackView(arrangedSubviews: [logo, posterLabel, imageView, signinButton, scanQRButton, noEduIDYetButton])
+        stack = AnimatedStackView(arrangedSubviews: [logo, posterLabel, imageView, signinButton, scanQRButton, noEduIDYetButton])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -57,6 +66,8 @@ class LandingPageViewController: UIViewController {
         horizontalEdgesToView(aView: scanQRButton, offset: 48)
         horizontalEdgesToView(aView: noEduIDYetButton, offset: 48)
         horizontalEdgesToView(aView: posterLabel, offset: 48)
+        
+        stack.hideAndTriggerAll()
     }
     
     @objc

@@ -3,6 +3,7 @@ import TinyConstraints
 
 class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFieldDelegate {
     
+    var stack: AnimatedStackView!
     let requestButton = EduIDButton(type: .primary, buttonTitle: "Request you eduID")
     
     var validationMap: [Int: Bool] = [0:false, 1:false, 2: false] {
@@ -21,6 +22,13 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         super.viewDidLoad()
         
         setupUI()
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        stack.animate()
     }
     
     private func setupUI() {
@@ -68,7 +76,7 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         requestButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         
         //MARK: - create the stackview
-        let stack = UIStackView(arrangedSubviews: [posterLabel, emailField, firstNameField, lastNameField, termsHstack, spacingView, requestButton])
+        stack = AnimatedStackView(arrangedSubviews: [posterLabel, emailField, firstNameField, lastNameField, termsHstack, spacingView, requestButton])
         stack.spacing = 32
         stack.setCustomSpacing(0, after: emailField)
         stack.setCustomSpacing(0, after: firstNameField)
@@ -89,6 +97,8 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         horizontalEdgesToView(aView: emailField, offset: 32)
         horizontalEdgesToView(aView: firstNameField, offset: 32)
         horizontalEdgesToView(aView: lastNameField, offset: 32)
+        
+        stack.hideAndTriggerAll()
     }
     
     //MARK: - Textfield delegate
@@ -102,6 +112,13 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         navigationController?.pushViewController(CheckEmailViewController(), animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
         
+    }
+    
+    @objc
+    func resignKeyboardResponder() {
+        (1...3).forEach { integer in
+            _ = (stack.arrangedSubviews[integer] as? EduIDValidatedTextStackView)?.resignFirstResponder()
+        }
     }
     
 }

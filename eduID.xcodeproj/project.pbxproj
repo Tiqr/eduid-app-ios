@@ -47,6 +47,7 @@
 		4111B27E29795DB6001BB028 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27A29795DB6001BB028 /* ProximaSoft-Semibold.otf */; };
 		4111B27F29795DB6001BB028 /* ProximaSoft-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27B29795DB6001BB028 /* ProximaSoft-Medium.otf */; };
 		4111B28029795DB6001BB028 /* ProximaSoft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4111B27C29795DB6001BB028 /* ProximaSoft-Bold.otf */; };
+		411886CC297AD8C70007B345 /* AnimatedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411886CB297AD8C70007B345 /* AnimatedStackView.swift */; };
 		4152D7B8297A673A003D4FB1 /* FocussableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7B7297A673A003D4FB1 /* FocussableTextField.swift */; };
 		4152D7BE297A6A98003D4FB1 /* CreateEduIDLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7BA297A6A98003D4FB1 /* CreateEduIDLandingPageViewController.swift */; };
 		4152D7BF297A6A98003D4FB1 /* EnterPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7BB297A6A98003D4FB1 /* EnterPersonalInfoViewController.swift */; };
@@ -118,6 +119,7 @@
 		4111B27A29795DB6001BB028 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
 		4111B27B29795DB6001BB028 /* ProximaSoft-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Medium.otf"; sourceTree = "<group>"; };
 		4111B27C29795DB6001BB028 /* ProximaSoft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Bold.otf"; sourceTree = "<group>"; };
+		411886CB297AD8C70007B345 /* AnimatedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedStackView.swift; path = eduID/SharedViews/AnimatedStackView.swift; sourceTree = SOURCE_ROOT; };
 		4152D7B7297A673A003D4FB1 /* FocussableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FocussableTextField.swift; path = eduID/SharedViews/FocussableTextField.swift; sourceTree = SOURCE_ROOT; };
 		4152D7BA297A6A98003D4FB1 /* CreateEduIDLandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDLandingPageViewController.swift; sourceTree = "<group>"; };
 		4152D7BB297A6A98003D4FB1 /* EnterPersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPersonalInfoViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				41023FFB297A7B760066BBD7 /* PinTextFieldView.swift */,
 				41023FFF297A90310066BBD7 /* InstitutionButtonControl.swift */,
 				41024003297A930B0066BBD7 /* InstitutionView.swift */,
+				411886CB297AD8C70007B345 /* AnimatedStackView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -401,7 +404,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					0AFD9E002745579900D48C01 = {
 						CreatedOnToolsVersion = 13.0;
@@ -538,6 +541,7 @@
 				41024004297A930B0066BBD7 /* InstitutionView.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				41023FFE297A85DC0066BBD7 /* WelcomeExplanationViewController.swift in Sources */,
+				411886CC297AD8C70007B345 /* AnimatedStackView.swift in Sources */,
 				41023FFA297A7ABB0066BBD7 /* PinChallengeViewController.swift in Sources */,
 				4152D7BF297A6A98003D4FB1 /* EnterPersonalInfoViewController.swift in Sources */,
 				41024002297A90BE0066BBD7 /* UIView+Styling.swift in Sources */,
@@ -944,7 +948,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = NO;
 			};
