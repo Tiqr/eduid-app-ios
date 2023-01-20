@@ -31,7 +31,6 @@ class LandingPageViewController: UIViewController {
         
         //MARK: - add label
         let posterLabel = UILabel.posterTextLabel(text: "Personal account\nfor Education and Research", size: 24)
-        posterLabel.numberOfLines = 0
         
         //MARK: add image
         let imageView = UIImageView(image: .landingPageImage)

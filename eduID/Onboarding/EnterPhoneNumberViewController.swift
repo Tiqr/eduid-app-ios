@@ -79,7 +79,7 @@ We will text you a code to verify your number.
     
     @objc
     func resignKeyboardResponder() {
-        validatedPhoneTextField.resignFirstResponder()
+        _ = validatedPhoneTextField.resignFirstResponder()
     }
     
     @objc

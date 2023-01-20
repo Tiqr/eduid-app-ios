@@ -7,18 +7,11 @@ class OnboardingSuccessViewController: EduIDBaseViewController {
         super.viewDidLoad()
 
         //MARK: - PosterLabel
-        let posterLabel = UILabel()
-        posterLabel.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Your eduID app\nis ready for use", attributes: [.font : UIFont.proximaNovaSoftSemiBold(size: 32), .foregroundColor: UIColor.charcoal])
-        attributedText.setAttributeTo(part: "Your eduID app", attributes: [.font : UIFont.proximaNovaSoftSemiBold(size: 24), .foregroundColor: UIColor.primaryColor])
-        posterLabel.attributedText = attributedText
-        posterLabel.numberOfLines = 2
-        posterLabel.textAlignment = .center
+        let posterLabel = UILabel.posterTextLabelBicolor(text: "Your eduID app\nis ready for use", size: 32, primary: "Your eduID app")
         view.addSubview(posterLabel)
         posterLabel.width(to: view)
-        posterLabel.height(86)
         posterLabel.centerX(to: view)
-        posterLabel.top(to: view, offset: 150)
+        posterLabel.top(to: view, offset: 125)
         
         //MARK: - blue bottom view
         let blueBottomView = UIView()
@@ -33,8 +26,9 @@ class OnboardingSuccessViewController: EduIDBaseViewController {
         let image = UIImageView(image: .readyForUse)
         view.addSubview(image)
         image.width(to: view)
+        image.aspectRatio(0.761)
         image.contentMode = .scaleAspectFit
-        image.bottom(to: view, offset: -176)
+        image.bottom(to: view, offset: -76)
         
     }
 

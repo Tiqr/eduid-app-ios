@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: LandingPageViewController()) //Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
+        window?.rootViewController = UINavigationController(rootViewController: OnboardingSuccessViewController()) //Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
         window?.makeKeyAndVisible()
 
         if let url = connectionOptions.urlContexts.first?.url {

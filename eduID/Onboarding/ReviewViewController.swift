@@ -18,7 +18,6 @@ class ReviewViewController: EduIDBaseViewController {
         
         //MARK: - posterLabel
         let posterLabel = UILabel.posterTextLabel(text: "Your school/uni was contacted successfully", size: 24)
-        posterLabel.numberOfLines = 2
         
         //MARK: - create the textView
         let textView = UITextView()
