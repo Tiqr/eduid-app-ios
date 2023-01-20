@@ -23,4 +23,9 @@ extension UIFont {
     static func proximaNovaSoftSemiBold(size: CGFloat) -> UIFont {
         return UIFont(name: "ProximaSoft-SemiBold", size: size)!
     }
+    static func nunitoBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Nunito-Bold", size: size)!
+    }
+    
+    
 }

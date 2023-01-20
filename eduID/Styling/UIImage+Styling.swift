@@ -15,5 +15,8 @@ extension UIImage {
     static let outlook = UIImage(named: "outlook")!
     static let welcomeInstructions = UIImage(named: "welcome_instructions_image")!
     static let readyForUse = UIImage(named: "ready_for_use")!
-    
+    static let qrLogo = UIImage(named: "qr_logo")!
+    static let security = UIImage(named: "security")!
+    static let personalInfo = UIImage(named: "personal_info")!
+    static let activity = UIImage(named: "activity")!
 }

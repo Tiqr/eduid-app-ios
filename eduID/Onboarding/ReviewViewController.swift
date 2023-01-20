@@ -17,7 +17,7 @@ class ReviewViewController: EduIDBaseViewController {
     func setupUI() {
         
         //MARK: - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: "Your school/uni was contacted successfully", size: 24)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: "Your school/uni\nwas contacted successfully", size: 24, primary: "Your school/uni")
         
         //MARK: - create the textView
         let textView = UITextView()
