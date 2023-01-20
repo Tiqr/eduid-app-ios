@@ -8,17 +8,29 @@
 import UIKit
 import TinyConstraints
 
-class EnterPhoneNumberViewController: EduIDBaseViewController, UITextFieldDelegate {
-
-    let extraBorderView = UIView()
+class EnterPhoneNumberViewController: EduIDBaseViewController, ValidatedTextFieldDelegate {
+    
+    //MARK: - phone textfield
+    let validatedPhoneTextField = EduIDValidatedTextStackView(title: "Enter your phone number", placeholder: "e.g. 0612345678", keyboardType: .numberPad)
+    
+    //MARK: - verify button
+    let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify this phone number")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        verifyButton.addTarget(self, action: #selector(nextScreen), for: .touchUpInside)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
     }
     
     func setupUI() {
+        
+        //MARK: - phone textfield delegate
+        validatedPhoneTextField.delegate = self
+        
+        //MARK: - button state
+        verifyButton.isEnabled = false
         
         //MARK: - posterLabel
         let posterLabel = UILabel.posterTextLabel(text: "Your eduID has been created", size: 24)
@@ -39,43 +51,12 @@ We will text you a code to verify your number.
                                                 ,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
         attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: 32))
         textView.attributedText = attributedText
-    
-        //MARK: - challenge textfield
-        let textField = UITextField()
-        textField.font = .sourceSansProRegular(size: 16)
-        textField.placeholder = "e.g. 0612345678"
-        textField.delegate = self
-        textField.height(20)
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.keyboardType = .numberPad
-
-        //MARK: - textfield border
-        extraBorderView.layer.borderWidth = 2
-        extraBorderView.layer.borderColor = UIColor.clear.cgColor
-        extraBorderView.layer.cornerRadius = 8
-        let textFieldParent = UIView()
-        extraBorderView.addSubview(textFieldParent)
-        extraBorderView.height(52)
-        textFieldParent.height(48)
-        textFieldParent.center(in: extraBorderView)
-        textFieldParent.leading(to: extraBorderView, offset: 2)
-        textFieldParent.trailing(to: extraBorderView, offset: -2)
-        textFieldParent.layer.cornerRadius = 6
-        textFieldParent.layer.borderWidth = 1
-        textFieldParent.layer.borderColor = UIColor.tertiary.cgColor
-        textFieldParent.addSubview(textField)
-        textField.center(in: textFieldParent)
-        textField.width(to: textFieldParent, offset: -24)
         
         //MARK: - Space
         let spaceView = UIView()
         
-        //MARK: - verify button
-        let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify this phone number")
-        
         //MARK: - create the stackview
-        let stack = UIStackView(arrangedSubviews: [posterLabel, textView, extraBorderView, spaceView, verifyButton])
+        let stack = UIStackView(arrangedSubviews: [posterLabel, textView, validatedPhoneTextField, spaceView, verifyButton])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -87,16 +68,25 @@ We will text you a code to verify your number.
         stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
         textView.width(to: stack)
         textView.height(120)
-        extraBorderView.width(to: stack)
         posterLabel.height(34)
         verifyButton.width(to: stack)
+        validatedPhoneTextField.width(to: stack)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
+    func updateValidation(with value: Bool, from tag: Int) {
+        verifyButton.isEnabled = value
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        extraBorderView.layer.borderColor = UIColor.clear.cgColor
+    @objc
+    func resignKeyboardResponder() {
+        validatedPhoneTextField.resignFirstResponder()
     }
+    
+    @objc
+    private func nextScreen() {
+        navigationController?.pushViewController(PinChallengeViewController(), animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
+    }
+    
 }

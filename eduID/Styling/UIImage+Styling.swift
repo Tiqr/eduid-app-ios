@@ -13,4 +13,7 @@ extension UIImage {
     static let arrowBack = UIImage(named: "arrow_back")!
     static let gmail = UIImage(named: "gmail")!
     static let outlook = UIImage(named: "outlook")!
+    static let welcomeInstructions = UIImage(named: "welcome_instructions_image")!
+    static let readyForUse = UIImage(named: "ready_for_use")!
+    
 }

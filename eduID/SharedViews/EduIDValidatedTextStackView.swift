@@ -12,9 +12,10 @@ class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
     
     let validLabel = UILabel()
     let extraBorderView = UIView()
+    let textField = UITextField()
     weak var delegate: ValidatedTextFieldDelegate?
     
-    init(regex: String? = nil, title: String, placeholder: String) {
+    init(regex: String? = nil, title: String, placeholder: String, keyboardType: UIKeyboardType) {
         super.init(frame: .zero)
         
         axis = .vertical
@@ -28,11 +29,12 @@ class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
         addArrangedSubview(label)
         
         //MARK: - textfield
-        let textField = UITextField()
+        
         textField.font = .sourceSansProRegular(size: 16)
         textField.placeholder = placeholder
         textField.delegate = self
         textField.height(20)
+        textField.keyboardType = keyboardType
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
 
@@ -87,6 +89,11 @@ class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
             delegate?.updateValidation(with: true, from: tag)
         }
         return true
+    }
+    
+    //MARK: -resign keyboard responder
+    override func resignFirstResponder() -> Bool {
+        textField.resignFirstResponder()
     }
 }
 

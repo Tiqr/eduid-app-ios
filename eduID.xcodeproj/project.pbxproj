@@ -30,6 +30,13 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
+		41023FFA297A7ABB0066BBD7 /* PinChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023FF9297A7ABB0066BBD7 /* PinChallengeViewController.swift */; };
+		41023FFC297A7B760066BBD7 /* PinTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023FFB297A7B760066BBD7 /* PinTextFieldView.swift */; };
+		41023FFE297A85DC0066BBD7 /* WelcomeExplanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023FFD297A85DC0066BBD7 /* WelcomeExplanationViewController.swift */; };
+		41024000297A90310066BBD7 /* InstitutionButtonControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023FFF297A90310066BBD7 /* InstitutionButtonControl.swift */; };
+		41024002297A90BE0066BBD7 /* UIView+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41024001297A90BE0066BBD7 /* UIView+Styling.swift */; };
+		41024004297A930B0066BBD7 /* InstitutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41024003297A930B0066BBD7 /* InstitutionView.swift */; };
+		41024006297A94AD0066BBD7 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41024005297A94AD0066BBD7 /* ReviewViewController.swift */; };
 		4111B26B29794E77001BB028 /* EduIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26A29794E77001BB028 /* EduIDButton.swift */; };
 		4111B26E29794F38001BB028 /* UIColor+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26D29794F38001BB028 /* UIColor+Styling.swift */; };
 		4111B2702979515B001BB028 /* UIFont+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111B26F2979515B001BB028 /* UIFont+Styling.swift */; };
@@ -46,10 +53,12 @@
 		4152D7C0297A6A98003D4FB1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7BC297A6A98003D4FB1 /* LandingPageViewController.swift */; };
 		4152D7C1297A6A98003D4FB1 /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7BD297A6A98003D4FB1 /* CheckEmailViewController.swift */; };
 		4152D7C3297A6ABC003D4FB1 /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4152D7C2297A6ABC003D4FB1 /* EnterPhoneNumberViewController.swift */; };
+		41542B3B297A99AD0055DC8B /* OnboardingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41542B3A297A99AD0055DC8B /* OnboardingSuccessViewController.swift */; };
 		41BF5AB4297966EE00E534B8 /* EduIDNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB3297966EE00E534B8 /* EduIDNavigationItem.swift */; };
 		41BF5AB829796FA300E534B8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB729796FA300E534B8 /* UIViewController+Extensions.swift */; };
 		41BF5ABA297970AD00E534B8 /* EduIDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5AB9297970AD00E534B8 /* EduIDBaseViewController.swift */; };
 		41BF5ABC2979742E00E534B8 /* EduIDValidatedTextStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF5ABB2979742E00E534B8 /* EduIDValidatedTextStackView.swift */; };
+		41D5A975297AA19E002545EE /* NSAttributedString+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D5A974297AA19E002545EE /* NSAttributedString+Styling.swift */; };
 		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +102,13 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		41023FF9297A7ABB0066BBD7 /* PinChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChallengeViewController.swift; sourceTree = "<group>"; };
+		41023FFB297A7B760066BBD7 /* PinTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PinTextFieldView.swift; path = eduID/SharedViews/PinTextFieldView.swift; sourceTree = SOURCE_ROOT; };
+		41023FFD297A85DC0066BBD7 /* WelcomeExplanationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeExplanationViewController.swift; sourceTree = "<group>"; };
+		41023FFF297A90310066BBD7 /* InstitutionButtonControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionButtonControl.swift; path = eduID/SharedViews/InstitutionButtonControl.swift; sourceTree = SOURCE_ROOT; };
+		41024001297A90BE0066BBD7 /* UIView+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Styling.swift"; path = "eduID/Styling/UIView+Styling.swift"; sourceTree = SOURCE_ROOT; };
+		41024003297A930B0066BBD7 /* InstitutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionView.swift; path = eduID/SharedViews/InstitutionView.swift; sourceTree = SOURCE_ROOT; };
+		41024005297A94AD0066BBD7 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		4111B26A29794E77001BB028 /* EduIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDButton.swift; path = eduID/SharedViews/EduIDButton.swift; sourceTree = SOURCE_ROOT; };
 		4111B26D29794F38001BB028 /* UIColor+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Styling.swift"; path = "eduID/Styling/UIColor+Styling.swift"; sourceTree = SOURCE_ROOT; };
 		4111B26F2979515B001BB028 /* UIFont+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+Styling.swift"; path = "eduID/Styling/UIFont+Styling.swift"; sourceTree = SOURCE_ROOT; };
@@ -108,10 +124,12 @@
 		4152D7BC297A6A98003D4FB1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		4152D7BD297A6A98003D4FB1 /* CheckEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		4152D7C2297A6ABC003D4FB1 /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
+		41542B3A297A99AD0055DC8B /* OnboardingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSuccessViewController.swift; sourceTree = "<group>"; };
 		41BF5AB3297966EE00E534B8 /* EduIDNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDNavigationItem.swift; path = eduID/Controllers/EduIDNavigationItem.swift; sourceTree = SOURCE_ROOT; };
 		41BF5AB729796FA300E534B8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "eduID/Controllers/UIViewController+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		41BF5AB9297970AD00E534B8 /* EduIDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDBaseViewController.swift; path = eduID/Controllers/EduIDBaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		41BF5ABB2979742E00E534B8 /* EduIDValidatedTextStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EduIDValidatedTextStackView.swift; path = eduID/SharedViews/EduIDValidatedTextStackView.swift; sourceTree = SOURCE_ROOT; };
+		41D5A974297AA19E002545EE /* NSAttributedString+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Styling.swift"; path = "eduID/Styling/NSAttributedString+Styling.swift"; sourceTree = SOURCE_ROOT; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -265,6 +283,9 @@
 				4111B26A29794E77001BB028 /* EduIDButton.swift */,
 				41BF5ABB2979742E00E534B8 /* EduIDValidatedTextStackView.swift */,
 				4152D7B7297A673A003D4FB1 /* FocussableTextField.swift */,
+				41023FFB297A7B760066BBD7 /* PinTextFieldView.swift */,
+				41023FFF297A90310066BBD7 /* InstitutionButtonControl.swift */,
+				41024003297A930B0066BBD7 /* InstitutionView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -276,6 +297,8 @@
 				4111B26F2979515B001BB028 /* UIFont+Styling.swift */,
 				4111B2742979596D001BB028 /* UIImage+Styling.swift */,
 				4111B27629795A8A001BB028 /* UILabel+Styling.swift */,
+				41024001297A90BE0066BBD7 /* UIView+Styling.swift */,
+				41D5A974297AA19E002545EE /* NSAttributedString+Styling.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -300,6 +323,10 @@
 				4152D7BC297A6A98003D4FB1 /* LandingPageViewController.swift */,
 				4152D7BD297A6A98003D4FB1 /* CheckEmailViewController.swift */,
 				4152D7C2297A6ABC003D4FB1 /* EnterPhoneNumberViewController.swift */,
+				41023FF9297A7ABB0066BBD7 /* PinChallengeViewController.swift */,
+				41023FFD297A85DC0066BBD7 /* WelcomeExplanationViewController.swift */,
+				41024005297A94AD0066BBD7 /* ReviewViewController.swift */,
+				41542B3A297A99AD0055DC8B /* OnboardingSuccessViewController.swift */,
 			);
 			name = Onboarding;
 			path = eduID/Onboarding;
@@ -490,8 +517,11 @@
 			files = (
 				4111B26E29794F38001BB028 /* UIColor+Styling.swift in Sources */,
 				41BF5AB829796FA300E534B8 /* UIViewController+Extensions.swift in Sources */,
+				41542B3B297A99AD0055DC8B /* OnboardingSuccessViewController.swift in Sources */,
+				41024006297A94AD0066BBD7 /* ReviewViewController.swift in Sources */,
 				4111B2702979515B001BB028 /* UIFont+Styling.swift in Sources */,
 				41BF5ABC2979742E00E534B8 /* EduIDValidatedTextStackView.swift in Sources */,
+				41023FFC297A7B760066BBD7 /* PinTextFieldView.swift in Sources */,
 				4152D7BE297A6A98003D4FB1 /* CreateEduIDLandingPageViewController.swift in Sources */,
 				4111B27729795A8A001BB028 /* UILabel+Styling.swift in Sources */,
 				4152D7C1297A6A98003D4FB1 /* CheckEmailViewController.swift in Sources */,
@@ -501,10 +531,16 @@
 				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
 				4152D7C3297A6ABC003D4FB1 /* EnterPhoneNumberViewController.swift in Sources */,
+				41D5A975297AA19E002545EE /* NSAttributedString+Styling.swift in Sources */,
+				41024000297A90310066BBD7 /* InstitutionButtonControl.swift in Sources */,
 				4111B26B29794E77001BB028 /* EduIDButton.swift in Sources */,
 				41BF5AB4297966EE00E534B8 /* EduIDNavigationItem.swift in Sources */,
+				41024004297A930B0066BBD7 /* InstitutionView.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
+				41023FFE297A85DC0066BBD7 /* WelcomeExplanationViewController.swift in Sources */,
+				41023FFA297A7ABB0066BBD7 /* PinChallengeViewController.swift in Sources */,
 				4152D7BF297A6A98003D4FB1 /* EnterPersonalInfoViewController.swift in Sources */,
+				41024002297A90BE0066BBD7 /* UIView+Styling.swift in Sources */,
 				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,
 				41BF5ABA297970AD00E534B8 /* EduIDBaseViewController.swift in Sources */,
 			);

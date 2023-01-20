@@ -29,17 +29,17 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         let posterLabel = UILabel.posterTextLabel(text: "Request your eduID", size: 24)
         
         //MARK: - email
-        let emailField = EduIDValidatedTextStackView(title: "Your email address", placeholder: "e.g. timbernerslee@gmail.com")
+        let emailField = EduIDValidatedTextStackView(title: "Your email address", placeholder: "e.g. timbernerslee@gmail.com", keyboardType: .default)
         emailField.tag = 0
         emailField.delegate = self
         
         //MARK: - firstname
-        let firstNameField = EduIDValidatedTextStackView(title: "First name", placeholder: "e.g. Tim")
+        let firstNameField = EduIDValidatedTextStackView(title: "First name", placeholder: "e.g. Tim", keyboardType: .default)
         firstNameField.tag = 1
         firstNameField.delegate = self
         
         //MARK: - lastName
-        let lastNameField = EduIDValidatedTextStackView(title: "Last name", placeholder: "e.g. Berners-Lee")
+        let lastNameField = EduIDValidatedTextStackView(title: "Last name", placeholder: "e.g. Berners-Lee", keyboardType: .default)
         lastNameField.tag = 2
         lastNameField.delegate = self
         
