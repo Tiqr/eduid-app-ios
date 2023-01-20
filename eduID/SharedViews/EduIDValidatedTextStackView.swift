@@ -11,6 +11,7 @@ import TinyConstraints
 class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
     
     let validLabel = UILabel()
+    let extraBorderView = UIView()
     weak var delegate: ValidatedTextFieldDelegate?
     
     init(regex: String? = nil, title: String, placeholder: String) {
@@ -34,18 +35,26 @@ class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
         textField.height(20)
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        
+
+        //MARK: - textfield border
+        extraBorderView.layer.borderWidth = 2
+        extraBorderView.layer.borderColor = UIColor.clear.cgColor
+        extraBorderView.layer.cornerRadius = 8
         let textFieldParent = UIView()
-        addArrangedSubview(textFieldParent)
-        textFieldParent.width(to: self)
+        extraBorderView.addSubview(textFieldParent)
+        addArrangedSubview(extraBorderView)
+        extraBorderView.width(to: self)
+        extraBorderView.height(52)
         textFieldParent.height(48)
+        textFieldParent.center(in: extraBorderView)
+        textFieldParent.leading(to: extraBorderView, offset: 2)
+        textFieldParent.trailing(to: extraBorderView, offset: -2)
         textFieldParent.layer.cornerRadius = 6
         textFieldParent.layer.borderWidth = 1
         textFieldParent.layer.borderColor = UIColor.tertiary.cgColor
         textFieldParent.addSubview(textField)
         textField.center(in: textFieldParent)
         textField.width(to: self, offset: -24)
-        addArrangedSubview(textFieldParent)
         
         //MARK: - validationMessage
         validLabel.font = .sourceSansProSemiBold(size: 12)
@@ -59,6 +68,14 @@ class EduIDValidatedTextStackView: UIStackView, UITextFieldDelegate {
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        extraBorderView.layer.borderColor = UIColor.clear.cgColor
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

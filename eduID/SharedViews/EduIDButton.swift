@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TinyConstraints
 
 final class EduIDButton: UIButton {
     
@@ -49,6 +50,7 @@ final class EduIDButton: UIButton {
         super.init(frame: .zero)
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        height(48)
         
         layer.cornerRadius = 6
         

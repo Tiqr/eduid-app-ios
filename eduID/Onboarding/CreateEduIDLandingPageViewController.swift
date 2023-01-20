@@ -56,7 +56,6 @@ eduID is a central account for users\nassociated with Dutch education and\nresea
         
         posterLabel.height(34)
         
-        button.height(48)
         horizontalEdgesToView(aView: button, offset: 48)
         
         textView.height(268)

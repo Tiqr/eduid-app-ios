@@ -41,11 +41,8 @@ class LandingPageViewController: UIViewController {
         
         //MARK: buttons
         let signinButton = EduIDButton(type: .primary, buttonTitle: "Sign in")
-        signinButton.height(48)
         let scanQRButton = EduIDButton(type: .primary, buttonTitle: "Scan a QR code")
-        scanQRButton.height(48)
         let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle: "I don't have an eduId")
-        noEduIDYetButton.height(48)
         
         //MARK: - create the stackview
         let stack = UIStackView(arrangedSubviews: [logo, posterLabel, imageView, signinButton, scanQRButton, noEduIDYetButton])

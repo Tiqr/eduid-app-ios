@@ -16,4 +16,5 @@ extension UIColor {
     static let grayGhost = UIColor(named: "GrayGhost")!
     static let charcoal = UIColor(named: "Charcoal")!
     static let tertiary = UIColor(named: "TertiaryColor")!
+    static let textfieldFocusColor = UIColor(named: "TextfieldFocusColor")!
 }

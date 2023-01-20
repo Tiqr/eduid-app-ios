@@ -84,7 +84,6 @@ class EnterPersonalInfoViewController: EduIDBaseViewController, ValidatedTextFie
         
         posterLabel.height(34)
         
-        requestButton.height(48)
         horizontalEdgesToView(aView: requestButton, offset: 48)
         
         horizontalEdgesToView(aView: emailField, offset: 32)
