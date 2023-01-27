@@ -11,7 +11,7 @@
 			<string>nl.eduid.auth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>eduidauth</string>
+				<string>$(TIQR_AUTHENTICATION_URL_SCHEME)</string>
 			</array>
 		</dict>
 		<dict>
@@ -21,7 +21,7 @@
 			<string>nl.eduid.enroll</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>eduidenroll</string>
+				<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
