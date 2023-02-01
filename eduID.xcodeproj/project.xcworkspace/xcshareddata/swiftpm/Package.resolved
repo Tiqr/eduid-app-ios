@@ -1,13 +1,16 @@
 {
-  "pins" : [
-    {
-      "identity" : "tiqr-app-core-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Tiqr/tiqr-app-core-ios",
-      "state" : {
-        "revision" : "415f883ccac2c4cc5cb7d50880d03a279f2e04fa"
+  "object": {
+    "pins": [
+      {
+        "package": "TinyConstraints",
+        "repositoryURL": "https://github.com/roberthein/TinyConstraints.git",
+        "state": {
+          "branch": null,
+          "revision": "3262e5c591d4ab6272255df2087a01bbebd138dc",
+          "version": "4.0.2"
+        }
       }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

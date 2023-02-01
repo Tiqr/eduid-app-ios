@@ -58,6 +58,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ProximaSoft-SemiBold.otf</string>
 		<string>Nunito-Bold.ttf</string>
 		<string>SourceSansPro-Regular.ttf</string>
 	</array>

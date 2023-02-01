@@ -29,7 +29,7 @@
 
 import UIKit
 import Tiqr
-import TiqrCore
+import EduIDExpansion
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -42,8 +42,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
+        window?.rootViewController = EduIDExpansion.shared.attachViewController()
         window?.makeKeyAndVisible()
+        
+        EduIDExpansion.shared.run()
 
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
