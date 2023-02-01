@@ -30,7 +30,8 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
+		418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 418F75E5298A5002000EF8A7 /* Tiqr */; };
+		418F75E8298A5062000EF8A7 /* ProximaSoft-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
+		418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-SemiBold.otf"; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
+				418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
+				418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
 				0A9F8DB7274FB01D00F24188 /* Source_Sans_Pro */,
@@ -174,6 +178,7 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
+				418F75E3298A4FE6000EF8A7 /* Packages */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
@@ -214,6 +219,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		418F75E3298A4FE6000EF8A7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		C7F8389C294265B3002015A8 /* eduIDTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +253,7 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				C7F601672938B15800AF2FFF /* Tiqr */,
+				418F75E5298A5002000EF8A7 /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -306,7 +319,6 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -332,6 +344,7 @@
 				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
 				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
 				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
+				418F75E8298A5062000EF8A7 /* ProximaSoft-SemiBold.otf in Resources */,
 				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
 				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
 				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
@@ -996,6 +1009,7 @@
 		};
 /* End XCConfigurationList section */
 
+<<<<<<< HEAD
 /* Begin XCRemoteSwiftPackageReference section */
 		C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1007,10 +1021,11 @@
 		};
 /* End XCRemoteSwiftPackageReference section */
 
+=======
+>>>>>>> 64a2e77 (redesign import EduID Exapansion)
 /* Begin XCSwiftPackageProductDependency section */
-		C7F601672938B15800AF2FFF /* Tiqr */ = {
+		418F75E5298A5002000EF8A7 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
 		};
 /* End XCSwiftPackageProductDependency section */
