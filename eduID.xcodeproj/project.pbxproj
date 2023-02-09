@@ -372,7 +372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\necho \"git_release_version: $git_release_version\" \n\nread -r -d '' PARSE_PACKAGE_RESOLVED <<EOF\nvar app = Application.currentApplication();\napp.includeStandardAdditions = true;\n\nfunction parseJSON(path) {\n    const data = app.read(path);\n    return JSON.parse(data);\n}\n\nfunction run() {\n    const parsed = parseJSON(\"${PROJECT_FILE_PATH}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved\");\n    return parsed.pins[0].state.revision.substring(0,7);\n}\n\nEOF\n\ncore_library_commit=$( osascript -l 'JavaScript' <<< \"${PARSE_PACKAGE_RESOLVED}\" )\n\necho \"core_library_commit: $core_library_commit\" \n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n    /usr/libexec/PlistBuddy -c \"Set :TIQRLibraryVersion $core_library_commit\" \"$plist\"\n  fi\ndone\n";
+			shellScript = "#!/bin/bash\n\ngit=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" rev-parse HEAD)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n\necho \"git_release_version: $git_release_version\" \n\nread -r -d '' PARSE_PACKAGE_RESOLVED <<EOF\nvar app = Application.currentApplication();\napp.includeStandardAdditions = true;\n\nfunction parseJSON(path) {\n    const data = app.read(path);\n    return JSON.parse(data);\n}\n\nfunction run() {\n    const parsed = parseJSON(\"${PROJECT_FILE_PATH}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved\");\n    return parsed.pins[0].state.revision;\n}\n\nEOF\n\ncore_library_commit=$( osascript -l 'JavaScript' <<< \"${PARSE_PACKAGE_RESOLVED}\" )\n\necho \"core_library_commit: $core_library_commit\" \n\nfor plist in \"$target_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :TIQRGitReleaseVersion $git_release_version\" \"$plist\"\n    /usr/libexec/PlistBuddy -c \"Set :TIQRLibraryVersion $core_library_commit\" \"$plist\"\n  fi\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1002,7 +1002,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = 415f883ccac2c4cc5cb7d50880d03a279f2e04fa;
+				revision = a5b89fa32defd7f722add7d3dc22d257390f8d19;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
