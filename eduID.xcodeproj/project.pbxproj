@@ -74,8 +74,7 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
-		418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-SemiBold.otf"; sourceTree = "<group>"; };
+		4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 				418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
+				4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */,
 				0A9F8DB7274FB01D00F24188 /* Source_Sans_Pro */,
 			);
 			path = Resources;
