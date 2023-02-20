@@ -31,6 +31,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>mijn.test2.eduid.nl</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>demo.tiqr.org</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
