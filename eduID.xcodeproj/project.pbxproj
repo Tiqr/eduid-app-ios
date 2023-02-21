@@ -30,7 +30,6 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		41639FB7299F90390011DA67 /* OpenAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 41639FB6299F90390011DA67 /* OpenAPIClient */; };
 		418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 418F75E5298A5002000EF8A7 /* Tiqr */; };
 		418F75E8298A5062000EF8A7 /* ProximaSoft-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
@@ -77,7 +76,6 @@
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
 		418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-SemiBold.otf"; sourceTree = "<group>"; };
-		4199B391299E46C600F87031 /* EduIDAPIGen */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = EduIDAPIGen; path = ../EduIDAPIGen; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41639FB7299F90390011DA67 /* OpenAPIClient in Frameworks */,
 				418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */,
-				4199B391299E46C600F87031 /* EduIDAPIGen */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -258,7 +254,6 @@
 			name = eduID;
 			packageProductDependencies = (
 				418F75E5298A5002000EF8A7 /* Tiqr */,
-				41639FB6299F90390011DA67 /* OpenAPIClient */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -1015,10 +1010,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		41639FB6299F90390011DA67 /* OpenAPIClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OpenAPIClient;
-		};
 		418F75E5298A5002000EF8A7 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Tiqr;
