@@ -24,6 +24,16 @@
 				<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>nl.eduid</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>eduid</string>
+			</array>
+		</dict>
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
@@ -31,14 +41,14 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>mijn.test2.eduid.nl</key>
+			<key>demo.tiqr.org</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 			</dict>
-			<key>demo.tiqr.org</key>
+			<key>mijn.test2.eduid.nl</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
