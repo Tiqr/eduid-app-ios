@@ -30,6 +30,7 @@
 import UIKit
 import Tiqr
 import EduIDExpansion
+import OpenAPIClient
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -50,17 +51,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
+        
+        Task {
+            do {
+                try await print(UserControllerAPI.me())
+            }
+        }
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
+        if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "account-linked") != nil {
+            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
+        } else if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "oauth-redirect") != nil {
+            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
+               authorizationFlow.resumeExternalUserAgentFlow(with: (URLContexts.first?.url)!) {
+                AppAuthController.shared.currentAuthorizationFlow = nil
+                return
+            }
+        } else if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "created") != nil {
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if let url = URLContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        if let url = userActivity.webpageURL {
+        
+        //TODO: check
+        if let url = userActivity.webpageURL, url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "created"), range != nil {
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "oauth-redirect"), range != nil {
+            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
+               authorizationFlow.resumeExternalUserAgentFlow(with: (userActivity.webpageURL)!) {
+                AppAuthController.shared.currentAuthorizationFlow = nil
+                return
+            }
+        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "account-linked"), range != nil {
+            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         }
     }
 
