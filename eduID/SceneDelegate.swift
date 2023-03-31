@@ -46,51 +46,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = EduIDExpansion.shared.attachViewController()
         window?.makeKeyAndVisible()
         
-        EduIDExpansion.shared.run()
+        let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
+        EduIDExpansion.shared.run(flowType: flowType)
 
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
-        
-        Task {
-            do {
-                try await print(UserControllerAPI.me())
-            }
-        }
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "account-linked") != nil {
-            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
-        } else if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "oauth-redirect") != nil {
-            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
-               authorizationFlow.resumeExternalUserAgentFlow(with: (URLContexts.first?.url)!) {
-                AppAuthController.shared.currentAuthorizationFlow = nil
-                return
-            }
-        } else if URLContexts.first?.url.scheme == "eduid" && URLContexts.first?.url.path.range(of: "created") != nil {
-            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
-        } else if let url = URLContexts.first?.url {
+        handleURLFromRedirect(url: URLContexts.first?.url)
+    }
+    
+    func handleURLFromRedirect(url: URL?) {
+        guard let url = url else { return }
+        
+        //TODO: check
+        if url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        } else if let range = url.absoluteString.range(of: "created"), range != nil {
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if let range = url.absoluteString.range(of: "oauth-redirect"), range != nil {
+            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
+               authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+                AppAuthController.shared.currentAuthorizationFlow = nil
+            }
+            
+            // - check if this is a first time authorization to onboard the app
+            if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationComplete, object: nil)
+            } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
+            }
+            return
+            
+        } else if let range = url.absoluteString.range(of: "account-linked"), range != nil {
+            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        
-        //TODO: check
-        if let url = userActivity.webpageURL, url.absoluteString.range(of: "tiqrauth") != nil {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
-        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "created"), range != nil {
-            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
-        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "oauth-redirect"), range != nil {
-            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
-               authorizationFlow.resumeExternalUserAgentFlow(with: (userActivity.webpageURL)!) {
-                AppAuthController.shared.currentAuthorizationFlow = nil
-                return
-            }
-        } else if let range = userActivity.webpageURL?.absoluteString.range(of: "account-linked"), range != nil {
-            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
-        }
+        handleURLFromRedirect(url: userActivity.webpageURL)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
