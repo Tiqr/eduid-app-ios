@@ -29,8 +29,9 @@
 
 import UIKit
 import Tiqr
-import TiqrCore
 import EduIDExpansion
+import OpenAPIClient
+import TiqrCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -45,24 +46,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = EduIDExpansion.shared.attachViewController()
         window?.makeKeyAndVisible()
+        
+        let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
+        EduIDExpansion.shared.run(option: flowType)
 
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
         
-        EduIDExpansion.shared.run()
+        EduIDExpansion.shared.run(option: flowType)
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
+        handleURLFromRedirect(url: URLContexts.first?.url)
+    }
+    
+    func handleURLFromRedirect(url: URL?) {
+        guard let url = url else { return }
+        
+        //TODO: check
+        if url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        } else if let range = url.absoluteString.range(of: "created"), range != nil {
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if let range = url.absoluteString.range(of: "oauth-redirect"), range != nil {
+            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
+               authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+                AppAuthController.shared.currentAuthorizationFlow = nil
+            }
+            
+            // - check if this is a first time authorization to onboard the app
+            if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationComplete, object: nil)
+            } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
+            }
+            return
+            
+        } else if let range = url.absoluteString.range(of: "account-linked"), range != nil {
+            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        if let url = userActivity.webpageURL {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
-        }
+        handleURLFromRedirect(url: userActivity.webpageURL)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
