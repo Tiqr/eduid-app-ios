@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
         
-        EduIDExpansion.shared.run()
+        EduIDExpansion.shared.run(option: flowType)
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

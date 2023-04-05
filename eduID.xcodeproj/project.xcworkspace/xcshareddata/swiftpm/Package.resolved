@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AnyCodable",
+        "repositoryURL": "https://github.com/Flight-School/AnyCodable",
+        "state": {
+          "branch": null,
+          "revision": "862808b2070cd908cb04f9aafe7de83d35f81b05",
+          "version": "0.6.7"
+        }
+      },
+      {
+        "package": "AppAuth",
+        "repositoryURL": "https://github.com/openid/AppAuth-iOS.git",
+        "state": {
+          "branch": null,
+          "revision": "3d36a58a2b736f7bc499453e996a704929b25080",
+          "version": "1.6.0"
+        }
+      },
+      {
+        "package": "KeychainSwift",
+        "repositoryURL": "https://github.com/evgenyneu/keychain-swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "c1fde55798b164cad44b5e23cfa2f0f1ebcd76af",
+          "version": null
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "fb50c1d20f24db5322b2f8f379de3618f75fe08e",
+          "version": "5.15.5"
+        }
+      },
+      {
+        "package": "TinyConstraints",
+        "repositoryURL": "https://github.com/roberthein/TinyConstraints.git",
+        "state": {
+          "branch": null,
+          "revision": "3262e5c591d4ab6272255df2087a01bbebd138dc",
+          "version": "4.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
