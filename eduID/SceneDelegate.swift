@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
-        EduIDExpansion.shared.run(flowType: flowType)
+        EduIDExpansion.shared.run(option: flowType)
 
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
