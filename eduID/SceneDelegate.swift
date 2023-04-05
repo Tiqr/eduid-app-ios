@@ -31,6 +31,7 @@ import UIKit
 import Tiqr
 import EduIDExpansion
 import OpenAPIClient
+import TiqrCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -52,6 +53,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
+        
+        EduIDExpansion.shared.run()
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
