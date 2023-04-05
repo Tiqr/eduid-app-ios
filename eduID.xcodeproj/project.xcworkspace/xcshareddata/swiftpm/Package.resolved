@@ -2,6 +2,7 @@
   "object": {
     "pins": [
       {
+<<<<<<< HEAD
         "identity" : "tiqr-app-core-ios",
         "kind" : "remoteSourceControl",
         "location" : "https://github.com/Tiqr/tiqr-app-core-ios",
@@ -10,6 +11,8 @@
         }
       },
       {
+=======
+>>>>>>> bf04ff3 (Merge fixes)
         "package": "AnyCodable",
         "repositoryURL": "https://github.com/Flight-School/AnyCodable",
         "state": {

@@ -30,8 +30,9 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 418F75E5298A5002000EF8A7 /* Tiqr */; };
-		418F75E8298A5062000EF8A7 /* ProximaSoft-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */; };
+		4194D8E329A3941200C16B08 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */; };
+		C76A39E829DD72EB005B4170 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 418F75E5298A5002000EF8A7 /* Tiqr */; };
+		C76A39EA29DD7324005B4170 /* tiqr-app-core-ios in Resources */ = {isa = PBXBuildFile; fileRef = C76A39E929DD7322005B4170 /* tiqr-app-core-ios */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
+		C76A39E929DD7322005B4170 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -110,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				418F75E6298A5002000EF8A7 /* Tiqr in Frameworks */,
+				C76A39E829DD72EB005B4170 /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
-				418F75E7298A5062000EF8A7 /* ProximaSoft-SemiBold.otf */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
 				4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */,
@@ -222,7 +223,7 @@
 		418F75E3298A4FE6000EF8A7 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				418F75E4298A4FE6000EF8A7 /* tiqr-app-core-ios */,
+				C76A39E929DD7322005B4170 /* tiqr-app-core-ios */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -344,7 +345,8 @@
 				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
 				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
 				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
-				418F75E8298A5062000EF8A7 /* ProximaSoft-SemiBold.otf in Resources */,
+				C76A39EA29DD7324005B4170 /* tiqr-app-core-ios in Resources */,
+				4194D8E329A3941200C16B08 /* ProximaSoft-Semibold.otf in Resources */,
 				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
 				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
 				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
