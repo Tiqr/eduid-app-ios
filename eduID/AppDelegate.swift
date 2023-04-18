@@ -31,6 +31,7 @@ import UIKit
 import Tiqr
 import AppAuth
 import OpenAPIClient
+import EduIDExpansion
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
