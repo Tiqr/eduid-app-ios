@@ -251,6 +251,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				73BB8D4B2A08E92B0078EB74 /* PBXTargetDependency */,
 			);
 			name = eduID;
 			packageProductDependencies = (
@@ -414,6 +415,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		73BB8D4B2A08E92B0078EB74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 73BB8D4A2A08E92B0078EB74 /* Tiqr */;
+		};
 		C7F838A0294265B3002015A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AFD9E002745579900D48C01 /* eduID */;
@@ -1028,6 +1033,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		418F75E5298A5002000EF8A7 /* Tiqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tiqr;
+		};
+		73BB8D4A2A08E92B0078EB74 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Tiqr;
 		};

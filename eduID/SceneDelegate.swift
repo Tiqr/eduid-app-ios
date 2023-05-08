@@ -67,6 +67,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //TODO: check
         if url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
+            
         } else if let range = url.absoluteString.range(of: "created"), range != nil {
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
         } else if let range = url.absoluteString.range(of: "oauth-redirect"), range != nil {
