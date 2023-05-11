@@ -73,7 +73,6 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		739F49DC2A0CF8E700E76592 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
 		739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = SOURCE_ROOT; };
 		739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
 		739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-SemiBold.ttf"; path = "eduID/Resources/Source_Sans_Pro/SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -181,7 +180,6 @@
 			children = (
 				739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */,
 				739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */,
-				418F75E3298A4FE6000EF8A7 /* Packages */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
@@ -220,14 +218,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		418F75E3298A4FE6000EF8A7 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				739F49DC2A0CF8E700E76592 /* tiqr-app-core-ios */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		C7F8389C294265B3002015A8 /* eduIDTests */ = {
