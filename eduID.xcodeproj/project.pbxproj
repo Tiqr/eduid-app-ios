@@ -12,7 +12,6 @@
 		0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */; };
 		0A9F8DC6274FB01D00F24188 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB6274FB01D00F24188 /* Nunito-Bold.ttf */; };
 		0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB8274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf */; };
-		0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB9274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf */; };
 		0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBA274FB01D00F24188 /* SourceSansPro-Regular.ttf */; };
 		0A9F8DCA274FB01D00F24188 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBB274FB01D00F24188 /* SourceSansPro-Bold.ttf */; };
 		0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBC274FB01D00F24188 /* SourceSansPro-LightItalic.ttf */; };
@@ -21,7 +20,6 @@
 		0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBF274FB01D00F24188 /* OFL.txt */; };
 		0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC0274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf */; };
 		0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC1274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf */; };
-		0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC2274FB01D00F24188 /* SourceSansPro-SemiBold.ttf */; };
 		0A9F8DD2274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC3274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf */; };
 		0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC4274FB01D00F24188 /* SourceSansPro-Italic.ttf */; };
 		0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E042745579900D48C01 /* AppDelegate.swift */; };
@@ -30,8 +28,9 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		4194D8E329A3941200C16B08 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */; };
 		739F49DF2A0CF9CD00E76592 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 739F49DE2A0CF9CD00E76592 /* Tiqr */; };
+		739F49E12A0D09B800E76592 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */; };
+		739F49E42A0D169E00E76592 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +73,10 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
 		739F49DC2A0CF8E700E76592 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
+		739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = SOURCE_ROOT; };
+		739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
+		739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-SemiBold.ttf"; path = "eduID/Resources/Source_Sans_Pro/SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -137,10 +138,10 @@
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */,
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
-				4194D8E229A3941200C16B08 /* ProximaSoft-Semibold.otf */,
 				0A9F8DB7274FB01D00F24188 /* Source_Sans_Pro */,
 			);
 			path = Resources;
@@ -178,6 +179,8 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
+				739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */,
+				739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */,
 				418F75E3298A4FE6000EF8A7 /* Packages */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
@@ -337,7 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
+				739F49E42A0D169E00E76592 /* SourceSansPro-SemiBold.ttf in Resources */,
+				739F49E12A0D09B800E76592 /* ProximaSoft-Semibold.otf in Resources */,
 				0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				0A9F8DCC274FB01D00F24188 /* SourceSansPro-Light.ttf in Resources */,
@@ -346,8 +350,6 @@
 				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
 				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
 				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
-				4194D8E329A3941200C16B08 /* ProximaSoft-Semibold.otf in Resources */,
-				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
 				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
 				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */,
