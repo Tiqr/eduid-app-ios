@@ -12,7 +12,6 @@
 		0A9F8DC5274FB01D00F24188 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB5274FB01D00F24188 /* Nunito-ExtraBold.ttf */; };
 		0A9F8DC6274FB01D00F24188 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB6274FB01D00F24188 /* Nunito-Bold.ttf */; };
 		0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB8274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf */; };
-		0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DB9274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf */; };
 		0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBA274FB01D00F24188 /* SourceSansPro-Regular.ttf */; };
 		0A9F8DCA274FB01D00F24188 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBB274FB01D00F24188 /* SourceSansPro-Bold.ttf */; };
 		0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBC274FB01D00F24188 /* SourceSansPro-LightItalic.ttf */; };
@@ -21,7 +20,6 @@
 		0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DBF274FB01D00F24188 /* OFL.txt */; };
 		0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC0274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf */; };
 		0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC1274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf */; };
-		0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC2274FB01D00F24188 /* SourceSansPro-SemiBold.ttf */; };
 		0A9F8DD2274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC3274FB01D00F24188 /* SourceSansPro-ExtraLightItalic.ttf */; };
 		0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F8DC4274FB01D00F24188 /* SourceSansPro-Italic.ttf */; };
 		0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E042745579900D48C01 /* AppDelegate.swift */; };
@@ -30,7 +28,9 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		C7F601682938B15800AF2FFF /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = C7F601672938B15800AF2FFF /* Tiqr */; };
+		739F49DF2A0CF9CD00E76592 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 739F49DE2A0CF9CD00E76592 /* Tiqr */; };
+		739F49E12A0D09B800E76592 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */; };
+		739F49E42A0D169E00E76592 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +73,9 @@
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
 		0AFD9E222745590D00D48C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AFD9E242745591400D48C01 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = SOURCE_ROOT; };
+		739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaSoft-Semibold.otf"; path = "eduID/Resources/ProximaSoft-Semibold.otf"; sourceTree = "<group>"; };
+		739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-SemiBold.ttf"; path = "eduID/Resources/Source_Sans_Pro/SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		C7AF8611292FCC0300BDEB69 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8612292FCC1600BDEB69 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7AF8613292FCC2C00BDEB69 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F601682938B15800AF2FFF /* Tiqr in Frameworks */,
+				739F49DF2A0CF9CD00E76592 /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,7 @@
 		0A9F8DB3274FB00300F24188 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */,
 				0AFD9E0D2745579C00D48C01 /* Assets.xcassets */,
 				0A95848D27B53B01002B8723 /* General */,
 				0A9F8DB4274FB01D00F24188 /* Nunito */,
@@ -174,6 +178,8 @@
 		0AFD9DF82745579900D48C01 = {
 			isa = PBXGroup;
 			children = (
+				739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */,
+				739F49E22A0D0A7400E76592 /* ProximaSoft-Semibold.otf */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				0AFD9E032745579900D48C01 /* EduID */,
@@ -237,10 +243,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				73BB8D4B2A08E92B0078EB74 /* PBXTargetDependency */,
 			);
 			name = eduID;
 			packageProductDependencies = (
-				C7F601672938B15800AF2FFF /* Tiqr */,
+				739F49DE2A0CF9CD00E76592 /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -306,7 +313,7 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -323,7 +330,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9F8DC8274FB01D00F24188 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
+				739F49E42A0D169E00E76592 /* SourceSansPro-SemiBold.ttf in Resources */,
+				739F49E12A0D09B800E76592 /* ProximaSoft-Semibold.otf in Resources */,
 				0A9F8DD0274FB01D00F24188 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				0A9F8DC7274FB01D00F24188 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				0A9F8DCC274FB01D00F24188 /* SourceSansPro-Light.ttf in Resources */,
@@ -332,7 +340,6 @@
 				0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */,
 				0A9F8DC9274FB01D00F24188 /* SourceSansPro-Regular.ttf in Resources */,
 				0A9F8DCB274FB01D00F24188 /* SourceSansPro-LightItalic.ttf in Resources */,
-				0A9F8DD1274FB01D00F24188 /* SourceSansPro-SemiBold.ttf in Resources */,
 				0A9F8DD3274FB01D00F24188 /* SourceSansPro-Italic.ttf in Resources */,
 				0A9F8DCF274FB01D00F24188 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				0A9F8DCE274FB01D00F24188 /* OFL.txt in Resources */,
@@ -399,6 +406,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		73BB8D4B2A08E92B0078EB74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 73BB8D4A2A08E92B0078EB74 /* Tiqr */;
+		};
 		C7F838A0294265B3002015A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AFD9E002745579900D48C01 /* eduID */;
@@ -549,8 +560,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -631,6 +642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
@@ -648,9 +660,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -803,7 +816,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -815,7 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -835,12 +848,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = eduID/eduID.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "eduID Test";
+				INFOPLIST_KEY_CFBundleDisplayName = eduID;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -852,9 +866,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.eduid.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -997,20 +1012,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+		739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
+			repositoryURL = "git@github.com:Tiqr/tiqr-app-core-ios.git";
 			requirement = {
-				kind = revision;
-				revision = a5b89fa32defd7f722add7d3dc22d257390f8d19;
+				branch = feature/redesign;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C7F601672938B15800AF2FFF /* Tiqr */ = {
+		739F49DE2A0CF9CD00E76592 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C7F601662938B15800AF2FFF /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			package = 739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			productName = Tiqr;
+		};
+		73BB8D4A2A08E92B0078EB74 /* Tiqr */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = Tiqr;
 		};
 /* End XCSwiftPackageProductDependency section */

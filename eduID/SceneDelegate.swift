@@ -29,7 +29,10 @@
 
 import UIKit
 import Tiqr
+import OpenAPIClient
 import TiqrCore
+import EduIDExpansion
+import AppAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -42,54 +45,53 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = Tiqr.shared.startWithOptions(options: connectionOptions, theme: Theme())
+        window?.rootViewController = EduIDExpansion.shared.attachViewController()
         window?.makeKeyAndVisible()
 
         if let url = connectionOptions.urlContexts.first?.url {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
         }
+     
+        let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
+        EduIDExpansion.shared.run(option: flowType)
+        
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
+        handleURLFromRedirect(url: URLContexts.first?.url)
+    }
+    
+    func handleURLFromRedirect(url: URL?) {
+        guard let url = url else { return }
+        
+        //TODO: check
+        if url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
+            
+        } else if let range = url.absoluteString.range(of: "created"), range != nil {
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if let range = url.absoluteString.range(of: "oauth-redirect"), range != nil {
+            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
+               authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+                AppAuthController.shared.currentAuthorizationFlow = nil
+            }
+            
+            // - check if this is a first time authorization to onboard the app
+            if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationComplete, object: nil)
+            } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
+                NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
+            }
+            return
+            
+        } else if let range = url.absoluteString.range(of: "account-linked"), range != nil {
+            NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        if let url = userActivity.webpageURL {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
-        }
+        handleURLFromRedirect(url: userActivity.webpageURL)
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
 
 }
 
