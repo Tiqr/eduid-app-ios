@@ -7,9 +7,6 @@
 
 import XCTest
 
-@testable
-import EduIDExpansion
-
 final class eduIDTests: XCTestCase {
 
     override func setUpWithError() throws {
