@@ -70,11 +70,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         } else if let range = url.absoluteString.range(of: "created"), range != nil {
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
-        } else if let range = url.absoluteString.range(of: "oauth-redirect"), range != nil {
-            if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
-               authorizationFlow.resumeExternalUserAgentFlow(with: url) {
-                AppAuthController.shared.currentAuthorizationFlow = nil
-            }
+        } else if AppAuthController.shared.isRedirectURI(url) {
+            AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             
             // - check if this is a first time authorization to onboard the app
             if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {

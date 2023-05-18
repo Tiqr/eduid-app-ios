@@ -73,9 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Tiqr.shared.startChallenge(challenge: url.absoluteString)
         
         //AppAuth redirect
-        if let authorizationFlow = AppAuthController.shared.currentAuthorizationFlow,
-           authorizationFlow.resumeExternalUserAgentFlow(with: url) {
-            AppAuthController.shared.currentAuthorizationFlow = nil
+        if AppAuthController.shared.isRedirectURI(url) {
+            AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             return true
         } else {
             

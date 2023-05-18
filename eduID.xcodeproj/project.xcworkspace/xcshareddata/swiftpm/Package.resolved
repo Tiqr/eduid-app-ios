@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "3289629ef6cbf1ad8c3d1dccf0cf09ac97547cd6",
-        "version" : "5.15.7"
+        "revision" : "7f9fb5d43ecd4aa714c00746f54873f354403438",
+        "version" : "5.15.8"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "git@github.com:Tiqr/tiqr-app-core-ios.git",
       "state" : {
         "branch" : "feature/redesign",
-        "revision" : "0e68e6880fd1aca1397810fb14834ad840addee0"
+        "revision" : "33b988aa1e00fa4fc89be902e4b3fdef30577592"
       }
     }
   ],
