@@ -28,7 +28,7 @@
 		0AFD9E0E2745579C00D48C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0D2745579C00D48C01 /* Assets.xcassets */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
 		0AFD9E212745590D00D48C01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E232745590D00D48C01 /* InfoPlist.strings */; };
-		739F49DF2A0CF9CD00E76592 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 739F49DE2A0CF9CD00E76592 /* Tiqr */; };
+		735D03512A2A33AE001634CE /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 735D03502A2A33AE001634CE /* Tiqr */; };
 		739F49E12A0D09B800E76592 /* ProximaSoft-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E02A0D09B800E76592 /* ProximaSoft-Semibold.otf */; };
 		739F49E42A0D169E00E76592 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 739F49E32A0D169E00E76592 /* SourceSansPro-SemiBold.ttf */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				739F49DF2A0CF9CD00E76592 /* Tiqr in Frameworks */,
+				735D03512A2A33AE001634CE /* Tiqr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +247,7 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				739F49DE2A0CF9CD00E76592 /* Tiqr */,
+				735D03502A2A33AE001634CE /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -313,7 +313,7 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -1012,7 +1012,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+		735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Tiqr/tiqr-app-core-ios.git";
 			requirement = {
@@ -1023,9 +1023,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		739F49DE2A0CF9CD00E76592 /* Tiqr */ = {
+		735D03502A2A33AE001634CE /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 739F49DD2A0CF9CD00E76592 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			package = 735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
 			productName = Tiqr;
 		};
 		73BB8D4A2A08E92B0078EB74 /* Tiqr */ = {
