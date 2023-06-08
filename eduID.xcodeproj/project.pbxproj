@@ -73,6 +73,7 @@
 		4F909F852A31D1F400FC1506 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F842A31D1F400FC1506 /* AppAuth */; };
 		4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F872A31D21500FC1506 /* SDWebImage */; };
 		4FAD9B942A3200DA00FA25F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E4B2A31CDB200FC1506 /* Assets.xcassets */; };
+		4FAD9B9D2A32156B00FA25F0 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4FAD9B9C2A32156B00FA25F0 /* Tiqr */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
 		4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675B2A31D32E00616341 /* MainCoordinator.swift */; };
 		4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */; };
@@ -183,7 +184,6 @@
 		4FF568332A31D68400616341 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6F2A31D07500FC1506 /* Configuration.swift */; };
 		4FF568362A31D6AB00616341 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF568352A31D6AB00616341 /* AnyCodable */; };
 		4FF568392A31DCE400616341 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF568382A31DCE400616341 /* RswiftLibrary */; };
-		735D03512A2A33AE001634CE /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 735D03502A2A33AE001634CE /* Tiqr */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -312,7 +312,6 @@
 		4F909EA12A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableControlWithBodyAndTitle.swift; sourceTree = "<group>"; };
 		4F909EA22A31CDDC00FC1506 /* TextViewBackgroundColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewBackgroundColor.swift; sourceTree = "<group>"; };
 		4F909EA32A31CDDC00FC1506 /* EduIDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EduIDButton.swift; sourceTree = "<group>"; };
-		4F909EC92A31CE2500FC1506 /* tiqr-app-core-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "tiqr-app-core-ios"; path = "../tiqr-app-core-ios"; sourceTree = "<group>"; };
 		4F909F1E2A31D07500FC1506 /* generate command.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "generate command.md"; sourceTree = "<group>"; };
 		4F909F202A31D07500FC1506 /* PhoneCode.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PhoneCode.md; sourceTree = "<group>"; };
 		4F909F212A31D07500FC1506 /* IdentityProvider.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IdentityProvider.md; sourceTree = "<group>"; };
@@ -465,8 +464,8 @@
 				4FF568392A31DCE400616341 /* RswiftLibrary in Frameworks */,
 				4F909F852A31D1F400FC1506 /* AppAuth in Frameworks */,
 				4FF567DE2A31D42900616341 /* KeychainSwift in Frameworks */,
+				4FAD9B9D2A32156B00FA25F0 /* Tiqr in Frameworks */,
 				4FF567FC2A31D60300616341 /* OpenAPIClient.framework in Frameworks */,
-				735D03512A2A33AE001634CE /* Tiqr in Frameworks */,
 				4FF567E12A31D50000616341 /* AnyCodable in Frameworks */,
 				4FF567DB2A31D3FA00616341 /* TinyConstraints in Frameworks */,
 			);
@@ -495,7 +494,6 @@
 			children = (
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
-				4F909EC82A31CE2500FC1506 /* Packages */,
 				0AFD9E032745579900D48C01 /* EduID */,
 				4F909F1D2A31D07500FC1506 /* OpenAPIClient */,
 				C7F8389C294265B3002015A8 /* eduIDTests */,
@@ -707,14 +705,6 @@
 				4F909EA32A31CDDC00FC1506 /* EduIDButton.swift */,
 			);
 			path = SharedViews;
-			sourceTree = "<group>";
-		};
-		4F909EC82A31CE2500FC1506 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				4F909EC92A31CE2500FC1506 /* tiqr-app-core-ios */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		4F909F1D2A31D07500FC1506 /* OpenAPIClient */ = {
@@ -1058,13 +1048,13 @@
 			);
 			name = eduID;
 			packageProductDependencies = (
-				735D03502A2A33AE001634CE /* Tiqr */,
 				4F909F842A31D1F400FC1506 /* AppAuth */,
 				4F909F872A31D21500FC1506 /* SDWebImage */,
 				4FF567DA2A31D3FA00616341 /* TinyConstraints */,
 				4FF567DD2A31D42900616341 /* KeychainSwift */,
 				4FF567E02A31D50000616341 /* AnyCodable */,
 				4FF568382A31DCE400616341 /* RswiftLibrary */,
+				4FAD9B9C2A32156B00FA25F0 /* Tiqr */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -1154,13 +1144,13 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 				4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 				4F909F862A31D21500FC1506 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4FF567DF2A31D50000616341 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				4FF568372A31DCE400616341 /* XCRemoteSwiftPackageReference "R.swift" */,
+				4FAD9B9B2A32156B00FA25F0 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -2199,6 +2189,14 @@
 				version = 5.16.0;
 			};
 		};
+		4FAD9B9B2A32156B00FA25F0 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
+			requirement = {
+				kind = revision;
+				revision = 5b2b24300a5ed529420dca56415f64c8fc40cf7d;
+			};
+		};
 		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
@@ -2231,14 +2229,6 @@
 				version = 7.3.2;
 			};
 		};
-		735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Tiqr/tiqr-app-core-ios.git";
-			requirement = {
-				branch = feature/redesign;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2251,6 +2241,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F909F862A31D21500FC1506 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		4FAD9B9C2A32156B00FA25F0 /* Tiqr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FAD9B9B2A32156B00FA25F0 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
+			productName = Tiqr;
 		};
 		4FF567DA2A31D3FA00616341 /* TinyConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2280,11 +2275,6 @@
 		4FF5683B2A31DD0F00616341 /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "plugin:RswiftGenerateInternalResources";
-		};
-		735D03502A2A33AE001634CE /* Tiqr */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 735D034F2A2A33AE001634CE /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */;
-			productName = Tiqr;
 		};
 		73BB8D4A2A08E92B0078EB74 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
