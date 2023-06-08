@@ -10,20 +10,20 @@ class InstitutionButtonControl: UIControl {
         
         layer.cornerRadius = 6
         layer.borderWidth = 1
-        layer.borderColor = UIColor.secondaryColor.cgColor
+        layer.borderColor = R.color.secondaryColor()!.cgColor
         
         height(70)
         
         // - stackview
         let firstLabel = UILabel()
         firstLabel.font = R.font.sourceSansProBold(size: 16)
-        firstLabel.textColor = .charcoalColor
+        firstLabel.textColor = R.color.charcoalColor()
         firstLabel.text = label1
         firstLabel.height(20)
         
         let secondLabel = UILabel()
         secondLabel.font = R.font.sourceSansProRegular(size: 12)
-        secondLabel.textColor = .charcoalColor
+        secondLabel.textColor = R.color.charcoalColor()
         secondLabel.text = label2
         secondLabel.height(20)
         

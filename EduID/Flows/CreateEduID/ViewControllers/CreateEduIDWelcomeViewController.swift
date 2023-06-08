@@ -35,7 +35,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
            
             let numberLabel = UILabel()
             numberLabel.font = R.font.sourceSansProBold(size: 44)!
-            numberLabel.textColor = .primaryColor
+            numberLabel.textColor = R.color.primaryColor()
             numberLabel.text = "\(integerIndex)"
             numberLabel.width(30)
             
@@ -49,7 +49,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         }
         
         // - image
-        let image = UIImageView(image: .welcomeInstructions)
+        let image = UIImageView(image: R.image.welcome_instructions_image())
         image.contentMode = .scaleAspectFit
         image.width(150)
         image.height(150)

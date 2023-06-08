@@ -61,10 +61,10 @@ The following information has been added to your eduID and can now be shared.
         textLabel.edges(to: textLabelParent)
         
         // - the info controls
-        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
-        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
+        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.backgroundColor()!, lineSpacing: 6))
+        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? R.image.shield()!.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         
         // - create the stackview
         stack = UIStackView(arrangedSubviews: [posterLabel, textLabelParent, nameControl])
@@ -78,7 +78,7 @@ The following information has been added to your eduID and can now be shared.
         // - institutions title
         let institutionsTitle = NSAttributedString(
             string: R.string.localizable.profileInstitution(),
-            attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6)
+            attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6)
         )
         let institutionsLabel = UILabel()
         institutionsLabel.attributedText = institutionsTitle

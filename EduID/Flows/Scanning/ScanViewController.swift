@@ -36,8 +36,8 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
     // - audio visual components
     private let previewLayer = AVCaptureVideoPreviewLayer()
     
-    // - middel qr frame view
-    private let middelSpaceView = UIImageView(image: .qrFrame)
+    // - middle qr frame view
+    private let middleSpaceView = UIImageView(image: R.image.qr_frame())
     
     // - gradient layer
     private var gradientLayer: CAGradientLayer?
@@ -93,20 +93,20 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
         // - create the dark frame with image
         let upperDarkView = UIView()
         upperDarkView.backgroundColor = .black.withAlphaComponent(0.5)
-        flashButton.setImage(.flashLightOff, for: .normal)
-        flashButton.setImage(.flashLight, for: .selected)
+        flashButton.setImage(R.image.flashlight_off(), for: .normal)
+        flashButton.setImage(R.image.flashlight(), for: .selected)
         flashButton.size(CGSize(width: 50, height: 50))
         flashButton.addTarget(self, action: #selector(toggleTorch), for: .touchUpInside)
         upperDarkView.addSubview(flashButton)
         flashButton.trailing(to: upperDarkView, offset: -36)
         flashButton.top(to: upperDarkView, offset: 100)
-        let middelLeftDarkView = UIView()
-        middelLeftDarkView.backgroundColor = .black.withAlphaComponent(0.5)
+        let middleLeftDarkView = UIView()
+        middleLeftDarkView.backgroundColor = .black.withAlphaComponent(0.5)
         
         // - the imageview containing the frame lines
-        let middelRightDarkView = UIView()
-        middelRightDarkView.backgroundColor = .black.withAlphaComponent(0.5)
-        let middelStack = UIStackView(arrangedSubviews: [middelLeftDarkView, middelSpaceView, middelRightDarkView])
+        let middleRightDarkView = UIView()
+        middleRightDarkView.backgroundColor = .black.withAlphaComponent(0.5)
+        let middleStack = UIStackView(arrangedSubviews: [middleLeftDarkView, middleSpaceView, middleRightDarkView])
         let lowerDarkView = UIView()
         lowerDarkView.backgroundColor = .black.withAlphaComponent(0.5)
         
@@ -134,7 +134,7 @@ Scan it here
         label.center(in: lowerDarkView)
         
         // - the stack view holding the entire frame
-        let vStack = UIStackView(arrangedSubviews: [upperDarkView, middelStack, lowerDarkView])
+        let vStack = UIStackView(arrangedSubviews: [upperDarkView, middleStack, lowerDarkView])
         vStack.axis = .vertical
         vStack.translatesAutoresizingMaskIntoConstraints = false
         vStack.distribution = .fill
@@ -142,11 +142,11 @@ Scan it here
         
         // - constraints
         vStack.edgesToSuperview()
-        middelSpaceView.size(CGSize(width: 275, height: 275))
-        middelRightDarkView.height(to: middelSpaceView)
-        middelLeftDarkView.height(to: middelSpaceView)
+        middleSpaceView.size(CGSize(width: 275, height: 275))
+        middleRightDarkView.height(to: middleSpaceView)
+        middleLeftDarkView.height(to: middleSpaceView)
         upperDarkView.size(to: lowerDarkView)
-        middelLeftDarkView.size(to: middelRightDarkView)
+        middleLeftDarkView.size(to: middleRightDarkView)
     }
     
     //MARK: - toggle flash action

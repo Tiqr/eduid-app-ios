@@ -34,7 +34,7 @@ class AlertMessageViewController: BaseViewController {
         
         stack.alignment = .center
         
-        let imageView = UIImageView(image: .shield)
+        let imageView = UIImageView(image: R.image.shield())
         imageView.size(CGSize(width: 77, height: 87))
         imageView.contentMode = .scaleAspectFit
         

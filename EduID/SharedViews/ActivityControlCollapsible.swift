@@ -21,7 +21,7 @@ class ActivityControlCollapsible: UIControl {
     //MARK: - setup UI
     func setupUI(logoImageURL: String, institutionTitle: String, date: Date, uniqueId: String) {
         
-        backgroundColor = .disabledGrayBackground
+        backgroundColor = R.color.grayDisabledBackground()
         
         //body stackview
         let imageView = UIImageView()
@@ -29,9 +29,9 @@ class ActivityControlCollapsible: UIControl {
         imageView.size(CGSize(width: 50, height: 50))
         
         let attributedStringBody = NSMutableAttributedString()
-        attributedStringBody.append(NSAttributedString(string: institutionTitle, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: institutionTitle, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: "\n"))
-        attributedStringBody.append(NSAttributedString(string: "On \(InstitutionControlCollapsible.dateFormatter.string(from: date))", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: "On \(InstitutionControlCollapsible.dateFormatter.string(from: date))", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6)))
         let bodyParent = UIView()
         let bodyLabel = UILabel()
         bodyParent.addSubview(bodyLabel)
@@ -40,7 +40,7 @@ class ActivityControlCollapsible: UIControl {
         bodyLabel.attributedText = attributedStringBody
         
         let chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
-        chevronImage.tintColor = .backgroundColor
+        chevronImage.tintColor = R.color.backgroundColor()
         chevronImage.size(CGSize(width: 24, height: 24))
         
         let bodyStack = UIStackView(arrangedSubviews: [imageView, bodyParent, chevronImage])
@@ -54,21 +54,21 @@ class ActivityControlCollapsible: UIControl {
         LoginDetailsParent.addSubview(loginDetailsLabel)
         loginDetailsLabel.edges(to: LoginDetailsParent)
         let verifiedFormatted = "Login details"
-        let verifiedAttributedString = NSMutableAttributedString(string: verifiedFormatted, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
+        let verifiedAttributedString = NSMutableAttributedString(string: verifiedFormatted, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6))
         loginDetailsLabel.attributedText = verifiedAttributedString
         
         // line 2
         let line2 = UIView()
         line2.height(1)
-        line2.backgroundColor = .backgroundColor
+        line2.backgroundColor = R.color.backgroundColor()
         
         // institution
         let firstLoginlabelLabel = UILabel()
-        let institutionlabelAttributedString = NSAttributedString(string: "First login", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
+        let institutionlabelAttributedString = NSAttributedString(string: "First login", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6))
         firstLoginlabelLabel.attributedText = institutionlabelAttributedString
         
         let firstLoginLabel = UILabel()
-        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6))
+        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6))
         firstLoginLabel.attributedText = firstLoginLabelAttributedString
         
         let firstLoginStack = UIStackView(arrangedSubviews: [firstLoginlabelLabel, firstLoginLabel])
@@ -78,16 +78,16 @@ class ActivityControlCollapsible: UIControl {
         // line 3
         let line3 = UIView()
         line3.height(1)
-        line3.backgroundColor = .backgroundColor
+        line3.backgroundColor = R.color.backgroundColor()
         
         // affiliations
         let uniqueIdLabelLabel = UILabel()
-        let uniqueIdLabelAttributedString = NSAttributedString(string: "Unique eduId", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
+        let uniqueIdLabelAttributedString = NSAttributedString(string: "Unique eduId", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6))
         uniqueIdLabelLabel.attributedText = uniqueIdLabelAttributedString
         
         let uniqueIdLabel = UILabel()
         uniqueIdLabel.numberOfLines = 0
-        let uniqueIdAttributedString = NSAttributedString(string: uniqueId, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6))
+        let uniqueIdAttributedString = NSAttributedString(string: uniqueId, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: R.color.secondaryColor()!, lineSpacing: 6))
         uniqueIdLabel.attributedText = uniqueIdAttributedString
         
         let uniqueIdStack = UIStackView(arrangedSubviews: [uniqueIdLabelLabel, uniqueIdLabel])
@@ -97,15 +97,15 @@ class ActivityControlCollapsible: UIControl {
         // line 4
         let line4 = UIView()
         line4.height(1)
-        line4.backgroundColor = .backgroundColor
+        line4.backgroundColor = R.color.backgroundColor()
         
 //        // link expires
 //        let expireslabelLabel = UILabel()
-//        let expireslabelAttributedString = NSAttributedString(string: NSLocalizedString(R.string.localizable.profileExpires(), bundle: .module, comment: ""), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+//        let expireslabelAttributedString = NSAttributedString(string: NSLocalizedString(R.string.localizable.profileExpires(), bundle: .module, comment: ""), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14), color: R.color.secondaryColor()!, lineSpacing: 6))
 //        expireslabelLabel.attributedText = expireslabelAttributedString
 //
 //        let expiresLabel = UILabel()
-//        let expiresLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: expires), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+//        let expiresLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: expires), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14), color: R.color.secondaryColor()!, lineSpacing: 6))
 //        expiresLabel.attributedText = expiresLabelAttributedString
 //
 //        let expiresStack = UIStackView(arrangedSubviews: [expireslabelLabel, expiresLabel])
@@ -115,7 +115,7 @@ class ActivityControlCollapsible: UIControl {
 //        // line 5
 //        let line5 = UIView()
 //        line5.height(1)
-//        line5.backgroundColor = .backgroundColor
+//        line5.backgroundColor = R.color.backgroundColor()
         
         // remove button
         let button = EduIDButton(type: .ghost, buttonTitle: R.string.localizable.institutionDelete(), isDelete: true)
@@ -139,7 +139,7 @@ class ActivityControlCollapsible: UIControl {
         
         //border
         layer.borderWidth = 3
-        layer.borderColor = UIColor.backgroundColor.cgColor
+        layer.borderColor = R.color.backgroundColor()!.cgColor
         layer.cornerRadius = 6
         
         // initially hide elements

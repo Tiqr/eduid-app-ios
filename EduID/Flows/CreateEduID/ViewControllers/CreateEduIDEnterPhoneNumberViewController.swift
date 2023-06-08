@@ -70,7 +70,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = R.font.sourceSansProLight(size: 16)
-        textLabel.textColor = .secondaryColor
+        textLabel.textColor = R.color.secondaryColor()
         let attributedText = NSMutableAttributedString(string:
 """
 Let’s add a recovery phonenumber

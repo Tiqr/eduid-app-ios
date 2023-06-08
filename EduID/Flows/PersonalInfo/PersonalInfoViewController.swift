@@ -88,15 +88,15 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         textLabel.edges(to: textLabelParent)
                 
         // - the info controls
-        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
-        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
+        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.backgroundColor()!, lineSpacing: 6))
+        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? R.image.shield()!.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         
-        let emailTitle = NSAttributedString(string: R.string.localizable.profileEmail(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
-        let emailBodyText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
-        emailBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
-        let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailBodyText, iconInBody: .pencil, isFilled: true)
+        let emailTitle = NSAttributedString(string: R.string.localizable.profileEmail(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let emailBodyText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.backgroundColor()!, lineSpacing: 6))
+        emailBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailBodyText, iconInBody: R.image.pencil()!, isFilled: true)
         
         
         // - create the stackview
@@ -109,7 +109,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         scrollView.addSubview(stack)
         
         // - institutions title
-        let institutionsTitle = NSAttributedString(string: R.string.localizable.profileInstitution(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
+        let institutionsTitle = NSAttributedString(string: R.string.localizable.profileInstitution(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6))
         let institutionsLabel = UILabel()
         institutionsLabel.attributedText = institutionsTitle
         let institutionTitleParent = UIView()
@@ -138,8 +138,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
         }
         // - add add institution button
-        let addInstitutionTitle = NSMutableAttributedString(string: "\(R.string.localizable.profileAddRoleInstitution())\nproceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
-        addInstitutionTitle.setAttributeTo(part: "proceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProLight(size: 12)!, color: .charcoalColor, lineSpacing: 6))
+        let addInstitutionTitle = NSMutableAttributedString(string: "\(R.string.localizable.profileAddRoleInstitution())\nproceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: R.color.charcoalColor()!, lineSpacing: 6))
+        addInstitutionTitle.setAttributeTo(part: "proceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProLight(size: 12)!, color: R.color.charcoalColor()!, lineSpacing: 6))
         let addInstitutionButton = ActionableControlWithBodyAndTitle(attributedBodyText: addInstitutionTitle, iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate), isFilled: false)
         
         stack.addArrangedSubview(addInstitutionButton)

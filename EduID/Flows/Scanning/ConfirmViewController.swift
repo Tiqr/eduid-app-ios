@@ -32,7 +32,7 @@ class ConfirmViewController: BaseViewController {
         
         // shield image and message
         let shieldParent = UIView()
-        let shieldImageView = UIImageView(image: .shield)
+        let shieldImageView = UIImageView(image: R.image.shield())
         shieldImageView.translatesAutoresizingMaskIntoConstraints = false
         shieldImageView.size(CGSize(width: 77, height: 87))
         shieldParent.addSubview(shieldImageView)

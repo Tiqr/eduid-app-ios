@@ -27,7 +27,7 @@ class SecurityLandingViewController: UIViewController, ScreenWithScreenType {
     
     //MARK: - setup UI
     func setupUI() {
-        
+
         // - scroll view
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
@@ -45,7 +45,7 @@ class SecurityLandingViewController: UIViewController, ScreenWithScreenType {
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = R.font.sourceSansProLight(size: 16)
-        textLabel.textColor = .secondaryColor
+        textLabel.textColor = R.color.secondaryColor()
         let attributedText = NSMutableAttributedString(string:
 """
 We provide different methods to sign in to your eduID account.
@@ -58,25 +58,25 @@ We provide different methods to sign in to your eduID account.
         let spaceView = UIView()
         
         // - the info controls
-        let firstTitle = NSAttributedString(string: "Sign-in methods", attributes: [.font : R.font.sourceSansProBold(size: 16)!, .foregroundColor: UIColor.charcoalColor])
-        let firstBodyText = NSMutableAttributedString(string: "Send a magic link to\nedwin.van.de.bospoort@gmail.com", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: UIColor.charcoalColor])
-        firstBodyText.setAttributeTo(part: "edwin.van.de.bospoort@gmail.com", attributes: [.font: R.font.sourceSansProLight(size: 12)!, .foregroundColor: UIColor.charcoalColor])
+        let firstTitle = NSAttributedString(string: "Sign-in methods", attributes: [.font : R.font.sourceSansProBold(size: 16)!, .foregroundColor: R.color.charcoalColor()!])
+        let firstBodyText = NSMutableAttributedString(string: "Send a magic link to\nedwin.van.de.bospoort@gmail.com", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: R.color.charcoalColor()!])
+        firstBodyText.setAttributeTo(part: "edwin.van.de.bospoort@gmail.com", attributes: [.font: R.font.sourceSansProLight(size: 12)!, .foregroundColor: R.color.charcoalColor()!])
         let firstControl = ActionableControlWithBodyAndTitle(attributedTitle: firstTitle, attributedBodyText: firstBodyText, iconInBody: UIImage(systemName: "square.and.pencil")?.withRenderingMode(.alwaysTemplate), isFilled: true, shadow: true)
         
-        let secondBodyText = NSMutableAttributedString(string: "Use a password\n******", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: UIColor.charcoalColor])
-        secondBodyText.setAttributeTo(part: "******", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: UIColor.charcoalColor])
+        let secondBodyText = NSMutableAttributedString(string: "Use a password\n******", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: R.color.charcoalColor()!])
+        secondBodyText.setAttributeTo(part: "******", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: R.color.charcoalColor()!])
         let secondControl = ActionableControlWithBodyAndTitle(attributedBodyText: secondBodyText, iconInBody: UIImage(systemName: "square.and.pencil"), isFilled: true, shadow: true)
         
-        let thirdBodyText = NSMutableAttributedString(string: "Use a security key\nnot available yet", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: UIColor.charcoalColor])
+        let thirdBodyText = NSMutableAttributedString(string: "Use a security key\nnot available yet", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: R.color.charcoalColor()])
         thirdBodyText.setAttributeTo(part: "not available yet", attributes: [.font: R.font.sourceSansProLight(size: 12)!])
         let thirdControl = ActionableControlWithBodyAndTitle(attributedBodyText: thirdBodyText, iconInBody: UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: false, shadow: true)
         thirdControl.isEnabled = false
         
-        let fourthTitle = NSAttributedString(string: "Sign-in settings", attributes: [.font : R.font.sourceSansProBold(size: 16)!, .foregroundColor: UIColor.charcoalColor])
-        let fourthBodyText = NSMutableAttributedString(string: "Stay logged in", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: UIColor.charcoalColor])
-        fourthBodyText.setAttributeTo(part: "logged in", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: UIColor.charcoalColor])
+        let fourthTitle = NSAttributedString(string: "Sign-in settings", attributes: [.font : R.font.sourceSansProBold(size: 16)!, .foregroundColor: R.color.charcoalColor()])
+        let fourthBodyText = NSMutableAttributedString(string: "Stay logged in", attributes: [.font: R.font.sourceSansProRegular(size: 16)!, .foregroundColor: R.color.charcoalColor()])
+        fourthBodyText.setAttributeTo(part: "logged in", attributes: [.font: R.font.sourceSansProSemiBold(size: 16)!, .foregroundColor: R.color.charcoalColor()])
         let fourthControl = ActionableControlWithBodyAndTitle(attributedTitle: fourthTitle, attributedBodyText: fourthBodyText, iconInBody: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate), isFilled: true, shadow: true)
-        
+
         // - create the stackview
         let stack = UIStackView(arrangedSubviews: [posterParent, textLabelParent, firstControl, secondControl, thirdControl, fourthControl, spaceView])
         stack.axis = .vertical
@@ -85,7 +85,7 @@ We provide different methods to sign in to your eduID account.
         stack.alignment = .center
         stack.spacing = 20
         scrollView.addSubview(stack)
-        
+
         // - add constraints
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
         stack.width(to: scrollView, offset: -48)

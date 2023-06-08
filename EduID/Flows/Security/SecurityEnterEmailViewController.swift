@@ -65,7 +65,7 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = R.font.sourceSansProLight(size: 16)
-        textLabel.textColor = .secondaryColor
+        textLabel.textColor = R.color.secondaryColor()
         let attributedText = NSMutableAttributedString(string:
 """
 Please enter your new email address. A verification mail will be sent to this address.

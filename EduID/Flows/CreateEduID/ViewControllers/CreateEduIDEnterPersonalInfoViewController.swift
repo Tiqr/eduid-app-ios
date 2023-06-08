@@ -135,12 +135,12 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         termsHstack.axis = .horizontal
         termsHstack.height(36)
         
-        theSwitch.onTintColor = .primaryColor
+        theSwitch.onTintColor = R.color.primaryColor()
         theSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
         
         let termsLabel = UILabel()
         termsLabel.font = R.font.sourceSansProRegular(size: 12)
-        termsLabel.textColor = .charcoalColor
+        termsLabel.textColor = R.color.charcoalColor()
         termsLabel.numberOfLines = 2
         termsLabel.text = "I agree with the terms of service. I also understand the privacy policy."
         

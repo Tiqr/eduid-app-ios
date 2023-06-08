@@ -24,7 +24,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         let label = UILabel()
         label.height(16)
         label.font = R.font.sourceSansProSemiBold(size: 16)
-        label.textColor = .charcoalColor
+        label.textColor = R.color.charcoalColor()
         label.text = title
         addArrangedSubview(label)
         
@@ -71,7 +71,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textFieldParent.trailing(to: extraBorderView, offset: -2)
         textFieldParent.layer.cornerRadius = 6
         textFieldParent.layer.borderWidth = 1
-        textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
+        textFieldParent.layer.borderColor = R.color.tertiaryColor()!.cgColor
         textFieldParent.addSubview(textField)
         textField.center(in: textFieldParent)
         textField.width(to: self, offset: -24)
@@ -99,7 +99,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     
     //MARK: - texfield delegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
+        extraBorderView.layer.borderColor = R.color.textfieldFocusColor()!.cgColor
         delegate?.didBecomeFirstResponder(tag: tag)
     }
     

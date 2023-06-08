@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         //MARK: - blue bottom view
         let blueBottomView = UIView()
         blueBottomView.translatesAutoresizingMaskIntoConstraints = false
-        blueBottomView.backgroundColor = .backgroundColor
+        blueBottomView.backgroundColor = R.color.backgroundColor()
         view.addSubview(blueBottomView)
         blueBottomView.leading(to: view)
         blueBottomView.width(to: view)
@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         blueBottomView.height(236)
         
         //MARK: - image
-        let image = UIImageView(image: .readyForUse)
+        let image = UIImageView(image: R.image.ready_for_use())
         image.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(image)
         image.leading(to: view)
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         
         //MARK: - button stack
         let securityButton = UIButton()
-        securityButton.setImage(.security, for: .normal)
+        securityButton.setImage(R.image.security(), for: .normal)
         securityButton.contentMode = .scaleAspectFit
         securityButton.height(51)
         securityButton.addTarget(self, action: #selector(securityTapped), for: .touchUpInside)
@@ -76,7 +76,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         securityStack.spacing = 3
         
         let personalInfoButton = UIButton()
-        personalInfoButton.setImage(.personalInfo, for: .normal)
+        personalInfoButton.setImage(R.image.personal_info(), for: .normal)
         personalInfoButton.contentMode = .scaleAspectFit
         personalInfoButton.height(51)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTapped), for: .touchUpInside)
@@ -91,7 +91,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         personalInfoStack.spacing = 3
         
         let activityButton = UIButton()
-        activityButton.setImage(.activity, for: .normal)
+        activityButton.setImage(R.image.activity(), for: .normal)
         activityButton.contentMode = .scaleAspectFit
         activityButton.height(51)
         activityButton.addTarget(self, action: #selector(activityTapped), for: .touchUpInside)
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         activityStack.spacing = 3
         
         let qrCodeButton = UIButton()
-        qrCodeButton.setImage(.qrCodeIcon, for: .normal)
+        qrCodeButton.setImage(R.image.qr_code_icon(), for: .normal)
         qrCodeButton.contentMode = .scaleAspectFit
         qrCodeButton.height(51)
         qrCodeButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)

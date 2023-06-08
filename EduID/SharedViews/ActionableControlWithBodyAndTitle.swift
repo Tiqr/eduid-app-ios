@@ -8,7 +8,7 @@ class ActionableControlWithBodyAndTitle: UIControl {
     override var isEnabled: Bool {
         didSet {
             if !isEnabled {
-                view.backgroundColor = .disabledGray.withAlphaComponent(0.5)
+                view.backgroundColor = R.color.grayDisabled()!.withAlphaComponent(0.5)
                 self.alpha = 0.5
             }
         }
@@ -41,7 +41,7 @@ class ActionableControlWithBodyAndTitle: UIControl {
         view.layer.cornerRadius = 6
         view.layer.borderWidth = isFilled ? 3 : 1
         view.layer.borderWidth = shadow ? 1 : view.layer.borderWidth
-        view.layer.borderColor = isFilled ? UIColor.backgroundColor.cgColor : UIColor.disabledGray.cgColor
+        view.layer.borderColor = isFilled ? R.color.backgroundColor()!.cgColor : R.color.grayDisabled()!.cgColor
         let bodyLabel = UILabel()
         bodyLabel.numberOfLines = 0
         bodyLabel.attributedText = attributedBodyText

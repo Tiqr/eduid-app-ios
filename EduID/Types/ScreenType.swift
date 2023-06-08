@@ -116,7 +116,7 @@ enum ScreenType: Int, CaseIterable {
             addLogoTo(item: item)
             item.hidesBackButton = true
             item.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: target, action: action)
-            item.rightBarButtonItem?.tintColor = .backgroundColor
+            item.rightBarButtonItem?.tintColor = R.color.backgroundColor()
         
             // logo and white back arrow
         case .scanScreen:
@@ -127,7 +127,7 @@ enum ScreenType: Int, CaseIterable {
             
         case .homeScreen:
             let eduIdLogo = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 30)))
-            eduIdLogo.image = UIImage.eduIDLogo
+            eduIdLogo.image = R.image.logo_eduID()
             eduIdLogo.contentMode = .scaleAspectFit
             item.titleView = eduIdLogo
             item.rightBarButtonItem = UIBarButtonItem(title: "Log off", style: .plain, target: target, action: secondaryAction)
@@ -139,13 +139,13 @@ enum ScreenType: Int, CaseIterable {
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true
-            item.leftBarButtonItem = UIBarButtonItem(image: UIImage.arrowBack, style: .plain, target: target, action: action)
-            item.leftBarButtonItem?.tintColor = .backgroundColor
+            item.leftBarButtonItem = UIBarButtonItem(image: R.image.arrow_back(), style: .plain, target: target, action: action)
+            item.leftBarButtonItem?.tintColor = R.color.backgroundColor()
         }
     }
     
     func addLogoTo(item: UINavigationItem) {
-        let logo = UIImageView(image: .eduIDLogo)
+        let logo = UIImageView(image: R.image.logo_eduID())
         logo.width(92)
         logo.height(36)
         item.titleView = logo
