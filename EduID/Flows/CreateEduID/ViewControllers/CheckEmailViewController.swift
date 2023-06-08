@@ -39,7 +39,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         gmailImage.height(30)
         gmailImage.contentMode = .scaleAspectFit
         let gmailButton = UIButton()
-        gmailButton.setAttributedTitle(NSAttributedString(string: "check gmail", attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
+        gmailButton.setAttributedTitle(NSAttributedString(string: "check gmail", attributes: [.font: R.font.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
         let gmailStack = UIStackView(arrangedSubviews: [gmailImage, gmailButton])
         gmailStack.alignment = .center
         gmailStack.spacing = 8
@@ -50,7 +50,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         outlookImage.contentMode = .scaleAspectFit
         let outlookButton = UIButton()
         outlookButton.contentMode = .scaleAspectFit
-        outlookButton.setAttributedTitle(NSAttributedString(string: "check outlook", attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
+        outlookButton.setAttributedTitle(NSAttributedString(string: "check outlook", attributes: [.font: R.font.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
         let outlookStack = UIStackView(arrangedSubviews: [outlookImage, outlookButton])
         outlookStack.alignment = .center
         outlookStack.spacing = 8

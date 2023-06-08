@@ -65,7 +65,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         securityButton.height(51)
         securityButton.addTarget(self, action: #selector(securityTapped), for: .touchUpInside)
         let securityLabel = UILabel()
-        securityLabel.font = .nunitoBold(size: 14)
+        securityLabel.font = R.font.nunitoBold(size: 14)
         securityLabel.text = "Security"
         securityLabel.textAlignment = .center
         securityLabel.width(100)
@@ -81,7 +81,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         personalInfoButton.height(51)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTapped), for: .touchUpInside)
         let personalInfoLabel = UILabel()
-        personalInfoLabel.font = .nunitoBold(size: 14)
+        personalInfoLabel.font = R.font.nunitoBold(size: 14)
         personalInfoLabel.text = "Personal info"
         personalInfoLabel.textAlignment = .center
         personalInfoLabel.textColor = .white
@@ -98,7 +98,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         let activityLabel = UILabel()
         activityLabel.text = "Activity"
         activityLabel.textAlignment = .center
-        activityLabel.font = .nunitoBold(size: 14)
+        activityLabel.font = R.font.nunitoBold(size: 14)
         activityLabel.textColor = .white
         let activityStack = UIStackView(arrangedSubviews: [activityButton, activityLabel])
         activityStack.axis = .vertical
@@ -111,7 +111,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         qrCodeButton.height(51)
         qrCodeButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
         let qrCodeLabel = UILabel()
-        qrCodeLabel.font = .nunitoBold(size: 14)
+        qrCodeLabel.font = R.font.nunitoBold(size: 14)
         qrCodeLabel.text = "Scan QR"
         qrCodeLabel.textAlignment = .center
         qrCodeLabel.width(100)

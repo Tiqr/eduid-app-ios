@@ -16,13 +16,13 @@ class InstitutionButtonControl: UIControl {
         
         // - stackview
         let firstLabel = UILabel()
-        firstLabel.font = .sourceSansProBold(size: 16)
+        firstLabel.font = R.font.sourceSansProBold(size: 16)
         firstLabel.textColor = .charcoalColor
         firstLabel.text = label1
         firstLabel.height(20)
         
         let secondLabel = UILabel()
-        secondLabel.font = .sourceSansProRegular(size: 12)
+        secondLabel.font = R.font.sourceSansProRegular(size: 12)
         secondLabel.textColor = .charcoalColor
         secondLabel.text = label2
         secondLabel.height(20)

@@ -82,9 +82,9 @@ You must therefore add the following information to your eduID:
 • Proof of being a student
 • Your current institution
 """
-                                                       , attributes: [.foregroundColor: UIColor.charcoalColor, .font: UIFont.sourceSansProRegular(size: 16), .paragraphStyle: paragraph])
-        attributedText.setAttributeTo(part: "When you study in the Netherlands", attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
-        attributedText.setAttributeTo(part: "You must therefore add the following information to your eduID:", attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
+                                                       , attributes: [.foregroundColor: UIColor.charcoalColor, .font: R.font.sourceSansProRegular(size: 16)!, .paragraphStyle: paragraph])
+        attributedText.setAttributeTo(part: "When you study in the Netherlands", attributes: [.font: R.font.sourceSansProBold(size: 16)!, .paragraphStyle: paragraph])
+        attributedText.setAttributeTo(part: "You must therefore add the following information to your eduID:", attributes: [.font: R.font.sourceSansProBold(size: 16)!, .paragraphStyle: paragraph])
         let textView = TextViewBackgroundColor(attributedText: attributedText, backgroundColor: .yellowColor, insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12))
         
         // - spacing

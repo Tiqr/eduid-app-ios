@@ -61,9 +61,9 @@ The following information has been added to your eduID and can now be shared.
         textLabel.edges(to: textLabelParent)
         
         // - the info controls
-        let nameTitle = NSAttributedString(string: LocalizedKey.Profile.name.localized, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(LocalizedKey.Profile.providedBy.localized) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(LocalizedKey.Profile.providedBy.localized) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
+        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
+        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
         let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         
         // - create the stackview
@@ -76,7 +76,10 @@ The following information has been added to your eduID and can now be shared.
         scrollView.addSubview(stack)
         
         // - institutions title
-        let institutionsTitle = NSAttributedString(string: LocalizedKey.Profile.institution.localized, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+        let institutionsTitle = NSAttributedString(
+            string: R.string.localizable.profileInstitution(),
+            attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6)
+        )
         let institutionsLabel = UILabel()
         institutionsLabel.attributedText = institutionsTitle
         let institutionTitleParent = UIView()
@@ -90,7 +93,11 @@ The following information has been added to your eduID and can now be shared.
             guard let linkedAccount = model.userResponse.linkedAccounts?.first else { return }
             
             // - alert to confirm service removal
-            let alert = UIAlertController(title: LocalizedKey.Profile.removeServiceTitle.localized, message: LocalizedKey.Profile.removeServicePrompt.localized, preferredStyle: .alert)
+            let alert = UIAlertController(
+                title: R.string.localizable.profilePromptRemoveServiceTitle(),
+                message:  R.string.localizable.profilePromptRemoveService(),
+                preferredStyle: .alert
+            )
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive) { [weak self] action in
                 self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
             })

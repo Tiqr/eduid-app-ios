@@ -23,14 +23,14 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         // - title
         let label = UILabel()
         label.height(16)
-        label.font = .sourceSansProSemiBold(size: 16)
+        label.font = R.font.sourceSansProSemiBold(size: 16)
         label.textColor = .charcoalColor
         label.text = title
         addArrangedSubview(label)
         
         // - textfield
         
-        textField.font = .sourceSansProRegular(size: 16)
+        textField.font = R.font.sourceSansProRegular(size: 16)
         textField.placeholder = placeholder
         textField.delegate = self
         textField.height(20)
@@ -77,7 +77,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textField.width(to: self, offset: -24)
         
         // - validationMessage
-        validLabel.font = .sourceSansProSemiBold(size: 12)
+        validLabel.font = R.font.sourceSansProSemiBold(size: 12)
         validLabel.height(12)
         validLabel.textColor = .red
         validLabel.text = provideCorrectError(for: validationType)

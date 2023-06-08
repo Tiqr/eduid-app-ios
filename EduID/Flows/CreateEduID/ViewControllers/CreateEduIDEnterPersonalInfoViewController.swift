@@ -103,7 +103,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     //MARK: - setup UI
     private func setupUI() {
         
-        let localizedString1 = NSLocalizedString(LocalizedKey.Login.requestEduIdButton, comment: "")
+        let localizedString1 = NSLocalizedString(R.string.localizable.loginRequestEduIdButton(), comment: "")
         requestButton = EduIDButton(type: .primary, buttonTitle: localizedString1)
         
         // - add scrollview to hierarchy
@@ -139,7 +139,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         theSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
         
         let termsLabel = UILabel()
-        termsLabel.font = .sourceSansProRegular(size: 12)
+        termsLabel.font = R.font.sourceSansProRegular(size: 12)
         termsLabel.textColor = .charcoalColor
         termsLabel.numberOfLines = 2
         termsLabel.text = "I agree with the terms of service. I also understand the privacy policy."

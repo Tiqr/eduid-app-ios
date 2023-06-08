@@ -75,23 +75,27 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         scrollView.edges(to: view)
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: LocalizedKey.Profile.title.localized, size: 24, primary: LocalizedKey.Profile.title.localized)
+        let posterLabel = UILabel.posterTextLabelBicolor(
+            text: R.string.localizable.profileTitle(),
+            size: 24,
+            primary: R.string.localizable.profileTitle()
+        )
         
         // - create the textView
         let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: LocalizedKey.Profile.infoText.localized, partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: R.string.localizable.profileInfoText(), partBold: "")
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
                 
         // - the info controls
-        let nameTitle = NSAttributedString(string: LocalizedKey.Profile.name.localized, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(LocalizedKey.Profile.providedBy.localized) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(LocalizedKey.Profile.providedBy.localized) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let nameTitle = NSAttributedString(string: R.string.localizable.profileName(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
+        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
+        nameBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
         let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         
-        let emailTitle = NSAttributedString(string: LocalizedKey.Profile.email.localized, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let emailBodyText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(LocalizedKey.Profile.providedBy.localized) \(LocalizedKey.Profile.me.localized)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        emailBodyText.setAttributeTo(part: "\(LocalizedKey.Profile.providedBy.localized) \(LocalizedKey.Profile.me.localized)", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let emailTitle = NSAttributedString(string: R.string.localizable.profileEmail(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
+        let emailBodyText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .backgroundColor, lineSpacing: 6))
+        emailBodyText.setAttributeTo(part: "\(R.string.localizable.profileProvidedBy()) \(R.string.localizable.profileMe())", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 12)!, color: .charcoalColor, lineSpacing: 6))
         let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailBodyText, iconInBody: .pencil, isFilled: true)
         
         
@@ -105,7 +109,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         scrollView.addSubview(stack)
         
         // - institutions title
-        let institutionsTitle = NSAttributedString(string: LocalizedKey.Profile.institution.localized, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+        let institutionsTitle = NSAttributedString(string: R.string.localizable.profileInstitution(), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
         let institutionsLabel = UILabel()
         institutionsLabel.attributedText = institutionsTitle
         let institutionTitleParent = UIView()
@@ -115,12 +119,12 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.setCustomSpacing(6, after: institutionTitleParent)
         
         // - add institutions
-        for (i, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
+        for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
             for affiliation in linkedAccount.eduPersonAffiliations ?? [] {
                 let actionableControl = InstitutionControlCollapsible(role: Affiliation(rawValue: affiliation) ?? .employee, institution: linkedAccount.schacHomeOrganization ?? "", verifiedAt: Date(timeIntervalSince1970: Double(linkedAccount.createdAt ?? 0)), affiliation: linkedAccount.eduPersonAffiliations?.first ?? "", expires: Date(timeIntervalSince1970: Double(linkedAccount.expiresAt ?? 0))) { [weak self] in
                     
                     // - alert to confirm service removal
-                    let alert = UIAlertController(title: LocalizedKey.Profile.removeServiceTitle.localized, message: LocalizedKey.Profile.removeServicePrompt.localized, preferredStyle: .alert)
+                    let alert = UIAlertController(title: R.string.localizable.profilePromptRemoveServiceTitle(), message: R.string.localizable.profilePromptRemoveService(), preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .destructive) { [weak self] action in
                         self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
                     })
@@ -134,8 +138,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
         }
         // - add add institution button
-        let addInstitutionTitle = NSMutableAttributedString(string: "\(LocalizedKey.Profile.addRoleInstitution.localized)\nproceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        addInstitutionTitle.setAttributeTo(part: "proceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: .sourceSansProLight(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let addInstitutionTitle = NSMutableAttributedString(string: "\(R.string.localizable.profileAddRoleInstitution())\nproceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 16)!, color: .charcoalColor, lineSpacing: 6))
+        addInstitutionTitle.setAttributeTo(part: "proceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProLight(size: 12)!, color: .charcoalColor, lineSpacing: 6))
         let addInstitutionButton = ActionableControlWithBodyAndTitle(attributedBodyText: addInstitutionTitle, iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate), isFilled: false)
         
         stack.addArrangedSubview(addInstitutionButton)

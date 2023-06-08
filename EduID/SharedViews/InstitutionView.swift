@@ -13,7 +13,7 @@ class InstitutionView: UIView {
         height(105)
         
         let titleLabel = UILabel()
-        titleLabel.font = .sourceSansProSemiBold(size: 16)
+        titleLabel.font = R.font.sourceSansProSemiBold(size: 16)
         titleLabel.textColor = .charcoalColor
         titleLabel.text = title
         

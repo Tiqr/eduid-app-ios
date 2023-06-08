@@ -29,9 +29,9 @@ class ActivityControlCollapsible: UIControl {
         imageView.size(CGSize(width: 50, height: 50))
         
         let attributedStringBody = NSMutableAttributedString()
-        attributedStringBody.append(NSAttributedString(string: institutionTitle, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: institutionTitle, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: "\n"))
-        attributedStringBody.append(NSAttributedString(string: "On \(InstitutionControlCollapsible.dateFormatter.string(from: date))", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: "On \(InstitutionControlCollapsible.dateFormatter.string(from: date))", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6)))
         let bodyParent = UIView()
         let bodyLabel = UILabel()
         bodyParent.addSubview(bodyLabel)
@@ -54,7 +54,7 @@ class ActivityControlCollapsible: UIControl {
         LoginDetailsParent.addSubview(loginDetailsLabel)
         loginDetailsLabel.edges(to: LoginDetailsParent)
         let verifiedFormatted = "Login details"
-        let verifiedAttributedString = NSMutableAttributedString(string: verifiedFormatted, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let verifiedAttributedString = NSMutableAttributedString(string: verifiedFormatted, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
         loginDetailsLabel.attributedText = verifiedAttributedString
         
         // line 2
@@ -64,11 +64,11 @@ class ActivityControlCollapsible: UIControl {
         
         // institution
         let firstLoginlabelLabel = UILabel()
-        let institutionlabelAttributedString = NSAttributedString(string: "First login", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let institutionlabelAttributedString = NSAttributedString(string: "First login", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
         firstLoginlabelLabel.attributedText = institutionlabelAttributedString
         
         let firstLoginLabel = UILabel()
-        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6))
         firstLoginLabel.attributedText = firstLoginLabelAttributedString
         
         let firstLoginStack = UIStackView(arrangedSubviews: [firstLoginlabelLabel, firstLoginLabel])
@@ -82,12 +82,12 @@ class ActivityControlCollapsible: UIControl {
         
         // affiliations
         let uniqueIdLabelLabel = UILabel()
-        let uniqueIdLabelAttributedString = NSAttributedString(string: "Unique eduId", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let uniqueIdLabelAttributedString = NSAttributedString(string: "Unique eduId", attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14)!, color: .secondaryColor, lineSpacing: 6))
         uniqueIdLabelLabel.attributedText = uniqueIdLabelAttributedString
         
         let uniqueIdLabel = UILabel()
         uniqueIdLabel.numberOfLines = 0
-        let uniqueIdAttributedString = NSAttributedString(string: uniqueId, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let uniqueIdAttributedString = NSAttributedString(string: uniqueId, attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14)!, color: .secondaryColor, lineSpacing: 6))
         uniqueIdLabel.attributedText = uniqueIdAttributedString
         
         let uniqueIdStack = UIStackView(arrangedSubviews: [uniqueIdLabelLabel, uniqueIdLabel])
@@ -101,11 +101,11 @@ class ActivityControlCollapsible: UIControl {
         
 //        // link expires
 //        let expireslabelLabel = UILabel()
-//        let expireslabelAttributedString = NSAttributedString(string: NSLocalizedString(LocalizedKey.Profile.expires, bundle: .module, comment: ""), attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+//        let expireslabelAttributedString = NSAttributedString(string: NSLocalizedString(R.string.localizable.profileExpires(), bundle: .module, comment: ""), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
 //        expireslabelLabel.attributedText = expireslabelAttributedString
 //
 //        let expiresLabel = UILabel()
-//        let expiresLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: expires), attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+//        let expiresLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: expires), attributes: AttributedStringHelper.attributes(font: R.font.sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
 //        expiresLabel.attributedText = expiresLabelAttributedString
 //
 //        let expiresStack = UIStackView(arrangedSubviews: [expireslabelLabel, expiresLabel])
@@ -118,14 +118,14 @@ class ActivityControlCollapsible: UIControl {
 //        line5.backgroundColor = .backgroundColor
         
         // remove button
-        let button = EduIDButton(type: .ghost, buttonTitle: NSLocalizedString(LocalizedKey.Institution.delete, comment: ""), isDelete: true)
+        let button = EduIDButton(type: .ghost, buttonTitle: R.string.localizable.institutionDelete(), isDelete: true)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         let disclaimerParent = UIView()
         let disclaimerText = "*Deleting these login details means eduID removes this information from your eduID account. You still have an account at the service itself. If you want that removed, please do so at the service."
         let disclaimerLabel = UILabel()
         disclaimerLabel.numberOfLines = 0
-        disclaimerLabel.font = UIFont.sourceSansProLight(size: 12)
+        disclaimerLabel.font = R.font.sourceSansProLight(size: 12)
         disclaimerParent.addSubview(disclaimerLabel)
         disclaimerLabel.edges(to: disclaimerParent)
         

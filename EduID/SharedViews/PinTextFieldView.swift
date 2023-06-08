@@ -45,7 +45,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
         textfield.keyboardType = .numberPad
         textfield.center(in: parentView)
         textfield.textAlignment = .center
-        textfield.font = .sourceSansProRegular(size: 20)
+        textfield.font = R.font.sourceSansProRegular(size: 20)
         textfield.delegate = self
         
     }

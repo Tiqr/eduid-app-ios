@@ -124,9 +124,9 @@ Don’t see a QR code?
 Go to eduid.nl/security
 Create your personal QR code
 Scan it here
-""", attributes: [.foregroundColor: UIColor.white, .font: UIFont.sourceSansProRegular(size: 18), .paragraphStyle: paragraph])
+""", attributes: [.foregroundColor: UIColor.white, .font: R.font.sourceSansProRegular(size: 18)!, .paragraphStyle: paragraph])
         
-        attributedText.setAttributeTo(part: "Don’t see a QR code?", attributes: [.font: UIFont.sourceSansProBold(size: 24)])
+        attributedText.setAttributeTo(part: "Don’t see a QR code?", attributes: [.font: R.font.sourceSansProBold(size: 24)!])
         attributedText.setAttributeTo(part: "eduid.nl/security", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.white])
         label.attributedText = attributedText
         label.sizeToFit()

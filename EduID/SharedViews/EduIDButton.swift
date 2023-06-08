@@ -75,9 +75,9 @@ final class EduIDButton: UIButton {
     private func setupWithPrimaryStyle() {
         backgroundColor = UIColor.primaryColor
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.white])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: UIColor.white])
         setAttributedTitle(attributedTitleNormal, for: .normal)
-        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.disabledGray])
+        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: UIColor.disabledGray])
         setAttributedTitle(attributedTitleDisabled, for: .disabled)
         
     }
@@ -85,7 +85,7 @@ final class EduIDButton: UIButton {
     private func setupWithGhostStyle(isDelete: Bool = false) {
         backgroundColor = .white
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: isDelete ? UIColor.red : UIColor.grayGhost])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: isDelete ? UIColor.red : UIColor.grayGhost])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         
         layer.borderWidth = 1
@@ -95,7 +95,7 @@ final class EduIDButton: UIButton {
     private func setupWithNakedStyle() {
         backgroundColor = .clear
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
     }
 

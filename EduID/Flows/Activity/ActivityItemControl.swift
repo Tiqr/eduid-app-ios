@@ -20,11 +20,11 @@ class ActivityItemControl: UIControl {
         // - the middle part with title and date
         let middleParent = UIView()
         let titleLabel = UILabel()
-        titleLabel.font = .sourceSansProBold(size: 16)
+        titleLabel.font = R.font.sourceSansProBold(size: 16)
         titleLabel.textColor = .charcoalColor
         titleLabel.text = title
         let dateLabel = UILabel()
-        dateLabel.font = .sourceSansProRegular(size: 16)
+        dateLabel.font = R.font.sourceSansProRegular(size: 16)
         dateLabel.textColor = .disabledGray
         dateLabel.text = ActivityItemControl.dateFormatter.string(from: date)
         let middleStack = UIStackView(arrangedSubviews: [titleLabel, dateLabel])
