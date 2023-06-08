@@ -31,13 +31,14 @@ import UIKit
 import Tiqr
 import AppAuth
 import OpenAPIClient
-import EduIDExpansion
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        OpenAPIClientAPI.requestBuilderFactory = BearerRequestBuilderFactory()
+
         
         let center = UNUserNotificationCenter.current()
         center.delegate = self

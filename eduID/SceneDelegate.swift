@@ -29,9 +29,7 @@
 
 import UIKit
 import Tiqr
-import OpenAPIClient
 import TiqrCore
-import EduIDExpansion
 import AppAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
