@@ -12,7 +12,6 @@
 		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
 		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
-		4F909E162A31CD2200FC1506 /* EduIDExpansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E082A31CD2200FC1506 /* EduIDExpansion.swift */; };
 		4F909E1B2A31CD2200FC1506 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E0D2A31CD2200FC1506 /* README.md */; };
 		4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E242A31CD7E00FC1506 /* Result+Utils.swift */; };
 		4F909E272A31CD7E00FC1506 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */; };
@@ -228,7 +227,6 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
-		4F909E082A31CD2200FC1506 /* EduIDExpansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EduIDExpansion.swift; sourceTree = "<group>"; };
 		4F909E0D2A31CD2200FC1506 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F909E242A31CD7E00FC1506 /* Result+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
 		4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -529,7 +527,6 @@
 				4F909E2B2A31CDB200FC1506 /* Resources */,
 				4F909E282A31CDA000FC1506 /* Utilities */,
 				4F909E232A31CD7E00FC1506 /* Extensions */,
-				4F909E082A31CD2200FC1506 /* EduIDExpansion.swift */,
 				4F909E0D2A31CD2200FC1506 /* README.md */,
 				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
 				0A9F8D44274F8D0200F24188 /* Theme.swift */,
@@ -1281,7 +1278,6 @@
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
 				4FF567C32A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift in Sources */,
-				4F909E162A31CD2200FC1506 /* EduIDExpansion.swift in Sources */,
 				4F909EA82A31CDDC00FC1506 /* NSAttributedString+Styling.swift in Sources */,
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
 				4FF567A52A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift in Sources */,
