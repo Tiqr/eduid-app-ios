@@ -12,6 +12,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     var viewModel: PersonalInfoViewModel
     
     private var stack: UIStackView!
+    private var addInstitutionButton: ActionableControlWithBodyAndTitle!
+    
     static var indexOfFirstLinkedAccount = 5
     
     //MARK: - init
@@ -74,29 +76,43 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
-        // - posterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.Profile.Title.localization, size: 24, primary:  L.Profile.Title.localization)
+        // - Main title
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.Profile.Title.localization, size: 24, primary:  L.Profile.Title.localization)
         
-        // - create the textView
-        let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.Profile.Info.localization, partBold: "")
-        textLabelParent.addSubview(textLabel)
-        textLabel.edges(to: textLabelParent)
+        // - Description below title
+        let mainDescriptionParent = UIView()
+        let mainDescription = UILabel.plainTextLabelPartlyBold(text: L.Profile.Info.localization, partBold: "")
+        mainDescriptionParent.addSubview(mainDescription)
+        mainDescription.edges(to: mainDescriptionParent)
+        
+        // Shareable information header
+        let shareableInformationHeader = UILabel()
+        let shareableInformationString = NSAttributedString(
+            string: L.Profile.ShareableInformation.localization,
+            attributes: AttributedStringHelper.attributes(
+                font: UIFont.nunitoBold(size: 20),
+                color: .primaryColor,
+                lineSpacing: 10)
+        )
+        shareableInformationHeader.attributedText = shareableInformationString
                 
-        // - the info controls
+        // Info controls
+        
         let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
+        let nameProvidedByText = NSMutableAttributedString(string: "\(model.name )\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
+        nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
+        nameProvidedByText.setAttributeTo(part: model.nameProvidedBy, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameProvidedByText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         
         let emailTitle = NSAttributedString(string: L.Profile.Email.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let emailBodyText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        emailBodyText.setAttributeTo(part: "\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-        let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailBodyText, iconInBody: .pencil, isFilled: true)
+        let emailProvidedByText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
+        emailProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
+        emailProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
+        let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailProvidedByText, iconInBody: .pencil, isFilled: true)
         
         
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [posterLabel, textLabelParent, nameControl, emailControl])
+        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, shareableInformationHeader, nameControl, emailControl])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -105,7 +121,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         scrollView.addSubview(stack)
         
         // - institutions title
-        let institutionsTitle = NSAttributedString(string: L.Profile.Institution.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+        let institutionsTitle = NSAttributedString(string: L.Profile.RoleAndInstitution.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
         let institutionsLabel = UILabel()
         institutionsLabel.attributedText = institutionsTitle
         let institutionTitleParent = UIView()
@@ -114,20 +130,29 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.addArrangedSubview(institutionTitleParent)
         stack.setCustomSpacing(6, after: institutionTitleParent)
         
-        // - add institutions
-        for (i, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
+        // Add institution cards
+        // TODO check the dates on these!
+        // TODO check removal action
+        
+        for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
             for affiliation in linkedAccount.eduPersonAffiliations ?? [] {
-                let actionableControl = InstitutionControlCollapsible(role: Affiliation(rawValue: affiliation) ?? .employee, institution: linkedAccount.schacHomeOrganization ?? "", verifiedAt: Date(timeIntervalSince1970: Double(linkedAccount.createdAt ?? 0)), affiliation: linkedAccount.eduPersonAffiliations?.first ?? "", expires: Date(timeIntervalSince1970: Double(linkedAccount.expiresAt ?? 0))) { [weak self] in
+                let actionableControl = InstitutionControlCollapsible(
+                    role: Affiliation(rawValue: affiliation) ?? .employee,
+                    institution: linkedAccount.schacHomeOrganization ?? "",
+                    verifiedAt: Date(timeIntervalSince1970: Double(linkedAccount.createdAt ?? 0)),
+                    affiliation: linkedAccount.eduPersonAffiliations?.first ?? "",
+                    expires: Date(timeIntervalSince1970: Double(linkedAccount.expiresAt ?? 0))
+                ) { [weak self] in
                     
                     // - alert to confirm service removal
                     let alert = UIAlertController(
                         title: L.Profile.RemoveServicePrompt.Title.localization,
                         message: L.Profile.RemoveServicePrompt.Description.localization,
                         preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .destructive) { [weak self] action in
+                    alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Delete.localization, style: .destructive) { [weak self] action in
                         self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
                     })
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                    alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
                         alert.dismiss(animated: true)
                     })
                     self?.present(alert, animated: true)
@@ -137,21 +162,69 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
         }
         // - add add institution button
-        let addInstitutionTitle = NSMutableAttributedString(string: "\(L.Profile.AddRoleAndInstitution.localization)\nproceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        addInstitutionTitle.setAttributeTo(part: "proceed to add this via SURFconext", attributes: AttributedStringHelper.attributes(font: .sourceSansProLight(size: 12), color: .charcoalColor, lineSpacing: 6))
-        let addInstitutionButton = ActionableControlWithBodyAndTitle(attributedBodyText: addInstitutionTitle, iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate), isFilled: false)
+        let addInstitutionTitle = NSMutableAttributedString(string: "\(L.Profile.AddRoleAndInstitution.localization)\n\(L.Profile.AddViaSurfconext.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
+        addInstitutionTitle.setAttributeTo(part: L.Profile.AddViaSurfconext.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
+        addInstitutionButton = ActionableControlWithBodyAndTitle(
+            attributedBodyText: addInstitutionTitle,
+            iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
+            isFilled: false
+        )
+        addInstitutionButton.addTarget(self, action: #selector(addInstitutionClicked), for: .touchUpInside)
         
         stack.addArrangedSubview(addInstitutionButton)
         
         // - add constraints
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
         stack.width(to: scrollView, offset: -48)
-        textLabel.width(to: stack)
-        posterLabel.width(to: stack)
+        
+        mainTitle.width(to: stack)
+        mainDescription.width(to: stack)
+        shareableInformationHeader.width(to: stack)
         nameControl.width(to: stack)
         emailControl.width(to: stack)
         addInstitutionButton.width(to: stack)
     }
+    
+    @objc
+    func addInstitutionClicked() {
+        self.addInstitutionButton.isEnabled = false
+        self.addInstitutionButton.isLoading = true
+        Task {
+            do {
+                let link = try await self.viewModel.getStartLinkAccount()
+                if let urlString = link?.url,
+                   let url = URL(string: urlString),
+                   UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    // TODO! Refresh screen when coming back, because the user might have added an institution
+                } else {
+                    let alert = UIAlertController(
+                        title: L.Generic.RequestError.Title.localization,
+                        message: L.Profile.AccountLinkError.Title.localization,
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                        alert.dismiss(animated: true)
+                    })
+                    self.present(alert, animated: true)
+                }
+            } catch {
+                NSLog("Unable to fetch account link flow URL: \(error)")
+                let alert = UIAlertController(
+                    title: L.Generic.RequestError.Title.localization,
+                    message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                    alert.dismiss(animated: true)
+                })
+                self.present(alert, animated: true)
+            }
+            self.addInstitutionButton.isLoading = false
+            self.addInstitutionButton.isEnabled = true
+        }
+    }
+    
     
     @objc
     func dismissInfoScreen() {
