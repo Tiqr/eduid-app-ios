@@ -4,6 +4,9 @@ extension UIFont {
     static func sourceSansProRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "SourceSansPro-Regular", size: size)!
     }
+    static func sourceSansProItalic(size: CGFloat) -> UIFont {
+        return UIFont(name: "SourceSansPro-Italic", size: size)!
+    }
     static func sourceSansProLight(size: CGFloat) -> UIFont {
         return UIFont(name: "SourceSansPro-Light", size: size)!
     }

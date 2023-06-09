@@ -10,6 +10,8 @@ import UIKit
 extension UIColor {
     static let primaryColor = UIColor(named: "PrimaryColor")!
     static let backgroundColor = UIColor(named: "BackgroundColor")!
+    static let alertsInformationColor = UIColor(named: "AlertsInformation")!
+    static let alertsRedColor = UIColor(named: "AlertsRed")!
     static let secondaryColor = UIColor(named: "SecondaryColor")!
     static let disabledGray = UIColor(named: "GrayDisabled")!
     static let disabledGrayBackground = UIColor(named: "GrayDisabledBackground")!
