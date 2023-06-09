@@ -63,20 +63,17 @@ Redirects from https have an entry point in func scene(_ scene: UIScene, continu
 The custom scheme eduid:// is added as a URL type in the info tab. The entry point for custom schemes is also in SceneDelegate.swift in func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) _
  
 ##5) App localization
-The copy texts for the app have been provided as json files. The contents of this json is copied into the translate.js file that is included in this repository. The translate.json does two things:
-1) create a struct hierarchy with static strings for each text copy element. e.g. 
+The copy texts for the app have been provided in a YAML file called localizations.yaml (in the same directory as this README file).
+You can convert this file to actual localizations used by the iOS build process using the tool named [Localicious](https://github.com/PicnicSupermarket/localicious).
+Use the following command ran from this directory to regenerate the strings files based on the changes you made in the YAML:
 
-struct LocalizableStrings {
-    struct OnBoarding {
-        static let welcome = "welcome"
-    }
-}
-
-2) it created to Localizable.strings files (at the moment Dutch and English) that contain the copy strings. e.g.
-
-"welcome" = "Hi there..."
-
-This is implemented using NSLocalizedString(key: LocalizableString.Onboarding.welcome, bundle: .module, comments: "")
+```
+localicious render localizations.yaml ./ --languages en,nl --outputTypes ios -c IOS &&\
+mv ios/en/Localizable.strings Resources/General/en.lproj/Localizable.strings &&\
+mv ios/nl/Localizable.strings Resources/General/nl.lproj/Localizable.strings &&\
+mv ios/Localizable.swift Localizable.swift &&\
+rm -rf ios/
+```
 
 ##6) Network Code (OpenAPI Generator)
 

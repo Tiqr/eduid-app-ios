@@ -103,7 +103,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     //MARK: - setup UI
     private func setupUI() {
         
-        let localizedString1 = NSLocalizedString(LocalizedKey.Login.requestEduIdButton, comment: "")
+        let localizedString1 = L.Login.RequestEduIdButton.localization
         requestButton = EduIDButton(type: .primary, buttonTitle: localizedString1)
         
         // - add scrollview to hierarchy

@@ -53,7 +53,7 @@ class InstitutionControlCollapsible: UIControl {
         verifiedLabel.numberOfLines = 0
         verifiedParent.addSubview(verifiedLabel)
         verifiedLabel.edges(to: verifiedParent)
-        let verifiedFormatted = String(format: NSLocalizedString(LocalizedKey.Profile.verifiedAt, comment: ""), locale: nil, institution, InstitutionControlCollapsible.dateFormatter.string(from: verifiedAt))
+        let verifiedFormatted = L.Profile.VerifiedAt(args: institution, InstitutionControlCollapsible.dateFormatter.string(from: verifiedAt)).localization
         let verifiedAttributedString = NSMutableAttributedString(string: verifiedFormatted, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         verifiedAttributedString.setAttributeTo(part: institution, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         verifiedLabel.attributedText = verifiedAttributedString
@@ -65,7 +65,7 @@ class InstitutionControlCollapsible: UIControl {
         
         // institution
         let institutionlabelLabel = UILabel()
-        let institutionlabelAttributedString = NSAttributedString(string: NSLocalizedString(LocalizedKey.Profile.institution, comment: ""), attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let institutionlabelAttributedString = NSAttributedString(string: L.Profile.Institution.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         institutionlabelLabel.attributedText = institutionlabelAttributedString
         
         let institutionLabel = UILabel()
@@ -83,7 +83,7 @@ class InstitutionControlCollapsible: UIControl {
         
         // affiliations
         let affiliationslabelLabel = UILabel()
-        let affiliationslabelAttributedString = NSAttributedString(string: NSLocalizedString(LocalizedKey.Profile.affiliations, comment: ""), attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let affiliationslabelAttributedString = NSAttributedString(string: L.Profile.Affiliations.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         affiliationslabelLabel.attributedText = affiliationslabelAttributedString
         
         let affiliationsLabel = UILabel()
@@ -101,7 +101,7 @@ class InstitutionControlCollapsible: UIControl {
         
         // link expires
         let expireslabelLabel = UILabel()
-        let expireslabelAttributedString = NSAttributedString(string: NSLocalizedString(LocalizedKey.Profile.expires, comment: ""), attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let expireslabelAttributedString = NSAttributedString(string: L.Profile.Expires.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         expireslabelLabel.attributedText = expireslabelAttributedString
         
         let expiresLabel = UILabel()
@@ -118,7 +118,7 @@ class InstitutionControlCollapsible: UIControl {
         line5.backgroundColor = .backgroundColor
         
         // remove button
-        let button = EduIDButton(type: .ghost, buttonTitle: NSLocalizedString(LocalizedKey.Institution.delete, comment: ""), isDelete: true)
+        let button = EduIDButton(type: .ghost, buttonTitle: L.Institution.Delete.localization, isDelete: true)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         stack = UIStackView(arrangedSubviews: [bodyStack, verifiedParent, line2, institutionStack, line3, affiliationsStack, line4, expiresStack, line5, button])
