@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/evgenyneu/keychain-swift.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "c1fde55798b164cad44b5e23cfa2f0f1ebcd76af"
+        "revision" : "d108a1fa6189e661f91560548ef48651ed8d93b9",
+        "version" : "20.0.0"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "7f9fb5d43ecd4aa714c00746f54873f354403438",
-        "version" : "5.15.8"
+        "revision" : "c51ba84499268ea3020e6aee9e229c0f56b9d924",
+        "version" : "5.16.0"
       }
     },
     {
@@ -48,10 +48,9 @@
     {
       "identity" : "tiqr-app-core-ios",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:Tiqr/tiqr-app-core-ios.git",
+      "location" : "https://github.com/Tiqr/tiqr-app-core-ios",
       "state" : {
-        "branch" : "feature/redesign",
-        "revision" : "d3e3984f52d73f0596ea6f0e6fc8dce4ba2a66f7"
+        "revision" : "4ce20053f63b44d6a0d8a61941e299e4e4182a49"
       }
     }
   ],
