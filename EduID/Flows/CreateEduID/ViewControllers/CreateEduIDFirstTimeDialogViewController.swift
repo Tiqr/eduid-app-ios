@@ -123,7 +123,7 @@ You must therefore add the following information to your eduID:
     }
     
     @objc func skipAction() {
-        showNextScreen()
+        self.dismiss(animated: true)
     }
     
     @objc func launchAddInstitutions() {

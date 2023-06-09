@@ -87,7 +87,6 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                     
                     ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: enrolment.url ?? "") { [weak self] type, object, error in
                         guard let self else { return }
-                        self.secondEnteredPin.removeLast(2)
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch let error as NSError {
@@ -145,7 +144,10 @@ extension CreatePincodeAndBiometricAccessViewModel {
         guard let err = error else { return }
         switch err.code {
         case .userCancel, .biometryNotAvailable:
-            nextScreenDelegate?.nextScreen(for: self.enrollmentChallenge != nil ? .registerWithoutRecovery : .none )
+            nextScreenDelegate?.nextScreen(for:
+                                            self.isQrEnrolment != nil
+                                           ? .registerWithoutRecovery
+                                           : .none )
         default:
             break
         }
