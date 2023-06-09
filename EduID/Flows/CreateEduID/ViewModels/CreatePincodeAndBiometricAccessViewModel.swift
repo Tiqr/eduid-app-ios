@@ -87,7 +87,6 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                     
                     ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: enrolment.url ?? "") { [weak self] type, object, error in
                         guard let self else { return }
-                        self.secondEnteredPin.removeLast(2)
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch let error as NSError {
