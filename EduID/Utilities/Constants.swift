@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  
-//
-//  Created by Yasser Farahi on 06/04/2023.
-//
-
 import UIKit
 
 enum Constants {
@@ -52,10 +45,16 @@ enum Constants {
     enum KeyChain {
         static let keyPrefix = Bundle.main.bundleIdentifier ?? "nl.eduid"
         static let challenge = "Challenge"
+        static let oidAuthState = "EDU_ID_OIDAuthState"
+        static let refreshToken = "EDU_ID_RefreshToken"
         static let uuid = UUID()
+        static let accessToken = "EDU_ID_AccessToken"
+        static let userPin = "EDU_ID_User_Pin"
     }
     
     enum Headers {
         static let authorization = "Authorization"
-    }    
+        static let authentication = "Authentication"
+    }
+    
 }

@@ -122,6 +122,8 @@ extension CreatePincodeAndBiometricAccessViewModel {
                 if let enrolment = self.enrollmentChallenge {
                     if let managedObject = enrolment.identity.managedObjectContext {
                         enrolment.identity.biometricIDEnabled = NSNumber(value: 1)
+                        enrolment.identity.biometricIDAvailable = NSNumber(value: 1)
+                        enrolment.identity.usesOldBiometricFlow = NSNumber(value: 1)
                         do {
                             try managedObject.save()
                             self.enrollmentChallenge = nil
@@ -144,10 +146,7 @@ extension CreatePincodeAndBiometricAccessViewModel {
         guard let err = error else { return }
         switch err.code {
         case .userCancel, .biometryNotAvailable:
-            nextScreenDelegate?.nextScreen(for:
-                                            self.isQrEnrolment != nil
-                                           ? .registerWithoutRecovery
-                                           : .none )
+            nextScreenDelegate?.nextScreen(for: self.enrollmentChallenge != nil ? .registerWithoutRecovery : .none )
         default:
             break
         }

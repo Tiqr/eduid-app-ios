@@ -111,10 +111,65 @@ class VerifyScanResultViewController: BaseViewController {
         case .enrollment:
             delegate?.verifyScanResultViewControllerEnroll(viewController: self, viewModel: viewModel)
         case .authentication:
-            viewModel.handleAuthenticationScanResult()
+            signIn()
         case .invalid, .none, .some(_):
             break
         }
     }
+    
+    private func signIn() {
+        guard let challenge = viewModel.challenge as? AuthenticationChallenge,
+        let identity = challenge.identity else { return }
+        switch identity.biometricIDEnabled {
+        case 1: completeAuthentication(with: .biometrics)
+        default: presentPinCodeVerifyScreen()
+        }
+    }
+    
+    private func presentPinCodeVerifyScreen() {
+        let pinCodeVC = VerifyPinCodeViewController()
+        pinCodeVC.pinDelegate = self
+        pinCodeVC.screenType = .pincodeScreen
+        pinCodeVC.modalPresentationStyle = .fullScreen
+        present(pinCodeVC, animated: true)
+    }
+    
+    private func completeAuthentication(with mode: SecretVerificationMode, and pin: String? = nil) {
+        guard let challenge = viewModel.challenge as? AuthenticationChallenge,
+              let identity = challenge.identity else { return }
+        switch mode {
+        case .biometrics:
+            ServiceContainer.sharedInstance().secretService.secret(for: identity, touchIDPrompt: "Using Biometrics To Login") { [weak self] data in
+                guard let self else { return }
+                if let secretData = data {
+                    self.authenticate(with: secretData, and: challenge)
+                }
+            } failureHandler: { failed in
+                self.presentPinCodeVerifyScreen()
+            }
+        case .pin:
+            guard let pinCode = pin else { return }
+            let secretData = ServiceContainer.sharedInstance().secretService.secret(for: identity, withPIN: pinCode)
+            authenticate(with: secretData, and: challenge)
+        }
+    }
+    
+    private func authenticate(with secretData: Data?, and challenge: AuthenticationChallenge) {
+        guard let secret = secretData else { return }
+        ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, response, error in
+            if success {
+                self.dismiss(animated: true)
+            }
+        }
+    }
+}
 
+extension VerifyScanResultViewController: VerifyPinCodeDelegate {
+    func get(pinCode: String) {
+        completeAuthentication(with: .pin, and: pinCode)
+    }
+}
+
+enum SecretVerificationMode {
+    case pin, biometrics
 }
