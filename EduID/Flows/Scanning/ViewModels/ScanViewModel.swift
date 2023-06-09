@@ -84,7 +84,7 @@ final class ScanViewModel: NSObject {
         guard let challenge = challenge as? AuthenticationChallenge else {
             return
         }
-        ServiceContainer.sharedInstance().secretService.secret(for: challenge.identity, touchIDPrompt: "Using Biometry") { data in
+        ServiceContainer.sharedInstance().secretService.secret(for: challenge.identity, touchIDPrompt: "Use Biometrics To Login") { data in
             guard let data = data else {
                 return
             }
