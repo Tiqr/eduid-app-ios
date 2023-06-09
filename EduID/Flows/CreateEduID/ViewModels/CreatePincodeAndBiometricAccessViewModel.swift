@@ -144,7 +144,10 @@ extension CreatePincodeAndBiometricAccessViewModel {
         guard let err = error else { return }
         switch err.code {
         case .userCancel, .biometryNotAvailable:
-            nextScreenDelegate?.nextScreen(for: self.enrollmentChallenge != nil ? .registerWithoutRecovery : .none )
+            nextScreenDelegate?.nextScreen(for:
+                                            self.isQrEnrolment != nil
+                                           ? .registerWithoutRecovery
+                                           : .none )
         default:
             break
         }

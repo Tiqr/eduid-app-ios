@@ -77,7 +77,9 @@ Do you want to use your biometrics to access the eduID app more easily?
             alert.addAction(UIAlertAction(
                 title: Constants.ButtonTitles.proceed, style: .destructive) { [weak self] _ in
                     guard let self else { return }
-                    self.nextScreen(for: self.createPincodeViewModel.enrollmentChallenge != nil ? .registerWithoutRecovery : .none)
+                    self.nextScreen(for: self.createPincodeViewModel.isQrEnrolment != nil
+                                    ? .registerWithoutRecovery
+                                    : .none)
                 })
             alert.addAction(UIAlertAction(title: Constants.ButtonTitles.cancel, style: .cancel) { action in
                 alert.dismiss(animated: true)
