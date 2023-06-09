@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(posterLabel)
         posterLabel.width(to: view)
         posterLabel.centerX(to: view)
-        posterLabel.top(to: view, offset: 250)
+        posterLabel.topToSuperview(offset: view.frame.height / 6)
         
         //MARK: - blue bottom view
         let blueBottomView = UIView()
