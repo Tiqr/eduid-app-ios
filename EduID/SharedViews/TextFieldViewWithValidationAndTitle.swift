@@ -23,14 +23,14 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         // - title
         let label = UILabel()
         label.height(16)
-        label.font = R.font.sourceSansProSemiBold(size: 16)
-        label.textColor = R.color.charcoalColor()
+        label.font = .sourceSansProSemiBold(size: 16)
+        label.textColor = .charcoalColor
         label.text = title
         addArrangedSubview(label)
         
         // - textfield
         
-        textField.font = R.font.sourceSansProRegular(size: 16)
+        textField.font = .sourceSansProRegular(size: 16)
         textField.placeholder = placeholder
         textField.delegate = self
         textField.height(20)
@@ -71,13 +71,13 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textFieldParent.trailing(to: extraBorderView, offset: -2)
         textFieldParent.layer.cornerRadius = 6
         textFieldParent.layer.borderWidth = 1
-        textFieldParent.layer.borderColor = R.color.tertiaryColor()!.cgColor
+        textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
         textFieldParent.addSubview(textField)
         textField.center(in: textFieldParent)
         textField.width(to: self, offset: -24)
         
         // - validationMessage
-        validLabel.font = R.font.sourceSansProSemiBold(size: 12)
+        validLabel.font = .sourceSansProSemiBold(size: 12)
         validLabel.height(12)
         validLabel.textColor = .red
         validLabel.text = provideCorrectError(for: validationType)
@@ -99,7 +99,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     
     //MARK: - texfield delegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        extraBorderView.layer.borderColor = R.color.textfieldFocusColor()!.cgColor
+        extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
         delegate?.didBecomeFirstResponder(tag: tag)
     }
     

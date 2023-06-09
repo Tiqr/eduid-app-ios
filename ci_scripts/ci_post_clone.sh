@@ -1,9 +1,4 @@
 #!/bin/sh
-
-# Disable SPM built tool validation - required for Rswift plugin - it seems like the enabled flag is stored in the .xcodeproj file
-# see: https://forums.swift.org/t/telling-xcode-14-beta-4-to-trust-build-tool-plugins-programatically/59305/4
-defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
-
 cd /Volumes/workspace/repository/
 pwd
 git fetch --unshallow

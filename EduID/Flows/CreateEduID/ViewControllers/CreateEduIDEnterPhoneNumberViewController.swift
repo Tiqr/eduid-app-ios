@@ -69,8 +69,8 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         let textLabel = UILabel()
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.font = R.font.sourceSansProLight(size: 16)
-        textLabel.textColor = R.color.secondaryColor()
+        textLabel.font = .sourceSansProLight(size: 16)
+        textLabel.textColor = .secondaryColor
         let attributedText = NSMutableAttributedString(string:
 """
 Let’s add a recovery phonenumber
@@ -78,8 +78,8 @@ If you can't access eduID with the app or via email, you can use this to sign in
 
 We will text you a code to verify your number.
 """
-                                                ,attributes: [.font : R.font.sourceSansProLight(size: 16)])
-        attributedText.setAttributes([.font : R.font.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: 32))
+                                                ,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
+        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: 32))
         textLabel.attributedText = attributedText
         
         textViewParent.addSubview(textLabel)

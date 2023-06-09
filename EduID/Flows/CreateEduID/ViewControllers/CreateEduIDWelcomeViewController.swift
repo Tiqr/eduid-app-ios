@@ -12,12 +12,12 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         
         screenType = .welcomeScreen
         
-        let first = NSMutableAttributedString(string: "Quickly login to educational services", attributes: [.font: R.font.sourceSansProRegular(size: 16)])
-        first.setAttributes([.font: R.font.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 13))
-       let second = NSMutableAttributedString(string: "View what details of your eduID get shared with those services", attributes: [.font: R.font.sourceSansProRegular(size: 16)])
-        second.setAttributes([.font: R.font.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 4))
-        let third = NSMutableAttributedString(string: "Verify your identity so you can access more secure services.", attributes: [.font: R.font.sourceSansProRegular(size: 16)])
-        third.setAttributes([.font: R.font.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 20))
+        let first = NSMutableAttributedString(string: "Quickly login to educational services", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        first.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 13))
+       let second = NSMutableAttributedString(string: "View what details of your eduID get shared with those services", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        second.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 4))
+        let third = NSMutableAttributedString(string: "Verify your identity so you can access more secure services.", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        third.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 20))
         attributedTexts.append(contentsOf: [first, second, third])
 
         setupUI()
@@ -34,8 +34,8 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         (1...3).forEach { integerIndex in
            
             let numberLabel = UILabel()
-            numberLabel.font = R.font.sourceSansProBold(size: 44)!
-            numberLabel.textColor = R.color.primaryColor()
+            numberLabel.font = .sourceSansProBold(size: 44)
+            numberLabel.textColor = .primaryColor
             numberLabel.text = "\(integerIndex)"
             numberLabel.width(30)
             
@@ -49,7 +49,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         }
         
         // - image
-        let image = UIImageView(image: R.image.welcome_instructions_image())
+        let image = UIImageView(image: .welcomeInstructions)
         image.contentMode = .scaleAspectFit
         image.width(150)
         image.height(150)

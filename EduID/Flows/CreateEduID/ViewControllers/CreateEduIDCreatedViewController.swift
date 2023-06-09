@@ -38,7 +38,7 @@ To safely use this app, we need you to set a pincode and provide a phonenumber i
         
         // image
         let imageParent = UIView()
-        let imageView = UIImageView(image: R.image.eduid_created_image())
+        let imageView = UIImageView(image: .eduIDCreatedImage)
         imageView.contentMode = .scaleAspectFit
         imageParent.addSubview(imageView)
         imageView.center(in: imageParent)

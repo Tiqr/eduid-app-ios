@@ -11,7 +11,7 @@ class ActivityItemControl: UIControl {
         imageParent.size(CGSize(width: 82, height: 82))
         let imageView = UIImageView(image: image)
         imageView.size(CGSize(width: 50, height: 50))
-        imageView.tintColor = R.color.charcoalColor()
+        imageView.tintColor = .charcoalColor
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageParent.addSubview(imageView)
@@ -20,12 +20,12 @@ class ActivityItemControl: UIControl {
         // - the middle part with title and date
         let middleParent = UIView()
         let titleLabel = UILabel()
-        titleLabel.font = R.font.sourceSansProBold(size: 16)
-        titleLabel.textColor = R.color.charcoalColor()
+        titleLabel.font = .sourceSansProBold(size: 16)
+        titleLabel.textColor = .charcoalColor
         titleLabel.text = title
         let dateLabel = UILabel()
-        dateLabel.font = R.font.sourceSansProRegular(size: 16)
-        dateLabel.textColor = R.color.grayDisabled()
+        dateLabel.font = .sourceSansProRegular(size: 16)
+        dateLabel.textColor = .disabledGray
         dateLabel.text = ActivityItemControl.dateFormatter.string(from: date)
         let middleStack = UIStackView(arrangedSubviews: [titleLabel, dateLabel])
         middleStack.axis = .vertical
@@ -39,7 +39,7 @@ class ActivityItemControl: UIControl {
         let chevronParent = UIView()
         chevronParent.size(CGSize(width: 82, height: 82))
         let chevronView = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
-        chevronView.tintColor = R.color.charcoalColor()
+        chevronView.tintColor = .charcoalColor
         chevronView.contentMode = .scaleAspectFit
         chevronView.translatesAutoresizingMaskIntoConstraints = false
         chevronView.size(CGSize(width: 22, height: 22))
@@ -53,7 +53,7 @@ class ActivityItemControl: UIControl {
         addSubview(stack)
         stack.edges(to: self)
         
-        backgroundColor = R.color.grayDisabledBackground()
+        backgroundColor = .disabledGrayBackground
     }
     
     required init?(coder: NSCoder) {

@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //AppAuth redirect
         if AppAuthController.shared.isRedirectURI(url) {
-            _ = AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
+            AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             return true
         } else {
             

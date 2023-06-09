@@ -29,18 +29,18 @@ final class EduIDButton: UIButton {
             case false:
                 switch type {
                 case .primary:
-                    backgroundColor = R.color.grayDisabledBackground()
+                    backgroundColor = UIColor.disabledGrayBackground
                 case .ghost:
-                    layer.borderColor = R.color.grayDisabled()!.cgColor
+                    layer.borderColor = UIColor.disabledGray.cgColor
                 case .naked:
                     break
                 }
             case true:
                 switch type {
                 case .primary:
-                    backgroundColor = R.color.primaryColor()
+                    backgroundColor = UIColor.primaryColor
                 case .ghost:
-                    layer.borderColor = R.color.grayGhost()!.cgColor
+                    layer.borderColor = UIColor.grayGhost.cgColor
                 case .naked:
                     break
                 }
@@ -73,11 +73,11 @@ final class EduIDButton: UIButton {
     }
     
     private func setupWithPrimaryStyle() {
-        backgroundColor = R.color.primaryColor()
+        backgroundColor = UIColor.primaryColor
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: UIColor.white])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.white])
         setAttributedTitle(attributedTitleNormal, for: .normal)
-        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: R.color.grayDisabled()])
+        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.disabledGray])
         setAttributedTitle(attributedTitleDisabled, for: .disabled)
         
     }
@@ -85,17 +85,17 @@ final class EduIDButton: UIButton {
     private func setupWithGhostStyle(isDelete: Bool = false) {
         backgroundColor = .white
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: isDelete ? UIColor.red : R.color.grayGhost()])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: isDelete ? UIColor.red : UIColor.grayGhost])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         
         layer.borderWidth = 1
-        layer.borderColor = isDelete ? UIColor.red.cgColor : R.color.grayGhost()!.cgColor
+        layer.borderColor = isDelete ? UIColor.red.cgColor : UIColor.grayGhost.cgColor
     }
     
     private func setupWithNakedStyle() {
         backgroundColor = .clear
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : R.font.sourceSansProRegular(size: 16), .foregroundColor: R.color.primaryColor()])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
     }
 

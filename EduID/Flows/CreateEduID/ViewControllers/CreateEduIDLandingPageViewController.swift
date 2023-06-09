@@ -25,7 +25,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
     private func setupUI() {
                 
         // - add logo
-        let logo = UIImageView(image: R.image.logo_eduID())
+        let logo = UIImageView(image: .eduIDLogo)
         logo.height(60)
         logo.width(150)
         
@@ -33,7 +33,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         let posterLabel = UILabel.posterTextLabel(text: "Personal account\nfor Education and Research", size: 24, alignment: .center)
         
         // - add image
-        let imageView = UIImageView(image: R.image.eduid_landing_vector())
+        let imageView = UIImageView(image: .landingPageImage)
         imageView.contentMode = .scaleAspectFit
         imageView.height(252, priority: .defaultLow)
         imageView.width(141)

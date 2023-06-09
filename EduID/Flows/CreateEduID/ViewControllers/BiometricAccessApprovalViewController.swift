@@ -44,7 +44,7 @@ Do you want to use your biometrics to access the eduID app more easily?
         
         // image
         let imageParent = UIView()
-        let imageView = UIImageView(image: R.image.biometric_image())
+        let imageView = UIImageView(image: .biometric)
         imageView.aspectRatio(1 / 0.727564102564103)
         imageView.contentMode = .scaleAspectFit
         imageParent.addSubview(imageView)

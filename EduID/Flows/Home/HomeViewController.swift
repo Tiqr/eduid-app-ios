@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         //MARK: - blue bottom view
         let blueBottomView = UIView()
         blueBottomView.translatesAutoresizingMaskIntoConstraints = false
-        blueBottomView.backgroundColor = R.color.backgroundColor()
+        blueBottomView.backgroundColor = .backgroundColor
         view.addSubview(blueBottomView)
         blueBottomView.leading(to: view)
         blueBottomView.width(to: view)
@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         blueBottomView.height(236)
         
         //MARK: - image
-        let image = UIImageView(image: R.image.ready_for_use())
+        let image = UIImageView(image: .readyForUse)
         image.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(image)
         image.leading(to: view)
@@ -60,12 +60,12 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         
         //MARK: - button stack
         let securityButton = UIButton()
-        securityButton.setImage(R.image.security(), for: .normal)
+        securityButton.setImage(.security, for: .normal)
         securityButton.contentMode = .scaleAspectFit
         securityButton.height(51)
         securityButton.addTarget(self, action: #selector(securityTapped), for: .touchUpInside)
         let securityLabel = UILabel()
-        securityLabel.font = R.font.nunitoBold(size: 14)
+        securityLabel.font = .nunitoBold(size: 14)
         securityLabel.text = "Security"
         securityLabel.textAlignment = .center
         securityLabel.width(100)
@@ -76,12 +76,12 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         securityStack.spacing = 3
         
         let personalInfoButton = UIButton()
-        personalInfoButton.setImage(R.image.personal_info(), for: .normal)
+        personalInfoButton.setImage(.personalInfo, for: .normal)
         personalInfoButton.contentMode = .scaleAspectFit
         personalInfoButton.height(51)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTapped), for: .touchUpInside)
         let personalInfoLabel = UILabel()
-        personalInfoLabel.font = R.font.nunitoBold(size: 14)
+        personalInfoLabel.font = .nunitoBold(size: 14)
         personalInfoLabel.text = "Personal info"
         personalInfoLabel.textAlignment = .center
         personalInfoLabel.textColor = .white
@@ -91,14 +91,14 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         personalInfoStack.spacing = 3
         
         let activityButton = UIButton()
-        activityButton.setImage(R.image.activity(), for: .normal)
+        activityButton.setImage(.activity, for: .normal)
         activityButton.contentMode = .scaleAspectFit
         activityButton.height(51)
         activityButton.addTarget(self, action: #selector(activityTapped), for: .touchUpInside)
         let activityLabel = UILabel()
         activityLabel.text = "Activity"
         activityLabel.textAlignment = .center
-        activityLabel.font = R.font.nunitoBold(size: 14)
+        activityLabel.font = .nunitoBold(size: 14)
         activityLabel.textColor = .white
         let activityStack = UIStackView(arrangedSubviews: [activityButton, activityLabel])
         activityStack.axis = .vertical
@@ -106,12 +106,12 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         activityStack.spacing = 3
         
         let qrCodeButton = UIButton()
-        qrCodeButton.setImage(R.image.qr_code_icon(), for: .normal)
+        qrCodeButton.setImage(.qrCodeIcon, for: .normal)
         qrCodeButton.contentMode = .scaleAspectFit
         qrCodeButton.height(51)
         qrCodeButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
         let qrCodeLabel = UILabel()
-        qrCodeLabel.font = R.font.nunitoBold(size: 14)
+        qrCodeLabel.font = .nunitoBold(size: 14)
         qrCodeLabel.text = "Scan QR"
         qrCodeLabel.textAlignment = .center
         qrCodeLabel.width(100)

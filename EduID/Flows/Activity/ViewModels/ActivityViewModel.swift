@@ -43,7 +43,7 @@ class ActivityViewModel: NSObject {
         
         if userResponse.linkedAccounts?.isEmpty ?? true {
             let name = "\(userResponse.givenName?.first ?? "X"). \(userResponse.familyName ?? "")"
-            let nameProvidedBy = R.string.localizable.profileMe()
+            let nameProvidedBy = LocalizedKey.Profile.me.localized
             dataAvailableClosure?(PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: false))
         } else {
             guard let firstLinkedAccount = userResponse.linkedAccounts?.first else { return }

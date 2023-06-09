@@ -64,13 +64,13 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         let textLabel = UILabel()
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.font = R.font.sourceSansProLight(size: 16)
-        textLabel.textColor = R.color.secondaryColor()
+        textLabel.font = .sourceSansProLight(size: 16)
+        textLabel.textColor = .secondaryColor
         let attributedText = NSMutableAttributedString(string:
 """
 Please enter your new email address. A verification mail will be sent to this address.
 """
-                                                ,attributes: [.font : R.font.sourceSansProLight(size: 16)])
+                                                ,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
         textLabel.attributedText = attributedText
         
         textViewParent.addSubview(textLabel)

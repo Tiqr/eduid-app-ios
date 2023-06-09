@@ -13,8 +13,8 @@ class InstitutionView: UIView {
         height(105)
         
         let titleLabel = UILabel()
-        titleLabel.font = R.font.sourceSansProSemiBold(size: 16)
-        titleLabel.textColor = R.color.charcoalColor()
+        titleLabel.font = .sourceSansProSemiBold(size: 16)
+        titleLabel.textColor = .charcoalColor
         titleLabel.text = title
         
         let control = InstitutionButtonControl(label1: firstText, label2: secondText)
@@ -26,7 +26,7 @@ class InstitutionView: UIView {
         stack.axis = .vertical
         stack.spacing = 12
         
-        let shieldImage = UIImageView(image: R.image.shield())
+        let shieldImage = UIImageView(image: .shield)
         shieldImage.size(CGSize(width: 36, height: 36))
         let parentStack = UIStackView(arrangedSubviews: [stack, shieldImage])
         shieldImage.isHidden = !isValidated

@@ -36,8 +36,8 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
     // - audio visual components
     private let previewLayer = AVCaptureVideoPreviewLayer()
     
-    // - middle qr frame view
-    private let middleSpaceView = UIImageView(image: R.image.qr_frame())
+    // - middel qr frame view
+    private let middelSpaceView = UIImageView(image: .qrFrame)
     
     // - gradient layer
     private var gradientLayer: CAGradientLayer?
@@ -93,20 +93,20 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
         // - create the dark frame with image
         let upperDarkView = UIView()
         upperDarkView.backgroundColor = .black.withAlphaComponent(0.5)
-        flashButton.setImage(R.image.flashlight_off(), for: .normal)
-        flashButton.setImage(R.image.flashlight(), for: .selected)
+        flashButton.setImage(.flashLightOff, for: .normal)
+        flashButton.setImage(.flashLight, for: .selected)
         flashButton.size(CGSize(width: 50, height: 50))
         flashButton.addTarget(self, action: #selector(toggleTorch), for: .touchUpInside)
         upperDarkView.addSubview(flashButton)
         flashButton.trailing(to: upperDarkView, offset: -36)
         flashButton.top(to: upperDarkView, offset: 100)
-        let middleLeftDarkView = UIView()
-        middleLeftDarkView.backgroundColor = .black.withAlphaComponent(0.5)
+        let middelLeftDarkView = UIView()
+        middelLeftDarkView.backgroundColor = .black.withAlphaComponent(0.5)
         
         // - the imageview containing the frame lines
-        let middleRightDarkView = UIView()
-        middleRightDarkView.backgroundColor = .black.withAlphaComponent(0.5)
-        let middleStack = UIStackView(arrangedSubviews: [middleLeftDarkView, middleSpaceView, middleRightDarkView])
+        let middelRightDarkView = UIView()
+        middelRightDarkView.backgroundColor = .black.withAlphaComponent(0.5)
+        let middelStack = UIStackView(arrangedSubviews: [middelLeftDarkView, middelSpaceView, middelRightDarkView])
         let lowerDarkView = UIView()
         lowerDarkView.backgroundColor = .black.withAlphaComponent(0.5)
         
@@ -124,9 +124,9 @@ Don’t see a QR code?
 Go to eduid.nl/security
 Create your personal QR code
 Scan it here
-""", attributes: [.foregroundColor: UIColor.white, .font: R.font.sourceSansProRegular(size: 18)!, .paragraphStyle: paragraph])
+""", attributes: [.foregroundColor: UIColor.white, .font: UIFont.sourceSansProRegular(size: 18), .paragraphStyle: paragraph])
         
-        attributedText.setAttributeTo(part: "Don’t see a QR code?", attributes: [.font: R.font.sourceSansProBold(size: 24)!])
+        attributedText.setAttributeTo(part: "Don’t see a QR code?", attributes: [.font: UIFont.sourceSansProBold(size: 24)])
         attributedText.setAttributeTo(part: "eduid.nl/security", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.white])
         label.attributedText = attributedText
         label.sizeToFit()
@@ -134,7 +134,7 @@ Scan it here
         label.center(in: lowerDarkView)
         
         // - the stack view holding the entire frame
-        let vStack = UIStackView(arrangedSubviews: [upperDarkView, middleStack, lowerDarkView])
+        let vStack = UIStackView(arrangedSubviews: [upperDarkView, middelStack, lowerDarkView])
         vStack.axis = .vertical
         vStack.translatesAutoresizingMaskIntoConstraints = false
         vStack.distribution = .fill
@@ -142,11 +142,11 @@ Scan it here
         
         // - constraints
         vStack.edgesToSuperview()
-        middleSpaceView.size(CGSize(width: 275, height: 275))
-        middleRightDarkView.height(to: middleSpaceView)
-        middleLeftDarkView.height(to: middleSpaceView)
+        middelSpaceView.size(CGSize(width: 275, height: 275))
+        middelRightDarkView.height(to: middelSpaceView)
+        middelLeftDarkView.height(to: middelSpaceView)
         upperDarkView.size(to: lowerDarkView)
-        middleLeftDarkView.size(to: middleRightDarkView)
+        middelLeftDarkView.size(to: middelRightDarkView)
     }
     
     //MARK: - toggle flash action

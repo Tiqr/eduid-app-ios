@@ -33,7 +33,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
         addSubview(parentView)
         parentView.edges(to: self, insets: TinyEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
         parentView.layer.borderWidth = 1
-        parentView.layer.borderColor = R.color.tertiaryColor()!.cgColor
+        parentView.layer.borderColor = UIColor.tertiaryColor.cgColor
         
         // - create textfield
         textfield.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
         textfield.keyboardType = .numberPad
         textfield.center(in: parentView)
         textfield.textAlignment = .center
-        textfield.font = R.font.sourceSansProRegular(size: 20)
+        textfield.font = .sourceSansProRegular(size: 20)
         textfield.delegate = self
         
     }
@@ -57,7 +57,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
     //MARK: - delegate methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.layer.borderColor = R.color.textfieldFocusColor()!.cgColor
+        self.layer.borderColor = UIColor.textfieldFocusColor.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
