@@ -119,23 +119,32 @@ extension CreatePincodeAndBiometricAccessViewModel {
         biometricService.useOnDeviceBiometricFeature { [weak self] success, error in
             guard let self else { return }
             if success {
-                if let enrolment = self.enrollmentChallenge {
-                    if let managedObject = enrolment.identity.managedObjectContext {
-                        enrolment.identity.biometricIDEnabled = NSNumber(value: 1)
-                        enrolment.identity.biometricIDAvailable = NSNumber(value: 1)
-                        enrolment.identity.usesOldBiometricFlow = NSNumber(value: 1)
-                        do {
-                            try managedObject.save()
-                            self.enrollmentChallenge = nil
-                            self.nextScreenDelegate?.nextScreen(
-                                for: self.isQrEnrolment != nil
-                                ? .registerWithoutRecovery
-                                : .none)
-                        } catch let error {
-                            assertionFailure(error.localizedDescription)
+                
+                guard let enrolment = self.enrollmentChallenge,
+                      let identity = enrolment.identity,
+                      let secret = enrolment.identitySecret else { return }
+                
+                ServiceContainer.sharedInstance()
+                    .secretService.setSecret(secret, usingTouchIDforIdentity: identity) { success in
+                        if success {
+                            identity.usesOldBiometricFlow = NSNumber(false)
+                            identity.shouldAskToEnrollInBiometricID = NSNumber(false)
+                            identity.biometricIDEnabled = NSNumber(true)
+                            identity.biometricIDAvailable = NSNumber(true)
+                            if let managedObject = identity.managedObjectContext {
+                                do {
+                                    try managedObject.save()
+                                    self.enrollmentChallenge = nil
+                                    self.nextScreenDelegate?.nextScreen(
+                                        for: self.isQrEnrolment != nil
+                                        ? .registerWithoutRecovery
+                                        : .none)
+                                } catch let error {
+                                    assertionFailure(error.localizedDescription)
+                                }
+                            }
                         }
                     }
-                }
             } else {
                 self.handleBiometric(error)
             }
