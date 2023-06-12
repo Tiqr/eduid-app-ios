@@ -120,9 +120,10 @@ class VerifyScanResultViewController: BaseViewController {
     private func signIn() {
         guard let challenge = viewModel.challenge as? AuthenticationChallenge,
         let identity = challenge.identity else { return }
-        switch identity.biometricIDEnabled {
-        case 1: completeAuthentication(with: .biometrics)
-        default: presentPinCodeVerifyScreen()
+        if identity.biometricIDEnabled {
+            completeAuthentication(with: .biometrics)
+        } else {
+            presentPinCodeVerifyScreen()
         }
     }
     
