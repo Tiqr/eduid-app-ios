@@ -34,7 +34,7 @@ class VerifyScanResultViewController: BaseViewController {
     func setupUI() {
         // - top poster label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Request to login", primary: "Request to login")
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.PinAndBioMetrics.LoginRequest.localization, primary: L.PinAndBioMetrics.LoginRequest.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
@@ -58,15 +58,15 @@ class VerifyScanResultViewController: BaseViewController {
         
         let lowerSpace = UIView()
         
-        let cancelButton = EduIDButton(type: .ghost, buttonTitle: "Cancel")
+        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.Modal.Cancel.localization)
         
         let primaryButton: EduIDButton
         
         switch viewModel.challengeType {
         case .authentication:
-            primaryButton = EduIDButton(type: .primary, buttonTitle: "Log in")
+            primaryButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.SignIn.localization)
         case .enrollment:
-            primaryButton = EduIDButton(type: .primary, buttonTitle: "Sign in")
+            primaryButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.SignIn.localization)
         default:
             primaryButton = EduIDButton(type: .primary, buttonTitle: "")
         }
@@ -93,13 +93,13 @@ class VerifyScanResultViewController: BaseViewController {
     //MARK: - button actions
     @objc
     func cancelAction() {
-        let alert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes I'm sure", style: .cancel) { [weak self] action in
+        let alert = UIAlertController(title: L.Profile.RemoveServicePrompt.Title.localization, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L.RememberMe.Yes.localization, style: .cancel) { [weak self] action in
             guard let self = self else { return }
             
             self.delegate?.verifyScanResultViewControllerCancelScanResult(viewController: self)
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default) { action in
+        alert.addAction(UIAlertAction(title: L.Modal.Cancel.localization, style: .default) { action in
             alert.dismiss(animated: true)
         })
         present(alert, animated: true)
@@ -120,7 +120,7 @@ class VerifyScanResultViewController: BaseViewController {
     private func signIn() {
         guard let challenge = viewModel.challenge as? AuthenticationChallenge,
         let identity = challenge.identity else { return }
-        if identity.biometricIDEnabled {
+        if identity.biometricIDEnabled == 1 {
             completeAuthentication(with: .biometrics)
         } else {
             presentPinCodeVerifyScreen()
@@ -140,7 +140,7 @@ class VerifyScanResultViewController: BaseViewController {
               let identity = challenge.identity else { return }
         switch mode {
         case .biometrics:
-            ServiceContainer.sharedInstance().secretService.secret(for: identity, touchIDPrompt: "Using Biometrics To Login") { [weak self] data in
+            ServiceContainer.sharedInstance().secretService.secret(for: identity, touchIDPrompt: L.PinAndBioMetrics.BiometricsPrompt.localization) { [weak self] data in
                 guard let self else { return }
                 if let secretData = data {
                     self.authenticate(with: secretData, and: challenge)

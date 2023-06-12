@@ -38,9 +38,9 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
         
         screenType = .createPincodeSecondEntryScreen
         
-        verifyButton.buttonTitle = "Confirm"
-        textLabel.text = "Enter your PIN code again"
-        posterLabel.text = "Repeat your PINcode"
+        verifyButton.buttonTitle = L.Modal.Confirm.localization
+        textLabel.text = L.PinAndBioMetrics.SecondPinScreenText.localization
+        posterLabel.text = L.PinAndBioMetrics.SecondPinScreenSelectTitle.localization
         verifyButton.isEnabled = false
     }
     

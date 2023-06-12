@@ -507,3 +507,13 @@
 "SubContent.Warning.COPY" = "The service your logging into has explicitly requested you login using your eduID app. If you login with a different method, this service will not receive your attributes.";
 "SubContent.ConfirmLabel.COPY" = "Change login option anyway";
 "SubContent.CancelLabel.COPY" = "Did not know that";
+"PinAndBioMetrics.BiometricsPrompt.COPY" = "Using Biometrics to login";
+"PinAndBioMetrics.FirstPinScreenSelectTitle.COPY" = "Select a PIN code";
+"PinAndBioMetrics.PinScreenEnterTitle.COPY" = "Enter your edulD PIN";
+"PinAndBioMetrics.FirstPinScreenText.COPY" = "To use the eduID app you need a PIN code";
+"PinAndBioMetrics.SecondPinScreenSelectTitle.COPY" = "Repeat selected PIN";
+"PinAndBioMetrics.SecondPinScreenText.COPY" = "Please enter your PIN code again";
+"PinAndBioMetrics.VerifyPinScreenText.COPY" = "Enter the PIN and press OK";
+"PinAndBioMetrics.SignIn.COPY" = "Login";
+"PinAndBioMetrics.OKButton.COPY" = "OK";
+"PinAndBioMetrics.LoginRequest.COPY" = "Request to login";

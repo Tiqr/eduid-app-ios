@@ -2543,4 +2543,44 @@ IOS:
       COPY:
         en: Did not know that
         nl: Dat wist ik niet
-
+  PinAndBioMetrics:
+    BiometricsPrompt:
+      COPY:
+        en: Using Biometrics to login
+        nl: Gebruik Biometrics om in te loggen
+    FirstPinScreenSelectTitle:
+      COPY:
+        en: Select a PIN code
+        nl: Kies een PIN
+    PinScreenEnterTitle:
+      COPY:
+        en: Enter your edulD PIN
+        nl: PIN invoeren
+    FirstPinScreenText:
+      COPY:
+        en: To use the eduID app you need a PIN code
+        nl: Om de eduID te kunnen gebruiken heeft u een PIN nodig
+    SecondPinScreenSelectTitle:
+      COPY:
+        en: Repeat selected PIN
+        nl: Herhaal uw PIN
+    SecondPinScreenText:
+      COPY:
+        en: Please enter your PIN code again
+        nl: Herhaal uw PIN nogmaals AUB
+    VerifyPinScreenText:
+      COPY:
+        en: Enter the PIN and press OK
+        nl: Voer uw PIN in en druk op OK
+    SignIn:
+      COPY:
+        en: Login
+        nl: Inloggen
+    OKButton:
+      COPY:
+        en: OK
+        nl: OK
+    LoginRequest:
+      COPY:
+        en: Request to login
+        nl: Inlogverzoek

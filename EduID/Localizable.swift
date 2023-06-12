@@ -4354,4 +4354,86 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct PinAndBioMetrics {
+        public static let BiometricsPrompt = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.BiometricsPrompt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.BiometricsPrompt.COPY",
+            translationArgs: []
+        )
+        public static let FirstPinScreenSelectTitle = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.FirstPinScreenSelectTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.FirstPinScreenSelectTitle.COPY",
+            translationArgs: []
+        )
+        public static let PinScreenEnterTitle = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.PinScreenEnterTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.PinScreenEnterTitle.COPY",
+            translationArgs: []
+        )
+        public static let FirstPinScreenText = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.FirstPinScreenText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.FirstPinScreenText.COPY",
+            translationArgs: []
+        )
+        public static let SecondPinScreenSelectTitle = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.SecondPinScreenSelectTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.SecondPinScreenSelectTitle.COPY",
+            translationArgs: []
+        )
+        public static let SecondPinScreenText = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.SecondPinScreenText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.SecondPinScreenText.COPY",
+            translationArgs: []
+        )
+        public static let VerifyPinScreenText = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.VerifyPinScreenText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.VerifyPinScreenText.COPY",
+            translationArgs: []
+        )
+        public static let SignIn = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.SignIn",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.SignIn.COPY",
+            translationArgs: []
+        )
+        public static let OKButton = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.OKButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.OKButton.COPY",
+            translationArgs: []
+        )
+        public static let LoginRequest = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.LoginRequest",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.LoginRequest.COPY",
+            translationArgs: []
+        )
+    }
 }

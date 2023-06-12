@@ -32,11 +32,11 @@ final class VerifyPinCodeViewController: PincodeBaseViewController {
     }
     
     private func setupAppearance() {
-        posterLabel.text = "Enter your edulD PIN"
-        textLabel.text = "Enter the PIN and press OK:"
+        posterLabel.text = L.PinAndBioMetrics.PinScreenEnterTitle.localization
+        textLabel.text = L.PinAndBioMetrics.VerifyPinScreenText.localization
         
-        let approveButton = EduIDButton(type: .primary, buttonTitle: "OK")
-        let cancelButton = EduIDButton(type: .ghost, buttonTitle: "Cancel")
+        let approveButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.OKButton.localization)
+        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.Modal.Cancel.localization)
         approveButton.addTarget(self, action: #selector(approveAction), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
         let buttonsStack = AnimatedHStackView(arrangedSubviews: [cancelButton, approveButton])
