@@ -56,7 +56,11 @@ final class EduIDButton: UIButton {
         didSet {
             switch type {
             case .red:
-                backgroundColor = isHighlighted ? UIColor.alertsRedColor.withAlphaComponent(0.2) : UIColor.white
+                backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.2) : .white
+            case .primary:
+                backgroundColor = isHighlighted ? .primaryColor.withAlphaComponent(0.8) : .primaryColor
+            case .ghost:
+                backgroundColor = isHighlighted ? .grayGhost.withAlphaComponent(0.2) : .white
             default:
                 // Don't change background color
                 return
@@ -94,9 +98,9 @@ final class EduIDButton: UIButton {
     private func setupWithPrimaryStyle() {
         backgroundColor = UIColor.primaryColor
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.white])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.white])
         setAttributedTitle(attributedTitleNormal, for: .normal)
-        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.disabledGray])
+        let attributedTitleDisabled = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.disabledGray])
         setAttributedTitle(attributedTitleDisabled, for: .disabled)
         
     }
@@ -104,7 +108,7 @@ final class EduIDButton: UIButton {
     private func setupWithGhostStyle() {
         backgroundColor = .white
         
-        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.grayGhost])
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.grayGhost])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         
         layer.borderWidth = 1

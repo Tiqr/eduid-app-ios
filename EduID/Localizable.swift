@@ -679,14 +679,32 @@ public struct L {
         )
     }
     public struct Email {
-        public static let Title = LocaliciousData(
-            accessibilityIdentifier: "Email.Title",
+        public static let UpdateError = LocaliciousData(
+            accessibilityIdentifier: "Email.UpdateError",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Email.Title.COPY",
+            translationKey: "Email.UpdateError.COPY",
             translationArgs: []
         )
+        public struct Title {
+            public static let Edit = LocaliciousData(
+                accessibilityIdentifier: "Email.Title.Edit",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Email.Title.Edit.COPY",
+                translationArgs: []
+            )
+            public static let EmailAddress = LocaliciousData(
+                accessibilityIdentifier: "Email.Title.EmailAddress",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Email.Title.EmailAddress.COPY",
+                translationArgs: []
+            )
+        }
         public static let Info = LocaliciousData(
             accessibilityIdentifier: "Email.Info",
             accessibilityHintKey: nil,
@@ -695,12 +713,20 @@ public struct L {
             translationKey: "Email.Info.COPY",
             translationArgs: []
         )
-        public static let Email = LocaliciousData(
-            accessibilityIdentifier: "Email.Email",
+        public static let NewEmail = LocaliciousData(
+            accessibilityIdentifier: "Email.NewEmail",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Email.Email.COPY",
+            translationKey: "Email.NewEmail.COPY",
+            translationArgs: []
+        )
+        public static let Placeholder = LocaliciousData(
+            accessibilityIdentifier: "Email.Placeholder",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Email.Placeholder.COPY",
             translationArgs: []
         )
         public static let Update = LocaliciousData(

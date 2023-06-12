@@ -43,7 +43,7 @@ extension UILabel {
         return label
     }
     
-    static func plainTextLabelPartlyBold(text: String, partBold: String, alignment: NSTextAlignment = .left) -> UILabel {
+    static func plainTextLabelPartlyBold(text: String, partBold: String = "", alignment: NSTextAlignment = .left) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0

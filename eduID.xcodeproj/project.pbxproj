@@ -81,6 +81,8 @@
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
 		4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */; };
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
+		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
+		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
 		4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675B2A31D32E00616341 /* MainCoordinator.swift */; };
 		4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */; };
@@ -403,6 +405,8 @@
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
 		4F9D27352A3341BD00F5A6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
+		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FF5675A2A31D32E00616341 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4FF5675B2A31D32E00616341 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -848,6 +852,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4FC350AD2A373A98003CB086 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				4FC350B02A373B05003CB086 /* Email */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		4FC350B02A373B05003CB086 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */,
+				4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +896,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4FC350AD2A373A98003CB086 /* Editor */,
 				4FF5675E2A31D32E00616341 /* ViewModels */,
 				4FF567602A31D32E00616341 /* PersonalInfoViewController.swift */,
 				4FF567612A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift */,
@@ -1342,6 +1364,7 @@
 				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
 				4FF567A32A31D32E00616341 /* PersonalInfoViewController.swift in Sources */,
+				4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */,
 				4FF567A62A31D32E00616341 /* PersonalInfoCoordinator.swift in Sources */,
 				4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */,
 				4F909EAF2A31CDDC00FC1506 /* ScreenType.swift in Sources */,
@@ -1366,6 +1389,7 @@
 				4FF567C72A31D32E00616341 /* CreateEduIDCoordinatorDelegate.swift in Sources */,
 				4FF567BC2A31D32E00616341 /* ScanViewController.swift in Sources */,
 				4F909EC52A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift in Sources */,
+				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				4FF567AA2A31D32E00616341 /* SecurityChangePasswordViewController.swift in Sources */,
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,

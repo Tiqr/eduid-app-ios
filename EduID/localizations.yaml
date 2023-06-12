@@ -335,10 +335,19 @@ IOS:
         en: /personal
         nl: /profile
   Email:
-    Title:
+    UpdateError:
       COPY:
-        en: Email
-        nl: E-mail
+        en: Could not confirm changing to your new email address.
+        nl: Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen.
+    Title:
+      Edit:
+        COPY:
+          en: Edit
+          nl: Bewerk
+      EmailAddress:
+        COPY:
+          en: Email address
+          nl: E-mailadres
     Info:
       COPY:
         en: >-
@@ -347,10 +356,14 @@ IOS:
         nl: >-
           Voer je nieuwe e-mailadres in. Er wordt een verificatiemail naar dit
           adres gestuurd.
-    Email:
+    NewEmail:
       COPY:
         en: Your new email
         nl: Je nieuwe e-mail
+    Placeholder:
+      COPY:
+        en: "eg tim@bernerslee.com"
+        nl: "bijv tim@bernerslee.com"
     Update:
       COPY:
         en: Request
@@ -2127,16 +2140,12 @@ IOS:
   MagicLink:
     Header:
       COPY:
-        en: Check your email!
-        nl: Open je mailbox!
+        en: Check your email
+        nl: Controleer je email
     Info:
       COPY:
-        en: >-
-          To sign in, click the link in the email we sent to
-          <strong>%1{{s}}</strong>.
-        nl: >-
-          Om in te loggen, klik op de link in de e-mail die we hebben verstuurd
-          naar <strong>%1{{s}}</strong>.
+        en: To sign in, click the link in the email we sent to %1{{s}}.
+        nl: Om in te loggen, klik op de link in de email die verstuurd is aan %1{{s}}.
     Awaiting:
       COPY:
         en: Waiting for you to click the link...
@@ -2151,8 +2160,8 @@ IOS:
         nl: Open Outlook.com
     Spam:
       COPY:
-        en: Can't find the email? Check your spam folder.
-        nl: Kan je de e-mail niet vinden? Kijk in je spam.
+        en: "Can't find it? Check your spam folder."
+        nl: Kun je de mail niet vinden? Kijk ook in de spam folder.
     LoggedIn:
       COPY:
         en: Login succeeded!
