@@ -4414,7 +4414,6 @@ public struct L {
             translationArgs: []
         )
     }
-  
     public struct PinAndBioMetrics {
         public static let BiometricsPrompt = LocaliciousData(
             accessibilityIdentifier: "PinAndBioMetrics.BiometricsPrompt",
@@ -4496,7 +4495,7 @@ public struct L {
             translationKey: "PinAndBioMetrics.LoginRequest.COPY",
             translationArgs: []
         )
-      
+    }
     public struct Generic {
         public struct RequestError {
             public static let Title = LocaliciousData(
