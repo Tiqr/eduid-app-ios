@@ -53,23 +53,43 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc
+    func willEnterForeground() {
+        // We might have came back from a linking flow
+        viewModel.getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
     }
     
     //MARK: - setup UI
     func setupUI(model: PersonalInfoDataCallbackModel) {
-        
+        // Try to remember scroll position
+        var previousScrollPosition: CGFloat = 0
+        // Remove any previous views
+        view.subviews.forEach {
+            if let scrollView = $0 as? UIScrollView {
+                previousScrollPosition = scrollView.contentOffset.y
+            }
+            $0.removeFromSuperview()
+            
+        }
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -131,17 +151,28 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.setCustomSpacing(6, after: institutionTitleParent)
         
         // Add institution cards
-        // TODO check the dates on these!
-        // TODO check removal action
-        
         for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
             for affiliation in linkedAccount.eduPersonAffiliations ?? [] {
+                
+                let createdAt: Date?
+                if let apiCreated = linkedAccount.createdAt {
+                    createdAt = Date(timeIntervalSince1970: Double(apiCreated) / 1000)
+                } else {
+                    createdAt = nil
+                }
+                let expiresAt: Date?
+                if let apiExpiresAt = linkedAccount.expiresAt {
+                    expiresAt = Date(timeIntervalSince1970: Double(apiExpiresAt) / 1000)
+                } else {
+                    expiresAt = nil
+                }
+                
                 let actionableControl = InstitutionControlCollapsible(
                     role: Affiliation(rawValue: affiliation) ?? .employee,
                     institution: linkedAccount.schacHomeOrganization ?? "",
-                    verifiedAt: Date(timeIntervalSince1970: Double(linkedAccount.createdAt ?? 0)),
+                    verifiedAt: createdAt,
                     affiliation: linkedAccount.eduPersonAffiliations?.first ?? "",
-                    expires: Date(timeIntervalSince1970: Double(linkedAccount.expiresAt ?? 0))
+                    expires: expiresAt
                 ) { [weak self] in
                     
                     // - alert to confirm service removal
@@ -183,6 +214,12 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         nameControl.width(to: stack)
         emailControl.width(to: stack)
         addInstitutionButton.width(to: stack)
+        
+        if previousScrollPosition > 0 {
+            DispatchQueue.main.async { [weak scrollView] in
+                scrollView?.setContentOffset(CGPoint(x: 0, y: previousScrollPosition), animated: false)
+            }
+        }
     }
     
     @objc
@@ -196,7 +233,6 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                    let url = URL(string: urlString),
                    UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    // TODO! Refresh screen when coming back, because the user might have added an institution
                 } else {
                     let alert = UIAlertController(
                         title: L.Generic.RequestError.Title.localization,
