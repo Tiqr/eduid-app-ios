@@ -75,6 +75,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SourceSansPro-Italic.ttf</string>
 		<string>SourceSansPro-Bold.ttf</string>
 		<string>SourceSansPro-SemiBold.ttf</string>
 		<string>SourceSansPro-Light.ttf</string>

@@ -15,10 +15,16 @@
 "Landing.RegisterAgain.COPY" = "Opnieuw registreren";
 "NotFound.Title.COPY" = "Oeps...";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
-"Profile.AddRoleAndInstitution.COPY" = "Voeg rol & instituut toe";
+"Profile.AccountLinkError.Title.COPY" = "De URL kon niet worden opgehaald voor het koppelen van uw huidige account.";
+"Profile.AddViaSurfconext.COPY" = "Voeg dit toe via SURFconext";
+"Profile.AddRoleAndInstitution.COPY" = "Voeg een rol & instelling toe";
+"Profile.RoleAndInstitution.COPY" = "Rol & instelling";
 "Profile.Me.COPY" = "mij";
+"Profile.ShareableInformation.COPY" = "Deelbare informatie";
 "Profile.RemoveServicePrompt.Title.COPY" = "Weet je het zeker?";
 "Profile.RemoveServicePrompt.Description.COPY" = "Deze dienst zal permanent verwijderd worden.";
+"Profile.RemoveServicePrompt.Delete.COPY" = "Verwijder";
+"Profile.RemoveServicePrompt.Cancel.COPY" = "Annuleer";
 "Profile.ProvidedBy.COPY" = "aangeboden door";
 "Profile.Title.COPY" = "Persoonlijke informatie";
 "Profile.Info.COPY" = "Wanneer je eduID gebruikt om in te loggen op andere websites, kan jouw persoonlijke informatie worden gedeeld. Sommige websites vereisen dat je persoonlijke gegevens worden gevalideerd door een derde partij.";
@@ -39,7 +45,8 @@
 "Profile.Affiliations.COPY" = "Betrekking(en)";
 "Profile.Expires.COPY" = "Koppeling verloopt";
 "Profile.ExpiresValue.COPY" = "%1$@";
-"Profile.VerifiedAt.COPY" = "Geverifieerd door <strong>%1$@</strong> op %2$@";
+"Profile.VerifiedBy.COPY" = "Geverifieerd door %1$@ ";
+"Profile.VerifiedOn.COPY" = "op %1$@";
 "Profile.Proceed.COPY" = "Doorgaan";
 "Profile.VerifyFirstAndLastName.AddInstitution.COPY" = "Verifieer naam";
 "Profile.VerifyFirstAndLastName.AddInstitutionConfirmation.COPY" = "Als je doorgaat word je gevraagd in te loggen via de onderwijsinstelling die je wilt koppelen. Selecteer eerst welke instelling je wilt koppelen en log daarna in.<br/> <br/>Nadat je succesvol bent ingelogd kom je hier weer terug.";
@@ -518,3 +525,6 @@
 "PinAndBioMetrics.SignIn.COPY" = "Inloggen";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
 "PinAndBioMetrics.LoginRequest.COPY" = "Inlogverzoek";
+"Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
+"Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
+"Generic.RequestError.CloseButton.COPY" = "Sluiten";

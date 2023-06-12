@@ -79,14 +79,31 @@ IOS:
         en: Something went wrong (404)
         nl: Er is iets fout gegaan (404).
   Profile:
+    AccountLinkError:
+      Title:
+        COPY:
+          en: "Could not retrieve URL for linking your current account."
+          nl: "De URL kon niet worden opgehaald voor het koppelen van uw huidige account."
+    AddViaSurfconext:
+      COPY:
+        en: "Proceed to add this via SURFconext"
+        nl: "Voeg dit toe via SURFconext"
     AddRoleAndInstitution:
       COPY:
         en: "Add role & institution"
-        nl: "Voeg rol & instituut toe"
+        nl: "Voeg een rol & instelling toe"
+    RoleAndInstitution:
+      COPY:
+        en: "Role & institution"
+        nl: "Rol & instelling"
     Me:
       COPY:
         en: me
         nl: mij
+    ShareableInformation:
+      COPY:
+        en: "Shareable information"
+        nl: "Deelbare informatie"
     RemoveServicePrompt:
       Title:
         COPY:
@@ -96,6 +113,14 @@ IOS:
         COPY:
           nl: Deze dienst zal permanent verwijderd worden.
           en: The service will be permanently be removed.
+      Delete:
+        COPY:
+          nl: Verwijder
+          en: Delete
+      Cancel:
+        COPY:
+          nl: Annuleer
+          en: Cancel
     ProvidedBy:
       COPY:
         en: provided by
@@ -184,10 +209,14 @@ IOS:
       COPY:
         en: '%1{{s}}'
         nl: '%1{{s}}'
-    VerifiedAt:
+    VerifiedBy:
       COPY:
-        en: Verified by <strong>%1{{s}}</strong> on %2{{s}}
-        nl: Geverifieerd door <strong>%1{{s}}</strong> op %2{{s}}
+        en: "Verified by %1{{s}} "
+        nl: "Geverifieerd door %1{{s}} "
+    VerifiedOn:
+      COPY:
+        en: "on %1{{s}}"
+        nl: "op %1{{s}}"
     Proceed:
       COPY:
         en: Proceed
@@ -2584,3 +2613,17 @@ IOS:
       COPY:
         en: Request to login
         nl: Inlogverzoek
+  Generic:
+    RequestError:
+      Title:
+        COPY:
+          en: "Cannot complete request"
+          nl: "Het verzoek kan niet worden voltooid"
+      Description:
+        COPY:
+          en: "Unexpected error: %1{{s}}, please retry."
+          nl: "Onverwachte fout: %1{{s}}, probeer het opnieuw."
+      CloseButton:
+        COPY:
+          en: "Close"
+          nl: "Sluiten"

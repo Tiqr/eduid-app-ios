@@ -237,6 +237,24 @@ public struct L {
         )
     }
     public struct Profile {
+        public struct AccountLinkError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "Profile.AccountLinkError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Profile.AccountLinkError.Title.COPY",
+                translationArgs: []
+            )
+        }
+        public static let AddViaSurfconext = LocaliciousData(
+            accessibilityIdentifier: "Profile.AddViaSurfconext",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.AddViaSurfconext.COPY",
+            translationArgs: []
+        )
         public static let AddRoleAndInstitution = LocaliciousData(
             accessibilityIdentifier: "Profile.AddRoleAndInstitution",
             accessibilityHintKey: nil,
@@ -245,12 +263,28 @@ public struct L {
             translationKey: "Profile.AddRoleAndInstitution.COPY",
             translationArgs: []
         )
+        public static let RoleAndInstitution = LocaliciousData(
+            accessibilityIdentifier: "Profile.RoleAndInstitution",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.RoleAndInstitution.COPY",
+            translationArgs: []
+        )
         public static let Me = LocaliciousData(
             accessibilityIdentifier: "Profile.Me",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Profile.Me.COPY",
+            translationArgs: []
+        )
+        public static let ShareableInformation = LocaliciousData(
+            accessibilityIdentifier: "Profile.ShareableInformation",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ShareableInformation.COPY",
             translationArgs: []
         )
         public struct RemoveServicePrompt {
@@ -268,6 +302,22 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "Profile.RemoveServicePrompt.Description.COPY",
+                translationArgs: []
+            )
+            public static let Delete = LocaliciousData(
+                accessibilityIdentifier: "Profile.RemoveServicePrompt.Delete",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Profile.RemoveServicePrompt.Delete.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "Profile.RemoveServicePrompt.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Profile.RemoveServicePrompt.Cancel.COPY",
                 translationArgs: []
             )
         }
@@ -433,13 +483,23 @@ public struct L {
             translationArgs: args
         )
         }
-        public static func VerifiedAt(args: CVarArg...) -> LocaliciousData {
+        public static func VerifiedBy(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
-            accessibilityIdentifier: "Profile.VerifiedAt",
+            accessibilityIdentifier: "Profile.VerifiedBy",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Profile.VerifiedAt.COPY",
+            translationKey: "Profile.VerifiedBy.COPY",
+            translationArgs: args
+        )
+        }
+        public static func VerifiedOn(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "Profile.VerifiedOn",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.VerifiedOn.COPY",
             translationArgs: args
         )
         }
@@ -4354,6 +4414,7 @@ public struct L {
             translationArgs: []
         )
     }
+  
     public struct PinAndBioMetrics {
         public static let BiometricsPrompt = LocaliciousData(
             accessibilityIdentifier: "PinAndBioMetrics.BiometricsPrompt",
@@ -4435,5 +4496,35 @@ public struct L {
             translationKey: "PinAndBioMetrics.LoginRequest.COPY",
             translationArgs: []
         )
+      
+    public struct Generic {
+        public struct RequestError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "Generic.RequestError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Generic.RequestError.Title.COPY",
+                translationArgs: []
+            )
+            public static func Description(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: "Generic.RequestError.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Generic.RequestError.Description.COPY",
+                translationArgs: args
+            )
+            }
+            public static let CloseButton = LocaliciousData(
+                accessibilityIdentifier: "Generic.RequestError.CloseButton",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Generic.RequestError.CloseButton.COPY",
+                translationArgs: []
+            )
+        }
     }
 }

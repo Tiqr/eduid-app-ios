@@ -2,14 +2,34 @@ import UIKit
 import TinyConstraints
 
 class ActionableControlWithBodyAndTitle: UIControl {
-    
+
     let view = UIView()
+    let loadingIndicator = UIActivityIndicatorView()
+    var iconInBodyView: UIImageView!
     
     override var isEnabled: Bool {
         didSet {
             if !isEnabled {
                 view.backgroundColor = .disabledGray.withAlphaComponent(0.5)
                 self.alpha = 0.5
+            }
+        }
+    }
+    
+    override public var isHighlighted: Bool {
+        didSet {
+            view.backgroundColor = isHighlighted ? .charcoalColor.withAlphaComponent(0.1) : .white
+        }
+    }
+    
+    var isLoading: Bool = false {
+        didSet {
+            loadingIndicator.isHidden = !isLoading
+            iconInBodyView.isHidden = isLoading
+            if isLoading {
+                loadingIndicator.startAnimating()
+            } else {
+                loadingIndicator.stopAnimating()
             }
         }
     }
@@ -45,13 +65,22 @@ class ActionableControlWithBodyAndTitle: UIControl {
         let bodyLabel = UILabel()
         bodyLabel.numberOfLines = 0
         bodyLabel.attributedText = attributedBodyText
-        let iconInBodyView = UIImageView(image: iconInBody)
+        
+        let rightIconContainer = UIView()
+        rightIconContainer.width(24)
+        rightIconContainer.height(24)
+        
+        iconInBodyView = UIImageView(image: iconInBody)
         let colorAttribute = attributedBodyText.attributes(at: 0, effectiveRange: nil)[.foregroundColor]
         iconInBodyView.tintColor = colorAttribute as? UIColor
-        iconInBodyView.width(24)
-        iconInBodyView.height(24)
         iconInBodyView.contentMode = .scaleAspectFit
-        let bodyStack = UIStackView(arrangedSubviews: [bodyLabel, iconInBodyView])
+        rightIconContainer.addSubview(iconInBodyView)
+        iconInBodyView.edges(to: rightIconContainer)
+        
+        rightIconContainer.addSubview(loadingIndicator)
+        loadingIndicator.edges(to: rightIconContainer)
+        
+        let bodyStack = UIStackView(arrangedSubviews: [bodyLabel, rightIconContainer])
         bodyStack.translatesAutoresizingMaskIntoConstraints = false
         bodyStack.axis = .horizontal
         bodyStack.spacing = 12

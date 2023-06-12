@@ -15,10 +15,16 @@
 "Landing.RegisterAgain.COPY" = "Register again";
 "NotFound.Title.COPY" = "Whoops...";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
+"Profile.AccountLinkError.Title.COPY" = "Could not retrieve URL for linking your current account.";
+"Profile.AddViaSurfconext.COPY" = "Proceed to add this via SURFconext";
 "Profile.AddRoleAndInstitution.COPY" = "Add role & institution";
+"Profile.RoleAndInstitution.COPY" = "Role & institution";
 "Profile.Me.COPY" = "me";
+"Profile.ShareableInformation.COPY" = "Shareable information";
 "Profile.RemoveServicePrompt.Title.COPY" = "Are you sure?";
 "Profile.RemoveServicePrompt.Description.COPY" = "The service will be permanently be removed.";
+"Profile.RemoveServicePrompt.Delete.COPY" = "Delete";
+"Profile.RemoveServicePrompt.Cancel.COPY" = "Cancel";
 "Profile.ProvidedBy.COPY" = "provided by";
 "Profile.Title.COPY" = "Personal information";
 "Profile.Info.COPY" = "When you use eduID to login to other websites, some of your personal information will be shared. Some websites require that your personal information is validated by a third party.";
@@ -39,7 +45,8 @@
 "Profile.Affiliations.COPY" = "Affiliation(s)";
 "Profile.Expires.COPY" = "Link expires";
 "Profile.ExpiresValue.COPY" = "%1$@";
-"Profile.VerifiedAt.COPY" = "Verified by <strong>%1$@</strong> on %2$@";
+"Profile.VerifiedBy.COPY" = "Verified by %1$@ ";
+"Profile.VerifiedOn.COPY" = "on %1$@";
 "Profile.Proceed.COPY" = "Proceed";
 "Profile.VerifyFirstAndLastName.AddInstitution.COPY" = "Verify name";
 "Profile.VerifyFirstAndLastName.AddInstitutionConfirmation.COPY" = "When you proceed you will be asked to login at the institution you want to link to your eduID. First, select which institution you want to connect; then, login at that institution.<br/><br/>After a successful login you will come back here.";
@@ -517,3 +524,6 @@
 "PinAndBioMetrics.SignIn.COPY" = "Login";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
 "PinAndBioMetrics.LoginRequest.COPY" = "Request to login";
+"Generic.RequestError.Title.COPY" = "Cannot complete request";
+"Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
+"Generic.RequestError.CloseButton.COPY" = "Close";

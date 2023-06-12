@@ -118,7 +118,7 @@ class ActivityControlCollapsible: UIControl {
 //        line5.backgroundColor = .backgroundColor
         
         // remove button
-        let button = EduIDButton(type: .ghost, buttonTitle: L.Institution.Delete.localization, isDelete: true)
+        let button = EduIDButton(type: .red, buttonTitle: L.Institution.Delete.localization)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         let disclaimerParent = UIView()

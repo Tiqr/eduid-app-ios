@@ -72,6 +72,12 @@ class PersonalInfoViewModel: NSObject {
             }
         }
     }
+    
+    func getStartLinkAccount() async throws -> AuthorizationURL? {
+        return try await AccountLinkerControllerAPI.startSPLinkAccountFlowWithRequestBuilder()
+                .execute()
+                .body
+    }
 }
 
 extension PersonalInfoViewModel {
