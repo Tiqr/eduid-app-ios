@@ -10,7 +10,7 @@ class InstitutionControlCollapsible: UIControl {
     var institution: String
     
     //MARK: - init
-    init(role: Affiliation, institution: String, verifiedAt: Date, affiliation: String, expires: Date, removeAction: @escaping () -> Void) {
+    init(role: Affiliation, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
         self.institution = institution
         self.removeAction = removeAction
         super.init(frame: .zero)
@@ -21,7 +21,7 @@ class InstitutionControlCollapsible: UIControl {
     }
             
     //MARK: - setup UI
-    func setupUI(role: Affiliation, institution: String, verifiedAt: Date, affiliation: String, expires: Date) {
+    func setupUI(role: Affiliation, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?) {
         
         backgroundColor = .disabledGrayBackground
         
@@ -54,7 +54,13 @@ class InstitutionControlCollapsible: UIControl {
         verifiedParent.addSubview(verifiedLabel)
         verifiedLabel.edges(to: verifiedParent)
         let verifiedBy = NSMutableAttributedString(string: L.Profile.VerifiedBy(args: institution).localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
-        let verifiedOn = NSMutableAttributedString(string: L.Profile.VerifiedOn(args: InstitutionControlCollapsible.dateFormatter.string(from: verifiedAt)).localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let verifiedOnString: String
+        if let verifiedAt = verifiedAt {
+            verifiedOnString = L.Profile.VerifiedOn(args: InstitutionControlCollapsible.dateFormatter.string(from: verifiedAt)).localization
+        } else {
+            verifiedOnString = L.Profile.VerifiedOn(args: "?").localization
+        }
+        let verifiedOn = NSMutableAttributedString(string: verifiedOnString, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
         verifiedBy.append(verifiedOn)
         verifiedLabel.attributedText = verifiedBy
         
@@ -105,7 +111,13 @@ class InstitutionControlCollapsible: UIControl {
         expireslabelLabel.attributedText = expireslabelAttributedString
         
         let expiresLabel = UILabel()
-        let expiresLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: expires), attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let expiresString: String
+        if let expires = expires {
+            expiresString = InstitutionControlCollapsible.dateFormatter.string(from: expires)
+        } else {
+            expiresString = "?"
+        }
+        let expiresLabelAttributedString = NSAttributedString(string: expiresString, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 14), color: .secondaryColor, lineSpacing: 6))
         expiresLabel.attributedText = expiresLabelAttributedString
         
         let expiresStack = UIStackView(arrangedSubviews: [expireslabelLabel, expiresLabel])
