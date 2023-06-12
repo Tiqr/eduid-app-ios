@@ -8,8 +8,11 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     let viewModel: PinViewModel
     // - verify button
     let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify this pin code")
+    
     // - pin stack view
     let pinStack = AnimatedHStackView()
+    
+    var mainStack = UIStackView()
     // - activity indicator
     let activity = UIActivityIndicatorView(style: .large)
     
@@ -19,7 +22,6 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     
     // - flag for secure input
     var isSecure = false
-    
 
     //MARK: - init
     init(viewModel: PinViewModel, isSecure: Bool) {
@@ -49,13 +51,11 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         pinStack.animate()
     }
     
@@ -108,21 +108,21 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         let spaceView = UIView()
         
         // - create the stackview
-        let stack = UIStackView(arrangedSubviews: [posterParent, textLabelParent, pinStack, activity, spaceView, verifyButton])
-        stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fill
-        stack.alignment = .center
-        stack.spacing = 32
-        view.addSubview(stack)
+        mainStack = UIStackView(arrangedSubviews: [posterParent, textLabelParent, pinStack, activity, spaceView, verifyButton])
+        mainStack.axis = .vertical
+        mainStack.translatesAutoresizingMaskIntoConstraints = false
+        mainStack.distribution = .fill
+        mainStack.alignment = .center
+        mainStack.spacing = 32
+        view.addSubview(mainStack)
         
         // - add constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
-        textLabel.width(to: stack)
+        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        textLabel.width(to: mainStack)
         posterLabel.height(34)
-        posterParent.width(to: stack)
-        verifyButton.width(to: stack, offset: -24)
-        pinStack.width(to: stack)
+        posterParent.width(to: mainStack)
+        verifyButton.width(to: mainStack, offset: -24)
+        pinStack.width(to: mainStack)
         
         pinStack.hideAndTriggerAll()
         
@@ -130,6 +130,7 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         verifyButton.isEnabled = false
         verifyButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardFocus)))
+        
     }
     
     //MARK: - gesture action resign keyboard focus

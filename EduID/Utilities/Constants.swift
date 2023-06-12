@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  
-//
-//  Created by Yasser Farahi on 06/04/2023.
-//
-
 import UIKit
 
 enum Constants {
@@ -51,11 +44,11 @@ enum Constants {
     
     enum KeyChain {
         static let keyPrefix = Bundle.main.bundleIdentifier ?? "nl.eduid"
-        static let challenge = "Challenge"
         static let uuid = UUID()
     }
     
     enum Headers {
         static let authorization = "Authorization"
-    }    
+    }
+    
 }

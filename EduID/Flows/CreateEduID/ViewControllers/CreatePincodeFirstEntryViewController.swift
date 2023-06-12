@@ -21,9 +21,9 @@ class CreatePincodeFirstEntryViewController: PincodeBaseViewController {
         
         screenType = .createPincodefirstEntryScreen
         
-        posterLabel.text = "Select a PIN code"
-        textLabel.text = "To use the eduID app you need a PIN code."
-        verifyButton.buttonTitle = "Next"
+        posterLabel.text = L.PinAndBioMetrics.FirstPinScreenSelectTitle.localization
+        textLabel.text = L.PinAndBioMetrics.FirstPinScreenText.localization
+        verifyButton.buttonTitle = L.GetApp.Next.localization
         verifyButton.isEnabled = false
         
     }

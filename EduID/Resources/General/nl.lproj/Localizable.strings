@@ -515,6 +515,16 @@
 "SubContent.Warning.COPY" = "De dienst waarop je inlogt heeft expliciet gevraagd om in te loggen met je eduID app. Als je met een andere methode inlogt, ontvangt deze service je attributen niet.";
 "SubContent.ConfirmLabel.COPY" = "Verander login optie";
 "SubContent.CancelLabel.COPY" = "Dat wist ik niet";
+"PinAndBioMetrics.BiometricsPrompt.COPY" = "Gebruik Biometrics om in te loggen";
+"PinAndBioMetrics.FirstPinScreenSelectTitle.COPY" = "Kies een PIN";
+"PinAndBioMetrics.PinScreenEnterTitle.COPY" = "PIN invoeren";
+"PinAndBioMetrics.FirstPinScreenText.COPY" = "Om de eduID te kunnen gebruiken heeft u een PIN nodig";
+"PinAndBioMetrics.SecondPinScreenSelectTitle.COPY" = "Herhaal uw PIN";
+"PinAndBioMetrics.SecondPinScreenText.COPY" = "Herhaal uw PIN nogmaals AUB";
+"PinAndBioMetrics.VerifyPinScreenText.COPY" = "Voer uw PIN in en druk op OK";
+"PinAndBioMetrics.SignIn.COPY" = "Inloggen";
+"PinAndBioMetrics.OKButton.COPY" = "OK";
+"PinAndBioMetrics.LoginRequest.COPY" = "Inlogverzoek";
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";

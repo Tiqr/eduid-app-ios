@@ -190,6 +190,7 @@
 		4FF568322A31D68400616341 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6E2A31D07500FC1506 /* SynchronizedDictionary.swift */; };
 		4FF568332A31D68400616341 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6F2A31D07500FC1506 /* Configuration.swift */; };
 		4FF568362A31D6AB00616341 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF568352A31D6AB00616341 /* AnyCodable */; };
+		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -463,6 +464,7 @@
 		4FF567E72A31D60300616341 /* OpenAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF567E92A31D60300616341 /* OpenAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenAPIClient.h; sourceTree = "<group>"; };
 		4FF567EA2A31D60300616341 /* OpenAPIClient.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = OpenAPIClient.docc; sourceTree = "<group>"; };
+		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -849,6 +851,7 @@
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				73DD92302A334FCC0065956E /* VerifyPinCode */,
 				4FF567592A31D32E00616341 /* Home */,
 				4FF5675D2A31D32E00616341 /* PersonalInfo */,
 				4FF567642A31D32E00616341 /* Security */,
@@ -1025,6 +1028,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73DD92302A334FCC0065956E /* VerifyPinCode */ = {
+			isa = PBXGroup;
+			children = (
+				73DD92332A334FCC0065956E /* ViewController */,
+			);
+			path = VerifyPinCode;
+			sourceTree = "<group>";
+		};
+		73DD92332A334FCC0065956E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C7F8389C294265B3002015A8 /* eduIDTests */ = {
@@ -1331,6 +1350,7 @@
 				4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */,
 				4FF567A42A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift in Sources */,
 				4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */,
+				73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */,
 				4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */,
 				4F909EBE2A31CDDC00FC1506 /* InstitutionButtonControl.swift in Sources */,
 				4F909EA42A31CDDC00FC1506 /* UIView+Styling.swift in Sources */,
