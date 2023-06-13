@@ -77,13 +77,15 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     @objc
     func userDidUpdateEmail() {
         // User updated the email, we need to refresh the data, come back to this screen, and show a dialog
-        viewModel.getData()
-        delegate?.goBackToInfoScreen()
+        delegate?.goBackToInfoScreen(updateData: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
+        if delegate?.shouldUpdateData() == true {
+            viewModel.getData()
+        }
     }
     
     //MARK: - setup UI
@@ -241,7 +243,9 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     @objc
     func nameControlClicked() {
-        delegate?.editName(viewController: self)
+        if let personalInfo = viewModel.userResponse {
+            delegate?.editName(viewController: self, personalInfo: personalInfo)
+        }
     }
     
     @objc

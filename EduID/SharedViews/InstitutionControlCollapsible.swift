@@ -15,20 +15,31 @@ class InstitutionControlCollapsible: UIControl {
         self.removeAction = removeAction
         super.init(frame: .zero)
         
-        setupUI(role: role, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
+        let iconEmoji = role == .employee ? "🏢️" : "🧑‍🎓"
+        let title = "\(iconEmoji) \(role.rawValue.capitalized)"
+        setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
     }
+    
+    init(title: String, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
+        self.institution = institution
+        self.removeAction = removeAction
+        super.init(frame: .zero)
+        setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
+
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
+    }
+    
             
     //MARK: - setup UI
-    func setupUI(role: Affiliation, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?) {
+    func setupUI(title: String, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?) {
         
         backgroundColor = .disabledGrayBackground
         
         //body stackview
         let attributedStringBody = NSMutableAttributedString()
-        let iconEmoji = role == .employee ? "🏢️" : "🧑‍🎓"
-        attributedStringBody.append(NSAttributedString(string: "\(iconEmoji) \(role.rawValue.capitalized)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .backgroundColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: title, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .backgroundColor, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: "\n"))
         attributedStringBody.append(NSAttributedString(string: "At ", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .secondaryColor, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: institution, attributes:AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .alertsInformationColor, lineSpacing: 6)))
