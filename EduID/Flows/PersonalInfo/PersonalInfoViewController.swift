@@ -237,7 +237,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     @objc
     func nameControlClicked() {
         if let personalInfo = viewModel.userResponse {
-            delegate?.editName(viewController: self, personalInfo: personalInfo)
+            delegate?.goToNameOverview(viewController: self, personalInfo: personalInfo)
         }
     }
     

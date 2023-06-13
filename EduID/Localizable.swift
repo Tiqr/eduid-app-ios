@@ -822,63 +822,63 @@ public struct L {
             translationArgs: []
         )
     }
-    public struct EditName {
+    public struct NameOverview {
         public struct Title {
             public static let AllDetailsOf = LocaliciousData(
-                accessibilityIdentifier: "EditName.Title.AllDetailsOf",
+                accessibilityIdentifier: "NameOverview.Title.AllDetailsOf",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "EditName.Title.AllDetailsOf.COPY",
+                translationKey: "NameOverview.Title.AllDetailsOf.COPY",
                 translationArgs: []
             )
             public static let FullName = LocaliciousData(
-                accessibilityIdentifier: "EditName.Title.FullName",
+                accessibilityIdentifier: "NameOverview.Title.FullName",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "EditName.Title.FullName.COPY",
+                translationKey: "NameOverview.Title.FullName.COPY",
                 translationArgs: []
             )
         }
         public static let SelfAsserted = LocaliciousData(
-            accessibilityIdentifier: "EditName.SelfAsserted",
+            accessibilityIdentifier: "NameOverview.SelfAsserted",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EditName.SelfAsserted.COPY",
+            translationKey: "NameOverview.SelfAsserted.COPY",
             translationArgs: []
         )
         public static let Verified = LocaliciousData(
-            accessibilityIdentifier: "EditName.Verified",
+            accessibilityIdentifier: "NameOverview.Verified",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EditName.Verified.COPY",
+            translationKey: "NameOverview.Verified.COPY",
             translationArgs: []
         )
         public static let AnotherSource = LocaliciousData(
-            accessibilityIdentifier: "EditName.AnotherSource",
+            accessibilityIdentifier: "NameOverview.AnotherSource",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EditName.AnotherSource.COPY",
+            translationKey: "NameOverview.AnotherSource.COPY",
             translationArgs: []
         )
         public static let NotAvailable = LocaliciousData(
-            accessibilityIdentifier: "EditName.NotAvailable",
+            accessibilityIdentifier: "NameOverview.NotAvailable",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EditName.NotAvailable.COPY",
+            translationKey: "NameOverview.NotAvailable.COPY",
             translationArgs: []
         )
         public static let ProceedToAdd = LocaliciousData(
-            accessibilityIdentifier: "EditName.ProceedToAdd",
+            accessibilityIdentifier: "NameOverview.ProceedToAdd",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EditName.ProceedToAdd.COPY",
+            translationKey: "NameOverview.ProceedToAdd.COPY",
             translationArgs: []
         )
     }

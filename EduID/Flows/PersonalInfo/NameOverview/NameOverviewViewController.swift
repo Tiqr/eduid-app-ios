@@ -1,5 +1,5 @@
 //
-//  NameEditorViewController.swift
+//  NameOverviewViewController.swift
 //  eduID
 //
 //  Created by Dániel Zolnai on 2023. 06. 12..
@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 import TinyConstraints
 
-class NameEditorViewController: UIViewController, ScreenWithScreenType {
+class NameOverviewViewController: UIViewController, ScreenWithScreenType {
     
-    var screenType: ScreenType = .personalInfoEditNameScreen
+    var screenType: ScreenType = .personalInfoNameOverviewScreen
     
     weak var delegate: PersonalInfoViewControllerDelegate?
 
-    private var viewModel: NameEditorViewModel
+    private var viewModel: NameOverviewViewModel
     
     private var addInstitutionButton: ActionableControlWithBodyAndTitle? = nil
 
-    init(viewModel: NameEditorViewModel) {
+    init(viewModel: NameOverviewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
@@ -66,13 +66,13 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
-        let fullTitleString = "\(L.EditName.Title.AllDetailsOf.localization)\n\(L.EditName.Title.FullName.localization)"
-        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.FullName.localization)
+        let fullTitleString = "\(L.NameOverview.Title.AllDetailsOf.localization)\n\(L.NameOverview.Title.FullName.localization)"
+        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.NameOverview.Title.FullName.localization)
         let bottomSpacer = UIView()
 
 
         let selfAssertedName = "\(viewModel.personalInfo.givenName ?? "") \(viewModel.personalInfo.familyName ?? "")"
-        let nameTitle = NSAttributedString(string: L.EditName.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+        let nameTitle = NSAttributedString(string: L.NameOverview.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
         let nameProvidedByText = NSMutableAttributedString(string: "\(selfAssertedName)\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
         nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
         nameProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
@@ -90,9 +90,9 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         
         let separatorTitleString: String
         if viewModel.personalInfo.linkedAccounts?.isEmpty == false {
-            separatorTitleString = L.EditName.Verified.localization
+            separatorTitleString = L.NameOverview.Verified.localization
         } else {
-            separatorTitleString = L.EditName.AnotherSource.localization
+            separatorTitleString = L.NameOverview.AnotherSource.localization
         }
         let separatorTitleAttributedText = NSAttributedString(string: separatorTitleString, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
         let separatorLabel = UILabel()
@@ -151,8 +151,8 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         
         if viewModel.personalInfo.linkedAccounts?.isEmpty != false {
             // Placeholder button for adding a role
-            let addInstitutionTitle = NSMutableAttributedString(string: "\(L.EditName.NotAvailable.localization)\n\(L.EditName.ProceedToAdd.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
-            addInstitutionTitle.setAttributeTo(part: L.EditName.ProceedToAdd.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
+            let addInstitutionTitle = NSMutableAttributedString(string: "\(L.NameOverview.NotAvailable.localization)\n\(L.NameOverview.ProceedToAdd.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
+            addInstitutionTitle.setAttributeTo(part: L.NameOverview.ProceedToAdd.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
             addInstitutionButton = ActionableControlWithBodyAndTitle(
                 attributedBodyText: addInstitutionTitle,
                 iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),

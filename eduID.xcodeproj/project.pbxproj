@@ -83,8 +83,8 @@
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
 		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
-		4FEBF5352A3843A0004BF3C8 /* NameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5342A3843A0004BF3C8 /* NameEditorViewController.swift */; };
-		4FEBF5372A3844A7004BF3C8 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5362A3844A7004BF3C8 /* NameEditorViewModel.swift */; };
+		4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */; };
+		4FEBF53B2A38A069004BF3C8 /* NameOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
 		4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675B2A31D32E00616341 /* MainCoordinator.swift */; };
 		4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */; };
@@ -410,8 +410,8 @@
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
-		4FEBF5342A3843A0004BF3C8 /* NameEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameEditorViewController.swift; path = EduID/Flows/PersonalInfo/Editor/Name/NameEditorViewController.swift; sourceTree = SOURCE_ROOT; };
-		4FEBF5362A3844A7004BF3C8 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameEditorViewModel.swift; path = EduID/Flows/PersonalInfo/Editor/Name/NameEditorViewModel.swift; sourceTree = SOURCE_ROOT; };
+		4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewModel.swift; sourceTree = "<group>"; };
+		4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewController.swift; sourceTree = "<group>"; };
 		4FF5675A2A31D32E00616341 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4FF5675B2A31D32E00616341 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -850,31 +850,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		4FC350AD2A373A98003CB086 /* Editor */ = {
-			isa = PBXGroup;
-			children = (
-				4FEBF5332A38438F004BF3C8 /* Name */,
-				4FC350B02A373B05003CB086 /* Email */,
-			);
-			path = Editor;
-			sourceTree = "<group>";
-		};
-		4FC350B02A373B05003CB086 /* Email */ = {
+		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
 				4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */,
 				4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */,
 			);
-			path = Email;
+			path = EmailEditor;
 			sourceTree = "<group>";
 		};
-		4FEBF5332A38438F004BF3C8 /* Name */ = {
+		4FEBF5332A38438F004BF3C8 /* NameOverview */ = {
 			isa = PBXGroup;
 			children = (
-				4FEBF5342A3843A0004BF3C8 /* NameEditorViewController.swift */,
-				4FEBF5362A3844A7004BF3C8 /* NameEditorViewModel.swift */,
+				4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */,
+				4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */,
 			);
-			path = Name;
+			path = NameOverview;
 			sourceTree = "<group>";
 		};
 		4FF567582A31D32E00616341 /* Flows */ = {
@@ -905,7 +896,8 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
-				4FC350AD2A373A98003CB086 /* Editor */,
+				4FC350B02A373B05003CB086 /* EmailEditor */,
+				4FEBF5332A38438F004BF3C8 /* NameOverview */,
 				4FF5675E2A31D32E00616341 /* ViewModels */,
 				4FF567602A31D32E00616341 /* PersonalInfoViewController.swift */,
 				4FF567612A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift */,
@@ -1330,7 +1322,6 @@
 				4F909EAB2A31CDDC00FC1506 /* CoordinatorType.swift in Sources */,
 				4FF567BD2A31D32E00616341 /* ScanViewControllerDelegate.swift in Sources */,
 				4F909EC22A31CDDC00FC1506 /* AnimatedVStackView.swift in Sources */,
-				4FEBF5352A3843A0004BF3C8 /* NameEditorViewController.swift in Sources */,
 				4FF567A92A31D32E00616341 /* SecurityEnterEmailViewController.swift in Sources */,
 				4FF567B82A31D32E00616341 /* ScanCoordinatorDelegate.swift in Sources */,
 				4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */,
@@ -1362,6 +1353,7 @@
 				4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */,
 				4FF567AD2A31D32E00616341 /* SecurityViewControllerDelegate.swift in Sources */,
 				4F909EC62A31CDDC00FC1506 /* TextViewBackgroundColor.swift in Sources */,
+				4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */,
 				4F909EAE2A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift in Sources */,
 				4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */,
 				4FF567A72A31D32E00616341 /* SecurityCoordinator.swift in Sources */,
@@ -1391,7 +1383,6 @@
 				4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */,
 				4FF567A42A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift in Sources */,
 				4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */,
-				4FEBF5372A3844A7004BF3C8 /* NameEditorViewModel.swift in Sources */,
 				73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */,
 				4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */,
 				4F909EBE2A31CDDC00FC1506 /* InstitutionButtonControl.swift in Sources */,
@@ -1414,6 +1405,7 @@
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,
 				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,
 				4F909EB72A31CDDC00FC1506 /* BiometricService.swift in Sources */,
+				4FEBF53B2A38A069004BF3C8 /* NameOverviewViewController.swift in Sources */,
 				4F909EC02A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift in Sources */,
 				4F909EA72A31CDDC00FC1506 /* UILabel+Styling.swift in Sources */,
 				7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */,

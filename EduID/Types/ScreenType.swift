@@ -29,7 +29,7 @@ enum ScreenType: Int, CaseIterable {
     // personal info screens
     case personalInfoLandingScreen
     case personalInfoEditEmailScreen
-    case personalInfoEditNameScreen
+    case personalInfoNameOverviewScreen
     
     // security screens
     case securityLandingScreen

@@ -7,7 +7,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goBack(viewController: UIViewController)
     func goBackToInfoScreen(updateData: Bool)
     func editEmail(viewController: UIViewController)
-    func editName(viewController: UIViewController, personalInfo: UserResponse)
+    func goToNameOverview(viewController: UIViewController, personalInfo: UserResponse)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
 }

@@ -48,10 +48,10 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         self.didUpdateData = updateData
     }
     
-    func editName(viewController: UIViewController, personalInfo: UserResponse) {
-        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel(personalInfo: personalInfo))
-        nameEditorViewController.delegate = self
-        navigationController!.pushViewController(nameEditorViewController, animated: true)
+    func goToNameOverview(viewController: UIViewController, personalInfo: UserResponse) {
+        let nameOverviewViewController = NameOverviewViewController(viewModel: NameOverviewViewModel(personalInfo: personalInfo))
+        nameOverviewViewController.delegate = self
+        navigationController!.pushViewController(nameOverviewViewController, animated: true)
     }
     
     func shouldUpdateData() -> Bool {
