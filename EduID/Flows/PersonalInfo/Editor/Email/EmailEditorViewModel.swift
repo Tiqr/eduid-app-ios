@@ -17,11 +17,17 @@ class EmailEditorViewModel: ValidatedTextFieldDelegate {
     
     func changeEmail() async throws -> UserResponse? {
         if let email = currentEmail {
-            return try await UserControllerAPI.updateEmailWithRequestBuilder(updateEmailRequest: UpdateEmailRequest(email: email))
-                .execute()
-                .body
+            return try await UserControllerAPI.updateEmail(updateEmailRequest: UpdateEmailRequest(email: email))
         } else {
             assertionFailure("currentEmail property not set in email editor!")
+            return nil
+        }
+    }
+    
+    func confirmEmailUpdate(url: URL) async throws -> UserResponse? {
+        if let hashParam = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.first(where: { $0.name == "h" })?.value {
+            return try await UserControllerAPI.confirmUpdateEmail(h: hashParam)
+        } else {
             return nil
         }
     }
