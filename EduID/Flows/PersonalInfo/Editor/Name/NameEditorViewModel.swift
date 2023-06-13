@@ -1,5 +1,5 @@
 //
-//  EmailEditorViewModel.swift
+//  NameEditorViewModel.swift
 //  eduID
 //
 //  Created by Dániel Zolnai on 2023. 06. 12..
