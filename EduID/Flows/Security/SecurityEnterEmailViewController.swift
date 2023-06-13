@@ -54,8 +54,8 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         
         // - posterLabel
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.Email.Email.localization, size: 24,
-                                                         primary: L.Email.Email.localization, alignment: .left)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.Email.NewEmail.localization, size: 24,
+                                                         primary: L.Email.NewEmail.localization, alignment: .left)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         

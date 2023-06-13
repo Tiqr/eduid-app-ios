@@ -12,7 +12,7 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
     private var payload: String?
     var challenge: NSObject?
     var challengeType: TIQRChallengeType?
-    private var callBack: (() -> Void)?
+    private var dismissVerifyAuthentication: (() -> Void)?
     
     required init(viewControllerToPresentOn: UIViewController?) {
         self.viewControllerToPresentOn = viewControllerToPresentOn

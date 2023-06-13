@@ -78,10 +78,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func getAppropriateLaunchOption(with object: Any? = nil) {
+        let userInfo: [String: Any] = [Constants.NotificationObjects.TiqrAuthObject:object ?? ""]
         if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
-            NotificationCenter.default.post(name: .firstTimeAuthorizationComplete, object: object)
+            NotificationCenter.default.post(name: .firstTimeAuthorizationComplete,
+                                            object: nil, userInfo: userInfo)
         } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
-            NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent, object: object)
+            NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                                            object: nil, userInfo: userInfo)
         }
     }
 }

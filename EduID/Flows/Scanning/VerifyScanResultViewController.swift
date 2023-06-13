@@ -6,12 +6,12 @@ class VerifyScanResultViewController: BaseViewController {
     
     let viewModel: ScanViewModel
     weak var delegate: VerifyScanResultViewControllerDelegate?
-    private var callBack: (() -> Void)?
+    private var dismissVerifyAuthentication: (() -> Void)?
 
     //MARK: - init
-    init(viewModel: ScanViewModel, callBack: (() -> Void)? = nil) {
+    init(viewModel: ScanViewModel, dismissVerifyAuthentication: (() -> Void)? = nil) {
         self.viewModel = viewModel
-        self.callBack = callBack
+        self.dismissVerifyAuthentication = dismissVerifyAuthentication
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -162,7 +162,7 @@ class VerifyScanResultViewController: BaseViewController {
             if success {
                 self.dismiss(animated: true) { [weak self] in
                     guard let self else { return }
-                    self.callBack?()
+                    self.dismissVerifyAuthentication?()
                 }
             }
         }
