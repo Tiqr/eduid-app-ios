@@ -27,6 +27,8 @@ enum ScreenType: Int, CaseIterable {
     
     // personal info screens
     case personalInfoLandingScreen
+    case personalInfoEditEmailScreen
+    case personalInfoEditNameScreen
     
     // security screens
     case securityLandingScreen
@@ -94,6 +96,8 @@ enum ScreenType: Int, CaseIterable {
             return ScanViewController(viewModel: ScanViewModel(), for: .none)
         case .personalInfoLandingScreen:
             return PersonalInfoViewController(viewModel: PersonalInfoViewModel())
+        case .personalInfoEditEmailScreen:
+            return EmailEditorViewController(viewModel: EmailEditorViewModel())
         case .firstTimeDialogScreen:
             return CreateEduIDFirstTimeDialogViewController(viewModel: CreateEduIDFirstTimeDialogViewViewModel())
         case .securityLandingScreen:

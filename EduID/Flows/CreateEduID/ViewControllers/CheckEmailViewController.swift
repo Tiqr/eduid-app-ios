@@ -3,6 +3,8 @@ import TinyConstraints
 
 class CheckEmailViewController: CreateEduIDBaseViewController {
     
+    var emailToCheck: String? = nil
+    
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,10 +19,13 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
     func setupUI() {
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: "Check your email", size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.MagicLink.Header.localization, size: 24)
         
         // - messageLabel
-        let messageLabel = UILabel.plainTextLabelPartlyBold(text: "To sign in, click the link in the email we sent to \(UserDefaults.standard.value(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults) as? String  ?? "")", partBold: UserDefaults.standard.value(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults) as? String  ?? "")
+        let email = emailToCheck ?? UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults) ?? ""
+        let messageLabel = UILabel.plainTextLabelPartlyBold(
+            text: L.MagicLink.Info(args: email).localization,
+            partBold: email)
         let messageParent = UIView()
         messageParent.addSubview(messageLabel)
         messageLabel.edges(to: messageParent)
@@ -39,7 +44,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         gmailImage.height(30)
         gmailImage.contentMode = .scaleAspectFit
         let gmailButton = UIButton()
-        gmailButton.setAttributedTitle(NSAttributedString(string: "check gmail", attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
+        gmailButton.setAttributedTitle(NSAttributedString(string: L.MagicLink.OpenGMail.localization, attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
         let gmailStack = UIStackView(arrangedSubviews: [gmailImage, gmailButton])
         gmailStack.alignment = .center
         gmailStack.spacing = 8
@@ -50,7 +55,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         outlookImage.contentMode = .scaleAspectFit
         let outlookButton = UIButton()
         outlookButton.contentMode = .scaleAspectFit
-        outlookButton.setAttributedTitle(NSAttributedString(string: "check outlook", attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
+        outlookButton.setAttributedTitle(NSAttributedString(string: L.MagicLink.OpenOutlook.localization, attributes: [.font: UIFont.sourceSansProSemiBold(size: 18), .foregroundColor: UIColor.secondaryColor]), for: .normal)
         let outlookStack = UIStackView(arrangedSubviews: [outlookImage, outlookButton])
         outlookStack.alignment = .center
         outlookStack.spacing = 8

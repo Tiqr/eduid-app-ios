@@ -66,7 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if url.absoluteString.range(of: "tiqrauth") != nil {
             Tiqr.shared.startChallenge(challenge: url.absoluteString)
             
-        } else if let range = url.absoluteString.range(of: "created"), range != nil {
+        } else if let range = url.absoluteString.range(of: "created") {
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
@@ -79,8 +79,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             return
             
-        } else if let range = url.absoluteString.range(of: "account-linked"), range != nil {
+        } else if let range = url.absoluteString.range(of: "account-linked") {
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
+        } else if let range = url.absoluteString.range(of: "update-email") {
+            NotificationCenter.default.post(name: .didUpdateEmail, object: nil)
+            
         }
     }
     

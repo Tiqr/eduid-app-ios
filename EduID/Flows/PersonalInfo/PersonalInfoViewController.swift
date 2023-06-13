@@ -9,7 +9,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     // - delegate
     weak var delegate: PersonalInfoViewControllerDelegate?
     
-    var viewModel: PersonalInfoViewModel
+    private var viewModel: PersonalInfoViewModel
     
     private var stack: UIStackView!
     private var addInstitutionButton: ActionableControlWithBodyAndTitle!
@@ -65,12 +65,20 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         view.backgroundColor = .white
         
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userDidUpdateEmail), name: Notification.Name.didUpdateEmail, object: nil)
     }
     
     @objc
     func willEnterForeground() {
         // We might have came back from a linking flow
         viewModel.getData()
+    }
+    
+    @objc
+    func userDidUpdateEmail() {
+        // User updated the email, we need to refresh the data, come back to this screen, and show a dialog
+        viewModel.getData()
+        delegate?.goBackToInfoScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -215,11 +223,25 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         emailControl.width(to: stack)
         addInstitutionButton.width(to: stack)
         
+        // Add click handlers
+        emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
+        nameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+        
         if previousScrollPosition > 0 {
             DispatchQueue.main.async { [weak scrollView] in
                 scrollView?.setContentOffset(CGPoint(x: 0, y: previousScrollPosition), animated: false)
             }
         }
+    }
+    
+    @objc
+    func emailControlClicked() {
+        delegate?.editEmail(viewController: self)
+    }
+    
+    @objc
+    func nameControlClicked() {
+        delegate?.editName(viewController: self)
     }
     
     @objc

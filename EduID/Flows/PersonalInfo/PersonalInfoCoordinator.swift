@@ -26,9 +26,28 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         delegate?.personalInfoCoordinatorDismissPersonalInfoFlow(coordinator: self)
     }
     
-    @objc
-    func enterItem() {
-        //TODO: implement screens
+    func editEmail(viewController: UIViewController) {
+        let emailEditorViewController = EmailEditorViewController(viewModel: EmailEditorViewModel())
+        emailEditorViewController.delegate = self
+        navigationController!.pushViewController(emailEditorViewController, animated: true)
+    }
+    
+    
+    func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
+        let checkEmailViewController = CheckEmailViewController()
+        checkEmailViewController.emailToCheck = emailToVerify
+        checkEmailViewController.delegate = self
+        navigationController!.pushViewController(checkEmailViewController, animated: true)
+    }
+    
+    func goBackToInfoScreen() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+
+    
+    
+    func editName(viewController: UIViewController) {
+        // TODO implement
     }
     
     @objc
