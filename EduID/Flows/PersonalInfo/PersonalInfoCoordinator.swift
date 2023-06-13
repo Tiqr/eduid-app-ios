@@ -1,4 +1,5 @@
 import UIKit
+import OpenAPIClient
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
     
@@ -6,6 +7,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     
     weak var delegate: PersonalInfoCoordinatorDelegate?
     weak var navigationController: UINavigationController?
+    
+    private var didUpdateData = false
     
     //MARK: - init
     required init(viewControllerToPresentOn: UIViewController?) {
@@ -40,14 +43,19 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(checkEmailViewController, animated: true)
     }
     
-    func goBackToInfoScreen() {
+    func goBackToInfoScreen(updateData: Bool) {
         navigationController?.popToRootViewController(animated: true)
+        self.didUpdateData = updateData
     }
-
     
+    func editName(viewController: UIViewController, personalInfo: UserResponse) {
+        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel(personalInfo: personalInfo))
+        nameEditorViewController.delegate = self
+        navigationController!.pushViewController(nameEditorViewController, animated: true)
+    }
     
-    func editName(viewController: UIViewController) {
-        // TODO implement
+    func shouldUpdateData() -> Bool {
+        return self.didUpdateData
     }
     
     @objc

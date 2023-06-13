@@ -21,4 +21,5 @@ extension UIImage {
     static let biometric = UIImage(named: "biometric_image")!
     static let eduIDCreatedImage = UIImage(named: "eduid_created_image")!
     static let pencil = UIImage(named: "pencil")!
+    static let verifiedBadge = UIImage(named: "verified_badge")!
 }

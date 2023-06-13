@@ -82,6 +82,13 @@
 "Email.DuplicateEmail.COPY" = "Dit e-mailadres is al in gebruik.";
 "Email.OutstandingPasswordForgotten.COPY" = "Uitstaand reset verzoek voor wachtwoord";
 "Email.OutstandingPasswordForgottenConfirmation.COPY" = "Je hebt een openstaand wachtwoord vergeten link. Deze link is niet langer geldig als je deze e-mailwijziging bevestigt.";
+"EditName.Title.AllDetailsOf.COPY" = "Alle gegevens van";
+"EditName.Title.FullName.COPY" = "Volledige naam";
+"EditName.SelfAsserted.COPY" = "Zelf ingevuld";
+"EditName.Verified.COPY" = "Gecontroleerd";
+"EditName.AnotherSource.COPY" = "Een andere bron...";
+"EditName.NotAvailable.COPY" = "Niet beschikbaar";
+"EditName.ProceedToAdd.COPY" = "Voeg dit toe door in te loggen bij jouw instelling";
 "Security.Title.COPY" = "Beveiliging";
 "Security.SubTitle.COPY" = "We bieden verschillende methoden om in te loggen met je eduID.";
 "Security.SecondSubTitle.COPY" = "Andere loginmethoden";

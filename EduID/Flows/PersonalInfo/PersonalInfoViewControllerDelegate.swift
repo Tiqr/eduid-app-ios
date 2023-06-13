@@ -1,11 +1,13 @@
 import UIKit
+import OpenAPIClient
 
 protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     
     func personalInfoViewControllerDismissPersonalInfoFlow(viewController: UIViewController)
     func goBack(viewController: UIViewController)
-    func goBackToInfoScreen()
+    func goBackToInfoScreen(updateData: Bool)
     func editEmail(viewController: UIViewController)
-    func editName(viewController: UIViewController)
+    func editName(viewController: UIViewController, personalInfo: UserResponse)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
+    func shouldUpdateData() -> Bool
 }

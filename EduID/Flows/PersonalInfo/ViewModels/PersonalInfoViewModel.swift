@@ -49,7 +49,6 @@ class PersonalInfoViewModel: NSObject {
             let name = "\(firstLinkedAccount.givenName?.first ?? "X"). \(firstLinkedAccount.familyName ?? "")"
             let nameProvidedBy = firstLinkedAccount.schacHomeOrganization ?? ""
             let model = PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: true)
-            
             dataAvailableClosure?(model)
         }
     }

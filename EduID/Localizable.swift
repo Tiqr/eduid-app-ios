@@ -806,6 +806,66 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct EditName {
+        public struct Title {
+            public static let AllDetailsOf = LocaliciousData(
+                accessibilityIdentifier: "EditName.Title.AllDetailsOf",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Title.AllDetailsOf.COPY",
+                translationArgs: []
+            )
+            public static let FullName = LocaliciousData(
+                accessibilityIdentifier: "EditName.Title.FullName",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Title.FullName.COPY",
+                translationArgs: []
+            )
+        }
+        public static let SelfAsserted = LocaliciousData(
+            accessibilityIdentifier: "EditName.SelfAsserted",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.SelfAsserted.COPY",
+            translationArgs: []
+        )
+        public static let Verified = LocaliciousData(
+            accessibilityIdentifier: "EditName.Verified",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.Verified.COPY",
+            translationArgs: []
+        )
+        public static let AnotherSource = LocaliciousData(
+            accessibilityIdentifier: "EditName.AnotherSource",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.AnotherSource.COPY",
+            translationArgs: []
+        )
+        public static let NotAvailable = LocaliciousData(
+            accessibilityIdentifier: "EditName.NotAvailable",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.NotAvailable.COPY",
+            translationArgs: []
+        )
+        public static let ProceedToAdd = LocaliciousData(
+            accessibilityIdentifier: "EditName.ProceedToAdd",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.ProceedToAdd.COPY",
+            translationArgs: []
+        )
+    }
     public struct Security {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "Security.Title",
