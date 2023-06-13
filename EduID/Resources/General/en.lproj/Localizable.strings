@@ -7,6 +7,7 @@
 "Start.Manage.COPY" = "Manage your personal info, your privacy, and the security of your eduID account.";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Logout";
+"Header.LogOff.COPY" = "Log Off";
 "Landing.LogoutTitle.COPY" = "You have been logged out";
 "Landing.LogoutStatus.COPY" = "To finalise the logout process you must now close this browser.";
 "Landing.LoginAgain.COPY" = "Login again";
@@ -30,6 +31,7 @@
 "Profile.Info.COPY" = "When you use eduID to login to other websites, some of your personal information will be shared. Some websites require that your personal information is validated by a third party.";
 "Profile.Basic.COPY" = "Basic information";
 "Profile.Email.COPY" = "Email address";
+"Profile.VerifyEmail.COPY" = "Verify email address";
 "Profile.Name.COPY" = "Name";
 "Profile.Validated.COPY" = "Validated information";
 "Profile.FirstAndLastName.COPY" = "First and last name";

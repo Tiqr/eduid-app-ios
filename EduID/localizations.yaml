@@ -42,6 +42,10 @@ IOS:
       COPY:
         en: Logout
         nl: Uitloggen
+    LogOff:
+      COPY:
+        en: Log Off
+        nl: Afmelden
   Landing:
     LogoutTitle:
       COPY:
@@ -147,6 +151,10 @@ IOS:
       COPY:
         en: Email address
         nl: E-mail
+    VerifyEmail:
+      COPY:
+        en: Verify email address
+        nl: Bevestig e-mail adres
     Name:
       COPY:
         en: Name

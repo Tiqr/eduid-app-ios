@@ -4,7 +4,7 @@ import TinyConstraints
 class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, ValidatedTextFieldDelegate {
 
     // - screen type
-    var screenType: ScreenType = .addInstitutionScreen
+    var screenType: ScreenType = .enterEmail
     
     // - delegate
     weak var delegate: SecurityViewControllerDelegate?
@@ -12,10 +12,11 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
     var stack: AnimatedVStackView!
     
     // - phone textfield
-    let validatedEmailTextField = TextFieldViewWithValidationAndTitle(title: "Your new email address", placeholder: "e.g. john@egeniq.com", field: .email, keyboardType: .emailAddress)
+    let validatedEmailTextField = TextFieldViewWithValidationAndTitle(title: L.Email.EmailEquality.localization,
+                                                                      placeholder: L.LinkFromInstitution.EmailPlaceholder.localization, field: .email, keyboardType: .emailAddress)
     
     // - verify button
-    let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify email address")
+    let verifyButton = EduIDButton(type: .primary, buttonTitle: L.Profile.VerifyEmail.localization)
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -53,7 +54,8 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         
         // - posterLabel
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Email", size: 24, primary: "Email", alignment: .left)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.Email.Email.localization, size: 24,
+                                                         primary: L.Email.Email.localization, alignment: .left)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
@@ -66,10 +68,7 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = .sourceSansProLight(size: 16)
         textLabel.textColor = .secondaryColor
-        let attributedText = NSMutableAttributedString(string:
-"""
-Please enter your new email address. A verification mail will be sent to this address.
-"""
+        let attributedText = NSMutableAttributedString(string: L.Email.Info.localization
                                                 ,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
         textLabel.attributedText = attributedText
         

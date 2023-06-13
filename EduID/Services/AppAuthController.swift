@@ -110,6 +110,7 @@ public class AppAuthController: NSObject {
             inputPath!.caseInsensitiveCompare(expectedRedirectPath!) == .orderedSame
     }
     
+    @discardableResult
     public func tryResumeAuthorizationFlow(with uri: URL) -> Bool {
         if let authFlow = currentAuthorizationFlow,
            isRedirectURI(uri) {
@@ -136,7 +137,8 @@ public class AppAuthController: NSObject {
     
     public func authorize(viewController: UIViewController, completion: (() -> Void)? = nil) {
         let externalUserAgent = OIDExternalUserAgentIOSSafari(presentingViewController: viewController)
-        currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalUserAgent) { [weak self] authState, error in
+        currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalUserAgent) {
+            [weak self] authState, error in
             guard let self else { return }
             if let authState = authState {
                 self.authState = authState

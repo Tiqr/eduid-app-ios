@@ -6,10 +6,12 @@ class VerifyScanResultViewController: BaseViewController {
     
     let viewModel: ScanViewModel
     weak var delegate: VerifyScanResultViewControllerDelegate?
+    private var callBack: (() -> Void)?
 
     //MARK: - init
-    init(viewModel: ScanViewModel) {
+    init(viewModel: ScanViewModel, callBack: (() -> Void)? = nil) {
         self.viewModel = viewModel
+        self.callBack = callBack
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -20,7 +22,6 @@ class VerifyScanResultViewController: BaseViewController {
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         screenType = .verifyLoginScreen
         setupUI()
     }
@@ -159,7 +160,10 @@ class VerifyScanResultViewController: BaseViewController {
         guard let secret = secretData else { return }
         ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, response, error in
             if success {
-                self.dismiss(animated: true)
+                self.dismiss(animated: true) { [weak self] in
+                    guard let self else { return }
+                    self.callBack?()
+                }
             }
         }
     }

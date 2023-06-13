@@ -60,6 +60,13 @@ extension MainCoordinator: HomeViewControllerDelegate  {
         children.append(scanCoordinator)
         scanCoordinator.start(for: .login)
     }
+    
+    func homeViewControllerShowAuthenticationScreen(with payload: String) {
+        let verifyAuthenticationCoordinator = VerifyAuthenticationCoordinator(viewControllerToPresentOn: homeNavigationController)
+        verifyAuthenticationCoordinator.delegate = self
+        children.append(verifyAuthenticationCoordinator)
+        verifyAuthenticationCoordinator.start(with: payload)
+    }
 }
 
 //MARK: - personal info methods
@@ -106,6 +113,14 @@ extension MainCoordinator: CreateEduIDCoordinatorDelegate {
 //MARK: - activity flow methods
 extension MainCoordinator: ActivityCoordinatorDelegate {
     func activityCoordinatorDismissActivityFlow(coordinator: CoordinatorType) {
+        homeNavigationController.presentedViewController?.dismiss(animated: true)
+        children.removeAll { $0 === coordinator }
+    }
+}
+
+//MARK: - activity flow methods
+extension MainCoordinator: VerifyAuthenticationDelegate {
+    func verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: CoordinatorType) {
         homeNavigationController.presentedViewController?.dismiss(animated: true)
         children.removeAll { $0 === coordinator }
     }

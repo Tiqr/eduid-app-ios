@@ -167,6 +167,14 @@ public struct L {
             translationKey: "Header.Logout.COPY",
             translationArgs: []
         )
+        public static let LogOff = LocaliciousData(
+            accessibilityIdentifier: "Header.LogOff",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Header.LogOff.COPY",
+            translationArgs: []
+        )
     }
     public struct Landing {
         public static let LogoutTitle = LocaliciousData(
@@ -359,6 +367,14 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Profile.Email.COPY",
+            translationArgs: []
+        )
+        public static let VerifyEmail = LocaliciousData(
+            accessibilityIdentifier: "Profile.VerifyEmail",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.VerifyEmail.COPY",
             translationArgs: []
         )
         public static let Name = LocaliciousData(
