@@ -96,6 +96,11 @@
 "EditName.LastName.COPY" = "Achternaam";
 "EditName.Button.Save.COPY" = "Opslaan";
 "EditName.Button.Cancel.COPY" = "Annuleer";
+"DeleteAccount.Title.COPY" = "Verwijder je eduID account";
+"DeleteAccount.Disclaimer.COPY" = "Ga voorzichtig te werk, want je verliest de unieke eduID ID's die momenteel aan je e-mailadres zijn gekoppeld.";
+"DeleteAccount.LongDescription.COPY" = "Je kunt je eduID account verwijderen wanneer je maar wilt.
+Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppeld. Wanneer je je opnieuw registreert voor eduID met hetzelfde e-mailadres, krijg je een nieuwe eduID nummers. Sommige diensten gebruiken deze nummers om je uniek te identificeren, dus voor die diensten word je dan gezien als een nieuwe gebruiker. Houd er rekening mee dat het verwijderen van je eduID niet betekent dat alle diensten die je met je eduID hebt gebruikt, ook je gegevens zullen verwijderen.";
+"DeleteAccount.DeleteAccountButton.COPY" = "Verwijder je account";
 "MyAccount.Title.COPY" = "Je eduID account";
 "MyAccount.AccountCreatedOn.COPY" = "Jouw account is gemaakt op";
 "MyAccount.AccountCreatedAt.COPY" = "om";
