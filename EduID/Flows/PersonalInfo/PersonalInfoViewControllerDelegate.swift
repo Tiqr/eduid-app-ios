@@ -12,6 +12,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToNameUpdated(viewController: UIViewController, linkedAccount: LinkedAccount)
     func goToMyAccount(viewController: UIViewController, personalInfo: UserResponse)
     func goToDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
+    func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
 }

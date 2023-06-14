@@ -96,8 +96,14 @@
 "EditName.LastName.COPY" = "Last name";
 "EditName.Button.Save.COPY" = "Save";
 "EditName.Button.Cancel.COPY" = "Cancel";
+"DeleteAccount.Title.COPY" = "Delete your account";
+"DeleteAccount.Disclaimer.COPY" = "Proceed with care, as you will lose the unique eduID number currently associated with your email address.";
+"DeleteAccount.LongDescription.COPY" = "You can delete your eduID whenever you want.
+When you re-register for a new eduID with that same email address, you will receive a new eduID number. Some services use this unique number to identify you, so for those services you will be treated as a new user. Please note that deleting your eduID account does not mean all services you accessed with that eduID account will also have your data removed.";
+"DeleteAccount.DeleteAccountButton.COPY" = "Delete your account";
 "MyAccount.Title.COPY" = "Your account";
 "MyAccount.AccountCreatedOn.COPY" = "Your account was created on";
+"MyAccount.AccountCreatedAt.COPY" = "at";
 "MyAccount.PersonalDataDisclaimer.COPY" = "All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.";
 "MyAccount.DownloadDataButton.COPY" = "Download my data";
 "MyAccount.DeleteAccountButton.COPY" = "Delete your account";

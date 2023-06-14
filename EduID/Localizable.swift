@@ -928,6 +928,40 @@ public struct L {
             )
         }
     }
+    public struct DeleteAccount {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "DeleteAccount.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "DeleteAccount.Title.COPY",
+            translationArgs: []
+        )
+        public static let Disclaimer = LocaliciousData(
+            accessibilityIdentifier: "DeleteAccount.Disclaimer",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "DeleteAccount.Disclaimer.COPY",
+            translationArgs: []
+        )
+        public static let LongDescription = LocaliciousData(
+            accessibilityIdentifier: "DeleteAccount.LongDescription",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "DeleteAccount.LongDescription.COPY",
+            translationArgs: []
+        )
+        public static let DeleteAccountButton = LocaliciousData(
+            accessibilityIdentifier: "DeleteAccount.DeleteAccountButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "DeleteAccount.DeleteAccountButton.COPY",
+            translationArgs: []
+        )
+    }
     public struct MyAccount {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "MyAccount.Title",
@@ -943,6 +977,14 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "MyAccount.AccountCreatedOn.COPY",
+            translationArgs: []
+        )
+        public static let AccountCreatedAt = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.AccountCreatedAt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.AccountCreatedAt.COPY",
             translationArgs: []
         )
         public static let PersonalDataDisclaimer = LocaliciousData(

@@ -74,6 +74,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToDeleteAccount(viewController: UIViewController, personalInfo: UserResponse) {
+        let deleteAccountViewController = DeleteAccountViewController(viewModel: DeleteAccountViewModel(personalInfo:  personalInfo))
+        deleteAccountViewController.delegate = self
+        navigationController!.pushViewController(deleteAccountViewController, animated: true)
+    }
+    
+    func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse) {
         // TODO
     }
     

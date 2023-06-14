@@ -80,6 +80,8 @@
 		4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */; };
 		4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */; };
 		4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */; };
+		4F958BDC2A3A00C900DD0779 /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BDB2A3A00C900DD0779 /* DeleteAccountViewModel.swift */; };
+		4F958BDE2A3A00DF00DD0779 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BDD2A3A00DF00DD0779 /* DeleteAccountViewController.swift */; };
 		4F9D272D2A33287C00F5A6ED /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F9D272C2A33287C00F5A6ED /* Tiqr */; };
 		4F9D272F2A33353F00F5A6ED /* localizations.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D272E2A33353F00F5A6ED /* localizations.yaml */; };
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
@@ -413,6 +415,8 @@
 		4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewModel.swift; sourceTree = "<group>"; };
 		4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
 		4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		4F958BDB2A3A00C900DD0779 /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
+		4F958BDD2A3A00DF00DD0779 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		4F9D272E2A33353F00F5A6ED /* localizations.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = localizations.yaml; sourceTree = "<group>"; };
 		4F9D27302A33395C00F5A6ED /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
@@ -880,6 +884,15 @@
 			path = MyAccount;
 			sourceTree = "<group>";
 		};
+		4F958BDA2A3A00BA00DD0779 /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				4F958BDB2A3A00C900DD0779 /* DeleteAccountViewModel.swift */,
+				4F958BDD2A3A00DF00DD0779 /* DeleteAccountViewController.swift */,
+			);
+			path = DeleteAccount;
+			sourceTree = "<group>";
+		};
 		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +948,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4F958BDA2A3A00BA00DD0779 /* DeleteAccount */,
 				4F958BD52A39C20900DD0779 /* MyAccount */,
 				4F958BD02A39A74A00DD0779 /* NameEditor */,
 				4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */,
@@ -1358,6 +1372,7 @@
 				4FF567BD2A31D32E00616341 /* ScanViewControllerDelegate.swift in Sources */,
 				4F909EC22A31CDDC00FC1506 /* AnimatedVStackView.swift in Sources */,
 				4FF567A92A31D32E00616341 /* SecurityEnterEmailViewController.swift in Sources */,
+				4F958BDE2A3A00DF00DD0779 /* DeleteAccountViewController.swift in Sources */,
 				4FF567B82A31D32E00616341 /* ScanCoordinatorDelegate.swift in Sources */,
 				4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */,
 				4F909EBA2A31CDDC00FC1506 /* ActivityControlCollapsible.swift in Sources */,
@@ -1440,6 +1455,7 @@
 				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				4FF567AA2A31D32E00616341 /* SecurityChangePasswordViewController.swift in Sources */,
+				4F958BDC2A3A00C900DD0779 /* DeleteAccountViewModel.swift in Sources */,
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,
 				4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */,
 				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,

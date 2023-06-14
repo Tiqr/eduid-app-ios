@@ -46,16 +46,21 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         
         let mainTitle = UILabel.posterTextLabelBicolor(text: L.MyAccount.Title.localization, size: 24, primary: L.MyAccount.Title.localization)
         
-        let createdAt: String
+        let createdDate: String
+        let createdTime: String
         if let apiCreated = viewModel.personalInfo.created {
             let createdAtDate = Date(timeIntervalSince1970: Double(apiCreated))
-            createdAt = InstitutionControlCollapsible.dateFormatter.string(from: createdAtDate)
+            createdDate = InstitutionControlCollapsible.dateFormatter.string(from: createdAtDate)
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "HH:mm"
+            createdTime = timeFormatter.string(from: createdAtDate)
         } else {
-            createdAt = "?"
+            createdDate = "?"
+            createdTime = "?"
         }
         
-        let description = "\(L.MyAccount.AccountCreatedOn.localization)\n\(createdAt)"
-        let mainDescription = UILabel.plainTextLabelPartlyBold(text: description, partBold: createdAt)
+        let description = "\(L.MyAccount.AccountCreatedOn.localization)\n\(createdDate) \(L.MyAccount.AccountCreatedAt.localization) \(createdTime)"
+        let mainDescription = UILabel.plainTextLabelPartlyBold(text: description, partBold: createdDate)
         
         let disclaimerContainer = UIView()
         let disclaimerLabel = UILabel()
@@ -107,7 +112,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         topStackView.spacing = 20
         
         view.addSubview(topStackView)
-        topStackView.edges(to: view, insets: TinyEdgeInsets(top: 64, left: 24, bottom: 24, right: 24))
+        topStackView.edges(to: view, insets: TinyEdgeInsets(top: 72, left: 24, bottom: 24, right: 24))
         
         downloadDataButton.addTarget(self, action: #selector(downloadDataClicked), for: .touchUpInside)
         deleteAccountButton.addTarget(self, action: #selector(deleteAccountClicked), for: .touchUpInside)
