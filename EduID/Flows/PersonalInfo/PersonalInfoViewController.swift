@@ -207,16 +207,28 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         stack.addArrangedSubview(addInstitutionButton)
         
-        // - add constraints
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
-        stack.width(to: scrollView, offset: -48)
+        let manageAccountContainer = UIView()
+        manageAccountContainer.backgroundColor = .disabledGrayBackground
+        let manageAccountButton = EduIDButton(type: .ghost, buttonTitle: L.Profile.ManageYourAccount.localization)
+        manageAccountButton.setImage(.cog, for: .normal)
+        manageAccountButton.imageEdgeInsets = .right(32)
+        manageAccountButton.addTarget(self, action: #selector(manageAccountClicked), for: .touchUpInside)
+        manageAccountContainer.addSubview(manageAccountButton)
+        manageAccountButton.edgesToSuperview(insets: .horizontal(24) + .vertical(20))
+        stack.addArrangedSubview(manageAccountContainer)
         
-        mainTitle.width(to: stack)
-        mainDescription.width(to: stack)
-        shareableInformationHeader.width(to: stack)
-        nameControl.width(to: stack)
-        emailControl.width(to: stack)
-        addInstitutionButton.width(to: stack)
+        // - add constraints
+        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
+        stack.width(to: scrollView, offset: 0)
+        
+        //mainTitle.width(to: stack, offset: -48)
+        mainTitle.horizontalToSuperview(insets: .horizontal(24))
+        mainDescription.horizontalToSuperview(insets: .horizontal(24))
+        shareableInformationHeader.horizontalToSuperview(insets: .horizontal(24))
+        nameControl.horizontalToSuperview(insets: .horizontal(24))
+        emailControl.horizontalToSuperview(insets: .horizontal(24))
+        addInstitutionButton.horizontalToSuperview(insets: .horizontal(24))
+        manageAccountContainer.horizontalToSuperview()
         
         // Add click handlers
         emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
@@ -280,6 +292,13 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
+    @objc
+    func manageAccountClicked() {
+        guard let personalInfo = viewModel.userResponse else {
+            return
+        }
+        delegate?.goToMyAccount(viewController: self, personalInfo: personalInfo)
+    }
     
     @objc
     func dismissInfoScreen() {

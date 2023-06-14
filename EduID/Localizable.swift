@@ -245,6 +245,14 @@ public struct L {
         )
     }
     public struct Profile {
+        public static let ManageYourAccount = LocaliciousData(
+            accessibilityIdentifier: "Profile.ManageYourAccount",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ManageYourAccount.COPY",
+            translationArgs: []
+        )
         public struct AccountLinkError {
             public static let Title = LocaliciousData(
                 accessibilityIdentifier: "Profile.AccountLinkError.Title",
@@ -901,16 +909,6 @@ public struct L {
             translationKey: "EditName.LastName.COPY",
             translationArgs: []
         )
-        public struct Validation {
-            public static let RequiredField = LocaliciousData(
-                accessibilityIdentifier: "EditName.Validation.RequiredField",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "EditName.Validation.RequiredField.COPY",
-                translationArgs: []
-            )
-        }
         public struct Button {
             public static let Save = LocaliciousData(
                 accessibilityIdentifier: "EditName.Button.Save",

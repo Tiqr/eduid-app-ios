@@ -78,6 +78,8 @@
 		4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F872A31D21500FC1506 /* SDWebImage */; };
 		4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */; };
 		4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */; };
+		4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */; };
+		4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */; };
 		4F9D272D2A33287C00F5A6ED /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F9D272C2A33287C00F5A6ED /* Tiqr */; };
 		4F9D272F2A33353F00F5A6ED /* localizations.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D272E2A33353F00F5A6ED /* localizations.yaml */; };
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
@@ -409,6 +411,8 @@
 		4F909F6F2A31D07500FC1506 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewController.swift; sourceTree = "<group>"; };
 		4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewModel.swift; sourceTree = "<group>"; };
+		4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
+		4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		4F9D272E2A33353F00F5A6ED /* localizations.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = localizations.yaml; sourceTree = "<group>"; };
 		4F9D27302A33395C00F5A6ED /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
@@ -867,6 +871,15 @@
 			path = NameEditor;
 			sourceTree = "<group>";
 		};
+		4F958BD52A39C20900DD0779 /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */,
+				4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */,
+			);
+			path = MyAccount;
+			sourceTree = "<group>";
+		};
 		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +935,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4F958BD52A39C20900DD0779 /* MyAccount */,
 				4F958BD02A39A74A00DD0779 /* NameEditor */,
 				4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */,
 				4FC350B02A373B05003CB086 /* EmailEditor */,
@@ -1359,6 +1373,7 @@
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
 				4FF567C32A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift in Sources */,
+				4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */,
 				4F909EA82A31CDDC00FC1506 /* NSAttributedString+Styling.swift in Sources */,
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
 				4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */,
@@ -1378,6 +1393,7 @@
 				4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */,
 				4F909EAE2A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift in Sources */,
 				4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */,
+				4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */,
 				4FF567A72A31D32E00616341 /* SecurityCoordinator.swift in Sources */,
 				4F909EB32A31CDDC00FC1506 /* ShowNextScreenDelegate.swift in Sources */,
 				4FF567AF2A31D32E00616341 /* ActivityViewModel.swift in Sources */,

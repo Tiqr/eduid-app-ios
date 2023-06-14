@@ -69,6 +69,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
             loadingIndicator.height(40)
             loadingIndicator.startAnimating()
             topStackView.addArrangedSubview(loadingIndicator)
+            loadingIndicator.horizontalToSuperview()
         } else {
             firstNameField = TextFieldViewWithValidationAndTitle(
                 title: L.EditName.FirstName.localization,
@@ -120,7 +121,6 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         topStackView.axis = .vertical
         topStackView.distribution = .fill
         topStackView.spacing = 30
-        topStackView.setCustomSpacing(16, after: mainTitle)
         
         let bottomStackView = UIStackView(arrangedSubviews: [
             cancelButton,
@@ -174,7 +174,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     }
     
     @objc func dismissInfoScreen() {
-        delegate?.goBackToInfoScreen(updateData: false)
+        delegate?.goBack(viewController: self)
     }
     
     @objc func onContinueClicked() {
