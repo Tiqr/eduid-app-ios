@@ -89,6 +89,13 @@
 "NameUpdated.Description.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.";
 "NameUpdated.FullName.COPY" = "Volledige naam";
 "NameUpdated.Continue.COPY" = "Doorgaan";
+"EditName.Title.Edit.COPY" = "Bewerk";
+"EditName.Title.FullName.COPY" = "Volledige naam";
+"EditName.FirstName.COPY" = "Voornaam";
+"EditName.LastName.COPY" = "Achternaam";
+"EditName.Validation.RequiredField.COPY" = "Dit is een verplichte veld";
+"EditName.Button.Save.COPY" = "Opslaan";
+"EditName.Button.Cancel.COPY" = "Annuleer";
 "NameOverview.Title.AllDetailsOf.COPY" = "Alle gegevens van";
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
 "NameOverview.SelfAsserted.COPY" = "Zelf ingevuld";

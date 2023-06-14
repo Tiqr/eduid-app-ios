@@ -89,6 +89,13 @@
 "NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
 "NameUpdated.FullName.COPY" = "Full name";
 "NameUpdated.Continue.COPY" = "Continue";
+"EditName.Title.Edit.COPY" = "Edit";
+"EditName.Title.FullName.COPY" = "Full name";
+"EditName.FirstName.COPY" = "First name";
+"EditName.LastName.COPY" = "Last name";
+"EditName.Validation.RequiredField.COPY" = "This is a required field";
+"EditName.Button.Save.COPY" = "Save";
+"EditName.Button.Cancel.COPY" = "Cancel";
 "NameOverview.Title.AllDetailsOf.COPY" = "All details of";
 "NameOverview.Title.FullName.COPY" = "Full name";
 "NameOverview.SelfAsserted.COPY" = "Self asserted";

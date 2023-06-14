@@ -76,6 +76,8 @@
 		4F909F822A31D1A600FC1506 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E632A31CDB200FC1506 /* ProximaNova-Regular.otf */; };
 		4F909F852A31D1F400FC1506 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F842A31D1F400FC1506 /* AppAuth */; };
 		4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F872A31D21500FC1506 /* SDWebImage */; };
+		4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */; };
+		4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */; };
 		4F9D272D2A33287C00F5A6ED /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F9D272C2A33287C00F5A6ED /* Tiqr */; };
 		4F9D272F2A33353F00F5A6ED /* localizations.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D272E2A33353F00F5A6ED /* localizations.yaml */; };
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
@@ -405,6 +407,8 @@
 		4F909F6D2A31D07500FC1506 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F909F6E2A31D07500FC1506 /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
 		4F909F6F2A31D07500FC1506 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewController.swift; sourceTree = "<group>"; };
+		4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewModel.swift; sourceTree = "<group>"; };
 		4F9D272E2A33353F00F5A6ED /* localizations.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = localizations.yaml; sourceTree = "<group>"; };
 		4F9D27302A33395C00F5A6ED /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
@@ -854,6 +858,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4F958BD02A39A74A00DD0779 /* NameEditor */ = {
+			isa = PBXGroup;
+			children = (
+				4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */,
+				4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */,
+			);
+			path = NameEditor;
+			sourceTree = "<group>";
+		};
 		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +922,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4F958BD02A39A74A00DD0779 /* NameEditor */,
 				4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */,
 				4FC350B02A373B05003CB086 /* EmailEditor */,
 				4FEBF5332A38438F004BF3C8 /* NameOverview */,
@@ -1321,6 +1335,7 @@
 				4FF567C92A31D32E00616341 /* CreateEduIDLandingPageViewController.swift in Sources */,
 				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,
 				4FF567B62A31D32E00616341 /* ScanViewModel.swift in Sources */,
+				4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */,
 				4FF567B02A31D32E00616341 /* ActivityViewController.swift in Sources */,
 				4FF567B72A31D32E00616341 /* ScanViewModelDelegate.swift in Sources */,
 				4FF567C82A31D32E00616341 /* CreatePincodeFirstEntryViewController.swift in Sources */,
@@ -1424,6 +1439,7 @@
 				4F909E2A2A31CDA000FC1506 /* Constants.swift in Sources */,
 				4FF567C12A31D32E00616341 /* CreatePincodeAndBiometricAccessViewModel.swift in Sources */,
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
+				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
