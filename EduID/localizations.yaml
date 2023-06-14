@@ -435,10 +435,6 @@ IOS:
         en: Continue
         nl: Doorgaan
   NameOverview:
-    DoneButton:
-      COPY:
-        nl: 
-        en: Done
     Title:
       AllDetailsOf:
         COPY:
