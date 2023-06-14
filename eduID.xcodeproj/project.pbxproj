@@ -85,6 +85,8 @@
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */; };
 		4FEBF53B2A38A069004BF3C8 /* NameOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */; };
+		4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */; };
+		4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
 		4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675B2A31D32E00616341 /* MainCoordinator.swift */; };
 		4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */; };
@@ -412,6 +414,8 @@
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewModel.swift; sourceTree = "<group>"; };
 		4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewController.swift; sourceTree = "<group>"; };
+		4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewController.swift; sourceTree = "<group>"; };
+		4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewModel.swift; sourceTree = "<group>"; };
 		4FF5675A2A31D32E00616341 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4FF5675B2A31D32E00616341 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -868,6 +872,15 @@
 			path = NameOverview;
 			sourceTree = "<group>";
 		};
+		4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */ = {
+			isa = PBXGroup;
+			children = (
+				4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */,
+				4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */,
+			);
+			path = NameUpdated;
+			sourceTree = "<group>";
+		};
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,23 +909,16 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */,
 				4FC350B02A373B05003CB086 /* EmailEditor */,
 				4FEBF5332A38438F004BF3C8 /* NameOverview */,
-				4FF5675E2A31D32E00616341 /* ViewModels */,
+				4FF5675F2A31D32E00616341 /* PersonalInfoViewModel.swift */,
 				4FF567602A31D32E00616341 /* PersonalInfoViewController.swift */,
 				4FF567612A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift */,
 				4FF567622A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift */,
 				4FF567632A31D32E00616341 /* PersonalInfoCoordinator.swift */,
 			);
 			path = PersonalInfo;
-			sourceTree = "<group>";
-		};
-		4FF5675E2A31D32E00616341 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				4FF5675F2A31D32E00616341 /* PersonalInfoViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4FF567642A31D32E00616341 /* Security */ = {
@@ -1340,6 +1346,7 @@
 				4FF567C32A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift in Sources */,
 				4F909EA82A31CDDC00FC1506 /* NSAttributedString+Styling.swift in Sources */,
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
+				4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */,
 				4FF567A52A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift in Sources */,
 				4F909EBF2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift in Sources */,
 				4FF567D22A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewController.swift in Sources */,
@@ -1403,6 +1410,7 @@
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				4FF567AA2A31D32E00616341 /* SecurityChangePasswordViewController.swift in Sources */,
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,
+				4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */,
 				0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */,
 				4F909EB72A31CDDC00FC1506 /* BiometricService.swift in Sources */,
 				4FEBF53B2A38A069004BF3C8 /* NameOverviewViewController.swift in Sources */,

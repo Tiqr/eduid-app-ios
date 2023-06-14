@@ -84,6 +84,11 @@
 "Email.DuplicateEmail.COPY" = "This email address is already in use.";
 "Email.OutstandingPasswordForgotten.COPY" = "Outstanding password forgotten request";
 "Email.OutstandingPasswordForgottenConfirmation.COPY" = "You have requested a password forgotten link. This link will no longer be valid if you confirm your email change.";
+"NameUpdated.Title.YourSchool.COPY" = "Your school/uni";
+"NameUpdated.Title.ContactedSuccessfully.COPY" = "was contacted successfully";
+"NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
+"NameUpdated.FullName.COPY" = "Full name";
+"NameUpdated.Continue.COPY" = "Continue";
 "NameOverview.Title.AllDetailsOf.COPY" = "All details of";
 "NameOverview.Title.FullName.COPY" = "Full name";
 "NameOverview.SelfAsserted.COPY" = "Self asserted";

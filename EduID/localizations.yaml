@@ -412,7 +412,33 @@ IOS:
         nl: >-
           Je hebt een openstaand wachtwoord vergeten link. Deze link is niet
           langer geldig als je deze e-mailwijziging bevestigt.
+  NameUpdated:
+    Title:
+      YourSchool:
+        COPY:
+          en: Your school/uni
+          nl: Je school/instelling
+      ContactedSuccessfully:
+        COPY:
+          en: was contacted successfully
+          nl: is nu gekoppeld
+    Description:
+      COPY:
+        en: The following information has been added to your eduID and can now be shared.!
+        nl: De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.
+    FullName:
+      COPY:
+        en: Full name
+        nl: Volledige naam
+    Continue:
+      COPY:
+        en: Continue
+        nl: Doorgaan
   NameOverview:
+    DoneButton:
+      COPY:
+        nl: 
+        en: Done
     Title:
       AllDetailsOf:
         COPY:

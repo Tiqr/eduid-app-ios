@@ -84,6 +84,11 @@
 "Email.DuplicateEmail.COPY" = "Dit e-mailadres is al in gebruik.";
 "Email.OutstandingPasswordForgotten.COPY" = "Uitstaand reset verzoek voor wachtwoord";
 "Email.OutstandingPasswordForgottenConfirmation.COPY" = "Je hebt een openstaand wachtwoord vergeten link. Deze link is niet langer geldig als je deze e-mailwijziging bevestigt.";
+"NameUpdated.Title.YourSchool.COPY" = "Je school/instelling";
+"NameUpdated.Title.ContactedSuccessfully.COPY" = "is nu gekoppeld";
+"NameUpdated.Description.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.";
+"NameUpdated.FullName.COPY" = "Volledige naam";
+"NameUpdated.Continue.COPY" = "Doorgaan";
 "NameOverview.Title.AllDetailsOf.COPY" = "Alle gegevens van";
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
 "NameOverview.SelfAsserted.COPY" = "Zelf ingevuld";

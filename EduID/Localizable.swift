@@ -822,6 +822,50 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct NameUpdated {
+        public struct Title {
+            public static let YourSchool = LocaliciousData(
+                accessibilityIdentifier: "NameUpdated.Title.YourSchool",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "NameUpdated.Title.YourSchool.COPY",
+                translationArgs: []
+            )
+            public static let ContactedSuccessfully = LocaliciousData(
+                accessibilityIdentifier: "NameUpdated.Title.ContactedSuccessfully",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "NameUpdated.Title.ContactedSuccessfully.COPY",
+                translationArgs: []
+            )
+        }
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "NameUpdated.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "NameUpdated.Description.COPY",
+            translationArgs: []
+        )
+        public static let FullName = LocaliciousData(
+            accessibilityIdentifier: "NameUpdated.FullName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "NameUpdated.FullName.COPY",
+            translationArgs: []
+        )
+        public static let Continue = LocaliciousData(
+            accessibilityIdentifier: "NameUpdated.Continue",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "NameUpdated.Continue.COPY",
+            translationArgs: []
+        )
+    }
     public struct NameOverview {
         public struct Title {
             public static let AllDetailsOf = LocaliciousData(

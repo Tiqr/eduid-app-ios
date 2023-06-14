@@ -54,6 +54,13 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(nameOverviewViewController, animated: true)
     }
     
+    func goToNameUpdated(viewController: UIViewController, linkedAccount: LinkedAccount) {
+        self.didUpdateData = true
+        let nameUpdatedViewController = NameUpdatedViewController(viewModel: NameUpdatedViewModel(linkedAccount: linkedAccount))
+        nameUpdatedViewController.delegate = self
+        navigationController!.pushViewController(nameUpdatedViewController, animated: true)
+    }
+    
     func shouldUpdateData() -> Bool {
         return self.didUpdateData
     }

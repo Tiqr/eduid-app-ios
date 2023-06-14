@@ -27,9 +27,8 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
             self?.setupUI()
         }
         viewModel.linkAddedClosure = { [weak self] linkedAccount in
-            // TODO go to next screen
-            let alert = UIAlertController(title: "Link added", message: "Added link: \(linkedAccount.subjectId)", preferredStyle: .alert)
-            self?.present(alert, animated: true)
+            guard let self = self else { return }
+            self.delegate?.goToNameUpdated(viewController: self, linkedAccount: linkedAccount)
         }
     }
     
@@ -47,6 +46,13 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if delegate?.shouldUpdateData() == true {
+            setupUI()
+        }
+    }
+    
     @objc
     func willEnterForeground() {
         viewModel.checkIfLinkingCompleted()
@@ -62,14 +68,13 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         }
         // - scroll view
         let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
         let fullTitleString = "\(L.NameOverview.Title.AllDetailsOf.localization)\n\(L.NameOverview.Title.FullName.localization)"
         let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.NameOverview.Title.FullName.localization)
-        let bottomSpacer = UIView()
-
 
         let selfAssertedName = "\(viewModel.personalInfo.givenName ?? "") \(viewModel.personalInfo.familyName ?? "")"
         let nameTitle = NSAttributedString(string: L.NameOverview.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
@@ -84,6 +89,7 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         ])
         
         topStackView.alignment = .leading
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.axis = .vertical
         topStackView.distribution = .fill
         topStackView.spacing = 20
@@ -163,14 +169,12 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
             addInstitutionButton!.width(to: topStackView)
         }
         
-        
-        topStackView.setCustomSpacing(16, after: mainTitle)
-        topStackView.addArrangedSubview(bottomSpacer)
-        scrollView.addSubview(topStackView)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 36, left: 24, bottom: 24, right: -24))
-        topStackView.width(to: scrollView, offset: -48)
-
         nameControl.width(to: topStackView)
+        topStackView.setCustomSpacing(16, after: mainTitle)
+        scrollView.addSubview(topStackView)
+        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: -24))
+        topStackView.width(to: scrollView, offset: -48)
+        view.layoutIfNeeded()
     }
     
     @objc func addInstitutionControlClicked() {
