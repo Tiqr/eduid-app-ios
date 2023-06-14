@@ -30,6 +30,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     
     var isQrEnrolment: Bool?
     
+    
     //MARK: - init
     init(enrollmentChallenge: EnrollmentChallenge? = nil, authenticationChallenge: AuthenticationChallenge? = nil, isQrEnrolment: Bool? = nil) {
         self.enrollmentChallenge = enrollmentChallenge

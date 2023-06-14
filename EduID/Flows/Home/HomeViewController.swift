@@ -189,7 +189,10 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
-    @objc private func loadViewWhenReceivingNotification() {
+    @objc private func loadViewWhenReceivingNotification(_ notification: Notification) {
+        if let notificationObject = notification.userInfo?[Constants.NotificationObjects.TiqrAuthObject] as? String {
+            delegate?.homeViewControllerShowAuthenticationScreen(with: notificationObject)
+        }
         load(childScreenMode)
     }
 }

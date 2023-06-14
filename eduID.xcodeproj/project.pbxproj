@@ -194,6 +194,7 @@
 		4FF568322A31D68400616341 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6E2A31D07500FC1506 /* SynchronizedDictionary.swift */; };
 		4FF568332A31D68400616341 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6F2A31D07500FC1506 /* Configuration.swift */; };
 		4FF568362A31D6AB00616341 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF568352A31D6AB00616341 /* AnyCodable */; };
+		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -472,6 +473,7 @@
 		4FF567E72A31D60300616341 /* OpenAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF567E92A31D60300616341 /* OpenAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenAPIClient.h; sourceTree = "<group>"; };
 		4FF567EA2A31D60300616341 /* OpenAPIClient.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = OpenAPIClient.docc; sourceTree = "<group>"; };
+		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -518,7 +520,6 @@
 				C7F6016C2938C5FD00AF2FFF /* README.md */,
 				C7F6016B2938C5FD00AF2FFF /* LICENSE */,
 				0AFD9E032745579900D48C01 /* EduID */,
-				4F909F1D2A31D07500FC1506 /* OpenAPIClient */,
 				C7F8389C294265B3002015A8 /* eduIDTests */,
 				4FF567E82A31D60300616341 /* OpenAPIClient */,
 				0AFD9E022745579900D48C01 /* Products */,
@@ -737,13 +738,6 @@
 			path = SharedViews;
 			sourceTree = "<group>";
 		};
-		4F909F1D2A31D07500FC1506 /* OpenAPIClient */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OpenAPIClient;
-			sourceTree = "<group>";
-		};
 		4F909F1F2A31D07500FC1506 /* docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +880,7 @@
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				7364BAC82A389AD6003FB978 /* VerifyAuthentication */,
 				73DD92302A334FCC0065956E /* VerifyPinCode */,
 				4FF567592A31D32E00616341 /* Home */,
 				4FF5675D2A31D32E00616341 /* PersonalInfo */,
@@ -1064,6 +1059,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7364BAC82A389AD6003FB978 /* VerifyAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */,
+			);
+			path = VerifyAuthentication;
 			sourceTree = "<group>";
 		};
 		73DD92302A334FCC0065956E /* VerifyPinCode */ = {
@@ -1413,6 +1416,7 @@
 				4F909EB72A31CDDC00FC1506 /* BiometricService.swift in Sources */,
 				4F909EC02A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift in Sources */,
 				4F909EA72A31CDDC00FC1506 /* UILabel+Styling.swift in Sources */,
+				7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */,
 				4FF567D72A31D32E00616341 /* CreateEduIDViewControllerDelegate.swift in Sources */,
 				4F909EA92A31CDDC00FC1506 /* UIColor+Styling.swift in Sources */,
 				4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */,

@@ -75,9 +75,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
     
     //MARK: - button actions
     
-    @objc
-    func signInTapped() {
+    @objc func signInTapped() {
         AppAuthController.shared.authorize(viewController: self)
     }
-
 }

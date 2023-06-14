@@ -46,11 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = mainCoordinator.homeNavigationController
         window?.makeKeyAndVisible()
-
-        if let url = connectionOptions.urlContexts.first?.url {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
-        }
-     
+        
         let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
         mainCoordinator.start(option: flowType)
     }
@@ -61,25 +57,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func handleURLFromRedirect(url: URL?) {
         guard let url = url else { return }
-        
-        //TODO: check
-        if url.absoluteString.range(of: "tiqrauth") != nil {
-            Tiqr.shared.startChallenge(challenge: url.absoluteString)
-            
-        } else if let range = url.absoluteString.range(of: "created") {
+        if (url.absoluteString.range(of: "tiqrauth") != nil) {
+            getAppropriateLaunchOption(with: url.absoluteString)
+        } else if (url.absoluteString.range(of: "created") != nil) {
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
-            
-            // - check if this is a first time authorization to onboard the app
-            if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
-                NotificationCenter.default.post(name: .firstTimeAuthorizationComplete, object: nil)
-            } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
-                NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
-            }
+            getAppropriateLaunchOption()
             return
-            
-        } else if let range = url.absoluteString.range(of: "account-linked") {
+        } else if (url.absoluteString.range(of: "account-linked") != nil) {
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         } else if let range = url.absoluteString.range(of: "update-email") {
             NotificationCenter.default.post(name: .didUpdateEmail, object: nil)
@@ -90,6 +76,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         handleURLFromRedirect(url: userActivity.webpageURL)
     }
-
+    
+    private func getAppropriateLaunchOption(with object: Any? = nil) {
+        let userInfo: [String: Any] = [Constants.NotificationObjects.TiqrAuthObject:object ?? ""]
+        if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
+            NotificationCenter.default.post(name: .firstTimeAuthorizationComplete,
+                                            object: nil, userInfo: userInfo)
+        } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
+            NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                                            object: nil, userInfo: userInfo)
+        }
+    }
 }
 

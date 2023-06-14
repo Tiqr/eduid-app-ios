@@ -7,6 +7,7 @@
 "Start.Manage.COPY" = "Beheer jouw persoonlijke informatie, jouw privacy, en de beveiliging van jouw eduID account.";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Uitloggen";
+"Header.LogOff.COPY" = "Afmelden";
 "Landing.LogoutTitle.COPY" = "Je bent uitgelogd";
 "Landing.LogoutStatus.COPY" = "Om het uitlogproces te voltooien, moet je de browser nu afsluiten.";
 "Landing.LoginAgain.COPY" = "Opnieuw inloggen";
@@ -30,6 +31,7 @@
 "Profile.Info.COPY" = "Wanneer je eduID gebruikt om in te loggen op andere websites, kan jouw persoonlijke informatie worden gedeeld. Sommige websites vereisen dat je persoonlijke gegevens worden gevalideerd door een derde partij.";
 "Profile.Basic.COPY" = "Basis informatie";
 "Profile.Email.COPY" = "E-mail";
+"Profile.VerifyEmail.COPY" = "Bevestig e-mailadres";
 "Profile.Name.COPY" = "Naam";
 "Profile.Validated.COPY" = "Gevalideerde informatie";
 "Profile.FirstAndLastName.COPY" = "Voor- en achternaam";
