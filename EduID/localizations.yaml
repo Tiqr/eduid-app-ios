@@ -154,7 +154,7 @@ IOS:
     VerifyEmail:
       COPY:
         en: Verify email address
-        nl: Bevestig e-mail adres
+        nl: Bevestig e-mailadres
     Name:
       COPY:
         en: Name
