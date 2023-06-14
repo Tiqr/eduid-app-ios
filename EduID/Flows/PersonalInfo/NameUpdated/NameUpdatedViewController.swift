@@ -85,7 +85,6 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(bottomButton)
         bottomButton.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(24))
     }
-
     
     @objc func dismissInfoScreen() {
         delegate?.goBackToInfoScreen(updateData: false)

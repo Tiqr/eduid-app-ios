@@ -16,6 +16,7 @@
 "Landing.RegisterAgain.COPY" = "Register again";
 "NotFound.Title.COPY" = "Whoops...";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
+"Profile.ManageYourAccount.COPY" = "Manage your account";
 "Profile.AccountLinkError.Title.COPY" = "Could not retrieve URL for linking your current account.";
 "Profile.AddViaSurfconext.COPY" = "Proceed to add this via SURFconext";
 "Profile.AddRoleAndInstitution.COPY" = "Add role & institution";
@@ -89,6 +90,12 @@
 "NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
 "NameUpdated.FullName.COPY" = "Full name";
 "NameUpdated.Continue.COPY" = "Continue";
+"EditName.Title.Edit.COPY" = "Edit";
+"EditName.Title.FullName.COPY" = "Full name";
+"EditName.FirstName.COPY" = "First name";
+"EditName.LastName.COPY" = "Last name";
+"EditName.Button.Save.COPY" = "Save";
+"EditName.Button.Cancel.COPY" = "Cancel";
 "NameOverview.Title.AllDetailsOf.COPY" = "All details of";
 "NameOverview.Title.FullName.COPY" = "Full name";
 "NameOverview.SelfAsserted.COPY" = "Self asserted";

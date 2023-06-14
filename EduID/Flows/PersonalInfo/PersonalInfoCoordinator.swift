@@ -61,6 +61,16 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(nameUpdatedViewController, animated: true)
     }
     
+    func goToNameEditor(viewController: UIViewController) {
+        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel())
+        nameEditorViewController.delegate = self
+        navigationController!.pushViewController(nameEditorViewController, animated: true)
+    }
+    
+    func goToMyAccount(viewController: UIViewController, personalInfo: UserResponse) {
+        // TODO
+    }
+    
     func shouldUpdateData() -> Bool {
         return self.didUpdateData
     }

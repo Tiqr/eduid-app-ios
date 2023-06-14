@@ -245,6 +245,14 @@ public struct L {
         )
     }
     public struct Profile {
+        public static let ManageYourAccount = LocaliciousData(
+            accessibilityIdentifier: "Profile.ManageYourAccount",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ManageYourAccount.COPY",
+            translationArgs: []
+        )
         public struct AccountLinkError {
             public static let Title = LocaliciousData(
                 accessibilityIdentifier: "Profile.AccountLinkError.Title",
@@ -865,6 +873,60 @@ public struct L {
             translationKey: "NameUpdated.Continue.COPY",
             translationArgs: []
         )
+    }
+    public struct EditName {
+        public struct Title {
+            public static let Edit = LocaliciousData(
+                accessibilityIdentifier: "EditName.Title.Edit",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Title.Edit.COPY",
+                translationArgs: []
+            )
+            public static let FullName = LocaliciousData(
+                accessibilityIdentifier: "EditName.Title.FullName",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Title.FullName.COPY",
+                translationArgs: []
+            )
+        }
+        public static let FirstName = LocaliciousData(
+            accessibilityIdentifier: "EditName.FirstName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.FirstName.COPY",
+            translationArgs: []
+        )
+        public static let LastName = LocaliciousData(
+            accessibilityIdentifier: "EditName.LastName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EditName.LastName.COPY",
+            translationArgs: []
+        )
+        public struct Button {
+            public static let Save = LocaliciousData(
+                accessibilityIdentifier: "EditName.Button.Save",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Button.Save.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "EditName.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "EditName.Button.Cancel.COPY",
+                translationArgs: []
+            )
+        }
     }
     public struct NameOverview {
         public struct Title {

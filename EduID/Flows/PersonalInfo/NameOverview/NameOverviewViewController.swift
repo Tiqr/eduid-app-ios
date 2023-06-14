@@ -82,6 +82,7 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
         nameProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
         let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameProvidedByText, iconInBody: .pencil.withRenderingMode(.alwaysTemplate), isFilled: true)
+        nameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
         
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle,
@@ -217,5 +218,9 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
     
     @objc func dismissInfoScreen() {
         delegate?.goBackToInfoScreen(updateData: viewModel.didUpdateData)
+    }
+    
+    @objc func nameControlClicked() {
+        delegate?.goToNameEditor(viewController: self)
     }
 }

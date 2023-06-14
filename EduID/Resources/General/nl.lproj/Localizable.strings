@@ -16,6 +16,7 @@
 "Landing.RegisterAgain.COPY" = "Opnieuw registreren";
 "NotFound.Title.COPY" = "Oeps...";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
+"Profile.ManageYourAccount.COPY" = "Beheer jouw gegevens";
 "Profile.AccountLinkError.Title.COPY" = "De URL kon niet worden opgehaald voor het koppelen van uw huidige account.";
 "Profile.AddViaSurfconext.COPY" = "Voeg dit toe via SURFconext";
 "Profile.AddRoleAndInstitution.COPY" = "Voeg een rol & instelling toe";
@@ -89,6 +90,12 @@
 "NameUpdated.Description.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.";
 "NameUpdated.FullName.COPY" = "Volledige naam";
 "NameUpdated.Continue.COPY" = "Doorgaan";
+"EditName.Title.Edit.COPY" = "Bewerk";
+"EditName.Title.FullName.COPY" = "Volledige naam";
+"EditName.FirstName.COPY" = "Voornaam";
+"EditName.LastName.COPY" = "Achternaam";
+"EditName.Button.Save.COPY" = "Opslaan";
+"EditName.Button.Cancel.COPY" = "Annuleer";
 "NameOverview.Title.AllDetailsOf.COPY" = "Alle gegevens van";
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
 "NameOverview.SelfAsserted.COPY" = "Zelf ingevuld";

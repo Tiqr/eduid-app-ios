@@ -83,6 +83,10 @@ IOS:
         en: Something went wrong (404)
         nl: Er is iets fout gegaan (404).
   Profile:
+    ManageYourAccount:
+      COPY:
+        en: Manage your account
+        nl: Beheer jouw gegevens
     AccountLinkError:
       Title:
         COPY:
@@ -434,6 +438,33 @@ IOS:
       COPY:
         en: Continue
         nl: Doorgaan
+  EditName:
+    Title:
+      Edit:
+        COPY:
+          en: Edit
+          nl: Bewerk
+      FullName:
+        COPY:
+          en: Full name
+          nl: Volledige naam
+    FirstName:
+      COPY:
+        en: First name
+        nl: Voornaam
+    LastName:
+      COPY:
+        en: Last name
+        nl: Achternaam
+    Button:
+      Save:
+        COPY:
+          en: Save
+          nl: Opslaan
+      Cancel:
+        COPY:
+          en: Cancel
+          nl: Annuleer
   NameOverview:
     Title:
       AllDetailsOf:
