@@ -1,5 +1,5 @@
 //
-//  NameEditorViewModel.swift
+//  NameOverviewViewModel.swift
 //  eduID
 //
 //  Created by Dániel Zolnai on 2023. 06. 12..
@@ -8,7 +8,7 @@
 import Foundation
 import OpenAPIClient
 
-class NameEditorViewModel {
+class NameOverviewViewModel {
     
     var personalInfo: UserResponse
     

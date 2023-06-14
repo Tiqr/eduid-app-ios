@@ -1,5 +1,5 @@
 //
-//  NameEditorViewController.swift
+//  NameOverviewViewController.swift
 //  eduID
 //
 //  Created by Dániel Zolnai on 2023. 06. 12..
@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 import TinyConstraints
 
-class NameEditorViewController: UIViewController, ScreenWithScreenType {
+class NameOverviewViewController: UIViewController, ScreenWithScreenType {
     
-    var screenType: ScreenType = .personalInfoEditNameScreen
+    var screenType: ScreenType = .personalInfoNameOverviewScreen
     
     weak var delegate: PersonalInfoViewControllerDelegate?
 
-    private var viewModel: NameEditorViewModel
+    private var viewModel: NameOverviewViewModel
     
     private var addInstitutionButton: ActionableControlWithBodyAndTitle? = nil
 
-    init(viewModel: NameEditorViewModel) {
+    init(viewModel: NameOverviewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
@@ -27,9 +27,8 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
             self?.setupUI()
         }
         viewModel.linkAddedClosure = { [weak self] linkedAccount in
-            // TODO go to next screen
-            let alert = UIAlertController(title: "Link added", message: "Added link: \(linkedAccount.subjectId)", preferredStyle: .alert)
-            self?.present(alert, animated: true)
+            guard let self = self else { return }
+            self.delegate?.goToNameUpdated(viewController: self, linkedAccount: linkedAccount)
         }
     }
     
@@ -47,6 +46,13 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if delegate?.shouldUpdateData() == true {
+            setupUI()
+        }
+    }
+    
     @objc
     func willEnterForeground() {
         viewModel.checkIfLinkingCompleted()
@@ -62,17 +68,16 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         }
         // - scroll view
         let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
-        let fullTitleString = "\(L.EditName.Title.AllDetailsOf.localization)\n\(L.EditName.Title.FullName.localization)"
-        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.FullName.localization)
-        let bottomSpacer = UIView()
-
+        let fullTitleString = "\(L.NameOverview.Title.AllDetailsOf.localization)\n\(L.NameOverview.Title.FullName.localization)"
+        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.NameOverview.Title.FullName.localization)
 
         let selfAssertedName = "\(viewModel.personalInfo.givenName ?? "") \(viewModel.personalInfo.familyName ?? "")"
-        let nameTitle = NSAttributedString(string: L.EditName.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+        let nameTitle = NSAttributedString(string: L.NameOverview.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
         let nameProvidedByText = NSMutableAttributedString(string: "\(selfAssertedName)\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
         nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
         nameProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
@@ -84,15 +89,16 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         ])
         
         topStackView.alignment = .leading
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.axis = .vertical
         topStackView.distribution = .fill
         topStackView.spacing = 20
         
         let separatorTitleString: String
         if viewModel.personalInfo.linkedAccounts?.isEmpty == false {
-            separatorTitleString = L.EditName.Verified.localization
+            separatorTitleString = L.NameOverview.Verified.localization
         } else {
-            separatorTitleString = L.EditName.AnotherSource.localization
+            separatorTitleString = L.NameOverview.AnotherSource.localization
         }
         let separatorTitleAttributedText = NSAttributedString(string: separatorTitleString, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
         let separatorLabel = UILabel()
@@ -151,8 +157,8 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
         
         if viewModel.personalInfo.linkedAccounts?.isEmpty != false {
             // Placeholder button for adding a role
-            let addInstitutionTitle = NSMutableAttributedString(string: "\(L.EditName.NotAvailable.localization)\n\(L.EditName.ProceedToAdd.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
-            addInstitutionTitle.setAttributeTo(part: L.EditName.ProceedToAdd.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
+            let addInstitutionTitle = NSMutableAttributedString(string: "\(L.NameOverview.NotAvailable.localization)\n\(L.NameOverview.ProceedToAdd.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
+            addInstitutionTitle.setAttributeTo(part: L.NameOverview.ProceedToAdd.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
             addInstitutionButton = ActionableControlWithBodyAndTitle(
                 attributedBodyText: addInstitutionTitle,
                 iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
@@ -163,14 +169,12 @@ class NameEditorViewController: UIViewController, ScreenWithScreenType {
             addInstitutionButton!.width(to: topStackView)
         }
         
-        
-        topStackView.setCustomSpacing(16, after: mainTitle)
-        topStackView.addArrangedSubview(bottomSpacer)
-        scrollView.addSubview(topStackView)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 36, left: 24, bottom: 24, right: -24))
-        topStackView.width(to: scrollView, offset: -48)
-
         nameControl.width(to: topStackView)
+        topStackView.setCustomSpacing(16, after: mainTitle)
+        scrollView.addSubview(topStackView)
+        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: -24))
+        topStackView.width(to: scrollView, offset: -48)
+        view.layoutIfNeeded()
     }
     
     @objc func addInstitutionControlClicked() {

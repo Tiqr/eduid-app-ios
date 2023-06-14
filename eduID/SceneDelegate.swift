@@ -68,7 +68,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if (url.absoluteString.range(of: "account-linked") != nil) {
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
         } else if let range = url.absoluteString.range(of: "update-email") {
-            NotificationCenter.default.post(name: .didUpdateEmail, object: nil)
+            NotificationCenter.default.post(name: .didUpdateEmail, object: nil, userInfo: [Constants.UserInfoKey.emailUpdateUrl: url])
             
         }
     }
@@ -78,7 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func getAppropriateLaunchOption(with object: Any? = nil) {
-        let userInfo: [String: Any] = [Constants.NotificationObjects.TiqrAuthObject:object ?? ""]
+        let userInfo: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: object ?? ""]
         if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
             NotificationCenter.default.post(name: .firstTimeAuthorizationComplete,
                                             object: nil, userInfo: userInfo)

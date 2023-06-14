@@ -51,8 +51,9 @@ enum Constants {
         static let authorization = "Authorization"
     }
     
-    enum NotificationObjects {
-        static let TiqrAuthObject = "TiqrAuthenticationObject"
+    enum UserInfoKey {
+        static let tiqrAuthObject = "tiqrAuthenticationObject"
+        static let emailUpdateUrl = "emailUpdateUrl"
     }
     
 }

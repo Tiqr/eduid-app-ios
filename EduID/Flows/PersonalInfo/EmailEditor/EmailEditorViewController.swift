@@ -39,10 +39,46 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupUI(isLoading: false)
+        NotificationCenter.default.addObserver(self, selector: #selector(userDidUpdateEmail), name: Notification.Name.didUpdateEmail, object: nil)
     }
     
-    private func setupUI() {
+    @objc
+    func userDidUpdateEmail(_ notification: NSNotification) {
+        // User updated the email.
+        // First we confirm the URL via the API, then go back
+        setupUI(isLoading: true)
+        guard let url = notification.userInfo?[Constants.UserInfoKey.emailUpdateUrl] as? URL else {
+            assertionFailure("Email update URL not found in notification object!")
+            onUpdateFailed()
+            return
+        }
+        Task {
+            do {
+                if let result = try await viewModel.confirmEmailUpdate(url: url) {
+                    delegate?.goBackToInfoScreen(updateData: true)
+                } else {
+                    onUpdateFailed()
+                }
+            } catch {
+                NSLog("Unable to confirm email update: \(error)")
+                onUpdateFailed()
+            }
+        }
+    }
+    
+    private func onUpdateFailed() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.setupUI(isLoading: false)
+            let alert = UIAlertController(title: L.Generic.RequestError.Title.localization,
+                                          message: L.Email.UpdateError.localization,
+                                          preferredStyle: .alert)
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func setupUI(isLoading: Bool) {
         view.backgroundColor = .white
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         
@@ -51,27 +87,38 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
         let subTitle = UILabel.plainTextLabelPartlyBold(text: L.Email.Info.localization)
         let bottomSpacer = UIView()
 
-        emailField = TextFieldViewWithValidationAndTitle(
-            title: L.Email.NewEmail.localization,
-            placeholder: L.Email.Placeholder.localization,
-            field: .email,
-            keyboardType: .emailAddress,
-            isPassword: false
-        )
-        emailField.delegate = viewModel
+        let topStackView = UIStackView(arrangedSubviews: [
+            mainTitle,
+            subTitle
+        ])
+        
+        if isLoading {
+            let loadingIndicator = UIActivityIndicatorView()
+            loadingIndicator.width(40)
+            loadingIndicator.height(40)
+            loadingIndicator.startAnimating()
+            topStackView.addArrangedSubview(loadingIndicator)
+            topStackView.setCustomSpacing(8, after: loadingIndicator)
+        } else {
+            emailField = TextFieldViewWithValidationAndTitle(
+                title: L.Email.NewEmail.localization,
+                placeholder: L.Email.Placeholder.localization,
+                field: .email,
+                keyboardType: .emailAddress,
+                isPassword: false
+            )
+            emailField.delegate = viewModel
+            topStackView.addArrangedSubview(emailField)
+        }
         bottomSpacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        topStackView.addArrangedSubview(bottomSpacer)
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.Email.Cancel.localization)
         requestButton = EduIDButton(type: .primary, buttonTitle: L.Email.Update.localization)
         requestButton.isEnabled = false
         
         
-        let topStackView = UIStackView(arrangedSubviews: [
-            mainTitle,
-            subTitle,
-            emailField,
-            bottomSpacer
-        ])
+   
         topStackView.alignment = .leading
         topStackView.axis = .vertical
         topStackView.distribution = .fill

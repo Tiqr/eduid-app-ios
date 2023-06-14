@@ -65,19 +65,12 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         view.backgroundColor = .white
         
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidUpdateEmail), name: Notification.Name.didUpdateEmail, object: nil)
     }
     
     @objc
     func willEnterForeground() {
         // We might have came back from a linking flow
         viewModel.getData()
-    }
-    
-    @objc
-    func userDidUpdateEmail() {
-        // User updated the email, we need to refresh the data, come back to this screen, and show a dialog
-        delegate?.goBackToInfoScreen(updateData: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -244,7 +237,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     @objc
     func nameControlClicked() {
         if let personalInfo = viewModel.userResponse {
-            delegate?.editName(viewController: self, personalInfo: personalInfo)
+            delegate?.goToNameOverview(viewController: self, personalInfo: personalInfo)
         }
     }
     
