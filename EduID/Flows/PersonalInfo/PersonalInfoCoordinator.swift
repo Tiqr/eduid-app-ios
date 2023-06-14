@@ -29,7 +29,7 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         delegate?.personalInfoCoordinatorDismissPersonalInfoFlow(coordinator: self)
     }
     
-    func editEmail(viewController: UIViewController) {
+    func goToEmailEditor(viewController: UIViewController) {
         let emailEditorViewController = EmailEditorViewController(viewModel: EmailEditorViewModel())
         emailEditorViewController.delegate = self
         navigationController!.pushViewController(emailEditorViewController, animated: true)
@@ -68,6 +68,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToMyAccount(viewController: UIViewController, personalInfo: UserResponse) {
+        let myAccountViewController = MyAccountViewController(viewModel: MyAccountViewModel(personalInfo: personalInfo))
+        myAccountViewController.delegate = self
+        navigationController!.pushViewController(myAccountViewController, animated: true)
+    }
+    
+    func goToDeleteAccount(viewController: UIViewController, personalInfo: UserResponse) {
         // TODO
     }
     

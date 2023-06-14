@@ -928,6 +928,56 @@ public struct L {
             )
         }
     }
+    public struct MyAccount {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.Title.COPY",
+            translationArgs: []
+        )
+        public static let AccountCreatedOn = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.AccountCreatedOn",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.AccountCreatedOn.COPY",
+            translationArgs: []
+        )
+        public static let PersonalDataDisclaimer = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.PersonalDataDisclaimer",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.PersonalDataDisclaimer.COPY",
+            translationArgs: []
+        )
+        public static let DownloadDataButton = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.DownloadDataButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.DownloadDataButton.COPY",
+            translationArgs: []
+        )
+        public static let DeleteAccountButton = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.DeleteAccountButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.DeleteAccountButton.COPY",
+            translationArgs: []
+        )
+        public static let DownloadError = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.DownloadError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.DownloadError.COPY",
+            translationArgs: []
+        )
+    }
     public struct NameOverview {
         public struct Title {
             public static let AllDetailsOf = LocaliciousData(

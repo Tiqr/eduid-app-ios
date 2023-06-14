@@ -96,6 +96,12 @@
 "EditName.LastName.COPY" = "Achternaam";
 "EditName.Button.Save.COPY" = "Opslaan";
 "EditName.Button.Cancel.COPY" = "Annuleer";
+"MyAccount.Title.COPY" = "Je eduID account";
+"MyAccount.AccountCreatedOn.COPY" = "Jouw account is gemaakt op";
+"MyAccount.PersonalDataDisclaimer.COPY" = "Alle informatie in jouw eduID account is van jou en kan worden gedownload of verwijderd. De download van je persoonlijke gegevens van je eduID-account bevat alle informatie die we over je hebben. Het bevat ook technische sleutels en referenties.";
+"MyAccount.DownloadDataButton.COPY" = "Download mijn data";
+"MyAccount.DeleteAccountButton.COPY" = "Verwijder je account";
+"MyAccount.DownloadError.COPY" = "Downloaden mislukt";
 "NameOverview.Title.AllDetailsOf.COPY" = "Alle gegevens van";
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
 "NameOverview.SelfAsserted.COPY" = "Zelf ingevuld";

@@ -243,7 +243,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     @objc
     func emailControlClicked() {
-        delegate?.editEmail(viewController: self)
+        delegate?.goToEmailEditor(viewController: self)
     }
     
     @objc

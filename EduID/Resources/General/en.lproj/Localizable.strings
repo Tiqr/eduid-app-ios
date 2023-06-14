@@ -96,6 +96,12 @@
 "EditName.LastName.COPY" = "Last name";
 "EditName.Button.Save.COPY" = "Save";
 "EditName.Button.Cancel.COPY" = "Cancel";
+"MyAccount.Title.COPY" = "Your account";
+"MyAccount.AccountCreatedOn.COPY" = "Your account was created on";
+"MyAccount.PersonalDataDisclaimer.COPY" = "All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.";
+"MyAccount.DownloadDataButton.COPY" = "Download my data";
+"MyAccount.DeleteAccountButton.COPY" = "Delete your account";
+"MyAccount.DownloadError.COPY" = "Failed to download your data";
 "NameOverview.Title.AllDetailsOf.COPY" = "All details of";
 "NameOverview.Title.FullName.COPY" = "Full name";
 "NameOverview.SelfAsserted.COPY" = "Self asserted";
