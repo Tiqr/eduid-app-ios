@@ -103,15 +103,10 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         let bottomSpacer = UIView()
         topStackView.addArrangedSubview(bottomSpacer)
         
-        
-        topStackView.alignment = .leading
-        topStackView.axis = .vertical
-        topStackView.distribution = .fill
-        topStackView.spacing = 20
-        
         scrollView.addSubview(topStackView)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 36, left: 24, bottom: 24, right: -24))
         topStackView.width(to: scrollView, offset: -48)
+        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(32))
+
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.EditName.Button.Cancel.localization)
         saveButton = EduIDButton(type: .primary, buttonTitle: L.EditName.Button.Save.localization)
@@ -121,6 +116,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         topStackView.axis = .vertical
         topStackView.distribution = .fill
         topStackView.spacing = 30
+        topStackView.setCustomSpacing(20, after: firstNameField)
         
         let bottomStackView = UIStackView(arrangedSubviews: [
             cancelButton,
@@ -130,11 +126,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         bottomStackView.distribution = .fillEqually
         bottomStackView.spacing = 20
         
-        view.addSubview(topStackView)
         view.addSubview(bottomStackView)
-        
-        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(80))
-        
         bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
 
         // Add click targets
@@ -151,7 +143,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
             }
             setupUI(isLoading: true)
             do {
-                let userResponse = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName)
+                _ = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName)
                 delegate?.goBackToInfoScreen(updateData: true)
             } catch {
                 NSLog("Unable to update name of the user: \(error)")

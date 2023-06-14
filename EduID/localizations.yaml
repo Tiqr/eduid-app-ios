@@ -465,6 +465,31 @@ IOS:
         COPY:
           en: Cancel
           nl: Annuleer
+  MyAccount:
+    Title:
+      COPY:
+        en: Your account
+        nl: Je eduID account
+    AccountCreatedOn:
+      COPY:
+        en: Your account was created on
+        nl: Jouw account is gemaakt op
+    PersonalDataDisclaimer:
+      COPY:
+        en: All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.
+        nl: Alle informatie in jouw eduID account is van jou en kan worden gedownload of verwijderd. De download van je persoonlijke gegevens van je eduID-account bevat alle informatie die we over je hebben. Het bevat ook technische sleutels en referenties.
+    DownloadDataButton:
+      COPY:
+        en: Download my data
+        nl: Download mijn data
+    DeleteAccountButton:
+      COPY:
+        en: Delete your account
+        nl: Verwijder je account
+    DownloadError:
+      COPY:
+        en: Failed to download your data
+        nl: Downloaden mislukt
   NameOverview:
     Title:
       AllDetailsOf:

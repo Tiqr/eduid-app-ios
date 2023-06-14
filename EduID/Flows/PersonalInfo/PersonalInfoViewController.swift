@@ -139,7 +139,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
-        stack.alignment = .leading
+        stack.alignment = .center
         stack.spacing = 20
         scrollView.addSubview(stack)
         
@@ -221,14 +221,13 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
         stack.width(to: scrollView, offset: 0)
         
-        //mainTitle.width(to: stack, offset: -48)
-        mainTitle.horizontalToSuperview(insets: .horizontal(24))
-        mainDescription.horizontalToSuperview(insets: .horizontal(24))
-        shareableInformationHeader.horizontalToSuperview(insets: .horizontal(24))
-        nameControl.horizontalToSuperview(insets: .horizontal(24))
-        emailControl.horizontalToSuperview(insets: .horizontal(24))
-        addInstitutionButton.horizontalToSuperview(insets: .horizontal(24))
-        manageAccountContainer.horizontalToSuperview()
+        mainTitle.widthToSuperview(offset: -48)
+        mainDescriptionParent.widthToSuperview(offset: -48)
+        shareableInformationHeader.widthToSuperview(offset: -48)
+        nameControl.widthToSuperview(offset: -48)
+        emailControl.widthToSuperview(offset: -48)
+        addInstitutionButton.widthToSuperview(offset: -48)
+        manageAccountContainer.widthToSuperview()
         
         // Add click handlers
         emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
@@ -243,7 +242,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     @objc
     func emailControlClicked() {
-        delegate?.editEmail(viewController: self)
+        delegate?.goToEmailEditor(viewController: self)
     }
     
     @objc
