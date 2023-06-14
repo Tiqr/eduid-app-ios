@@ -474,6 +474,10 @@ IOS:
       COPY:
         en: Your account was created on
         nl: Jouw account is gemaakt op
+    AccountCreatedAt:
+      COPY:
+        en: at
+        nl: om
     PersonalDataDisclaimer:
       COPY:
         en: All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.

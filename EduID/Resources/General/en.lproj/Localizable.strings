@@ -98,6 +98,7 @@
 "EditName.Button.Cancel.COPY" = "Cancel";
 "MyAccount.Title.COPY" = "Your account";
 "MyAccount.AccountCreatedOn.COPY" = "Your account was created on";
+"MyAccount.AccountCreatedAt.COPY" = "at";
 "MyAccount.PersonalDataDisclaimer.COPY" = "All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.";
 "MyAccount.DownloadDataButton.COPY" = "Download my data";
 "MyAccount.DeleteAccountButton.COPY" = "Delete your account";

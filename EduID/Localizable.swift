@@ -945,6 +945,14 @@ public struct L {
             translationKey: "MyAccount.AccountCreatedOn.COPY",
             translationArgs: []
         )
+        public static let AccountCreatedAt = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.AccountCreatedAt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.AccountCreatedAt.COPY",
+            translationArgs: []
+        )
         public static let PersonalDataDisclaimer = LocaliciousData(
             accessibilityIdentifier: "MyAccount.PersonalDataDisclaimer",
             accessibilityHintKey: nil,
