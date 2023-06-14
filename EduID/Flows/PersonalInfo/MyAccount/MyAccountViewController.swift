@@ -138,7 +138,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         documentInteractionController.url = url
         documentInteractionController.uti = "public.data, public.content"
         documentInteractionController.name = url.lastPathComponent
-        documentInteractionController.presentPreview(animated: true)
+        documentInteractionController.presentOpenInMenu(from: view.frame, in: view, animated: true)
     }
     
     
