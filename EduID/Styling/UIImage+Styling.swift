@@ -24,4 +24,5 @@ extension UIImage {
     static let verifiedBadge = UIImage(named: "verified_badge")!
     static let cog = UIImage(named: "cog")!
     static let warning = UIImage(named: "warning")!
+    static let error = UIImage(named: "error")!
 }

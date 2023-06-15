@@ -141,7 +141,7 @@ class InstitutionControlCollapsible: UIControl {
         line5.backgroundColor = .backgroundColor
         
         // remove button
-        let button = EduIDButton(type: .red, buttonTitle: L.Institution.Delete.localization)
+        let button = EduIDButton(type: .borderedRed, buttonTitle: L.Institution.Delete.localization)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         stack = UIStackView(arrangedSubviews: [bodyStack, verifiedParent, line2, institutionStack, line3, affiliationsStack, line4, expiresStack, line5, button])

@@ -1,5 +1,6 @@
 import UIKit
 import OpenAPIClient
+import TiqrCoreObjC
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
     
@@ -34,7 +35,6 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         emailEditorViewController.delegate = self
         navigationController!.pushViewController(emailEditorViewController, animated: true)
     }
-    
     
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
         let checkEmailViewController = CheckEmailViewController()
@@ -80,7 +80,14 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse) {
-        // TODO
+        let confirmDeleteViewController = ConfirmDeleteViewController(viewModel: ConfirmDeleteViewModel(personalInfo: personalInfo))
+        confirmDeleteViewController.delegate = self
+        navigationController!.pushViewController(confirmDeleteViewController, animated: true)
+    }
+    
+    func deleteStateAndGoToHome() {
+        AppAuthController.shared.clearAuthState()
+        navigationController!.dismiss(animated: true)
     }
     
     func shouldUpdateData() -> Bool {

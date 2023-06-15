@@ -15,4 +15,5 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
+    func deleteStateAndGoToHome()
 }

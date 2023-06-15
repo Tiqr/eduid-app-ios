@@ -970,6 +970,96 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct ConfirmDelete {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDelete.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDelete.Title.COPY",
+            translationArgs: []
+        )
+        public static let Disclaimer = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDelete.Disclaimer",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDelete.Disclaimer.COPY",
+            translationArgs: []
+        )
+        public static let TypeNameToConfirm = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDelete.TypeNameToConfirm",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDelete.TypeNameToConfirm.COPY",
+            translationArgs: []
+        )
+        public static let YourFullNameLabel = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDelete.YourFullNameLabel",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDelete.YourFullNameLabel.COPY",
+            translationArgs: []
+        )
+        public static let Placeholder = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDelete.Placeholder",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDelete.Placeholder.COPY",
+            translationArgs: []
+        )
+        public struct Button {
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDelete.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDelete.Button.Cancel.COPY",
+                translationArgs: []
+            )
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDelete.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDelete.Button.Confirm.COPY",
+                translationArgs: []
+            )
+        }
+        public struct NameDoesNotMatchError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDelete.NameDoesNotMatchError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDelete.NameDoesNotMatchError.Title.COPY",
+                translationArgs: []
+            )
+            public static func Description(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: "ConfirmDelete.NameDoesNotMatchError.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDelete.NameDoesNotMatchError.Description.COPY",
+                translationArgs: args
+            )
+            }
+        }
+        public struct DeleteError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDelete.DeleteError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDelete.DeleteError.Title.COPY",
+                translationArgs: []
+            )
+        }
+    }
     public struct MyAccount {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "MyAccount.Title",

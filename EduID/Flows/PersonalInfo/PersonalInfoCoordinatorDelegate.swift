@@ -1,6 +1,5 @@
 import UIKit
 
-protocol PersonalInfoCoordinatorDelegate: AnyObject {
-    
+protocol PersonalInfoCoordinatorDelegate: AnyObject {    
     func personalInfoCoordinatorDismissPersonalInfoFlow(coordinator: CoordinatorType)
 }
