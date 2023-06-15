@@ -374,8 +374,8 @@ IOS:
           adres gestuurd.
     NewEmail:
       COPY:
-        en: Your new email
-        nl: Je nieuwe e-mail
+        en: Your new email address
+        nl: Je nieuwe e-mailadres
     Placeholder:
       COPY:
         en: "eg tim@bernerslee.com"

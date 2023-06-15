@@ -11,7 +11,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     
     // - cancellables
     var cancellables = Set<AnyCancellable>()
-
+    
     //MARK: - init
     init(title: String, placeholder: String, field validationType: TextFieldValidationType, keyboardType: UIKeyboardType, isPassword: Bool = false) {
         super.init(frame: .zero)
@@ -22,14 +22,13 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         
         // - title
         let label = UILabel()
-        label.height(16)
         label.font = .sourceSansProSemiBold(size: 16)
         label.textColor = .charcoalColor
         label.text = title
+        label.numberOfLines = .zero
+        label.sizeToFit()
         addArrangedSubview(label)
-        
         // - textfield
-        
         textField.font = .sourceSansProRegular(size: 16)
         textField.placeholder = placeholder
         textField.delegate = self
@@ -55,7 +54,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
                 self.validateText(with: validationType, and: self.textField.text ?? "")
             })
             .store(in: &cancellables)
-
+        
         // - textfield border
         extraBorderView.layer.borderWidth = 2
         extraBorderView.layer.borderColor = UIColor.clear.cgColor
@@ -142,7 +141,6 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
 }
 
 protocol ValidatedTextFieldDelegate: AnyObject {
-    
     func updateValidation(with value: String, isValid: Bool, from tag: Int)
     func keyBoardDidReturn(tag: Int)
     func didBecomeFirstResponder(tag: Int)

@@ -75,7 +75,7 @@
 "Email.Title.Edit.COPY" = "Bewerk";
 "Email.Title.EmailAddress.COPY" = "E-mailadres";
 "Email.Info.COPY" = "Voer je nieuwe e-mailadres in. Er wordt een verificatiemail naar dit adres gestuurd.";
-"Email.NewEmail.COPY" = "Je nieuwe e-mail";
+"Email.NewEmail.COPY" = "Je nieuwe e-mailadres";
 "Email.Placeholder.COPY" = "bijv tim@bernerslee.com";
 "Email.Update.COPY" = "Verstuur";
 "Email.Cancel.COPY" = "Annuleer";
