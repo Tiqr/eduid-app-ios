@@ -21,12 +21,12 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         spacing = 6
         
         // - title
-        let labelFrame = CGRect(origin: .zero, size: CGSize(width: self.frame.width, height: title.heightWithConstrained( width: self.frame.width + 10, font: .sourceSansProSemiBold(size: 16))))
-        let label = UILabel(frame: labelFrame)
+        let label = UILabel()
         label.font = .sourceSansProSemiBold(size: 16)
         label.textColor = .charcoalColor
         label.text = title
         label.numberOfLines = .zero
+        label.sizeToFit()
         addArrangedSubview(label)
         // - textfield
         textField.font = .sourceSansProRegular(size: 16)

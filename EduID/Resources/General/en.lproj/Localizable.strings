@@ -75,7 +75,7 @@
 "Email.Title.Edit.COPY" = "Edit";
 "Email.Title.EmailAddress.COPY" = "Email address";
 "Email.Info.COPY" = "Please enter your new email address. A verification mail will be sent to this address.";
-"Email.NewEmail.COPY" = "Your new email";
+"Email.NewEmail.COPY" = "Your new email address";
 "Email.Placeholder.COPY" = "eg tim@bernerslee.com";
 "Email.Update.COPY" = "Request";
 "Email.Cancel.COPY" = "Cancel";
