@@ -26,7 +26,6 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
     }
     
     func setupUI() {
