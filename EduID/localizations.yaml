@@ -83,6 +83,10 @@ IOS:
         en: Something went wrong (404)
         nl: Er is iets fout gegaan (404).
   Profile:
+    YouAreLoggedIn:
+        COPY:
+          en: You are logged in
+          nl: U bent ingelogd
     ManageYourAccount:
       COPY:
         en: Manage your account

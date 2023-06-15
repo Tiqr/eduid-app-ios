@@ -7,6 +7,7 @@ class VerifyScanResultViewController: BaseViewController {
     let viewModel: ScanViewModel
     weak var delegate: VerifyScanResultViewControllerDelegate?
     private var dismissVerifyAuthentication: (() -> Void)?
+    private var mainStack = BasicStackView(arrangedSubviews: .init())
 
     //MARK: - init
     init(viewModel: ScanViewModel, dismissVerifyAuthentication: (() -> Void)? = nil) {
@@ -76,13 +77,13 @@ class VerifyScanResultViewController: BaseViewController {
         animatedHStack.spacing = 24
         
         // - the stackView
-        let stack = BasicStackView(arrangedSubviews: [posterParent, upperspace, middlePosterParent, lowerSpace, animatedHStack])
-        view.addSubview(stack)
+        mainStack = BasicStackView(arrangedSubviews: [posterParent, upperspace, middlePosterParent, lowerSpace, animatedHStack])
+        view.addSubview(mainStack)
         
         // - constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
         upperspace.height(to: lowerSpace)
-        animatedHStack.width(to: stack)
+        animatedHStack.width(to: mainStack)
         primaryButton.width(to: cancelButton)
         
         // - actions:
@@ -97,7 +98,6 @@ class VerifyScanResultViewController: BaseViewController {
         let alert = UIAlertController(title: L.Profile.RemoveServicePrompt.Title.localization, message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: L.RememberMe.Yes.localization, style: .cancel) { [weak self] action in
             guard let self = self else { return }
-            
             self.delegate?.verifyScanResultViewControllerCancelScanResult(viewController: self)
         })
         alert.addAction(UIAlertAction(title: L.Modal.Cancel.localization, style: .default) { action in
@@ -160,11 +160,83 @@ class VerifyScanResultViewController: BaseViewController {
         guard let secret = secretData else { return }
         ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, response, error in
             if success {
-                self.dismiss(animated: true) { [weak self] in
+                DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
-                    self.dismissVerifyAuthentication?()
+                    self.updateUIAfterSigningIn()
                 }
             }
+        }
+    }
+    
+    private func updateUIAfterSigningIn() {
+        
+        mainStack.removeFromSuperview()
+        
+        let eduIdLogoFrame = CGRect(origin: .zero,
+                                    size: CGSize(width: 120, height: 50))
+        
+        let eduIdLogoImageView = UIImageView(frame: eduIdLogoFrame)
+        eduIdLogoImageView.image = .eduIDLogo
+        eduIdLogoImageView.contentMode = .scaleAspectFit
+        
+        let shieldImageFrame = CGRect(origin: .zero,
+                                      size: CGSize(width: 100, height: 120))
+        
+        let shieldImageView = UIImageView(frame: shieldImageFrame)
+        shieldImageView.image = .shield
+        shieldImageView.contentMode = .scaleAspectFit
+        
+        let loggedInLabelFrame = CGRect(origin: .zero, size: CGSize(width: 320, height: 50))
+        let loggedInLabel = UILabel.posterTextLabelBicolor(frame: loggedInLabelFrame,
+                                                           text: L.Profile.YouAreLoggedIn.localization,
+                                                           primary: L.Profile.YouAreLoggedIn.localization,
+                                                           alignment: .center)
+        
+        let dismissButtonFrame = CGRect(origin: .zero, size: CGSize(width: 300, height: 48))
+        let dismissButton = EduIDButton(type: .primary,
+                                        buttonTitle: L.PinAndBioMetrics.OKButton.localization,
+                                        frame: dismissButtonFrame)
+        
+        dismissButton.addTarget(self, action: #selector(dismissView),
+                                for: .touchUpInside)
+        
+        let views = [eduIdLogoImageView,
+                     shieldImageView,
+                     loggedInLabel,
+                     dismissButton]
+        
+        views.forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                $0.widthAnchor.constraint(equalToConstant: $0.frame.width),
+                $0.heightAnchor.constraint(equalToConstant: $0.frame.height),
+            ])
+        }
+        
+        NSLayoutConstraint.activate([
+            eduIdLogoImageView.topAnchor.constraint(equalTo: self.view.topAnchor,
+                                                    constant: 30),
+            eduIdLogoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            shieldImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            shieldImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,
+                                                     constant: -loggedInLabel.frame.height),
+            
+            loggedInLabel.topAnchor.constraint(equalTo: shieldImageView.bottomAnchor,
+                                               constant: (loggedInLabel.frame.height / 2)),
+            loggedInLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            dismissButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                                                  constant: -dismissButton.frame.height),
+            dismissButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+    }
+    
+    @objc private func dismissView() {
+        self.dismiss(animated: true) { [weak self] in
+            guard let self else { return }
+            self.dismissVerifyAuthentication?()
         }
     }
 }

@@ -15,7 +15,6 @@ public class OnboardingManager: NSObject {
     
     //MARK: - query
     public func getAppropriateLaunchOption() -> OnboardingFlowType {
-        testCreateAUser()
         if let onboardingFlowTypeString = defaults.value(forKey: OnboardingManager.userdefaultsFlowTypeKey) as? String, let onboardingFlowType = OnboardingFlowType(rawValue: onboardingFlowTypeString) {
             return onboardingFlowType
         } else {
@@ -39,9 +38,6 @@ public class OnboardingManager: NSObject {
             
         default: return .newUser
         }
-    }
-    
-    func testCreateAUser() {
     }
 }
 
