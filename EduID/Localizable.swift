@@ -245,6 +245,14 @@ public struct L {
         )
     }
     public struct Profile {
+        public static let YouAreLoggedIn = LocaliciousData(
+            accessibilityIdentifier: "Profile.YouAreLoggedIn",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.YouAreLoggedIn.COPY",
+            translationArgs: []
+        )
         public static let ManageYourAccount = LocaliciousData(
             accessibilityIdentifier: "Profile.ManageYourAccount",
             accessibilityHintKey: nil,

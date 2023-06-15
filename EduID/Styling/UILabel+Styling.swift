@@ -25,9 +25,11 @@ extension UILabel {
         return label
     }
     
-    static func posterTextLabelBicolor(text: String, size: CGFloat = 24, primary: String, alignment: NSTextAlignment = .left) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    static func posterTextLabelBicolor(frame: CGRect? = nil, text: String, size: CGFloat = 24, primary: String, alignment: NSTextAlignment = .left) -> UILabel {
+        var label = UILabel()
+        if let labelFrame = frame {
+            label = UILabel(frame: labelFrame)
+        }
         label.textAlignment = alignment
         label.textColor = UIColor.secondaryColor
         label.numberOfLines = 0

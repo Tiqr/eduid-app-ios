@@ -16,6 +16,7 @@
 "Landing.RegisterAgain.COPY" = "Register again";
 "NotFound.Title.COPY" = "Whoops...";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
+"Profile.YouAreLoggedIn.COPY" = "You are logged in";
 "Profile.ManageYourAccount.COPY" = "Manage your account";
 "Profile.AccountLinkError.Title.COPY" = "Could not retrieve URL for linking your current account.";
 "Profile.AddViaSurfconext.COPY" = "Proceed to add this via SURFconext";

@@ -69,13 +69,17 @@ final class EduIDButton: UIButton {
     }
 
     
-    init(type: ButtonType, buttonTitle: String) {
+    init(type: ButtonType, buttonTitle: String, frame: CGRect? = nil) {
         self.type = type
         self.buttonTitle = buttonTitle
-        super.init(frame: .zero)
-        
+        if let frameRect = frame {
+            super.init(frame: frameRect)
+            height(frameRect.height)
+        } else {
+            super.init(frame: .zero)
+            height(48)
+        }
         self.translatesAutoresizingMaskIntoConstraints = false
-        height(48)
         
         layer.cornerRadius = 6
         
