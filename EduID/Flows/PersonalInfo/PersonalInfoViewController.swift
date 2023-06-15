@@ -64,6 +64,12 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         view.backgroundColor = .white
         
+        let loadingIndicator = UIActivityIndicatorView()
+        loadingIndicator.size(CGSize(width: 80, height: 80))
+        view.addSubview(loadingIndicator)
+        loadingIndicator.centerInSuperview()
+        loadingIndicator.startAnimating()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     

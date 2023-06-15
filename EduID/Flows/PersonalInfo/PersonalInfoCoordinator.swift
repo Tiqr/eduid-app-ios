@@ -35,7 +35,6 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(emailEditorViewController, animated: true)
     }
     
-    
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
         let checkEmailViewController = CheckEmailViewController()
         checkEmailViewController.emailToCheck = emailToVerify
