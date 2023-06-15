@@ -1779,12 +1779,12 @@ public struct L {
             translationKey: "DataActivity.Info.COPY",
             translationArgs: []
         )
-        public static let Explanation = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.Explanation",
+        public static let AppsHeader = LocaliciousData(
+            accessibilityIdentifier: "DataActivity.AppsHeader",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.Explanation.COPY",
+            translationKey: "DataActivity.AppsHeader.COPY",
             translationArgs: []
         )
         public static let NoServices = LocaliciousData(
@@ -1820,6 +1820,14 @@ public struct L {
             translationArgs: []
         )
         public struct Details {
+            public static let On = LocaliciousData(
+                accessibilityIdentifier: "DataActivity.Details.On",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "DataActivity.Details.On.COPY",
+                translationArgs: []
+            )
             public static let Login = LocaliciousData(
                 accessibilityIdentifier: "DataActivity.Details.Login",
                 accessibilityHintKey: nil,
@@ -1836,20 +1844,20 @@ public struct L {
                 translationKey: "DataActivity.Details.Delete.COPY",
                 translationArgs: []
             )
-            public static let First = LocaliciousData(
-                accessibilityIdentifier: "DataActivity.Details.First",
+            public static let FirstLogin = LocaliciousData(
+                accessibilityIdentifier: "DataActivity.Details.FirstLogin",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "DataActivity.Details.First.COPY",
+                translationKey: "DataActivity.Details.FirstLogin.COPY",
                 translationArgs: []
             )
-            public static let EduID = LocaliciousData(
-                accessibilityIdentifier: "DataActivity.Details.EduID",
+            public static let UniqueEduID = LocaliciousData(
+                accessibilityIdentifier: "DataActivity.Details.UniqueEduID",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "DataActivity.Details.EduID.COPY",
+                translationKey: "DataActivity.Details.UniqueEduID.COPY",
                 translationArgs: []
             )
             public static let HomePage = LocaliciousData(
@@ -1909,56 +1917,58 @@ public struct L {
                 translationArgs: []
             )
         }
-        public static let DeleteService = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.DeleteService",
+    }
+    public struct DeleteService {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "DeleteService.Title",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.DeleteService.COPY",
+            translationKey: "DeleteService.Title.COPY",
             translationArgs: []
         )
-        public static func DeleteServiceConfirmation(args: CVarArg...) -> LocaliciousData {
+        public static func Description(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
-            accessibilityIdentifier: "DataActivity.DeleteServiceConfirmation",
+            accessibilityIdentifier: "DeleteService.Description",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.DeleteServiceConfirmation.COPY",
+            translationKey: "DeleteService.Description.COPY",
             translationArgs: args
         )
         }
-        public static func DeleteTokenConfirmation(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
-            accessibilityIdentifier: "DataActivity.DeleteTokenConfirmation",
+        public static let Disclaimer = LocaliciousData(
+            accessibilityIdentifier: "DeleteService.Disclaimer",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.DeleteTokenConfirmation.COPY",
-            translationArgs: args
+            translationKey: "DeleteService.Disclaimer.COPY",
+            translationArgs: []
         )
+        public struct Button {
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "DeleteService.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "DeleteService.Button.Confirm.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "DeleteService.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "DeleteService.Button.Cancel.COPY",
+                translationArgs: []
+            )
         }
-        public static let DeleteToken = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.DeleteToken",
+        public static let Error = LocaliciousData(
+            accessibilityIdentifier: "DeleteService.Error",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.DeleteToken.COPY",
-            translationArgs: []
-        )
-        public static let Deleted = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.Deleted",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "DataActivity.Deleted.COPY",
-            translationArgs: []
-        )
-        public static let TokenDeleted = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.TokenDeleted",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "DataActivity.TokenDeleted.COPY",
+            translationKey: "DeleteService.Error.COPY",
             translationArgs: []
         )
     }
