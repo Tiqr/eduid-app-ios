@@ -199,7 +199,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "Account.NamePlaceholder.COPY" = "Your full name as used on your profile";
 "DataActivity.Title.COPY" = "Data & Activity";
 "DataActivity.Info.COPY" = "Each service you accessed through eduID receives certain personal data (attributes) from your eduID account. For example, your name, your email address or a pseudonym which the service can use to uniquely identify you.";
-"DataActivity.Explanation.COPY" = "Apps you logged in to using eduID.";
+"DataActivity.AppsHeader.COPY" = "Apps you logged into using eduID.";
 "DataActivity.NoServices.COPY" = "You did not yet use eduID to login to any service.";
 "DataActivity.Name.COPY" = "Name";
 "DataActivity.Add.COPY" = "Connect new institution";

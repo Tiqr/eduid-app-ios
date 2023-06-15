@@ -1779,12 +1779,12 @@ public struct L {
             translationKey: "DataActivity.Info.COPY",
             translationArgs: []
         )
-        public static let Explanation = LocaliciousData(
-            accessibilityIdentifier: "DataActivity.Explanation",
+        public static let AppsHeader = LocaliciousData(
+            accessibilityIdentifier: "DataActivity.AppsHeader",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "DataActivity.Explanation.COPY",
+            translationKey: "DataActivity.AppsHeader.COPY",
             translationArgs: []
         )
         public static let NoServices = LocaliciousData(

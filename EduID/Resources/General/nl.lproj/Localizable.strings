@@ -197,9 +197,9 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Account.Proceed.COPY" = "Als je wilt doorgaan, typ dan je volledige naam zoals bekend in je eduID account ter bevestiging.";
 "Account.Name.COPY" = "Volledige naam";
 "Account.NamePlaceholder.COPY" = "Je volledige naam zoals gebruikt in je profiel";
-"DataActivity.Title.COPY" = "Gebruikte diensten";
+"DataActivity.Title.COPY" = "Data & Activiteit";
 "DataActivity.Info.COPY" = "Elke dienst waarvoor je eduID gebruikt ontvangt bepaalde gegevens (attributen) vanuit jouw eduID account. Denk hierbij aan je naam, e-mailadres of aan een pseudoniem waarmee de dienst jou uniek kan identificeren.";
-"DataActivity.Explanation.COPY" = "Diensten waarop je bent ingelogd via eduID.";
+"DataActivity.AppsHeader.COPY" = "Diensten waarop je bent ingelogd via eduID";
 "DataActivity.NoServices.COPY" = "Je bent nog niet ingelogd geweest op een dienst via eduID.";
 "DataActivity.Name.COPY" = "Naam";
 "DataActivity.Add.COPY" = "Nieuwe instelling koppelen";

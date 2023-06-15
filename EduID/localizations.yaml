@@ -948,7 +948,7 @@ IOS:
     Title:
       COPY:
         en: Data & Activity
-        nl: Gebruikte diensten
+        nl: Data & Activiteit
     Info:
       COPY:
         en: >-
@@ -961,10 +961,10 @@ IOS:
           (attributen) vanuit jouw eduID account. Denk hierbij aan je naam,
           e-mailadres of aan een pseudoniem waarmee de dienst jou uniek kan
           identificeren.
-    Explanation:
+    AppsHeader:
       COPY:
-        en: Apps you logged in to using eduID.
-        nl: Diensten waarop je bent ingelogd via eduID.
+        en: Apps you logged into using eduID.
+        nl: Diensten waarop je bent ingelogd via eduID
     NoServices:
       COPY:
         en: You did not yet use eduID to login to any service.

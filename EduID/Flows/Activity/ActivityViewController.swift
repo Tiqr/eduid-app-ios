@@ -5,8 +5,6 @@ class ActivityViewController: BaseViewController {
     
     let viewModel: ActivityViewModel
     
-    var stack: AnimatedVStackView!
-    let scrollView = UIScrollView()
     weak var delegate: ActivityViewControllerDelegate?
 
     //MARK: - init
@@ -23,11 +21,11 @@ class ActivityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screenType = .activityLandingScreen
+        self.setupUI(model: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissActivityScreen))
         viewModel.loadData()
         viewModel.dataAvailableClosure = { [weak self] model in
             self?.setupUI(model: model)
@@ -35,49 +33,78 @@ class ActivityViewController: BaseViewController {
     }
     
     //MARK: - setup UI
-    func setupUI(model: PersonalInfoDataCallbackModel) {
-        
+    func setupUI(model: PersonalInfoDataCallbackModel?) {
+        view.subviews.forEach { $0.removeFromSuperview() }
+
+        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Data & Activity", primary: "Data & Activity")
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.DataActivity.Title.localization, primary: L.DataActivity.Title.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
-        let textParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: """
-Each service you accessed through eduID receives certain personal data (attributes) from your eduID account. E.g. your name & email address or a pseudonym which the service can use to uniquely identify you.
-""", partBold: "")
-        textParent.addSubview(textLabel)
-        textLabel.edges(to: textParent)
+        let description = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.Info.localization, partBold: "")
         
+        let appsHeader = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.AppsHeader.localization, partBold:  L.DataActivity.AppsHeader.localization)
         
+        let stack = AnimatedVStackView(arrangedSubviews: [posterParent, description, appsHeader])
         
-        stack = AnimatedVStackView(arrangedSubviews: [posterParent, textParent])
-        
-        if let keys = model.userResponse.eduIdPerServiceProvider?.keys {
-            
-            for key in keys {
-                let eduID = model.userResponse.eduIdPerServiceProvider?[key]
-                let control = ActivityControlCollapsible(logoImageURL: eduID?.serviceLogoUrl ?? "", institutionTitle: eduID?.serviceName ?? "", date: Date(timeIntervalSince1970: Double(eduID?.createdAt ?? 0)), uniqueId: eduID?.serviceProviderEntityId ?? "", removeAction: {})
-                stack.addArrangedSubview(control)
+        if let model = model {
+            var addedKeysCount = 0
+            if let keys = model.userResponse.eduIdPerServiceProvider?.keys {
+                for key in keys {
+                    let eduID = model.userResponse.eduIdPerServiceProvider?[key]
+                    let control = ActivityControlCollapsible(
+                        logoImageURL: eduID?.serviceLogoUrl ?? "",
+                        institutionTitle: eduID?.serviceName ?? "",
+                        date: Date(timeIntervalSince1970: Double(eduID?.createdAt ?? 0)),
+                        uniqueId: eduID?.serviceProviderEntityId ?? "", removeAction: {}
+                    )
+                    addedKeysCount += 1
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
+                }
             }
-            
+            if addedKeysCount == 0 {
+                let noServicesLabel = UILabel.plainTextLabelPartlyBold(
+                    text: L.DataActivity.NoServices.localization,
+                    partBold: ""
+                )
+                stack.addArrangedSubview(noServicesLabel)
+                noServicesLabel.textAlignment = .center
+                noServicesLabel.height(160)
+                noServicesLabel.widthToSuperview(offset: -48)
+            }
+        } else {
+            let loadingIndicator = UIActivityIndicatorView()
+            loadingIndicator.height(80)
+            stack.addArrangedSubview(loadingIndicator)
+            loadingIndicator.widthToSuperview()
+            loadingIndicator.startAnimating()
         }
+        stack.spacing = 16
+        stack.setCustomSpacing(24, after: description)
         stack.alignment = .center
         
         // - constraints
         scrollView.addSubview(stack)
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: -24, right: 0))
+        stack.edges(to: scrollView, insets: .vertical(24))
         stack.width(to: scrollView)
-        posterParent.width(to: stack, offset: -48)
-        textParent.width(to: stack, offset: -48)
+        posterParent.widthToSuperview(offset: -48)
+        description.widthToSuperview(offset: -48)
+        appsHeader.widthToSuperview(offset: -48)
     }
     
     @objc
     func dismissActivityScreen() {
+        delegate?.activityViewControllerDismissActivityFlow(viewController: self)
+    }
+    
+    override func goBack() {
         delegate?.activityViewControllerDismissActivityFlow(viewController: self)
     }
 }
