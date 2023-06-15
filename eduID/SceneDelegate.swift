@@ -49,6 +49,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let flowType = OnboardingManager.shared.getAppropriateLaunchOption()
         mainCoordinator.start(option: flowType)
+        
+        if let url = connectionOptions.userActivities.first?.webpageURL {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.handleURLFromRedirect(url: url)
+            }
+        }
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -67,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         } else if (url.absoluteString.range(of: "account-linked") != nil) {
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
-        } else if let range = url.absoluteString.range(of: "update-email") {
+        } else if (url.absoluteString.range(of: "update-email") != nil) {
             NotificationCenter.default.post(name: .didUpdateEmail, object: nil, userInfo: [Constants.UserInfoKey.emailUpdateUrl: url])
             
         }
@@ -85,6 +92,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: userInfo)
+            
         }
     }
 }
