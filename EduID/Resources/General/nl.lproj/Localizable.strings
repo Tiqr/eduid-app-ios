@@ -16,7 +16,7 @@
 "Landing.RegisterAgain.COPY" = "Opnieuw registreren";
 "NotFound.Title.COPY" = "Oeps...";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
-"Profile.YouAreLoggedIn.COPY" = "U bent ingelogd";
+"Profile.YouAreLoggedIn.COPY" = "Je bent ingelogd";
 "Profile.ManageYourAccount.COPY" = "Beheer jouw gegevens";
 "Profile.AccountLinkError.Title.COPY" = "De URL kon niet worden opgehaald voor het koppelen van uw huidige account.";
 "Profile.AddViaSurfconext.COPY" = "Voeg dit toe via SURFconext";

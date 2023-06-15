@@ -86,7 +86,7 @@ IOS:
     YouAreLoggedIn:
         COPY:
           en: You are logged in
-          nl: U bent ingelogd
+          nl: Je bent ingelogd
     ManageYourAccount:
       COPY:
         en: Manage your account
