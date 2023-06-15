@@ -62,7 +62,7 @@ final class EduIDButton: UIButton {
         didSet {
             switch type {
             case .borderedRed:
-                backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.2) : .white
+                backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.2) : .clear
             case .filledRed:
                 backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.8) : .alertsRedColor
             case .primary:
@@ -130,7 +130,7 @@ final class EduIDButton: UIButton {
     }
     
     private func setupWithBorderedRedStyle() {
-        backgroundColor = .white
+        backgroundColor = .clear
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.alertsRedColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         layer.borderWidth = 1

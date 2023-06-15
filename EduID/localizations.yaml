@@ -982,22 +982,26 @@ IOS:
         en: Can access your data
         nl: Heeft toegang tot je data
     Details:
+      On:
+        COPY:
+          en: on
+          nl: op          
       Login:
         COPY:
           en: Login details
           nl: Logingegevens
       Delete:
         COPY:
-          en: Delete login details
-          nl: Verwijder logingegevens
-      First:
+          en: Delete login details *
+          nl: Verwijder logingegevens *
+      FirstLogin:
         COPY:
           en: First login
           nl: Eerste login
-      EduID:
+      UniqueEduID:
         COPY:
           en: Unique eduID
-          nl: Uniek eduID nummer
+          nl: Unieke eduID
       HomePage:
         COPY:
           en: Homepage
@@ -1005,11 +1009,11 @@ IOS:
       DeleteDisclaimer:
         COPY:
           en: >-
-            Deleting these login details means eduID removes this information
+            * Deleting these login details means eduID removes this information
             from your eduID account. You still have an account at the service
             itself. If you want that removed, please do so at the service.
           nl: >-
-            Als je deze logingegevens verwijdert, verwijdert eduID deze
+            * Als je deze logingegevens verwijdert, verwijdert eduID deze
             informatie uit je eduID account. Je hebt nog een account bij de
             dienst zelf. Als je dat wilt laten verwijderen, doe dat dan
             rechtstreeks bij de dienst.
@@ -1033,40 +1037,40 @@ IOS:
         COPY:
           en: Revoke access
           nl: Intrekken
-    DeleteService:
+  DeleteService:
+    Title:
       COPY:
         en: Delete service
         nl: Verwijder dienst
-    DeleteServiceConfirmation:
+    Description:
       COPY:
         en: >-
           Are you sure you want to delete your unique pseudonymised eduID for
-          %1{{s}} and revoke access to your linked accounts?<br/><br/>This
+          %1{{s}} and revoke access to your linked accounts? This
           service might not recognize you the next time you login and all your
           personal data within this service might be lost.
         nl: >-
           Weet je zeker dat je het unieke gepseudonimiseerde eduID voor %1{{s}}
-          wilt verwijderen? <br/> <br/> Deze dienst herkent je wellicht niet
+          wilt verwijderen? Deze dienst herkent je wellicht niet
           meer de volgende keer dat je inlogt en je persoonlijke gegevens bij
           deze dienst zijn daardoor mogelijk niet meer toegankelijk.
-    DeleteTokenConfirmation:
+    Disclaimer:
       COPY:
-        en: Are you sure you want to revoke the API access token for %1{{s}}?
-        nl: >-
-          Weet je zeker dat de API access beveiligingssleutel voor %1{{s}} wilt
-          intrekken?
-    DeleteToken:
+        en: There is no way to undo this action
+        nl: Er is geen manier om deze actie ongedaan te maken.
+    Button:
+      Confirm:
+        COPY:
+          en: Confirm
+          nl: Bevestigen
+      Cancel:
+        COPY:
+          en: Cancel
+          nl: Annuleer
+    Error:
       COPY:
-        en: Revoke access token
-        nl: Beveiligingssleutel intrekken
-    Deleted:
-      COPY:
-        en: eduID removed
-        nl: eduID verwijderd
-    TokenDeleted:
-      COPY:
-        en: Tokens removed
-        nl: Beveiligingssleutels verwijderd
+        en: Cannot remove service
+        nl: Fout bij verwijderen dienst
   Institution:
     Title:
       COPY:

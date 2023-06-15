@@ -21,12 +21,15 @@ class ActivityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screenType = .activityLandingScreen
-        self.setupUI(model: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadData()
+        if delegate?.shouldUpdate() == true {
+            self.setupUI(model: nil)
+            delegate?.didUpdate()
+            viewModel.loadData()
+        }
         viewModel.dataAvailableClosure = { [weak self] model in
             self?.setupUI(model: model)
         }
@@ -57,16 +60,20 @@ class ActivityViewController: BaseViewController {
             var addedKeysCount = 0
             if let keys = model.userResponse.eduIdPerServiceProvider?.keys {
                 for key in keys {
-                    let eduID = model.userResponse.eduIdPerServiceProvider?[key]
-                    let control = ActivityControlCollapsible(
-                        logoImageURL: eduID?.serviceLogoUrl ?? "",
-                        institutionTitle: eduID?.serviceName ?? "",
-                        date: Date(timeIntervalSince1970: Double(eduID?.createdAt ?? 0)),
-                        uniqueId: eduID?.serviceProviderEntityId ?? "", removeAction: {}
-                    )
-                    addedKeysCount += 1
-                    stack.addArrangedSubview(control)
-                    control.widthToSuperview(offset: -48)
+                    if let eduID = model.userResponse.eduIdPerServiceProvider?[key] {
+                        let control = ActivityControlCollapsible(
+                            logoImageURL: eduID.serviceLogoUrl ?? "",
+                            institutionTitle: eduID.serviceName ?? "",
+                            date: Date(timeIntervalSince1970: Double((eduID.createdAt ?? 0) / 1000)),
+                            uniqueId: eduID.serviceProviderEntityId ?? "",
+                            removeAction: { [weak self] in
+                                self?.delegate?.goToDeleteService(service: eduID)
+                            }
+                        )
+                        addedKeysCount += 1
+                        stack.addArrangedSubview(control)
+                        control.widthToSuperview(offset: -48)
+                    }
                 }
             }
             if addedKeysCount == 0 {
