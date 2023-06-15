@@ -88,7 +88,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
-        let deleteAccountButton = EduIDButton(type: .red, buttonTitle: L.MyAccount.DeleteAccountButton.localization)
+        let deleteAccountButton = EduIDButton(type: .borderedRed, buttonTitle: L.MyAccount.DeleteAccountButton.localization)
         
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle,

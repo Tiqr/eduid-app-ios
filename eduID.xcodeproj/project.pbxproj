@@ -202,6 +202,9 @@
 		4FF568322A31D68400616341 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6E2A31D07500FC1506 /* SynchronizedDictionary.swift */; };
 		4FF568332A31D68400616341 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909F6F2A31D07500FC1506 /* Configuration.swift */; };
 		4FF568362A31D6AB00616341 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF568352A31D6AB00616341 /* AnyCodable */; };
+		4FFA8A872A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A862A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift */; };
+		4FFA8A892A3AF22800F8F033 /* ConfirmDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A882A3AF22800F8F033 /* ConfirmDeleteViewController.swift */; };
+		4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
 		739376B62A3B373B007FADB1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739376B52A3B373B007FADB1 /* String+Extension.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
@@ -490,6 +493,9 @@
 		4FF567E72A31D60300616341 /* OpenAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF567E92A31D60300616341 /* OpenAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenAPIClient.h; sourceTree = "<group>"; };
 		4FF567EA2A31D60300616341 /* OpenAPIClient.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = OpenAPIClient.docc; sourceTree = "<group>"; };
+		4FFA8A862A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeleteViewModel.swift; sourceTree = "<group>"; };
+		4FFA8A882A3AF22800F8F033 /* ConfirmDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeleteViewController.swift; sourceTree = "<group>"; };
+		4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedError+errorDescription.swift"; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		739376B52A3B373B007FADB1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
@@ -588,6 +594,7 @@
 				4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */,
 				4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */,
 				739376B52A3B373B007FADB1 /* String+Extension.swift */,
+				4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -951,6 +958,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4FFA8A852A3AF1FE00F8F033 /* ConfirmDelete */,
 				4F958BDA2A3A00BA00DD0779 /* DeleteAccount */,
 				4F958BD52A39C20900DD0779 /* MyAccount */,
 				4F958BD02A39A74A00DD0779 /* NameEditor */,
@@ -1102,6 +1110,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FFA8A852A3AF1FE00F8F033 /* ConfirmDelete */ = {
+			isa = PBXGroup;
+			children = (
+				4FFA8A862A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift */,
+				4FFA8A882A3AF22800F8F033 /* ConfirmDeleteViewController.swift */,
+			);
+			path = ConfirmDelete;
 			sourceTree = "<group>";
 		};
 		7364BAC82A389AD6003FB978 /* VerifyAuthentication */ = {
@@ -1360,6 +1377,7 @@
 			files = (
 				4F909EB02A31CDDC00FC1506 /* TextFieldValidationType.swift in Sources */,
 				4FF567BE2A31D32E00616341 /* ScanCoordinator.swift in Sources */,
+				4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */,
 				4F909EB92A31CDDC00FC1506 /* AppAuthController.swift in Sources */,
 				4F909EB42A31CDDC00FC1506 /* KeyChainService.swift in Sources */,
 				4FF567C02A31D32E00616341 /* CreateEduIDEnterPhoneNumberViewModel.swift in Sources */,
@@ -1420,8 +1438,10 @@
 				4FF567C62A31D32E00616341 /* BiometricApprovalViewControllerDelegate.swift in Sources */,
 				4F909EC72A31CDDC00FC1506 /* EduIDButton.swift in Sources */,
 				4FF567C42A31D32E00616341 /* CreateEduIDAddInstitutionViewModel.swift in Sources */,
+				4FFA8A892A3AF22800F8F033 /* ConfirmDeleteViewController.swift in Sources */,
 				4FF567D02A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift in Sources */,
 				4FF567D52A31D32E00616341 /* BiometricAccessApprovalViewController.swift in Sources */,
+				4FFA8A872A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift in Sources */,
 				4FF567BA2A31D32E00616341 /* ConfirmViewControllerDelegate.swift in Sources */,
 				4F909EAC2A31CDDC00FC1506 /* Notification.Name.swift in Sources */,
 				4FF567D12A31D32E00616341 /* CreateEduIDCreatedViewController.swift in Sources */,

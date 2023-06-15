@@ -26,6 +26,10 @@ public class OnboardingManager: NSObject {
         }
     }
     
+    public func resetUserStatus() {
+        defaults.setValue(nil, forKey: OnboardingManager.userdefaultsFlowTypeKey)
+    }
+    
     private func setAndProvideCorrectFlow(_ flow: OnboardingFlowType) -> OnboardingFlowType {
         switch flow {
         case .existingUserWithSecret:

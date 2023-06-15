@@ -76,6 +76,12 @@ extension MainCoordinator: PersonalInfoCoordinatorDelegate {
         homeNavigationController.presentedViewController?.dismiss(animated: true)
         children.removeAll { $0 === coordinator }
     }
+    
+    func goToOnboarding() {
+        homeNavigationController.presentedViewController?.dismiss(animated: false)
+        children.removeAll()
+        start(option: .newUser)
+    }
 }
 
     

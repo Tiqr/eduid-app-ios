@@ -1,5 +1,6 @@
 import UIKit
 import OpenAPIClient
+import TiqrCoreObjC
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
     
@@ -79,7 +80,20 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse) {
-        // TODO
+        let confirmDeleteViewController = ConfirmDeleteViewController(viewModel: ConfirmDeleteViewModel(personalInfo: personalInfo))
+        confirmDeleteViewController.delegate = self
+        navigationController!.pushViewController(confirmDeleteViewController, animated: true)
+    }
+    
+    func deleteStateAndGoToOnboarding() {
+        AppAuthController.shared.clearAuthState()
+        OnboardingManager.shared.resetUserStatus()
+        var error: NSError? = nil
+        ServiceContainer.sharedInstance().identityService.deleteAllIdentitiesAndProviders(error)
+        if let error = error {
+            NSLog("Could not delete all identities and providers: \(error)")
+        }
+        delegate?.goToOnboarding()
     }
     
     func shouldUpdateData() -> Bool {

@@ -102,6 +102,16 @@
 "DeleteAccount.LongDescription.COPY" = "You can delete your eduID whenever you want.
 When you re-register for a new eduID with that same email address, you will receive a new eduID number. Some services use this unique number to identify you, so for those services you will be treated as a new user. Please note that deleting your eduID account does not mean all services you accessed with that eduID account will also have your data removed.";
 "DeleteAccount.DeleteAccountButton.COPY" = "Delete your account";
+"ConfirmDelete.Title.COPY" = "Delete your account for all eternity?";
+"ConfirmDelete.Disclaimer.COPY" = "There is no way to undo this action.";
+"ConfirmDelete.TypeNameToConfirm.COPY" = "If you wish to proceed, please type in your full name for confirmation.";
+"ConfirmDelete.YourFullNameLabel.COPY" = "Your full name";
+"ConfirmDelete.Placeholder.COPY" = "Your full name as used on your profile";
+"ConfirmDelete.Button.Cancel.COPY" = "Cancel";
+"ConfirmDelete.Button.Confirm.COPY" = "Confirm";
+"ConfirmDelete.NameDoesNotMatchError.Title.COPY" = "Name mismatch";
+"ConfirmDelete.NameDoesNotMatchError.Description.COPY" = "The name you have typed does not match the name in your profile. We were expecting: \"%1$@\"";
+"ConfirmDelete.DeleteError.Title.COPY" = "Could not delete account";
 "MyAccount.Title.COPY" = "Your account";
 "MyAccount.AccountCreatedOn.COPY" = "Your account was created on";
 "MyAccount.AccountCreatedAt.COPY" = "at";

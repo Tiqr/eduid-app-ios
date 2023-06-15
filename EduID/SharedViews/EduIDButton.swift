@@ -7,7 +7,8 @@ final class EduIDButton: UIButton {
         case primary
         case ghost
         case naked
-        case red
+        case borderedRed
+        case filledRed
     }
 
     let type: ButtonType
@@ -20,8 +21,10 @@ final class EduIDButton: UIButton {
                 setupWithGhostStyle()
             case .naked:
                 setupWithNakedStyle()
-            case .red:
-                setupWithRedStyle()
+            case .borderedRed:
+                setupWithBorderedRedStyle()
+            case .filledRed:
+                setupWithFilledRedStyle()
             }
         }
     }
@@ -33,9 +36,10 @@ final class EduIDButton: UIButton {
                 switch type {
                 case .primary:
                     backgroundColor = UIColor.disabledGrayBackground
-                case .ghost, .red:
+                case .ghost, .borderedRed:
                     layer.borderColor = UIColor.disabledGray.cgColor
-                
+                case .filledRed:
+                    backgroundColor = UIColor.alertsRedColor.withAlphaComponent(0.5)
                 case .naked:
                     break
                 }
@@ -43,8 +47,10 @@ final class EduIDButton: UIButton {
                 switch type {
                 case .primary:
                     backgroundColor = UIColor.primaryColor
-                case .ghost, .red:
+                case .ghost, .borderedRed:
                     layer.borderColor = UIColor.grayGhost.cgColor
+                case .filledRed:
+                    backgroundColor = UIColor.alertsRedColor
                 case .naked:
                     break
                 }
@@ -55,8 +61,10 @@ final class EduIDButton: UIButton {
     override public var isHighlighted: Bool {
         didSet {
             switch type {
-            case .red:
+            case .borderedRed:
                 backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.2) : .white
+            case .filledRed:
+                backgroundColor = isHighlighted ? .alertsRedColor.withAlphaComponent(0.8) : .alertsRedColor
             case .primary:
                 backgroundColor = isHighlighted ? .primaryColor.withAlphaComponent(0.8) : .primaryColor
             case .ghost:
@@ -90,8 +98,10 @@ final class EduIDButton: UIButton {
             setupWithGhostStyle()
         case .naked:
             setupWithNakedStyle()
-        case .red:
-            setupWithRedStyle()
+        case .borderedRed:
+            setupWithBorderedRedStyle()
+        case .filledRed:
+            setupWithFilledRedStyle()
         }
     }
     
@@ -119,12 +129,19 @@ final class EduIDButton: UIButton {
         layer.borderColor = UIColor.grayGhost.cgColor
     }
     
-    private func setupWithRedStyle() {
+    private func setupWithBorderedRedStyle() {
         backgroundColor = .white
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.alertsRedColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         layer.borderWidth = 1
         layer.borderColor = UIColor.alertsRedColor.cgColor
+    }
+    
+    private func setupWithFilledRedStyle() {
+        backgroundColor = .alertsRedColor
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.white])
+        setAttributedTitle(attributedTitleNormal, for: .normal)
+        layer.borderWidth = 0
     }
     
     private func setupWithNakedStyle() {

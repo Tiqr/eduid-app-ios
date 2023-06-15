@@ -55,6 +55,7 @@ class DeleteAccountViewController: UIViewController, ScreenWithScreenType {
         disclaimerContainer.addSubview(warningImage)
         warningImage.leftToSuperview(offset: 12)
         warningImage.topToSuperview(offset: 18)
+        disclaimerLabel.attributedText = disclaimerString
         disclaimerLabel.leftToRight(of: warningImage, offset: 12)
         disclaimerLabel.rightToSuperview(offset: -12)
         disclaimerLabel.verticalToSuperview(insets: .vertical(12))
@@ -72,7 +73,7 @@ class DeleteAccountViewController: UIViewController, ScreenWithScreenType {
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
-        let deleteAccountButton = EduIDButton(type: .red, buttonTitle: L.DeleteAccount.DeleteAccountButton.localization)
+        let deleteAccountButton = EduIDButton(type: .borderedRed, buttonTitle: L.DeleteAccount.DeleteAccountButton.localization)
         
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle,

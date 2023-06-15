@@ -136,12 +136,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     //MARK: - action buttons
     
     @objc func logOff() {
-        testFuncRemoveAccessToken()
-    }
-    
-    private func testFuncRemoveAccessToken() {
-        //TODO: REMOVE ACCESS TOKEN
-        UserDefaults.standard.set("nil", forKey: OnboardingManager.userdefaultsFlowTypeKey)
+        OnboardingManager.shared.resetUserStatus()
         AppAuthController.shared.clearAuthState()
     }
     

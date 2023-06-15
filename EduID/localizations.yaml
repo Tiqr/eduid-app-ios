@@ -494,6 +494,50 @@ IOS:
       COPY:
         en: Delete your account
         nl: Verwijder je account
+  ConfirmDelete:
+    Title:
+      COPY:
+        en: Delete your account for all eternity?
+        nl: Je account voor alle eeuwigheid verwijderen?
+    Disclaimer:
+      COPY:
+        en: There is no way to undo this action.
+        nl: Er is geen manier om deze actie ongedaan te maken.
+    TypeNameToConfirm:
+      COPY:
+        en: If you wish to proceed, please type in your full name for confirmation.
+        nl: Als je wilt doorgaan, typ dan je volledige naam zoals bekend in je eduID account ter bevestiging.
+    YourFullNameLabel:
+      COPY:
+        en: Your full name
+        nl: Je volledige naam
+    Placeholder:
+      COPY:
+        en: Your full name as used on your profile
+        nl: Jouw naam zoals opgeslagen in jouw eduID profiel
+    Button:
+      Cancel:
+        COPY:
+          en: Cancel
+          nl: Annuleer
+      Confirm:
+        COPY:
+          en: Confirm
+          nl: Bevestigen
+    NameDoesNotMatchError:
+      Title:
+        COPY:
+          en: Name mismatch
+          nl: Verkeerde naam
+      Description:
+        COPY:
+          en: 'The name you have typed does not match the name in your profile. We were expecting: "%1{{s}}"'
+          nl: 'De naam die je getypt had komt niet overeen met de naam in je profiel. Wij verwachten: "%1{{s}}"'
+    DeleteError:
+      Title:
+        COPY:
+          en: Could not delete account
+          nl: Account kan niet verwijderd worden
   MyAccount:
     Title:
       COPY:

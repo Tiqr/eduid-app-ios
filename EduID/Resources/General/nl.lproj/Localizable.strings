@@ -102,6 +102,16 @@
 "DeleteAccount.LongDescription.COPY" = "Je kunt je eduID account verwijderen wanneer je maar wilt.
 Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppeld. Wanneer je je opnieuw registreert voor eduID met hetzelfde e-mailadres, krijg je een nieuwe eduID nummers. Sommige diensten gebruiken deze nummers om je uniek te identificeren, dus voor die diensten word je dan gezien als een nieuwe gebruiker. Houd er rekening mee dat het verwijderen van je eduID niet betekent dat alle diensten die je met je eduID hebt gebruikt, ook je gegevens zullen verwijderen.";
 "DeleteAccount.DeleteAccountButton.COPY" = "Verwijder je account";
+"ConfirmDelete.Title.COPY" = "Je account voor alle eeuwigheid verwijderen?";
+"ConfirmDelete.Disclaimer.COPY" = "Er is geen manier om deze actie ongedaan te maken.";
+"ConfirmDelete.TypeNameToConfirm.COPY" = "Als je wilt doorgaan, typ dan je volledige naam zoals bekend in je eduID account ter bevestiging.";
+"ConfirmDelete.YourFullNameLabel.COPY" = "Je volledige naam";
+"ConfirmDelete.Placeholder.COPY" = "Jouw naam zoals opgeslagen in jouw eduID profiel";
+"ConfirmDelete.Button.Cancel.COPY" = "Annuleer";
+"ConfirmDelete.Button.Confirm.COPY" = "Bevestigen";
+"ConfirmDelete.NameDoesNotMatchError.Title.COPY" = "Verkeerde naam";
+"ConfirmDelete.NameDoesNotMatchError.Description.COPY" = "De naam die je getypt had komt niet overeen met de naam in je profiel. Wij verwachten: \"%1$@\"";
+"ConfirmDelete.DeleteError.Title.COPY" = "Account kan niet verwijderd worden";
 "MyAccount.Title.COPY" = "Je eduID account";
 "MyAccount.AccountCreatedOn.COPY" = "Jouw account is gemaakt op";
 "MyAccount.AccountCreatedAt.COPY" = "om";
