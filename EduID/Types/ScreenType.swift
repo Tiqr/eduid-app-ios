@@ -129,7 +129,7 @@ enum ScreenType: Int, CaseIterable {
             item.rightBarButtonItem?.tintColor = .backgroundColor
         
             // logo and white back arrow
-        case .scanScreen, .enterEmail:
+        case .scanScreen:
             addLogoTo(item: item)
             item.hidesBackButton = true
             item.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: target, action: action)
@@ -146,6 +146,7 @@ enum ScreenType: Int, CaseIterable {
         case .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen, .createPincodeSecondEntryScreen, .biometricApprovalScreen, .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen, .enterPhoneScreen, .addInstitutionScreen:
             addLogoTo(item: item)
             item.hidesBackButton = true
+            
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true
