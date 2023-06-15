@@ -159,7 +159,7 @@ class ConfirmDeleteViewController: UIViewController, ScreenWithScreenType {
                 do {
                     let response = try await viewModel.confirmDelete()
                     DispatchQueue.main.async { [weak self] in
-                        self?.delegate?.deleteStateAndGoToOnboarding()
+                        self?.delegate?.deleteStateAndGoToHome()
                     }
                 } catch {
                     DispatchQueue.main.async { [weak self] in

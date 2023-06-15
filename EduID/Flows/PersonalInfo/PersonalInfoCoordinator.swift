@@ -85,15 +85,9 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(confirmDeleteViewController, animated: true)
     }
     
-    func deleteStateAndGoToOnboarding() {
+    func deleteStateAndGoToHome() {
         AppAuthController.shared.clearAuthState()
-        OnboardingManager.shared.resetUserStatus()
-        var error: NSError? = nil
-        ServiceContainer.sharedInstance().identityService.deleteAllIdentitiesAndProviders(error)
-        if let error = error {
-            NSLog("Could not delete all identities and providers: \(error)")
-        }
-        delegate?.goToOnboarding()
+        navigationController!.dismiss(animated: true)
     }
     
     func shouldUpdateData() -> Bool {
