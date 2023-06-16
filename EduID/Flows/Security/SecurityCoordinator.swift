@@ -14,9 +14,9 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
 
     //MARK: - start
     func start() {
-        let securityLandingViewController = SecurityLandingViewController()
-        securityLandingViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: securityLandingViewController)
+        let securityOverviewViewController = SecurityOverviewViewController(viewModel: SecurityOverviewViewModel())
+        securityOverviewViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: securityOverviewViewController)
         self.navigationController = navigationController
         navigationController.isModalInPresentation = true
         
@@ -48,7 +48,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     //MARK: - change password flow
     
     func securityViewControllerEnterChangePasswordFlow(viewController: UIViewController) {
-        let changePasswordViewController = SecurityChangePasswordViewController(viewModel: ChangePasswordViewModel())
+        let changePasswordViewController = ChangePasswordViewController(viewModel: ChangePasswordViewModel())
         changePasswordViewController.delegate = self
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }

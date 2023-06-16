@@ -608,20 +608,32 @@ IOS:
         nl: We bieden verschillende methoden om in te loggen met je eduID.
     SecondSubTitle:
       COPY:
-        en: Other sign-in methods
-        nl: Andere loginmethoden
-    UsePassword:
+        en: Sign-in methods
+        nl: Aanmeldmethoden
+    AddPassword:
       COPY:
-        en: Password
-        nl: Wachtwoord
-    UsePublicKey:
+        en: Add a password
+        nl: Wachtwoord toevoegen
+    PasswordPlaceholder:
       COPY:
-        en: WebAuthn
-        nl: Beveiligingssleutel
-    NotSet:
+        en: "**********"
+        nl: "**********"
+    ChangePassword:
       COPY:
-        en: Not set
-        nl: Niet ingesteld
+        en: Change your password
+        nl: Wijzig uw wachtwoord
+    TwoFAKey:
+      COPY:
+        en: 2FA key
+        nl: 2FA sleutel
+    ProvidedBy:
+      COPY:
+        en: Provided by
+        nl: Geleverd door
+    NotAddedYet:
+      COPY:
+        en: Not added to your eduID yet
+        nl: Nog niet toegevoegd aan je eduID
     NotSupported:
       COPY:
         en: Not supported
@@ -630,22 +642,19 @@ IOS:
       COPY:
         en: Send magic link to
         nl: Stuur magische link naar
-    RememberMe:
+    SignInSettings:
       COPY:
-        en: Stay logged in
-        nl: Ingelogd blijven
-    SecurityKey:
-      COPY:
-        en: Security key %1{{s}}
-        nl: Beveiligingssleutel %1{{s}}
-    Test:
-      COPY:
-        en: Test
-        nl: Test
-    AddSecurityKey:
-      COPY:
-        en: Add security key
-        nl: Beveiligingssleutel toevoegen
+        en: Sign-in settings
+        nl: Instellingen voor inloggen
+    SettingRememberMe:
+      Title:
+        COPY:
+          en: Stay logged in
+          nl: Ingelogd blijven
+      BoldPart:
+        COPY:
+          en: logged in
+          nl: Ingelogd
     AddSecurityKeyInfo:
       COPY:
         en: >-
@@ -656,10 +665,6 @@ IOS:
           Je kunt een beveiligingssleutel toevoegen aan je eduID account waarmee
           je kunt inloggen. Dit kan bijv. de ingebouwde sensor van je apparaat
           zijn (TouchID, FaceID) of een los hardwaretoken (YubiKey).
-    Settings:
-      COPY:
-        en: Sign-in settings
-        nl: Instellingen voor inloggen
     RememberMeInfo:
       COPY:
         en: >-

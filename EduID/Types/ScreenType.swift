@@ -38,7 +38,7 @@ enum ScreenType: Int, CaseIterable {
     case confirmDeleteScreen
     
     // security screens
-    case securityLandingScreen
+    case securityOverviewScreen
     case securityEnterEmailScreen
     case securityChangePasswordScreen
     
@@ -107,8 +107,8 @@ enum ScreenType: Int, CaseIterable {
             return EmailEditorViewController(viewModel: EmailEditorViewModel())
         case .firstTimeDialogScreen:
             return CreateEduIDFirstTimeDialogViewController(viewModel: CreateEduIDFirstTimeDialogViewViewModel())
-        case .securityLandingScreen:
-            return SecurityLandingViewController()
+        case .securityOverviewScreen:
+            return SecurityOverviewViewController(viewModel: SecurityOverviewViewModel())
         case .createPincodefirstEntryScreen:
             return CreatePincodeFirstEntryViewController(viewModel: CreatePincodeAndBiometricAccessViewModel())
         case.createPincodeSecondEntryScreen:
@@ -123,7 +123,7 @@ enum ScreenType: Int, CaseIterable {
     func configureNavigationItem(item: UINavigationItem, target: Any? = nil, action: Selector? = nil, secondaryAction: Selector? = nil) {
         switch self {
             // logo and cross to dismiss
-        case .personalInfoLandingScreen, .securityLandingScreen, .activityLandingScreen:
+        case .personalInfoLandingScreen, .securityOverviewScreen, .activityLandingScreen:
             addLogoTo(item: item)
             item.hidesBackButton = true
             item.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: target, action: action)

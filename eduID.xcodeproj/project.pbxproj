@@ -89,6 +89,7 @@
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
 		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
+		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
 		4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */; };
 		4FEBF53B2A38A069004BF3C8 /* NameOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */; };
 		4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */; };
@@ -104,9 +105,9 @@
 		4FF567A72A31D32E00616341 /* SecurityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567652A31D32E00616341 /* SecurityCoordinator.swift */; };
 		4FF567A82A31D32E00616341 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567672A31D32E00616341 /* ChangePasswordViewModel.swift */; };
 		4FF567A92A31D32E00616341 /* SecurityEnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567682A31D32E00616341 /* SecurityEnterEmailViewController.swift */; };
-		4FF567AA2A31D32E00616341 /* SecurityChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567692A31D32E00616341 /* SecurityChangePasswordViewController.swift */; };
+		4FF567AA2A31D32E00616341 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567692A31D32E00616341 /* ChangePasswordViewController.swift */; };
 		4FF567AB2A31D32E00616341 /* SecurityCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5676A2A31D32E00616341 /* SecurityCoordinatorDelegate.swift */; };
-		4FF567AC2A31D32E00616341 /* SecurityLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5676B2A31D32E00616341 /* SecurityLandingViewController.swift */; };
+		4FF567AC2A31D32E00616341 /* SecurityOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5676B2A31D32E00616341 /* SecurityOverviewViewController.swift */; };
 		4FF567AD2A31D32E00616341 /* SecurityViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5676C2A31D32E00616341 /* SecurityViewControllerDelegate.swift */; };
 		4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5676E2A31D32E00616341 /* ActivityCoordinatorDelegate.swift */; };
 		4FF567AF2A31D32E00616341 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567702A31D32E00616341 /* ActivityViewModel.swift */; };
@@ -429,6 +430,7 @@
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
+		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
 		4FEBF5382A38A069004BF3C8 /* NameOverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewModel.swift; sourceTree = "<group>"; };
 		4FEBF5392A38A069004BF3C8 /* NameOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOverviewViewController.swift; sourceTree = "<group>"; };
 		4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewController.swift; sourceTree = "<group>"; };
@@ -444,9 +446,9 @@
 		4FF567652A31D32E00616341 /* SecurityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityCoordinator.swift; sourceTree = "<group>"; };
 		4FF567672A31D32E00616341 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		4FF567682A31D32E00616341 /* SecurityEnterEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityEnterEmailViewController.swift; sourceTree = "<group>"; };
-		4FF567692A31D32E00616341 /* SecurityChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityChangePasswordViewController.swift; sourceTree = "<group>"; };
+		4FF567692A31D32E00616341 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		4FF5676A2A31D32E00616341 /* SecurityCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityCoordinatorDelegate.swift; sourceTree = "<group>"; };
-		4FF5676B2A31D32E00616341 /* SecurityLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityLandingViewController.swift; sourceTree = "<group>"; };
+		4FF5676B2A31D32E00616341 /* SecurityOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewController.swift; sourceTree = "<group>"; };
 		4FF5676C2A31D32E00616341 /* SecurityViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4FF5676E2A31D32E00616341 /* ActivityCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		4FF567702A31D32E00616341 /* ActivityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -913,6 +915,15 @@
 			path = EmailEditor;
 			sourceTree = "<group>";
 		};
+		4FC37C232A3C22E30036A94C /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				4FF567672A31D32E00616341 /* ChangePasswordViewModel.swift */,
+				4FF567692A31D32E00616341 /* ChangePasswordViewController.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		4FEBF5332A38438F004BF3C8 /* NameOverview */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,23 +989,15 @@
 		4FF567642A31D32E00616341 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				4FC37C232A3C22E30036A94C /* ChangePassword */,
 				4FF567652A31D32E00616341 /* SecurityCoordinator.swift */,
-				4FF567662A31D32E00616341 /* ViewModels */,
 				4FF567682A31D32E00616341 /* SecurityEnterEmailViewController.swift */,
-				4FF567692A31D32E00616341 /* SecurityChangePasswordViewController.swift */,
 				4FF5676A2A31D32E00616341 /* SecurityCoordinatorDelegate.swift */,
-				4FF5676B2A31D32E00616341 /* SecurityLandingViewController.swift */,
+				4FF5676B2A31D32E00616341 /* SecurityOverviewViewController.swift */,
 				4FF5676C2A31D32E00616341 /* SecurityViewControllerDelegate.swift */,
+				4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */,
 			);
 			path = Security;
-			sourceTree = "<group>";
-		};
-		4FF567662A31D32E00616341 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				4FF567672A31D32E00616341 /* ChangePasswordViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4FF5676D2A31D32E00616341 /* Activity */ = {
@@ -1437,7 +1440,7 @@
 				4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */,
 				4F909EB32A31CDDC00FC1506 /* ShowNextScreenDelegate.swift in Sources */,
 				4FF567AF2A31D32E00616341 /* ActivityViewModel.swift in Sources */,
-				4FF567AC2A31D32E00616341 /* SecurityLandingViewController.swift in Sources */,
+				4FF567AC2A31D32E00616341 /* SecurityOverviewViewController.swift in Sources */,
 				4F909EAA2A31CDDC00FC1506 /* UIImage+Styling.swift in Sources */,
 				4FF567C62A31D32E00616341 /* BiometricApprovalViewControllerDelegate.swift in Sources */,
 				4F909EC72A31CDDC00FC1506 /* EduIDButton.swift in Sources */,
@@ -1454,6 +1457,7 @@
 				4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */,
 				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
+				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
 				4FF567A32A31D32E00616341 /* PersonalInfoViewController.swift in Sources */,
 				4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */,
 				4FF567A62A31D32E00616341 /* PersonalInfoCoordinator.swift in Sources */,
@@ -1482,7 +1486,7 @@
 				4F909EC52A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift in Sources */,
 				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
-				4FF567AA2A31D32E00616341 /* SecurityChangePasswordViewController.swift in Sources */,
+				4FF567AA2A31D32E00616341 /* ChangePasswordViewController.swift in Sources */,
 				4F958BDC2A3A00C900DD0779 /* DeleteAccountViewModel.swift in Sources */,
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,
 				4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */,

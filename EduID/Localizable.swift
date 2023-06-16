@@ -1203,28 +1203,52 @@ public struct L {
             translationKey: "Security.SecondSubTitle.COPY",
             translationArgs: []
         )
-        public static let UsePassword = LocaliciousData(
-            accessibilityIdentifier: "Security.UsePassword",
+        public static let AddPassword = LocaliciousData(
+            accessibilityIdentifier: "Security.AddPassword",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Security.UsePassword.COPY",
+            translationKey: "Security.AddPassword.COPY",
             translationArgs: []
         )
-        public static let UsePublicKey = LocaliciousData(
-            accessibilityIdentifier: "Security.UsePublicKey",
+        public static let PasswordPlaceholder = LocaliciousData(
+            accessibilityIdentifier: "Security.PasswordPlaceholder",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Security.UsePublicKey.COPY",
+            translationKey: "Security.PasswordPlaceholder.COPY",
             translationArgs: []
         )
-        public static let NotSet = LocaliciousData(
-            accessibilityIdentifier: "Security.NotSet",
+        public static let ChangePassword = LocaliciousData(
+            accessibilityIdentifier: "Security.ChangePassword",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Security.NotSet.COPY",
+            translationKey: "Security.ChangePassword.COPY",
+            translationArgs: []
+        )
+        public static let TwoFAKey = LocaliciousData(
+            accessibilityIdentifier: "Security.TwoFAKey",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.TwoFAKey.COPY",
+            translationArgs: []
+        )
+        public static let ProvidedBy = LocaliciousData(
+            accessibilityIdentifier: "Security.ProvidedBy",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.ProvidedBy.COPY",
+            translationArgs: []
+        )
+        public static let NotAddedYet = LocaliciousData(
+            accessibilityIdentifier: "Security.NotAddedYet",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.NotAddedYet.COPY",
             translationArgs: []
         )
         public static let NotSupported = LocaliciousData(
@@ -1243,54 +1267,38 @@ public struct L {
             translationKey: "Security.UseMagicLink.COPY",
             translationArgs: []
         )
-        public static let RememberMe = LocaliciousData(
-            accessibilityIdentifier: "Security.RememberMe",
+        public static let SignInSettings = LocaliciousData(
+            accessibilityIdentifier: "Security.SignInSettings",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Security.RememberMe.COPY",
+            translationKey: "Security.SignInSettings.COPY",
             translationArgs: []
         )
-        public static func SecurityKey(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
-            accessibilityIdentifier: "Security.SecurityKey",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.SecurityKey.COPY",
-            translationArgs: args
-        )
+        public struct SettingRememberMe {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "Security.SettingRememberMe.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Security.SettingRememberMe.Title.COPY",
+                translationArgs: []
+            )
+            public static let BoldPart = LocaliciousData(
+                accessibilityIdentifier: "Security.SettingRememberMe.BoldPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Security.SettingRememberMe.BoldPart.COPY",
+                translationArgs: []
+            )
         }
-        public static let Test = LocaliciousData(
-            accessibilityIdentifier: "Security.Test",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.Test.COPY",
-            translationArgs: []
-        )
-        public static let AddSecurityKey = LocaliciousData(
-            accessibilityIdentifier: "Security.AddSecurityKey",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.AddSecurityKey.COPY",
-            translationArgs: []
-        )
         public static let AddSecurityKeyInfo = LocaliciousData(
             accessibilityIdentifier: "Security.AddSecurityKeyInfo",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Security.AddSecurityKeyInfo.COPY",
-            translationArgs: []
-        )
-        public static let Settings = LocaliciousData(
-            accessibilityIdentifier: "Security.Settings",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.Settings.COPY",
             translationArgs: []
         )
         public static let RememberMeInfo = LocaliciousData(
