@@ -93,20 +93,25 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             
             // 2FA auth keys
             let twoFactorControl: ActionableControlWithBodyAndTitle
-            if ServiceContainer.sharedInstance().identityService.identityCount() > 0 {
-                // TODO use correct identity here
+            let identity = ServiceContainer.sharedInstance().identityService.findIdentity(withIdentifier: personalInfo.id)
+            if let identity = identity {
+                let identityProvider = identity.identityProvider.displayName ?? identity.identityProvider.identifier ?? "?"
+                let providedBy = "\(L.Security.ProvidedBy.localization) \(identityProvider)"
                 let twoFactorText = NSMutableAttributedString(
-                    string: "\(L.Security.TwoFAKey.localization)\n\(L.Security.NotAddedYet.localization)",
-                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.grayGhost])
+                    string: "\(L.Security.TwoFAKey.localization)\n\(providedBy)",
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
                 twoFactorText.setAttributeTo(
-                    part: L.Security.NotAddedYet.localization,
+                    part: L.Security.ProvidedBy.localization,
                     attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                twoFactorText.setAttributeTo(
+                    part: identityProvider,
+                    attributes: [.font: UIFont.sourceSansProSemiBold(size: 12), .foregroundColor: UIColor.grayGhost])
                 twoFactorControl = ActionableControlWithBodyAndTitle(
                     attributedTitle: firstTitle,
                     attributedBodyText: twoFactorText,
-                    iconInBody: .bigPlus,
-                    isFilled: false,
-                    shadow: true
+                    iconInBody: .shield,
+                    isFilled: true,
+                    shadow: false
                 )
             } else {
                 let twoFactorText = NSMutableAttributedString(
@@ -166,28 +171,13 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     shadow: true
                 )
             }
-            
-            // Sign-in settings
-            
-            let signInSettingsTitle = NSAttributedString(
-                string: L.Security.SignInSettings.localization,
-                attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.charcoalColor])
-            let signInSettingsBodyText = NSMutableAttributedString(
-                string: L.Security.SettingRememberMe.Title.localization,
-                attributes: [.font: UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.charcoalColor])
-            signInSettingsBodyText.setAttributeTo(
-                part: L.Security.SettingRememberMe.BoldPart.localization,
-                attributes: [.font: UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.charcoalColor])
-            let signInSettingsControl = ActionableControlWithBodyAndTitle(attributedTitle: signInSettingsTitle, attributedBodyText: signInSettingsBodyText, iconInBody: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate), isFilled: true, shadow: true)
-            
+    
             stack.addArrangedSubview(twoFactorControl)
             stack.addArrangedSubview(magicLinkControl)
             stack.addArrangedSubview(passwordControl)
-            stack.addArrangedSubview(signInSettingsControl)
             twoFactorControl.widthToSuperview()
             magicLinkControl.widthToSuperview()
             passwordControl.widthToSuperview()
-            signInSettingsControl.widthToSuperview()
             
             // - actions
             magicLinkControl.addTarget(self, action: #selector(enterEmailFlow), for: .touchUpInside)

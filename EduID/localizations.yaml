@@ -642,19 +642,6 @@ IOS:
       COPY:
         en: Send magic link to
         nl: Stuur magische link naar
-    SignInSettings:
-      COPY:
-        en: Sign-in settings
-        nl: Instellingen voor inloggen
-    SettingRememberMe:
-      Title:
-        COPY:
-          en: Stay logged in
-          nl: Ingelogd blijven
-      BoldPart:
-        COPY:
-          en: logged in
-          nl: Ingelogd
     AddSecurityKeyInfo:
       COPY:
         en: >-
