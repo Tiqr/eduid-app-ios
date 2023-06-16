@@ -41,6 +41,7 @@ enum ScreenType: Int, CaseIterable {
     case securityOverviewScreen
     case securityEnterEmailScreen
     case securityChangePasswordScreen
+    case securityPasswordResetLinkScreen
     
     // activity screens
     case activityLandingScreen
