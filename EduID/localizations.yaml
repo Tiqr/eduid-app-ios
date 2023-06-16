@@ -2877,8 +2877,16 @@ IOS:
       VerifyYour:
         COPY:
           en: Verify your identity so you can access more secure serviceso
-          nl: Verifieer uw identiteit zodat u toegang krijgt tot beter beveiligde services
+          nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
       GotItButton:
         COPY:
           en: Ok, Got it!
           nl: Ok, Begrepen!
+      ReturnBrowserTitle:
+        COPY:
+          en: Return to your web browser
+          nl: Keer terug naar je webbrowser
+      ReturnBrowserText:
+        COPY:
+          en: Continue in your browser to finish the connection of this app to your edulD account
+          nl: Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien

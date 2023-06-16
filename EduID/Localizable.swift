@@ -5029,5 +5029,21 @@ public struct L {
             translationKey: "WelcomeToApp.GotItButton.COPY",
             translationArgs: []
         )
+        public static let ReturnBrowserTitle = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.ReturnBrowserTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.ReturnBrowserTitle.COPY",
+            translationArgs: []
+        )
+        public static let ReturnBrowserText = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.ReturnBrowserText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.ReturnBrowserText.COPY",
+            translationArgs: []
+        )
     }
 }
