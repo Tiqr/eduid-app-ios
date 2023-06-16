@@ -25,4 +25,5 @@ extension UIImage {
     static let cog = UIImage(named: "cog")!
     static let warning = UIImage(named: "warning")!
     static let error = UIImage(named: "error")!
+    static let bigPlus = UIImage(named: "big_plus")!
 }

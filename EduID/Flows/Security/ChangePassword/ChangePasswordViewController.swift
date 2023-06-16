@@ -1,7 +1,7 @@
 import UIKit
 import TinyConstraints
 
-class SecurityChangePasswordViewController: ScrollingTextFieldsViewController {
+class ChangePasswordViewController: ScrollingTextFieldsViewController {
     
     static let tagOfRepeatPasswordField = 4
     
@@ -22,7 +22,7 @@ class SecurityChangePasswordViewController: ScrollingTextFieldsViewController {
         let loadedTime = Date()
         
         viewModel.makeNextTextFieldFirstResponderClosure = { [weak self] tag in
-            guard tag != SecurityChangePasswordViewController.tagOfRepeatPasswordField else {
+            guard tag != ChangePasswordViewController.tagOfRepeatPasswordField else {
                 self?.resignKeyboardResponder()
                 return
             }
