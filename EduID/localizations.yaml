@@ -2876,7 +2876,7 @@ IOS:
           nl: Bekijk welke gegevens van je eduID met die diensten worden gedeeld
       VerifyYour:
         COPY:
-          en: Verify your identity so you can access more secure serviceso
+          en: Verify your identity so you can access more secure services
           nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
       GotItButton:
         COPY:

@@ -584,7 +584,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "WelcomeToApp.Title.COPY" = "Welcome! Use this app to";
 "WelcomeToApp.Quickly.COPY" = "Quickly login to educational services";
 "WelcomeToApp.ViewWhat.COPY" = "View what details of your eduID get shared with those services";
-"WelcomeToApp.VerifyYour.COPY" = "Verify your identity so you can access more secure serviceso";
+"WelcomeToApp.VerifyYour.COPY" = "Verify your identity so you can access more secure services";
 "WelcomeToApp.GotItButton.COPY" = "Ok, Got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
