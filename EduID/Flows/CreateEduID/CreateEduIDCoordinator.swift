@@ -145,13 +145,5 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
 }
 
 extension CreateEduIDCoordinator: BiometricApprovalViewControllerDelegate {
-    
-    func biometricApprovalViewControllerContinueWithSucces(viewController: BiometricAccessApprovalViewController) {
-
-    }
-    
-    func biometricApprovalViewControllerSkipBiometricAccess(viewController: BiometricAccessApprovalViewController) {
-    
-    }
 }
 

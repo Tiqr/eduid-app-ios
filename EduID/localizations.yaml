@@ -2847,6 +2847,22 @@ IOS:
       COPY:
         en: Oops, let's try again
         nl: Oeps, laten we het opnieuw proberen
+    VerifyPin:
+        COPY:
+          en: Verify this pin code
+          nl: Controleer pincode
+    CheckMessages:
+        COPY:
+          en: Check your messages
+          nl: Controleer je berichten
+    EnterSixDigitCode:
+        COPY:
+          en: Enter the six-digit code we sent to your phone to continue
+          nl: Voer de zescijferige code in die we naar je telefoon hebben gestuurd om door te gaan
+    SixDigitCode:
+        COPY:
+          en: six-digit
+          nl: zescijferige
   Generic:
     RequestError:
       Title:

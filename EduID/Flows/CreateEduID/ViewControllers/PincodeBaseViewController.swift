@@ -7,7 +7,7 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     // - viewmodel
     let viewModel: PinViewModel
     // - verify button
-    let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify this pin code")
+    let verifyButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.VerifyPin.localization)
     
     // - pin stack view
     let pinStack = AnimatedHStackView()
@@ -22,6 +22,8 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     
     // - flag for secure input
     var isSecure = false
+    
+    private var pinFieldMap: [Int: PinTextFieldView] = .init()
 
     //MARK: - init
     init(viewModel: PinViewModel, isSecure: Bool) {
@@ -61,7 +63,6 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         pinStack.arrangedSubviews.forEach { pinView in
             (pinView as? PinTextFieldView)?.textfield.text = ""
         }
@@ -72,22 +73,18 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     func setupUI() {
         // - posterLabel
         let posterParent = UIView()
-        posterLabel = UILabel.posterTextLabel(text: "Check your messages", size: 24)
+        posterLabel = UILabel.posterTextLabel(text: L.PinAndBioMetrics.CheckMessages.localization, size: 24)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // - create the textView
         let textLabelParent = UIView()
-        textLabel = UILabel.plainTextLabelPartlyBold(text:
-        """
-        Enter the six-digit code we sent to your phone to continue
-        """, partBold: "six-digit")
+        textLabel = UILabel.plainTextLabelPartlyBold(text:L.PinAndBioMetrics.EnterSixDigitCode.localization, partBold: L.PinAndBioMetrics.SixDigitCode.localization)
         
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
         // - pin fields
-        
         pinStack.axis = .horizontal
         pinStack.distribution = .equalCentering
         pinStack.height(50)
@@ -95,14 +92,15 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
             let pinField = PinTextFieldView(isSecure: isSecure, screenType: screenType)
             pinField.tag = integer
             pinField.delegate = viewModel
+            pinField.pinViewDelegate = self
             pinStack.addArrangedSubview(pinField)
+            pinFieldMap[integer] = pinField
         }
         // - activityIndicatorView
         activity.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 100))
         activity.tintColor = .gray
         activity.width(100)
         activity.height(100)
-        
         
         // - Space
         let spaceView = UIView()
@@ -129,15 +127,23 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         // verify button state and action
         verifyButton.isEnabled = false
         verifyButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardFocus)))
+//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardFocus)))
         
     }
     
     //MARK: - gesture action resign keyboard focus
-    @objc
-    func resignKeyboardFocus() {
+    @objc func resignKeyboardFocus() {
         pinStack.arrangedSubviews.forEach { pinview in
             pinview.resignFirstResponder()
+        }
+    }
+}
+
+extension PincodeBaseViewController: PinViewDelegate {
+    func deletePreviousInput(with currentTag: Int) {
+        if let pinView = pinFieldMap[(currentTag - 1)] {
+            pinView.textfield.text = nil
+            pinView.textfield.becomeFirstResponder()
         }
     }
 }
