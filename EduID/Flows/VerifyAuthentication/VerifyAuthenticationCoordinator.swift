@@ -49,6 +49,6 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
             guard let self else { return }
             self.delegate?.verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: self)
         }
-        viewControllerToPresentOn?.present(viewController, animated: true)
+        (viewControllerToPresentOn as? UINavigationController)?.pushViewController(viewController, animated: true)
     }
 }

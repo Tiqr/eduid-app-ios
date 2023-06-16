@@ -8,7 +8,6 @@ class VerifyScanResultViewController: BaseViewController {
     weak var delegate: VerifyScanResultViewControllerDelegate?
     private var dismissVerifyAuthentication: (() -> Void)?
     private var mainStack = BasicStackView(arrangedSubviews: .init())
-    private var mainStackTopMargin: CGFloat = 24
 
     //MARK: - init
     init(viewModel: ScanViewModel, dismissVerifyAuthentication: (() -> Void)? = nil) {
@@ -30,14 +29,10 @@ class VerifyScanResultViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         screenType.configureNavigationItem(item: navigationItem)
     }
     //MARK: - setupUI
     func setupUI() {
-        //- setup eduID logo if navigationController is nil
-        setupLogoWhenNavigationControllerIsNil()
-        
         // - top poster label
         let posterParent = UIView()
         let posterLabel = UILabel.posterTextLabelBicolor(text: L.PinAndBioMetrics.LoginRequest.localization, primary: L.PinAndBioMetrics.LoginRequest.localization)
@@ -85,7 +80,7 @@ class VerifyScanResultViewController: BaseViewController {
         view.addSubview(mainStack)
         
         // - constraints
-        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: mainStackTopMargin, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
         upperspace.height(to: lowerSpace)
         animatedHStack.width(to: mainStack)
         primaryButton.width(to: cancelButton)
@@ -102,7 +97,7 @@ class VerifyScanResultViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: L.RememberMe.Yes.localization, style: .cancel) { [weak self] action in
             guard let self = self else { return }
             if self.dismissVerifyAuthentication != nil {
-                self.dismiss(animated: true)
+                self.dismissView()
             } else {
                 self.delegate?.verifyScanResultViewControllerCancelScanResult(viewController: self)
             }
@@ -174,25 +169,6 @@ class VerifyScanResultViewController: BaseViewController {
         }
     }
     
-    private func setupLogoWhenNavigationControllerIsNil() {
-        if navigationController == nil {
-            mainStackTopMargin = 80
-            let eduIdLogoFrame = CGRect(origin: .zero,size: CGSize(width: 92, height: 36))
-            
-            let eduIdLogoImageView = UIImageView(frame: eduIdLogoFrame)
-            eduIdLogoImageView.image = .eduIDLogo
-            eduIdLogoImageView.contentMode = .scaleAspectFit
-            eduIdLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(eduIdLogoImageView)
-            
-            NSLayoutConstraint.activate([
-                eduIdLogoImageView.widthAnchor.constraint(equalToConstant: eduIdLogoImageView.frame.width),
-                eduIdLogoImageView.heightAnchor.constraint(equalToConstant: eduIdLogoImageView.frame.height),
-                eduIdLogoImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10),
-                eduIdLogoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-            ])
-        }
-    }
     private func updateUIAfterSigningIn() {
         mainStack.removeFromSuperview()
         let shieldImageFrame = CGRect(origin: .zero,
@@ -245,10 +221,9 @@ class VerifyScanResultViewController: BaseViewController {
     }
     
     @objc private func dismissView() {
-        self.dismiss(animated: true) { [weak self] in
-            guard let self else { return }
-            self.dismissVerifyAuthentication?()
-        }
+        dismissVerifyAuthentication != nil
+        ? dismissVerifyAuthentication?()
+        : dismiss(animated: true)
     }
 }
 

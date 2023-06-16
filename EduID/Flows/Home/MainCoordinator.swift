@@ -67,6 +67,7 @@ extension MainCoordinator: HomeViewControllerDelegate  {
         children.append(verifyAuthenticationCoordinator)
         verifyAuthenticationCoordinator.start(with: payload)
     }
+
 }
 
 //MARK: - personal info methods
@@ -121,7 +122,7 @@ extension MainCoordinator: ActivityCoordinatorDelegate {
 //MARK: - activity flow methods
 extension MainCoordinator: VerifyAuthenticationDelegate {
     func verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: CoordinatorType) {
-        homeNavigationController.presentedViewController?.dismiss(animated: true)
+        homeNavigationController.popViewController(animated: true)
         children.removeAll { $0 === coordinator }
     }
 }
