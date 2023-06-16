@@ -12,11 +12,11 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         
         screenType = .welcomeScreen
         
-        let first = NSMutableAttributedString(string: "Quickly login to educational services", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        let first = NSMutableAttributedString(string: L.WelcomeToApp.Quickly.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
         first.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 13))
-       let second = NSMutableAttributedString(string: "View what details of your eduID get shared with those services", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        let second = NSMutableAttributedString(string: L.WelcomeToApp.ViewWhat.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
         second.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 4))
-        let third = NSMutableAttributedString(string: "Verify your identity so you can access more secure services.", attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
+        let third = NSMutableAttributedString(string: L.WelcomeToApp.VerifyYour.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
         third.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 20))
         attributedTexts.append(contentsOf: [first, second, third])
 
@@ -26,7 +26,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
     //MARK: setup UI
     func setupUI() {
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: "Welcome! Use this app to", size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.WelcomeToApp.Title.localization, size: 24)
         
         // - numbered list stack
         let numstack = UIStackView()
@@ -55,7 +55,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         image.height(150)
         
         // - ok button
-        let okButton = EduIDButton(type: .primary, buttonTitle: "Ok, Got it!")
+        let okButton = EduIDButton(type: .primary, buttonTitle: L.WelcomeToApp.GotItButton.localization)
         okButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
         
         // - Space

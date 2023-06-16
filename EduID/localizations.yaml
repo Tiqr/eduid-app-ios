@@ -2819,6 +2819,14 @@ IOS:
       COPY:
         en: Request to login
         nl: Inlogverzoek
+    EnteredPinNotEqual:
+      COPY:
+        en: The entered PIN codes were not equal
+        nl: De ingevoerde pincodes waren niet gelijk
+    RetryPin:
+      COPY:
+        en: Oops, let's try again
+        nl: Oeps, laten we het opnieuw proberen
   Generic:
     RequestError:
       Title:
@@ -2833,3 +2841,24 @@ IOS:
         COPY:
           en: "Close"
           nl: "Sluiten"
+  WelcomeToApp:
+      Title:
+        COPY:
+          en: Welcome! Use this app to
+          nl: Welkom! Gebruik deze app voor
+      Quickly:
+        COPY:
+          en: Quickly login to educational services
+          nl: Snel inloggen op educatieve diensten
+      ViewWhat:
+        COPY:
+          en: View what details of your eduID get shared with those services
+          nl: Bekijk welke gegevens van je eduID met die diensten worden gedeeld
+      VerifyYour:
+        COPY:
+          en: Verify your identity so you can access more secure serviceso
+          nl: Verifieer uw identiteit zodat u toegang krijgt tot beter beveiligde services
+      GotItButton:
+        COPY:
+          en: Ok, Got it!
+          nl: Ok, Begrepen!

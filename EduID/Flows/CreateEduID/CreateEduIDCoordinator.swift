@@ -28,7 +28,6 @@ final class CreateEduIDCoordinator: CoordinatorType {
     
     //MARK: - start
     func start() {
-        
         let landingScreen = CreateEduIDLandingPageViewController()
         landingScreen.delegate = self
         let navigationController = UINavigationController(rootViewController: landingScreen)
@@ -39,14 +38,12 @@ final class CreateEduIDCoordinator: CoordinatorType {
         viewControllerToPresentOn?.present(self.navigationController, animated: false)
     }
     
-    @objc
-    func startExistingUserWithoutSecretFlow() {
+    @objc func startExistingUserWithoutSecretFlow() {
         currentScreenType = .eduIDCreatedScreen
         createEduIDViewControllerShowNextScreen(viewController: UIViewController())
     }
     
-    @objc
-    func startExistingUserWithSecretFlow() {
+    @objc func startExistingUserWithSecretFlow() {
         currentScreenType = .smsChallengeScreen
         createEduIDViewControllerShowNextScreen(viewController: UIViewController())
     }
@@ -131,8 +128,8 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
     
     func createEduIDViewControllerRedoCreatePin(viewController: CreatePincodeSecondEntryViewController) {
         navigationController.popToViewController(navigationController.viewControllers.first { $0 is CreatePincodeFirstEntryViewController}!, animated: true)
-        let alert = UIAlertController(title: "Oops, let's try again", message: "The entered PIN codes were not equal", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+        let alert = UIAlertController(title: L.PinAndBioMetrics.RetryPin.localization, message: L.PinAndBioMetrics.EnteredPinNotEqual.localization, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { action in
             // no action
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
