@@ -755,6 +755,34 @@ IOS:
         COPY:
           en: Backup code
           nl: Herstelcode
+  PasswordResetLink:
+    Title:
+      AddPassword:
+        COPY:
+          en: Add password
+          nl: Voeg een wachtwoord toe
+      ChangePassword:
+        COPY:
+          en: Change or delete password
+          nl: Wachtwoord wijzigen of verwijderen
+    Description:
+      AddPassword:
+        COPY:
+          en: We will send you an email instantly with a link to add a password.
+          nl: We sturen je een email om een wachtwoord in te stellen.
+      ChangePassword:
+        COPY:
+          en: We will send you an email instantly with a link to change or delete your current password.
+          nl: We sturen je een email om je huidige wachtwoord opnieuw in te stellen of te verwijderen.
+    Button:
+      Cancel:
+        COPY:
+          en: Cancel
+          nl: Annuleer
+      SendEmail:
+        COPY:
+          en: Send email
+          nl: Stuur email
   Home:
     Home:
       COPY:

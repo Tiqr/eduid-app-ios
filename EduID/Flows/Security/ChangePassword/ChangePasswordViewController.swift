@@ -1,6 +1,7 @@
 import UIKit
 import TinyConstraints
 
+// TODO redesign screen based on info we get from viewmodel
 class ChangePasswordViewController: ScrollingTextFieldsViewController {
     
     static let tagOfRepeatPasswordField = 4

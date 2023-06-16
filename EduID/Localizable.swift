@@ -1267,32 +1267,6 @@ public struct L {
             translationKey: "Security.UseMagicLink.COPY",
             translationArgs: []
         )
-        public static let SignInSettings = LocaliciousData(
-            accessibilityIdentifier: "Security.SignInSettings",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.SignInSettings.COPY",
-            translationArgs: []
-        )
-        public struct SettingRememberMe {
-            public static let Title = LocaliciousData(
-                accessibilityIdentifier: "Security.SettingRememberMe.Title",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Security.SettingRememberMe.Title.COPY",
-                translationArgs: []
-            )
-            public static let BoldPart = LocaliciousData(
-                accessibilityIdentifier: "Security.SettingRememberMe.BoldPart",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Security.SettingRememberMe.BoldPart.COPY",
-                translationArgs: []
-            )
-        }
         public static let AddSecurityKeyInfo = LocaliciousData(
             accessibilityIdentifier: "Security.AddSecurityKeyInfo",
             accessibilityHintKey: nil,
@@ -1476,6 +1450,62 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "Security.Tiqr.Code.COPY",
+                translationArgs: []
+            )
+        }
+    }
+    public struct PasswordResetLink {
+        public struct Title {
+            public static let AddPassword = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Title.AddPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Title.AddPassword.COPY",
+                translationArgs: []
+            )
+            public static let ChangePassword = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Title.ChangePassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Title.ChangePassword.COPY",
+                translationArgs: []
+            )
+        }
+        public struct Description {
+            public static let AddPassword = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Description.AddPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Description.AddPassword.COPY",
+                translationArgs: []
+            )
+            public static let ChangePassword = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Description.ChangePassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Description.ChangePassword.COPY",
+                translationArgs: []
+            )
+        }
+        public struct Button {
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Button.Cancel.COPY",
+                translationArgs: []
+            )
+            public static let SendEmail = LocaliciousData(
+                accessibilityIdentifier: "PasswordResetLink.Button.SendEmail",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PasswordResetLink.Button.SendEmail.COPY",
                 translationArgs: []
             )
         }

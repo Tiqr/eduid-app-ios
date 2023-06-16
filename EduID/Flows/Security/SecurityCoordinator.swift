@@ -1,4 +1,5 @@
 import UIKit
+import OpenAPIClient
 
 class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     
@@ -27,7 +28,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func securityViewControllerDismissSecurityFlow(viewController: UIViewController) {
+    func dismissSecurityFlow(viewController: UIViewController) {
         delegate?.securityCoordinatorDismissSecurityFlow(coordinator: self)
     }
     
@@ -39,7 +40,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
-    func securityViewControllerEnterVerifyEmailFlow(viewController: UIViewController) {
+    func goToVerifyEmailFlow(viewController: UIViewController) {
         let emailViewController = SecurityEnterEmailViewController()
         emailViewController.delegate = self
         navigationController?.pushViewController(emailViewController, animated: true)
@@ -47,11 +48,12 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     
     //MARK: - change password flow
     
-    func securityViewControllerEnterChangePasswordFlow(viewController: UIViewController) {
-        let changePasswordViewController = ChangePasswordViewController(viewModel: ChangePasswordViewModel())
+    func goToChangePasswordFlow(viewController: UIViewController, changeOrAddUrl: URL, isForAdd: Bool) {
+        let changePasswordViewController = ChangePasswordViewController(viewModel: ChangePasswordViewModel(changeOrAddUrl: changeOrAddUrl, isForAdd: isForAdd))
         changePasswordViewController.delegate = self
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
+    
     
     func securityViewController(viewController: UIViewController, reset password: String) {
         let confirmViewController = AlertMessageViewController(textMessage: "Password changed succefully", buttonTitle: "Ok") { [weak self] in
@@ -64,6 +66,18 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     
     func securityGotoRootViewController(sender: AnyObject) {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func requestPasswordResetLink(viewController: UIViewController, personalInfo: UserResponse) {
+        let passwordResetLinkViewController = PasswordResetLinkViewController(viewModel: PasswordResetLinkViewModel(personalInfo: personalInfo))
+        passwordResetLinkViewController.delegate = self
+        navigationController?.pushViewController(passwordResetLinkViewController, animated: true)
+    }
+    
+    func goToCheckEmail(viewController: UIViewController, email: String?) {
+        let checkEmailViewController = CheckEmailViewController()
+        checkEmailViewController.emailToCheck = email
+        navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
 }
 

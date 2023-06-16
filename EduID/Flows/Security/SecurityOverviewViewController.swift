@@ -45,7 +45,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { [weak self] _ in
                     guard let self = self else { return }
                     alert.dismiss(animated: true)
-                    self.delegate?.securityViewControllerDismissSecurityFlow(viewController: self)
+                    self.delegate?.dismissSecurityFlow(viewController: self)
                 })
                 present(alert, animated: true)
             }
@@ -181,7 +181,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             
             // - actions
             magicLinkControl.addTarget(self, action: #selector(enterEmailFlow), for: .touchUpInside)
-            passwordControl.addTarget(self, action: #selector(enterChangePasswordFlow), for: .touchUpInside)
+            passwordControl.addTarget(self, action: #selector(requestPasswordResetLink), for: .touchUpInside)
         } else {
             let loadingIndicator = UIActivityIndicatorView()
             stack.addArrangedSubview(loadingIndicator)
@@ -209,16 +209,16 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     
     @objc
     func dismissSecurityScreen() {
-        delegate?.securityViewControllerDismissSecurityFlow(viewController: self)
+        delegate?.dismissSecurityFlow(viewController: self)
     }
     
     @objc
     func enterEmailFlow() {
-        delegate?.securityViewControllerEnterVerifyEmailFlow(viewController: self)
+        delegate?.goToVerifyEmailFlow(viewController: self)
     }
     
     @objc
-    func enterChangePasswordFlow() {
-        delegate?.securityViewControllerEnterChangePasswordFlow(viewController: self)
+    func requestPasswordResetLink() {
+        delegate?.requestPasswordResetLink(viewController: self, personalInfo: viewModel.personalInfo!)
     }
 }

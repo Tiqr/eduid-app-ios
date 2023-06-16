@@ -54,6 +54,7 @@ enum Constants {
     enum UserInfoKey {
         static let tiqrAuthObject = "tiqrAuthenticationObject"
         static let emailUpdateUrl = "emailUpdateUrl"
+        static let passwordChangeUrl = "passwordChangeUrl"
     }
     
 }
