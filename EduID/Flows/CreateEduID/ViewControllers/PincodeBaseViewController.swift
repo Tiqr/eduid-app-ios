@@ -127,7 +127,6 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         // verify button state and action
         verifyButton.isEnabled = false
         verifyButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
-//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardFocus)))
         
     }
     
