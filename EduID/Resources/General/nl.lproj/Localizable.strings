@@ -574,6 +574,13 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "PinAndBioMetrics.SignIn.COPY" = "Inloggen";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
 "PinAndBioMetrics.LoginRequest.COPY" = "Inlogverzoek";
+"PinAndBioMetrics.EnteredPinNotEqual.COPY" = "De ingevoerde pincodes waren niet gelijk";
+"PinAndBioMetrics.RetryPin.COPY" = "Oeps, laten we het opnieuw proberen";
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
+"WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app voor";
+"WelcomeToApp.Quickly.COPY" = "Snel inloggen op educatieve diensten";
+"WelcomeToApp.ViewWhat.COPY" = "Bekijk welke gegevens van je eduID met die diensten worden gedeeld";
+"WelcomeToApp.VerifyYour.COPY" = "Verifieer uw identiteit zodat u toegang krijgt tot beter beveiligde services";
+"WelcomeToApp.GotItButton.COPY" = "Ok, Begrepen!";

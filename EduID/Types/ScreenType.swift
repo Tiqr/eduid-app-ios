@@ -72,6 +72,8 @@ enum ScreenType: Int, CaseIterable {
         case .enterPhoneScreen:
             return .smsChallengeScreen
         case .smsChallengeScreen:
+            return .welcomeScreen
+        case .welcomeScreen:
             return .firstTimeDialogScreen
         case .firstTimeDialogScreen:
             return .addInstitutionScreen
@@ -145,7 +147,11 @@ enum ScreenType: Int, CaseIterable {
             item.rightBarButtonItem = UIBarButtonItem(title: L.Header.LogOff.localization, style: .plain, target: target, action: secondaryAction)
             
             // just logo
-        case .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen, .createPincodeSecondEntryScreen, .biometricApprovalScreen, .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen, .enterPhoneScreen, .addInstitutionScreen:
+        case .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
+                .createPincodeSecondEntryScreen,.biometricApprovalScreen,
+                .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen,
+                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen:
+            
             addLogoTo(item: item)
             item.hidesBackButton = true
             

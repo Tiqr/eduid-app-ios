@@ -573,6 +573,13 @@ When you re-register for a new eduID with that same email address, you will rece
 "PinAndBioMetrics.SignIn.COPY" = "Login";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
 "PinAndBioMetrics.LoginRequest.COPY" = "Request to login";
+"PinAndBioMetrics.EnteredPinNotEqual.COPY" = "The entered PIN codes were not equal";
+"PinAndBioMetrics.RetryPin.COPY" = "Oops, let's try again";
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
+"WelcomeToApp.Title.COPY" = "Welcome! Use this app to";
+"WelcomeToApp.Quickly.COPY" = "Quickly login to educational services";
+"WelcomeToApp.ViewWhat.COPY" = "View what details of your eduID get shared with those services";
+"WelcomeToApp.VerifyYour.COPY" = "Verify your identity so you can access more secure serviceso";
+"WelcomeToApp.GotItButton.COPY" = "Ok, Got it!";

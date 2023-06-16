@@ -4911,6 +4911,22 @@ public struct L {
             translationKey: "PinAndBioMetrics.LoginRequest.COPY",
             translationArgs: []
         )
+        public static let EnteredPinNotEqual = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.EnteredPinNotEqual",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.EnteredPinNotEqual.COPY",
+            translationArgs: []
+        )
+        public static let RetryPin = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.RetryPin",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.RetryPin.COPY",
+            translationArgs: []
+        )
     }
     public struct Generic {
         public struct RequestError {
@@ -4941,5 +4957,47 @@ public struct L {
                 translationArgs: []
             )
         }
+    }
+    public struct WelcomeToApp {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.Title.COPY",
+            translationArgs: []
+        )
+        public static let Quickly = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.Quickly",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.Quickly.COPY",
+            translationArgs: []
+        )
+        public static let ViewWhat = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.ViewWhat",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.ViewWhat.COPY",
+            translationArgs: []
+        )
+        public static let VerifyYour = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.VerifyYour",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.VerifyYour.COPY",
+            translationArgs: []
+        )
+        public static let GotItButton = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.GotItButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.GotItButton.COPY",
+            translationArgs: []
+        )
     }
 }
