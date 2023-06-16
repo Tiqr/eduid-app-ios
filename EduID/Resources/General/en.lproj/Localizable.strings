@@ -137,9 +137,6 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
 "Security.NotSupported.COPY" = "Not supported";
 "Security.UseMagicLink.COPY" = "Send magic link to";
-"Security.SignInSettings.COPY" = "Sign-in settings";
-"Security.SettingRememberMe.Title.COPY" = "Stay logged in";
-"Security.SettingRememberMe.BoldPart.COPY" = "logged in";
 "Security.AddSecurityKeyInfo.COPY" = "You can add security keys to your eduID account which can be used to login. You can use, for example, the built-in sensor of your device (TouchID, FaceID) or a separate hardware key (YubiKey).";
 "Security.RememberMeInfo.COPY" = "<strong>Your device is currently remembered. You will be automatically logged in to eduID.</strong>";
 "Security.NoRememberMeInfo.COPY" = "When logging in with your eduID, you can choose to <strong>stay logged in</strong>. This remembers your login on the device you use at that moment.";
@@ -163,6 +160,12 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.Tiqr.BackupMethod.COPY" = "Recovery method";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Backup code";
+"PasswordResetLink.Title.AddPassword.COPY" = "Add password";
+"PasswordResetLink.Title.ChangePassword.COPY" = "Change or delete password";
+"PasswordResetLink.Description.AddPassword.COPY" = "We will send you an email instantly with a link to add a password.";
+"PasswordResetLink.Description.ChangePassword.COPY" = "We will send you an email instantly with a link to change or delete your current password.";
+"PasswordResetLink.Button.Cancel.COPY" = "Cancel";
+"PasswordResetLink.Button.SendEmail.COPY" = "Send email";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Data & activity";

@@ -137,9 +137,6 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";
 "Security.NotSupported.COPY" = "Niet ondersteund";
 "Security.UseMagicLink.COPY" = "Stuur magische link naar";
-"Security.SignInSettings.COPY" = "Instellingen voor inloggen";
-"Security.SettingRememberMe.Title.COPY" = "Ingelogd blijven";
-"Security.SettingRememberMe.BoldPart.COPY" = "Ingelogd";
 "Security.AddSecurityKeyInfo.COPY" = "Je kunt een beveiligingssleutel toevoegen aan je eduID account waarmee je kunt inloggen. Dit kan bijv. de ingebouwde sensor van je apparaat zijn (TouchID, FaceID) of een los hardwaretoken (YubiKey).";
 "Security.RememberMeInfo.COPY" = "<strong> Dit apparaat wordt momenteel onthouden. Je wordt automatisch ingelogd op eduD </strong>";
 "Security.NoRememberMeInfo.COPY" = "Als je inlogt met eduID kun je ervoor kiezen om <strong>ingelogd te blijven</strong>. Dan wordt jouw login op het apparaat dat je op dat moment gebruikt onthouden.";
@@ -163,6 +160,12 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Security.Tiqr.BackupMethod.COPY" = "Herstelmethode";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Herstelcode";
+"PasswordResetLink.Title.AddPassword.COPY" = "Voeg een wachtwoord toe";
+"PasswordResetLink.Title.ChangePassword.COPY" = "Wachtwoord wijzigen of verwijderen";
+"PasswordResetLink.Description.AddPassword.COPY" = "We sturen je een email om een wachtwoord in te stellen.";
+"PasswordResetLink.Description.ChangePassword.COPY" = "We sturen je een email om je huidige wachtwoord opnieuw in te stellen of te verwijderen.";
+"PasswordResetLink.Button.Cancel.COPY" = "Annuleer";
+"PasswordResetLink.Button.SendEmail.COPY" = "Stuur email";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Data & activiteit";

@@ -1,6 +1,14 @@
 import UIKit
 
-class ChangePasswordViewModel: NSObject {
+class ChangePasswordViewModel {
+    
+    private let changeOrAddUrl: URL
+    private let isForAdd: Bool
+    
+    init(changeOrAddUrl: URL, isForAdd: Bool) {
+        self.changeOrAddUrl = changeOrAddUrl
+        self.isForAdd = isForAdd
+    }
     
     //MARK: - closures that interact with the view controller
     var setRequestButtonEnabled: ((Bool) -> Void)?

@@ -55,8 +55,8 @@ If a label is used in a stack view, preferrably the label is nested in an UIView
 
 ##4) OAuth + redirecting
 
-The oAuth flow is handled by the AppAuth-iOS Swift package. It is implemented in a singleton class AppAuthController.swift. To start authenticating, a view controller can call the AppAuth controller's authenticate(viewController: UIViewController) method that will go to an external browser since it is set up with an external useragent. Depending on the session it will prompt the user with a magic link or use an existing session.
-The access and redirect tokens are stored (TODO: store refresh token in keychain using a libbrary) and the execute method in APIs.swift holds refresh logic and adds the "Bearer <token>" to the Authorization header. This needs to be reinforced.
+The OAuth flow is handled by the AppAuth-iOS Swift package. It is implemented in a singleton class AppAuthController.swift. To start authenticating, a view controller can call the AppAuth controller's authenticate(viewController: UIViewController) method that will go to an external browser since it is set up with an external useragent. Depending on the session it will prompt the user with a magic link or use an existing session.
+The access and redirect tokens are stored and the execute method in APIs.swift holds refresh logic and adds the "Bearer <token>" to the Authorization header. This needs to be reinforced.
 
 The app can redirect from a webpage url by means of a custom scheme eduid:// or https:// in case of a predefined path defined in apple-site-association.json that is hosted on all the eduid servers e.g. login.test2.eduid.nl etc. This is achieved by the associated domains capability tab where "applinks:test2.eduid.nl?mode=developer" among others are defined.
 Redirects from https have an entry point in func scene(_ scene: UIScene, continue userActivity: NSUserActivity) _

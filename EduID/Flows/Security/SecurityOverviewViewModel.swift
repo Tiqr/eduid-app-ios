@@ -13,7 +13,8 @@ class SecurityOverviewViewModel {
     var personalInfo: UserResponse? = nil
     
     func getData() async throws -> UserResponse {
-        return try await UserControllerAPI.me()
+        self.personalInfo = try await UserControllerAPI.me()
+        return self.personalInfo!
     }
     
 }
