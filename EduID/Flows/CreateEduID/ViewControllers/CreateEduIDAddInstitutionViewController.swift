@@ -50,11 +50,11 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         scrollView.edges(to: view)
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreatEduID.AddInstitution.MainTitle.localization, size: 24, primary: L.CreatEduID.AddInstitution.MainTitleBoldPart.localization)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreateEduID.AddInstitution.MainTitle.localization, size: 24, primary: L.CreateEduID.AddInstitution.MainTitleBoldPart.localization)
         
         // - create the textView
         let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreatEduID.AddInstitution.MainText.localization                                    , partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.AddInstitution.MainText.localization, partBold: "")
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         

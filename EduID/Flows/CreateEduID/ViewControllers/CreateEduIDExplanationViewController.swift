@@ -26,18 +26,18 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         
         // - create Label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.Explanation.MainTitleLabel.localization, size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.Explanation.MainTitleLabel.localization, size: 24)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // - create the textView
         let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreatEduID.Explanation.MainExplanationText.localization, partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.Explanation.MainExplanationText.localization, partBold: "")
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
         // - create button
-        let button = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.Explanation.CreateEduidButton.localization)
+        let button = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.Explanation.CreateEduidButton.localization)
         
         //the action for this buton is defined in superclass
         button.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)

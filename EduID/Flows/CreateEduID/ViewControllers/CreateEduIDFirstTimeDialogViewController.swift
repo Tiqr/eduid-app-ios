@@ -4,7 +4,7 @@ import TinyConstraints
 class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
 
     // - primary button
-    let connectButton = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.FirstTimeDialog.ConnectButtonTitle.localization)
+    let connectButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.FirstTimeDialog.ConnectButtonTitle.localization)
     
     // - stack
     var stack: AnimatedVStackView!
@@ -67,7 +67,7 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         
         // - postertext
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreatEduID.FirstTimeDialog.MainTextTitle.localization, size: 24, primary: L.CreatEduID.FirstTimeDialog.MainTextTitleBoldPart.localization)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreateEduID.FirstTimeDialog.MainTextTitle.localization, size: 24, primary: L.CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
@@ -75,10 +75,10 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 24 - 16
         
-        let attributedText = NSMutableAttributedString(string: L.CreatEduID.FirstTimeDialog.MainText.localization
+        let attributedText = NSMutableAttributedString(string: L.CreateEduID.FirstTimeDialog.MainText.localization
                                                        , attributes: [.foregroundColor: UIColor.charcoalColor, .font: UIFont.sourceSansProRegular(size: 16), .paragraphStyle: paragraph])
-        attributedText.setAttributeTo(part: L.CreatEduID.FirstTimeDialog.MainTextFirstBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
-        attributedText.setAttributeTo(part: L.CreatEduID.FirstTimeDialog.MainTextSecondBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
+        attributedText.setAttributeTo(part: L.CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
+        attributedText.setAttributeTo(part: L.CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
         let textView = TextViewBackgroundColor(attributedText: attributedText, backgroundColor: .yellowColor, insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12))
         
         // - spacing
@@ -86,12 +86,12 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         
         // - additional text view
         let labelParent = UIView()
-        let label = UILabel.plainTextLabelPartlyBold(text: L.CreatEduID.FirstTimeDialog.AddInformationText.localization, partBold: L.CreatEduID.FirstTimeDialog.AddInformationBoldPart.localization)
+        let label = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.FirstTimeDialog.AddInformationText.localization, partBold: L.CreateEduID.FirstTimeDialog.AddInformationBoldPart.localization)
         labelParent.addSubview(label)
         label.edges(to: labelParent)
         
         // - skip button
-        let skipButton = EduIDButton(type: .ghost, buttonTitle: L.CreatEduID.FirstTimeDialog.SkipButtonTitle.localization)
+        let skipButton = EduIDButton(type: .ghost, buttonTitle: L.CreateEduID.FirstTimeDialog.SkipButtonTitle.localization)
         skipButton.addTarget(self, action: #selector(skipAction), for: .touchUpInside)
         skipButton.isEnabled = true
         

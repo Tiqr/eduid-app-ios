@@ -79,7 +79,7 @@ IOS:
       COPY:
         en: Don't see a QR code?
         nl: Zie je geen QR-code?
-    FlashLightNotAvailable:
+    FlashlightNotAvailable:
       COPY:
         en: Torch isn't available
         nl: Zaklamp is niet beschikbaar
@@ -2992,8 +2992,8 @@ IOS:
         COPY:
           en: Continue in your browser to finish the connection of this app to your edulD account
           nl: Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien
-  CreatEduID:
-      LandinPage:
+  CreateEduID:
+      LandingPage:
         MainText:
           COPY:
             en: >-

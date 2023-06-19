@@ -7,12 +7,12 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     var stack: AnimatedVStackView!
     
     // - phone textfield
-    let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: L.CreatEduID.EnterPhoneNumber.PhoneFieldTitle.localization,
-                                                                      placeholder: L.CreatEduID.EnterPhoneNumber.PhoneFieldPlaceholder.localization,
+    let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPhoneNumber.PhoneFieldTitle.localization,
+                                                                      placeholder: L.CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.localization,
                                                                       field: .phone, keyboardType: .numberPad)
     
     // - verify button
-    let verifyButton = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.EnterPhoneNumber.VerifyPhoneNumber.localization)
+    let verifyButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.localization)
     
     private var viewModel: CreateEduIDEnterPhoneNumberViewModel
     
@@ -62,7 +62,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         verifyButton.isEnabled = false
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.Created.MainTitleLabel.localization, size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.Created.MainTitleLabel.localization, size: 24)
         
         // - textView Parent
         let textViewParent = UIView()
@@ -73,8 +73,8 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = .sourceSansProLight(size: 16)
         textLabel.textColor = .secondaryColor
-        let attributedText = NSMutableAttributedString(string: L.CreatEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
-        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreatEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
+        let attributedText = NSMutableAttributedString(string: L.CreateEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
+        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreateEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
         textLabel.attributedText = attributedText
         
         textViewParent.addSubview(textLabel)

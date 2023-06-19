@@ -30,7 +30,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         logo.width(150)
         
         // - add label
-        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.LandinPage.MainText.localization, size: 24, alignment: .center)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.LandingPage.MainText.localization, size: 24, alignment: .center)
         
         // - add image
         let imageView = UIImageView(image: .landingPageImage)
@@ -43,11 +43,11 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         let lowerSpaceView = UIView()
         
         // - buttons
-        let signInButton = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.LandinPage.SignInButton.localization)
+        let signInButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.SignInButton.localization)
         signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
-        let scanQRButton = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.LandinPage.ScanQrButton.localization)
+        let scanQRButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.ScanQrButton.localization)
         scanQRButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
-        let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle:  L.CreatEduID.LandinPage.NoEduIdButton.localization)
+        let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle:  L.CreateEduID.LandingPage.NoEduIdButton.localization)
         
         //the action for this button is on CreateEduIDBaseViewController superclass
         noEduIDYetButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)

@@ -19,7 +19,7 @@ Maak je persoonlijke QR-code aan
 Scan het hier
 ";
 "ScanView.MainTextBoldPart.COPY" = "Zie je geen QR-code?";
-"ScanView.FlashLightNotAvailable.COPY" = "Zaklamp is niet beschikbaar";
+"ScanView.FlashlightNotAvailable.COPY" = "Zaklamp is niet beschikbaar";
 "ScanView.Error.COPY" = "Fout";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Uitloggen";
@@ -617,45 +617,45 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "WelcomeToApp.GotItButton.COPY" = "Ok, begrepen!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Keer terug naar je webbrowser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
-"CreatEduID.LandinPage.MainText.COPY" = "Persoonlijk account voor Onderwijs en Onderzoek";
-"CreatEduID.LandinPage.SignInButton.COPY" = "Inloggen";
-"CreatEduID.LandinPage.ScanQrButton.COPY" = "Scan a QR code";
-"CreatEduID.LandinPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
-"CreatEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
-"CreatEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
-"CreatEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Sluit dan je instelling aan!";
-"CreatEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij. Daarom moet je de volgende gegevens toevoegen aan jouw eduID
+"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijk account voor Onderwijs en Onderzoek";
+"CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
+"CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan a QR code";
+"CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
+"CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
+"CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
+"CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Sluit dan je instelling aan!";
+"CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij. Daarom moet je de volgende gegevens toevoegen aan jouw eduID
 • Validatie van je volledige naam door een derde partij • Bewijs dat je student bent • Je huidige instelling";
-"CreatEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
-"CreatEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID";
-"CreatEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";
-"CreatEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
-"CreatEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
-"CreatEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
-"CreatEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers
+"CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
+"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID";
+"CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";
+"CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
+"CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
+"CreateEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
+"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers
  verbonden aan het Nederlandse onderwijs en onderzoek. Het is van jou en bestaat onafhankelijk
  van een onderwijsinstelling.
 
  • Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
  • Gebruikers zonder instellingsaccount kunnen ook een eduID aanvragen.
  • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.";
-"CreatEduID.Explanation.CreateEduidButton.COPY" = "Maak een nieuw eduID aan";
-"CreatEduID.Created.MainTitleLabel.COPY" = "Je eduID is aangemaakt";
-"CreatEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";
-"CreatEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Je emailaddres";
-"CreatEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "jane.doe@eduid.nl";
-"CreatEduID.EnterPersonalInfo.Agreement.COPY" = "Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid";
-"CreatEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
-"CreatEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
-"CreatEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
+"CreateEduID.Explanation.CreateEduidButton.COPY" = "Maak een nieuw eduID aan";
+"CreateEduID.Created.MainTitleLabel.COPY" = "Je eduID is aangemaakt";
+"CreateEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";
+"CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Je emailaddres";
+"CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "jane.doe@eduid.nl";
+"CreateEduID.EnterPersonalInfo.Agreement.COPY" = "Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid";
+"CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
+"CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
+"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
 
 We sturen je een code om je nummer te verifiëren.
 ";
-"CreatEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
-"CreatEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Bevestig dit telefoonnummer";
-"CreatEduID.AddInstitution.MainTitle.COPY" = "Je school/uni werd met succes toegevoegd";
-"CreatEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je school/uni";
-"CreatEduID.AddInstitution.MainText.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kunnen nu gedeeld worden";
+"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
+"CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Bevestig dit telefoonnummer";
+"CreateEduID.AddInstitution.MainTitle.COPY" = "Je school/uni werd met succes toegevoegd";
+"CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je school/uni";
+"CreateEduID.AddInstitution.MainText.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kunnen nu gedeeld worden";
 "RegEXError.Name.COPY" = "Ongeldig naamformaat, pas je invoer aan";
 "RegEXError.Email.COPY" = "Ongeldig e-mailformaat, pas je invoer aan";
 "RegEXError.Phone.COPY" = "Ongeldig telefoonnummer, pas je invoer aan";

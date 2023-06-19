@@ -19,7 +19,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     
     var firstNameField: TextFieldViewWithValidationAndTitle!
     var lastNameField: TextFieldViewWithValidationAndTitle!
-    let emailField = TextFieldViewWithValidationAndTitle(title: L.CreatEduID.EnterPersonalInfo.EmailFieldTitle.localization, placeholder: L.CreatEduID.EnterPersonalInfo.EmailFieldPlaceHolder.localization, field: .email, keyboardType: .emailAddress)
+    let emailField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPersonalInfo.EmailFieldTitle.localization, placeholder: L.CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.localization, field: .email, keyboardType: .emailAddress)
     
     var textFieldsAreValid: Bool = false {
         didSet {
@@ -142,7 +142,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         termsLabel.font = .sourceSansProRegular(size: 12)
         termsLabel.textColor = .charcoalColor
         termsLabel.numberOfLines = 2
-        termsLabel.text = L.CreatEduID.EnterPersonalInfo.Agreement.localization
+        termsLabel.text = L.CreateEduID.EnterPersonalInfo.Agreement.localization
         
         termsHstack.addArrangedSubview(theSwitch)
         termsHstack.addArrangedSubview(termsLabel)

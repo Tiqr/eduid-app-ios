@@ -23,13 +23,13 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         
         //poster label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.Created.MainTitleLabel.localization)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.Created.MainTitleLabel.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // text label
         let textParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreatEduID.Created.MainText.localization, partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.Created.MainText.localization, partBold: "")
         textParent.addSubview(textLabel)
         textLabel.edges(to: textParent)
         
