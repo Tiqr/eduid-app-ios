@@ -17,7 +17,6 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
     init(isSecure: Bool, screenType: ScreenType) {
         self.screenType = screenType
         super.init(frame: .zero)
-//        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
         
         self.isUserInteractionEnabled = false
         textfield.eduIDPinFieldDelegate = self
