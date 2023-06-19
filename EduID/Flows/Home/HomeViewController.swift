@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         buttonStack.animate()
-        screenType.configureNavigationItem(item: navigationItem, target: self, action: nil, secondaryAction: #selector(logOff))
+        screenType.configureNavigationItem(item: navigationItem, target: self)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -133,12 +133,6 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     }
     
     //MARK: - action buttons
-    
-    @objc func logOff() {
-        OnboardingManager.shared.resetUserStatus()
-        AppAuthController.shared.clearAuthState()
-    }
-    
     @objc func showScanScreen() {
         delegate?.homeViewControllerShowScanScreen(viewController: self)
     }

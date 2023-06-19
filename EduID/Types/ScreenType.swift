@@ -147,16 +147,8 @@ enum ScreenType: Int, CaseIterable {
             item.hidesBackButton = true
             item.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: target, action: action)
             item.rightBarButtonItem?.tintColor = .white
-            
-        case .homeScreen:
-            let eduIdLogo = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 30)))
-            eduIdLogo.image = UIImage.eduIDLogo
-            eduIdLogo.contentMode = .scaleAspectFit
-            item.titleView = eduIdLogo
-            item.rightBarButtonItem = UIBarButtonItem(title: L.Header.LogOff.localization, style: .plain, target: target, action: secondaryAction)
-            
             // just logo
-        case .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
+        case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
                 .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen,
                 .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
