@@ -185,6 +185,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             passwordControl.widthToSuperview()
             
             // - actions
+            twoFactorControl.addTarget(self, action: #selector(goToTwoFactorKeys), for: .touchUpInside)
             magicLinkControl.addTarget(self, action: #selector(enterEmailFlow), for: .touchUpInside)
             passwordControl.addTarget(self, action: #selector(requestPasswordResetLink), for: .touchUpInside)
         } else {
@@ -215,6 +216,11 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     @objc
     func dismissSecurityScreen() {
         delegate?.dismissSecurityFlow(viewController: self)
+    }
+    
+    @objc
+    func goToTwoFactorKeys() {
+        delegate?.goToTwoFactorKeys(viewModel.personalInfo!)
     }
     
     @objc

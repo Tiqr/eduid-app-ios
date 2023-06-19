@@ -56,6 +56,12 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     
+    func goToTwoFactorKeys(_ personalInfo: UserResponse) {
+        let twoFactorViewController = TwoFactorKeysViewController(viewModel: TwoFactorKeysViewModel(personalInfo: personalInfo))
+        twoFactorViewController.delegate = self
+        navigationController?.pushViewController(twoFactorViewController, animated: true)
+    }
+    
     
     func securityViewController(viewController: UIViewController, reset password: String) {
         let confirmViewController = AlertMessageViewController(textMessage: "Password changed succefully", buttonTitle: "Ok") { [weak self] in
