@@ -3,6 +3,8 @@ import UIKit
 @objc
 enum ScreenType: Int, CaseIterable {
     
+    static var isQrEnrolment: Bool?
+    
     // home screen
     case homeScreen
     
@@ -21,6 +23,7 @@ enum ScreenType: Int, CaseIterable {
     case addInstitutionScreen
     case biometricApprovalScreen
     case eduIDCreatedScreen
+    case returnToBrowser
     
     // scan screens
     case scanScreen
@@ -68,7 +71,10 @@ enum ScreenType: Int, CaseIterable {
         case .createPincodeSecondEntryScreen:
             return .biometricApprovalScreen
         case .biometricApprovalScreen:
-            return .enterPhoneScreen
+            return ScreenType.isQrEnrolment != nil
+            ? .returnToBrowser
+            : .enterPhoneScreen
+            
         case .enterPhoneScreen:
             return .smsChallengeScreen
         case .smsChallengeScreen:
@@ -118,6 +124,9 @@ enum ScreenType: Int, CaseIterable {
             return CreatePincodeSecondEntryViewController(viewModel: CreatePincodeAndBiometricAccessViewModel())
         case .eduIDCreatedScreen:
             return CreateEduIDCreatedViewController()
+        case .returnToBrowser:
+            return CreateReturnToBrowserViewController()
+            
         default:
             return nil
         }
@@ -150,8 +159,7 @@ enum ScreenType: Int, CaseIterable {
         case .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
                 .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen,
-                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen:
-            
+                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
             addLogoTo(item: item)
             item.hidesBackButton = true
             

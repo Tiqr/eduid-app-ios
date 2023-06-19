@@ -55,6 +55,7 @@ extension UILabel {
         let attributedString = NSMutableAttributedString(string: text, attributes: [.font: UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
         attributedString.setAttributeTo(part: partBold, attributes: [.font: UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
         label.attributedText = attributedString
+        label.sizeToFit()
         return label
     }
     

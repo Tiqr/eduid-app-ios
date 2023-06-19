@@ -77,9 +77,7 @@ Do you want to use your biometrics to access the eduID app more easily?
             alert.addAction(UIAlertAction(
                 title: Constants.ButtonTitles.proceed, style: .destructive) { [weak self] _ in
                     guard let self else { return }
-                    self.nextScreen(for: self.createPincodeViewModel.isQrEnrolment != nil
-                                    ? .registerWithoutRecovery
-                                    : .none)
+                    self.nextScreen()
                 })
             alert.addAction(UIAlertAction(title: Constants.ButtonTitles.cancel, style: .cancel) { action in
                 alert.dismiss(animated: true)
@@ -90,11 +88,7 @@ Do you want to use your biometrics to access the eduID app more easily?
 }
 
 extension BiometricAccessApprovalViewController: ShowNextScreenDelegate {
-    func nextScreen(for type: NextScreenFlowType) {
-        switch type {
-        case .registerWithoutRecovery: self.dismiss(animated: true)
-        default:
-            (self.biometricApprovaldelegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
-        }
+    func nextScreen() {
+        (self.biometricApprovaldelegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
     }
 }

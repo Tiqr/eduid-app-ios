@@ -27,15 +27,12 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
     private let keychain = KeyChainService()
-    
-    var isQrEnrolment: Bool?
-    
-    
+
     //MARK: - init
     init(enrollmentChallenge: EnrollmentChallenge? = nil, authenticationChallenge: AuthenticationChallenge? = nil, isQrEnrolment: Bool? = nil) {
         self.enrollmentChallenge = enrollmentChallenge
         self.authenticationChallenge = authenticationChallenge
-        self.isQrEnrolment = isQrEnrolment
+        ScreenType.isQrEnrolment = isQrEnrolment
         super.init()
     }
     
@@ -136,10 +133,7 @@ extension CreatePincodeAndBiometricAccessViewModel {
                                 do {
                                     try managedObject.save()
                                     self.enrollmentChallenge = nil
-                                    self.nextScreenDelegate?.nextScreen(
-                                        for: self.isQrEnrolment != nil
-                                        ? .registerWithoutRecovery
-                                        : .none)
+                                    self.nextScreenDelegate?.nextScreen()
                                 } catch let error {
                                     assertionFailure(error.localizedDescription)
                                 }
@@ -156,10 +150,7 @@ extension CreatePincodeAndBiometricAccessViewModel {
         guard let err = error else { return }
         switch err.code {
         case .userCancel, .biometryNotAvailable:
-            nextScreenDelegate?.nextScreen(for:
-                                            self.isQrEnrolment != nil
-                                           ? .registerWithoutRecovery
-                                           : .none )
+            nextScreenDelegate?.nextScreen()
         default:
             break
         }

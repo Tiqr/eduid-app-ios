@@ -34,7 +34,6 @@
 		4F909EB02A31CDDC00FC1506 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */; };
 		4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */; };
 		4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */; };
-		4F909EB32A31CDDC00FC1506 /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8D2A31CDDC00FC1506 /* ShowNextScreenDelegate.swift */; };
 		4F909EB42A31CDDC00FC1506 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8F2A31CDDC00FC1506 /* KeyChainService.swift */; };
 		4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */; };
 		4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */; };
@@ -211,6 +210,8 @@
 		4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */; };
 		4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
+		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
+		73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -322,7 +323,6 @@
 		4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Affiliation.swift; sourceTree = "<group>"; };
 		4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
-		4F909E8D2A31CDDC00FC1506 /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
 		4F909E8F2A31CDDC00FC1506 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTokenHandler.swift; sourceTree = "<group>"; };
 		4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OIDExternalUserAgentIOSSafari.swift; sourceTree = "<group>"; };
@@ -506,6 +506,8 @@
 		4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewModel.swift; sourceTree = "<group>"; };
 		4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewController.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
+		73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -574,7 +576,6 @@
 			children = (
 				4FF567582A31D32E00616341 /* Flows */,
 				4F909E8E2A31CDDC00FC1506 /* Services */,
-				4F909E8C2A31CDDC00FC1506 /* SharedServices */,
 				4F909E952A31CDDC00FC1506 /* SharedViews */,
 				4F909E7A2A31CDDC00FC1506 /* Styling */,
 				4F909E832A31CDDC00FC1506 /* Types */,
@@ -727,14 +728,6 @@
 				4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */,
 			);
 			path = Types;
-			sourceTree = "<group>";
-		};
-		4F909E8C2A31CDDC00FC1506 /* SharedServices */ = {
-			isa = PBXGroup;
-			children = (
-				4F909E8D2A31CDDC00FC1506 /* ShowNextScreenDelegate.swift */,
-			);
-			path = SharedServices;
 			sourceTree = "<group>";
 		};
 		4F909E8E2A31CDDC00FC1506 /* Services */ = {
@@ -1060,6 +1053,7 @@
 			children = (
 				4FF567842A31D32E00616341 /* ViewModels */,
 				4FF5678B2A31D32E00616341 /* BiometricApprovalViewControllerDelegate.swift */,
+				73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */,
 				4FF5678C2A31D32E00616341 /* CreateEduIDCoordinatorDelegate.swift */,
 				4FF5678D2A31D32E00616341 /* ViewControllers */,
 				4FF5679D2A31D32E00616341 /* CreateEduIDViewControllerDelegate.swift */,
@@ -1099,6 +1093,7 @@
 				4FF5679A2A31D32E00616341 /* CreateEduIDAddInstitutionViewController.swift */,
 				4FF5679B2A31D32E00616341 /* BiometricAccessApprovalViewController.swift */,
 				4FF5679C2A31D32E00616341 /* CheckEmailViewController.swift */,
+				73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1454,10 +1449,10 @@
 				4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */,
 				4FF567A72A31D32E00616341 /* SecurityCoordinator.swift in Sources */,
 				4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */,
-				4F909EB32A31CDDC00FC1506 /* ShowNextScreenDelegate.swift in Sources */,
 				4FF567AF2A31D32E00616341 /* ActivityViewModel.swift in Sources */,
 				4FF567AC2A31D32E00616341 /* SecurityOverviewViewController.swift in Sources */,
 				4F909EAA2A31CDDC00FC1506 /* UIImage+Styling.swift in Sources */,
+				73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */,
 				4FF567C62A31D32E00616341 /* BiometricApprovalViewControllerDelegate.swift in Sources */,
 				4F909EC72A31CDDC00FC1506 /* EduIDButton.swift in Sources */,
 				4FF567C42A31D32E00616341 /* CreateEduIDAddInstitutionViewModel.swift in Sources */,
@@ -1517,6 +1512,7 @@
 				4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */,
 				4F909EB82A31CDDC00FC1506 /* OIDTokenStorage.swift in Sources */,
 				4F909E2A2A31CDA000FC1506 /* Constants.swift in Sources */,
+				73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */,
 				4FF567C12A31D32E00616341 /* CreatePincodeAndBiometricAccessViewModel.swift in Sources */,
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
 				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,
