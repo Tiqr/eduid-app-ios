@@ -1594,6 +1594,130 @@ public struct L {
             )
         }
     }
+    public struct ChangePassword {
+        public struct Title {
+            public static let AddPassword = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Title.AddPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Title.AddPassword.COPY",
+                translationArgs: []
+            )
+            public static let ChangePassword = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Title.ChangePassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Title.ChangePassword.COPY",
+                translationArgs: []
+            )
+        }
+        public struct Description {
+            public static let NewPassword = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Description.NewPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Description.NewPassword.COPY",
+                translationArgs: []
+            )
+            public static let BoldPart = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Description.BoldPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Description.BoldPart.COPY",
+                translationArgs: []
+            )
+        }
+        public static let MissingHashError = LocaliciousData(
+            accessibilityIdentifier: "ChangePassword.MissingHashError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ChangePassword.MissingHashError.COPY",
+            translationArgs: []
+        )
+        public struct Label {
+            public static let NewPassword = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Label.NewPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Label.NewPassword.COPY",
+                translationArgs: []
+            )
+            public static let RepeatPassword = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Label.RepeatPassword",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Label.RepeatPassword.COPY",
+                translationArgs: []
+            )
+            public static let MismatchError = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Label.MismatchError",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Label.MismatchError.COPY",
+                translationArgs: []
+            )
+            public static let Placeholder = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Label.Placeholder",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Label.Placeholder.COPY",
+                translationArgs: []
+            )
+        }
+        public struct DeleteHeader {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.DeleteHeader.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.DeleteHeader.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.DeleteHeader.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.DeleteHeader.Description.COPY",
+                translationArgs: []
+            )
+        }
+        public struct Button {
+            public static let Reset = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Button.Reset",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Button.Reset.COPY",
+                translationArgs: []
+            )
+            public static let Add = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Button.Add",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Button.Add.COPY",
+                translationArgs: []
+            )
+            public static let Delete = LocaliciousData(
+                accessibilityIdentifier: "ChangePassword.Button.Delete",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ChangePassword.Button.Delete.COPY",
+                translationArgs: []
+            )
+        }
+    }
     public struct Home {
         public static let Home = LocaliciousData(
             accessibilityIdentifier: "Home.Home",
