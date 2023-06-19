@@ -26,21 +26,18 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         
         // - create Label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabel(text: "Don't have an eduID yet?", size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.Explanation.MainTitleLabel.localization, size: 24)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // - create the textView
         let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: """
-eduID is a central account for users\nassociated with Dutch education and\nresearch. It is yours and exists independent\nof an educational institution.\n\n• Use it to login to several services connected to SURFconext.\n• Users without an institution account can also request an eduID.\n• eduID is a lifelong account. It stays validafter you graduate.
-"""
-                                                         , partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.Explanation.MainExplanationText.localization, partBold: "")
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
         // - create button
-        let button = EduIDButton(type: .primary, buttonTitle: "Create a new eduID")
+        let button = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.Explanation.CreateEduidButton.localization)
         
         //the action for this buton is defined in superclass
         button.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)

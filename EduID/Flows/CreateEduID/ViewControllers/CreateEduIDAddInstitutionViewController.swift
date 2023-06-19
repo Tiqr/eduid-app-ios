@@ -7,7 +7,7 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
     var viewModel: PersonalInfoViewModel
 
     // - verify button
-    let continueButton = EduIDButton(type: .primary, buttonTitle: "Continue")
+    let continueButton = EduIDButton(type: .primary, buttonTitle: L.NameUpdated.Continue.localization)
     
     // - views
     let scrollView = UIScrollView()
@@ -23,8 +23,8 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         }
         
         viewModel.dataFetchErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true)
             })
             self?.present(alert, animated: true)
@@ -50,13 +50,11 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         scrollView.edges(to: view)
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Your school/uni\nwas contacted successfully", size: 24, primary: "Your school/uni")
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreateEduID.AddInstitution.MainTitle.localization, size: 24, primary: L.CreateEduID.AddInstitution.MainTitleBoldPart.localization)
         
         // - create the textView
         let textLabelParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: """
-The following information has been added to your eduID and can now be shared.
-"""                                     , partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreateEduID.AddInstitution.MainText.localization, partBold: "")
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
@@ -95,10 +93,10 @@ The following information has been added to your eduID and can now be shared.
                 message: L.Profile.RemoveServicePrompt.Description.localization,
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "Ok", style: .destructive) { [weak self] action in
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .destructive) { [weak self] action in
                 self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
             })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
                 alert.dismiss(animated: true)
             })
             self?.present(alert, animated: true)

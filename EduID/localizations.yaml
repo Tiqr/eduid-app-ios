@@ -33,6 +33,60 @@ IOS:
         nl: >-
           Beheer jouw persoonlijke informatie, jouw privacy, en de beveiliging
           van jouw eduID account.
+  HomeView:
+    MainText:
+      COPY:
+        en: |
+          Your eduID app
+          is ready for use
+        nl: |
+          Jouw eduID app
+          is klaar voor gebruik
+    YourEduId:
+      COPY:
+        en: Your eduID app
+        nl: Jouw eduID app
+    SecurityButton:
+      COPY:
+        en: Security
+        nl: Beveiliging
+    PersonalInfoButton:
+      COPY:
+        en: Personal info
+        nl: Gegevens
+    ActivityButton:
+      COPY:
+        en: Activities
+        nl: Activiteiten
+    ScanQRButton:
+        COPY:
+          en: Scan QR
+          nl: Scan QR
+  ScanView:
+    MainText:
+      COPY:
+        en: |
+          Don't see a QR code?
+          Go to eduid.nl/security
+          Create your personal QR code/n
+          Scan it here
+        nl: |
+          Zie je geen QR-code?
+          Ga naar eduid.nl/security
+          Maak je persoonlijke QR-code aan
+          Scan het hier
+    MainTextBoldPart:
+      COPY:
+        en: Don't see a QR code?
+        nl: Zie je geen QR-code?
+    FlashlightNotAvailable:
+      COPY:
+        en: Torch isn't available
+        nl: Zaklamp is niet beschikbaar
+    Error:
+      COPY:
+        en: Error
+        nl: Fout
   Header:
     Title:
       COPY:
@@ -2799,10 +2853,34 @@ IOS:
         en: Did not know that
         nl: Dat wist ik niet
   PinAndBioMetrics:
+    SetupBiometrics:
+      COPY:
+        en: Setup biometric access
+        nl: Stel biometrische toegang in
+    BiometricsApproval:
+      COPY:
+        en: Biometric approval
+        nl: Biometrische goedkeuring
+    BiometricsExplain:
+      COPY:
+        en: Do you want to use your biometrics to access the eduID app more easily?
+        nl: Wil je met je biometrie makkelijker toegang krijgen tot de eduID app?
+    BiometricsExplainBoldPart:
+      COPY:
+        en: biometrics
+        nl: biometrie
     BiometricsPrompt:
       COPY:
         en: Using Biometrics to login
         nl: Gebruik Biometrics om in te loggen
+    SkipAlertTitle:
+      COPY:
+        en: Proceed without using biometric access?
+        nl: Doorgaan zonder gebruik te maken van biometrische toegang?
+    SkipAlertText:
+      COPY:
+        en: This permanently disables this feature
+        nl: Hierdoor wordt deze functie permanent uitgeschakeld
     FirstPinScreenSelectTitle:
       COPY:
         en: Select a PIN code
@@ -2863,6 +2941,14 @@ IOS:
         COPY:
           en: six-digit
           nl: zescijferige
+    Authenticate:
+        COPY:
+          en: Authenticate
+          nl: Authenticeren
+    AuthenticateForUseTitle:
+        COPY:
+          en: To use the eduID for authentication you need to enter your PIN code
+          nl: Om de eduID te gebruiken voor authenticatie moet je jouw pincode invoeren
   Generic:
     RequestError:
       Title:
@@ -2896,8 +2982,8 @@ IOS:
           nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
       GotItButton:
         COPY:
-          en: Ok, Got it!
-          nl: Ok, Begrepen!
+          en: Ok, got it!
+          nl: Ok, begrepen!
       ReturnBrowserTitle:
         COPY:
           en: Return to your web browser
@@ -2906,3 +2992,192 @@ IOS:
         COPY:
           en: Continue in your browser to finish the connection of this app to your edulD account
           nl: Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien
+  CreateEduID:
+      LandingPage:
+        MainText:
+          COPY:
+            en: >-
+              Personal account
+              for Education and Research
+            nl: >-
+              Persoonlijk account
+              voor Onderwijs en Onderzoek
+        SignInButton:
+          COPY:
+            en: Sign in
+            nl: Inloggen
+        ScanQrButton:
+          COPY:
+            en: Scan a QR code
+            nl: Scan a QR code
+        NoEduIdButton:
+          COPY:
+            en: I don't have an eduId
+            nl: Ik heb geen eduId
+      FirstTimeDialog:
+        ConnectButtonTitle:
+          COPY:
+            en: Connect your school/institution
+            nl: Sluit je school/instelling aan
+        MainTextTitle:
+          COPY:
+            en: >-
+              Are you studying in NL?
+              Connect your institution!
+            nl: >-
+              Studeer je in NL? 
+              Sluit dan je instelling aan!
+        MainTextTitleBoldPart:
+          COPY:
+            en: Connect your institution!
+            nl: Sluit dan je instelling aan!
+        MainText:
+          COPY:
+            en: >-
+              When you study in the Netherlands and you want to use eduID to logon to an educational services,
+              we need to be sure it's you and not someone impersonating you
+              You must therefore add the following information to your eduID
+
+              • Validation of your full name by a third party
+              • Proof of being a student
+              • Your current institution
+            nl: >-
+              Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst,
+              moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij.
+              Daarom moet je de volgende gegevens toevoegen aan jouw eduID
+
+              • Validatie van je volledige naam door een derde partij
+              • Bewijs dat je student bent
+              • Je huidige instelling
+        MainTextFirstBoldPart:
+          COPY:
+            en: When you study in the Netherlands
+            nl: Wanneer je in Nederland studeert
+        MainTextSecondBoldPart:
+          COPY:
+            en: You must therefore add the following information to your eduID
+            nl: Daarom moet je de volgende gegevens toevoegen aan jouw eduID
+        AddInformationText:
+          COPY:
+            en: Add this information by connecting your school/institution via SURFconext
+            nl: Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext
+        AddInformationBoldPart:
+          COPY:
+            en: Add this information
+            nl: Voeg deze informatie toe
+        SkipButtonTitle:
+          COPY:
+            en: Skip this
+            nl: Sla dit over
+      Explanation:
+        MainTitleLabel:
+          COPY:
+            en: Don't have an eduID yet?
+            nl: Heb je nog geen eduID?
+        MainExplanationText:
+          COPY:
+            en: >-
+              eduID is a central account for users
+              associated with Dutch education and research. It is yours and exists independent
+              of an educational institution.
+              
+              • Use it to login to several services connected to SURFconext.
+              • Users without an institution account can also request an eduID.
+              • eduID is a lifelong account. It stays valid after you graduate.
+            nl: >-
+              eduID is een centraal account voor gebruikers
+               verbonden aan het Nederlandse onderwijs en onderzoek. Het is van jou en bestaat onafhankelijk
+               van een onderwijsinstelling.
+    
+               • Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
+               • Gebruikers zonder instellingsaccount kunnen ook een eduID aanvragen.
+               • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.
+        CreateEduidButton:
+          COPY:
+            en: Create a new eduID
+            nl: Maak een nieuw eduID aan
+      Created:
+        MainTitleLabel:
+          COPY:
+            en: Your eduID has been created
+            nl: Je eduID is aangemaakt
+        MainText:
+          COPY:
+            en: >-
+              To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it
+            nl: >-
+              Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet
+      EnterPersonalInfo:
+        EmailFieldTitle:
+          COPY:
+            en: Your email address
+            nl: Je emailaddres
+        EmailFieldPlaceHolder:
+          COPY:
+            en: jane.doe@eduid.nl
+            nl: jane.doe@eduid.nl
+        Agreement:
+          COPY:
+            en: I agree with the terms of service. I also understand the privacy policy
+            nl: Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid
+      EnterPhoneNumber:
+        PhoneFieldTitle:
+          COPY:
+            en: Enter your phone number
+            nl: Vul je telefoonnummer in
+        PhoneFieldPlaceholder:
+          COPY:
+            en: 0612345678
+            nl: 0612345678
+        MainText:
+          COPY:
+            en: |
+              Let's add a recovery phonenumber If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
+
+              We will text you a code to verify your number.
+            nl: |
+              Laten we een hersteltelefoonnummer toevoegen als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
+
+              We sturen je een code om je nummer te verifiëren.
+        BoldRange:
+          COPY:
+            en: "32"
+            nl: "34"           
+        VerifyPhoneNumber:
+          COPY:
+            en: Verify this phone number
+            nl: Bevestig dit telefoonnummer
+      AddInstitution:
+        MainTitle:
+          COPY:
+            en: >- 
+              Your school/uni
+              was contacted successfully
+            nl: >- 
+              Je school/uni
+              werd met succes toegevoegd
+        MainTitleBoldPart:
+          COPY:
+            en: Your school/uni
+            nl: Je school/uni
+        MainText:
+          COPY:
+            en: The following information has been added to your eduID and can now be shared
+            nl: De volgende gegevens zijn toegevoegd aan je eduID en kunnen nu gedeeld worden
+  RegEXError:
+    Name:
+      COPY:
+        en: Invalid name format, please revise your input
+        nl: Ongeldig naamformaat, pas je invoer aan
+    Email:
+      COPY:
+        en: Invalid email format, please revise your input
+        nl: Ongeldig e-mailformaat, pas je invoer aan
+    Phone:
+      COPY:
+        en: Invalid phone format, please revise your input
+        nl: Ongeldig telefoonnummer, pas je invoer aan
+    Password:
+      COPY:
+        en: A password must be 8 characters, contain an uppercase letter, and a special character
+        nl: Een wachtwoord moet 8 tekens lang zijn, een hoofdletter en een speciaal teken bevatten

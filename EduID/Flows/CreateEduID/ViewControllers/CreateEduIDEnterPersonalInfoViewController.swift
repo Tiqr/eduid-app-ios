@@ -19,7 +19,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     
     var firstNameField: TextFieldViewWithValidationAndTitle!
     var lastNameField: TextFieldViewWithValidationAndTitle!
-    let emailField = TextFieldViewWithValidationAndTitle(title: "Your email address", placeholder: "e.g. timbernerslee@gmail.com", field: .email, keyboardType: .emailAddress)
+    let emailField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPersonalInfo.EmailFieldTitle.localization, placeholder: L.CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.localization, field: .email, keyboardType: .emailAddress)
     
     var textFieldsAreValid: Bool = false {
         didSet {
@@ -59,8 +59,8 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         }
         
         viewModel.createEduIDErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true)
             })
             self?.present(alert, animated: true)
@@ -113,19 +113,19 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         
         
         // - poster text
-        let posterLabel = UILabel.posterTextLabel(text: "Request your eduID", size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.LinkFromInstitution.RequestEduIdButton.localization, size: 24)
         
         // - email
         emailField.tag = CreateEduIDEnterPersonalInfoViewController.emailFieldTag
         emailField.delegate = viewModel
         
         // - firstname
-        firstNameField = TextFieldViewWithValidationAndTitle(title: "First name", placeholder: "e.g. Tim", field: .name, keyboardType: .default)
+        firstNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.GivenName.localization, placeholder: "Jane", field: .name, keyboardType: .default)
         firstNameField.tag = CreateEduIDEnterPersonalInfoViewController.firstNameFieldTag
         firstNameField.delegate = viewModel
         
         // - lastName
-        lastNameField = TextFieldViewWithValidationAndTitle(title: "Last name", placeholder: "e.g. Berners-Lee", field: .name, keyboardType: .default)
+        lastNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.FamilyName.localization, placeholder: "Doe", field: .name, keyboardType: .default)
         lastNameField.tag = CreateEduIDEnterPersonalInfoViewController.lastNameFieldTag
         lastNameField.delegate = viewModel
         
@@ -142,7 +142,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         termsLabel.font = .sourceSansProRegular(size: 12)
         termsLabel.textColor = .charcoalColor
         termsLabel.numberOfLines = 2
-        termsLabel.text = "I agree with the terms of service. I also understand the privacy policy."
+        termsLabel.text = L.CreateEduID.EnterPersonalInfo.Agreement.localization
         
         termsHstack.addArrangedSubview(theSwitch)
         termsHstack.addArrangedSubview(termsLabel)
