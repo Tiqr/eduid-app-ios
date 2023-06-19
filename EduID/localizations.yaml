@@ -407,8 +407,8 @@ IOS:
   Email:
     UpdateError:
       COPY:
-        en: Could not confirm changing to your new email address.
-        nl: Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen.
+        en: "Could not confirm changing to your new email address: %1{{s}}."
+        nl: "Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen: %1{{s}}."
     Title:
       Edit:
         COPY:

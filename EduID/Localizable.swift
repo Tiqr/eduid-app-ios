@@ -795,14 +795,16 @@ public struct L {
         )
     }
     public struct Email {
-        public static let UpdateError = LocaliciousData(
+        public static func UpdateError(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
             accessibilityIdentifier: "Email.UpdateError",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Email.UpdateError.COPY",
-            translationArgs: []
+            translationArgs: args
         )
+        }
         public struct Title {
             public static let Edit = LocaliciousData(
                 accessibilityIdentifier: "Email.Title.Edit",

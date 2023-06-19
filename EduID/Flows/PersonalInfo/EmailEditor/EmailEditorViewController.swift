@@ -50,7 +50,7 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
         setupUI(isLoading: true)
         guard let url = notification.userInfo?[Constants.UserInfoKey.emailUpdateUrl] as? URL else {
             assertionFailure("Email update URL not found in notification object!")
-            onUpdateFailed()
+            onUpdateFailed(nil)
             return
         }
         Task {
@@ -58,21 +58,21 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
                 if let result = try await viewModel.confirmEmailUpdate(url: url) {
                     delegate?.goBackToInfoScreen(updateData: true)
                 } else {
-                    onUpdateFailed()
+                    onUpdateFailed(nil)
                 }
             } catch {
                 NSLog("Unable to confirm email update: \(error)")
-                onUpdateFailed()
+                onUpdateFailed(error)
             }
         }
     }
     
-    private func onUpdateFailed() {
+    private func onUpdateFailed(_ error: Error?) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.setupUI(isLoading: false)
             let alert = UIAlertController(title: L.Generic.RequestError.Title.localization,
-                                          message: L.Email.UpdateError.localization,
+                                          message: L.Email.UpdateError(args: error?.localizedFromApi ?? "?").localization,
                                           preferredStyle: .alert)
             self.present(alert, animated: true)
         }
@@ -159,25 +159,20 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
     @objc func requestEmailChange() {
         Task {
             do {
-                if let response = try await viewModel.changeEmail() {
-                    // All went well, we need the user to confirm it now.
-                    delegate?.showConfirmEmailScreen(viewController: self, emailToVerify: response.email)
-                } else {
-                    // Something went wrong, display a generic error
-                    showError()
-                }
+                let response = try await viewModel.changeEmail()
+                // All went well, we need the user to confirm it now.
+                delegate?.showConfirmEmailScreen(viewController: self, emailToVerify: response.email)
             } catch {
-                NSLog("Unable to change email of the user: \(error)")
-                showError()
+                showError(error)
             }
             
         }
     }
     
-    private func showError() {
+    private func showError(_ error: Error) {
         let alert = UIAlertController(
             title: L.Generic.RequestError.Title.localization,
-            message: L.Email.UpdateError.localization,
+            message: L.Email.UpdateError(args: error.localizedFromApi).localization,
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
             alert.dismiss(animated: true)

@@ -87,7 +87,7 @@ Scan it here
 "Edit.Cancel.COPY" = "Cancel";
 "Edit.Updated.COPY" = "Your profile has been updated";
 "Edit.Back.COPY" = "/personal";
-"Email.UpdateError.COPY" = "Could not confirm changing to your new email address.";
+"Email.UpdateError.COPY" = "Could not confirm changing to your new email address: %1$@.";
 "Email.Title.Edit.COPY" = "Edit";
 "Email.Title.EmailAddress.COPY" = "Email address";
 "Email.Info.COPY" = "Please enter your new email address. A verification mail will be sent to this address.";

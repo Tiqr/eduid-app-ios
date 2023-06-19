@@ -87,7 +87,7 @@ Scan het hier
 "Edit.Cancel.COPY" = "Annuleren";
 "Edit.Updated.COPY" = "Je profiel is bijgewerkt.";
 "Edit.Back.COPY" = "/profile";
-"Email.UpdateError.COPY" = "Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen.";
+"Email.UpdateError.COPY" = "Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen: %1$@.";
 "Email.Title.Edit.COPY" = "Bewerk";
 "Email.Title.EmailAddress.COPY" = "E-mailadres";
 "Email.Info.COPY" = "Voer je nieuwe e-mailadres in. Er wordt een verificatiemail naar dit adres gestuurd.";
