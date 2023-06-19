@@ -21,4 +21,5 @@ extension UIColor {
     static let tertiaryColor = UIColor(named: "TertiaryColor")!
     static let textfieldFocusColor = UIColor(named: "TextfieldFocusColor")!
     static let yellowColor = UIColor(named: "YellowColor")!
+    static let dividerColor = UIColor(named: "Divider")!
 }

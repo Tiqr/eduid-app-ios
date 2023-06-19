@@ -28,7 +28,6 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         
         view.backgroundColor = .white
         setupUI(personalInfo: nil)
-        updateData()
     }
     
     private func updateData() {
@@ -57,6 +56,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         super.viewWillAppear(animated)
         
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissSecurityScreen))
+        
+        if delegate?.hasPendingPersonalInfo() == true {
+            setupUI(personalInfo: delegate?.getAndRemovePendingPersonalInfo()!)
+        } else {
+            updateData()
+        }
     }
     
     //MARK: - setup UI
@@ -153,7 +158,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.charcoalColor])
                 passwordControl = ActionableControlWithBodyAndTitle(
                     attributedBodyText: passwordText,
-                    iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                    iconInBody: .pencil.withRenderingMode(.alwaysOriginal),
                     isFilled: true,
                     shadow: true
                 )

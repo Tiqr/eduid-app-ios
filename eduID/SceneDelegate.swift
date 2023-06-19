@@ -78,7 +78,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             NotificationCenter.default.post(name: .didUpdateEmail, object: nil, userInfo: [Constants.UserInfoKey.emailUpdateUrl: url])
         } else if url.absoluteString.range(of: "add-password") != nil {
             NotificationCenter.default.post(name: .willAddPassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
-
+        } else if url.absoluteString.range(of: "reset-password") != nil {
+            NotificationCenter.default.post(name: .willChangePassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
         }
     }
     

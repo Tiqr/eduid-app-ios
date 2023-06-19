@@ -1,10 +1,9 @@
 import UIKit
 import TinyConstraints
 
-// TODO redesign screen based on info we get from viewmodel
 class ChangePasswordViewController: ScrollingTextFieldsViewController {
     
-    static let tagOfRepeatPasswordField = 4
+    static let tagOfRepeatPasswordField = 3
     
     // - delegate
     weak var delegate: SecurityViewControllerDelegate?
@@ -12,8 +11,16 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
     // - view model
     var viewModel: ChangePasswordViewModel
     
-    // - reset your password button
-    let resetPasswordButton = EduIDButton(type: .primary, buttonTitle: "Reset your password")
+    // - reset / add password button
+    private var requestButton: EduIDButton!
+    private var requestLoadingIndicator: UIActivityIndicatorView!
+    
+    private var deleteButton: EduIDButton? = nil
+    private var deleteLoadingButtonIndicator: UIActivityIndicatorView!
+    
+    private var newPasswordField: TextFieldViewWithValidationAndTitle!
+    private var repeatPasswordField: TextFieldViewWithValidationAndTitle!
+    
     
     //MARK: - init
     init(viewModel: ChangePasswordViewModel) {
@@ -28,18 +35,25 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
                 return
             }
             
-            //tag + 2 because the stackview's first subview is the poster label and we need the subview after the current, hence + 2
             _ = (self?.stack.arrangedSubviews[self?.nextTextfieldBy(tag: tag) ?? 0] as? TextFieldViewWithValidationAndTitle)?.becomeFirstResponder()
             self?.scrollViewToTextField(index: self?.nextTextfieldBy(tag: tag) ?? 0)
         }
         
         viewModel.setRequestButtonEnabled = { [weak self] isEnabled in
-            self?.resetPasswordButton.isEnabled = isEnabled
+            self?.requestButton.isEnabled = isEnabled
         }
         
         viewModel.textFieldBecameFirstResponderClosure = { [weak self] tag in
             guard Date().timeIntervalSince(loadedTime) > 2 else { return }
             self?.scrollViewToTextField(index: tag)
+        }
+        
+        viewModel.passwordsMatchClosure = { [weak self] passwordsMatch in
+            if !passwordsMatch {
+                self?.repeatPasswordField.setValidationError(L.ChangePassword.Label.MismatchError.localization)
+            } else {
+                self?.repeatPasswordField.setValidationError(nil)
+            }
         }
     }
     
@@ -53,6 +67,7 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
         
         screenType = .securityChangePasswordScreen
         setupUI()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +75,7 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
         
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(goBack))
         
-        stack.animate(onlyThese: [1, 3, 4])
+        stack.animate(onlyThese: [2, 3])
     }
     
     //MARK: - setup UI
@@ -70,77 +85,190 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
+        let titleText: String
+        if viewModel.isForAdd {
+            titleText = L.ChangePassword.Title.AddPassword.localization
+        } else {
+            titleText = L.ChangePassword.Title.ChangePassword.localization
+        }
+        
         // - poster label
-        let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Change password", primary: "Change password")
-        posterParent.addSubview(posterLabel)
-        posterLabel.edges(to: posterParent)
-        
-        // - old password textfield
-        let oldPasswordTextField = TextFieldViewWithValidationAndTitle(title: "Your old password", placeholder: "********", field: .password, keyboardType: .default, isPassword: true)
-        oldPasswordTextField.delegate = viewModel
-        oldPasswordTextField.tag = 1
-        
+        let posterLabel = UILabel.posterTextLabelBicolor(text: titleText, primary: titleText)
         // - text
-        let textParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text:
-                                                            """
-Make sure your new password is at least 15 characters OR at least 8 characters including a number and a uppercase letter.
-"""
-                                                         , partBold: "Make sure your new password")
-        textParent.addSubview(textLabel)
-        textLabel.edges(to: textParent)
+        let textLabel = UILabel.plainTextLabelPartlyBold(
+            text: L.ChangePassword.Description.NewPassword.localization,
+            partBold: L.ChangePassword.Description.BoldPart.localization)
         
         // - new password field
-        let newPasswordField = TextFieldViewWithValidationAndTitle(title: "Your new password", placeholder: "********", field: .password, keyboardType: .default, isPassword: true)
+        newPasswordField = TextFieldViewWithValidationAndTitle(
+            title: L.ChangePassword.Label.NewPassword.localization,
+            placeholder: L.ChangePassword.Label.Placeholder.localization,
+            field: .password,
+            keyboardType: .default,
+            isPassword: true
+        )
         newPasswordField.delegate = viewModel
-        newPasswordField.tag = 3
+        newPasswordField.tag = 2
          
         // - repeat password
-        let repeatPasswordField = TextFieldViewWithValidationAndTitle(title: "Repeat new password", placeholder: "********", field: .password, keyboardType: .default, isPassword: true)
+        repeatPasswordField = TextFieldViewWithValidationAndTitle(
+            title: L.ChangePassword.Label.RepeatPassword.localization,
+            placeholder: L.ChangePassword.Label.Placeholder.localization,
+            field: .password,
+            keyboardType: .default,
+            isPassword: true
+        )
         repeatPasswordField.delegate = viewModel
-        repeatPasswordField.tag = 4
+        repeatPasswordField.tag = 3
+        
+        let buttonTitle: String
+        if viewModel.isForAdd {
+            buttonTitle = L.ChangePassword.Button.Add.localization
+        } else {
+            buttonTitle = L.ChangePassword.Button.Reset.localization
+        }
+        
+        let requestContainer = UIView()
+        requestButton = EduIDButton(type: .primary, buttonTitle: buttonTitle)
+        requestContainer.addSubview(requestButton)
+        requestButton.edgesToSuperview()
+        requestLoadingIndicator = UIActivityIndicatorView()
+        requestContainer.addSubview(requestLoadingIndicator)
+        requestLoadingIndicator.heightToSuperview()
+        requestLoadingIndicator.width(30)
+        requestLoadingIndicator.centerXToSuperview(offset: 115)
+        requestLoadingIndicator.isHidden = true
         
         // - stackview
-        stack = AnimatedVStackView(arrangedSubviews: [posterParent, oldPasswordTextField, textParent, newPasswordField, repeatPasswordField, resetPasswordButton])
+        stack = AnimatedVStackView(arrangedSubviews: [posterLabel, textLabel, newPasswordField, repeatPasswordField, requestContainer])
         
         scrollView.addSubview(stack)
         
+        if !viewModel.isForAdd {
+            stack.setCustomSpacing(40, after: requestContainer)
+            let divider = UIView()
+            divider.backgroundColor = .dividerColor
+            stack.addArrangedSubview(divider)
+            divider.height(1)
+            divider.widthToSuperview()
+            
+            let deletePasswordTitle = UILabel.posterTextLabelBicolor(
+                text: L.ChangePassword.DeleteHeader.Title.localization,
+                primary: L.ChangePassword.DeleteHeader.Title.localization
+            )
+            let deletePasswordDescription = UILabel.plainTextLabelPartlyBold(text: L.ChangePassword.DeleteHeader.Description.localization, partBold: ""
+            )
+            deleteButton = EduIDButton(type: .ghost, buttonTitle: L.ChangePassword.Button.Delete.localization)
+            
+            stack.addArrangedSubview(deletePasswordTitle)
+            stack.addArrangedSubview(deletePasswordDescription)
+            stack.setCustomSpacing(40, after: divider)
+
+            deletePasswordTitle.widthToSuperview()
+            deletePasswordDescription.widthToSuperview()
+            
+            let deleteContainer = UIView()
+            deleteContainer.addSubview(deleteButton!)
+            
+            stack.addArrangedSubview(deleteContainer)
+            
+            deleteButton!.edgesToSuperview()
+            deleteContainer.widthToSuperview()
+            
+            deleteLoadingButtonIndicator = UIActivityIndicatorView()
+            deleteContainer.addSubview(deleteLoadingButtonIndicator!)
+            deleteLoadingButtonIndicator!.centerXToSuperview(offset: 115)
+            deleteLoadingButtonIndicator.heightToSuperview()
+            deleteLoadingButtonIndicator!.width(30)
+            deleteLoadingButtonIndicator!.isHidden = true
+            
+            deleteButton!.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
+        }
+        
         // - constraints
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: -24, right: -24))
+        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 40, left: 24, bottom: 24, right: -24))
         stack.width(to: scrollView, offset: -48)
         posterLabel.width(to: stack)
-        oldPasswordTextField.width(to: stack)
-        textParent.width(to: stack)
+        textLabel.width(to: stack)
         newPasswordField.width(to: stack)
         repeatPasswordField.width(to: stack)
-        resetPasswordButton.width(to: stack, offset: -24)
+        requestContainer.width(to: stack)
+        stack.setCustomSpacing(40, after: posterLabel)
         
-        // - actions
-        resetPasswordButton.addTarget(self, action: #selector(resetAction), for: .touchUpInside)
+        requestButton.isEnabled = false
         
-        stack.hideAndTriggerAll(onlyThese: [1, 3, 4])
+        requestButton.addTarget(self, action: #selector(resetOrAddAction), for: .touchUpInside)
+
+        stack.hideAndTriggerAll(onlyThese: [2, 3])
         
     }
     
     func nextTextfieldBy(tag: Int) -> Int {
         switch tag {
-        case 1:
+        case 2:
             return 3
-        case 3:
-            return 4
         default:
             return 0
         }
     }
 
     @objc
-    func resetAction() {
-        delegate?.securityViewController(viewController: self, reset: "")
+    func resetOrAddAction() {
+        Task {
+            requestButton.isEnabled = false
+            requestLoadingIndicator.isHidden = false
+            requestLoadingIndicator.startAnimating()
+            do {
+                let response = try await viewModel.resetOrAddPassword()
+                // Success, go back to main screen
+                delegate?.goToMainScreenWithPersonalInfo(response)
+            } catch {
+                showError(error)
+            }
+            requestLoadingIndicator.stopAnimating()
+            requestLoadingIndicator.isHidden = true
+            requestButton.isEnabled = true
+        }
+    }
+    
+    @objc
+    func deleteAction() {
+        Task {
+            deleteButton?.isEnabled = false
+            deleteLoadingButtonIndicator?.isHidden = false
+            deleteLoadingButtonIndicator?.startAnimating()
+            do {
+                let response = try await viewModel.deletePassword()
+                // Success, go back to main screen
+                delegate?.goToMainScreenWithPersonalInfo(response)
+            } catch {
+                showError(error)
+            }
+            deleteLoadingButtonIndicator?.stopAnimating()
+            deleteLoadingButtonIndicator?.isHidden = true
+            deleteButton?.isEnabled = true
+        }
+    }
+    
+    private func showError(_ error: Error) {
+        let alert = UIAlertController(
+            title: L.Generic.RequestError.Title.localization,
+            message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
+            preferredStyle: .alert
+        )
+        alert.addAction(.init(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { _ in
+            alert.dismiss(animated: true)
+        })
+        present(alert, animated: true)
     }
     
     override func goBack() {
         delegate?.goBack(viewController: self)
+    }
+    
+    @objc override func resignKeyboardResponder() {
+        _ = newPasswordField.resignFirstResponder()
+        _ = repeatPasswordField.resignFirstResponder()
     }
 
 }

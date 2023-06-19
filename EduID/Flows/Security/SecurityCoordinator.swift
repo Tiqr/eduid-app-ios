@@ -8,6 +8,8 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     weak var delegate: SecurityCoordinatorDelegate?
     weak var navigationController: UINavigationController?
     
+    private var pendingPersonalInfo: UserResponse? = nil
+    
     //MARK: - init
     required init(viewControllerToPresentOn: UIViewController?) {
         self.viewControllerToPresentOn = viewControllerToPresentOn
@@ -78,6 +80,21 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         let checkEmailViewController = CheckEmailViewController()
         checkEmailViewController.emailToCheck = email
         navigationController?.pushViewController(checkEmailViewController, animated: true)
+    }
+    
+    func hasPendingPersonalInfo() -> Bool {
+        return pendingPersonalInfo != nil
+    }
+    
+    func getAndRemovePendingPersonalInfo() -> UserResponse? {
+        let result = pendingPersonalInfo
+        pendingPersonalInfo = nil
+        return result
+    }
+    
+    func goToMainScreenWithPersonalInfo(_ personalInfo: UserResponse) {
+        pendingPersonalInfo = personalInfo
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

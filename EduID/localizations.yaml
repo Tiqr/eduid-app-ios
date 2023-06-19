@@ -670,8 +670,8 @@ IOS:
         nl: Wachtwoord toevoegen
     PasswordPlaceholder:
       COPY:
-        en: "**********"
-        nl: "**********"
+        en: "• • • • • • • • • •"
+        nl: "• • • • • • • • • •"
     ChangePassword:
       COPY:
         en: Change your password
@@ -837,6 +837,68 @@ IOS:
         COPY:
           en: Send email
           nl: Stuur email
+  ChangePassword:
+    Title:
+      AddPassword:
+        COPY:
+          en: Add password
+          nl: Voeg een wachtwoord toe
+      ChangePassword:
+        COPY:
+          en: Change password
+          nl: Wachtwoord wijzigen
+    Description:
+      NewPassword:
+        COPY:
+          en: Make sure your new password is at least 15 characters OR at least 8 characters including a number and a uppercase letter.
+          nl: Kies een wachtwoord van tenminste 8 karakters lang met minimaal een hoofdletter en een cijfer. Een langer wachtwoord van minimaal 15 karakters mag ook.
+      BoldPart:
+        COPY:
+          en: Make sure your new password
+          nl: Kies een wachtwoord
+    MissingHashError:
+      COPY:
+        nl: Benodigde gegevens voor het veranderen van je wachtwoord zijn niet beschikbaar.
+        en: Could not find the required info to change your password.
+    Label:
+      NewPassword:
+        COPY:
+          nl: Jouw wachtwoord
+          en: Your password
+      RepeatPassword:
+        COPY:
+          nl: Herhaal wachtwoord
+          en: Repeat password
+      MismatchError:
+        COPY:
+          en: "The two passwords don't match!"
+          nl: "De twee wachtwoorden komen niet overeen!"
+      Placeholder:
+        COPY:
+          nl: "••••••••••"
+          en: "••••••••••"
+    DeleteHeader:
+      Title:
+        COPY:
+          en: Want to delete your password entirely?
+          nl: Wil je je wachtwoord helemaal verwijderen?
+      Description:
+        COPY:
+          en: When you prefer other methods than a password, you can delete your current one.
+          nl: Als je liever op een andere manier inlogt, kun je het huidige wachtwoord verwijderen.
+    Button:
+      Reset:
+        COPY:
+          en: Reset your password
+          nl: Reset wachtwoord
+      Add:
+        COPY:
+          en: Add password
+          nl: Wachtwoord toevoegen
+      Delete:
+        COPY:
+          en: Delete my password
+          nl: Verwijder mijn wachtwoord
   Home:
     Home:
       COPY:

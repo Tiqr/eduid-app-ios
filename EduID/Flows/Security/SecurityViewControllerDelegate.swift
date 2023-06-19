@@ -4,7 +4,11 @@ import OpenAPIClient
 protocol SecurityViewControllerDelegate: AnyObject, NavigationDelegate {
     
     func goBack(viewController: UIViewController)
+    func goToMainScreenWithPersonalInfo(_ personalInfo: UserResponse)
     func dismissSecurityFlow(viewController: UIViewController)
+    
+    func hasPendingPersonalInfo() -> Bool
+    func getAndRemovePendingPersonalInfo() -> UserResponse?
     
     func goToVerifyEmailFlow(viewController: UIViewController)
     func goToChangePasswordFlow(viewController: UIViewController, changeOrAddUrl: URL, isForAdd: Bool)

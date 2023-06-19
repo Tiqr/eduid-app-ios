@@ -120,6 +120,11 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         return true
     }
     
+    func setValidationError(_ error: String?) {
+        validLabel.text = error
+        validLabel.alpha = error == nil ? 0 : 1
+    }
+    
     //MARK: - deinit
     deinit {
         NotificationCenter.default.removeObserver(self)
