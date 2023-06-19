@@ -899,6 +899,40 @@ IOS:
         COPY:
           en: Delete my password
           nl: Verwijder mijn wachtwoord
+  TwoFactorKeys:
+    Title:
+      COPY:
+        nl: "2FA key(s)"
+        en: "2FA sleutel(s)"
+    Description:
+      COPY:
+        en: Keys to securely sign in without passwords or accessing your email.
+        nl: Sleutels om veilig in te loggen zonder wachtwoord of link.
+    YourKeys:
+      COPY:
+        en: Your key(s)
+        nl: Jouw sleutel(s)
+    NoKeys:
+      COPY:
+        en: You have no local keys.
+        nl: Geen sleutels.
+    Label:
+      Account:
+        COPY:
+          en: Account
+          nl: Account
+      UniqueKeyId:
+        COPY:
+          en: Unique KeyID
+          nl: Uniek SleutelID
+      UseBiometrics:
+        COPY:
+          en: Use biometrics
+          nl: Gebruik biometrie
+    DeleteKey:
+      COPY:
+        en: Sleutel verwijderen
+        nl: Delete key
   Home:
     Home:
       COPY:

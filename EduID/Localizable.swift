@@ -1718,6 +1718,74 @@ public struct L {
             )
         }
     }
+    public struct TwoFactorKeys {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "TwoFactorKeys.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "TwoFactorKeys.Title.COPY",
+            translationArgs: []
+        )
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "TwoFactorKeys.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "TwoFactorKeys.Description.COPY",
+            translationArgs: []
+        )
+        public static let YourKeys = LocaliciousData(
+            accessibilityIdentifier: "TwoFactorKeys.YourKeys",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "TwoFactorKeys.YourKeys.COPY",
+            translationArgs: []
+        )
+        public static let NoKeys = LocaliciousData(
+            accessibilityIdentifier: "TwoFactorKeys.NoKeys",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "TwoFactorKeys.NoKeys.COPY",
+            translationArgs: []
+        )
+        public struct Label {
+            public static let Account = LocaliciousData(
+                accessibilityIdentifier: "TwoFactorKeys.Label.Account",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "TwoFactorKeys.Label.Account.COPY",
+                translationArgs: []
+            )
+            public static let UniqueKeyId = LocaliciousData(
+                accessibilityIdentifier: "TwoFactorKeys.Label.UniqueKeyId",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "TwoFactorKeys.Label.UniqueKeyId.COPY",
+                translationArgs: []
+            )
+            public static let UseBiometrics = LocaliciousData(
+                accessibilityIdentifier: "TwoFactorKeys.Label.UseBiometrics",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "TwoFactorKeys.Label.UseBiometrics.COPY",
+                translationArgs: []
+            )
+        }
+        public static let DeleteKey = LocaliciousData(
+            accessibilityIdentifier: "TwoFactorKeys.DeleteKey",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "TwoFactorKeys.DeleteKey.COPY",
+            translationArgs: []
+        )
+    }
     public struct Home {
         public static let Home = LocaliciousData(
             accessibilityIdentifier: "Home.Home",

@@ -6,6 +6,7 @@ protocol SecurityViewControllerDelegate: AnyObject, NavigationDelegate {
     func goBack(viewController: UIViewController)
     func goToMainScreenWithPersonalInfo(_ personalInfo: UserResponse)
     func dismissSecurityFlow(viewController: UIViewController)
+    func goToTwoFactorKeys(_ personalInfo: UserResponse)
     
     func hasPendingPersonalInfo() -> Bool
     func getAndRemovePendingPersonalInfo() -> UserResponse?

@@ -196,6 +196,14 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "ChangePassword.Button.Reset.COPY" = "Reset wachtwoord";
 "ChangePassword.Button.Add.COPY" = "Wachtwoord toevoegen";
 "ChangePassword.Button.Delete.COPY" = "Verwijder mijn wachtwoord";
+"TwoFactorKeys.Title.COPY" = "2FA key(s)";
+"TwoFactorKeys.Description.COPY" = "Sleutels om veilig in te loggen zonder wachtwoord of link.";
+"TwoFactorKeys.YourKeys.COPY" = "Jouw sleutel(s)";
+"TwoFactorKeys.NoKeys.COPY" = "Geen sleutels.";
+"TwoFactorKeys.Label.Account.COPY" = "Account";
+"TwoFactorKeys.Label.UniqueKeyId.COPY" = "Uniek SleutelID";
+"TwoFactorKeys.Label.UseBiometrics.COPY" = "Gebruik biometrie";
+"TwoFactorKeys.DeleteKey.COPY" = "Delete key";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Data & activiteit";
