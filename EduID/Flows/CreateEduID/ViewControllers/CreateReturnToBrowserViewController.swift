@@ -30,7 +30,7 @@ class CreateReturnToBrowserViewController: CreateEduIDBaseViewController {
         mainStack.spacing = 20
         view.addSubview(mainStack)
         
-        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         titleLabel.height(34)
         dismissButton.width(to: mainStack, offset: -24)
     }
