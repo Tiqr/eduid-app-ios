@@ -2880,8 +2880,8 @@ IOS:
           nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
       GotItButton:
         COPY:
-          en: Ok, Got it!
-          nl: Ok, Begrepen!
+          en: Ok, got it!
+          nl: Ok, begrepen!
       ReturnBrowserTitle:
         COPY:
           en: Return to your web browser
