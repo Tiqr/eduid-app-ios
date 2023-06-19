@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Jairo Bambang Oetomo on 09/03/2023.
-//
-
 import Foundation
 
 enum Affiliation: String {

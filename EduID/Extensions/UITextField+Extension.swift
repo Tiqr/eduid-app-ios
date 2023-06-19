@@ -1,10 +1,3 @@
-//
-//  UITextField+Extension.swift
-//  
-//
-//  Created by Yasser Farahi on 06/04/2023.
-//
-
 import UIKit
 
 extension UITextField {

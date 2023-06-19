@@ -29,16 +29,14 @@ class BiometricAccessApprovalViewController: CreateEduIDBaseViewController {
     func setupUI() {
         //poster label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabel(text: "Biometric approval")
+        let posterLabel = UILabel.posterTextLabel(text: L.PinAndBioMetrics.BiometricsApproval.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // text label
         let textParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: """
-Do you want to use your biometrics to access the eduID app more easily?
-"""
-                                                         , partBold: "biometrics")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.PinAndBioMetrics.BiometricsExplain.localization
+                                                         , partBold: L.PinAndBioMetrics.BiometricsExplainBoldPart.localization)
         textParent.addSubview(textLabel)
         textLabel.edges(to: textParent)
         
@@ -51,8 +49,8 @@ Do you want to use your biometrics to access the eduID app more easily?
         imageView.center(in: imageParent)
         
         // buttons
-        let setupButton = EduIDButton(type: .primary, buttonTitle: "Set up biometric access")
-        let skipButton = EduIDButton(type: .ghost, buttonTitle: "Skip this")
+        let setupButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.SetupBiometrics.localization)
+        let skipButton = EduIDButton(type: .ghost, buttonTitle: L.CreatEduID.FirstTimeDialog.SkipButtonTitle.localization)
         
         // stack
         let stack = BasicStackView(arrangedSubviews: [posterParent, textParent, imageParent, setupButton, skipButton])
@@ -73,14 +71,14 @@ Do you want to use your biometrics to access the eduID app more easily?
     }
     
     @objc func promptSkipBiometricAccess() {
-            let alert = UIAlertController(title: Constants.AlertTiles.skipUsingBiometricsTitle, message: Constants.AlertMessages.skipUsingBiometricsMessage, preferredStyle: .alert)
+        let alert = UIAlertController(title: L.PinAndBioMetrics.SkipAlertTitle.localization, message: L.PinAndBioMetrics.SkipAlertText.localization, preferredStyle: .alert)
             alert.addAction(UIAlertAction(
-                title: Constants.ButtonTitles.proceed, style: .destructive) { [weak self] _ in
-                    guard let self else { return }
-                    self.nextScreen()
+                title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .destructive) { _ in
+                    alert.dismiss(animated: true)
                 })
-            alert.addAction(UIAlertAction(title: Constants.ButtonTitles.cancel, style: .cancel) { action in
-                alert.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: L.Profile.Proceed.localization, style: .cancel) { [weak self] action in
+            guard let self else { return }
+            self.nextScreen()
             })
             present(alert, animated: true)
     }

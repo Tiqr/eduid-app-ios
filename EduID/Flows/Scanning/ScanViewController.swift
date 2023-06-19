@@ -119,14 +119,9 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 10
         paragraph.alignment = .center
-        let attributedText = NSMutableAttributedString(string: """
-Don’t see a QR code?
-Go to eduid.nl/security
-Create your personal QR code
-Scan it here
-""", attributes: [.foregroundColor: UIColor.white, .font: UIFont.sourceSansProRegular(size: 18), .paragraphStyle: paragraph])
+        let attributedText = NSMutableAttributedString(string: L.ScanView.MainText.localization, attributes: [.foregroundColor: UIColor.white, .font: UIFont.sourceSansProRegular(size: 18), .paragraphStyle: paragraph])
         
-        attributedText.setAttributeTo(part: "Don’t see a QR code?", attributes: [.font: UIFont.sourceSansProBold(size: 24)])
+        attributedText.setAttributeTo(part: L.ScanView.MainTextBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 24)])
         attributedText.setAttributeTo(part: "eduid.nl/security", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.white])
         label.attributedText = attributedText
         label.sizeToFit()
@@ -153,7 +148,7 @@ Scan it here
     @objc
     private func toggleTorch() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
-        guard device.hasTorch else { print("Torch isn't available"); return }
+        guard device.hasTorch else { print(L.ScanView.FlashLightNotAvailable.localization); return }
 
         do {
             try device.lockForConfiguration()
@@ -178,10 +173,10 @@ extension ScanViewController: ScanViewModelDelegate {
     func scanViewModelShowErrorAlert(error: Any, viewModel: ScanViewModel) {
         
         // present a dialog sheet with reason text
-        let sheet = UIAlertController(title: "Error", message: (error as? Error)?.localizedDescription, preferredStyle: .actionSheet)
+        let sheet = UIAlertController(title: L.ScanView.Error.localization, message: (error as? Error)?.localizedDescription, preferredStyle: .actionSheet)
         
         // action to continue scanning - start session
-        sheet.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self] action in
+        sheet.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { [weak self] action in
             sheet.dismiss(animated: true)
             
             // remove marker points

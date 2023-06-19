@@ -23,16 +23,13 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         
         //poster label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabel(text: "Your eduID has been created")
+        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.Created.MainTitleLabel.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
         // text label
         let textParent = UIView()
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: """
-To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it.
-"""
-                                                         , partBold: "")
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: L.CreatEduID.Created.MainText.localization, partBold: "")
         textParent.addSubview(textLabel)
         textLabel.edges(to: textParent)
         
@@ -44,7 +41,7 @@ To safely use this app, we need you to set a pincode and provide a phonenumber i
         imageView.center(in: imageParent)
         
         // buttons
-        let continueButton = EduIDButton(type: .primary, buttonTitle: "Continue")
+        let continueButton = EduIDButton(type: .primary, buttonTitle: L.NameUpdated.Continue.localization)
         
         // stack
         let stack = BasicStackView(arrangedSubviews: [posterParent, textParent, imageParent, continueButton])

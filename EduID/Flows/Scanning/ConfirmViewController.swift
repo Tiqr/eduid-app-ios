@@ -24,7 +24,7 @@ class ConfirmViewController: BaseViewController {
     func setupUI() {
         //top poster label
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Request to login", primary: "Request to login")
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.PinAndBioMetrics.LoginRequest.localization, primary: L.PinAndBioMetrics.LoginRequest.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
@@ -38,13 +38,13 @@ class ConfirmViewController: BaseViewController {
         shieldParent.addSubview(shieldImageView)
         shieldImageView.center(in: shieldParent)
         let messageParent = UIView()
-        let messageLabel = UILabel.posterTextLabelBicolor(text: "You are logged in", primary: "You are logged in", alignment: .center)
+        let messageLabel = UILabel.posterTextLabelBicolor(text: L.Profile.YouAreLoggedIn.localization, primary: L.Profile.YouAreLoggedIn.localization, alignment: .center)
         messageParent.addSubview(messageLabel)
         messageLabel.edges(to: messageParent)
 
         let lowerSpace = UIView()
         
-        let OkButton = EduIDButton(type: .primary, buttonTitle: "Ok")
+        let OkButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.OKButton.localization)
         
         // the stackView
         let stack = BasicStackView(arrangedSubviews: [posterParent, upperspace, shieldParent, messageParent, lowerSpace, OkButton])

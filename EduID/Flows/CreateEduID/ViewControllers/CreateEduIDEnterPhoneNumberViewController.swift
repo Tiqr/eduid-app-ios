@@ -7,10 +7,12 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     var stack: AnimatedVStackView!
     
     // - phone textfield
-    let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: "Enter your phone number", placeholder: "e.g. 0612345678", field: .phone, keyboardType: .numberPad)
+    let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: L.CreatEduID.EnterPhoneNumber.PhoneFieldTitle.localization,
+                                                                      placeholder: L.CreatEduID.EnterPhoneNumber.PhoneFieldPlaceholder.localization,
+                                                                      field: .phone, keyboardType: .numberPad)
     
     // - verify button
-    let verifyButton = EduIDButton(type: .primary, buttonTitle: "Verify this phone number")
+    let verifyButton = EduIDButton(type: .primary, buttonTitle: L.CreatEduID.EnterPhoneNumber.VerifyPhoneNumber.localization)
     
     private var viewModel: CreateEduIDEnterPhoneNumberViewModel
     
@@ -60,7 +62,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         verifyButton.isEnabled = false
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: "Your eduID has been created", size: 24)
+        let posterLabel = UILabel.posterTextLabel(text: L.CreatEduID.Created.MainTitleLabel.localization, size: 24)
         
         // - textView Parent
         let textViewParent = UIView()
@@ -71,15 +73,8 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = .sourceSansProLight(size: 16)
         textLabel.textColor = .secondaryColor
-        let attributedText = NSMutableAttributedString(string:
-"""
-Let’s add a recovery phonenumber
-If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
-
-We will text you a code to verify your number.
-"""
-                                                ,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
-        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: 32))
+        let attributedText = NSMutableAttributedString(string: L.CreatEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
+        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreatEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
         textLabel.attributedText = attributedText
         
         textViewParent.addSubview(textLabel)
@@ -99,7 +94,7 @@ We will text you a code to verify your number.
         view.addSubview(stack)
         
         // - add constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         textViewParent.width(to: stack)
         posterLabel.height(34)
         verifyButton.width(to: stack, offset: -24)

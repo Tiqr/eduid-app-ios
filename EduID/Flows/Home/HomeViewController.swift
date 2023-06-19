@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     
     func setupUI() {
         //MARK: - PosterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: "Your eduID app\nis ready for use", size: 32, primary: "Your eduID app", alignment: .center)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.HomeView.MainText.localization, size: 32, primary: L.HomeView.YourEduId.localization, alignment: .center)
         posterLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(posterLabel)
         posterLabel.width(to: view)
@@ -65,7 +65,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         securityButton.addTarget(self, action: #selector(securityTapped), for: .touchUpInside)
         let securityLabel = UILabel()
         securityLabel.font = .nunitoBold(size: 14)
-        securityLabel.text = "Security"
+        securityLabel.text = L.HomeView.SecurityButton.localization
         securityLabel.textAlignment = .center
         securityLabel.width(100)
         securityLabel.textColor = .white
@@ -81,7 +81,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         personalInfoButton.addTarget(self, action: #selector(personalInfoTapped), for: .touchUpInside)
         let personalInfoLabel = UILabel()
         personalInfoLabel.font = .nunitoBold(size: 14)
-        personalInfoLabel.text = "Personal info"
+        personalInfoLabel.text = L.HomeView.PersonalInfoButton.localization
         personalInfoLabel.textAlignment = .center
         personalInfoLabel.textColor = .white
         let personalInfoStack = UIStackView(arrangedSubviews: [personalInfoButton, personalInfoLabel])
@@ -95,7 +95,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         activityButton.height(51)
         activityButton.addTarget(self, action: #selector(activityTapped), for: .touchUpInside)
         let activityLabel = UILabel()
-        activityLabel.text = "Activity"
+        activityLabel.text = L.HomeView.ActivityButton.localization
         activityLabel.textAlignment = .center
         activityLabel.font = .nunitoBold(size: 14)
         activityLabel.textColor = .white
@@ -111,7 +111,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         qrCodeButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
         let qrCodeLabel = UILabel()
         qrCodeLabel.font = .nunitoBold(size: 14)
-        qrCodeLabel.text = "Scan QR"
+        qrCodeLabel.text = L.HomeView.ScanQRButton.localization
         qrCodeLabel.textAlignment = .center
         qrCodeLabel.width(100)
         qrCodeLabel.textColor = .white

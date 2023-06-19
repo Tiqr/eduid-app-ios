@@ -1,10 +1,3 @@
-//
-//  AuthenticateWithPinViewController.swift
-//  
-//
-//  Created by Jairo Bambang Oetomo on 18/02/2023.
-//
-
 import UIKit
 
 class AuthenticateWithPinViewController: PincodeBaseViewController {
@@ -14,9 +7,9 @@ class AuthenticateWithPinViewController: PincodeBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        posterLabel.text = "Enter your PIN code"
-        textLabel.text = "To use the eduID for authentication you need to enter your PIN code."
-        verifyButton.buttonTitle = "Authenticate"
+        posterLabel.text = L.PinAndBioMetrics.PinScreenEnterTitle.localization
+        textLabel.text = L.PinAndBioMetrics.AuthenticateForUseTitle.localization
+        verifyButton.buttonTitle = L.PinAndBioMetrics.Authenticate.localization
     }
     
     override func showNextScreen() {

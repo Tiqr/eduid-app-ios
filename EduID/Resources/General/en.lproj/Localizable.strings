@@ -5,6 +5,22 @@
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hi %1$@!";
 "Start.Manage.COPY" = "Manage your personal info, your privacy, and the security of your eduID account.";
+"HomeView.MainText.COPY" = "Your eduID app
+is ready for use
+";
+"HomeView.YourEduId.COPY" = "Your eduID app";
+"HomeView.SecurityButton.COPY" = "Security";
+"HomeView.PersonalInfoButton.COPY" = "Personal info";
+"HomeView.ActivityButton.COPY" = "Activities";
+"HomeView.ScanQRButton.COPY" = "Scan QR";
+"ScanView.MainText.COPY" = "Don't see a QR code?
+Go to eduid.nl/security
+Create your personal QR code/n
+Scan it here
+";
+"ScanView.MainTextBoldPart.COPY" = "Don't see a QR code?";
+"ScanView.FlashLightNotAvailable.COPY" = "Torch isn't available";
+"ScanView.Error.COPY" = "Error";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Logout";
 "Header.LogOff.COPY" = "Log Off";
@@ -566,7 +582,13 @@ When you re-register for a new eduID with that same email address, you will rece
 "SubContent.Warning.COPY" = "The service your logging into has explicitly requested you login using your eduID app. If you login with a different method, this service will not receive your attributes.";
 "SubContent.ConfirmLabel.COPY" = "Change login option anyway";
 "SubContent.CancelLabel.COPY" = "Did not know that";
+"PinAndBioMetrics.SetupBiometrics.COPY" = "Setup biometric access";
+"PinAndBioMetrics.BiometricsApproval.COPY" = "Biometric approval";
+"PinAndBioMetrics.BiometricsExplain.COPY" = "Do you want to use your biometrics to access the eduID app more easily?";
+"PinAndBioMetrics.BiometricsExplainBoldPart.COPY" = "biometrics";
 "PinAndBioMetrics.BiometricsPrompt.COPY" = "Using Biometrics to login";
+"PinAndBioMetrics.SkipAlertTitle.COPY" = "Proceed without using biometric access?";
+"PinAndBioMetrics.SkipAlertText.COPY" = "This permanently disables this feature";
 "PinAndBioMetrics.FirstPinScreenSelectTitle.COPY" = "Select a PIN code";
 "PinAndBioMetrics.PinScreenEnterTitle.COPY" = "Enter your edulD PIN";
 "PinAndBioMetrics.FirstPinScreenText.COPY" = "To use the eduID app you need a PIN code";
@@ -582,6 +604,8 @@ When you re-register for a new eduID with that same email address, you will rece
 "PinAndBioMetrics.CheckMessages.COPY" = "Check your messages";
 "PinAndBioMetrics.EnterSixDigitCode.COPY" = "Enter the six-digit code we sent to your phone to continue";
 "PinAndBioMetrics.SixDigitCode.COPY" = "six-digit";
+"PinAndBioMetrics.Authenticate.COPY" = "Authenticate";
+"PinAndBioMetrics.AuthenticateForUseTitle.COPY" = "To use the eduID for authentication you need to enter your PIN code";
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
@@ -589,6 +613,44 @@ When you re-register for a new eduID with that same email address, you will rece
 "WelcomeToApp.Quickly.COPY" = "Quickly login to educational services";
 "WelcomeToApp.ViewWhat.COPY" = "View what details of your eduID get shared with those services";
 "WelcomeToApp.VerifyYour.COPY" = "Verify your identity so you can access more secure services";
-"WelcomeToApp.GotItButton.COPY" = "Ok, Got it!";
+"WelcomeToApp.GotItButton.COPY" = "Ok, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
+"CreatEduID.LandinPage.MainText.COPY" = "Personal account for Education and Research";
+"CreatEduID.LandinPage.SignInButton.COPY" = "Sign in";
+"CreatEduID.LandinPage.ScanQrButton.COPY" = "Scan a QR code";
+"CreatEduID.LandinPage.NoEduIdButton.COPY" = "I don't have an eduId";
+"CreatEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Connect your school/institution";
+"CreatEduID.FirstTimeDialog.MainTextTitle.COPY" = "Are you studying in NL? Connect your institution!";
+"CreatEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Connect your institution!";
+"CreatEduID.FirstTimeDialog.MainText.COPY" = "When you study in the Netherlands and you want to use eduID to logon to an educational services, we need to be sure it's you and not someone impersonating you You must therefore add the following information to your eduID
+• Validation of your full name by a third party • Proof of being a student • Your current institution";
+"CreatEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "When you study in the Netherlands";
+"CreatEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "You must therefore add the following information to your eduID";
+"CreatEduID.FirstTimeDialog.AddInformationText.COPY" = "Add this information by connecting your school/institution via SURFconext";
+"CreatEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Add this information";
+"CreatEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Skip this";
+"CreatEduID.Explanation.MainTitleLabel.COPY" = "Don't have an eduID yet?";
+"CreatEduID.Explanation.MainExplanationText.COPY" = "eduID is a central account for users associated with Dutch education and research. It is yours and exists independent of an educational institution.
+• Use it to login to several services connected to SURFconext. • Users without an institution account can also request an eduID. • eduID is a lifelong account. It stays valid after you graduate.";
+"CreatEduID.Explanation.CreateEduidButton.COPY" = "Create a new eduID";
+"CreatEduID.Created.MainTitleLabel.COPY" = "Your eduID has been created";
+"CreatEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
+"CreatEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Your email address";
+"CreatEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "jane.doe@eduid.nl";
+"CreatEduID.EnterPersonalInfo.Agreement.COPY" = "I agree with the terms of service. I also understand the privacy policy";
+"CreatEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
+"CreatEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
+"CreatEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
+
+We will text you a code to verify your number.
+";
+"CreatEduID.EnterPhoneNumber.BoldRange.COPY" = "32";
+"CreatEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Verify this phone number";
+"CreatEduID.AddInstitution.MainTitle.COPY" = "Your school/uni was contacted successfully";
+"CreatEduID.AddInstitution.MainTitleBoldPart.COPY" = "Your school/uni";
+"CreatEduID.AddInstitution.MainText.COPY" = "The following information has been added to your eduID and can now be shared";
+"RegEXError.Name.COPY" = "Invalid name format, please revise your input";
+"RegEXError.Email.COPY" = "Invalid email format, please revise your input";
+"RegEXError.Phone.COPY" = "Invalid phone format, please revise your input";
+"RegEXError.Password.COPY" = "A password must be 8 characters, contain an uppercase letter, and a special character";

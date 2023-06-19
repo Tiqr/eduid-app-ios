@@ -34,14 +34,6 @@ final class ScanViewModel: NSObject {
                 output.metadataObjectTypes = [.qr]
                 output.setMetadataObjectsDelegate(self, queue: .main)
                 
-                // - set rect of interest
-                let screenBounds = UIScreen.main.bounds
-                let interestOrigin = CGPoint(x: (screenBounds.width - frameSize) / 2 / screenBounds.width, y: (screenBounds.height - frameSize) / 2 / screenBounds.height)
-                let interestSize = CGSize(width: frameSize / screenBounds.width, height: frameSize / screenBounds.height)
-                
-                // I believe in spite of good looking values, this doens't work
-//                output.rectOfInterest = CGRect(origin: interestOrigin, size: interestSize)
-                
                 DispatchQueue.global(qos: .background).async { [weak self] in
                     self?.session.startRunning()
                 }
