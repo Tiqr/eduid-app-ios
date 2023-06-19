@@ -578,6 +578,10 @@ When you re-register for a new eduID with that same email address, you will rece
 "PinAndBioMetrics.LoginRequest.COPY" = "Request to login";
 "PinAndBioMetrics.EnteredPinNotEqual.COPY" = "The entered PIN codes were not equal";
 "PinAndBioMetrics.RetryPin.COPY" = "Oops, let's try again";
+"PinAndBioMetrics.VerifyPin.COPY" = "Verify this pin code";
+"PinAndBioMetrics.CheckMessages.COPY" = "Check your messages";
+"PinAndBioMetrics.EnterSixDigitCode.COPY" = "Enter the six-digit code we sent to your phone to continue";
+"PinAndBioMetrics.SixDigitCode.COPY" = "six-digit";
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";

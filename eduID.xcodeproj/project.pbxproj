@@ -210,6 +210,7 @@
 		4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */; };
 		4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
+		73910F9D2A3C8299003A40BD /* EduIDPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9C2A3C8299003A40BD /* EduIDPinField.swift */; };
 		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
 		73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
@@ -506,6 +507,7 @@
 		4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewModel.swift; sourceTree = "<group>"; };
 		4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewController.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		73910F9C2A3C8299003A40BD /* EduIDPinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDPinField.swift; sourceTree = "<group>"; };
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
 		73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				4F909E292A31CDA000FC1506 /* Constants.swift */,
+				73910F9C2A3C8299003A40BD /* EduIDPinField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1451,6 +1454,7 @@
 				4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */,
 				4FF567AF2A31D32E00616341 /* ActivityViewModel.swift in Sources */,
 				4FF567AC2A31D32E00616341 /* SecurityOverviewViewController.swift in Sources */,
+				73910F9D2A3C8299003A40BD /* EduIDPinField.swift in Sources */,
 				4F909EAA2A31CDDC00FC1506 /* UIImage+Styling.swift in Sources */,
 				73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */,
 				4FF567C62A31D32E00616341 /* BiometricApprovalViewControllerDelegate.swift in Sources */,

@@ -1,20 +1,25 @@
 import UIKit
 import TinyConstraints
 
+protocol PinViewDelegate: AnyObject {
+    func deletePreviousInput(with currentTag: Int)
+}
+
 class PinTextFieldView: UIView, UITextFieldDelegate {
     
     weak var delegate: PinTextFieldDelegate?
     var screenType: ScreenType
-    
+    weak var pinViewDelegate: PinViewDelegate?
     // - Create the textfield
-    let textfield = UITextField()
+    let textfield = EduIDPinField()
 
     //MARK: - initialize
     init(isSecure: Bool, screenType: ScreenType) {
         self.screenType = screenType
-        
         super.init(frame: .zero)
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
+        
+        self.isUserInteractionEnabled = false
+        textfield.eduIDPinFieldDelegate = self
         
         layer.cornerRadius = 5
         
@@ -94,4 +99,10 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
 
 protocol PinTextFieldDelegate: AnyObject {
     func didEnterPinNumber(range: Int, tag: Int, value: Character)
+}
+
+extension PinTextFieldView: EduIDPinFieldDelegate {
+    func textFieldDidDelete() {
+        pinViewDelegate?.deletePreviousInput(with: self.tag)
+    }
 }

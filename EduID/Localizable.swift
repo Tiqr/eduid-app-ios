@@ -4957,6 +4957,38 @@ public struct L {
             translationKey: "PinAndBioMetrics.RetryPin.COPY",
             translationArgs: []
         )
+        public static let VerifyPin = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.VerifyPin",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.VerifyPin.COPY",
+            translationArgs: []
+        )
+        public static let CheckMessages = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.CheckMessages",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.CheckMessages.COPY",
+            translationArgs: []
+        )
+        public static let EnterSixDigitCode = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.EnterSixDigitCode",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.EnterSixDigitCode.COPY",
+            translationArgs: []
+        )
+        public static let SixDigitCode = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.SixDigitCode",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.SixDigitCode.COPY",
+            translationArgs: []
+        )
     }
     public struct Generic {
         public struct RequestError {
