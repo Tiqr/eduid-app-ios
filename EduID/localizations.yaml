@@ -3280,12 +3280,12 @@ IOS:
   ResponseErrors:
     EmailInUseTitle:
       COPY:
-        en: E-mail in use
-        nl: E-mail in gebruik
+        en: E-mail already in use
+        nl: E-mail al in gebruik
     EmailInUseText:
       COPY:
-        en: There is already an eduId associated with this e-mail
-        nl: Er is al een eduId gekoppeld aan deze e-mail
+        en: There is already an eduID associated with this e-mail
+        nl: Er is al een eduID gekoppeld aan deze e-mail
     ForbiddenDomainTitle:
       COPY:
         en: Forbidden domain
@@ -3293,15 +3293,15 @@ IOS:
     ForbiddenDomainText:
       COPY:
         en: The e-mail domain you specified may not be used
-        nl: Het door jou opgegeven e-maildomein, mag niet worden gebruikt
+        nl: Het door jou opgegeven e-maildomein mag niet worden gebruikt
     SMSErrorTitle:
       COPY:
-        en: Wrong Verification
+        en: Wrong verification
         nl: Verkeerde verificatie
     SMSErrorText:
       COPY:
         en: You have entered a wrong verification combination
-        nl: U heeft een verkeerde verificatiecombinatie ingevoerd
+        nl: Je hebt een verkeerde verificatiecombinatie ingevoerd
     UnknownErrorTitle:
       COPY:
         en: Uknown error
