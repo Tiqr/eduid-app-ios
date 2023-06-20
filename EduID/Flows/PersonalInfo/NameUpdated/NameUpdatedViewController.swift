@@ -51,13 +51,39 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
 
 
         let verifiedName = "\(viewModel.linkedAccount.givenName ?? "") \(viewModel.linkedAccount.familyName ?? "")"
-        let nameTitle = NSAttributedString(string: L.NameUpdated.FullName.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameProvidedByText = NSMutableAttributedString(string: "\(verifiedName)\n\(L.Profile.ProvidedBy.localization) \(viewModel.linkedAccount.schacHomeOrganization ?? "?")", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-        nameProvidedByText.setAttributeTo(part: viewModel.linkedAccount.schacHomeOrganization ?? "?", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
+        var nameTitleText = NSMutableAttributedString()
+        nameTitleText.append(NSAttributedString(
+             string: L.NameUpdated.FullName.localization,
+             attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 16),
+                color: .charcoalColor,
+                lineSpacing: 6)
+        ))
+        let nameSubtitleText = NSMutableAttributedString()
+        nameSubtitleText.append(NSMutableAttributedString(
+            string: "\(verifiedName)\n",
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 16),
+                color: .backgroundColor,
+                lineSpacing: 6)
+        ))
+        nameSubtitleText.append(NSMutableAttributedString(
+            string: "\(L.Profile.ProvidedBy.localization) ",
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProRegular(size: 12),
+                color: .charcoalColor,
+                lineSpacing: 6)
+        ))
+        nameSubtitleText.append(NSMutableAttributedString(
+            string: viewModel.linkedAccount.schacHomeOrganization ?? "?",
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 12),
+                color: .charcoalColor,
+                lineSpacing: 6)
+        ))
         let nameControl = ActionableControlWithBodyAndTitle(
-            attributedTitle: nameTitle,
-            attributedBodyText: nameProvidedByText,
+            attributedTitle: nameTitleText,
+            attributedBodyText: nameSubtitleText,
             iconInBody: .shield.withRenderingMode(.alwaysOriginal),
             isFilled: true
         )
@@ -67,7 +93,6 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
             subTitle,
             nameControl
         ])
-        
         
         topStackView.alignment = .leading
         topStackView.axis = .vertical
