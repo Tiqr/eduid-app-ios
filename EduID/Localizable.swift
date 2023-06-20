@@ -5632,4 +5632,70 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct ResponseErrors {
+        public static let EmailInUseTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.EmailInUseTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.EmailInUseTitle.COPY",
+            translationArgs: []
+        )
+        public static let EmailInUseText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.EmailInUseText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.EmailInUseText.COPY",
+            translationArgs: []
+        )
+        public static let ForbiddenDomainTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ForbiddenDomainTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ForbiddenDomainTitle.COPY",
+            translationArgs: []
+        )
+        public static let ForbiddenDomainText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ForbiddenDomainText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ForbiddenDomainText.COPY",
+            translationArgs: []
+        )
+        public static let SMSErrorTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.SMSErrorTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.SMSErrorTitle.COPY",
+            translationArgs: []
+        )
+        public static let SMSErrorText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.SMSErrorText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.SMSErrorText.COPY",
+            translationArgs: []
+        )
+        public static let UnknownErrorTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.UnknownErrorTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.UnknownErrorTitle.COPY",
+            translationArgs: []
+        )
+        public static let UnknownErrorText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.UnknownErrorText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.UnknownErrorText.COPY",
+            translationArgs: []
+        )
+    }
 }

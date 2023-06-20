@@ -26,7 +26,7 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
         }
     }
     
-    var createEduIDErrorClosure: ((Error) -> Void)?
+    var createEduIDErrorClosure: ((String, String ) -> Void)?
     var createEduIDSuccessClosure: (() -> Void)?
     
     override init() {
@@ -44,7 +44,8 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
                     .body
                 createEduIDSuccessClosure?()
             } catch {
-                createEduIDErrorClosure?(error)
+                let errorResponse = error.eduIdResponseError()
+                createEduIDErrorClosure?(errorResponse.title, errorResponse.message)
             }
         }
     }
