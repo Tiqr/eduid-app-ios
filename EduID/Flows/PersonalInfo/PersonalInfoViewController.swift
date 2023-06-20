@@ -156,15 +156,18 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             stack.addArrangedSubview(nameControl)
             stack.addArrangedSubview(emailControl)
 
-            // - institutions title
-            let institutionsTitle = NSAttributedString(string: L.Profile.RoleAndInstitution.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+            // - Institutions title
             let institutionsLabel = UILabel()
-            institutionsLabel.attributedText = institutionsTitle
-            let institutionTitleParent = UIView()
-            institutionTitleParent.addSubview(institutionsLabel)
-            institutionsLabel.edges(to: institutionTitleParent)
-            stack.addArrangedSubview(institutionTitleParent)
-            stack.setCustomSpacing(6, after: institutionTitleParent)
+            institutionsLabel.attributedText = NSAttributedString(
+                string: L.Profile.RoleAndInstitution.localization,
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProSemiBold(size: 16),
+                    color: .charcoalColor,
+                    lineSpacing: 6)
+            )
+            stack.addArrangedSubview(institutionsLabel)
+            stack.setCustomSpacing(6, after: institutionsLabel)
+            institutionsLabel.widthToSuperview(offset: -48)
             
             // Add institution cards
             for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
@@ -205,7 +208,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                         self?.present(alert, animated: true)
                     }
                     stack.addArrangedSubview(actionableControl)
-                    actionableControl.width(to: stack)
+                    actionableControl.widthToSuperview(offset: -48)
                 }
             }
             // - add add institution button

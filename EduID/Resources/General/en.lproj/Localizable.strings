@@ -87,7 +87,7 @@ Scan it here
 "Edit.Cancel.COPY" = "Cancel";
 "Edit.Updated.COPY" = "Your profile has been updated";
 "Edit.Back.COPY" = "/personal";
-"Email.UpdateError.COPY" = "Could not confirm changing to your new email address.";
+"Email.UpdateError.COPY" = "Could not confirm changing to your new email address: %1$@.";
 "Email.Title.Edit.COPY" = "Edit";
 "Email.Title.EmailAddress.COPY" = "Email address";
 "Email.Info.COPY" = "Please enter your new email address. A verification mail will be sent to this address.";
@@ -196,6 +196,14 @@ When you re-register for a new eduID with that same email address, you will rece
 "ChangePassword.Button.Reset.COPY" = "Reset your password";
 "ChangePassword.Button.Add.COPY" = "Add password";
 "ChangePassword.Button.Delete.COPY" = "Delete my password";
+"TwoFactorKeys.Title.COPY" = "2FA sleutel(s)";
+"TwoFactorKeys.Description.COPY" = "Keys to securely sign in without passwords or accessing your email.";
+"TwoFactorKeys.YourKeys.COPY" = "Your key(s)";
+"TwoFactorKeys.NoKeys.COPY" = "You have no local keys.";
+"TwoFactorKeys.Label.Account.COPY" = "Account";
+"TwoFactorKeys.Label.UniqueKeyId.COPY" = "Unique KeyID";
+"TwoFactorKeys.Label.UseBiometrics.COPY" = "Use biometrics";
+"TwoFactorKeys.DeleteKey.COPY" = "Sleutel verwijderen";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Data & activity";

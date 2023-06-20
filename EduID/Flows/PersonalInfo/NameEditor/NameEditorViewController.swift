@@ -157,7 +157,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     private func showError(error: Error) {
         let alert = UIAlertController(
             title: L.Generic.RequestError.Title.localization,
-            message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
+            message: L.Generic.RequestError.Description(args: error.localizedFromApi).localization,
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
             alert.dismiss(animated: true)

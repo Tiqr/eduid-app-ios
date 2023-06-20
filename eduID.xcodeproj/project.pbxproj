@@ -86,6 +86,9 @@
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
 		4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */; };
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
+		4FADBCDD2A4090BD002311E4 /* TwoFactorKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */; };
+		4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */; };
+		4FADBCE32A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */; };
 		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
@@ -432,6 +435,9 @@
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
 		4F9D27352A3341BD00F5A6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewModel.swift; sourceTree = "<group>"; };
+		4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewController.swift; sourceTree = "<group>"; };
+		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
 		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
@@ -753,6 +759,7 @@
 			isa = PBXGroup;
 			children = (
 				4F909E962A31CDDC00FC1506 /* ActivityControlCollapsible.swift */,
+				4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */,
 				4F909E972A31CDDC00FC1506 /* AlertMessageViewController.swift */,
 				4F909E982A31CDDC00FC1506 /* BaseViewController.swift */,
 				4F909E992A31CDDC00FC1506 /* PinTextFieldView.swift */,
@@ -909,6 +916,15 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
+		4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */ = {
+			isa = PBXGroup;
+			children = (
+				4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */,
+				4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */,
+			);
+			path = TwoFactorKeys;
+			sourceTree = "<group>";
+		};
 		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +1017,7 @@
 		4FF567642A31D32E00616341 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */,
 				4FC37C282A3C479A0036A94C /* PasswordResetLink */,
 				4FC37C232A3C22E30036A94C /* ChangePassword */,
 				4FF567652A31D32E00616341 /* SecurityCoordinator.swift */,
@@ -1444,6 +1461,7 @@
 				4FF567B92A31D32E00616341 /* ConfirmViewController.swift in Sources */,
 				4FF567A82A31D32E00616341 /* ChangePasswordViewModel.swift in Sources */,
 				4F909EAD2A31CDDC00FC1506 /* OnboardingManager.swift in Sources */,
+				4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */,
 				4F909EA52A31CDDC00FC1506 /* UIFont+Styling.swift in Sources */,
 				4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */,
 				4FF567AD2A31D32E00616341 /* SecurityViewControllerDelegate.swift in Sources */,
@@ -1451,7 +1469,9 @@
 				4F909EC62A31CDDC00FC1506 /* TextViewBackgroundColor.swift in Sources */,
 				4FEBF53A2A38A069004BF3C8 /* NameOverviewViewModel.swift in Sources */,
 				4F909EAE2A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift in Sources */,
+				4FADBCE32A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift in Sources */,
 				4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */,
+				4FADBCDD2A4090BD002311E4 /* TwoFactorKeysViewModel.swift in Sources */,
 				4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */,
 				4FF567A72A31D32E00616341 /* SecurityCoordinator.swift in Sources */,
 				4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */,

@@ -15,13 +15,8 @@ class EmailEditorViewModel: ValidatedTextFieldDelegate {
     var currentEmail: String?
     
     
-    func changeEmail() async throws -> UserResponse? {
-        if let email = currentEmail {
-            return try await UserControllerAPI.updateEmail(updateEmailRequest: UpdateEmailRequest(email: email))
-        } else {
-            assertionFailure("currentEmail property not set in email editor!")
-            return nil
-        }
+    func changeEmail() async throws -> UserResponse {
+        return try await UserControllerAPI.updateEmail(updateEmailRequest: UpdateEmailRequest(email: currentEmail!))
     }
     
     func confirmEmailUpdate(url: URL) async throws -> UserResponse? {
