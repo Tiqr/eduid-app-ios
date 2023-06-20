@@ -3,6 +3,7 @@ import TinyConstraints
 
 protocol PinViewDelegate: AnyObject {
     func deletePreviousInput(with currentTag: Int)
+    func autoFillPinField(with verificationCode: String)
 }
 
 class PinTextFieldView: UIView, UITextFieldDelegate {
@@ -20,7 +21,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
         
         self.isUserInteractionEnabled = false
         textfield.eduIDPinFieldDelegate = self
-        
+        textfield.textContentType = .oneTimeCode
         layer.cornerRadius = 5
         
         // - setup size
@@ -70,8 +71,12 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.text = string
-        delegate?.didEnterPinNumber(range: screenType == .pincodeScreen ? 3 : 5, tag: tag, value: string.first ?? "0")
+        if string.isEmpty {
+            pinViewDelegate?.autoFillPinField(with: string)
+        } else {
+            textField.text = string
+            delegate?.didEnterPinNumber(range: screenType == .pincodeScreen ? 3 : 5, tag: tag, value: string.first ?? "0")
+        }
         return true
     }
     
@@ -95,6 +100,7 @@ class PinTextFieldView: UIView, UITextFieldDelegate {
     func tapped() {
         textfield.becomeFirstResponder()
     }
+    
 }
 
 protocol PinTextFieldDelegate: AnyObject {
