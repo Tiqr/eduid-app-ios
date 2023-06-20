@@ -19,7 +19,9 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     
     var firstNameField: TextFieldViewWithValidationAndTitle!
     var lastNameField: TextFieldViewWithValidationAndTitle!
-    let emailField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPersonalInfo.EmailFieldTitle.localization, placeholder: L.CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.localization, field: .email, keyboardType: .emailAddress)
+    let emailField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPersonalInfo.EmailFieldTitle.localization,
+                                                         placeholder: L.CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.localization,
+                                                         field: .email, keyboardType: .emailAddress)
     
     var textFieldsAreValid: Bool = false {
         didSet {
@@ -58,8 +60,8 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
             self?.scrollViewToTextField(index: tag)
         }
         
-        viewModel.createEduIDErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+        viewModel.createEduIDErrorClosure = { [weak self] alertTitle, alertMessage in
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true)
             })

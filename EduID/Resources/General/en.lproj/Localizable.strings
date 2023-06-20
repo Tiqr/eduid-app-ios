@@ -676,3 +676,11 @@ We will text you a code to verify your number.
 "RegEXError.Email.COPY" = "Invalid email format, please revise your input";
 "RegEXError.Phone.COPY" = "Invalid phone format, please revise your input";
 "RegEXError.Password.COPY" = "A password must be 8 characters, contain an uppercase letter, and a special character";
+"ResponseErrors.EmailInUseTitle.COPY" = "E-mail already in use";
+"ResponseErrors.EmailInUseText.COPY" = "There is already an eduID associated with this e-mail";
+"ResponseErrors.ForbiddenDomainTitle.COPY" = "Forbidden domain";
+"ResponseErrors.ForbiddenDomainText.COPY" = "The e-mail domain you specified may not be used";
+"ResponseErrors.SMSErrorTitle.COPY" = "Wrong verification";
+"ResponseErrors.SMSErrorText.COPY" = "You have entered a wrong verification combination";
+"ResponseErrors.UnknownErrorTitle.COPY" = "Uknown error";
+"ResponseErrors.UnknownErrorText.COPY" = "An unknown error occured with the following status code";

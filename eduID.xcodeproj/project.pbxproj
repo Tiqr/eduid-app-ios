@@ -213,6 +213,7 @@
 		4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */; };
 		4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
+		73762F472A418B4300E37D96 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73762F462A418B4300E37D96 /* Error+Extension.swift */; };
 		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
 		73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */; };
 		73910F9D2A3C8299003A40BD /* EduIDPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9C2A3C8299003A40BD /* EduIDPinField.swift */; };
@@ -513,6 +514,7 @@
 		4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewModel.swift; sourceTree = "<group>"; };
 		4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewController.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		73762F462A418B4300E37D96 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
 		73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
 		73910F9C2A3C8299003A40BD /* EduIDPinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDPinField.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 				4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */,
 				4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */,
 				4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */,
+				73762F462A418B4300E37D96 /* Error+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1511,6 +1514,7 @@
 				4FF567D42A31D32E00616341 /* CreateEduIDAddInstitutionViewController.swift in Sources */,
 				4FF567AB2A31D32E00616341 /* SecurityCoordinatorDelegate.swift in Sources */,
 				4FF567B12A31D32E00616341 /* ActivityItemControl.swift in Sources */,
+				73762F472A418B4300E37D96 /* Error+Extension.swift in Sources */,
 				4FF567D32A31D32E00616341 /* CreateEduIDEnterPhoneNumberViewController.swift in Sources */,
 				4F909EBD2A31CDDC00FC1506 /* PinTextFieldView.swift in Sources */,
 				4F909E272A31CD7E00FC1506 /* UITextField+Extension.swift in Sources */,

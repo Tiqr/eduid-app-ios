@@ -24,7 +24,7 @@ class PinViewModel: NSObject {
     
     //MARK: - closures
     var smsEntryWasCorrect: ((VerifyPhoneCode) -> Void)?
-    
+    var smsEntryFailed: ((String, String) -> Void)?
     @MainActor
     func enterSMS(code: String) {
         Task {
@@ -33,8 +33,9 @@ class PinViewModel: NSObject {
                         .execute()
                         .body
                     smsEntryWasCorrect?(result)
-                } catch let error {
-                    assertionFailure(error.localizedDescription)
+                } catch {
+                    let responseError = error.eduIdResponseError()
+                    smsEntryFailed?(responseError.title, responseError.message)
                 }
         }
     }

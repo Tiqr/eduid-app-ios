@@ -3277,3 +3277,36 @@ IOS:
       COPY:
         en: A password must be 8 characters, contain an uppercase letter, and a special character
         nl: Een wachtwoord moet 8 tekens lang zijn, een hoofdletter en een speciaal teken bevatten
+  ResponseErrors:
+    EmailInUseTitle:
+      COPY:
+        en: E-mail already in use
+        nl: E-mail al in gebruik
+    EmailInUseText:
+      COPY:
+        en: There is already an eduID associated with this e-mail
+        nl: Er is al een eduID gekoppeld aan deze e-mail
+    ForbiddenDomainTitle:
+      COPY:
+        en: Forbidden domain
+        nl: Verboden domein
+    ForbiddenDomainText:
+      COPY:
+        en: The e-mail domain you specified may not be used
+        nl: Het door jou opgegeven e-maildomein mag niet worden gebruikt
+    SMSErrorTitle:
+      COPY:
+        en: Wrong verification
+        nl: Verkeerde verificatie
+    SMSErrorText:
+      COPY:
+        en: You have entered a wrong verification combination
+        nl: Je hebt een verkeerde verificatiecombinatie ingevoerd
+    UnknownErrorTitle:
+      COPY:
+        en: Uknown error
+        nl: Onbekende fout
+    UnknownErrorText:
+      COPY:
+        en: An unknown error occured with the following status code
+        nl: Er is een onbekende fout opgetreden met de volgende statuscode

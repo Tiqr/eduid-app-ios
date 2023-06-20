@@ -5,6 +5,7 @@ class CreateEduIDEnterSMSViewModel: NSObject {
     
     //MARK: - closures
     var smsEntryWasCorrect: ((VerifyPhoneCode) -> Void)?
+    var smsEntryFailed: ((String, String) -> Void)?
     private let keychain = KeyChainService()
     
     func enterSMS(code: String) {
@@ -15,7 +16,8 @@ class CreateEduIDEnterSMSViewModel: NSObject {
                     .body
                 smsEntryWasCorrect?(result)
             } catch {
-                assertionFailure(error.localizedDescription)
+                let responseError = error.eduIdResponseError()
+                smsEntryFailed?(responseError.title, responseError.message)
             }
         }
     }
