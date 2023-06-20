@@ -2,7 +2,7 @@ import Foundation
 import OpenAPIClient
 
 extension Error {
-    func eduIdResponseError()->(title: String, message: String) {
+    func eduIdResponseError() -> (title: String, message: String) {
         if let response = self as? ErrorResponse {
             switch response {
             case let .error(statusCode, _, _, _):
@@ -18,7 +18,7 @@ extension Error {
                             message: L.ResponseErrors.ForbiddenDomainText.localization)
                 default:
                     return (title: "\(statusCode) \(L.ResponseErrors.UnknownErrorTitle.localization)",
-                            message: L.ResponseErrors.UnknownErrorText.localization)
+                            message: "\(L.ResponseErrors.UnknownErrorText.localization) \(statusCode)")
                 }
             }
         }
