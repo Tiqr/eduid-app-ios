@@ -145,4 +145,14 @@ extension PincodeBaseViewController: PinViewDelegate {
             pinView.textfield.becomeFirstResponder()
         }
     }
+    
+    func autoFillPinField(with verificationCode: String) {
+        var currentIndex: Int = .zero
+        for character in verificationCode {
+            if let pinField = pinFieldMap[currentIndex] {
+                pinField.textfield.text = "\(character)"
+                currentIndex += 1
+            }
+        }
+    }
 }
