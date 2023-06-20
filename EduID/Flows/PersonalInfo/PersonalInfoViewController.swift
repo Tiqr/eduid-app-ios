@@ -140,18 +140,70 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 
         // Info controls
         if let model = model {
-            
             let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-            let nameProvidedByText = NSMutableAttributedString(string: "\(model.name )\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-            nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-            nameProvidedByText.setAttributeTo(part: model.nameProvidedBy, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
-            let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameProvidedByText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
+            let nameSubtitleText = NSMutableAttributedString()
+            nameSubtitleText.append(NSAttributedString(
+                string: "\(model.name )\n",
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProSemiBold(size: 16),
+                    color: .backgroundColor,
+                    lineSpacing: 6
+                ))
+            )
+            nameSubtitleText.append(NSAttributedString(
+                string: "\(L.Profile.ProvidedBy.localization) ",
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProRegular(size: 12),
+                    color: .charcoalColor,
+                    lineSpacing: 6
+                ))
+            )
+            nameSubtitleText.append(NSAttributedString(
+                string: model.nameProvidedBy,
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProSemiBold(size: 12),
+                    color: .charcoalColor,
+                    lineSpacing: 6
+                ))
+            )
+            let nameControl = ActionableControlWithBodyAndTitle(
+                attributedTitle: nameTitle,
+                attributedBodyText: nameSubtitleText,
+                iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate),
+                isFilled: true
+            )
             
             let emailTitle = NSAttributedString(string: L.Profile.Email.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-            let emailProvidedByText = NSMutableAttributedString(string: "\(model.userResponse.email ?? "")\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-            emailProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-            emailProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
-            let emailControl = ActionableControlWithBodyAndTitle(attributedTitle: emailTitle, attributedBodyText: emailProvidedByText, iconInBody: .pencil, isFilled: true)
+
+            let emailProvidedByText = NSMutableAttributedString(
+                string: "\(model.userResponse.email ?? "")\n",
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProSemiBold(size: 16),
+                    color: .backgroundColor,
+                    lineSpacing: 6
+            ))
+            emailProvidedByText.append(NSAttributedString(
+                string: "\(L.Profile.ProvidedBy.localization) ",
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProRegular(size: 12),
+                    color: .charcoalColor,
+                    lineSpacing: 6
+                ))
+            )
+            emailProvidedByText.append(NSAttributedString(
+                string: L.Profile.Me.localization,
+                attributes: AttributedStringHelper.attributes(
+                    font: .sourceSansProSemiBold(size: 12),
+                    color: .charcoalColor,
+                    lineSpacing: 6
+                ))
+            )
+            let emailControl = ActionableControlWithBodyAndTitle(
+                attributedTitle: emailTitle,
+                attributedBodyText: emailProvidedByText,
+                iconInBody: .pencil,
+                isFilled: true
+            )
             
             stack.addArrangedSubview(nameControl)
             stack.addArrangedSubview(emailControl)

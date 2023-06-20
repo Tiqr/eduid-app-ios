@@ -77,11 +77,43 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.NameOverview.Title.FullName.localization)
 
         let selfAssertedName = "\(viewModel.personalInfo.givenName ?? "") \(viewModel.personalInfo.familyName ?? "")"
-        let nameTitle = NSAttributedString(string: L.NameOverview.SelfAsserted.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameProvidedByText = NSMutableAttributedString(string: "\(selfAssertedName)\n\(L.Profile.ProvidedBy.localization) \(L.Profile.Me.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameProvidedByText.setAttributeTo(part: L.Profile.ProvidedBy.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-        nameProvidedByText.setAttributeTo(part: L.Profile.Me.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .charcoalColor, lineSpacing: 6))
-        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameProvidedByText, iconInBody: .pencil.withRenderingMode(.alwaysTemplate), isFilled: true)
+        let nameTitle = NSAttributedString(
+            string: L.NameOverview.SelfAsserted.localization,
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 16),
+                color: .charcoalColor,
+                lineSpacing: 6)
+        )
+        let nameBodyText = NSMutableAttributedString()
+        nameBodyText.append(NSMutableAttributedString(
+            string: "\(selfAssertedName)\n",
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 16),
+                color: .backgroundColor,
+                lineSpacing: 6
+            ))
+        )
+        nameBodyText.append(NSAttributedString(
+            string: "\(L.Profile.ProvidedBy.localization) ",
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProRegular(size: 12),
+                color: .charcoalColor,
+                lineSpacing: 6
+            ))
+        )
+        nameBodyText.append(NSAttributedString(
+            string: L.Profile.Me.localization,
+            attributes: AttributedStringHelper.attributes(
+                font: .sourceSansProSemiBold(size: 12),
+                color: .charcoalColor,
+                lineSpacing: 6))
+        )
+        let nameControl = ActionableControlWithBodyAndTitle(
+            attributedTitle: nameTitle,
+            attributedBodyText: nameBodyText,
+            iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+            isFilled: true
+        )
         nameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
         
         let topStackView = UIStackView(arrangedSubviews: [
