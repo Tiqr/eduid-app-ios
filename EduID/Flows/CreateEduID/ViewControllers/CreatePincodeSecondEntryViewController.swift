@@ -54,7 +54,7 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
         verifyButton.isEnabled = false
     }
     
-    override func showNextScreen() {
+    override func showNextScreen(_ sender: UIButton? = nil) {
         createPincodeViewModel.secondEnteredPin = viewModel.pinValue
         createPincodeViewModel.verifyPinSimilarity()
     }

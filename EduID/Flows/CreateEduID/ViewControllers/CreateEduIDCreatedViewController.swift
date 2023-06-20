@@ -3,6 +3,8 @@ import TinyConstraints
 
 class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
 
+    private let continueButton = EduIDButton(type: .primary, buttonTitle: L.NameUpdated.Continue.localization)
+    
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -11,11 +13,9 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         setupUI()
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        continueButton.isUserInteractionEnabled = true
     }
     
     //MARK: - setup ui
@@ -40,9 +40,6 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         imageParent.addSubview(imageView)
         imageView.center(in: imageParent)
         
-        // buttons
-        let continueButton = EduIDButton(type: .primary, buttonTitle: L.NameUpdated.Continue.localization)
-        
         // stack
         let stack = BasicStackView(arrangedSubviews: [posterParent, textParent, imageParent, continueButton])
         view.addSubview(stack)
@@ -61,6 +58,7 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
     
     @objc
     func authorize() {
+        continueButton.isUserInteractionEnabled = false
         AppAuthController.shared.authorize(viewController: self)
         showNextScreen()
     }

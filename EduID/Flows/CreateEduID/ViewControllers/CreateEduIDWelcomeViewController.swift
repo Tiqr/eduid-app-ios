@@ -5,6 +5,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
     
     // - attributed texts for numbered list
     var attributedTexts: [NSAttributedString] = []
+    private let okButton = EduIDButton(type: .primary, buttonTitle: L.WelcomeToApp.GotItButton.localization)
 
     //MARK: lifecycle
     override func viewDidLoad() {
@@ -21,6 +22,11 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         attributedTexts.append(contentsOf: [first, second, third])
 
         setupUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        okButton.isUserInteractionEnabled = true
     }
     
     //MARK: setup UI
@@ -55,7 +61,6 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         image.height(150)
         
         // - ok button
-        let okButton = EduIDButton(type: .primary, buttonTitle: L.WelcomeToApp.GotItButton.localization)
         okButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
         
         // - Space

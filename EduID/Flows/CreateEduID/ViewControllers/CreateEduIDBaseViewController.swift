@@ -17,7 +17,7 @@ class CreateEduIDBaseViewController: BaseViewController {
     }
     
     @objc
-    func showNextScreen() {
+    func showNextScreen(_ sender: UIButton? = nil) {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
     }
     

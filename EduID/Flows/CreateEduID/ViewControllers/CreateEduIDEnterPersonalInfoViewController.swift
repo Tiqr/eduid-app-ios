@@ -102,6 +102,11 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         _ = emailField.becomeFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        requestButton.isUserInteractionEnabled = textFieldsAreValid && theSwitch.isOn
+    }
+    
     //MARK: - setup UI
     private func setupUI() {
         
@@ -151,7 +156,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         
         // - requestButton
         requestButton.isEnabled = false
-        requestButton.addTarget(self, action: #selector(createEduIDAction), for: .touchUpInside)
+        requestButton.addTarget(self, action: #selector(createEduIDAction(_:)), for: .touchUpInside)
         
         // - create the stackview
         stack = AnimatedVStackView(arrangedSubviews: [posterLabel, emailField, firstNameField, lastNameField, termsHstack, spacingView, requestButton])
@@ -186,8 +191,8 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         self.view.endEditing(true)
     }
 
-    @objc
-    func createEduIDAction() {
+    @objc func createEduIDAction(_ sender: UIButton?) {
+        sender?.isUserInteractionEnabled = false
         UserDefaults.standard.set(emailField.textField.text, forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
         viewModel.createEduID(familyName: lastNameField.textField.text ?? "", givenName: firstNameField.textField.text ?? "", email: emailField.textField.text ?? "")
     }

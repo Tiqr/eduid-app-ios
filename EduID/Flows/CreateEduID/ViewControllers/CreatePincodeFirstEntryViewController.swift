@@ -34,7 +34,7 @@ class CreatePincodeFirstEntryViewController: PincodeBaseViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    override func showNextScreen() {
+    override func showNextScreen(_ sender: UIButton? = nil) {
         createPincodeViewModel.firstEnteredPin = viewModel.pinValue
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowConfirmPincodeScreen(viewController: self, viewModel: createPincodeViewModel)
     }
