@@ -641,7 +641,7 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
 "CreateEduID.LandingPage.MainText.COPY" = "Persoonlijk account voor Onderwijs en Onderzoek";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
-"CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan a QR code";
+"CreateEduID.LandingPage.ScanQrButton.COPY" = "Een QR code scannen";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
 "CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
@@ -690,3 +690,5 @@ We sturen je een code om je nummer te verifiëren.
 "ResponseErrors.SMSErrorText.COPY" = "Je hebt een verkeerde verificatiecombinatie ingevoerd";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Onbekende fout";
 "ResponseErrors.UnknownErrorText.COPY" = "Er is een onbekende fout opgetreden met de volgende statuscode";
+"ResponseErrors.ExistinUserAndDeviceTitle.COPY" = "Reeds geassocieerd";
+"ResponseErrors.ExistinUserAndDeviceText.COPY" = "Dit account is al gekoppeld aan een ander apparaat. Verwijder eerst jouw andere apparaat uit je account voordat je een nieuw apparaat registreert.";

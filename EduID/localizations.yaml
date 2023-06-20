@@ -3105,7 +3105,7 @@ IOS:
         ScanQrButton:
           COPY:
             en: Scan a QR code
-            nl: Scan a QR code
+            nl: Een QR code scannen
         NoEduIdButton:
           COPY:
             en: I don't have an eduId
@@ -3310,3 +3310,12 @@ IOS:
       COPY:
         en: An unknown error occured with the following status code
         nl: Er is een onbekende fout opgetreden met de volgende statuscode
+    ExistinUserAndDeviceTitle:
+      COPY:
+        en: Already associated
+        nl: Reeds geassocieerd
+    ExistinUserAndDeviceText:
+      COPY:
+        en: This account is already associated with a different device. Remove your other device first from your account before registering a new device.
+        nl: Dit account is al gekoppeld aan een ander apparaat. Verwijder eerst jouw andere apparaat uit je account voordat je een nieuw apparaat registreert.
+    
