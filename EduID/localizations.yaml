@@ -3281,11 +3281,11 @@ IOS:
     EmailInUseTitle:
       COPY:
         en: E-mail in use
-        nl: E-mail ingebruik
+        nl: E-mail in gebruik
     EmailInUseText:
       COPY:
         en: There is already an eduId associated with this e-mail
-        nl: Het door jou opgegeven e-maildomein, mag niet worden gebruikt
+        nl: Er is al een eduId gekoppeld aan deze e-mail
     ForbiddenDomainTitle:
       COPY:
         en: Forbidden domain
