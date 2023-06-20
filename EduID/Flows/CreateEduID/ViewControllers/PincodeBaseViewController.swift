@@ -69,6 +69,11 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         _ = (pinStack.arrangedSubviews.first as? PinTextFieldView)?.becomeFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        verifyButton.isUserInteractionEnabled = true
+    }
+    
     //MARK: - setup ui
     func setupUI() {
         // - posterLabel

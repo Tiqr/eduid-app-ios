@@ -11,8 +11,5 @@ class AuthenticateWithPinViewController: PincodeBaseViewController {
         textLabel.text = L.PinAndBioMetrics.AuthenticateForUseTitle.localization
         verifyButton.buttonTitle = L.PinAndBioMetrics.Authenticate.localization
     }
-    
-    override func showNextScreen() {
 
-    }
 }

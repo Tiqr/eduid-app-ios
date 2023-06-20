@@ -37,7 +37,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         screenType = .enterPhoneScreen
         
         setupUI()
-        verifyButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
+        verifyButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
     }
     
@@ -50,6 +50,11 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         _ = validatedPhoneTextField.becomeFirstResponder()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        verifyButton.isUserInteractionEnabled = true
     }
     
     //MARK: - setup UI
@@ -120,7 +125,8 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         _ = validatedPhoneTextField.resignFirstResponder()
     }
     
-    override func showNextScreen() {
+    override func showNextScreen(_ sender: UIButton? = nil) {
+        sender?.isUserInteractionEnabled = false
         viewModel.sendPhoneNumber(number: validatedPhoneTextField.textField.text ?? "")
     }
     

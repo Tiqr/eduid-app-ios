@@ -4,6 +4,9 @@ import TinyConstraints
 class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
     
     private var stack: AnimatedVStackView!
+    private let signInButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.SignInButton.localization)
+    private let scanQRButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.ScanQrButton.localization)
+    private let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle:  L.CreateEduID.LandingPage.NoEduIdButton.localization)
     
     //MARK: - lifecycle
     override func viewDidLoad() {
@@ -19,6 +22,11 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(showScanScreen))
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        noEduIDYetButton.isUserInteractionEnabled = true
     }
     
     //MARK: - setupUI
@@ -43,14 +51,11 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         let lowerSpaceView = UIView()
         
         // - buttons
-        let signInButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.SignInButton.localization)
         signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
-        let scanQRButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.LandingPage.ScanQrButton.localization)
         scanQRButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
-        let noEduIDYetButton = EduIDButton(type: .naked, buttonTitle:  L.CreateEduID.LandingPage.NoEduIdButton.localization)
         
         //the action for this button is on CreateEduIDBaseViewController superclass
-        noEduIDYetButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
+        noEduIDYetButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
         
         // - create the stackview
         stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, upperSpaceView, imageView, lowerSpaceView, signInButton, scanQRButton, noEduIDYetButton])

@@ -40,7 +40,8 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
         super.viewDidLoad()
     }
     
-    override func showNextScreen() {
+    override func showNextScreen(_ sender: UIButton? = nil) {
+        sender?.isUserInteractionEnabled = false
         viewModel.enterSMS(code: viewModel.pinValue.reduce("", { partialResult, char in
             partialResult + String(char)
         }))

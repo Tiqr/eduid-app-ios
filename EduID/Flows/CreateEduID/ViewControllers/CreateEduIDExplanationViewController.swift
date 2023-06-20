@@ -4,7 +4,7 @@ import TinyConstraints
 class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
     
     private var stack: AnimatedVStackView!
-    
+    private let createButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.Explanation.CreateEduidButton.localization)
     //MARK: - lifecycle
     
     override func viewDidLoad() {
@@ -19,6 +19,11 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        createButton.isUserInteractionEnabled = true
     }
     
     //MARK: - setup UI
@@ -36,17 +41,14 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
-        // - create button
-        let button = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.Explanation.CreateEduidButton.localization)
-        
         //the action for this buton is defined in superclass
-        button.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
         
         // - spacing
         let spacerView = UIView()
         
         // - create the stackview
-        stack = AnimatedVStackView(arrangedSubviews: [posterParent, textLabelParent, spacerView, button])
+        stack = AnimatedVStackView(arrangedSubviews: [posterParent, textLabelParent, spacerView, createButton])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -58,7 +60,7 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
         
         posterLabel.width(to: stack)
-        button.width(to: stack, offset: -24)
+        createButton.width(to: stack, offset: -24)
         
         textLabel.width(to: stack, offset: -32)
         
