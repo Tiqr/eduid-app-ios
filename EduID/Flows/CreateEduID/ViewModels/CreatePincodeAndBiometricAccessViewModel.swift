@@ -24,6 +24,8 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     var biometricAccessSuccessClosure: (() -> Void)?
     var biometricAccessFailureClosure: ((Error) -> Void)?
     
+    var errorExistingUserNotDisconnectAppWantsEnrol: (() -> Void)?
+    
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
     private let keychain = KeyChainService()
@@ -87,8 +89,8 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                         guard let self else { return }
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
-                } catch let error as NSError {
-                    assertionFailure(error.description)
+                } catch {
+                    errorExistingUserNotDisconnectAppWantsEnrol?()
                     completion(false)
                 }
             }

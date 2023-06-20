@@ -5767,5 +5767,21 @@ public struct L {
             translationKey: "ResponseErrors.UnknownErrorText.COPY",
             translationArgs: []
         )
+        public static let ExistinUserAndDeviceTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ExistinUserAndDeviceTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ExistinUserAndDeviceTitle.COPY",
+            translationArgs: []
+        )
+        public static let ExistinUserAndDeviceText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ExistinUserAndDeviceText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ExistinUserAndDeviceText.COPY",
+            translationArgs: []
+        )
     }
 }

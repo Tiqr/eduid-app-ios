@@ -26,6 +26,16 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
             guard let self = self else { return }
             (self.delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerRedoCreatePin(viewController: self)
         }
+        
+        createPincodeViewModel.errorExistingUserNotDisconnectAppWantsEnrol = { [weak self] in
+            let alertController = UIAlertController(title: L.ResponseErrors.ExistinUserAndDeviceTitle.localization,
+                                                    message: L.ResponseErrors.ExistinUserAndDeviceText.localization,
+                                                    preferredStyle: .alert)
+            
+            let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel)
+            alertController.addAction(alertAction)
+            self?.present(alertController, animated: true)
+        }
     }
     
     required init?(coder: NSCoder) {
