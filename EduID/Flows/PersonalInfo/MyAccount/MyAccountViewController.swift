@@ -22,6 +22,8 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
     private var loadingIndicator: UIActivityIndicatorView!
     private var downloadDataButton: EduIDButton!
     
+    private var documentController: UIDocumentInteractionController? = nil
+    
     init(viewModel: MyAccountViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -30,7 +32,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -139,11 +141,12 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
     }
     
     func shareFileUrl(_ url: URL) {
-        let documentInteractionController = UIDocumentInteractionController()
-        documentInteractionController.url = url
-        documentInteractionController.uti = "public.data, public.content"
-        documentInteractionController.name = url.lastPathComponent
-        documentInteractionController.presentOpenInMenu(from: view.frame, in: view, animated: true)
+        documentController = UIDocumentInteractionController(url: url)
+        if let controller = documentController {
+            controller.uti = "nl.eduid"
+            controller.name = url.lastPathComponent
+            controller.presentOpenInMenu(from: .zero, in: view, animated: true)
+        }
     }
     
     
