@@ -8,7 +8,6 @@ public class AppAuthController: NSObject {
     
     //MARK: - properties of AppAuth
     private var currentAuthorizationFlow: OIDExternalUserAgentSession?
-    private let keychain = KeyChainService()
     private var authState: OIDAuthState? {
         didSet {
             if let state = authState {

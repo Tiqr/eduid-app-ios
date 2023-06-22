@@ -3065,17 +3065,32 @@ IOS:
           en: Welcome! Use this app to
           nl: Welkom! Gebruik deze app voor
       Quickly:
-        COPY:
-          en: Quickly login to educational services
-          nl: Snel inloggen op educatieve diensten
+        Text:
+          COPY:
+            en:  to educational services
+            nl:  op educatieve diensten
+        Highlight:
+          COPY:
+            en: Quickly login
+            nl: Snel inloggen
       ViewWhat:
-        COPY:
-          en: View what details of your eduID get shared with those services
-          nl: Bekijk welke gegevens van je eduID met die diensten worden gedeeld
+        Text:
+          COPY:
+            en:  what details of your eduID get shared with those services
+            nl:  welke gegevens van je eduID met die diensten worden gedeeld
+        Highlight:
+          COPY:
+            en: View
+            nl: Bekijk
       VerifyYour:
-        COPY:
-          en: Verify your identity so you can access more secure services
-          nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
+        Text:
+          COPY:
+            en:  so you can access more secure services
+            nl:  zodat je toegang krijgt tot beter beveiligde services
+        Highlight:
+          COPY:
+            en: Verify your identity
+            nl: Verifieer jouw identiteit
       GotItButton:
         COPY:
           en: Ok, got it!
