@@ -10,7 +10,7 @@ class CreateReturnToBrowserViewController: CreateEduIDBaseViewController {
     }
     
     private func setupUI() {
-        let titleLabel = UILabel.posterTextLabel(text: L.WelcomeToApp.ReturnBrowserTitle.localization, size: 23.5)
+        let titleLabel = UILabel.posterTextLabel(text: L.WelcomeToApp.ReturnBrowserTitle.localization, size: 24)
         let explanationLabel = UILabel.plainTextLabelPartlyBold(text: L.WelcomeToApp.ReturnBrowserText.localization)
         let image = UIImageView(image: .returnToBrowser)
         image.contentMode = .scaleAspectFit
@@ -29,8 +29,10 @@ class CreateReturnToBrowserViewController: CreateEduIDBaseViewController {
         mainStack.alignment = .center
         mainStack.spacing = 20
         view.addSubview(mainStack)
-        
-        mainStack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: .uniform(20), usingSafeArea: true)
+        titleLabel.left(to: mainStack)
+        titleLabel.right(to: mainStack)
+        titleLabel.top(to: mainStack)
         titleLabel.height(34)
         dismissButton.width(to: mainStack, offset: -24)
     }
