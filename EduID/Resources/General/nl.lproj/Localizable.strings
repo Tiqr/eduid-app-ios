@@ -634,8 +634,11 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
 "WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app voor";
 "WelcomeToApp.Quickly.COPY" = "Snel inloggen op educatieve diensten";
+"WelcomeToApp.QuicklyBoldRange.COPY" = "13";
 "WelcomeToApp.ViewWhat.COPY" = "Bekijk welke gegevens van je eduID met die diensten worden gedeeld";
+"WelcomeToApp.ViewWhatBoldRange.COPY" = "6";
 "WelcomeToApp.VerifyYour.COPY" = "Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services";
+"WelcomeToApp.VerifyBoldRange.COPY" = "25";
 "WelcomeToApp.GotItButton.COPY" = "Ok, begrepen!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Keer terug naar je webbrowser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";

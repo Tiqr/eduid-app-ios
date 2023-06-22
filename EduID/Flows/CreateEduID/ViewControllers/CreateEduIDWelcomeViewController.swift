@@ -14,11 +14,11 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         screenType = .welcomeScreen
         
         let first = NSMutableAttributedString(string: L.WelcomeToApp.Quickly.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        first.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 13))
+        first.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.QuicklyBoldRange.localization) ?? .zero))
         let second = NSMutableAttributedString(string: L.WelcomeToApp.ViewWhat.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        second.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 4))
+        second.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.ViewWhatBoldRange.localization) ?? .zero))
         let third = NSMutableAttributedString(string: L.WelcomeToApp.VerifyYour.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        third.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: 20))
+        third.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.VerifyBoldRange.localization) ?? .zero))
         attributedTexts.append(contentsOf: [first, second, third])
 
         setupUI()

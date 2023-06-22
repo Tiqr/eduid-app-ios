@@ -3068,14 +3068,26 @@ IOS:
         COPY:
           en: Quickly login to educational services
           nl: Snel inloggen op educatieve diensten
+      QuicklyBoldRange:
+        COPY:
+          en: "13"
+          nl: "13"
       ViewWhat:
         COPY:
           en: View what details of your eduID get shared with those services
           nl: Bekijk welke gegevens van je eduID met die diensten worden gedeeld
+      ViewWhatBoldRange:
+        COPY:
+          en: "4"
+          nl: "6"
       VerifyYour:
         COPY:
           en: Verify your identity so you can access more secure services
           nl: Verifieer jouw identiteit zodat je toegang krijgt tot beter beveiligde services
+      VerifyBoldRange:
+        COPY:
+          en: "20"
+          nl: "25"
       GotItButton:
         COPY:
           en: Ok, got it!

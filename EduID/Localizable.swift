@@ -5379,6 +5379,14 @@ public struct L {
             translationKey: "WelcomeToApp.Quickly.COPY",
             translationArgs: []
         )
+        public static let QuicklyBoldRange = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.QuicklyBoldRange",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.QuicklyBoldRange.COPY",
+            translationArgs: []
+        )
         public static let ViewWhat = LocaliciousData(
             accessibilityIdentifier: "WelcomeToApp.ViewWhat",
             accessibilityHintKey: nil,
@@ -5387,12 +5395,28 @@ public struct L {
             translationKey: "WelcomeToApp.ViewWhat.COPY",
             translationArgs: []
         )
+        public static let ViewWhatBoldRange = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.ViewWhatBoldRange",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.ViewWhatBoldRange.COPY",
+            translationArgs: []
+        )
         public static let VerifyYour = LocaliciousData(
             accessibilityIdentifier: "WelcomeToApp.VerifyYour",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "WelcomeToApp.VerifyYour.COPY",
+            translationArgs: []
+        )
+        public static let VerifyBoldRange = LocaliciousData(
+            accessibilityIdentifier: "WelcomeToApp.VerifyBoldRange",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "WelcomeToApp.VerifyBoldRange.COPY",
             translationArgs: []
         )
         public static let GotItButton = LocaliciousData(

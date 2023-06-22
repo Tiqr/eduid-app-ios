@@ -633,8 +633,11 @@ When you re-register for a new eduID with that same email address, you will rece
 "Generic.RequestError.CloseButton.COPY" = "Close";
 "WelcomeToApp.Title.COPY" = "Welcome! Use this app to";
 "WelcomeToApp.Quickly.COPY" = "Quickly login to educational services";
+"WelcomeToApp.QuicklyBoldRange.COPY" = "13";
 "WelcomeToApp.ViewWhat.COPY" = "View what details of your eduID get shared with those services";
+"WelcomeToApp.ViewWhatBoldRange.COPY" = "4";
 "WelcomeToApp.VerifyYour.COPY" = "Verify your identity so you can access more secure services";
+"WelcomeToApp.VerifyBoldRange.COPY" = "20";
 "WelcomeToApp.GotItButton.COPY" = "Ok, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
