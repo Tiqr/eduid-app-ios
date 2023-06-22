@@ -1,9 +1,3 @@
-//
-//  UILable+Styling.swift
-//  eduID
-//
-//  Created by Jairo Bambang Oetomo on 19/01/2023.
-//
 import UIKit
 import TiqrCoreObjC
 
@@ -15,6 +9,7 @@ extension UILabel {
         label.numberOfLines = 0
         label.textAlignment = alignment
         label.textColor = UIColor.secondaryColor
+        label.sizeToFit()
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 10

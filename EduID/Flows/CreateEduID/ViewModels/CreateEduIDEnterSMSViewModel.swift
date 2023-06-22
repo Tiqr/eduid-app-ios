@@ -6,7 +6,6 @@ class CreateEduIDEnterSMSViewModel: NSObject {
     //MARK: - closures
     var smsEntryWasCorrect: ((VerifyPhoneCode) -> Void)?
     var smsEntryFailed: ((String, String) -> Void)?
-    private let keychain = KeyChainService()
     
     func enterSMS(code: String) {
         Task {

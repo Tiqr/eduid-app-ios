@@ -56,6 +56,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.handleURLFromRedirect(url: url)
             }
         }
+        
+//        AppAuthController.shared.clearAuthState()
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

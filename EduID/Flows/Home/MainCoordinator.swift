@@ -21,6 +21,7 @@ class MainCoordinator: CoordinatorType {
     
     func start(option: OnboardingFlowType) {
         if option == .newUser {
+            AppAuthController.shared.clearAuthState()
             let onboardingCoordinator = CreateEduIDCoordinator(viewControllerToPresentOn: homeNavigationController)
             children.append(onboardingCoordinator)
             onboardingCoordinator.delegate = self

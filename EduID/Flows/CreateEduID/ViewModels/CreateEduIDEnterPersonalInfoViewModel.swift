@@ -8,8 +8,6 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
     var makeNextTextFieldFirstResponderClosure: ((Int) -> Void)?
     var textFieldBecameFirstResponderClosure: ((Int) -> Void)?
     
-    private let keychain = KeyChainService()
-    
     var textFieldModels: [TextFieldModelWithTagAndValid] = [
         TextFieldModelWithTagAndValid(tag: CreateEduIDEnterPersonalInfoViewController.emailFieldTag, text: "", isValid: false),
         TextFieldModelWithTagAndValid(tag: CreateEduIDEnterPersonalInfoViewController.firstNameFieldTag, text: "", isValid: false),

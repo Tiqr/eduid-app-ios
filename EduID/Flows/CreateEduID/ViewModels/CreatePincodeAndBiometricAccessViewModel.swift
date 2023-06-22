@@ -28,7 +28,6 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
-    private let keychain = KeyChainService()
 
     //MARK: - init
     init(enrollmentChallenge: EnrollmentChallenge? = nil, authenticationChallenge: AuthenticationChallenge? = nil, isQrEnrolment: Bool? = nil) {
