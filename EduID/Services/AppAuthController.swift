@@ -48,6 +48,12 @@ public class AppAuthController: NSObject {
             additionalParameters: nil
         )
     }
+    var hasPendingAuthFlow: Bool {
+        get {
+            return currentAuthorizationFlow != nil
+        }
+    }
+    var pendingTaskUntilAuthCompletes: ((Bool) -> Void)? = nil
     
     //MARK: - URI's
     static let authEndpointString = "https://connect.test2.surfconext.nl/oidc/authorize"
@@ -114,7 +120,6 @@ public class AppAuthController: NSObject {
         if let authFlow = currentAuthorizationFlow,
            isRedirectURI(uri) {
             // Normalize URL, because it might be a custom scheme one
-            currentAuthorizationFlow = nil
             guard var normalizedUrl = URLComponents(string: uri.absoluteString) else {
                 return false
             }
@@ -139,12 +144,16 @@ public class AppAuthController: NSObject {
         currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalUserAgent) {
             [weak self] authState, error in
             guard let self else { return }
+            
             if let authState = authState {
                 self.authState = authState
                 completion?()
             } else {
                 fatalError("authorization failed")
             }
+            self.currentAuthorizationFlow = nil
+            self.pendingTaskUntilAuthCompletes?(authState != nil)
+            self.pendingTaskUntilAuthCompletes = nil
         }
     }
     

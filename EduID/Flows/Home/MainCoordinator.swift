@@ -125,5 +125,11 @@ extension MainCoordinator: VerifyAuthenticationDelegate {
     func verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: CoordinatorType) {
         homeNavigationController.popViewController(animated: true)
         children.removeAll { $0 === coordinator }
+        // An auth flow has just ended. If we also have a token, we can check if there's a pending screen to open
+        if AppAuthController.shared.isLoggedIn() {
+            if let homeViewController = homeNavigationController.topViewController as? HomeViewController {
+                homeViewController.openPendingScreen()
+            }
+        }
     }
 }

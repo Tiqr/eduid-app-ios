@@ -178,10 +178,23 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc private func loadViewWhenReceivingNotification(_ notification: Notification) {
-        if let notificationObject = notification.userInfo?[Constants.UserInfoKey.tiqrAuthObject] as? String {
+        if let notificationObject = notification.userInfo?[Constants.UserInfoKey.tiqrAuthObject] as? String,
+           !notificationObject.isEmpty {
             delegate?.homeViewControllerShowAuthenticationScreen(with: notificationObject)
+        } else if AppAuthController.shared.isLoggedIn() {
+            openPendingScreen()
+        } else if AppAuthController.shared.hasPendingAuthFlow {
+            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
+                self?.openPendingScreen()
+            }
         }
-        load(childScreenMode)
+    }
+    
+    public func openPendingScreen() {
+        if childScreenMode != .none {
+            load(childScreenMode)
+            childScreenMode = .none
+        }
     }
 }
 
