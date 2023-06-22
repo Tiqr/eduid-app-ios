@@ -10,7 +10,7 @@ class CreateReturnToBrowserViewController: CreateEduIDBaseViewController {
     }
     
     private func setupUI() {
-        let titleLabel = UILabel.posterTextLabel(text: L.WelcomeToApp.ReturnBrowserTitle.localization, size: 24)
+        let titleLabel = UILabel.posterTextLabel(text: L.WelcomeToApp.ReturnBrowserTitle.localization, size: 23.5)
         let explanationLabel = UILabel.plainTextLabelPartlyBold(text: L.WelcomeToApp.ReturnBrowserText.localization)
         let image = UIImageView(image: .returnToBrowser)
         image.contentMode = .scaleAspectFit
