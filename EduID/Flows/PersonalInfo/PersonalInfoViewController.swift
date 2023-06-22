@@ -41,8 +41,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
         
         viewModel.dataFetchErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true)
             })
             self?.present(alert, animated: true)
@@ -68,16 +68,25 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
-    @objc
-    func willEnterForeground() {
-        // We might have came back from a linking flow
-        viewModel.getData()
+    @objc func willEnterForeground() {
+        Task {
+            viewModel.getData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         if delegate?.shouldUpdateData() == true {
+            Task {
+                viewModel.getData()
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Task {
             viewModel.getData()
         }
     }

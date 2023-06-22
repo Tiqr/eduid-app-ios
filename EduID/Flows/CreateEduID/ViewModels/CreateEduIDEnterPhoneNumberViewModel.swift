@@ -5,7 +5,6 @@ class CreateEduIDEnterPhoneNumberViewModel: NSObject {
     
     //MARK: - closures
     var phoneNumberReceivedClosure: ((FinishEnrollment) -> Void)?
-    private let keychain = KeyChainService()
     
     //MARK: - init
     override init() {

@@ -13,14 +13,8 @@ class PersonalInfoViewModel: NSObject {
     
     var viewController: CreateEduIDAddInstitutionViewController?
     
-    private let keychain = KeyChainService()
-    
     override init() {
         super.init()
-        
-        Task{
-            await getData()
-        }
     }
     
     @MainActor

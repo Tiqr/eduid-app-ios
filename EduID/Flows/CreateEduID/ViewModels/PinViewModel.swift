@@ -6,7 +6,6 @@ class PinViewModel: NSObject {
     var resignKeyboardFocus: (() -> Void)?
     var enableVerifyButton: ((Bool) -> Void)?
     var focusPinField: ((Int) -> Void)?
-    private let keychain = KeyChainService()
     
     var pinValue: [Character] = ["0", "0", "0", "0", "0", "0"]
     

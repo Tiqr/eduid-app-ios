@@ -5,7 +5,6 @@ class CreateEduIDFirstTimeDialogViewViewModel: NSObject {
     
     //MARK: - closures
     var addInstitutionsCompletion: ((AuthorizationURL) -> Void)?
-    private let keychain = KeyChainService()
     
     @MainActor
     func gotoAddInstitutionsInBrowser() {

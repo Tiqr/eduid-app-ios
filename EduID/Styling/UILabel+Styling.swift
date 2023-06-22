@@ -1,9 +1,3 @@
-//
-//  UILable+Styling.swift
-//  eduID
-//
-//  Created by Jairo Bambang Oetomo on 19/01/2023.
-//
 import UIKit
 import TiqrCoreObjC
 
@@ -11,16 +5,17 @@ extension UILabel {
     static func posterTextLabel(text: String, size: CGFloat = 24, alignment: NSTextAlignment = .left) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.proximaNovaSoftSemiBold(size: size)
         label.numberOfLines = 0
         label.textAlignment = alignment
         label.textColor = UIColor.secondaryColor
+        label.sizeToFit()
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 10
         paragraph.alignment = alignment
         
-        let attributedString = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraph])
+        let attributedString = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraph,
+                                                                             NSAttributedString.Key.font: UIFont.proximaNovaSoftSemiBold(size: size)])
         label.attributedText = attributedString
         return label
     }

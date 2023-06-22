@@ -34,7 +34,6 @@
 		4F909EB02A31CDDC00FC1506 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */; };
 		4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */; };
 		4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */; };
-		4F909EB42A31CDDC00FC1506 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8F2A31CDDC00FC1506 /* KeyChainService.swift */; };
 		4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */; };
 		4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */; };
 		4F909EB72A31CDDC00FC1506 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E922A31CDDC00FC1506 /* BiometricService.swift */; };
@@ -328,7 +327,6 @@
 		4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Affiliation.swift; sourceTree = "<group>"; };
 		4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
-		4F909E8F2A31CDDC00FC1506 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTokenHandler.swift; sourceTree = "<group>"; };
 		4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OIDExternalUserAgentIOSSafari.swift; sourceTree = "<group>"; };
 		4F909E922A31CDDC00FC1506 /* BiometricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
@@ -745,7 +743,6 @@
 		4F909E8E2A31CDDC00FC1506 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4F909E8F2A31CDDC00FC1506 /* KeyChainService.swift */,
 				4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */,
 				4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */,
 				4F909E922A31CDDC00FC1506 /* BiometricService.swift */,
@@ -1417,7 +1414,6 @@
 				4FF567BE2A31D32E00616341 /* ScanCoordinator.swift in Sources */,
 				4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */,
 				4F909EB92A31CDDC00FC1506 /* AppAuthController.swift in Sources */,
-				4F909EB42A31CDDC00FC1506 /* KeyChainService.swift in Sources */,
 				4FF567C02A31D32E00616341 /* CreateEduIDEnterPhoneNumberViewModel.swift in Sources */,
 				4FF567C92A31D32E00616341 /* CreateEduIDLandingPageViewController.swift in Sources */,
 				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,

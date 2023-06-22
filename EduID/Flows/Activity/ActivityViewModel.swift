@@ -9,7 +9,6 @@ class ActivityViewModel: NSObject {
     var dataAvailableClosure: ((PersonalInfoDataCallbackModel) -> Void)?
     var serviceRemovedClosure: ((LinkedAccount) -> Void)?
     var dataFetchErrorClosure: ((Error) -> Void)?
-    private let keychain = KeyChainService()
     
     override init() {
         super.init()
