@@ -5371,54 +5371,60 @@ public struct L {
             translationKey: "WelcomeToApp.Title.COPY",
             translationArgs: []
         )
-        public static let Quickly = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.Quickly",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.Quickly.COPY",
-            translationArgs: []
-        )
-        public static let QuicklyBoldRange = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.QuicklyBoldRange",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.QuicklyBoldRange.COPY",
-            translationArgs: []
-        )
-        public static let ViewWhat = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.ViewWhat",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.ViewWhat.COPY",
-            translationArgs: []
-        )
-        public static let ViewWhatBoldRange = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.ViewWhatBoldRange",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.ViewWhatBoldRange.COPY",
-            translationArgs: []
-        )
-        public static let VerifyYour = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.VerifyYour",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.VerifyYour.COPY",
-            translationArgs: []
-        )
-        public static let VerifyBoldRange = LocaliciousData(
-            accessibilityIdentifier: "WelcomeToApp.VerifyBoldRange",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "WelcomeToApp.VerifyBoldRange.COPY",
-            translationArgs: []
-        )
+        public struct Quickly {
+            public static let Text = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.Quickly.Text",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.Quickly.Text.COPY",
+                translationArgs: []
+            )
+            public static let Highlight = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.Quickly.Highlight",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.Quickly.Highlight.COPY",
+                translationArgs: []
+            )
+        }
+        public struct ViewWhat {
+            public static let Text = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.ViewWhat.Text",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.ViewWhat.Text.COPY",
+                translationArgs: []
+            )
+            public static let Highlight = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.ViewWhat.Highlight",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.ViewWhat.Highlight.COPY",
+                translationArgs: []
+            )
+        }
+        public struct VerifyYour {
+            public static let Text = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.VerifyYour.Text",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.VerifyYour.Text.COPY",
+                translationArgs: []
+            )
+            public static let Highlight = LocaliciousData(
+                accessibilityIdentifier: "WelcomeToApp.VerifyYour.Highlight",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "WelcomeToApp.VerifyYour.Highlight.COPY",
+                translationArgs: []
+            )
+        }
         public static let GotItButton = LocaliciousData(
             accessibilityIdentifier: "WelcomeToApp.GotItButton",
             accessibilityHintKey: nil,

@@ -12,14 +12,25 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         super.viewDidLoad()
         
         screenType = .welcomeScreen
+        let attributes: [NSAttributedString.Key : Any] = [.font: UIFont.sourceSansProRegular(size: 16)]
+        let highlightAttributes: [NSAttributedString.Key : Any] = [.font: UIFont.sourceSansProBold(size: 16)]
         
-        let first = NSMutableAttributedString(string: L.WelcomeToApp.Quickly.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        first.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.QuicklyBoldRange.localization) ?? .zero))
-        let second = NSMutableAttributedString(string: L.WelcomeToApp.ViewWhat.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        second.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.ViewWhatBoldRange.localization) ?? .zero))
-        let third = NSMutableAttributedString(string: L.WelcomeToApp.VerifyYour.localization, attributes: [.font: UIFont.sourceSansProRegular(size: 16)])
-        third.setAttributes([.font: UIFont.sourceSansProBold(size: 16)], range: NSRange(location: 0, length: Int(L.WelcomeToApp.VerifyBoldRange.localization) ?? .zero))
-        attributedTexts.append(contentsOf: [first, second, third])
+        let firstHighlight = NSMutableAttributedString(string: L.WelcomeToApp.Quickly.Highlight.localization + " ", attributes: attributes)
+        firstHighlight.setAttributes(highlightAttributes, range: NSRange(location: .zero, length: L.WelcomeToApp.Quickly.Highlight.localization.count))
+        let first = NSMutableAttributedString(string: L.WelcomeToApp.Quickly.Text.localization, attributes: attributes)
+        firstHighlight.append(first)
+        
+        let secondHighlight = NSMutableAttributedString(string: L.WelcomeToApp.ViewWhat.Highlight.localization + " ", attributes: attributes)
+        secondHighlight.setAttributes(highlightAttributes, range: NSRange(location: .zero, length: L.WelcomeToApp.ViewWhat.Highlight.localization.count))
+        let second = NSMutableAttributedString(string: L.WelcomeToApp.ViewWhat.Text.localization, attributes: attributes)
+        secondHighlight.append(second)
+        
+        let thirdHighlight = NSMutableAttributedString(string: L.WelcomeToApp.VerifyYour.Highlight.localization + " ", attributes: attributes)
+        thirdHighlight.setAttributes(highlightAttributes, range: NSRange(location: .zero, length: L.WelcomeToApp.VerifyYour.Highlight.localization.count))
+        let third = NSMutableAttributedString(string: L.WelcomeToApp.VerifyYour.Text.localization, attributes: attributes)
+        thirdHighlight.append(third)
+        
+        attributedTexts.append(contentsOf: [firstHighlight, secondHighlight, thirdHighlight])
 
         setupUI()
     }
