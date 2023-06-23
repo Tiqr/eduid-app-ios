@@ -57,12 +57,12 @@ class CreateEduIDExplanationViewController: CreateEduIDBaseViewController {
         view.addSubview(stack)
         
         // - add constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         
         posterLabel.width(to: stack)
         createButton.width(to: stack, offset: -24)
         
-        textLabel.width(to: stack, offset: -32)
+        textLabel.width(to: stack)
         
         stack.hideAndTriggerAll(onlyThese: [2])
     }
