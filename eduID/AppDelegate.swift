@@ -99,20 +99,26 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             // App is already open, handle the notification
             let userInfo = notification.request.content.userInfo
             if let challenge = userInfo["challenge"] as? String {
-                DispatchQueue.main.async {
-                    Tiqr.shared.startChallenge(challenge: challenge)
-                }
+                getNotificationObject(from: challenge)
             }
             completionHandler([])
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
-            Tiqr.shared.startChallenge(challenge: challenge)
+            getNotificationObject(from: challenge)
         }
     }
+    
+    private func getNotificationObject(from challenge: String) {
+        let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
+        NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                                        object: nil, userInfo: notificationObject)
+    }
+    
     func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
         return true
     }
