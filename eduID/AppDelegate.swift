@@ -99,7 +99,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             // App is already open, handle the notification
             let userInfo = notification.request.content.userInfo
             if let challenge = userInfo["challenge"] as? String {
-                getNotificationObject(from: challenge)
+                DispatchQueue.main.async { [weak self] in
+                    self?.getNotificationObject(from: challenge)
+                }
             }
             completionHandler([])
         }
@@ -109,7 +111,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
-            getNotificationObject(from: challenge)
+            DispatchQueue.main.async { [weak self] in
+                self?.getNotificationObject(from: challenge)
+            }
         }
     }
     
