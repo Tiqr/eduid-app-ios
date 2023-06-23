@@ -658,12 +658,13 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
 "CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers
- verbonden aan het Nederlandse onderwijs en onderzoek. Het is van jou en bestaat onafhankelijk
- van een onderwijsinstelling.
+ verbonden aan het Nederlandse onderwijs en onderzoek. 
+ Het is van jou en bestaat onafhankelijk van een onderwijsinstelling.
 
  • Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
  • Gebruikers zonder instellingsaccount kunnen ook een eduID aanvragen.
- • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.";
+ • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.
+";
 "CreateEduID.Explanation.CreateEduidButton.COPY" = "Maak een nieuw eduID aan";
 "CreateEduID.Created.MainTitleLabel.COPY" = "Je eduID is aangemaakt";
 "CreateEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";

@@ -656,8 +656,14 @@ When you re-register for a new eduID with that same email address, you will rece
 "CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Add this information";
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Skip this";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Don't have an eduID yet?";
-"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is a central account for users associated with Dutch education and research. It is yours and exists independent of an educational institution.
-• Use it to login to several services connected to SURFconext. • Users without an institution account can also request an eduID. • eduID is a lifelong account. It stays valid after you graduate.";
+"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is a central account for users
+associated with Dutch education and research. It is yours and exists independent
+of an educational institution.
+
+• Use it to login to several services connected to SURFconext.
+• Users without an institution account can also request an eduID.
+• eduID is a lifelong account. It stays valid after you graduate.
+";
 "CreateEduID.Explanation.CreateEduidButton.COPY" = "Create a new eduID";
 "CreateEduID.Created.MainTitleLabel.COPY" = "Your eduID has been created";
 "CreateEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
