@@ -63,8 +63,9 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         viewModel.createEduIDErrorClosure = { [weak self] alertTitle, alertMessage in
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                self?.requestButton.isUserInteractionEnabled = ((self?.textFieldsAreValid) != nil) && ((self?.theSwitch.isOn) != nil)
-                alert.dismiss(animated: true)
+                alert.dismiss(animated: true) {
+                    self?.requestButton.isUserInteractionEnabled = ((self?.textFieldsAreValid) != nil) && ((self?.theSwitch.isOn) != nil)
+                }
             })
             self?.present(alert, animated: true)
         }
