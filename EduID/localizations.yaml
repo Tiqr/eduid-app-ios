@@ -2502,6 +2502,14 @@ IOS:
         en: Use <strong>a password</strong>.
         nl: Gebruik <strong>een wachtwoord</strong>.
   MagicLink:
+    OpenMailTitle:
+      COPY:
+        en: Open the mail app
+        nl: Open de mail app
+    OpenMailDisclaimer:
+      COPY:
+        en: If you can't find the email? Also check the spam folder
+        nl: Kun je de mail niet vinden? Kijk ook in de spam folder
     Header:
       COPY:
         en: Check your email

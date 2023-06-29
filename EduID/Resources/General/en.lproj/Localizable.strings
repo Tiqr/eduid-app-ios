@@ -518,6 +518,8 @@ When you re-register for a new eduID with that same email address, you will rece
 "Options.UseWebAuthn.COPY" = "Use your <strong>security key</strong>.";
 "Options.UseLink.COPY" = "Get a <strong>magic link</strong> sent to your inbox.";
 "Options.UsePassword.COPY" = "Use <strong>a password</strong>.";
+"MagicLink.OpenMailTitle.COPY" = "Open the mail app";
+"MagicLink.OpenMailDisclaimer.COPY" = "If you can't find the email? Also check the spam folder";
 "MagicLink.Header.COPY" = "Check your email";
 "MagicLink.Info.COPY" = "To sign in, click the link in the email we sent to %1$@.";
 "MagicLink.Awaiting.COPY" = "Waiting for you to click the link...";

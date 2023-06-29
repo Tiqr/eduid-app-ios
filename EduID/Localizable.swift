@@ -4401,6 +4401,22 @@ public struct L {
         )
     }
     public struct MagicLink {
+        public static let OpenMailTitle = LocaliciousData(
+            accessibilityIdentifier: "MagicLink.OpenMailTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MagicLink.OpenMailTitle.COPY",
+            translationArgs: []
+        )
+        public static let OpenMailDisclaimer = LocaliciousData(
+            accessibilityIdentifier: "MagicLink.OpenMailDisclaimer",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MagicLink.OpenMailDisclaimer.COPY",
+            translationArgs: []
+        )
         public static let Header = LocaliciousData(
             accessibilityIdentifier: "MagicLink.Header",
             accessibilityHintKey: nil,
