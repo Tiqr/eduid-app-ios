@@ -151,7 +151,7 @@ enum ScreenType: Int, CaseIterable {
             // just logo
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
-                .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen,
+                .firstTimeDialogScreen, .eduIDCreatedScreen,
                 .enterPhoneScreen, .smsChallengeScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
             addLogoTo(item: item)
             item.hidesBackButton = true

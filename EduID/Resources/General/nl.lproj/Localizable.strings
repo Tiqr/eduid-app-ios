@@ -87,6 +87,7 @@ Scan het hier
 "Edit.Cancel.COPY" = "Annuleren";
 "Edit.Updated.COPY" = "Je profiel is bijgewerkt.";
 "Edit.Back.COPY" = "/profile";
+"Email.OpenLinkToConfirm.COPY" = "Om je wijziging te bevestigen, klik op de link in de email die verstuurd is aan %1$@.";
 "Email.UpdateError.COPY" = "Kan de wijziging naar uw nieuwe e-mailadres niet bevestigen: %1$@.";
 "Email.Title.Edit.COPY" = "Bewerk";
 "Email.Title.EmailAddress.COPY" = "E-mailadres";
@@ -438,7 +439,6 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden.</a> En ik begrijp <a tabindex='-1' href='https://eduid.nl/privacyverklaring/' target='_blank'>de privacyverklaring</a>.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Vraag je eduID aan";
 "PollFromInstitution.Header.COPY" = "Open je mailbox!";
-"PollFromInstitution.Info.COPY" = "Om in te loggen, klik op de link in de e-mail die we hebben verstuurd naar <strong>%1$@</strong>.";
 "PollFromInstitution.Awaiting.COPY" = "Wachten tot je op de link klikt...";
 "PollFromInstitution.OpenGMail.COPY" = "Open Gmail.com";
 "PollFromInstitution.OpenOutlook.COPY" = "Open Outlook.com";

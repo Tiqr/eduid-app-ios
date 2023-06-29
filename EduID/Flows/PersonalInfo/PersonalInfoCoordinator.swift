@@ -39,6 +39,7 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
         let checkEmailViewController = CheckEmailViewController()
         checkEmailViewController.emailToCheck = emailToVerify
+        checkEmailViewController.subtitleOverride = L.Email.OpenLinkToConfirm(args: emailToVerify ?? "").localization
         checkEmailViewController.delegate = self
         navigationController!.pushViewController(checkEmailViewController, animated: true)
     }
