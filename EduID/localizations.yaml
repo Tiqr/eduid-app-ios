@@ -3287,8 +3287,8 @@ IOS:
         nl: Ongeldig telefoonnummer, pas je invoer aan
     Password:
       COPY:
-        en: A password must be 8 characters, contain an uppercase letter, and a special character
-        nl: Een wachtwoord moet 8 tekens lang zijn, een hoofdletter en een speciaal teken bevatten
+        en: Password is too weak
+        nl: Wachtwoord niet sterk genoeg
   ResponseErrors:
     EmailInUseTitle:
       COPY:

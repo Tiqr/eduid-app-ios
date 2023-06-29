@@ -685,7 +685,7 @@ We sturen je een code om je nummer te verifiëren.
 "RegEXError.Name.COPY" = "Ongeldig naamformaat, pas je invoer aan";
 "RegEXError.Email.COPY" = "Ongeldig e-mailformaat, pas je invoer aan";
 "RegEXError.Phone.COPY" = "Ongeldig telefoonnummer, pas je invoer aan";
-"RegEXError.Password.COPY" = "Een wachtwoord moet 8 tekens lang zijn, een hoofdletter en een speciaal teken bevatten";
+"RegEXError.Password.COPY" = "Wachtwoord niet sterk genoeg";
 "ResponseErrors.EmailInUseTitle.COPY" = "E-mail al in gebruik";
 "ResponseErrors.EmailInUseText.COPY" = "Er is al een eduID gekoppeld aan deze e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Verboden domein";

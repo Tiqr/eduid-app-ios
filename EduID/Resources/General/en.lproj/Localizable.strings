@@ -684,7 +684,7 @@ We will text you a code to verify your number.
 "RegEXError.Name.COPY" = "Invalid name format, please revise your input";
 "RegEXError.Email.COPY" = "Invalid email format, please revise your input";
 "RegEXError.Phone.COPY" = "Invalid phone format, please revise your input";
-"RegEXError.Password.COPY" = "A password must be 8 characters, contain an uppercase letter, and a special character";
+"RegEXError.Password.COPY" = "Password is too weak";
 "ResponseErrors.EmailInUseTitle.COPY" = "E-mail already in use";
 "ResponseErrors.EmailInUseText.COPY" = "There is already an eduID associated with this e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Forbidden domain";
