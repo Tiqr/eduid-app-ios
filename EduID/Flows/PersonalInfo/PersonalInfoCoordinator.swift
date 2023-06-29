@@ -61,8 +61,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(nameUpdatedViewController, animated: true)
     }
     
-    func goToNameEditor(viewController: UIViewController) {
-        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel())
+    func goToNameEditor(viewController: UIViewController, personalInfo: UserResponse) {
+        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel(personalInfo: personalInfo))
         nameEditorViewController.delegate = self
         navigationController!.pushViewController(nameEditorViewController, animated: true)
     }
