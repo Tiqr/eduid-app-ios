@@ -253,6 +253,6 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func nameControlClicked() {
-        delegate?.goToNameEditor(viewController: self)
+        delegate?.goToNameEditor(viewController: self, personalInfo: viewModel.personalInfo)
     }
 }

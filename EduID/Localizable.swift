@@ -795,6 +795,16 @@ public struct L {
         )
     }
     public struct Email {
+        public static func OpenLinkToConfirm(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "Email.OpenLinkToConfirm",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Email.OpenLinkToConfirm.COPY",
+            translationArgs: args
+        )
+        }
         public static func UpdateError(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
             accessibilityIdentifier: "Email.UpdateError",
@@ -3741,16 +3751,6 @@ public struct L {
             translationKey: "PollFromInstitution.Header.COPY",
             translationArgs: []
         )
-        public static func Info(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
-            accessibilityIdentifier: "PollFromInstitution.Info",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "PollFromInstitution.Info.COPY",
-            translationArgs: args
-        )
-        }
         public static let Awaiting = LocaliciousData(
             accessibilityIdentifier: "PollFromInstitution.Awaiting",
             accessibilityHintKey: nil,

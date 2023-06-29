@@ -13,24 +13,33 @@ class PersonalInfoViewModel: NSObject {
     
     var viewController: CreateEduIDAddInstitutionViewController?
     
-    override init() {
+    init(_ loadData: Bool) {
         super.init()
+        if loadData {
+            getData()
+        }
     }
     
-    @MainActor
+    
     func getData() {
         Task {
             do {
                 try await userResponse = UserControllerAPI.meWithRequestBuilder()
                     .execute()
                     .body
-                processUserData()
+                await processUserData()
             } catch {
-                dataFetchErrorClosure?(error)
+                await processError(with: error)
             }
         }
     }
     
+    @MainActor
+    private func processError(with error: Error) {
+        dataFetchErrorClosure?(error)
+    }
+    
+    @MainActor
     private func processUserData() {
         guard let userResponse = userResponse else { return }
         if userResponse.linkedAccounts?.isEmpty ?? true {

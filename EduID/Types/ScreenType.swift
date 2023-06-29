@@ -106,13 +106,13 @@ enum ScreenType: Int, CaseIterable {
         case .welcomeScreen:
             return CreateEduIDWelcomeViewController()
         case .addInstitutionScreen:
-            return CreateEduIDAddInstitutionViewController(viewModel: PersonalInfoViewModel())
+            return CreateEduIDAddInstitutionViewController(viewModel: PersonalInfoViewModel(true))
         case .homeScreen:
             return HomeViewController()
         case .scanScreen:
             return ScanViewController(viewModel: ScanViewModel(), for: .none)
         case .personalInfoLandingScreen:
-            return PersonalInfoViewController(viewModel: PersonalInfoViewModel())
+            return PersonalInfoViewController(viewModel: PersonalInfoViewModel(false))
         case .personalInfoEditEmailScreen:
             return EmailEditorViewController(viewModel: EmailEditorViewModel())
         case .firstTimeDialogScreen:
@@ -151,7 +151,7 @@ enum ScreenType: Int, CaseIterable {
             // just logo
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
-                .firstTimeDialogScreen, .eduIDCreatedScreen, .checkMailScreen,
+                .firstTimeDialogScreen, .eduIDCreatedScreen,
                 .enterPhoneScreen, .smsChallengeScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
             addLogoTo(item: item)
             item.hidesBackButton = true

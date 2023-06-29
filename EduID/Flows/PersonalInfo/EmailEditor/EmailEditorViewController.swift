@@ -161,7 +161,7 @@ class EmailEditorViewController: UIViewController, ScreenWithScreenType {
             do {
                 let response = try await viewModel.changeEmail()
                 // All went well, we need the user to confirm it now.
-                delegate?.showConfirmEmailScreen(viewController: self, emailToVerify: response.email)
+                delegate?.showConfirmEmailScreen(viewController: self, emailToVerify: viewModel.currentEmail)
             } catch {
                 showError(error)
             }

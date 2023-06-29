@@ -16,10 +16,10 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         self.viewControllerToPresentOn = viewControllerToPresentOn
     }
     
-    func start() {
+    func start(loadData: Bool) {
         let navigationController = UINavigationController()
         self.navigationController = navigationController
-        let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel())
+        let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel(loadData))
         editPersonalInfoViewcontroller.delegate = self
         navigationController.isModalInPresentation = true
         navigationController.pushViewController(editPersonalInfoViewcontroller, animated: false)
@@ -39,6 +39,7 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
         let checkEmailViewController = CheckEmailViewController()
         checkEmailViewController.emailToCheck = emailToVerify
+        checkEmailViewController.subtitleOverride = L.Email.OpenLinkToConfirm(args: emailToVerify ?? "").localization
         checkEmailViewController.delegate = self
         navigationController!.pushViewController(checkEmailViewController, animated: true)
     }
@@ -61,8 +62,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(nameUpdatedViewController, animated: true)
     }
     
-    func goToNameEditor(viewController: UIViewController) {
-        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel())
+    func goToNameEditor(viewController: UIViewController, personalInfo: UserResponse) {
+        let nameEditorViewController = NameEditorViewController(viewModel: NameEditorViewModel(personalInfo: personalInfo))
         nameEditorViewController.delegate = self
         navigationController!.pushViewController(nameEditorViewController, animated: true)
     }

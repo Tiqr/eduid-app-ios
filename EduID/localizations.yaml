@@ -405,6 +405,10 @@ IOS:
         en: /personal
         nl: /profile
   Email:
+    OpenLinkToConfirm:
+      COPY:
+        en: To confirm your change, click the link in the email we sent to %1{{s}}.
+        nl: Om je wijziging te bevestigen, klik op de link in de email die verstuurd is aan %1{{s}}.
     UpdateError:
       COPY:
         en: "Could not confirm changing to your new email address: %1{{s}}."
@@ -430,6 +434,7 @@ IOS:
       COPY:
         en: Your new email address
         nl: Je nieuwe e-mailadres
+    
     Placeholder:
       COPY:
         en: "eg tim@bernerslee.com"
@@ -2127,14 +2132,6 @@ IOS:
       COPY:
         en: Check your email!
         nl: Open je mailbox!
-    Info:
-      COPY:
-        en: >-
-          To sign in, click the link in the email we sent to
-          <strong>%1{{s}}</strong>.
-        nl: >-
-          Om in te loggen, klik op de link in de e-mail die we hebben verstuurd
-          naar <strong>%1{{s}}</strong>.
     Awaiting:
       COPY:
         en: Waiting for you to click the link...

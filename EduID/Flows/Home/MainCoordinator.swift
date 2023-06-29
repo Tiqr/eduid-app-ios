@@ -34,11 +34,11 @@ class MainCoordinator: CoordinatorType {
 
 extension MainCoordinator: HomeViewControllerDelegate  {
     
-    func homeViewControllerShowPersonalInfoScreen(viewController: HomeViewController) {
+    func homeViewControllerShowPersonalInfoScreen(viewController: HomeViewController, loadData: Bool) {
         let personalInfoCoordinator = PersonalInfoCoordinator(viewControllerToPresentOn: homeNavigationController)
         children.append(personalInfoCoordinator)
         personalInfoCoordinator.delegate = self
-        personalInfoCoordinator.start()
+        personalInfoCoordinator.start(loadData: loadData)
     }
     
     func homeViewControllerShowSecurityScreen(viewController: HomeViewController) {

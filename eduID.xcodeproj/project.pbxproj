@@ -32,7 +32,6 @@
 		4F909EAE2A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E872A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift */; };
 		4F909EAF2A31CDDC00FC1506 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E882A31CDDC00FC1506 /* ScreenType.swift */; };
 		4F909EB02A31CDDC00FC1506 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */; };
-		4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */; };
 		4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */; };
 		4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */; };
 		4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */; };
@@ -325,7 +324,6 @@
 		4F909E872A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldModelWithTagAndValid.swift; sourceTree = "<group>"; };
 		4F909E882A31CDDC00FC1506 /* ScreenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
 		4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
-		4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Affiliation.swift; sourceTree = "<group>"; };
 		4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTokenHandler.swift; sourceTree = "<group>"; };
 		4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OIDExternalUserAgentIOSSafari.swift; sourceTree = "<group>"; };
@@ -734,7 +732,6 @@
 				4F909E872A31CDDC00FC1506 /* TextFieldModelWithTagAndValid.swift */,
 				4F909E882A31CDDC00FC1506 /* ScreenType.swift */,
 				4F909E892A31CDDC00FC1506 /* TextFieldValidationType.swift */,
-				4F909E8A2A31CDDC00FC1506 /* Affiliation.swift */,
 				4F909E8B2A31CDDC00FC1506 /* NavigationDelegate.swift */,
 			);
 			path = Types;
@@ -1459,7 +1456,6 @@
 				4F909EAD2A31CDDC00FC1506 /* OnboardingManager.swift in Sources */,
 				4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */,
 				4F909EA52A31CDDC00FC1506 /* UIFont+Styling.swift in Sources */,
-				4F909EB12A31CDDC00FC1506 /* Affiliation.swift in Sources */,
 				4FF567AD2A31D32E00616341 /* SecurityViewControllerDelegate.swift in Sources */,
 				4FC37C2A2A3C47A80036A94C /* PasswordResetLinkViewModel.swift in Sources */,
 				4F909EC62A31CDDC00FC1506 /* TextViewBackgroundColor.swift in Sources */,
