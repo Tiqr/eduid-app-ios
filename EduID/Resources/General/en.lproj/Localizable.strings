@@ -87,6 +87,7 @@ Scan it here
 "Edit.Cancel.COPY" = "Cancel";
 "Edit.Updated.COPY" = "Your profile has been updated";
 "Edit.Back.COPY" = "/personal";
+"Email.OpenLinkToConfirm.COPY" = "To confirm your change, click the link in the email we sent to %1$@.";
 "Email.UpdateError.COPY" = "Could not confirm changing to your new email address: %1$@.";
 "Email.Title.Edit.COPY" = "Edit";
 "Email.Title.EmailAddress.COPY" = "Email address";
@@ -437,7 +438,6 @@ When you re-register for a new eduID with that same email address, you will rece
 "LinkFromInstitution.AgreeWithTerms.COPY" = "<span>I agree with <a tabindex='-1' href='https://eduid.nl/terms-of-use/' target='_blank'>the terms of service.</a> I also understand <a tabindex='-1' href='https://eduid.nl/privacy_policy/' target='_blank'>the privacy policy</a>.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Request your eduID";
 "PollFromInstitution.Header.COPY" = "Check your email!";
-"PollFromInstitution.Info.COPY" = "To sign in, click the link in the email we sent to <strong>%1$@</strong>.";
 "PollFromInstitution.Awaiting.COPY" = "Waiting for you to click the link...";
 "PollFromInstitution.OpenGMail.COPY" = "Open Gmail.com";
 "PollFromInstitution.OpenOutlook.COPY" = "Open Outlook.com";
