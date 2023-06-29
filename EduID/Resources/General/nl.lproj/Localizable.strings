@@ -519,6 +519,8 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Options.UseWebAuthn.COPY" = "Gebruik je <strong>beveiligingssleutel</strong>.";
 "Options.UseLink.COPY" = "Ontvang een <strong>magische link</strong> in je inbox.";
 "Options.UsePassword.COPY" = "Gebruik <strong>een wachtwoord</strong>.";
+"MagicLink.OpenMailTitle.COPY" = "Open de mail app";
+"MagicLink.OpenMailDisclaimer.COPY" = "Kun je de mail niet vinden? Kijk ook in de spam folder";
 "MagicLink.Header.COPY" = "Controleer je email";
 "MagicLink.Info.COPY" = "Om in te loggen, klik op de link in de email die verstuurd is aan %1$@.";
 "MagicLink.Awaiting.COPY" = "Wachten tot je op de link klikt...";
