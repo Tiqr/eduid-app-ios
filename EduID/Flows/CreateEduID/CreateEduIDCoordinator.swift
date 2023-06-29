@@ -28,7 +28,8 @@ final class CreateEduIDCoordinator: CoordinatorType {
     
     //MARK: - start
     func start() {
-        let landingScreen = CreateEduIDLandingPageViewController()
+        let landingScreen = CheckEmailViewController()
+//        let landingScreen = CreateEduIDLandingPageViewController()
         landingScreen.delegate = self
         let navigationController = UINavigationController(rootViewController: landingScreen)
         navigationController.isModalInPresentation = true

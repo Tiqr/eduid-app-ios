@@ -48,6 +48,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         let gmailStack = UIStackView(arrangedSubviews: [gmailImage, gmailButton])
         gmailStack.alignment = .center
         gmailStack.spacing = 8
+        gmailButton.tag = 0
         
         let outlookImage = UIImageView(image: .outlook)
         outlookImage.width(30)
@@ -59,6 +60,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         let outlookStack = UIStackView(arrangedSubviews: [outlookImage, outlookButton])
         outlookStack.alignment = .center
         outlookStack.spacing = 8
+        outlookButton.tag = 1
         
         let emailOptionsVStack = UIStackView(arrangedSubviews: [gmailStack, outlookStack])
         emailOptionsVStack.axis = .vertical
@@ -80,8 +82,17 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         
         // - add constraints
         stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
-        
-        posterLabel.height(34)
+        gmailButton.addTarget(self, action: #selector(openWeb(for:)), for: .touchUpInside)
+        outlookButton.addTarget(self, action: #selector(openWeb(for:)), for: .touchUpInside)
 
     }
+    
+    @objc private func openWeb(for sender: UIButton) {
+        switch sender.tag {
+        case 0: UIApplication.shared.open(URL(string: "https://gmail.com")!)
+        case 1: UIApplication.shared.open(URL(string: "https://login.live.com")!)
+        default: break
+        }
+    }
+    
 }
