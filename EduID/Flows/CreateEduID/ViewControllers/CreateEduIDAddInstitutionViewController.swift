@@ -83,7 +83,11 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         stack.addArrangedSubview(institutionTitleParent)
         stack.setCustomSpacing(6, after: institutionTitleParent)
         
-        let institutionControl = InstitutionControlCollapsible(role: Affiliation(rawValue: model.userResponse.linkedAccounts?.first?.eduPersonAffiliations?.first ?? "") ?? .employee, institution: model.userResponse.linkedAccounts?.first?.schacHomeOrganization ?? "", verifiedAt: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.createdAt ?? 0)), affiliation: model.userResponse.linkedAccounts?.first?.eduPersonAffiliations?.first ?? "", expires: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.expiresAt ?? 0))) { [weak self] in
+        let institutionControl = InstitutionControlCollapsible(
+            institution: model.userResponse.linkedAccounts?.first?.schacHomeOrganization ?? "",
+            verifiedAt: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.createdAt ?? 0)),
+            affiliation: model.userResponse.linkedAccounts?.first?.eduPersonAffiliations?.first ?? "",
+            expires: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.expiresAt ?? 0))) { [weak self] in
             
             guard let linkedAccount = model.userResponse.linkedAccounts?.first else { return }
             
