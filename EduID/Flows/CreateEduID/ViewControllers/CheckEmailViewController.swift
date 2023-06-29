@@ -4,6 +4,7 @@ import TinyConstraints
 class CheckEmailViewController: CreateEduIDBaseViewController {
     
     var emailToCheck: String? = nil
+    var subtitleOverride: String? = nil
     
     //MARK: - lifecycle
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         // - messageLabel
         let email = emailToCheck ?? UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults) ?? ""
         let messageLabel = UILabel.plainTextLabelPartlyBold(
-            text: L.MagicLink.Info(args: email).localization,
+            text: subtitleOverride ?? L.MagicLink.Info(args: email).localization,
             partBold: email)
         
         let disclaimerLabel = UILabel.plainTextLabelPartlyBold(text: L.MagicLink.OpenMailDisclaimer.localization, alignment: .center)
@@ -60,6 +61,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         
         // - add constraints
         stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        posterLabel.height(34)
         openMailButton.width(to: stack)
     }
     
@@ -68,5 +70,12 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
              UIApplication.shared.open(mailURL, options: [:], completionHandler: nil)
          }
     }
-    
+
+        @objc func dismissInfoScreen() {
+        if let navigationController = navigationController {
+            navigationController.dismiss(animated: true)
+        } else {
+            goBack()
+        }
+    }
 }
