@@ -13,8 +13,13 @@ class PersonalInfoViewModel: NSObject {
     
     var viewController: CreateEduIDAddInstitutionViewController?
     
-    override init() {
+    init(_ loadData: Bool) {
         super.init()
+        if loadData {
+            Task {
+                await getData()
+            }
+        }
     }
     
     @MainActor

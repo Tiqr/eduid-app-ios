@@ -19,7 +19,7 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     func start() {
         let navigationController = UINavigationController()
         self.navigationController = navigationController
-        let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel())
+        let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel(true))
         editPersonalInfoViewcontroller.delegate = self
         navigationController.isModalInPresentation = true
         navigationController.pushViewController(editPersonalInfoViewcontroller, animated: false)
