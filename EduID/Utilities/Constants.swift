@@ -5,7 +5,8 @@ enum Constants {
     enum RegEx {
         static let emailRegex = #"^(?=.{6,})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
         static let nameRegex = #"^[a-zA-Z]+(?:[a-zA-Z- ']+)*$"#
-        static let passwordRegex = #".{8,}"#
+        static let shortPasswordRegex = #"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"#
+        static let longPasswordRegex = #".{15,}"#
         static let phoneRegex = #"^(?:(?:00|\+)?\d{1,2}\s?)?\(?(?:\d{3}[\s-]?\d{3}[\s-]?\d{4}|\d{10})\)?$"#
     }
     
