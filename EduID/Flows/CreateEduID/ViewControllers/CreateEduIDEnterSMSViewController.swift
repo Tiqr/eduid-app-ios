@@ -25,6 +25,7 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
                     }
                 }
                 firstPinField?.textfield.becomeFirstResponder()
+                self?.verifyButton.isUserInteractionEnabled = true
             }
             alertController.addAction(alertAction)
             self?.present(alertController, animated: true)

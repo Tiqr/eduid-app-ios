@@ -14,27 +14,26 @@ class ActivityViewModel: NSObject {
         super.init()
     }
     
-    func loadData() {
-        Task{
-            await getData()
-        }
-    }
-    
-    @MainActor
     func getData() {
         Task {
             do {
                 try await userResponse = UserControllerAPI.meWithRequestBuilder()
                     .execute()
                     .body
+                await processUserData()
                 
-                processUserData()
             } catch {
-                dataFetchErrorClosure?(error)
+                await processError(with: error)
             }
         }
     }
     
+    @MainActor
+    private func processError(with error: Error) {
+        dataFetchErrorClosure?(error)
+    }
+    
+    @MainActor
     private func processUserData() {
         guard let userResponse = userResponse else {
             return
