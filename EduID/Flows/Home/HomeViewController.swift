@@ -172,7 +172,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         case .security:
             delegate?.homeViewControllerShowSecurityScreen(viewController: self)
         case .personalInfo:
-            delegate?.homeViewControllerShowPersonalInfoScreen(viewController: self)
+            delegate?.homeViewControllerShowPersonalInfoScreen(viewController: self, loadData: false)
         default: break
         }
     }
