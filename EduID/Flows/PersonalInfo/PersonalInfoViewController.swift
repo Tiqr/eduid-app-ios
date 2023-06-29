@@ -248,10 +248,9 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     }
                     
                     let actionableControl = InstitutionControlCollapsible(
-                        role: Affiliation(rawValue: affiliation) ?? .employee,
                         institution: linkedAccount.schacHomeOrganization ?? "",
                         verifiedAt: createdAt,
-                        affiliation: linkedAccount.eduPersonAffiliations?.first ?? "",
+                        affiliation: affiliation,
                         expires: expiresAt
                     ) { [weak self] in
                         

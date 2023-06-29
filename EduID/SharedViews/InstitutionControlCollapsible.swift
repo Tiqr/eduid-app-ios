@@ -10,13 +10,20 @@ class InstitutionControlCollapsible: UIControl {
     var institution: String
     
     //MARK: - init
-    init(role: Affiliation, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
+    init(institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
         self.institution = institution
         self.removeAction = removeAction
         super.init(frame: .zero)
         
-        let iconEmoji = role == .employee ? "🏢️" : "🧑‍🎓"
-        let title = "\(iconEmoji) \(role.rawValue.capitalized)"
+        let role: String
+        if affiliation.contains("@") {
+            role = affiliation.components(separatedBy: "@")[0]
+        } else {
+            role = affiliation
+        }
+        
+        let iconEmoji = role.lowercased() == "employee" ? "🏢️" : "🧑‍🎓"
+        let title = "\(iconEmoji) \(role.capitalized)"
         setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
