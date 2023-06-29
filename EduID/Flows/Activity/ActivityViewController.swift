@@ -28,7 +28,7 @@ class ActivityViewController: BaseViewController {
         if delegate?.shouldUpdate() == true {
             self.setupUI(model: nil)
             delegate?.didUpdate()
-            viewModel.loadData()
+            viewModel.getData()
         }
         viewModel.dataAvailableClosure = { [weak self] model in
             self?.setupUI(model: model)

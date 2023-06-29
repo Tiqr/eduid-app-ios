@@ -381,4 +381,3 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         delegate?.personalInfoViewControllerDismissPersonalInfoFlow(viewController: self)
     }
 }
-
