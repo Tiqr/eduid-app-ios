@@ -19,8 +19,13 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     private var firstNameIsValid = false
     private var lastNameIsValid = false
     
-    var currentFirstName: String = ""
-    var currentLastName: String = ""
+    var currentFirstName: String
+    var currentLastName: String
+    
+    init(personalInfo: UserResponse) {
+        currentFirstName = personalInfo.givenName ?? ""
+        currentLastName = personalInfo.familyName ?? ""
+    }
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {
         if tag == NameEditorViewModel.TAG_FIRST_NAME {
