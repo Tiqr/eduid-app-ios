@@ -5749,6 +5749,22 @@ public struct L {
         )
     }
     public struct ResponseErrors {
+        public static let UnauthorizedTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.UnauthorizedTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.UnauthorizedTitle.COPY",
+            translationArgs: []
+        )
+        public static let UnauthorizedText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.UnauthorizedText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.UnauthorizedText.COPY",
+            translationArgs: []
+        )
         public static let EmailInUseTitle = LocaliciousData(
             accessibilityIdentifier: "ResponseErrors.EmailInUseTitle",
             accessibilityHintKey: nil,

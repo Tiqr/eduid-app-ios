@@ -688,6 +688,8 @@ We sturen je een code om je nummer te verifiëren.
 "RegEXError.Email.COPY" = "Ongeldig e-mailformaat, pas je invoer aan";
 "RegEXError.Phone.COPY" = "Ongeldig telefoonnummer, pas je invoer aan";
 "RegEXError.Password.COPY" = "Wachtwoord niet sterk genoeg";
+"ResponseErrors.UnauthorizedTitle.COPY" = "Gegevens kunnen niet laden";
+"ResponseErrors.UnauthorizedText.COPY" = "Verzoek kan niet worden voltooid, log in en geef toegang";
 "ResponseErrors.EmailInUseTitle.COPY" = "E-mail al in gebruik";
 "ResponseErrors.EmailInUseText.COPY" = "Er is al een eduID gekoppeld aan deze e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Verboden domein";

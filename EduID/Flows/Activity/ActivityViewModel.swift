@@ -8,7 +8,7 @@ class ActivityViewModel: NSObject {
     // - closures
     var dataAvailableClosure: ((PersonalInfoDataCallbackModel) -> Void)?
     var serviceRemovedClosure: ((LinkedAccount) -> Void)?
-    var dataFetchErrorClosure: ((Error) -> Void)?
+    var dataFetchErrorClosure: ((String, String, Int) -> Void)?
     
     override init() {
         super.init()
@@ -30,7 +30,9 @@ class ActivityViewModel: NSObject {
     
     @MainActor
     private func processError(with error: Error) {
-        dataFetchErrorClosure?(error)
+        dataFetchErrorClosure?(error.eduIdResponseError().title,
+                               error.eduIdResponseError().message,
+                               error.eduIdResponseError().statusCode)
     }
     
     @MainActor

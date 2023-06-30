@@ -12,22 +12,42 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     
     // - delegate
     weak var delegate: SecurityViewControllerDelegate?
+    weak var refreshDelegate: RefreshChildScreenDelegate?
     
     init(viewModel: SecurityOverviewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.dataFetchErrorClosure = {  [weak self] title, message, statusCode in
+            guard let self else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
+                alert.dismiss(animated: true) {
+                    if statusCode == 401 {
+                        AppAuthController.shared.authorize(viewController: self)
+                        self.dismiss(animated: false)
+                        self.refreshDelegate?.requestScreenRefresh(for: .security)
+                    }
+                }
+            })
+            self.present(alert, animated: true)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         setupUI(personalInfo: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        updateData()
     }
     
     private func updateData() {
@@ -64,6 +84,10 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK: - setup UI
     func setupUI(personalInfo: UserResponse?) {
         view.subviews.forEach { $0.removeFromSuperview() }
@@ -87,7 +111,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         let spaceView = UIView()
         
         let stack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
-
+        
         
         // - the info controls
         let firstTitle = NSAttributedString(
@@ -176,7 +200,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     shadow: true
                 )
             }
-    
+            
             stack.addArrangedSubview(twoFactorControl)
             stack.addArrangedSubview(magicLinkControl)
             stack.addArrangedSubview(passwordControl)

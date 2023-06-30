@@ -2,7 +2,7 @@ import UIKit
 import TinyConstraints
 
 class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
-   
+    
     // - screen type
     var screenType: ScreenType = .personalInfoLandingScreen
     
@@ -13,6 +13,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     private var stack: UIStackView!
     private var addInstitutionButton: ActionableControlWithBodyAndTitle!
+    weak var refreshDelegate: RefreshChildScreenDelegate?
     
     static var indexOfFirstLinkedAccount = 5
     
@@ -40,12 +41,19 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
         }
         
-        viewModel.dataFetchErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+            guard let self else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                alert.dismiss(animated: true)
+                alert.dismiss(animated: true) {
+                    if statusCode == 401 {
+                        AppAuthController.shared.authorize(viewController: self)
+                        self.dismiss(animated: false)
+                        self.refreshDelegate?.requestScreenRefresh(for: .personalInfo)
+                    }
+                }
             })
-            self?.present(alert, animated: true)
+            self.present(alert, animated: true)
         }
     }
     
@@ -56,7 +64,6 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
     
     //MARK: - lifecycle
     override func viewDidLoad() {
@@ -69,26 +76,20 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func willEnterForeground() {
-        Task {
-            viewModel.getData()
-        }
+        viewModel.getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         if delegate?.shouldUpdateData() == true {
-            Task {
-                viewModel.getData()
-            }
+            viewModel.getData()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Task {
-            viewModel.getData()
-        }
+        viewModel.getData()
     }
     
     //MARK: - setup UI
@@ -145,8 +146,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
         shareableInformationHeader.widthToSuperview(offset: -48)
-
-                
+        
+        
         // Info controls
         if let model = model {
             let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
@@ -183,14 +184,14 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             )
             
             let emailTitle = NSAttributedString(string: L.Profile.Email.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-
+            
             let emailProvidedByText = NSMutableAttributedString(
                 string: "\(model.userResponse.email ?? "")\n",
                 attributes: AttributedStringHelper.attributes(
                     font: .sourceSansProSemiBold(size: 16),
                     color: .backgroundColor,
                     lineSpacing: 6
-            ))
+                ))
             emailProvidedByText.append(NSAttributedString(
                 string: "\(L.Profile.ProvidedBy.localization) ",
                 attributes: AttributedStringHelper.attributes(
@@ -216,7 +217,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             
             stack.addArrangedSubview(nameControl)
             stack.addArrangedSubview(emailControl)
-
+            
             // - Institutions title
             let institutionsLabel = UILabel()
             institutionsLabel.attributedText = NSAttributedString(

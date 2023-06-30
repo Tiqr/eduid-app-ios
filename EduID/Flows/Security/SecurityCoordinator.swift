@@ -16,14 +16,14 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     }
 
     //MARK: - start
-    func start() {
+    func start(refreshDelegate: RefreshChildScreenDelegate, animated: Bool) {
         let securityOverviewViewController = SecurityOverviewViewController(viewModel: SecurityOverviewViewModel())
         securityOverviewViewController.delegate = self
+        securityOverviewViewController.refreshDelegate = refreshDelegate
         let navigationController = UINavigationController(rootViewController: securityOverviewViewController)
         self.navigationController = navigationController
         navigationController.isModalInPresentation = true
-        
-        viewControllerToPresentOn?.present(navigationController, animated: true)
+        viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
     
     func goBack(viewController: UIViewController) {

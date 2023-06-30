@@ -3298,6 +3298,14 @@ IOS:
         en: Password is too weak
         nl: Wachtwoord niet sterk genoeg
   ResponseErrors:
+    UnauthorizedTitle:
+      COPY:
+        en: Cannot load data
+        nl: Gegevens kunnen niet laden
+    UnauthorizedText:
+      COPY:
+        en: Cannot complete request, please sign in and grant access.
+        nl: Verzoek kan niet worden voltooid, log in en geef toegang
     EmailInUseTitle:
       COPY:
         en: E-mail already in use

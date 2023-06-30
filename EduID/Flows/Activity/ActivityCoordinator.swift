@@ -18,13 +18,14 @@ final class ActivityCoordinator: CoordinatorType {
     
     
     //MARK: - start
-    func start() {
+    func start(refreshDelegate: RefreshChildScreenDelegate, animated: Bool) {
         let activityViewController = ActivityViewController(viewModel: ActivityViewModel())
         activityViewController.delegate = self
+        activityViewController.refreshDelegate = refreshDelegate
         let navigationController = UINavigationController(rootViewController: activityViewController)
         self.navigationController = navigationController
         navigationController.isModalInPresentation = true
-        viewControllerToPresentOn?.present(navigationController, animated: true)
+        viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
 }
 
