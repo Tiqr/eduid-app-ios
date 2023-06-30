@@ -24,10 +24,11 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
     
     override func showNextScreen(_ sender: UIButton? = nil) {
         sender?.isUserInteractionEnabled = false
+        let smsCode = viewModel.pinValue.reduce("", { partialResult, char in partialResult + String(char)})
         if isDeactivationMode != nil {
-            viewModel.performSMSDeactivation(with: viewModel.pinValue.reduce("", { partialResult, char in partialResult + String(char)}))
+            viewModel.performSMSDeactivation(with: smsCode)
         } else {
-            viewModel.enterSMS(code: viewModel.pinValue.reduce("", { partialResult, char in partialResult + String(char) }))
+            viewModel.enterSMS(code: smsCode)
         }
     }
 }
