@@ -6,6 +6,7 @@ class PinViewModel: NSObject {
     var resignKeyboardFocus: (() -> Void)?
     var enableVerifyButton: ((Bool) -> Void)?
     var focusPinField: ((Int) -> Void)?
+    weak var smsActivationHandlerDelegate: SMSActivationHandlerDelegate?
     
     var pinValue: [Character] = ["0", "0", "0", "0", "0", "0"]
     
@@ -21,20 +22,28 @@ class PinViewModel: NSObject {
         }
     }
     
-    //MARK: - closures
-    var smsEntryWasCorrect: ((VerifyPhoneCode) -> Void)?
-    var smsEntryFailed: ((String, String) -> Void)?
     @MainActor
     func enterSMS(code: String) {
         Task {
                 do {
-                    let result = try await TiqrControllerAPI.spVerifyPhoneCodeWithRequestBuilder(phoneVerification: PhoneVerification(phoneVerification: code))
+                    let _ = try await TiqrControllerAPI.spVerifyPhoneCodeWithRequestBuilder(phoneVerification: PhoneVerification(phoneVerification: code))
                         .execute()
                         .body
-                    smsEntryWasCorrect?(result)
+                    smsActivationHandlerDelegate?.smsEntryWasCorrect()
                 } catch {
-                    let responseError = error.eduIdResponseError()
-                    smsEntryFailed?(responseError.title, responseError.message)
+                    smsActivationHandlerDelegate?.presentAlert(with: error)
+                }
+        }
+    }
+    
+    func performSMSDeactivation(with code: String) {
+        Task {
+                do {
+                    let deactivateRequest = DeactivateRequest(verificationCode: code)
+                    let _ = try await TiqrControllerAPI.deactivateApp(deactivateRequest: deactivateRequest)
+                    smsActivationHandlerDelegate?.smsDeactivationWasSuccess()
+                } catch {
+                    smsActivationHandlerDelegate?.presentAlert(with: error)
                 }
         }
     }

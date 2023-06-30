@@ -80,17 +80,15 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
         if enrollmentChallenge == nil {
             Task {
                 do{
-                    let enrolment = try await TiqrControllerAPI.startEnrollmentWithRequestBuilder()
-                        .execute()
-                        .body
+                    let enrolment = try await TiqrControllerAPI.startEnrollment()
                     
                     ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: enrolment.url ?? "") { [weak self] type, object, error in
                         guard let self else { return }
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch {
+                    let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSp()
                     errorExistingUserNotDisconnectAppWantsEnrol?()
-                    completion(false)
                 }
             }
         } else {
