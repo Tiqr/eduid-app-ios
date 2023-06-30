@@ -64,8 +64,14 @@ class EnvironmentService {
     public static let shared = EnvironmentService()
     
     init() {
-        let lastEnvironmentName = UserDefaults.standard.string(forKey: EnvironmentService.lastEnvironmentKey) ?? Environment.production.name
-        currentEnvironment = environments.first(where: { $0.name == lastEnvironmentName }) ?? .production
+        let defaultEnvironment: Environment
+        if (Bundle.main.infoDictionary?["EnvironmentSwitcherEnabled"] as? String) == "YES" {
+            defaultEnvironment = .test
+        } else {
+            defaultEnvironment = .production
+        }
+        let lastEnvironmentName = UserDefaults.standard.string(forKey: EnvironmentService.lastEnvironmentKey) ?? defaultEnvironment.name
+        currentEnvironment = environments.first(where: { $0.name == lastEnvironmentName }) ?? defaultEnvironment
     }
     
     public func setEnvironment(_ environment: Environment) {
