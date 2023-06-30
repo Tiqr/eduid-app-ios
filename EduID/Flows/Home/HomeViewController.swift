@@ -2,6 +2,10 @@ import UIKit
 import TinyConstraints
 import KeychainSwift
 
+protocol RefreshChildScreenDelegate: AnyObject {
+    func requestScreenRefresh(for childScreen: HomeViewChildScreensType)
+}
+
 class HomeViewController: UIViewController, ScreenWithScreenType {
     
     //MARK: - screen type
@@ -9,6 +13,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     weak var delegate: HomeViewControllerDelegate?
     var buttonStack: AnimatedHStackView!
     private var childScreenMode: HomeViewChildScreensType = .none
+    private var screenRefreshWasRequested: Bool?
     
     
     override func viewDidLoad() {
@@ -22,10 +27,6 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         super.viewWillAppear(animated)
         buttonStack.animate()
         screenType.configureNavigationItem(item: navigationItem, target: self)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
     
     func setupUI() {
@@ -161,18 +162,18 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         if askForAuthorisationIfNeeded(){
             childScreenMode = childScreen
         } else {
-            load(childScreen)
+            load(childScreen, animated: true)
         }
     }
     
-    private func load(_ screen: HomeViewChildScreensType) {
+    private func load(_ screen: HomeViewChildScreensType, animated: Bool) {
         switch screen {
         case .activity:
-            delegate?.homeViewControllerShowActivityScreen(viewController: self)
+            delegate?.homeViewControllerShowActivityScreen(viewController: self, animated: animated)
         case .security:
-            delegate?.homeViewControllerShowSecurityScreen(viewController: self)
+            delegate?.homeViewControllerShowSecurityScreen(viewController: self, animated: animated)
         case .personalInfo:
-            delegate?.homeViewControllerShowPersonalInfoScreen(viewController: self, loadData: false)
+            delegate?.homeViewControllerShowPersonalInfoScreen(viewController: self, loadData: false, animated: animated)
         default: break
         }
     }
@@ -182,19 +183,27 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
            !notificationObject.isEmpty {
             delegate?.homeViewControllerShowAuthenticationScreen(with: notificationObject)
         } else if AppAuthController.shared.isLoggedIn() {
-            openPendingScreen()
+            openPendingScreen(animated: self.screenRefreshWasRequested)
         } else if AppAuthController.shared.hasPendingAuthFlow {
             AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
-                self?.openPendingScreen()
+                self?.openPendingScreen(animated: self?.screenRefreshWasRequested)
             }
         }
     }
     
-    public func openPendingScreen() {
+    public func openPendingScreen(animated: Bool?) {
         if childScreenMode != .none {
-            load(childScreenMode)
+            load(childScreenMode, animated: animated ?? true)
             childScreenMode = .none
+            screenRefreshWasRequested = nil
         }
+    }
+}
+
+extension HomeViewController: RefreshChildScreenDelegate {
+    func requestScreenRefresh(for childScreen: HomeViewChildScreensType) {
+        screenRefreshWasRequested = false
+        childScreenMode = childScreen
     }
 }
 

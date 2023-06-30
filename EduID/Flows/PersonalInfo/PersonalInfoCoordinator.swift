@@ -16,14 +16,15 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         self.viewControllerToPresentOn = viewControllerToPresentOn
     }
     
-    func start(loadData: Bool) {
+    func start(refreshDelegate: RefreshChildScreenDelegate ,loadData: Bool, animated: Bool) {
         let navigationController = UINavigationController()
         self.navigationController = navigationController
         let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel(loadData))
+        editPersonalInfoViewcontroller.refreshDelegate = refreshDelegate
         editPersonalInfoViewcontroller.delegate = self
         navigationController.isModalInPresentation = true
         navigationController.pushViewController(editPersonalInfoViewcontroller, animated: false)
-        viewControllerToPresentOn?.present(navigationController, animated: true)
+        viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
     
     func personalInfoViewControllerDismissPersonalInfoFlow(viewController: UIViewController) {

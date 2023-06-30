@@ -6,11 +6,26 @@ class ActivityViewController: BaseViewController {
     let viewModel: ActivityViewModel
     
     weak var delegate: ActivityViewControllerDelegate?
+    weak var refreshDelegate: RefreshChildScreenDelegate?
 
     //MARK: - init
     init(viewModel: ActivityViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+            guard let self else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
+                alert.dismiss(animated: true) {
+                    if statusCode == 401 {
+                        AppAuthController.shared.authorize(viewController: self)
+                        self.dismiss(animated: false)
+                        self.refreshDelegate?.requestScreenRefresh(for: .activity)
+                    }
+                }
+            })
+            self.present(alert, animated: true)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -21,6 +36,11 @@ class ActivityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screenType = .activityLandingScreen
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        viewModel.getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +53,10 @@ class ActivityViewController: BaseViewController {
         viewModel.dataAvailableClosure = { [weak self] model in
             self?.setupUI(model: model)
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - setup UI

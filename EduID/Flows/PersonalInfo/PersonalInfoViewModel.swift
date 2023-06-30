@@ -8,7 +8,7 @@ class PersonalInfoViewModel: NSObject {
     // - closures
     var dataAvailableClosure: ((PersonalInfoDataCallbackModel) -> Void)?
     var serviceRemovedClosure: ((LinkedAccount) -> Void)?
-    var dataFetchErrorClosure: ((Error) -> Void)?
+    var dataFetchErrorClosure: ((String, String, Int) -> Void)?
     private let defaults = UserDefaults.standard
     
     var viewController: CreateEduIDAddInstitutionViewController?
@@ -19,7 +19,6 @@ class PersonalInfoViewModel: NSObject {
             getData()
         }
     }
-    
     
     func getData() {
         Task {
@@ -36,7 +35,9 @@ class PersonalInfoViewModel: NSObject {
     
     @MainActor
     private func processError(with error: Error) {
-        dataFetchErrorClosure?(error)
+        dataFetchErrorClosure?(error.eduIdResponseError().title,
+                               error.eduIdResponseError().message,
+                               error.eduIdResponseError().statusCode)
     }
     
     @MainActor

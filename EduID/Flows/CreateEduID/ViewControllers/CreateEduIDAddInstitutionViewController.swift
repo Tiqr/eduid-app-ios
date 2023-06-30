@@ -22,12 +22,17 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
             self?.setupUI(model: model)
         }
         
-        viewModel.dataFetchErrorClosure = { [weak self] error in
-            let alert = UIAlertController(title: L.ScanView.Error.localization, message: error.localizedDescription, preferredStyle: .alert)
+        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+            guard let self else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                alert.dismiss(animated: true)
+                alert.dismiss(animated: true) {
+                    if statusCode == 401 {
+                        AppAuthController.shared.authorize(viewController: self)
+                    }
+                }
             })
-            self?.present(alert, animated: true)
+            self.present(alert, animated: true)
         }
     }
     
@@ -40,6 +45,15 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         super.viewDidLoad()
         screenType = .addInstitutionScreen        
         continueButton.addTarget(viewModel, action: #selector(viewModel.createAccount), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        viewModel.getData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - setup UI

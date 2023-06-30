@@ -34,25 +34,25 @@ class MainCoordinator: CoordinatorType {
 
 extension MainCoordinator: HomeViewControllerDelegate  {
     
-    func homeViewControllerShowPersonalInfoScreen(viewController: HomeViewController, loadData: Bool) {
+    func homeViewControllerShowPersonalInfoScreen(viewController: HomeViewController, loadData: Bool, animated: Bool) {
         let personalInfoCoordinator = PersonalInfoCoordinator(viewControllerToPresentOn: homeNavigationController)
         children.append(personalInfoCoordinator)
         personalInfoCoordinator.delegate = self
-        personalInfoCoordinator.start(loadData: loadData)
+        personalInfoCoordinator.start(refreshDelegate: viewController, loadData: loadData, animated: animated)
     }
     
-    func homeViewControllerShowSecurityScreen(viewController: HomeViewController) {
+    func homeViewControllerShowSecurityScreen(viewController: HomeViewController, animated: Bool) {
         let securityCoordinator = SecurityCoordinator(viewControllerToPresentOn: homeNavigationController)
         children.append(securityCoordinator)
         securityCoordinator.delegate = self
-        securityCoordinator.start()
+        securityCoordinator.start(refreshDelegate: viewController, animated: animated)
     }
     
-    func homeViewControllerShowActivityScreen(viewController: HomeViewController) {
+    func homeViewControllerShowActivityScreen(viewController: HomeViewController, animated: Bool) {
         let activityCoordinator = ActivityCoordinator(viewControllerToPresentOn: homeNavigationController)
         children.append(activityCoordinator)
         activityCoordinator.delegate = self
-        activityCoordinator.start()
+        activityCoordinator.start(refreshDelegate: viewController, animated: animated)
     }
     
     func homeViewControllerShowScanScreen(viewController: HomeViewController) {
@@ -128,7 +128,7 @@ extension MainCoordinator: VerifyAuthenticationDelegate {
         // An auth flow has just ended. If we also have a token, we can check if there's a pending screen to open
         if AppAuthController.shared.isLoggedIn() {
             if let homeViewController = homeNavigationController.topViewController as? HomeViewController {
-                homeViewController.openPendingScreen()
+                homeViewController.openPendingScreen(animated: true)
             }
         }
     }
