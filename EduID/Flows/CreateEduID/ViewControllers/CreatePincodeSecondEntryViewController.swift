@@ -1,10 +1,3 @@
-//
-//  CofirmPincodeViewController.swift
-//  
-//
-//  Created by Jairo Bambang Oetomo on 14/02/2023.
-//
-
 import UIKit
 
 class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
@@ -28,13 +21,10 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
         }
         
         createPincodeViewModel.errorExistingUserNotDisconnectAppWantsEnrol = { [weak self] in
-            let alertController = UIAlertController(title: L.ResponseErrors.ExistinUserAndDeviceTitle.localization,
-                                                    message: L.ResponseErrors.ExistinUserAndDeviceText.localization,
-                                                    preferredStyle: .alert)
-            
-            let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel)
-            alertController.addAction(alertAction)
-            self?.present(alertController, animated: true)
+            let smsVerification = CreateEduIDEnterSMSViewController(viewModel: PinViewModel(), isSecure: false)
+            smsVerification.modalPresentationStyle = .fullScreen
+            smsVerification.isDeactivationMode = true
+            self?.present(smsVerification, animated: true)
         }
     }
     

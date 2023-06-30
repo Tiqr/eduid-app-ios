@@ -1,10 +1,3 @@
-//
-//  ScrollingViewControllerWithTextFields.swift
-//  
-//
-//  Created by Jairo Bambang Oetomo on 06/02/2023.
-//
-
 import UIKit
 
 class ScrollingTextFieldsViewController: BaseViewController {

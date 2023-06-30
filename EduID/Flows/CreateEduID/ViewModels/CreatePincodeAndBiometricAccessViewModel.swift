@@ -89,8 +89,10 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch {
+                    let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSpWithRequestBuilder()
+                        .execute()
+                        .body
                     errorExistingUserNotDisconnectAppWantsEnrol?()
-                    completion(false)
                 }
             }
         } else {
