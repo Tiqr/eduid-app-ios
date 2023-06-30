@@ -35,15 +35,10 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
 
 extension CreateEduIDEnterSMSViewController: SMSActivationHandlerDelegate {
     
-    func smsDeactivationWasSuccess() {
-        DispatchQueue.main.async { [weak self] in
-            self?.dismiss(animated: true)
-        }
-    }
-    
     func presentAlert(with error: Error) {
         let alertController = UIAlertController(title: error.eduIdResponseError().title,
-                                                message: error.eduIdResponseError().message, preferredStyle: .alert)
+                                                message: error.eduIdResponseError().message,
+                                                preferredStyle: .alert)
         
         let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel) { [weak self] _ in
             var firstPinField:PinTextFieldView?
@@ -58,10 +53,16 @@ extension CreateEduIDEnterSMSViewController: SMSActivationHandlerDelegate {
             firstPinField?.textfield.becomeFirstResponder()
             self?.verifyButton.isUserInteractionEnabled = true
         }
-        alertController.addAction(alertAction)
         
+        alertController.addAction(alertAction)
         DispatchQueue.main.async { [weak self] in
             self?.present(alertController, animated: true)
+        }
+    }
+    
+    func smsDeactivationWasSuccess() {
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true)
         }
     }
     
