@@ -33,6 +33,19 @@ IOS:
         nl: >-
           Beheer jouw persoonlijke informatie, jouw privacy, en de beveiliging
           van jouw eduID account.
+  EnvironmentSwitcher:
+    Button:
+      COPY:
+        en: "Environment"
+        nl: "Omgeving"
+    Title:
+      COPY:
+        en: Switch environment
+        nl: Wisselen van omgeving
+    Subtitle:
+      COPY:
+        en: Click on one of the environments to use it in the app for communicating
+        nl: Klik op een van de omgevingen om die te gebruiken voor de communicatie
   HomeView:
     MainText:
       COPY:

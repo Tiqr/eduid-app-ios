@@ -27,6 +27,14 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         super.viewWillAppear(animated)
         buttonStack.animate()
         screenType.configureNavigationItem(item: navigationItem, target: self)
+        if (Bundle.main.infoDictionary?["EnvironmentSwitcherEnabled"] as? String) == "YES" {
+            navigationItem.rightBarButtonItem = .init(
+                title: L.EnvironmentSwitcher.Button.localization,
+                style: .plain,
+                target: self,
+                action: #selector(openEnvironmentSwitcher)
+            )
+        }
     }
     
     func setupUI() {
@@ -148,6 +156,11 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     
     @objc func activityTapped() {
         presentView(for: .activity)
+    }
+    
+    @objc func openEnvironmentSwitcher() {
+        let switcher = EnvironmentSwitcherController()
+        present(switcher, animated: true)
     }
     
     private func askForAuthorisationIfNeeded() -> Bool {

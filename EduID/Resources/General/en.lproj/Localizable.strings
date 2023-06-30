@@ -5,6 +5,9 @@
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hi %1$@!";
 "Start.Manage.COPY" = "Manage your personal info, your privacy, and the security of your eduID account.";
+"EnvironmentSwitcher.Button.COPY" = "Environment";
+"EnvironmentSwitcher.Title.COPY" = "Switch environment";
+"EnvironmentSwitcher.Subtitle.COPY" = "Click on one of the environments to use it in the app for communicating";
 "HomeView.MainText.COPY" = "Your eduID app
 is ready for use
 ";
