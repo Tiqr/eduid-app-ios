@@ -5823,6 +5823,22 @@ public struct L {
             translationKey: "ResponseErrors.ForbiddenDomainText.COPY",
             translationArgs: []
         )
+        public static let NoInternetAccessTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.NoInternetAccessTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.NoInternetAccessTitle.COPY",
+            translationArgs: []
+        )
+        public static let NoInternetAccessText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.NoInternetAccessText",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.NoInternetAccessText.COPY",
+            translationArgs: []
+        )
         public static let SMSErrorTitle = LocaliciousData(
             accessibilityIdentifier: "ResponseErrors.SMSErrorTitle",
             accessibilityHintKey: nil,

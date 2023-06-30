@@ -697,6 +697,8 @@ We sturen je een code om je nummer te verifiëren.
 "ResponseErrors.EmailInUseText.COPY" = "Er is al een eduID gekoppeld aan deze e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Verboden domein";
 "ResponseErrors.ForbiddenDomainText.COPY" = "Het door jou opgegeven e-maildomein mag niet worden gebruikt";
+"ResponseErrors.NoInternetAccessTitle.COPY" = "Er is iets fout gegaan";
+"ResponseErrors.NoInternetAccessText.COPY" = "Kon de benodigde gegevens niet ophalen";
 "ResponseErrors.SMSErrorTitle.COPY" = "Verkeerde verificatie";
 "ResponseErrors.SMSErrorText.COPY" = "Je hebt een verkeerde verificatiecombinatie ingevoerd";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Onbekende fout";

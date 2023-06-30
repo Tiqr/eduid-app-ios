@@ -3335,6 +3335,14 @@ IOS:
       COPY:
         en: The e-mail domain you specified may not be used
         nl: Het door jou opgegeven e-maildomein mag niet worden gebruikt
+    NoInternetAccessTitle:
+      COPY:
+        en: Something went wrong
+        nl: Er is iets fout gegaan
+    NoInternetAccessText:
+      COPY:
+        en: Could not retrieve the account details
+        nl: Kon de benodigde gegevens niet ophalen
     SMSErrorTitle:
       COPY:
         en: Wrong verification
