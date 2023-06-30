@@ -12,6 +12,12 @@
 		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
 		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
+		4F5DC7232A4EBCE2007D6497 /* auth_config_acceptance.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */; };
+		4F5DC7242A4EBCE2007D6497 /* auth_config_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */; };
+		4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7212A4EBCE2007D6497 /* auth_config.json */; };
+		4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */; };
+		4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */; };
+		4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */; };
 		4F909E1B2A31CD2200FC1506 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E0D2A31CD2200FC1506 /* README.md */; };
 		4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E242A31CD7E00FC1506 /* Result+Utils.swift */; };
 		4F909E272A31CD7E00FC1506 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */; };
@@ -259,6 +265,12 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_acceptance.json; sourceTree = "<group>"; };
+		4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test.json; sourceTree = "<group>"; };
+		4F5DC7212A4EBCE2007D6497 /* auth_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config.json; sourceTree = "<group>"; };
+		4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test2.json; sourceTree = "<group>"; };
+		4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
+		4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSwitcherController.swift; sourceTree = "<group>"; };
 		4F909E0D2A31CD2200FC1506 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F909E242A31CD7E00FC1506 /* Result+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
 		4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -602,6 +614,25 @@
 			path = EduID;
 			sourceTree = "<group>";
 		};
+		4F5DC71E2A4EBCB2007D6497 /* AuthConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */,
+				4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */,
+				4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */,
+				4F5DC7212A4EBCE2007D6497 /* auth_config.json */,
+			);
+			path = AuthConfigs;
+			sourceTree = "<group>";
+		};
+		4F83FB0C2A4DB4F200C2930E /* EnvironmentSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */,
+			);
+			path = EnvironmentSwitcher;
+			sourceTree = "<group>";
+		};
 		4F909E232A31CD7E00FC1506 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +657,7 @@
 		4F909E2B2A31CDB200FC1506 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F5DC71E2A4EBCB2007D6497 /* AuthConfigs */,
 				4F909E2C2A31CDB200FC1506 /* General */,
 				4F909E4B2A31CDB200FC1506 /* Assets.xcassets */,
 				4F909E4C2A31CDB200FC1506 /* Fonts */,
@@ -740,6 +772,7 @@
 		4F909E8E2A31CDDC00FC1506 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */,
 				4F909E902A31CDDC00FC1506 /* BearerTokenHandler.swift */,
 				4F909E912A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift */,
 				4F909E922A31CDDC00FC1506 /* BiometricService.swift */,
@@ -967,6 +1000,7 @@
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4F83FB0C2A4DB4F200C2930E /* EnvironmentSwitcher */,
 				7364BAC82A389AD6003FB978 /* VerifyAuthentication */,
 				73DD92302A334FCC0065956E /* VerifyPinCode */,
 				4FF567592A31D32E00616341 /* Home */,
@@ -1338,6 +1372,7 @@
 				4F909F702A31D1A600FC1506 /* ProximaSoft-SemiBold.otf in Resources */,
 				4F909F712A31D1A600FC1506 /* Nunito-ExtraBold.ttf in Resources */,
 				4F909F722A31D1A600FC1506 /* Nunito-Bold.ttf in Resources */,
+				4F5DC7232A4EBCE2007D6497 /* auth_config_acceptance.json in Resources */,
 				4F909F732A31D1A600FC1506 /* OFL.txt in Resources */,
 				4F909F742A31D1A600FC1506 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				4F909F752A31D1A600FC1506 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
@@ -1346,9 +1381,11 @@
 				4F909F782A31D1A600FC1506 /* SourceSansPro-LightItalic.ttf in Resources */,
 				4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */,
 				4F909F792A31D1A600FC1506 /* SourceSansPro-Light.ttf in Resources */,
+				4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */,
 				4F909F7A2A31D1A600FC1506 /* SourceSansPro-Black.ttf in Resources */,
 				4F909F7B2A31D1A600FC1506 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				4F909F7C2A31D1A600FC1506 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */,
 				4F909F7D2A31D1A600FC1506 /* SourceSansPro-SemiBold.ttf in Resources */,
 				4F909F7E2A31D1A600FC1506 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
 				4F909F7F2A31D1A600FC1506 /* SourceSansPro-Italic.ttf in Resources */,
@@ -1361,6 +1398,7 @@
 				4F909E652A31CDB200FC1506 /* InfoPlist.strings in Resources */,
 				4F909E662A31CDB200FC1506 /* Assets.xcassets in Resources */,
 				4F9D272F2A33353F00F5A6ED /* localizations.yaml in Resources */,
+				4F5DC7242A4EBCE2007D6497 /* auth_config_test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1523,7 @@
 				4FF567D12A31D32E00616341 /* CreateEduIDCreatedViewController.swift in Sources */,
 				4FF567CA2A31D32E00616341 /* CreateEduIDWelcomeViewController.swift in Sources */,
 				4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */,
+				4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */,
 				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
 				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
@@ -1517,6 +1556,7 @@
 				4F909EC52A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift in Sources */,
 				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
+				4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */,
 				4FF567AA2A31D32E00616341 /* ChangePasswordViewController.swift in Sources */,
 				4F958BDC2A3A00C900DD0779 /* DeleteAccountViewModel.swift in Sources */,
 				4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */,
@@ -1720,6 +1760,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENVIRONMENT_SWITCHER_ENABLED = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1826,6 +1867,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENVIRONMENT_SWITCHER_ENABLED = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1926,6 +1968,7 @@
 				DEVELOPMENT_TEAM = ZYJ4TZX4UU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENVIRONMENT_SWITCHER_ENABLED = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1994,6 +2037,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENVIRONMENT_SWITCHER_ENABLED = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;

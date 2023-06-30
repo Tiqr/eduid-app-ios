@@ -7,19 +7,20 @@ public class AppAuthController: NSObject {
     public static var shared = AppAuthController()
     
     //MARK: - properties of AppAuth
+    private var authConfig: AuthConfig
     private var currentAuthorizationFlow: OIDExternalUserAgentSession?
     private var authState: OIDAuthState? {
         didSet {
             if let state = authState {
                 _ = OIDTokenStorage
-                    .storeAuthState(state, forService: AppAuthController.clientID)
+                    .storeAuthState(state, forService: authConfig.clientId)
                     .inspectError { err in
                         NSLog("Failed to store auth state \(err)")
                     }
                 state.stateChangeDelegate = self
             } else {
                 _ = OIDTokenStorage
-                    .removeAuthState(forService: AppAuthController.clientID)
+                    .removeAuthState(forService: authConfig.clientId)
                     .inspectError { err in
                         NSLog("Failed to remove auth state \(err)")
                     }
@@ -29,8 +30,8 @@ public class AppAuthController: NSObject {
     var request: OIDAuthorizationRequest!
     var tokenRefreshRequest: OIDTokenRequest {
         let config = OIDServiceConfiguration(
-            authorizationEndpoint: URL(string: AppAuthController.authEndpointString)!,
-            tokenEndpoint: URL(string: AppAuthController.tokenEndpointString)!
+            authorizationEndpoint: URL(string: authConfig.authorizationEndpointUri)!,
+            tokenEndpoint: URL(string: authConfig.tokenEndpointUri)!
         )
         
         let codeVerifier = OIDAuthorizationRequest.generateCodeVerifier()
@@ -39,8 +40,8 @@ public class AppAuthController: NSObject {
             configuration: config,
             grantType: OIDGrantTypeRefreshToken,
             authorizationCode: nil,
-            redirectURL: URL(string: AppAuthController.redirectURIString),
-            clientID: AppAuthController.clientID,
+            redirectURL: URL(string: authConfig.redirectUri),
+            clientID: authConfig.clientId,
             clientSecret: nil,
             scope: "eduid.nl/mobile",
             refreshToken: authState?.refreshToken,
@@ -55,14 +56,16 @@ public class AppAuthController: NSObject {
     }
     var pendingTaskUntilAuthCompletes: ((Bool) -> Void)? = nil
     
-    //MARK: - URI's
-    static let authEndpointString = "https://connect.test2.surfconext.nl/oidc/authorize"
-    static let tokenEndpointString = "https://connect.test2.surfconext.nl/oidc/token"
-    static let redirectURIString = "https://login.test2.eduid.nl/client/mobile/oauth-redirect"
-    public static let clientID = "dev.egeniq.nl"
+    var clientId: String {
+        get {
+            authConfig.clientId
+        }
+    }
     
     //MARK: - init
     private override init() {
+        authConfig = EnvironmentService.shared.currentEnvironment.getAuthConfig()
+        
         super.init()
         
         loadAuthState() { result in
@@ -70,10 +73,14 @@ public class AppAuthController: NSObject {
                 NSLog("Unable to load auth state from storage: \(error)")
             }
         }
-        
+    
+        loadConfig()
+    }
+    
+    private func loadConfig() {
         let config = OIDServiceConfiguration(
-            authorizationEndpoint: URL(string: AppAuthController.authEndpointString)!,
-            tokenEndpoint: URL(string: AppAuthController.tokenEndpointString)!
+            authorizationEndpoint: URL(string: authConfig.authorizationEndpointUri)!,
+            tokenEndpoint: URL(string: authConfig.tokenEndpointUri)!
         )
         
         let codeVerifier = OIDAuthorizationRequest.generateCodeVerifier()
@@ -81,10 +88,10 @@ public class AppAuthController: NSObject {
         
         request = OIDAuthorizationRequest(
             configuration: config,
-            clientId: AppAuthController.clientID,
+            clientId: authConfig.clientId,
             clientSecret: nil,
             scope: "eduid.nl/mobile",
-            redirectURL: URL(string: AppAuthController.redirectURIString)!,
+            redirectURL: URL(string: authConfig.redirectUri)!,
             responseType: OIDResponseTypeCode,
             state: UUID().uuidString,
             nonce: UUID().uuidString,
@@ -93,14 +100,20 @@ public class AppAuthController: NSObject {
             codeChallengeMethod: OIDOAuthorizationRequestCodeChallengeMethodS256,
             additionalParameters: nil
         )
-        
+    }
+    
+    internal func loadAuthConfig(_ authConfig: AuthConfig) {
+        self.authConfig = authConfig
+        clearAuthState()
+        currentAuthorizationFlow = nil
+        loadConfig()
     }
     
     /// Loads the Auth state.
     /// - Parameter completion: The result of the load operation.
     ///                         After a successful load, the `state` peroperty will be initialized.
     func loadAuthState(completion: @escaping (Result<Void, Error>) -> Void) {
-        if let state = try? OIDTokenStorage.getAuthState(forService: AppAuthController.clientID).get() {
+        if let state = try? OIDTokenStorage.getAuthState(forService: authConfig.clientId).get() {
             self.authState = state
             completion(.success(()))
             return
@@ -108,7 +121,7 @@ public class AppAuthController: NSObject {
     }
     
     public func isRedirectURI(_ uri: URL) -> Bool {
-        let expectedRedirectPath = URLComponents(string: AppAuthController.redirectURIString)?.path
+        let expectedRedirectPath = URLComponents(string: authConfig.redirectUri)?.path
         let inputPath = URLComponents(string: uri.absoluteString)?.path
         return expectedRedirectPath != nil &&
             inputPath != nil &&
@@ -124,7 +137,7 @@ public class AppAuthController: NSObject {
                 return false
             }
             if normalizedUrl.scheme == "eduid" {
-                let expectedUrlComponents = URLComponents(string: AppAuthController.redirectURIString)!
+                let expectedUrlComponents = URLComponents(string: authConfig.redirectUri)!
                 normalizedUrl.scheme = expectedUrlComponents.scheme
                 normalizedUrl.host = expectedUrlComponents.host
             }

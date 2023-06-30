@@ -36,7 +36,7 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
     func createEduID(familyName: String, givenName: String, email: String) {
         Task {
             do {
-                let account = CreateAccount(email: email, givenName: givenName, familyName: familyName, relyingPartClientId: AppAuthController.clientID)
+                let account = CreateAccount(email: email, givenName: givenName, familyName: familyName, relyingPartClientId: AppAuthController.shared.clientId)
                 try await UserControllerAPI.createEduIDAccountWithRequestBuilder(createAccount: account)
                     .execute()
                     .body

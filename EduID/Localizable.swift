@@ -150,6 +150,32 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct EnvironmentSwitcher {
+        public static let Button = LocaliciousData(
+            accessibilityIdentifier: "EnvironmentSwitcher.Button",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EnvironmentSwitcher.Button.COPY",
+            translationArgs: []
+        )
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "EnvironmentSwitcher.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EnvironmentSwitcher.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "EnvironmentSwitcher.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "EnvironmentSwitcher.Subtitle.COPY",
+            translationArgs: []
+        )
+    }
     public struct HomeView {
         public static let MainText = LocaliciousData(
             accessibilityIdentifier: "HomeView.MainText",
