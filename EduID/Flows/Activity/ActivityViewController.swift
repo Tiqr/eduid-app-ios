@@ -21,6 +21,8 @@ class ActivityViewController: BaseViewController {
                         AppAuthController.shared.authorize(viewController: self)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .activity)
+                    } else if statusCode == -1 {
+                        self.dismiss(animated: true)
                     }
                 }
             })

@@ -23,6 +23,11 @@ extension Error {
                     return (title: L.ResponseErrors.ForbiddenDomainTitle.localization,
                             message: L.ResponseErrors.ForbiddenDomainText.localization,
                             statusCode: statusCode)
+                case -1:
+                    return (title: L.ResponseErrors.NoInternetAccessTitle.localization,
+                            message: L.ResponseErrors.NoInternetAccessText.localization,
+                            statusCode: statusCode)
+                    
                 default:
                     return (title: "\(statusCode) \(L.ResponseErrors.UnknownErrorTitle.localization)",
                             message: "\(L.ResponseErrors.UnknownErrorText.localization) \(statusCode)",

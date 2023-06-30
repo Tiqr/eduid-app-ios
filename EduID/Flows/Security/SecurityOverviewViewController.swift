@@ -26,6 +26,8 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                         AppAuthController.shared.authorize(viewController: self)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .security)
+                    } else if statusCode == -1 {
+                        self.dismiss(animated: true)
                     }
                 }
             })

@@ -29,6 +29,8 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
                 alert.dismiss(animated: true) {
                     if statusCode == 401 {
                         AppAuthController.shared.authorize(viewController: self)
+                    } else if statusCode == -1 {
+                        self.dismiss(animated: true)
                     }
                 }
             })

@@ -50,6 +50,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                         AppAuthController.shared.authorize(viewController: self)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .personalInfo)
+                    } else if statusCode == -1 {
+                        self.dismiss(animated: true)
                     }
                 }
             })

@@ -696,6 +696,8 @@ We will text you a code to verify your number.
 "ResponseErrors.EmailInUseText.COPY" = "There is already an eduID associated with this e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Forbidden domain";
 "ResponseErrors.ForbiddenDomainText.COPY" = "The e-mail domain you specified may not be used";
+"ResponseErrors.NoInternetAccessTitle.COPY" = "Something went wrong";
+"ResponseErrors.NoInternetAccessText.COPY" = "Could not retrieve the account details";
 "ResponseErrors.SMSErrorTitle.COPY" = "Wrong verification";
 "ResponseErrors.SMSErrorText.COPY" = "You have entered a wrong verification combination";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Uknown error";
