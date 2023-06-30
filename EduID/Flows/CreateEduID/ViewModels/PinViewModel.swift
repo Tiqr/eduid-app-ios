@@ -40,9 +40,7 @@ class PinViewModel: NSObject {
         Task {
                 do {
                     let deactivateRequest = DeactivateRequest(verificationCode: code)
-                    let _ = try await TiqrControllerAPI.deactivateAppWithRequestBuilder(deactivateRequest: deactivateRequest)
-                        .execute()
-                        .bodyData
+                    let _ = try await TiqrControllerAPI.deactivateApp(deactivateRequest: deactivateRequest)
                     smsActivationHandlerDelegate?.smsDeactivationWasSuccess()
                 } catch {
                     smsActivationHandlerDelegate?.presentAlert(with: error)
