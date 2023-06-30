@@ -58,7 +58,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         noEduIDYetButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
         
         // - create the stackview
-        stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, upperSpaceView, imageView, lowerSpaceView, signInButton, scanQRButton, noEduIDYetButton])
+        stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, upperSpaceView, imageView, lowerSpaceView, signInButton, scanQRButton])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -69,16 +69,32 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
         signInButton.width(to: stack, offset: -24)
         scanQRButton.width(to: stack, offset: -24)
-        noEduIDYetButton.width(to: stack, offset: -24)
         posterLabel.width(to: stack)
         
         stack.setCustomSpacing(24, after: signInButton)
         stack.setCustomSpacing(24, after: scanQRButton)
         
+        if (Bundle.main.infoDictionary?["EnvironmentSwitcherEnabled"] as? String) == "YES" {
+            let envSwitcherButton = EduIDButton(type: .naked, buttonTitle:  L.EnvironmentSwitcher.Button.localization)
+            envSwitcherButton.addTarget(self, action: #selector(openEnvironmentSwitcher), for: .touchUpInside)
+            let horizontalStack = UIStackView(arrangedSubviews: [noEduIDYetButton, envSwitcherButton])
+            horizontalStack.axis = .horizontal
+            horizontalStack.distribution = .fillEqually
+            stack.addArrangedSubview(horizontalStack)
+            horizontalStack.widthToSuperview(offset: -24)
+        } else {
+            stack.addArrangedSubview(noEduIDYetButton)
+            noEduIDYetButton.width(to: stack, offset: -24)
+        }
+        
         stack.hideAndTriggerAll(onlyThese: [3, 4, 5])
     }
     
     //MARK: - button actions
+    @objc func openEnvironmentSwitcher() {
+        let switcher = EnvironmentSwitcherController()
+        present(switcher, animated: true)
+    }
     
     @objc func signInTapped() {
         AppAuthController.shared.authorize(viewController: self)
