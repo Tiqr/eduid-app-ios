@@ -65,6 +65,8 @@ Scan it here
 "Profile.TrustedInfo.COPY" = "You eduID account is not yet linked to a third party";
 "Profile.Link.COPY" = "Link";
 "Profile.Institution.COPY" = "Institution";
+"Profile.InstitutionAt.COPY" = "At ";
+"Profile.Employee.COPY" = "Employee";
 "Profile.Affiliations.COPY" = "Affiliation(s)";
 "Profile.Expires.COPY" = "Link expires";
 "Profile.ExpiresValue.COPY" = "%1$@";
@@ -646,7 +648,9 @@ When you re-register for a new eduID with that same email address, you will rece
 "WelcomeToApp.GotItButton.COPY" = "Ok, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
-"CreateEduID.LandingPage.MainText.COPY" = "Personal account for Education and Research";
+"CreateEduID.LandingPage.MainText.COPY" = "Personal account for
+Education and Research
+";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Sign in";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan a QR code";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "I don't have an eduId";

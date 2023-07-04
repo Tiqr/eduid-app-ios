@@ -20,7 +20,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     init(viewModel: CreateEduIDEnterPhoneNumberViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
+        viewModel.alertErrorHandlerDelegate = self
         viewModel.phoneNumberReceivedClosure = { [weak self] result in
             self?.showNextScreen2()
         }
@@ -132,5 +132,20 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     
     func showNextScreen2() {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+    }
+}
+
+extension CreateEduIDEnterPhoneNumberViewController: AlertErrorHandlerDelegate {
+    func presentAlert(with error: Error) {
+        let alertController = UIAlertController(title: error.eduIdResponseError().title,
+                                                message: error.eduIdResponseError().message,
+                                                preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel) { [weak self] _ in
+            self?.verifyButton.isUserInteractionEnabled = true
+        }
+        alertController.addAction(alertAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertController, animated: true)
+        }
     }
 }

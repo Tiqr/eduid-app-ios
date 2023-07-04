@@ -43,11 +43,8 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         // - add image
         let imageView = UIImageView(image: .landingPageImage)
         imageView.contentMode = .scaleAspectFit
-        imageView.height(252, priority: .defaultLow)
-        imageView.width(141)
         
         // - space
-        let upperSpaceView = UIView()
         let lowerSpaceView = UIView()
         
         // - buttons
@@ -58,18 +55,19 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         noEduIDYetButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
         
         // - create the stackview
-        stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, upperSpaceView, imageView, lowerSpaceView, signInButton, scanQRButton])
+        stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, imageView, lowerSpaceView, signInButton, scanQRButton])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
         stack.alignment = .center
         view.addSubview(stack)
-        upperSpaceView.height(to: lowerSpaceView)
-        
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         signInButton.width(to: stack, offset: -24)
         scanQRButton.width(to: stack, offset: -24)
         posterLabel.width(to: stack)
+        imageView.topToBottom(of: posterLabel, offset: 10)
+        imageView.width(to: stack)
+        imageView.bottomToTop(of: signInButton, offset: -24)
         
         stack.setCustomSpacing(24, after: signInButton)
         stack.setCustomSpacing(24, after: scanQRButton)

@@ -280,6 +280,14 @@ IOS:
       COPY:
         en: Institution
         nl: Instelling
+    InstitutionAt:
+      COPY:
+        en: "At "
+        nl: "Door "
+    Employee:
+      COPY:
+        en: Employee
+        nl: Medewerker
     Affiliations:
       COPY:
         en: Affiliation(s)
@@ -3125,12 +3133,12 @@ IOS:
       LandingPage:
         MainText:
           COPY:
-            en: >-
-              Personal account
-              for Education and Research
-            nl: >-
-              Persoonlijk account
-              voor Onderwijs en Onderzoek
+            en: |
+              Personal account for
+              Education and Research
+            nl: |
+              Persoonlijk account voor
+              Onderwijs en Onderzoek
         SignInButton:
           COPY:
             en: Sign in

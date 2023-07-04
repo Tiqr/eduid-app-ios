@@ -19,16 +19,13 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
-        viewModel.addInstitutionsCompletion = { [weak self] urlAuthorization in
+        viewModel.addInstitutionsCompletion = { urlAuthorization in
             guard let url = URL(string: urlAuthorization.url ?? "") else { return }
-            
             if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url) { fin in
-                    print(fin)
-                }
+                UIApplication.shared.open(url)
             }
         }
-        
+        viewModel.alertErrorHandlerDelegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(showNextScreen), name: .didAddLinkedAccounts, object: nil)
     }
     
@@ -122,5 +119,18 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
     
     @objc func launchAddInstitutions() {
         viewModel.gotoAddInstitutionsInBrowser()
+    }
+}
+
+extension CreateEduIDFirstTimeDialogViewController: AlertErrorHandlerDelegate {
+    func presentAlert(with error: Error) {
+        let alertController = UIAlertController(title: error.eduIdResponseError().title,
+                                                message: error.eduIdResponseError().message,
+                                                preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel)
+        alertController.addAction(alertAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertController, animated: true)
+        }
     }
 }

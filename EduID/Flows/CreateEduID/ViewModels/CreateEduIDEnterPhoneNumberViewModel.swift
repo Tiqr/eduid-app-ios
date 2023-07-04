@@ -5,6 +5,7 @@ class CreateEduIDEnterPhoneNumberViewModel: NSObject {
     
     //MARK: - closures
     var phoneNumberReceivedClosure: ((FinishEnrollment) -> Void)?
+    weak var alertErrorHandlerDelegate: AlertErrorHandlerDelegate?
     
     //MARK: - init
     override init() {
@@ -20,7 +21,7 @@ class CreateEduIDEnterPhoneNumberViewModel: NSObject {
                     .body
                 phoneNumberReceivedClosure?(result)
             } catch let error {
-                assertionFailure(error.localizedDescription)
+                alertErrorHandlerDelegate?.presentAlert(with: error)
             }
         }
     }

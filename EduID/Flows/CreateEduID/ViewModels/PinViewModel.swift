@@ -6,7 +6,7 @@ class PinViewModel: NSObject {
     var resignKeyboardFocus: (() -> Void)?
     var enableVerifyButton: ((Bool) -> Void)?
     var focusPinField: ((Int) -> Void)?
-    weak var smsActivationHandlerDelegate: SMSActivationHandlerDelegate?
+    weak var smsActivationHandlerDelegate: AlertErrorHandlerDelegate?
     
     var pinValue: [Character] = ["0", "0", "0", "0", "0", "0"]
     

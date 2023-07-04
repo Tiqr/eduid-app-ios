@@ -29,7 +29,7 @@ extension Error {
                             statusCode: statusCode)
                     
                 default:
-                    return (title: "\(statusCode) \(L.ResponseErrors.UnknownErrorTitle.localization)",
+                    return (title: "\(statusCode) \(L.ResponseErrors.NoInternetAccessTitle.localization)",
                             message: "\(L.ResponseErrors.UnknownErrorText.localization) \(statusCode)",
                             statusCode: statusCode)
                 }
