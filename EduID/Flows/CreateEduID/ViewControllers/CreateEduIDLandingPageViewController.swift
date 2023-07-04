@@ -34,7 +34,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
                 
         // - add logo
         let logo = UIImageView(image: .eduIDLogo)
-        logo.height(50)
+        logo.height(60)
         logo.width(150)
         
         // - add label
