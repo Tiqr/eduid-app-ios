@@ -5,6 +5,7 @@ class CreateEduIDFirstTimeDialogViewViewModel: NSObject {
     
     //MARK: - closures
     var addInstitutionsCompletion: ((AuthorizationURL) -> Void)?
+    weak var alertErrorHandlerDelegate: AlertErrorHandlerDelegate?
     
     @MainActor
     func gotoAddInstitutionsInBrowser() {
@@ -16,7 +17,7 @@ class CreateEduIDFirstTimeDialogViewViewModel: NSObject {
                 
                 addInstitutionsCompletion?(result)
             } catch {
-                assertionFailure(error.localizedDescription)
+                alertErrorHandlerDelegate?.presentAlert(with: error)
             }
         }
     }

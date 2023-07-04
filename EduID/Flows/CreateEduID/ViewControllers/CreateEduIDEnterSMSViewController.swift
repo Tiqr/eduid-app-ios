@@ -1,10 +1,14 @@
 import UIKit
 import TinyConstraints
 
-protocol SMSActivationHandlerDelegate: AnyObject {
+protocol AlertErrorHandlerDelegate: AnyObject {
     func smsDeactivationWasSuccess()
     func presentAlert(with error: Error)
     func smsEntryWasCorrect()
+}
+extension AlertErrorHandlerDelegate {
+    func smsDeactivationWasSuccess(){}
+    func smsEntryWasCorrect(){}
 }
 
 class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
@@ -33,7 +37,7 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
     }
 }
 
-extension CreateEduIDEnterSMSViewController: SMSActivationHandlerDelegate {
+extension CreateEduIDEnterSMSViewController: AlertErrorHandlerDelegate {
     
     func presentAlert(with error: Error) {
         let alertController = UIAlertController(title: error.eduIdResponseError().title,
