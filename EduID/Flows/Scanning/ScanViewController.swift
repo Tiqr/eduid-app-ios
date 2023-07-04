@@ -110,24 +110,6 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
         let lowerDarkView = UIView()
         lowerDarkView.backgroundColor = .black.withAlphaComponent(0.5)
         
-        // - explanationText
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.textColor = .white
-        label.textAlignment = .center
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.lineSpacing = 10
-        paragraph.alignment = .center
-        let attributedText = NSMutableAttributedString(string: L.ScanView.MainText.localization, attributes: [.foregroundColor: UIColor.white, .font: UIFont.sourceSansProRegular(size: 18), .paragraphStyle: paragraph])
-        
-        attributedText.setAttributeTo(part: L.ScanView.MainTextBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 24)])
-        attributedText.setAttributeTo(part: "eduid.nl/security", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.white])
-        label.attributedText = attributedText
-        label.sizeToFit()
-        lowerDarkView.addSubview(label)
-        label.center(in: lowerDarkView)
-        
         // - the stack view holding the entire frame
         let vStack = UIStackView(arrangedSubviews: [upperDarkView, middelStack, lowerDarkView])
         vStack.axis = .vertical
