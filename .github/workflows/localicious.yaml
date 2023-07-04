@@ -1,0 +1,37 @@
+name: Update translations
+on:
+  push:
+    paths:
+    - 'EduID/localizations.yaml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'npm'
+    - name: Install localicious/
+      run: |
+        npm install -g @picnicsupermarket/localicious
+    - name: Create Localizable.strings files
+      run: |
+        cd ${{ github.workspace }}
+        localicious render EduID/localizations.yaml EduID/ --languages en,nl --outputTypes ios -c IOS
+    - name: Move files and clean up
+      run: |
+        cd ${{ github.workspace }}
+        mv EduID/ios/en/Localizable.strings EduID/Resources/General/en.lproj/Localizable.strings
+        mv EduID/ios/nl/Localizable.strings EduID/Resources/General/nl.lproj/Localizable.strings
+        mv EduID/ios/Localizable.swift EduID/Localizable.swift
+        rm -rf ios
+    - name: Commit updated files
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automated update of Localizable.strings after updating localizations.yaml
+        file_pattern: '**/Localizable.strings'
+
+  
