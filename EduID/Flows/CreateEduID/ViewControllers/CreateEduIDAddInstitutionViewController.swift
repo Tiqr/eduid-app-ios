@@ -136,6 +136,6 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         posterLabel.width(to: stack)
         nameControl.width(to: stack)
         posterLabel.height(68)
-        continueButton.width(to: stack, offset: -24)
+        continueButton.width(to: stack)
     }
 }
