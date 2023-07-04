@@ -65,6 +65,8 @@ Scan it here
 "Profile.TrustedInfo.COPY" = "You eduID account is not yet linked to a third party";
 "Profile.Link.COPY" = "Link";
 "Profile.Institution.COPY" = "Institution";
+"Profile.InstitutionAt.COPY" = "At ";
+"Profile.Employee.COPY" = "Employee";
 "Profile.Affiliations.COPY" = "Affiliation(s)";
 "Profile.Expires.COPY" = "Link expires";
 "Profile.ExpiresValue.COPY" = "%1$@";

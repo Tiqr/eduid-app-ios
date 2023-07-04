@@ -280,6 +280,14 @@ IOS:
       COPY:
         en: Institution
         nl: Instelling
+    InstitutionAt:
+      COPY:
+        en: "At "
+        nl: "Door "
+    Employee:
+      COPY:
+        en: Employee
+        nl: Medewerker
     Affiliations:
       COPY:
         en: Affiliation(s)

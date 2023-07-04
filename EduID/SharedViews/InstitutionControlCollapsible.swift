@@ -22,7 +22,7 @@ class InstitutionControlCollapsible: UIControl {
             role = affiliation
         }
         
-        let iconEmoji = role.lowercased() == "employee" ? "🏢️" : "🧑‍🎓"
+        let iconEmoji = role.lowercased() == L.Profile.Employee.localization ? "🏢️" : "🧑‍🎓"
         let title = "\(iconEmoji) \(role.capitalized)"
         setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
         
@@ -48,7 +48,7 @@ class InstitutionControlCollapsible: UIControl {
         let attributedStringBody = NSMutableAttributedString()
         attributedStringBody.append(NSAttributedString(string: title, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .backgroundColor, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: "\n"))
-        attributedStringBody.append(NSAttributedString(string: "At ", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .secondaryColor, lineSpacing: 6)))
+        attributedStringBody.append(NSAttributedString(string: L.Profile.InstitutionAt.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .secondaryColor, lineSpacing: 6)))
         attributedStringBody.append(NSAttributedString(string: institution, attributes:AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .alertsInformationColor, lineSpacing: 6)))
         let bodyParent = UIView()
         let bodyLabel = UILabel()

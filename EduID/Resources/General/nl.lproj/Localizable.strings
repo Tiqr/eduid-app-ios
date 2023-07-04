@@ -65,6 +65,8 @@ Scan het hier
 "Profile.TrustedInfo.COPY" = "Je eduID account is nog niet gekoppeld aan een vertrouwde partij.";
 "Profile.Link.COPY" = "Koppel";
 "Profile.Institution.COPY" = "Instelling";
+"Profile.InstitutionAt.COPY" = "Door ";
+"Profile.Employee.COPY" = "Medewerker";
 "Profile.Affiliations.COPY" = "Betrekking(en)";
 "Profile.Expires.COPY" = "Koppeling verloopt";
 "Profile.ExpiresValue.COPY" = "%1$@";

@@ -599,6 +599,22 @@ public struct L {
             translationKey: "Profile.Institution.COPY",
             translationArgs: []
         )
+        public static let InstitutionAt = LocaliciousData(
+            accessibilityIdentifier: "Profile.InstitutionAt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.InstitutionAt.COPY",
+            translationArgs: []
+        )
+        public static let Employee = LocaliciousData(
+            accessibilityIdentifier: "Profile.Employee",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.Employee.COPY",
+            translationArgs: []
+        )
         public static let Affiliations = LocaliciousData(
             accessibilityIdentifier: "Profile.Affiliations",
             accessibilityHintKey: nil,
