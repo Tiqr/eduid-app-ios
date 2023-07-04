@@ -647,7 +647,9 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "WelcomeToApp.GotItButton.COPY" = "Ok, begrepen!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Keer terug naar je webbrowser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
-"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijk account voor Onderwijs en Onderzoek";
+"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijk account voor
+Onderwijs en Onderzoek
+";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Een QR code scannen";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
