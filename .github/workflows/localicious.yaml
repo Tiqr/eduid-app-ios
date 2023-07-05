@@ -34,6 +34,6 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automated update of Localizable.strings after updating localizations.yaml
-        file_pattern: '**/Localizable.strings'
+        file_pattern: '**/Localizable.strings **/Localizable.swift'
 
   
