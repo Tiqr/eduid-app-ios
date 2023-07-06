@@ -91,7 +91,7 @@ class ActivityViewController: BaseViewController {
                             logoImageURL: eduID.serviceLogoUrl ?? "",
                             institutionTitle: eduID.serviceName ?? "",
                             date: Date(timeIntervalSince1970: Double((eduID.createdAt ?? 0) / 1000)),
-                            uniqueId: eduID.serviceProviderEntityId ?? "",
+                            uniqueId: eduID.serviceInstutionGuid ?? eduID.value ?? "",
                             removeAction: { [weak self] in
                                 self?.delegate?.goToDeleteService(service: eduID)
                             }
