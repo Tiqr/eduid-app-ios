@@ -41,12 +41,19 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         NotificationCenter.default.addObserver(self, selector: #selector(userWillChangePassword), name: Notification.Name.willChangePassword, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !sendEmailButton.isEnabled && !loadingIndicator.isHidden {
+            sendEmailButton.isEnabled = true
+            loadingIndicator.isHidden = true
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc
-    func userWillAddPassword(_ notification: NSNotification) {
+    @objc func userWillAddPassword(_ notification: NSNotification) {
         // User wants to add a password
         guard let url = notification.userInfo?[Constants.UserInfoKey.passwordChangeUrl] as? URL else {
             assertionFailure("Password add URL not found in notification object!")
