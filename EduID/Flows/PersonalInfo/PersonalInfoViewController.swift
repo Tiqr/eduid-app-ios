@@ -104,14 +104,16 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 previousScrollPosition = scrollView.contentOffset.y
             }
             $0.removeFromSuperview()
-            
         }
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-        scrollView.edges(to: view)
+        scrollView.edgesToSuperview()
         
+        if let navigationBar = navigationController?.navigationBar {
+            scrollView.contentInset = .top((navigationBar.frame.height + 5))
+        }
         // - Main title
         let mainTitle = UILabel.posterTextLabelBicolor(text: L.Profile.Title.localization, size: 24, primary:  L.Profile.Title.localization)
         
@@ -319,20 +321,17 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
-    @objc
-    func emailControlClicked() {
+    @objc func emailControlClicked() {
         delegate?.goToEmailEditor(viewController: self)
     }
     
-    @objc
-    func nameControlClicked() {
+    @objc func nameControlClicked() {
         if let personalInfo = viewModel.userResponse {
             delegate?.goToNameOverview(viewController: self, personalInfo: personalInfo)
         }
     }
     
-    @objc
-    func addInstitutionClicked() {
+    @objc func addInstitutionClicked() {
         self.addInstitutionButton.isEnabled = false
         self.addInstitutionButton.isLoading = true
         Task {
@@ -370,16 +369,14 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
-    @objc
-    func manageAccountClicked() {
+    @objc func manageAccountClicked() {
         guard let personalInfo = viewModel.userResponse else {
             return
         }
         delegate?.goToMyAccount(viewController: self, personalInfo: personalInfo)
     }
     
-    @objc
-    func dismissInfoScreen() {
+    @objc func dismissInfoScreen() {
         delegate?.personalInfoViewControllerDismissPersonalInfoFlow(viewController: self)
     }
 }
