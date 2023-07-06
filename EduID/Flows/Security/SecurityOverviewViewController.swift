@@ -133,10 +133,10 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
                 twoFactorText.setAttributeTo(
                     part: L.Security.ProvidedBy.localization,
-                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.charcoalColor])
                 twoFactorText.setAttributeTo(
                     part: identityProvider,
-                    attributes: [.font: UIFont.sourceSansProSemiBold(size: 12), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProSemiBold(size: 12), .foregroundColor: UIColor.charcoalColor])
                 twoFactorControl = ActionableControlWithBodyAndTitle(
                     attributedTitle: firstTitle,
                     attributedBodyText: twoFactorText,
@@ -147,15 +147,15 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             } else {
                 let twoFactorText = NSMutableAttributedString(
                     string: "\(L.Security.TwoFAKey.localization)\n\(L.Security.NotAddedYet.localization)",
-                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.charcoalColor])
                 twoFactorText.setAttributeTo(
                     part: L.Security.NotAddedYet.localization,
-                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.charcoalColor])
                 twoFactorControl = ActionableControlWithBodyAndTitle(
                     attributedTitle: firstTitle,
                     attributedBodyText: twoFactorText,
-                    iconInBody: .bigPlus,
-                    isFilled: false,
+                    iconInBody: .bigPlus.withRenderingMode(.alwaysOriginal),
+                    isFilled: true,
                     shadow: true
                 )
             }
@@ -191,14 +191,14 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             } else {
                 let passwordText = NSMutableAttributedString(
                     string: "\(L.Security.AddPassword.localization)\n\(L.Security.NotAddedYet.localization)",
-                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.charcoalColor])
                 passwordText.setAttributeTo(
                     part: L.Security.NotAddedYet.localization,
-                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.charcoalColor])
                 passwordControl = ActionableControlWithBodyAndTitle(
                     attributedBodyText: passwordText,
-                    iconInBody: .bigPlus,
-                    isFilled: false,
+                    iconInBody: .bigPlus.withRenderingMode(.alwaysOriginal),
+                    isFilled: true,
                     shadow: true
                 )
             }
