@@ -3145,8 +3145,8 @@ IOS:
             nl: Inloggen
         ScanQrButton:
           COPY:
-            en: Scan a QR code
-            nl: Een QR code scannen
+            en: Scan
+            nl: Scan
         NoEduIdButton:
           COPY:
             en: I don't have an eduId
