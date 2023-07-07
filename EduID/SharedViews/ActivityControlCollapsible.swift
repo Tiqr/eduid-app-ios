@@ -72,9 +72,9 @@ class ActivityControlCollapsible: UIControl {
         firstLoginlabelLabel.attributedText = institutionlabelAttributedString
         
         let firstLoginLabel = UILabel()
-        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
+        let firstLoginLabelAttributedString = NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date) , attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6))
         firstLoginLabel.attributedText = firstLoginLabelAttributedString
-        
+        firstLoginLabel.numberOfLines = .zero
         let firstLoginStack = UIStackView(arrangedSubviews: [firstLoginlabelLabel, firstLoginLabel])
         firstLoginStack.axis = .horizontal
         firstLoginStack.distribution = .fillEqually
