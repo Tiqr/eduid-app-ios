@@ -653,7 +653,7 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 Onderwijs en Onderzoek
 ";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
-"CreateEduID.LandingPage.ScanQrButton.COPY" = "Een QR code scannen";
+"CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
 "CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
