@@ -678,7 +678,7 @@ Onderwijs en Onderzoek
 "CreateEduID.Created.MainTitleLabel.COPY" = "Je eduID is aangemaakt";
 "CreateEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Je emailaddres";
-"CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "jane.doe@eduid.nl";
+"CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
 "CreateEduID.EnterPersonalInfo.Agreement.COPY" = "Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";

@@ -98,12 +98,13 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         institutionsLabel.edges(to: institutionTitleParent)
         stack.addArrangedSubview(institutionTitleParent)
         stack.setCustomSpacing(6, after: institutionTitleParent)
-        
+        let createdAt = Date(timeIntervalSince1970: TimeInterval((model.userResponse.linkedAccounts?.first?.createdAt ?? .zero) / 1000))
+        let expiresAt = Date(timeIntervalSince1970: TimeInterval((model.userResponse.linkedAccounts?.first?.expiresAt ?? .zero) / 1000))
         let institutionControl = InstitutionControlCollapsible(
             institution: model.userResponse.linkedAccounts?.first?.schacHomeOrganization ?? "",
-            verifiedAt: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.createdAt ?? 0)),
+            verifiedAt: createdAt,
             affiliation: model.userResponse.linkedAccounts?.first?.eduPersonAffiliations?.first ?? "",
-            expires: Date(timeIntervalSince1970: Double(model.userResponse.linkedAccounts?.first?.expiresAt ?? 0))) { [weak self] in
+            expires: expiresAt) { [weak self] in
             
             guard let linkedAccount = model.userResponse.linkedAccounts?.first else { return }
             

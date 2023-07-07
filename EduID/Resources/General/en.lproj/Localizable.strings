@@ -677,7 +677,7 @@ of an educational institution.
 "CreateEduID.Created.MainTitleLabel.COPY" = "Your eduID has been created";
 "CreateEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Your email address";
-"CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "jane.doe@eduid.nl";
+"CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
 "CreateEduID.EnterPersonalInfo.Agreement.COPY" = "I agree with the terms of service. I also understand the privacy policy";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";

@@ -129,12 +129,12 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         emailField.delegate = viewModel
         
         // - firstname
-        firstNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.GivenName.localization, placeholder: "Jane", field: .name, keyboardType: .default)
+        firstNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.GivenName.localization, placeholder: "e.g. Tim", field: .name, keyboardType: .default)
         firstNameField.tag = CreateEduIDEnterPersonalInfoViewController.firstNameFieldTag
         firstNameField.delegate = viewModel
         
         // - lastName
-        lastNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.FamilyName.localization, placeholder: "Doe", field: .name, keyboardType: .default)
+        lastNameField = TextFieldViewWithValidationAndTitle(title: L.Edit.FamilyName.localization, placeholder: "e.g. Berners-Lee", field: .name, keyboardType: .default)
         lastNameField.tag = CreateEduIDEnterPersonalInfoViewController.lastNameFieldTag
         lastNameField.delegate = viewModel
         
