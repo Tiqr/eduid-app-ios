@@ -3251,8 +3251,8 @@ IOS:
             nl: Je emailaddres
         EmailFieldPlaceHolder:
           COPY:
-            en: jane.doe@eduid.nl
-            nl: jane.doe@eduid.nl
+            en: e.g. timbernerslee@gmail.com
+            nl: e.g. timbernerslee@gmail.com
         Agreement:
           COPY:
             en: I agree with the terms of service. I also understand the privacy policy
