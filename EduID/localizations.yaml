@@ -69,8 +69,8 @@ IOS:
         nl: Gegevens
     ActivityButton:
       COPY:
-        en: Activities
-        nl: Activiteiten
+        en: Activity
+        nl: Activiteit
     ScanQRButton:
         COPY:
           en: Scan QR
