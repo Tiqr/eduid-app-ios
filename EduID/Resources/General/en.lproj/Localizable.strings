@@ -14,7 +14,7 @@ is ready for use
 "HomeView.YourEduId.COPY" = "Your eduID app";
 "HomeView.SecurityButton.COPY" = "Security";
 "HomeView.PersonalInfoButton.COPY" = "Personal info";
-"HomeView.ActivityButton.COPY" = "Activities";
+"HomeView.ActivityButton.COPY" = "Activity";
 "HomeView.ScanQRButton.COPY" = "Scan QR";
 "ScanView.MainText.COPY" = "Don't see a QR code?
 Go to eduid.nl/security
