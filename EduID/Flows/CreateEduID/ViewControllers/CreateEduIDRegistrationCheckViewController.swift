@@ -27,7 +27,7 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
         if AppAuthController.shared.isLoggedIn() {
             checkForAnyExistingUser()
         } else if AppAuthController.shared.hasPendingAuthFlow {
-            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
+            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self] _ in
                 self?.checkForAnyExistingUser()
             }
         }
