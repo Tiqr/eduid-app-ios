@@ -27,9 +27,7 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
         if AppAuthController.shared.isLoggedIn() {
             Task {
                 await viewModel.checkForAnyExistingUser()
-                await MainActor.run {
-                    setupObservers()
-                }
+                setupObservers()
             }
         }
     }
