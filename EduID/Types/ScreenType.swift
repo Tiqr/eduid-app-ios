@@ -15,6 +15,8 @@ enum ScreenType: Int, CaseIterable {
     case checkMailScreen
     case enterPhoneScreen
     case enterEmail
+    case registrationCheck
+    case redirect
     case smsChallengeScreen
     case welcomeScreen
     case createPincodefirstEntryScreen
@@ -65,7 +67,9 @@ enum ScreenType: Int, CaseIterable {
             return .checkMailScreen
         case .checkMailScreen:
             return .eduIDCreatedScreen
-        case .eduIDCreatedScreen:
+        case .redirect:
+            return .registrationCheck
+        case .eduIDCreatedScreen, .registrationCheck:
             return .createPincodefirstEntryScreen
         case .createPincodefirstEntryScreen:
             return .createPincodeSecondEntryScreen
@@ -75,7 +79,6 @@ enum ScreenType: Int, CaseIterable {
             return ScreenType.isQrEnrolment != nil
             ? .returnToBrowser
             : .enterPhoneScreen
-            
         case .enterPhoneScreen:
             return .smsChallengeScreen
         case .smsChallengeScreen:
@@ -99,6 +102,8 @@ enum ScreenType: Int, CaseIterable {
             return CreateEduIDEnterPersonalInfoViewController(viewModel: CreateEduIDEnterPersonalInfoViewModel())
         case .checkMailScreen:
             return CheckEmailViewController()
+        case .registrationCheck:
+            return CreateEduIDRegistrationCheckViewController()
         case .enterPhoneScreen:
             return CreateEduIDEnterPhoneNumberViewController(viewModel: CreateEduIDEnterPhoneNumberViewModel())
         case .smsChallengeScreen:
@@ -151,7 +156,7 @@ enum ScreenType: Int, CaseIterable {
             // just logo
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
-                .firstTimeDialogScreen, .eduIDCreatedScreen,
+                .firstTimeDialogScreen, .eduIDCreatedScreen, .registrationCheck,
                 .enterPhoneScreen, .smsChallengeScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
             addLogoTo(item: item)
             item.hidesBackButton = true

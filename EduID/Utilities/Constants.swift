@@ -40,4 +40,8 @@ enum Constants {
         static let passwordChangeUrl = "passwordChangeUrl"
     }
     
+    enum RegistrationCheck {
+        static let useApp = "useApp"
+        static let phoneVerified = "phoneVerified"
+    }
 }

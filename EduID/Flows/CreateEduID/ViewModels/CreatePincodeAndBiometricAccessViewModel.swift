@@ -24,8 +24,6 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     var biometricAccessSuccessClosure: (() -> Void)?
     var biometricAccessFailureClosure: ((Error) -> Void)?
     
-    var errorExistingUserNotDisconnectAppWantsEnrol: (() -> Void)?
-    
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
 
@@ -87,8 +85,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch {
-                    let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSp()
-                    errorExistingUserNotDisconnectAppWantsEnrol?()
+                    assertionFailure(error.localizedDescription)
                 }
             }
         } else {

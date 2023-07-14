@@ -39,7 +39,7 @@ final class CreateEduIDCoordinator: CoordinatorType {
     }
     
     @objc func startExistingUserWithoutSecretFlow() {
-        currentScreenType = .eduIDCreatedScreen
+        currentScreenType = .redirect
         createEduIDViewControllerShowNextScreen(viewController: UIViewController())
     }
     

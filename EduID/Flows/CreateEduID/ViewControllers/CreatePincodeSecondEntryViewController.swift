@@ -19,13 +19,6 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
             guard let self = self else { return }
             (self.delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerRedoCreatePin(viewController: self)
         }
-        
-        createPincodeViewModel.errorExistingUserNotDisconnectAppWantsEnrol = { [weak self] in
-            let smsVerification = CreateEduIDEnterSMSViewController(viewModel: PinViewModel(), isSecure: false)
-            smsVerification.modalPresentationStyle = .fullScreen
-            smsVerification.isDeactivationMode = true
-            self?.present(smsVerification, animated: true)
-        }
     }
     
     required init?(coder: NSCoder) {

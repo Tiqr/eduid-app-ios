@@ -221,6 +221,8 @@
 		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
 		73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */; };
 		73910F9D2A3C8299003A40BD /* EduIDPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9C2A3C8299003A40BD /* EduIDPinField.swift */; };
+		73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */; };
+		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 /* End PBXBuildFile section */
@@ -526,6 +528,8 @@
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
 		73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
 		73910F9C2A3C8299003A40BD /* EduIDPinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDPinField.swift; sourceTree = "<group>"; };
+		73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewModel.swift; sourceTree = "<group>"; };
+		73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewController.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1122,6 +1126,7 @@
 				4FF567882A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift */,
 				4FF567892A31D32E00616341 /* CreateEduIDAddInstitutionViewModel.swift */,
 				4FF5678A2A31D32E00616341 /* PinViewModel.swift */,
+				73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1145,6 +1150,7 @@
 				4FF5679B2A31D32E00616341 /* BiometricAccessApprovalViewController.swift */,
 				4FF5679C2A31D32E00616341 /* CheckEmailViewController.swift */,
 				73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */,
+				73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1455,6 +1461,7 @@
 				4FF567B62A31D32E00616341 /* ScanViewModel.swift in Sources */,
 				4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */,
 				4FF567B02A31D32E00616341 /* ActivityViewController.swift in Sources */,
+				73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */,
 				4FF567B72A31D32E00616341 /* ScanViewModelDelegate.swift in Sources */,
 				4FF567C82A31D32E00616341 /* CreatePincodeFirstEntryViewController.swift in Sources */,
 				4FF567D62A31D32E00616341 /* CheckEmailViewController.swift in Sources */,
@@ -1539,6 +1546,7 @@
 				4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */,
 				73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */,
 				4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */,
+				73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */,
 				4F909EBE2A31CDDC00FC1506 /* InstitutionButtonControl.swift in Sources */,
 				4F909EA42A31CDDC00FC1506 /* UIView+Styling.swift in Sources */,
 				4FF567C22A31D32E00616341 /* CreateEduIDEnterSMSViewModel.swift in Sources */,
