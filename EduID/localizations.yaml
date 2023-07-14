@@ -118,6 +118,19 @@ IOS:
       COPY:
         en: You have been logged out
         nl: Je bent uitgelogd
+  RegistrationCheck:
+    MainText:
+      COPY:
+        en: |
+          Checking for
+          existing registration
+        nl: |
+          Controleren op
+          bestaande inschrijving
+    HighLight:
+      COPY:
+        en: existing registration
+        nl: bestaande inschrijving
     LogoutStatus:
       COPY:
         en: To finalise the logout process you must now close this browser.
@@ -835,6 +848,18 @@ IOS:
         COPY:
           en: Backup code
           nl: Herstelcode
+      AlreadyEnrolledTitle:
+        COPY:
+          en: Already enrolled on a different device
+          nl: Al toegevoegd aan een ander toestel
+      AlreadyEnrolledText:
+        COPY:
+          en: |
+            This account already has a device setup for 2FA
+            Would you like to deactivate existing enrollment to enroll on this device?
+          nl: |
+            Dit account is al aan een toestel gekoppeld voor 2FA. 
+            Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
   PasswordResetLink:
     Title:
       AddPassword:

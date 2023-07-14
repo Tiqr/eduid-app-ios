@@ -295,44 +295,62 @@ public struct L {
             translationKey: "Landing.LogoutTitle.COPY",
             translationArgs: []
         )
-        public static let LogoutStatus = LocaliciousData(
-            accessibilityIdentifier: "Landing.LogoutStatus",
+    }
+    public struct RegistrationCheck {
+        public static let MainText = LocaliciousData(
+            accessibilityIdentifier: "RegistrationCheck.MainText",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Landing.LogoutStatus.COPY",
+            translationKey: "RegistrationCheck.MainText.COPY",
+            translationArgs: []
+        )
+        public static let HighLight = LocaliciousData(
+            accessibilityIdentifier: "RegistrationCheck.HighLight",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "RegistrationCheck.HighLight.COPY",
+            translationArgs: []
+        )
+        public static let LogoutStatus = LocaliciousData(
+            accessibilityIdentifier: "RegistrationCheck.LogoutStatus",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "RegistrationCheck.LogoutStatus.COPY",
             translationArgs: []
         )
         public static let LoginAgain = LocaliciousData(
-            accessibilityIdentifier: "Landing.LoginAgain",
+            accessibilityIdentifier: "RegistrationCheck.LoginAgain",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Landing.LoginAgain.COPY",
+            translationKey: "RegistrationCheck.LoginAgain.COPY",
             translationArgs: []
         )
         public static let DeleteTitle = LocaliciousData(
-            accessibilityIdentifier: "Landing.DeleteTitle",
+            accessibilityIdentifier: "RegistrationCheck.DeleteTitle",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Landing.DeleteTitle.COPY",
+            translationKey: "RegistrationCheck.DeleteTitle.COPY",
             translationArgs: []
         )
         public static let DeleteStatus = LocaliciousData(
-            accessibilityIdentifier: "Landing.DeleteStatus",
+            accessibilityIdentifier: "RegistrationCheck.DeleteStatus",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Landing.DeleteStatus.COPY",
+            translationKey: "RegistrationCheck.DeleteStatus.COPY",
             translationArgs: []
         )
         public static let RegisterAgain = LocaliciousData(
-            accessibilityIdentifier: "Landing.RegisterAgain",
+            accessibilityIdentifier: "RegistrationCheck.RegisterAgain",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Landing.RegisterAgain.COPY",
+            translationKey: "RegistrationCheck.RegisterAgain.COPY",
             translationArgs: []
         )
     }
@@ -1588,6 +1606,22 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "Security.Tiqr.Code.COPY",
+                translationArgs: []
+            )
+            public static let AlreadyEnrolledTitle = LocaliciousData(
+                accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolledTitle",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Security.Tiqr.AlreadyEnrolledTitle.COPY",
+                translationArgs: []
+            )
+            public static let AlreadyEnrolledText = LocaliciousData(
+                accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolledText",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Security.Tiqr.AlreadyEnrolledText.COPY",
                 translationArgs: []
             )
         }

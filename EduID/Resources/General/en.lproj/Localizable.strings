@@ -28,11 +28,15 @@ Scan it here
 "Header.Logout.COPY" = "Logout";
 "Header.LogOff.COPY" = "Log Off";
 "Landing.LogoutTitle.COPY" = "You have been logged out";
-"Landing.LogoutStatus.COPY" = "To finalise the logout process you must now close this browser.";
-"Landing.LoginAgain.COPY" = "Login again";
-"Landing.DeleteTitle.COPY" = "Your eduID account has been deleted";
-"Landing.DeleteStatus.COPY" = "To finalise the removal process you must now close this browser.";
-"Landing.RegisterAgain.COPY" = "Register again";
+"RegistrationCheck.MainText.COPY" = "Checking for
+existing registration
+";
+"RegistrationCheck.HighLight.COPY" = "existing registration";
+"RegistrationCheck.LogoutStatus.COPY" = "To finalise the logout process you must now close this browser.";
+"RegistrationCheck.LoginAgain.COPY" = "Login again";
+"RegistrationCheck.DeleteTitle.COPY" = "Your eduID account has been deleted";
+"RegistrationCheck.DeleteStatus.COPY" = "To finalise the removal process you must now close this browser.";
+"RegistrationCheck.RegisterAgain.COPY" = "Register again";
 "NotFound.Title.COPY" = "Whoops...";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
 "Profile.YouAreLoggedIn.COPY" = "You are logged in";
@@ -182,6 +186,10 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.Tiqr.BackupMethod.COPY" = "Recovery method";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Backup code";
+"Security.Tiqr.AlreadyEnrolledTitle.COPY" = "Already enrolled on a different device";
+"Security.Tiqr.AlreadyEnrolledText.COPY" = "This account already has a device setup for 2FA
+Would you like to deactivate existing enrollment to enroll on this device?
+";
 "PasswordResetLink.Title.AddPassword.COPY" = "Add password";
 "PasswordResetLink.Title.ChangePassword.COPY" = "Change or delete password";
 "PasswordResetLink.Description.AddPassword.COPY" = "We will send you an email instantly with a link to add a password.";

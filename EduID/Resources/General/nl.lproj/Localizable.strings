@@ -28,11 +28,15 @@ Scan het hier
 "Header.Logout.COPY" = "Uitloggen";
 "Header.LogOff.COPY" = "Afmelden";
 "Landing.LogoutTitle.COPY" = "Je bent uitgelogd";
-"Landing.LogoutStatus.COPY" = "Om het uitlogproces te voltooien, moet je de browser nu afsluiten.";
-"Landing.LoginAgain.COPY" = "Opnieuw inloggen";
-"Landing.DeleteTitle.COPY" = "Jouw eduID is verwijderd";
-"Landing.DeleteStatus.COPY" = "Om het verwijderen van je eduID te voltooien, moet je jouw browser nu afsluiten.";
-"Landing.RegisterAgain.COPY" = "Opnieuw registreren";
+"RegistrationCheck.MainText.COPY" = "Controleren op
+bestaande inschrijving
+";
+"RegistrationCheck.HighLight.COPY" = "bestaande inschrijving";
+"RegistrationCheck.LogoutStatus.COPY" = "Om het uitlogproces te voltooien, moet je de browser nu afsluiten.";
+"RegistrationCheck.LoginAgain.COPY" = "Opnieuw inloggen";
+"RegistrationCheck.DeleteTitle.COPY" = "Jouw eduID is verwijderd";
+"RegistrationCheck.DeleteStatus.COPY" = "Om het verwijderen van je eduID te voltooien, moet je jouw browser nu afsluiten.";
+"RegistrationCheck.RegisterAgain.COPY" = "Opnieuw registreren";
 "NotFound.Title.COPY" = "Oeps...";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
 "Profile.YouAreLoggedIn.COPY" = "Je bent ingelogd";
@@ -182,6 +186,10 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Security.Tiqr.BackupMethod.COPY" = "Herstelmethode";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Herstelcode";
+"Security.Tiqr.AlreadyEnrolledTitle.COPY" = "Al toegevoegd aan een ander toestel";
+"Security.Tiqr.AlreadyEnrolledText.COPY" = "Dit account is al aan een toestel gekoppeld voor 2FA. 
+Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
+";
 "PasswordResetLink.Title.AddPassword.COPY" = "Voeg een wachtwoord toe";
 "PasswordResetLink.Title.ChangePassword.COPY" = "Wachtwoord wijzigen of verwijderen";
 "PasswordResetLink.Description.AddPassword.COPY" = "We sturen je een email om een wachtwoord in te stellen.";
