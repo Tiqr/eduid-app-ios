@@ -25,9 +25,10 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
     
     override func viewDidAppear(_ animated: Bool) {
         if AppAuthController.shared.isLoggedIn() {
-            Task {
-                await viewModel.checkForAnyExistingUser()
-                setupObservers()
+            checkForAnyExistingUser()
+        } else if AppAuthController.shared.hasPendingAuthFlow {
+            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
+                self?.checkForAnyExistingUser()
             }
         }
     }
@@ -35,6 +36,13 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         activityIndicator.stopAnimating()
+    }
+    
+    private func checkForAnyExistingUser() {
+        Task {
+            await viewModel.checkForAnyExistingUser()
+            setupObservers()
+        }
     }
     
     private func setupObservers() {
