@@ -4,15 +4,15 @@ import Combine
 
 class CreateEduIDRegistrationCheckViewModel: NSObject {
 
-    private let isExistingUser = CurrentValueSubject<Bool, Never>(false)
-    private let shouldDisplayError = CurrentValueSubject<Error?, Never>(nil)
+    private let existingUser = CurrentValueSubject<Bool?, Never>(nil)
+    private let error = CurrentValueSubject<Error?, Never>(nil)
     
-    var isExistingUserPublisher: AnyPublisher<Bool, Never> {
-        return isExistingUser.eraseToAnyPublisher()
+    var existingUserPublisher: AnyPublisher<Bool?, Never> {
+        return existingUser.eraseToAnyPublisher()
     }
     
-    var shouldDisplayErrorPublisher: AnyPublisher<Error?, Never> {
-        return shouldDisplayError.eraseToAnyPublisher()
+    var errorPublisher: AnyPublisher<Error?, Never> {
+        return error.eraseToAnyPublisher()
     }
     
     @MainActor
@@ -23,13 +23,13 @@ class CreateEduIDRegistrationCheckViewModel: NSObject {
                 let registration = userResponse.registration {
                 if loginOptions.contains(Constants.RegistrationCheck.useApp) && registration[Constants.RegistrationCheck.phoneVerified] == true {
                     let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSp()
-                    isExistingUser.send(true)
+                    existingUser.send(true)
                 } else {
-                    isExistingUser.send(false)
+                    existingUser.send(false)
                 }
             }
         } catch {
-            shouldDisplayError.send(error)
+            self.error.send(error)
         }
     }
 }

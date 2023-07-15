@@ -36,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let mainCoordinator: MainCoordinator = MainCoordinator(viewControllerToPresentOn: nil)
+    private var accountWasJustCreated: Bool?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -67,10 +68,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (url.absoluteString.range(of: "tiqrauth") != nil) {
             getAppropriateLaunchOption(with: url.absoluteString)
         } else if (url.absoluteString.range(of: "created") != nil) {
+            accountWasJustCreated = true
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
-            getAppropriateLaunchOption()
+            if accountWasJustCreated == nil {
+                getAppropriateLaunchOption()
+            }
             return
         } else if (url.absoluteString.range(of: "account-linked") != nil) {
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil)
