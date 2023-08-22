@@ -3174,8 +3174,8 @@ IOS:
             nl: Scan
         NoEduIdButton:
           COPY:
-            en: I don't have an eduId
-            nl: Ik heb geen eduId
+            en: I don't have an eduID
+            nl: Ik heb geen eduID
       FirstTimeDialog:
         ConnectButtonTitle:
           COPY:
