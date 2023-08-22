@@ -662,7 +662,7 @@ Onderwijs en Onderzoek
 ";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
-"CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduId";
+"CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduID";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
 "CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
 "CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Sluit dan je instelling aan!";

@@ -661,7 +661,7 @@ Education and Research
 ";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Sign in";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
-"CreateEduID.LandingPage.NoEduIdButton.COPY" = "I don't have an eduId";
+"CreateEduID.LandingPage.NoEduIdButton.COPY" = "I don't have an eduID";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Connect your school/institution";
 "CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Are you studying in NL? Connect your institution!";
 "CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Connect your institution!";
