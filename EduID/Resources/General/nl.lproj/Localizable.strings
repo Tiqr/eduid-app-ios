@@ -690,7 +690,7 @@ Onderwijs en Onderzoek
 "CreateEduID.EnterPersonalInfo.Agreement.COPY" = "Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
-"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
+"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen. Als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
 
 We sturen je een code om je nummer te verifiëren.
 ";

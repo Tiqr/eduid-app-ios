@@ -689,7 +689,7 @@ of an educational institution.
 "CreateEduID.EnterPersonalInfo.Agreement.COPY" = "I agree with the terms of service. I also understand the privacy policy";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
-"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
+"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber. If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
 
 We will text you a code to verify your number.
 ";
