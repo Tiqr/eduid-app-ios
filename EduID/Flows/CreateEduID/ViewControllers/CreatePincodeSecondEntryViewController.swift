@@ -14,6 +14,17 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
             
             (self.delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowBiometricUsageScreen(viewController: self, viewModel: self.createPincodeViewModel)
         }
+        createPincodeViewModel.showErrorDialogClosure = { [weak self] error in
+            guard let self = self else { return }
+            let alert = UIAlertController(
+                title: L.Generic.RequestError.Title.localization,
+                message: error.localizedFromApi,
+                preferredStyle: .alert)
+            alert.addAction(.init(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { _ in
+                alert.dismiss(animated: true)
+            })
+            self.present(alert, animated: true)
+        }
         
         createPincodeViewModel.redoCreatePincodeClosure = { [weak self] in
             guard let self = self else { return }
