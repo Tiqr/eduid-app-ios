@@ -23,6 +23,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     var showPromptUseBiometricAccessClosure: (() -> Void)?
     var biometricAccessSuccessClosure: (() -> Void)?
     var biometricAccessFailureClosure: ((Error) -> Void)?
+    var showErrorDialogClosure: ((Error) -> Void)?
     
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
@@ -38,9 +39,11 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     func verifyPinSimilarity() {
         if firstEnteredPin == secondEnteredPin {
             Task {
-                await requestTiqrEnroll() { [weak self] success in
+                await requestTiqrEnroll() { [weak self] error in
                     guard let self else { return }
-                    if success {
+                    if let error = error  {
+                        self.showErrorDialogClosure?(error)
+                    } else {
                         self.showUseBiometricScreenClosure?()
                     }
                 }
@@ -74,18 +77,21 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     
     //run After the second pin
     @MainActor
-    func requestTiqrEnroll(completion: @escaping ((Bool) -> Void)) {
+    func requestTiqrEnroll(completion: @escaping ((Error?) -> Void)) {
         if enrollmentChallenge == nil {
             Task {
-                do{
+                do {
                     let enrolment = try await TiqrControllerAPI.startEnrollment()
-                    
                     ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: enrolment.url ?? "") { [weak self] type, object, error in
                         guard let self else { return }
+                        if error != nil {
+                            completion(error)
+                            return
+                        }
                         self.createIdentity(for: object as? EnrollmentChallenge, completion: completion)
                     }
                 } catch {
-                    assertionFailure(error.localizedDescription)
+                    completion(error)
                 }
             }
         } else {
@@ -93,15 +99,15 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
         }
     }
     
-    private func createIdentity(for challenge: EnrollmentChallenge?, completion: @escaping ((Bool) -> Void)) {
+    private func createIdentity(for challenge: EnrollmentChallenge?, completion: @escaping ((Error?) -> Void)) {
         if let enrolChallenge = challenge {
             self.secondEnteredPin.removeLast(2)
             ServiceContainer.sharedInstance().challengeService.complete(enrolChallenge, usingBiometricID: false, withPIN: self.pinToString(pinArray: self.secondEnteredPin)) { success, error in
                 if success {
                     self.enrollmentChallenge = enrolChallenge
-                    completion(true)
+                    completion(nil)
                 } else {
-                    completion(false)
+                    completion(error ?? EnrolmentError())
                 }
             }
         }
@@ -151,4 +157,8 @@ extension CreatePincodeAndBiometricAccessViewModel {
             break
         }
     }
+}
+
+class EnrolmentError: LocalizedError, CustomStringConvertible {
+    var description: String { return L.Generic.RequestError.Description(args: "incomplete enrolment challenge").localization }
 }
