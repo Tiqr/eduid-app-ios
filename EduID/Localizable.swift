@@ -5359,6 +5359,14 @@ public struct L {
             translationKey: "PinAndBioMetrics.LoginRequest.COPY",
             translationArgs: []
         )
+        public static let DoYouWantToLogInTo = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.DoYouWantToLogInTo",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.DoYouWantToLogInTo.COPY",
+            translationArgs: []
+        )
         public static let EnteredPinNotEqual = LocaliciousData(
             accessibilityIdentifier: "PinAndBioMetrics.EnteredPinNotEqual",
             accessibilityHintKey: nil,

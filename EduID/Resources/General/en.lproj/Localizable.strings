@@ -634,7 +634,8 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "PinAndBioMetrics.VerifyPinScreenText.COPY" = "Enter the PIN and press OK";
 "PinAndBioMetrics.SignIn.COPY" = "Login";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
-"PinAndBioMetrics.LoginRequest.COPY" = "Request to login";
+"PinAndBioMetrics.LoginRequest.COPY" = "Request to log on";
+"PinAndBioMetrics.DoYouWantToLogInTo.COPY" = "Do you want to log in to";
 "PinAndBioMetrics.EnteredPinNotEqual.COPY" = "The entered PIN codes were not equal";
 "PinAndBioMetrics.RetryPin.COPY" = "Oops, let's try again";
 "PinAndBioMetrics.VerifyPin.COPY" = "Verify this pin code";

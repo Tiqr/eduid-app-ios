@@ -31,13 +31,31 @@ class VerifyScanResultViewController: BaseViewController {
         super.viewDidAppear(animated)
         screenType.configureNavigationItem(item: navigationItem)
     }
+    
+    private func requestLoginLabel(entityName: String, challengeType: TIQRChallengeType) -> UILabel {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 16
+    
+        let labelString = L.PinAndBioMetrics.DoYouWantToLogInTo.localization
+        let entityNameWithQuestionMark = "\(entityName)?"
+        
+        let attributedString = NSMutableAttributedString(string: "\(labelString)\n\(entityNameWithQuestionMark)", attributes: [.font: UIFont.sourceSansProSemiBold(size: 24), .foregroundColor: UIColor.primaryColor, .paragraphStyle: paragraphStyle])
+        attributedString.setAttributeTo(part: entityNameWithQuestionMark, attributes: [.foregroundColor: UIColor.charcoalColor, .font: UIFont.sourceSansProSemiBold(size: 32), .paragraphStyle: paragraphStyle])
+        let label = UILabel()
+        label.attributedText = attributedString
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }
+    
+    
     //MARK: - setupUI
     func setupUI() {
         // - top poster label
-        let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.PinAndBioMetrics.LoginRequest.localization, primary: L.PinAndBioMetrics.LoginRequest.localization)
-        posterParent.addSubview(posterLabel)
-        posterLabel.edges(to: posterParent)
+        let posterLabel = UILabel.posterTextLabelBicolor(
+            text: L.PinAndBioMetrics.LoginRequest.localization,
+            primary: L.PinAndBioMetrics.LoginRequest.localization
+        )
         
         let upperspace = UIView()
         
@@ -47,9 +65,15 @@ class VerifyScanResultViewController: BaseViewController {
         
         switch viewModel.challengeType {
         case .enrollment:
-            middlePosterLabel = UILabel.requestLoginLabel(entityName: (viewModel.challenge as? EnrollmentChallenge)?.identityDisplayName ?? "", challengeType: viewModel.challengeType ?? .invalid)
+            middlePosterLabel = requestLoginLabel(
+                entityName: (viewModel.challenge as? EnrollmentChallenge)?.identityDisplayName ?? "",
+                challengeType: viewModel.challengeType ?? .invalid
+            )
         case .authentication:
-            middlePosterLabel = UILabel.requestLoginLabel(entityName: (viewModel.challenge as? AuthenticationChallenge)?.serviceProviderDisplayName ?? "", challengeType: viewModel.challengeType ?? .invalid)
+            middlePosterLabel = requestLoginLabel(
+                entityName: (viewModel.challenge as? AuthenticationChallenge)?.serviceProviderDisplayName ?? "", 
+                challengeType: viewModel.challengeType ?? .invalid
+            )
         default:
             break
         }
@@ -76,11 +100,12 @@ class VerifyScanResultViewController: BaseViewController {
         animatedHStack.spacing = 24
         
         // - the stackView
-        mainStack = BasicStackView(arrangedSubviews: [posterParent, upperspace, middlePosterParent, lowerSpace, animatedHStack])
+        mainStack = BasicStackView(arrangedSubviews: [posterLabel, upperspace, middlePosterParent, lowerSpace, animatedHStack])
         view.addSubview(mainStack)
         
         // - constraints
         mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        posterLabel.width(to: mainStack)
         upperspace.height(to: lowerSpace)
         animatedHStack.width(to: mainStack)
         primaryButton.width(to: cancelButton)

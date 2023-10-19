@@ -3062,8 +3062,12 @@ IOS:
         nl: OK
     LoginRequest:
       COPY:
-        en: Request to login
-        nl: Inlogverzoek
+        en: Request to log on
+        nl: Verzoek om in te loggen
+    DoYouWantToLogInTo:
+      COPY:
+        en: Do you want to log in to
+        nl: Wil je inloggen bij
     EnteredPinNotEqual:
       COPY:
         en: The entered PIN codes were not equal

@@ -53,27 +53,4 @@ extension UILabel {
         label.sizeToFit()
         return label
     }
-    
-    static func requestLoginLabel(entityName: String, challengeType: TIQRChallengeType) -> UILabel {
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 16
-        
-        var labelString = ""
-        switch challengeType {
-        case .enrollment:
-            labelString = "Request enrollment for user:\n"
-        case .authentication:
-            labelString = "Request login for:\n"
-        default:
-            break
-        }
-        
-        let attributedString = NSMutableAttributedString(string: "\(labelString)\(entityName)", attributes: [.font: UIFont.sourceSansProSemiBold(size: 24), .foregroundColor: UIColor.primaryColor, .paragraphStyle: paragraphStyle])
-        attributedString.setAttributeTo(part: entityName, attributes: [.foregroundColor: UIColor.charcoalColor, .font: UIFont.sourceSansProSemiBold(size: 36), .paragraphStyle: paragraphStyle])
-        let label = UILabel()
-        label.attributedText = attributedString
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
-    }
 }
