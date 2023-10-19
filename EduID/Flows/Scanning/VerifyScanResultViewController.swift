@@ -165,8 +165,31 @@ class VerifyScanResultViewController: BaseViewController {
                     guard let self else { return }
                     self.updateUIAfterSigningIn()
                 }
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    self?.presentPinCodeErrorScreen(error as NSError)
+                }
             }
         }
+    }
+    
+    private func presentPinCodeErrorScreen(_ error: NSError?) {
+        let title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        let description = error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
+        let alert = UIAlertController(
+            title: title,
+            message: description,
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Back.localization, style: .default) { _ in
+            alert.dismiss(animated: true)
+        })
+        if error?.code == 303 {
+            // Incorrect PIN
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Retry.localization, style: .default) { _ in
+                self.presentPinCodeVerifyScreen()
+            })
+        }
+        self.present(alert, animated: true)
     }
     
     private func updateUIAfterSigningIn() {

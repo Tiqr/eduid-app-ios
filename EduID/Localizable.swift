@@ -5383,6 +5383,24 @@ public struct L {
             translationKey: "PinAndBioMetrics.VerifyPin.COPY",
             translationArgs: []
         )
+        public struct Button {
+            public static let Retry = LocaliciousData(
+                accessibilityIdentifier: "PinAndBioMetrics.Button.Retry",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PinAndBioMetrics.Button.Retry.COPY",
+                translationArgs: []
+            )
+            public static let Back = LocaliciousData(
+                accessibilityIdentifier: "PinAndBioMetrics.Button.Back",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "PinAndBioMetrics.Button.Back.COPY",
+                translationArgs: []
+            )
+        }
         public static let CheckMessages = LocaliciousData(
             accessibilityIdentifier: "PinAndBioMetrics.CheckMessages",
             accessibilityHintKey: nil,

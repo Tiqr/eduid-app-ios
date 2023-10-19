@@ -3076,6 +3076,15 @@ IOS:
         COPY:
           en: Verify this pin code
           nl: Controleer pincode
+    Button:
+      Retry:
+        COPY:
+          en: Try again
+          nl: Probeer opnieuw
+      Back:
+        COPY:
+          en: Back
+          nl: Terug
     CheckMessages:
         COPY:
           en: Check your messages

@@ -639,6 +639,8 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "PinAndBioMetrics.EnteredPinNotEqual.COPY" = "De ingevoerde pincodes waren niet gelijk";
 "PinAndBioMetrics.RetryPin.COPY" = "Oeps, laten we het opnieuw proberen";
 "PinAndBioMetrics.VerifyPin.COPY" = "Controleer pincode";
+"PinAndBioMetrics.Button.Retry.COPY" = "Probeer opnieuw";
+"PinAndBioMetrics.Button.Back.COPY" = "Terug";
 "PinAndBioMetrics.CheckMessages.COPY" = "Controleer je berichten";
 "PinAndBioMetrics.EnterSixDigitCode.COPY" = "Voer de zescijferige code in die we naar je telefoon hebben gestuurd om door te gaan";
 "PinAndBioMetrics.SixDigitCode.COPY" = "zescijferige";
