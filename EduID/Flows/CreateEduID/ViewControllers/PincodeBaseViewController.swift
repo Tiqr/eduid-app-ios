@@ -82,6 +82,8 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         
+        screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
+        
         // - create the textView
         let textLabelParent = UIView()
         textLabel = UILabel.plainTextLabelPartlyBold(text:L.PinAndBioMetrics.EnterSixDigitCode.localization, partBold: L.PinAndBioMetrics.SixDigitCode.localization)
@@ -133,6 +135,10 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         verifyButton.isEnabled = false
         verifyButton.addTarget(self, action: #selector(showNextScreen), for: .touchUpInside)
         
+    }
+    
+    @objc func dismissInfoScreen() {
+        delegate?.goBack(viewController: self)
     }
     
     //MARK: - gesture action resign keyboard focus

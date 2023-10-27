@@ -139,8 +139,9 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
 
     @objc
     func goBack(viewController: UIViewController) {
-        currentScreenType = ScreenType(rawValue: max(0, currentScreenType.rawValue - 1)) ?? .none
         navigationController.popViewController(animated: true)
+        currentScreenType = (navigationController.topViewController as? BaseViewController)?.screenType ??
+            ScreenType(rawValue: max(0, currentScreenType.rawValue - 1)) ?? .none
     }
 }
 
