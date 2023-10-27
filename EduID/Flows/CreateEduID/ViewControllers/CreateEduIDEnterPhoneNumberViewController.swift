@@ -22,7 +22,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         super.init(nibName: nil, bundle: nil)
         viewModel.alertErrorHandlerDelegate = self
         viewModel.phoneNumberReceivedClosure = { [weak self] result in
-            self?.showNextScreen2()
+            self?.goToConfirmSmsScreen()
         }
     }
     
@@ -130,7 +130,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         viewModel.sendPhoneNumber(number: validatedPhoneTextField.textField.text ?? "")
     }
     
-    func showNextScreen2() {
+    func goToConfirmSmsScreen() {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
     }
 }

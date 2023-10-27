@@ -153,14 +153,16 @@ enum ScreenType: Int, CaseIterable {
             item.hidesBackButton = true
             item.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: target, action: action)
             item.rightBarButtonItem?.tintColor = .white
-            // just logo
+            
+            // Just logo, no back button
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
                 .firstTimeDialogScreen, .eduIDCreatedScreen, .registrationCheck,
-                .enterPhoneScreen, .smsChallengeScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
+                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
             addLogoTo(item: item)
             item.hidesBackButton = true
             
+            // Back button
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true
