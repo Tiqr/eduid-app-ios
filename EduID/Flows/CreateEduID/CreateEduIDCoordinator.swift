@@ -20,6 +20,11 @@ final class CreateEduIDCoordinator: CoordinatorType {
         self.viewControllerToPresentOn = viewControllerToPresentOn
         NotificationCenter.default.addObserver(self, selector: #selector(startExistingUserWithoutSecretFlow), name: .firstTimeAuthorizationComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(startExistingUserWithSecretFlow), name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
+        let navigationController = UINavigationController()
+        navigationController.isModalInPresentation = true
+        navigationController.modalPresentationStyle = .fullScreen
+        self.navigationController = navigationController
+        viewControllerToPresentOn?.present(self.navigationController, animated: false)
     }
     
     deinit {
@@ -27,15 +32,10 @@ final class CreateEduIDCoordinator: CoordinatorType {
     }
     
     //MARK: - start
-    func start() {
+    func startWithLanding() {
         let landingScreen = CreateEduIDLandingPageViewController()
         landingScreen.delegate = self
-        let navigationController = UINavigationController(rootViewController: landingScreen)
-        navigationController.isModalInPresentation = true
-        navigationController.modalPresentationStyle = .fullScreen
-        self.navigationController = navigationController
-        // the next line is responsible for presenting the onboarding and is sometimes commented out for development purposes
-        viewControllerToPresentOn?.present(self.navigationController, animated: false)
+        navigationController.setViewControllers([landingScreen], animated: false)
     }
     
     @objc func startExistingUserWithoutSecretFlow() {
@@ -61,7 +61,11 @@ extension CreateEduIDCoordinator: ScanCoordinatorDelegate {
             return
         }
         
-        let pincodeFirstAttemptViewController = CreatePincodeFirstEntryViewController(viewModel: CreatePincodeAndBiometricAccessViewModel(enrollmentChallenge: challenge, isQrEnrolment: true))
+        let pincodeFirstAttemptViewController = CreatePincodeFirstEntryViewController(
+            viewModel: CreatePincodeAndBiometricAccessViewModel(
+                enrollmentChallenge: challenge
+            )
+        )
         
         pincodeFirstAttemptViewController.delegate = self
         navigationController.pushViewController(pincodeFirstAttemptViewController, animated: true)
@@ -87,7 +91,7 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
             return
         }
         
-        // - this is the end of the onboarding in case the user has scannes the enrollment qr from the web
+        // - this is the end of the onboarding in case the user has scanned the enrollment qr from the web
         if let onboardingTypeString = UserDefaults.standard.value(forKey: OnboardingManager.userdefaultsFlowTypeKey) as? String, OnboardingFlowType(rawValue: onboardingTypeString) == .mfaOnly {
             if currentScreenType == .biometricApprovalScreen {
                 

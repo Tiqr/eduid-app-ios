@@ -2,9 +2,6 @@ import UIKit
 
 @objc
 enum ScreenType: Int, CaseIterable {
-    
-    static var isQrEnrolment: Bool?
-    
     // home screen
     case homeScreen
     
@@ -76,9 +73,7 @@ enum ScreenType: Int, CaseIterable {
         case .createPincodeSecondEntryScreen:
             return .biometricApprovalScreen
         case .biometricApprovalScreen:
-            return ScreenType.isQrEnrolment != nil
-            ? .returnToBrowser
-            : .enterPhoneScreen
+            return AppAuthController.shared.isLoggedIn() ? .enterPhoneScreen : .returnToBrowser 
         case .enterPhoneScreen:
             return .smsChallengeScreen
         case .smsChallengeScreen:
