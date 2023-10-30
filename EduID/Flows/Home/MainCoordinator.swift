@@ -25,7 +25,7 @@ class MainCoordinator: CoordinatorType {
             let onboardingCoordinator = CreateEduIDCoordinator(viewControllerToPresentOn: homeNavigationController)
             children.append(onboardingCoordinator)
             onboardingCoordinator.delegate = self
-            onboardingCoordinator.start()
+            onboardingCoordinator.startWithLanding()
         }
     }
     
@@ -85,7 +85,11 @@ extension MainCoordinator: PersonalInfoCoordinatorDelegate {
 extension MainCoordinator: ScanCoordinatorDelegate {
     
     func scanCoordinatorJumpToCreatePincodeScreen(coordinator: ScanCoordinator, viewModel: ScanViewModel) {
-        // not implemented
+        // Our responsibility stops here, and we delegate to the eduID coordinator, which will continue with the flow
+        homeNavigationController.popToRootViewController(animated: false)
+        let eduidCoordinator = CreateEduIDCoordinator(viewControllerToPresentOn: homeNavigationController)
+        children.append(eduidCoordinator)
+        eduidCoordinator.scanCoordinatorJumpToCreatePincodeScreen(coordinator: coordinator, viewModel: viewModel)
     }
     
     func scanCoordinatorDismissScanScreen(coordinator: ScanCoordinator) {

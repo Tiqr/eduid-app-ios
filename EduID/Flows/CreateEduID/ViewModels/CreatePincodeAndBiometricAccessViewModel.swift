@@ -29,10 +29,9 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     private let biometricService = BiometricService()
 
     //MARK: - init
-    init(enrollmentChallenge: EnrollmentChallenge? = nil, authenticationChallenge: AuthenticationChallenge? = nil, isQrEnrolment: Bool? = nil) {
+    init(enrollmentChallenge: EnrollmentChallenge? = nil, authenticationChallenge: AuthenticationChallenge? = nil) {
         self.enrollmentChallenge = enrollmentChallenge
         self.authenticationChallenge = authenticationChallenge
-        ScreenType.isQrEnrolment = isQrEnrolment
         super.init()
     }
     

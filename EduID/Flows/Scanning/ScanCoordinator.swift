@@ -61,7 +61,11 @@ extension ScanCoordinator: VerifyScanResultViewControllerDelegate {
     }
     
     func verifyScanResultViewControllerLogin(viewController: VerifyScanResultViewController, viewModel: ScanViewModel) {
-        let pincodeFirstEntryViewController = CreatePincodeFirstEntryViewController(viewModel: CreatePincodeAndBiometricAccessViewModel(authenticationChallenge: viewModel.challenge as? AuthenticationChallenge))
+        let pincodeFirstEntryViewController = CreatePincodeFirstEntryViewController(
+            viewModel: CreatePincodeAndBiometricAccessViewModel(
+                authenticationChallenge: viewModel.challenge as? AuthenticationChallenge
+            )
+        )
         navigationController.pushViewController(pincodeFirstEntryViewController, animated: true)
     }
     

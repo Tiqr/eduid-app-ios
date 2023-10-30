@@ -65,13 +65,15 @@ class VerifyScanResultViewController: BaseViewController {
         
         switch viewModel.challengeType {
         case .enrollment:
+            let challenge = viewModel.challenge as? EnrollmentChallenge
             middlePosterLabel = requestLoginLabel(
-                entityName: (viewModel.challenge as? EnrollmentChallenge)?.identityDisplayName ?? "",
+                entityName: challenge?.identityProviderDisplayName ?? challenge?.identityDisplayName ?? "",
                 challengeType: viewModel.challengeType ?? .invalid
             )
         case .authentication:
+            let challenge = viewModel.challenge as? AuthenticationChallenge
             middlePosterLabel = requestLoginLabel(
-                entityName: (viewModel.challenge as? AuthenticationChallenge)?.serviceProviderDisplayName ?? "", 
+                entityName: challenge?.serviceProviderDisplayName ?? challenge?.serviceProviderIdentifier ?? "",
                 challengeType: viewModel.challengeType ?? .invalid
             )
         default:

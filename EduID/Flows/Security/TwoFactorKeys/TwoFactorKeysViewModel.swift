@@ -31,8 +31,19 @@ class TwoFactorKeysViewModel {
     }
     
     func removeIdentity(identity: Identity) {
-        ServiceContainer.sharedInstance().identityService.delete(identity)
-        ServiceContainer.sharedInstance().identityService.saveIdentities()
+        let identityService = ServiceContainer.sharedInstance().identityService!
+        let identityProvider = identity.identityProvider
+        
+        if identityProvider != nil {
+            identityProvider!.removeIdentitiesObject(identity)
+            identityService.delete(identity)
+            if identityProvider!.identities.count == 0 {
+                identityService.delete(identityProvider)
+            }
+        } else {
+            identityService.delete(identity)
+        }
+        identityService.saveIdentities()
         didRemoveIdentities = true
     }
 }
