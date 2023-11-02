@@ -60,7 +60,8 @@ extension CreateEduIDCoordinator: ScanCoordinatorDelegate {
         guard let challenge = viewModel.challenge as? EnrollmentChallenge else {
             return
         }
-        
+        // Enrolment started from QR
+        ScreenType.isQrEnrolment = true
         let pincodeFirstAttemptViewController = CreatePincodeFirstEntryViewController(
             viewModel: CreatePincodeAndBiometricAccessViewModel(
                 enrollmentChallenge: challenge
