@@ -155,11 +155,14 @@ extension ScanViewController: ScanViewModelDelegate {
     func scanViewModelShowErrorAlert(error: Any, viewModel: ScanViewModel) {
         
         // present a dialog sheet with reason text
-        let sheet = UIAlertController(title: L.ScanView.Error.localization, message: (error as? Error)?.localizedDescription, preferredStyle: .actionSheet)
+        
+        let title: String = (error as? NSError)?.userInfo[NSLocalizedDescriptionKey] as? String ?? L.ScanView.Error.localization
+        let message: String? = (error as? NSError)?.userInfo[NSLocalizedFailureReasonErrorKey] as? String ?? (error as? Error)?.localizedDescription
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // action to continue scanning - start session
-        sheet.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { [weak self] action in
-            sheet.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { [weak self] action in
+            alert.dismiss(animated: true)
             
             // remove marker points
             self?.overlayView.points = []
@@ -169,7 +172,7 @@ extension ScanViewController: ScanViewModelDelegate {
                 self?.viewModel.session.startRunning()
             }
         })
-        present(sheet, animated: true)
+        present(alert, animated: true)
     }
     
     func scanViewModelShowScanAttempt(viewModel: ScanViewModel) {
