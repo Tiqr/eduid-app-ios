@@ -73,6 +73,24 @@ extension ScanCoordinator: VerifyScanResultViewControllerDelegate {
         navigationController.popToRootViewController(animated: true)
         (navigationController.viewControllers.first as? ScanViewController)?.viewModel.session.startRunning()
     }
+    
+    func verifyScanResultViewControllerDisplayOneTimeCode(code: String, challenge: AuthenticationChallenge) {
+        let oneTimeCodeVc = OneTimeCodeViewController()
+        oneTimeCodeVc.modalPresentationStyle = .fullScreen
+        oneTimeCodeVc.oneTimeCode = code
+        oneTimeCodeVc.delegate = self
+        oneTimeCodeVc.authenticationChallenge = challenge
+        navigationController.pushViewController(oneTimeCodeVc, animated: true)
+    }
+}
+
+extension ScanCoordinator: OneTimeCodeViewControllerDelegate {
+    func oneTimeCodeViewControllerDelegateGoBack() {
+        navigationController.popViewController(animated: true)
+    }
+    func oneTimeCodeViewControllerDelegateCloseFlow() {
+        delegate?.scanCoordinatorDismissScanScreen(coordinator: self)
+    }
 }
 
 //MARK: - confirm login and dismiss flow

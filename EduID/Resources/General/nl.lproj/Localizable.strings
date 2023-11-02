@@ -650,6 +650,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
+"OneTimeCode.CloseButton.COPY" = "Sluiten";
 "WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app voor";
 "WelcomeToApp.Quickly.Text.COPY" = "op educatieve diensten";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";

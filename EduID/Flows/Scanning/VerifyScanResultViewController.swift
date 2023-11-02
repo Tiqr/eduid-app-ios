@@ -185,12 +185,21 @@ class VerifyScanResultViewController: BaseViewController {
     }
     
     private func authenticate(with secretData: Data?, and challenge: AuthenticationChallenge) {
-        guard let secret = secretData else { return }
+        guard let secret = secretData else {
+            self.presentPinCodeErrorScreen(nil)
+            return
+        }
         ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, response, error in
+            debugPrint("Success: \(success), response: \(response), error: \(error)")
             if success {
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     self.updateUIAfterSigningIn()
+                }
+            } else if (error as NSError).code == TIQRACRConnectionError && !response.isEmpty {
+                // Fallback to One-Time-Code
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.verifyScanResultViewControllerDisplayOneTimeCode(code: response, challenge: challenge)
                 }
             } else {
                 DispatchQueue.main.async { [weak self] in

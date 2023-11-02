@@ -93,6 +93,7 @@
 		4FADBCDD2A4090BD002311E4 /* TwoFactorKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */; };
 		4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */; };
 		4FADBCE32A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */; };
+		4FB51EF42AF3EA5600069B13 /* OneTimeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */; };
 		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
@@ -448,6 +449,7 @@
 		4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewModel.swift; sourceTree = "<group>"; };
 		4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewController.swift; sourceTree = "<group>"; };
 		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
+		4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTimeCodeViewController.swift; sourceTree = "<group>"; };
 		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
@@ -1196,6 +1198,7 @@
 		7364BAC82A389AD6003FB978 /* VerifyAuthentication */ = {
 			isa = PBXGroup;
 			children = (
+				4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */,
 				7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */,
 			);
 			path = VerifyAuthentication;
@@ -1524,6 +1527,7 @@
 				4FF567D02A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift in Sources */,
 				4FF567D52A31D32E00616341 /* BiometricAccessApprovalViewController.swift in Sources */,
 				4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */,
+				4FB51EF42AF3EA5600069B13 /* OneTimeCodeViewController.swift in Sources */,
 				4FFA8A872A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift in Sources */,
 				4FF567BA2A31D32E00616341 /* ConfirmViewControllerDelegate.swift in Sources */,
 				4F909EAC2A31CDDC00FC1506 /* Notification.Name.swift in Sources */,
@@ -2459,7 +2463,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = a057a48d192d06236765aad3ed928819492d8c57;
+				revision = 09eb521d67a744921cccf3942e21f39dc981077b;
 			};
 		};
 		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {

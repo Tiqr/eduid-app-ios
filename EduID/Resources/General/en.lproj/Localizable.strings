@@ -649,6 +649,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
+"OneTimeCode.CloseButton.COPY" = "Close";
 "WelcomeToApp.Title.COPY" = "Welcome! Use this app to";
 "WelcomeToApp.Quickly.Text.COPY" = "to educational services";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Quickly login";

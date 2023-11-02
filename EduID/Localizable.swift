@@ -5480,6 +5480,16 @@ public struct L {
             )
         }
     }
+    public struct OneTimeCode {
+        public static let CloseButton = LocaliciousData(
+            accessibilityIdentifier: "OneTimeCode.CloseButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimeCode.CloseButton.COPY",
+            translationArgs: []
+        )
+    }
     public struct WelcomeToApp {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "WelcomeToApp.Title",
