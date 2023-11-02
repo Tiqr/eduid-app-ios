@@ -51,6 +51,7 @@ enum ScreenType: Int, CaseIterable {
     
     case confirmScreen
     case pincodeScreen
+    case oneTimeCodeScreen
     
     case none
     

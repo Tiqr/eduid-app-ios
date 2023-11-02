@@ -138,7 +138,6 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         buttonStack.height(100)
         
         buttonStack.hideAndTriggerAll()
-        
     }
     
     //MARK: - action buttons

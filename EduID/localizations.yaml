@@ -3123,6 +3123,11 @@ IOS:
         COPY:
           en: "Close"
           nl: "Sluiten"
+  OneTimeCode:
+    CloseButton:
+      COPY:
+        en: "Close"
+        nl: "Sluiten"
   WelcomeToApp:
       Title:
         COPY:
