@@ -22,12 +22,20 @@ class CreateEduIDRegistrationCheckViewModel: NSObject {
             if let loginOptions = userResponse.loginOptions,
                 let registration = userResponse.registration {
                 if loginOptions.contains(Constants.RegistrationCheck.useApp) && registration[Constants.RegistrationCheck.phoneVerified] == true {
-                    let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSp()
                     existingUser.send(true)
                 } else {
                     existingUser.send(false)
                 }
             }
+        } catch {
+            self.error.send(error)
+        }
+    }
+    
+    @MainActor
+    func deactivate() async {
+        do {
+            let _ = try await TiqrControllerAPI.sendDeactivationPhoneCodeForSp()
         } catch {
             self.error.send(error)
         }
