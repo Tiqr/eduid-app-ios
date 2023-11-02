@@ -201,19 +201,24 @@ class VerifyScanResultViewController: BaseViewController {
     }
     
     private func presentPinCodeErrorScreen(_ error: NSError?) {
-        let title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
-        let description = error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
+        var title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        var description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
+        if title == "unknown_error" {
+            title = L.ResponseErrors.AuthenticationFailedTitle.localization
+            description = L.ResponseErrors.AuthenticationFailedMessage.localization
+        }
         let alert = UIAlertController(
             title: title,
             message: description,
             preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Back.localization, style: .default) { _ in
+        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Back.localization, style: .default) { [weak self] _ in
             alert.dismiss(animated: true)
+            self?.dismissView()
         })
         if error?.code == 303 {
             // Incorrect PIN
-            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Retry.localization, style: .default) { _ in
-                self.presentPinCodeVerifyScreen()
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.Button.Retry.localization, style: .default) { [weak self] _ in
+                self?.presentPinCodeVerifyScreen()
             })
         }
         self.present(alert, animated: true)

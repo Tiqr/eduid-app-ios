@@ -5851,6 +5851,22 @@ public struct L {
         )
     }
     public struct ResponseErrors {
+        public static let AuthenticationFailedTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.AuthenticationFailedTitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.AuthenticationFailedTitle.COPY",
+            translationArgs: []
+        )
+        public static let AuthenticationFailedMessage = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.AuthenticationFailedMessage",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.AuthenticationFailedMessage.COPY",
+            translationArgs: []
+        )
         public static let UnauthorizedTitle = LocaliciousData(
             accessibilityIdentifier: "ResponseErrors.UnauthorizedTitle",
             accessibilityHintKey: nil,

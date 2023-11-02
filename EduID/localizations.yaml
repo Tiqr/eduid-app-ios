@@ -3357,6 +3357,14 @@ IOS:
         en: Password is too weak
         nl: Wachtwoord niet sterk genoeg
   ResponseErrors:
+    AuthenticationFailedTitle:
+      COPY:
+        en: Authentication Failed
+        nl: Inloggen mislukt
+    AuthenticationFailedMessage:
+      COPY:
+        en: Try again in a moment.
+        nl: Probeer het over een ogenblik opnieuw.
     UnauthorizedTitle:
       COPY:
         en: Cannot load data
