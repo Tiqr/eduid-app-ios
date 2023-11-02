@@ -95,6 +95,9 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
         }
         
         let deactivate = UIAlertAction(title: L.Security.Tiqr.Deactivate.localization, style: .destructive) { [weak self] _ in
+            Task {
+                await self?.viewModel.deactivate()
+            }
             let smsVerification = CreateEduIDEnterSMSViewController(viewModel: PinViewModel(), isSecure: false)
             smsVerification.modalPresentationStyle = .fullScreen
             smsVerification.isDeactivationMode = true
