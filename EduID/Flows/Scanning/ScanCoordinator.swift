@@ -61,6 +61,7 @@ extension ScanCoordinator: VerifyScanResultViewControllerDelegate {
     }
     
     func verifyScanResultViewControllerLogin(viewController: VerifyScanResultViewController, viewModel: ScanViewModel) {
+        ScreenType.isQrEnrolment = false
         let pincodeFirstEntryViewController = CreatePincodeFirstEntryViewController(
             viewModel: CreatePincodeAndBiometricAccessViewModel(
                 authenticationChallenge: viewModel.challenge as? AuthenticationChallenge

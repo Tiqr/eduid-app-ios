@@ -8,7 +8,7 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ScreenType.isQrEnrolment = false
         screenType = .eduIDCreatedScreen
         setupUI()
     }
