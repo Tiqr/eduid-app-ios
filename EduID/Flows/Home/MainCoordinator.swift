@@ -88,6 +88,7 @@ extension MainCoordinator: ScanCoordinatorDelegate {
         // Our responsibility stops here, and we delegate to the eduID coordinator, which will continue with the flow
         homeNavigationController.popToRootViewController(animated: false)
         let eduidCoordinator = CreateEduIDCoordinator(viewControllerToPresentOn: homeNavigationController)
+        eduidCoordinator.delegate = self
         children.append(eduidCoordinator)
         eduidCoordinator.scanCoordinatorJumpToCreatePincodeScreen(coordinator: coordinator, viewModel: viewModel)
     }

@@ -91,6 +91,13 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
             return
         }
         
+        if currentScreenType == .welcomeScreen &&
+            ServiceContainer.sharedInstance().identityService.identityCount() > 1 {
+            // No need to ask for school details, the user has already seen the question once.
+            delegate?.createEduIDCoordinatorDismissOnBoarding(coordinator: self)
+            return
+        }
+        
         // - this is the end of the onboarding in case the user has scanned the enrollment qr from the web
         if let onboardingTypeString = UserDefaults.standard.value(forKey: OnboardingManager.userdefaultsFlowTypeKey) as? String, OnboardingFlowType(rawValue: onboardingTypeString) == .mfaOnly {
             if currentScreenType == .biometricApprovalScreen {
