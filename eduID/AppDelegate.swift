@@ -29,12 +29,18 @@
 
 import UIKit
 import Tiqr
+import AppAuth
+import OpenAPIClient
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        OpenAPIClientAPI.basePath = EnvironmentService.shared.currentEnvironment.baseUrl
+        OpenAPIClientAPI.requestBuilderFactory = BearerRequestBuilderFactory()
 
+        
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -46,18 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
+        
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
@@ -65,7 +71,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        //TIQR challenge
         Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        
+        //AppAuth redirect
+        if AppAuthController.shared.isRedirectURI(url) {
+            AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
+            return true
+        } else {
+            
+            // Your additional URL handling (if any)
+            
+            return false
+        }
         return true
     }
 }
@@ -82,31 +100,44 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             // App is already open, handle the notification
             let userInfo = notification.request.content.userInfo
             if let challenge = userInfo["challenge"] as? String {
-                DispatchQueue.main.async {
-                    Tiqr.shared.startChallenge(challenge: challenge)
+                DispatchQueue.main.async { [weak self] in
+                    self?.getNotificationObject(from: challenge)
                 }
             }
             completionHandler([])
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
-            Tiqr.shared.startChallenge(challenge: challenge)
+            DispatchQueue.main.async { [weak self] in
+                self?.getNotificationObject(from: challenge)
+            }
         }
+    }
+    
+    private func getNotificationObject(from challenge: String) {
+        let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
+        NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                                        object: nil, userInfo: notificationObject)
+    }
+    
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        return true
     }
 }
 
 extension AppDelegate {
-
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register for notifications: \(error.localizedDescription)")
     }
-
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Tiqr.shared.registerDeviceToken(token: deviceToken)
         print("Successfully registered for notifications")
     }
-
+    
 }

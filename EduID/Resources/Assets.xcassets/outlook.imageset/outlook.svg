@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 105.012 104.313" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="104.313" width="105.012" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Untitled" vectornator:layerName="Untitled">
+<path d="M64.567 22.116L64.567 42.52L71.697 47.01C71.885 47.065 72.293 47.069 72.481 47.01L103.169 26.32C103.169 23.871 100.885 22.116 99.596 22.116C99.596 22.116 64.567 22.116 64.567 22.116Z" fill="#0072c6" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M64.567 50.133L71.075 54.604C71.991 55.278 73.096 54.604 73.096 54.604C71.994 55.278 103.173 34.567 103.173 34.567L103.173 72.068C103.173 76.15 100.56 77.863 97.621 77.863L64.563 77.863L64.563 50.133C64.563 50.133 64.567 50.133 64.567 50.133Z" fill="#0072c6" fill-rule="nonzero" opacity="1" stroke="none"/>
+<g opacity="1">
+<path d="M30.873 40.726C28.655 40.726 26.888 41.768 25.583 43.849C24.279 45.929 23.625 48.683 23.625 52.112C23.625 55.591 24.279 58.341 25.584 60.362C26.888 62.388 28.6 63.395 30.716 63.395C32.898 63.395 34.63 62.412 35.907 60.445C37.185 58.478 37.827 55.747 37.827 52.257C37.827 48.617 37.208 45.784 35.967 43.759C34.724 41.737 33.027 40.726 30.873 40.726Z" fill="#0072c6" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M0 11.754L0 91.58L60.727 104.313L60.727 0L0 11.754ZM40.636 65.162C38.07 68.539 34.724 70.232 30.595 70.232C26.571 70.232 23.295 68.594 20.761 65.322C18.23 62.047 16.961 57.785 16.961 52.527C16.961 46.975 18.246 42.485 20.82 39.057C23.394 35.629 26.802 33.913 31.045 33.913C35.053 33.913 38.297 35.551 40.769 38.833C43.245 42.117 44.484 46.443 44.484 51.813C44.487 57.334 43.202 61.785 40.636 65.162Z" fill="#0072c6" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+</svg>

@@ -39,6 +39,17 @@
                ReferencedContainer = "container:eduID.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4FF567EF2A31D60300616341"
+               BuildableName = "OpenAPIClientTests.xctest"
+               BlueprintName = "OpenAPIClientTests"
+               ReferencedContainer = "container:eduID.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
