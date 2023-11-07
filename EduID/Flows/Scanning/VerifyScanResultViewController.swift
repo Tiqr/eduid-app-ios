@@ -190,7 +190,6 @@ class VerifyScanResultViewController: BaseViewController {
             return
         }
         ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, response, error in
-            debugPrint("Success: \(success), response: \(response), error: \(error)")
             if success {
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
