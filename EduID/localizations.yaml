@@ -3297,9 +3297,30 @@ IOS:
             en: e.g. timbernerslee@gmail.com
             nl: e.g. timbernerslee@gmail.com
         Agreement:
-          COPY:
-            en: I agree with the terms of service. I also understand the privacy policy
-            nl: Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid
+          Part1:
+            COPY:
+              en: "I agree with the "
+              nl: "Ik ga akkoord met "
+          Part2:
+            COPY:
+              en: terms of service
+              nl: de servicevoorwaarden
+          Part3:
+            COPY:
+              en: ". I also understand the "
+              nl: ". Ik begrijp ook het "
+          Part4:
+            COPY:
+              en: privacy policy.
+              nl: privacybeleid.
+          Part2Link:
+            COPY:
+              en: "https://eduid.nl/terms-of-use/"
+              nl: "https://eduid.nl/terms-of-use/"
+          Part4Link:
+            COPY:
+              en: "https://eduid.nl/privacy_policy/"
+              nl: "https://eduid.nl/privacy_policy/"
       EnterPhoneNumber:
         PhoneFieldTitle:
           COPY:

@@ -95,12 +95,10 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         //set the height of the spacer according to the view
         if scrollView.frame.size.height > scrollView.contentSize.height + CreateEduIDEnterPersonalInfoViewController.smallBuffer {
             spacingView.height(scrollView.frame.size.height - scrollView.contentSize.height - inset - view.safeAreaInsets.top)
         }
-        
         _ = emailField.becomeFirstResponder()
     }
     
@@ -142,16 +140,44 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         let termsHstack = UIStackView()
         termsHstack.spacing = 10
         termsHstack.axis = .horizontal
-        termsHstack.height(36)
+        termsHstack.height(50)
         
         theSwitch.onTintColor = .primaryColor
         theSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
         
-        let termsLabel = UILabel()
+        let termsLabel = UITextView()
         termsLabel.font = .sourceSansProRegular(size: 12)
         termsLabel.textColor = .charcoalColor
-        termsLabel.numberOfLines = 2
-        termsLabel.text = L.CreateEduID.EnterPersonalInfo.Agreement.localization
+        termsLabel.isScrollEnabled = false
+        termsLabel.translatesAutoresizingMaskIntoConstraints = false
+        let part1 = L.CreateEduID.EnterPersonalInfo.Agreement.Part1.localization
+        let part2 = L.CreateEduID.EnterPersonalInfo.Agreement.Part2.localization
+        let part3 = L.CreateEduID.EnterPersonalInfo.Agreement.Part3.localization
+        let part4 = L.CreateEduID.EnterPersonalInfo.Agreement.Part4.localization
+        
+        let fullString = NSMutableAttributedString(
+            string: part1 + part2 + part3 + part4,
+            attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .charcoalColor, lineSpacing: 0)
+        )
+        fullString.addAttribute(
+            .link,
+            value: L.CreateEduID.EnterPersonalInfo.Agreement.Part2Link.localization,
+            range: .init(location: part1.count, length: part2.count)
+        )
+        fullString.addAttribute(
+            .link,
+            value: L.CreateEduID.EnterPersonalInfo.Agreement.Part4Link.localization,
+            range: .init(location: part1.count + part2.count + part3.count, length: part4.count)
+        )
+        termsLabel.isEditable = false
+
+        termsLabel.textContainer.lineBreakMode = .byWordWrapping
+        termsLabel.dataDetectorTypes = .link
+        termsLabel.textContainerInset = .zero
+        termsLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        termsLabel.attributedText = fullString
+        termsLabel.delegate = self
+        termsLabel.isSelectable = true
         
         termsHstack.addArrangedSubview(theSwitch)
         termsHstack.addArrangedSubview(termsLabel)
@@ -208,3 +234,12 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
     }
 }
 
+extension CreateEduIDEnterPersonalInfoViewController : UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if UIApplication.shared.canOpenURL(URL) {
+            UIApplication.shared.open(URL)
+            return true
+        }
+        return false
+    }
+}

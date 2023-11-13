@@ -691,7 +691,12 @@ Onderwijs en Onderzoek
 "CreateEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Je emailaddres";
 "CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
-"CreateEduID.EnterPersonalInfo.Agreement.COPY" = "Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid";
+"CreateEduID.EnterPersonalInfo.Agreement.Part1.COPY" = "Ik ga akkoord met ";
+"CreateEduID.EnterPersonalInfo.Agreement.Part2.COPY" = "de servicevoorwaarden";
+"CreateEduID.EnterPersonalInfo.Agreement.Part3.COPY" = ". Ik begrijp ook het ";
+"CreateEduID.EnterPersonalInfo.Agreement.Part4.COPY" = "privacybeleid.";
+"CreateEduID.EnterPersonalInfo.Agreement.Part2Link.COPY" = "https://eduid.nl/terms-of-use/";
+"CreateEduID.EnterPersonalInfo.Agreement.Part4Link.COPY" = "https://eduid.nl/privacy_policy/";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
 "CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen. Als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
