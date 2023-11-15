@@ -175,7 +175,7 @@ public class AppAuthController: NSObject {
             completion(nil)
         } else {
             authState!.performAction(freshTokens: { accessToken, idToken, error in
-                if let error = error {
+                if let error {
                     NSLog("Could not refresh tokens: \(error)")
                 }
                 completion(accessToken)
