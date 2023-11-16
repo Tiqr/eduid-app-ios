@@ -6,7 +6,7 @@ import OpenAPIClient
 final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     
     // - enrollment challenge object
-    var enrollmentChallenge: EnrollmentChallenge?
+    private (set) var enrollmentChallenge: EnrollmentChallenge?
     // - authentication challenge object
     let authenticationChallenge: AuthenticationChallenge?
     
@@ -40,7 +40,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
             Task {
                 await requestTiqrEnroll() { [weak self] error in
                     guard let self else { return }
-                    if let error = error  {
+                    if let error {
                         self.showErrorDialogClosure?(error)
                     } else {
                         self.showUseBiometricScreenClosure?()
@@ -83,7 +83,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                     let enrolment = try await TiqrControllerAPI.startEnrollment()
                     ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: enrolment.url ?? "") { [weak self] type, object, error in
                         guard let self else { return }
-                        if error != nil {
+                        if let error {
                             completion(error)
                             return
                         }

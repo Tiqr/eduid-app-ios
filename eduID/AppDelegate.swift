@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            if let error = error {
+            if let error {
                 print(error.localizedDescription)
             } else if granted {
                 DispatchQueue.main.async {
