@@ -13,11 +13,8 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
     
     var overlayView = ScanOverlayView(frame: .zero)
     
-    private var scanMode: ScanType = .none
-    
-    init(viewModel: ScanViewModel, for mode: ScanType) {
+    init(viewModel: ScanViewModel) {
         self.viewModel = viewModel
-        self.scanMode = mode
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .black
     }
@@ -176,15 +173,14 @@ extension ScanViewController: ScanViewModelDelegate {
     }
     
     func scanViewModelShowScanAttempt(viewModel: ScanViewModel) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            guard let self = self else { return }
-            switch self.scanMode {
-            case .enrol:
-                self.delegate?.verifyScanResultForEnroll(viewController: self, viewModel: viewModel)
-            case .login: self.delegate?.scanViewControllerPromptUserWithVerifyScreen(viewController: self, viewModel: viewModel)
-            default: break
-            }
-        })
+        switch self.viewModel.challengeType {
+        case .enrollment:
+            self.delegate?.verifyScanResultForEnroll(viewController: self, viewModel: viewModel)
+        case .authentication:
+            self.delegate?.scanViewControllerPromptUserWithVerifyScreen(viewController: self, viewModel: viewModel)
+        default:
+            break
+        }
     }
     
     func scanViewModelAddPoints(_for object: AVMetadataMachineReadableCodeObject, viewModel: ScanViewModel) {
@@ -197,8 +193,4 @@ extension ScanViewController: ScanViewModelDelegate {
     func scanViewModelAuthenticateSuccess(viewModel: ScanViewModel) {
         delegate?.scanViewControllerShowConfirmScreen(viewController: self)
     }
-}
-
-enum ScanType {
-    case enrol, login, none
 }

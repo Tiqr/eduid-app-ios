@@ -79,7 +79,7 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
         let scanCoordinator = ScanCoordinator(viewControllerToPresentOn: navigationController)
         scanCoordinator.delegate = self
         children.append(scanCoordinator)
-        scanCoordinator.start(for: .enrol)
+        scanCoordinator.start()
     }
     
     //MARK: - show next screen

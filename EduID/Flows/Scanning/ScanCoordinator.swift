@@ -14,9 +14,9 @@ final class ScanCoordinator: NSObject, CoordinatorType {
     }
     
     //MARK: - start
-    func start(for mode: ScanType) {
+    func start() {
         let viewModel = ScanViewModel()
-        let scanViewcontroller = ScanViewController(viewModel: viewModel, for: mode)
+        let scanViewcontroller = ScanViewController(viewModel: viewModel)
         viewModel.delegate = scanViewcontroller
         scanViewcontroller.delegate = self
         let navigationController = UINavigationController()
