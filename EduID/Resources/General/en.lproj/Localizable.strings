@@ -218,6 +218,11 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "TwoFactorKeys.Label.UniqueKeyId.COPY" = "Unique KeyID";
 "TwoFactorKeys.Label.UseBiometrics.COPY" = "Use biometrics";
 "TwoFactorKeys.DeleteKey.COPY" = "Sleutel verwijderen";
+"ConfirmDeleteKey.Title.COPY" = "Delete key";
+"ConfirmDeleteKey.Subtitle.COPY" = "There is no way to undo this action";
+"ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
+"ConfirmDeleteKey.Button.Confirm.COPY" = "Confirm";
+"ConfirmDeleteKey.Button.Cancel.COPY" = "Cancel";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Data & activity";

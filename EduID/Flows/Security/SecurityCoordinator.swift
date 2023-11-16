@@ -1,5 +1,6 @@
 import UIKit
 import OpenAPIClient
+import TiqrCoreObjC
 
 class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     
@@ -88,6 +89,13 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
+    func goToDeleteKeyConfirmationScreen(viewController: UIViewController, identity: Identity) {
+        let viewModel = DeleteKeyConfirmationViewModel(identity: identity)
+        let confirmDeleteKeyViewController = DeleteKeyConfirmationViewController(viewModel: viewModel)
+        confirmDeleteKeyViewController.delegate = self
+        navigationController?.pushViewController(confirmDeleteKeyViewController, animated: true)
+    }
+    
     func hasPendingPersonalInfo() -> Bool {
         return pendingPersonalInfo != nil
     }
@@ -101,6 +109,13 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     func goToMainScreenWithPersonalInfo(_ personalInfo: UserResponse) {
         pendingPersonalInfo = personalInfo
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func goBackAfterRemovingTwoFactorKey() {
+        navigationController?.popViewController(animated: true)
+        if let twoFactorKeysVc = navigationController?.topViewController as? TwoFactorKeysViewController {
+            twoFactorKeysVc.refreshData()
+        }
     }
 }
 
