@@ -14,6 +14,7 @@ class TwoFactorKeysViewModel {
     let personalInfo: UserResponse
     
     var didRemoveIdentities = false
+    var identityCount = -1;
     
     init(personalInfo: UserResponse) {
         self.personalInfo = personalInfo
@@ -22,28 +23,18 @@ class TwoFactorKeysViewModel {
     func getIdentityList() async throws -> [Identity] {
         let controller = ServiceContainer.sharedInstance().identityService.createFetchedResultsControllerForIdentities()!
         try controller.performFetch()
-        return controller.sections?[0].objects as! [Identity]
+        let identityList = controller.sections?[0].objects as! [Identity]
+        if (identityCount > 0) {
+            if identityList.count < identityCount {
+                didRemoveIdentities = true
+            }
+        }
+        identityCount = identityList.count
+        return identityList
     }
     
     func setIdentityBiometricsEnabled(identity: Identity, biometricsEnabled: Bool) {
         identity.biometricIDEnabled = NSNumber(value: biometricsEnabled)
         ServiceContainer.sharedInstance().identityService.saveIdentities()
-    }
-    
-    func removeIdentity(identity: Identity) {
-        let identityService = ServiceContainer.sharedInstance().identityService!
-        let identityProvider = identity.identityProvider
-        
-        if identityProvider != nil {
-            identityProvider!.removeIdentitiesObject(identity)
-            identityService.delete(identity)
-            if identityProvider!.identities.count == 0 {
-                identityService.delete(identityProvider)
-            }
-        } else {
-            identityService.delete(identity)
-        }
-        identityService.saveIdentities()
-        didRemoveIdentities = true
     }
 }

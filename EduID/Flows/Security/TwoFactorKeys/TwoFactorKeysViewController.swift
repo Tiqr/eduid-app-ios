@@ -37,7 +37,7 @@ class TwoFactorKeysViewController: UIViewController, ScreenWithScreenType {
         refreshData()
     }
     
-    private func refreshData() {
+    func refreshData() {
         Task {
             do {
                 let identities = try await viewModel.getIdentityList()
@@ -104,8 +104,7 @@ class TwoFactorKeysViewController: UIViewController, ScreenWithScreenType {
                 let control = TwoFactorKeyControlCollapsible(
                     identity: identity,
                     removeAction: { [weak self] in
-                        self?.viewModel.removeIdentity(identity: identity)
-                        self?.refreshData()
+                        self?.goToConfirmationScreen(identity)
                     },
                     biometricsValueChanged: { [weak self] isEnabled in
                         self?.viewModel.setIdentityBiometricsEnabled(identity: identity, biometricsEnabled: isEnabled)
@@ -126,6 +125,10 @@ class TwoFactorKeysViewController: UIViewController, ScreenWithScreenType {
         scrollView.addSubview(topStackView)
         topStackView.widthToSuperview(offset: -48)
         topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: 24))
+    }
+    
+    private func goToConfirmationScreen(_ identity: Identity) {
+        delegate?.goToDeleteKeyConfirmationScreen(viewController: self, identity: identity)
     }
     
     @objc
