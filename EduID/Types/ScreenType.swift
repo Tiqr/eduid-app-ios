@@ -48,6 +48,7 @@ enum ScreenType: Int, CaseIterable {
     case securityChangePasswordScreen
     case securityPasswordResetLinkScreen
     case securityTwoFactorKeys
+    case securityDeleteKeyConfirmation
     
     // activity screens
     case activityLandingScreen
@@ -120,7 +121,7 @@ enum ScreenType: Int, CaseIterable {
         case .homeScreen:
             return HomeViewController()
         case .scanScreen:
-            return ScanViewController(viewModel: ScanViewModel(), for: .none)
+            return ScanViewController(viewModel: ScanViewModel())
         case .personalInfoLandingScreen:
             return PersonalInfoViewController(viewModel: PersonalInfoViewModel(false))
         case .personalInfoEditEmailScreen:

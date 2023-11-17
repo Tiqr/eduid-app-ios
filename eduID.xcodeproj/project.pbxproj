@@ -90,6 +90,8 @@
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
 		4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */; };
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
+		4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */; };
+		4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */; };
 		4FADBCDD2A4090BD002311E4 /* TwoFactorKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */; };
 		4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */; };
 		4FADBCE32A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */; };
@@ -446,6 +448,8 @@
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
 		4F9D27352A3341BD00F5A6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteKeyConfirmationViewController.swift; sourceTree = "<group>"; };
+		4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteKeyConfirmationViewModel.swift; path = EduID/Flows/Security/DeleteKeyConfirmation/DeleteKeyConfirmationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewModel.swift; sourceTree = "<group>"; };
 		4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewController.swift; sourceTree = "<group>"; };
 		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
@@ -949,10 +953,19 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
+		4FA824642B06476600B0D802 /* DeleteKeyConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */,
+			);
+			path = DeleteKeyConfirmation;
+			sourceTree = "<group>";
+		};
 		4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */ = {
 			isa = PBXGroup;
 			children = (
 				4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */,
+				4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */,
 				4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */,
 			);
 			path = TwoFactorKeys;
@@ -1051,6 +1064,7 @@
 		4FF567642A31D32E00616341 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				4FA824642B06476600B0D802 /* DeleteKeyConfirmation */,
 				4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */,
 				4FC37C282A3C479A0036A94C /* PasswordResetLink */,
 				4FC37C232A3C22E30036A94C /* ChangePassword */,
@@ -1494,6 +1508,7 @@
 				0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */,
 				4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */,
 				4FF567A52A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift in Sources */,
+				4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */,
 				4F909EBF2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift in Sources */,
 				4FF567D22A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewController.swift in Sources */,
 				4F909EBB2A31CDDC00FC1506 /* AlertMessageViewController.swift in Sources */,
@@ -1564,6 +1579,7 @@
 				4FF567C52A31D32E00616341 /* PinViewModel.swift in Sources */,
 				4F909EC12A31CDDC00FC1506 /* InstitutionView.swift in Sources */,
 				4FF567C72A31D32E00616341 /* CreateEduIDCoordinatorDelegate.swift in Sources */,
+				4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */,
 				4FF567BC2A31D32E00616341 /* ScanViewController.swift in Sources */,
 				4F909EC52A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift in Sources */,
 				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
