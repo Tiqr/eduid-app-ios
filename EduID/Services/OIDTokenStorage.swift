@@ -14,6 +14,9 @@ import AppAuth
 import Security
 
 enum OIDTokenStorage {
+    
+    private static let tokenStorageService = "nl.eduid.app.tokenstorage-service"
+    
     enum Error: Swift.Error {
         case keychainAccessFailed(OSStatus)
         case failedToSetAuthState(OSStatus)
@@ -26,7 +29,8 @@ enum OIDTokenStorage {
             let encodedState = try authState.encode()
             if try containsAuthState(forService: service) {
                 let query: [CFString: Any] = [
-                    kSecAttrService: service,
+                    kSecAttrAccount: service,
+                    kSecAttrService: tokenStorageService,
                     kSecClass: kSecClassGenericPassword
                 ]
                 
@@ -36,7 +40,8 @@ enum OIDTokenStorage {
                 let query = [
                     kSecValueData: encodedState,
                     kSecClass: kSecClassGenericPassword,
-                    kSecAttrService: service
+                    kSecAttrAccount: service,
+                    kSecAttrService: tokenStorageService,
                 ] as CFDictionary
                 return SecItemAdd(query, nil)
             }
@@ -50,7 +55,8 @@ enum OIDTokenStorage {
 
     static func getAuthState(forService service: String) -> Result<OIDAuthState?, Swift.Error> {
         Result {
-            let query = [kSecAttrService: service,
+            let query = [kSecAttrAccount: service,
+                         kSecAttrService: tokenStorageService,
                                kSecClass: kSecClassGenericPassword,
                           kSecReturnData: true] as [CFString: Any]
             
@@ -65,8 +71,10 @@ enum OIDTokenStorage {
 
     static func removeAuthState(forService service: String) -> Result<Void, Swift.Error> {
         Result {
-            let query = [kSecAttrService: service,
-                               kSecClass: kSecClassGenericPassword
+            let query = [
+                kSecAttrAccount: service,
+                kSecAttrService: tokenStorageService,
+                kSecClass: kSecClassGenericPassword
             ] as CFDictionary
             let status = SecItemDelete(query)
             guard status == errSecSuccess else {
@@ -77,7 +85,8 @@ enum OIDTokenStorage {
 
     static func containsAuthState(forService service: String) throws -> Bool {
         let query = [
-            kSecAttrService: service,
+            kSecAttrAccount: service,
+            kSecAttrService: tokenStorageService,
             kSecClass: kSecClassGenericPassword
         ] as CFDictionary
         let status = SecItemCopyMatching(query, nil)
