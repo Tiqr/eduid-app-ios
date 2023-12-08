@@ -22,7 +22,7 @@ jobs:
     - name: Create Localizable.strings files
       run: |
         cd ${{ github.workspace }}
-        localicious render EduID/localizations.yaml EduID/ --languages en,nl --outputTypes ios -c IOS
+        localicious render EduID/localizations.yaml EduID/ --languages en,nl --outputTypes ios -c SHARED
     - name: Move files and clean up
       run: |
         cd ${{ github.workspace }}
