@@ -1092,6 +1092,28 @@ SHARED:
       COPY:
         en: Sleutel verwijderen
         nl: Delete key
+  ConfirmDeleteKey:
+    Title:
+      COPY:
+        en: Delete key
+        nl: Verwijder sleutel
+    Subtitle:
+      COPY:
+        en: There is no way to undo this action
+        nl: Dit kan niet ongedaan worden gemaakt
+    Description:
+      COPY:
+        en: Are you sure you want to delete your key?
+        nl: Weet je zeker dat je deze sleutel wil verwijderen?
+    Button:
+      Confirm:
+        COPY:
+          en: Confirm
+          nl: Bevestigen
+      Cancel:
+        COPY:
+          en: Cancel
+          nl: Annuleren
   Home:
     Home:
       COPY:
@@ -3419,10 +3441,6 @@ SHARED:
         COPY:
           en: e.g. timbernerslee@gmail.com
           nl: e.g. timbernerslee@gmail.com
-      Agreement:
-        COPY:
-          en: I agree with the terms of service. I also understand the privacy policy
-          nl: Ik ga akkoord met de servicevoorwaarden. Ik begrijp ook het privacybeleid
     EnterPhoneNumber:
       PhoneFieldTitle:
         COPY:

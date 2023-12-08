@@ -713,12 +713,6 @@ of an educational institution.
 "CreateEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Your email address";
 "CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
-"CreateEduID.EnterPersonalInfo.Agreement.Part1.COPY" = "I agree with the ";
-"CreateEduID.EnterPersonalInfo.Agreement.Part2.COPY" = "terms of service";
-"CreateEduID.EnterPersonalInfo.Agreement.Part3.COPY" = ". I also understand the ";
-"CreateEduID.EnterPersonalInfo.Agreement.Part4.COPY" = "privacy policy.";
-"CreateEduID.EnterPersonalInfo.Agreement.Part2Link.COPY" = "https://eduid.nl/terms-of-use/";
-"CreateEduID.EnterPersonalInfo.Agreement.Part4Link.COPY" = "https://eduid.nl/privacy_policy/";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
 "CreateEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber. If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.

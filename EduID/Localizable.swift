@@ -5974,56 +5974,6 @@ public struct L {
                 translationKey: "CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY",
                 translationArgs: []
             )
-            public struct Agreement {
-                public static let Part1 = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part1",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part1.COPY",
-                    translationArgs: []
-                )
-                public static let Part2 = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part2",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part2.COPY",
-                    translationArgs: []
-                )
-                public static let Part3 = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part3",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part3.COPY",
-                    translationArgs: []
-                )
-                public static let Part4 = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part4",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part4.COPY",
-                    translationArgs: []
-                )
-                public static let Part2Link = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part2Link",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part2Link.COPY",
-                    translationArgs: []
-                )
-                public static let Part4Link = LocaliciousData(
-                    accessibilityIdentifier: "CreateEduID.EnterPersonalInfo.Agreement.Part4Link",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "CreateEduID.EnterPersonalInfo.Agreement.Part4Link.COPY",
-                    translationArgs: []
-                )
-            }
         }
         public struct EnterPhoneNumber {
             public static let PhoneFieldTitle = LocaliciousData(
