@@ -64,7 +64,7 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         
         // - postertext
         let posterParent = UIView()
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreateEduID.FirstTimeDialog.MainTextTitle.localization, size: 24, primary: L.CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.localization)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.localization + "\n" + L.CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.localization, size: 24, primary: L.CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.localization)
         posterParent.addSubview(posterLabel)
         posterLabel.edges(to: posterParent)
         

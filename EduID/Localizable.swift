@@ -176,23 +176,43 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct PromptForOAuth {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "PromptForOAuth.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PromptForOAuth.Title.COPY",
+            translationArgs: []
+        )
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "PromptForOAuth.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PromptForOAuth.Description.COPY",
+            translationArgs: []
+        )
+    }
     public struct HomeView {
-        public static let MainText = LocaliciousData(
-            accessibilityIdentifier: "HomeView.MainText",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "HomeView.MainText.COPY",
-            translationArgs: []
-        )
-        public static let YourEduId = LocaliciousData(
-            accessibilityIdentifier: "HomeView.YourEduId",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "HomeView.YourEduId.COPY",
-            translationArgs: []
-        )
+        public struct MainText {
+            public static let FirstPart = LocaliciousData(
+                accessibilityIdentifier: "HomeView.MainText.FirstPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "HomeView.MainText.FirstPart.COPY",
+                translationArgs: []
+            )
+            public static let SecondPart = LocaliciousData(
+                accessibilityIdentifier: "HomeView.MainText.SecondPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "HomeView.MainText.SecondPart.COPY",
+                translationArgs: []
+            )
+        }
         public static let SecurityButton = LocaliciousData(
             accessibilityIdentifier: "HomeView.SecurityButton",
             accessibilityHintKey: nil,
@@ -227,6 +247,14 @@ public struct L {
         )
     }
     public struct ScanView {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ScanView.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ScanView.Title.COPY",
+            translationArgs: []
+        )
         public static let MainText = LocaliciousData(
             accessibilityIdentifier: "ScanView.MainText",
             accessibilityHintKey: nil,
@@ -243,14 +271,24 @@ public struct L {
             translationKey: "ScanView.MainTextBoldPart.COPY",
             translationArgs: []
         )
-        public static let FlashlightNotAvailable = LocaliciousData(
-            accessibilityIdentifier: "ScanView.FlashlightNotAvailable",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "ScanView.FlashlightNotAvailable.COPY",
-            translationArgs: []
-        )
+        public struct Flashlight {
+            public static let NotAvailable = LocaliciousData(
+                accessibilityIdentifier: "ScanView.Flashlight.NotAvailable",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ScanView.Flashlight.NotAvailable.COPY",
+                translationArgs: []
+            )
+            public static let TurnOn = LocaliciousData(
+                accessibilityIdentifier: "ScanView.Flashlight.TurnOn",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ScanView.Flashlight.TurnOn.COPY",
+                translationArgs: []
+            )
+        }
         public static let Error = LocaliciousData(
             accessibilityIdentifier: "ScanView.Error",
             accessibilityHintKey: nil,
@@ -479,6 +517,14 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Profile.ProvidedBy.COPY",
+            translationArgs: []
+        )
+        public static let ProvidedByYou = LocaliciousData(
+            accessibilityIdentifier: "Profile.ProvidedByYou",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ProvidedByYou.COPY",
             translationArgs: []
         )
         public static let Title = LocaliciousData(
@@ -933,6 +979,14 @@ public struct L {
             translationKey: "Email.Cancel.COPY",
             translationArgs: []
         )
+        public static let Save = LocaliciousData(
+            accessibilityIdentifier: "Email.Save",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Email.Save.COPY",
+            translationArgs: []
+        )
         public static func Updated(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
             accessibilityIdentifier: "Email.Updated",
@@ -1012,6 +1066,32 @@ public struct L {
                 translationKey: "NameUpdated.Title.ContactedSuccessfully.COPY",
                 translationArgs: []
             )
+            public static let ContactedError = LocaliciousData(
+                accessibilityIdentifier: "NameUpdated.Title.ContactedError",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "NameUpdated.Title.ContactedError.COPY",
+                translationArgs: []
+            )
+            public struct FailReason {
+                public static let AlreadyLinked = LocaliciousData(
+                    accessibilityIdentifier: "NameUpdated.Title.FailReason.AlreadyLinked",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "NameUpdated.Title.FailReason.AlreadyLinked.COPY",
+                    translationArgs: []
+                )
+                public static let SessionExpired = LocaliciousData(
+                    accessibilityIdentifier: "NameUpdated.Title.FailReason.SessionExpired",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "NameUpdated.Title.FailReason.SessionExpired.COPY",
+                    translationArgs: []
+                )
+            }
         }
         public static let Description = LocaliciousData(
             accessibilityIdentifier: "NameUpdated.Description",
@@ -1263,6 +1343,14 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "MyAccount.DeleteAccountButton.COPY",
+            translationArgs: []
+        )
+        public static let DownloadSuccess = LocaliciousData(
+            accessibilityIdentifier: "MyAccount.DownloadSuccess",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "MyAccount.DownloadSuccess.COPY",
             translationArgs: []
         )
         public static let DownloadError = LocaliciousData(
@@ -1608,22 +1696,78 @@ public struct L {
                 translationKey: "Security.Tiqr.Code.COPY",
                 translationArgs: []
             )
-            public static let AlreadyEnrolledTitle = LocaliciousData(
-                accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolledTitle",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Security.Tiqr.AlreadyEnrolledTitle.COPY",
-                translationArgs: []
-            )
-            public static let AlreadyEnrolledText = LocaliciousData(
-                accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolledText",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Security.Tiqr.AlreadyEnrolledText.COPY",
-                translationArgs: []
-            )
+            public struct EnrollmentCompleted {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.EnrollmentCompleted.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.EnrollmentCompleted.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.EnrollmentCompleted.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.EnrollmentCompleted.Description.COPY",
+                    translationArgs: []
+                )
+            }
+            public struct MissingAccountDetails {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.MissingAccountDetails.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.MissingAccountDetails.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.MissingAccountDetails.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.MissingAccountDetails.Description.COPY",
+                    translationArgs: []
+                )
+            }
+            public struct EnrollmentIncomplete {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.EnrollmentIncomplete.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.EnrollmentIncomplete.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.EnrollmentIncomplete.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.EnrollmentIncomplete.Description.COPY",
+                    translationArgs: []
+                )
+            }
+            public struct AlreadyEnrolled {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolled.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.AlreadyEnrolled.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "Security.Tiqr.AlreadyEnrolled.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "Security.Tiqr.AlreadyEnrolled.Description.COPY",
+                    translationArgs: []
+                )
+            }
         }
     }
     public struct PasswordResetLink {
@@ -5283,6 +5427,14 @@ public struct L {
             translationKey: "PinAndBioMetrics.SetupBiometrics.COPY",
             translationArgs: []
         )
+        public static let Skip = LocaliciousData(
+            accessibilityIdentifier: "PinAndBioMetrics.Skip",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PinAndBioMetrics.Skip.COPY",
+            translationArgs: []
+        )
         public static let BiometricsApproval = LocaliciousData(
             accessibilityIdentifier: "PinAndBioMetrics.BiometricsApproval",
             accessibilityHintKey: nil,
@@ -5623,6 +5775,24 @@ public struct L {
         )
     }
     public struct CreateEduID {
+        public struct ErrorCreateFailed {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.ErrorCreateFailed.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.ErrorCreateFailed.Title.COPY",
+                translationArgs: []
+            )
+            public static let Message = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.ErrorCreateFailed.Message",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.ErrorCreateFailed.Message.COPY",
+                translationArgs: []
+            )
+        }
         public struct LandingPage {
             public static let MainText = LocaliciousData(
                 accessibilityIdentifier: "CreateEduID.LandingPage.MainText",
@@ -5666,22 +5836,24 @@ public struct L {
                 translationKey: "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY",
                 translationArgs: []
             )
-            public static let MainTextTitle = LocaliciousData(
-                accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextTitle",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "CreateEduID.FirstTimeDialog.MainTextTitle.COPY",
-                translationArgs: []
-            )
-            public static let MainTextTitleBoldPart = LocaliciousData(
-                accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextTitleBoldPart",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY",
-                translationArgs: []
-            )
+            public struct MainTextTitle {
+                public static let FirstPart = LocaliciousData(
+                    accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY",
+                    translationArgs: []
+                )
+                public static let SecondPart = LocaliciousData(
+                    accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY",
+                    translationArgs: []
+                )
+            }
             public static let MainText = LocaliciousData(
                 accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainText",
                 accessibilityHintKey: nil,
@@ -5754,6 +5926,16 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "CreateEduID.Explanation.CreateEduidButton.COPY",
+                translationArgs: []
+            )
+        }
+        public struct Create {
+            public static let MainTitleLabel = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.Create.MainTitleLabel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.Create.MainTitleLabel.COPY",
                 translationArgs: []
             )
         }
@@ -5947,6 +6129,14 @@ public struct L {
         )
     }
     public struct ResponseErrors {
+        public static let GeneralRequestError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.GeneralRequestError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.GeneralRequestError.COPY",
+            translationArgs: []
+        )
         public static let AuthenticationFailedTitle = LocaliciousData(
             accessibilityIdentifier: "ResponseErrors.AuthenticationFailedTitle",
             accessibilityHintKey: nil,
@@ -5979,22 +6169,142 @@ public struct L {
             translationKey: "ResponseErrors.UnauthorizedText.COPY",
             translationArgs: []
         )
-        public static let EmailInUseTitle = LocaliciousData(
-            accessibilityIdentifier: "ResponseErrors.EmailInUseTitle",
+        public static let RequestSMSError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.RequestSMSError",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "ResponseErrors.EmailInUseTitle.COPY",
+            translationKey: "ResponseErrors.RequestSMSError.COPY",
             translationArgs: []
         )
-        public static let EmailInUseText = LocaliciousData(
-            accessibilityIdentifier: "ResponseErrors.EmailInUseText",
+        public static let PasswordUpdateError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.PasswordUpdateError",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "ResponseErrors.EmailInUseText.COPY",
+            translationKey: "ResponseErrors.PasswordUpdateError.COPY",
             translationArgs: []
         )
+        public static let InvalidPasswordError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.InvalidPasswordError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.InvalidPasswordError.COPY",
+            translationArgs: []
+        )
+        public static let PasswordMismatchError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.PasswordMismatchError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.PasswordMismatchError.COPY",
+            translationArgs: []
+        )
+        public static let InvalidPasswordHash = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.InvalidPasswordHash",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.InvalidPasswordHash.COPY",
+            translationArgs: []
+        )
+        public static let MissingPasswordHash = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.MissingPasswordHash",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.MissingPasswordHash.COPY",
+            translationArgs: []
+        )
+        public static let DeleteKeyLostError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.DeleteKeyLostError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.DeleteKeyLostError.COPY",
+            translationArgs: []
+        )
+        public static let ModifyKeyLostError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ModifyKeyLostError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ModifyKeyLostError.COPY",
+            translationArgs: []
+        )
+        public static let RequestResetLinkError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.RequestResetLinkError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.RequestResetLinkError.COPY",
+            translationArgs: []
+        )
+        public static let ConfirmSMSError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ConfirmSMSError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ConfirmSMSError.COPY",
+            translationArgs: []
+        )
+        public struct InvalidChallenge {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.InvalidChallenge.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.InvalidChallenge.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.InvalidChallenge.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.InvalidChallenge.Description.COPY",
+                translationArgs: []
+            )
+        }
+        public struct DeactivationError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.DeactivationError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.DeactivationError.Title.COPY",
+                translationArgs: []
+            )
+            public static func Description(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.DeactivationError.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.DeactivationError.Description.COPY",
+                translationArgs: args
+            )
+            }
+        }
+        public struct EmailInUse {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailInUse.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailInUse.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailInUse.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailInUse.Description.COPY",
+                translationArgs: []
+            )
+        }
         public static let ForbiddenDomainTitle = LocaliciousData(
             accessibilityIdentifier: "ResponseErrors.ForbiddenDomainTitle",
             accessibilityHintKey: nil,
@@ -6059,21 +6369,151 @@ public struct L {
             translationKey: "ResponseErrors.UnknownErrorText.COPY",
             translationArgs: []
         )
-        public static let ExistinUserAndDeviceTitle = LocaliciousData(
-            accessibilityIdentifier: "ResponseErrors.ExistinUserAndDeviceTitle",
+        public static let ExistingUserAndDeviceTitle = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ExistingUserAndDeviceTitle",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "ResponseErrors.ExistinUserAndDeviceTitle.COPY",
+            translationKey: "ResponseErrors.ExistingUserAndDeviceTitle.COPY",
             translationArgs: []
         )
-        public static let ExistinUserAndDeviceText = LocaliciousData(
-            accessibilityIdentifier: "ResponseErrors.ExistinUserAndDeviceText",
+        public static let ExistingUserAndDeviceText = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ExistingUserAndDeviceText",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "ResponseErrors.ExistinUserAndDeviceText.COPY",
+            translationKey: "ResponseErrors.ExistingUserAndDeviceText.COPY",
             translationArgs: []
         )
+        public static let PersonalDetailsRetrieveError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.PersonalDetailsRetrieveError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.PersonalDetailsRetrieveError.COPY",
+            translationArgs: []
+        )
+        public static let ActivityHistoryRetrieveError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.ActivityHistoryRetrieveError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.ActivityHistoryRetrieveError.COPY",
+            translationArgs: []
+        )
+        public struct DeleteError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.DeleteError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.DeleteError.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.DeleteError.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.DeleteError.Description.COPY",
+                translationArgs: []
+            )
+            public static let NameMismatchDescription = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.DeleteError.NameMismatchDescription",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.DeleteError.NameMismatchDescription.COPY",
+                translationArgs: []
+            )
+        }
+        public static func AccountCreateError(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.AccountCreateError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.AccountCreateError.COPY",
+            translationArgs: args
+        )
+        }
+        public struct EmailDomainForbidden {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailDomainForbidden.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailDomainForbidden.Title.COPY",
+                translationArgs: []
+            )
+            public static func Description(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailDomainForbidden.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailDomainForbidden.Description.COPY",
+                translationArgs: args
+            )
+            }
+        }
+        public struct Auth {
+            public struct Invalid {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "ResponseErrors.Auth.Invalid.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "ResponseErrors.Auth.Invalid.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "ResponseErrors.Auth.Invalid.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "ResponseErrors.Auth.Invalid.Description.COPY",
+                    translationArgs: []
+                )
+            }
+            public struct Failed {
+                public static let Title = LocaliciousData(
+                    accessibilityIdentifier: "ResponseErrors.Auth.Failed.Title",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "ResponseErrors.Auth.Failed.Title.COPY",
+                    translationArgs: []
+                )
+                public static let Description = LocaliciousData(
+                    accessibilityIdentifier: "ResponseErrors.Auth.Failed.Description",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "ResponseErrors.Auth.Failed.Description.COPY",
+                    translationArgs: []
+                )
+                public struct TokenFailedDescription {
+                    public static let Generic = LocaliciousData(
+                        accessibilityIdentifier: "ResponseErrors.Auth.Failed.TokenFailedDescription.Generic",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: "ResponseErrors.Auth.Failed.TokenFailedDescription.Generic.COPY",
+                        translationArgs: []
+                    )
+                    public static func WithException(args: CVarArg...) -> LocaliciousData {
+                        return LocaliciousData(
+                        accessibilityIdentifier: "ResponseErrors.Auth.Failed.TokenFailedDescription.WithException",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: "ResponseErrors.Auth.Failed.TokenFailedDescription.WithException.COPY",
+                        translationArgs: args
+                    )
+                    }
+                }
+            }
+        }
     }
 }

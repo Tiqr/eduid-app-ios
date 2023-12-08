@@ -39,7 +39,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     
     func setupUI() {
         //MARK: - PosterLabel
-        let posterLabel = UILabel.posterTextLabelBicolor(text: L.HomeView.MainText.localization, size: 32, primary: L.HomeView.YourEduId.localization, alignment: .center)
+        let posterLabel = UILabel.posterTextLabelBicolor(text: L.HomeView.MainText.FirstPart.localization + "\n" + L.HomeView.MainText.SecondPart.localization, size: 32, primary: L.HomeView.MainText.FirstPart.localization, alignment: .center)
         posterLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(posterLabel)
         posterLabel.width(to: view)

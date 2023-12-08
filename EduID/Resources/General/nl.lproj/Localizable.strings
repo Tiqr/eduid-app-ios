@@ -8,21 +8,23 @@
 "EnvironmentSwitcher.Button.COPY" = "Omgeving";
 "EnvironmentSwitcher.Title.COPY" = "Wisselen van omgeving";
 "EnvironmentSwitcher.Subtitle.COPY" = "Klik op een van de omgevingen om die te gebruiken voor de communicatie";
-"HomeView.MainText.COPY" = "Jouw eduID app
-is klaar voor gebruik
-";
-"HomeView.YourEduId.COPY" = "Jouw eduID app";
+"PromptForOAuth.Title.COPY" = "Inloggen";
+"PromptForOAuth.Description.COPY" = "Om imformatie op te halen moet je ingelogd zijn.";
+"HomeView.MainText.FirstPart.COPY" = "Jouw eduID app";
+"HomeView.MainText.SecondPart.COPY" = "is klaar voor gebruik";
 "HomeView.SecurityButton.COPY" = "Beveiliging";
 "HomeView.PersonalInfoButton.COPY" = "Gegevens";
 "HomeView.ActivityButton.COPY" = "Activiteit";
 "HomeView.ScanQRButton.COPY" = "Scan QR";
-"ScanView.MainText.COPY" = "Zie je geen QR-code?
-Ga naar eduid.nl/security
-Maak je persoonlijke QR-code aan
+"ScanView.Title.COPY" = "Scan de QR-code";
+"ScanView.MainText.COPY" = "<b>Zie je geen QR-code?</b><br/>
+Ga naar <a href=\"https://eduid.nl/security\" target=\"_blank\">eduid.nl/security</a><br/>
+Maak je persoonlijke QR-code aan<br/>
 Scan het hier
 ";
 "ScanView.MainTextBoldPart.COPY" = "Zie je geen QR-code?";
-"ScanView.FlashlightNotAvailable.COPY" = "Zaklamp is niet beschikbaar";
+"ScanView.Flashlight.NotAvailable.COPY" = "Zaklamp is niet beschikbaar";
+"ScanView.Flashlight.TurnOn.COPY" = "Zet zaklamp aan";
 "ScanView.Error.COPY" = "Fout";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Uitloggen";
@@ -52,6 +54,7 @@ bestaande inschrijving
 "Profile.RemoveServicePrompt.Delete.COPY" = "Verwijder";
 "Profile.RemoveServicePrompt.Cancel.COPY" = "Annuleer";
 "Profile.ProvidedBy.COPY" = "aangeboden door";
+"Profile.ProvidedByYou.COPY" = "Zelf ingesteld";
 "Profile.Title.COPY" = "Persoonlijke informatie";
 "Profile.Info.COPY" = "Wanneer je eduID gebruikt om in te loggen op andere websites, kan jouw persoonlijke informatie worden gedeeld. Sommige websites vereisen dat je persoonlijke gegevens worden gevalideerd door een derde partij.";
 "Profile.Basic.COPY" = "Basis informatie";
@@ -105,6 +108,7 @@ bestaande inschrijving
 "Email.Placeholder.COPY" = "bijv tim@bernerslee.com";
 "Email.Update.COPY" = "Verstuur";
 "Email.Cancel.COPY" = "Annuleer";
+"Email.Save.COPY" = "Opslaan";
 "Email.Updated.COPY" = "Een verificatiemail is verzonden naar %1$@";
 "Email.Confirmed.COPY" = "Je e-mail is gewijzigd naar %1$@";
 "Email.Back.COPY" = "/personal";
@@ -114,6 +118,9 @@ bestaande inschrijving
 "Email.OutstandingPasswordForgottenConfirmation.COPY" = "Je hebt een openstaand wachtwoord vergeten link. Deze link is niet langer geldig als je deze e-mailwijziging bevestigt.";
 "NameUpdated.Title.YourSchool.COPY" = "Je school/instelling";
 "NameUpdated.Title.ContactedSuccessfully.COPY" = "is nu gekoppeld";
+"NameUpdated.Title.ContactedError.COPY" = "is niet gekoppeld";
+"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reden: Het account is al gekoppeld.";
+"NameUpdated.Title.FailReason.SessionExpired.COPY" = "Reden: Je sessie is verlopen.";
 "NameUpdated.Description.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.";
 "NameUpdated.FullName.COPY" = "Volledige naam";
 "NameUpdated.Continue.COPY" = "Doorgaan";
@@ -144,6 +151,7 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "MyAccount.PersonalDataDisclaimer.COPY" = "Alle informatie in jouw eduID account is van jou en kan worden gedownload of verwijderd. De download van je persoonlijke gegevens van je eduID-account bevat alle informatie die we over je hebben. Het bevat ook technische sleutels en referenties.";
 "MyAccount.DownloadDataButton.COPY" = "Download mijn data";
 "MyAccount.DeleteAccountButton.COPY" = "Verwijder je account";
+"MyAccount.DownloadSuccess.COPY" = "De informatie is opgeslagen in de downloads folder.";
 "MyAccount.DownloadError.COPY" = "Downloaden mislukt";
 "NameOverview.Title.AllDetailsOf.COPY" = "Alle gegevens van";
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
@@ -186,8 +194,14 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Security.Tiqr.BackupMethod.COPY" = "Herstelmethode";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Herstelcode";
-"Security.Tiqr.AlreadyEnrolledTitle.COPY" = "Al toegevoegd aan een ander toestel";
-"Security.Tiqr.AlreadyEnrolledText.COPY" = "Dit account is al aan een toestel gekoppeld voor 2FA. 
+"Security.Tiqr.EnrollmentCompleted.Title.COPY" = "Al toegevoegd!";
+"Security.Tiqr.EnrollmentCompleted.Description.COPY" = "Toevoegen is al voltooid.";
+"Security.Tiqr.MissingAccountDetails.Title.COPY" = "Missende account gegevens";
+"Security.Tiqr.MissingAccountDetails.Description.COPY" = "Kon de benodigde gegevens niet ophalen.";
+"Security.Tiqr.EnrollmentIncomplete.Title.COPY" = "Toevoegen incompleet";
+"Security.Tiqr.EnrollmentIncomplete.Description.COPY" = "Toevoegen is incompleet, recovery was niet compleet of toegang is uitgeschakeld";
+"Security.Tiqr.AlreadyEnrolled.Title.COPY" = "Al toegevoegd aan een ander toestel";
+"Security.Tiqr.AlreadyEnrolled.Description.COPY" = "Dit account is al aan een toestel gekoppeld voor 2FA.
 Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 ";
 "PasswordResetLink.Title.AddPassword.COPY" = "Voeg een wachtwoord toe";
@@ -248,7 +262,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "Account.DownloadDataConfirmation.COPY" = "De download van je persoonlijke gegevens van je eduID-account bevat alle informatie die we over je  hebben. Het bevat ook technische sleutels en referenties.";
 "Account.DeleteTitle.COPY" = "Je eduID account verwijderen";
 "Account.Info1.COPY" = "Je kunt je eduID account verwijderen wanneer je maar wilt.";
-"Account.Info2.COPY" = "Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppeld. Wanneer je je opnieuw registreert voor eduID met hetzelfde e-mailadres, krijg je een nieuwe eduID nummers. Sommige diensten gebruiken deze nummers om je uniek te identificeren, dus voor die diensten word je dan gezien als een nieuwe gebruiker. ";
+"Account.Info2.COPY" = "Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppeld. Wanneer je je opnieuw registreert voor eduID met hetzelfde e-mailadres, krijg je een nieuwe eduID nummers. Sommige diensten gebruiken deze nummers om je uniek te identificeren, dus voor die diensten word je dan gezien als een nieuwe gebruiker.";
 "Account.Info3.COPY" = "Houd er rekening mee dat het verwijderen van je eduID niet betekent dat alle diensten die je met je eduID hebt gebruikt, ook je gegevens zullen verwijderen.";
 "Account.Info4.COPY" = "Om het verwijderen van je eduID volledig te voltooien, moet je nadat je account is verwijderd je browser afsluiten.";
 "Account.DeleteAccount.COPY" = "Verwijder mijn eduID";
@@ -454,7 +468,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "LinkFromInstitution.InstitutionDomainNameWarning2.COPY" = "We raden je aan om je persoonlijke e-mailadres te gebruiken voor eduID.";
 "LinkFromInstitution.AllowedDomainNamesError.COPY" = "Domeinnaam %1$@ niet toegestaan.";
 "LinkFromInstitution.AllowedDomainNamesError2.COPY" = "eduID is beperkt om alleen te worden gebruikt door toegestane domeinen.";
-"LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden.</a> En ik begrijp <a tabindex='-1' href='https://eduid.nl/privacyverklaring/' target='_blank'>de privacyverklaring</a>.</span>";
+"LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden.</a> En ik begrijp <a tabindex='-1' href='https://eduid.nl/privacy/' target='_blank'>de privacyverklaring</a>.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Vraag je eduID aan";
 "PollFromInstitution.Header.COPY" = "Open je mailbox!";
 "PollFromInstitution.Awaiting.COPY" = "Wachten tot je op de link klikt...";
@@ -626,6 +640,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "SubContent.ConfirmLabel.COPY" = "Verander login optie";
 "SubContent.CancelLabel.COPY" = "Dat wist ik niet";
 "PinAndBioMetrics.SetupBiometrics.COPY" = "Stel biometrische toegang in";
+"PinAndBioMetrics.Skip.COPY" = "Overslaan";
 "PinAndBioMetrics.BiometricsApproval.COPY" = "Biometrische goedkeuring";
 "PinAndBioMetrics.BiometricsExplain.COPY" = "Wil je met je biometrie makkelijker toegang krijgen tot de eduID app?";
 "PinAndBioMetrics.BiometricsExplainBoldPart.COPY" = "biometrie";
@@ -666,17 +681,19 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "WelcomeToApp.GotItButton.COPY" = "Ok, begrepen!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Keer terug naar je webbrowser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
-"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijke login voor
-Onderwijs en Onderzoek
-";
+"CreateEduID.ErrorCreateFailed.Title.COPY" = "Je eduID aanmaken is niet gelukt!";
+"CreateEduID.ErrorCreateFailed.Message.COPY" = "Het account aanmaken is mislukt. Probeer het nogmaals.";
+"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijke login voor Onderwijs en Onderzoek";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
-"CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb geen eduID";
+"CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb nog geen eduID";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
-"CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Studeer je in NL?  Sluit dan je instelling aan!";
-"CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Sluit dan je instelling aan!";
+"CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY" = "Studeer je in Nederland?";
+"CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Sluit dan je instelling aan!";
 "CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij. Daarom moet je de volgende gegevens toevoegen aan jouw eduID
-• Validatie van je volledige naam door een derde partij • Bewijs dat je student bent • Je huidige instelling";
+• Validatie van je volledige naam door een derde partij
+• Bewijs dat je student bent
+• Je huidige instelling";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
 "CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";
@@ -684,7 +701,7 @@ Onderwijs en Onderzoek
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
 "CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers
- verbonden aan het Nederlandse onderwijs en onderzoek. 
+ verbonden aan het Nederlandse onderwijs en onderzoek.
  Het is van jou en bestaat onafhankelijk van een onderwijsinstelling.
 
  • Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
@@ -692,6 +709,7 @@ Onderwijs en Onderzoek
  • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.
 ";
 "CreateEduID.Explanation.CreateEduidButton.COPY" = "Maak een nieuw eduID aan";
+"CreateEduID.Create.MainTitleLabel.COPY" = "Maak een nieuw eduID aan";
 "CreateEduID.Created.MainTitleLabel.COPY" = "Je eduID is aangemaakt";
 "CreateEduID.Created.MainText.COPY" = "Om deze app veilig te kunnen gebruiken, hebben we een pincode nodig en een telefoonnummer voor het geval je het vergeet";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Je emailaddres";
@@ -704,7 +722,7 @@ Onderwijs en Onderzoek
 "CreateEduID.EnterPersonalInfo.Agreement.Part4Link.COPY" = "https://eduid.nl/privacy_policy/";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Vul je telefoonnummer in";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
-"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen. Als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account. 
+"CreateEduID.EnterPhoneNumber.MainText.COPY" = "Laten we een hersteltelefoonnummer toevoegen. Als je met de app of via e-mail geen toegang hebt tot eduID, kun je hiermee inloggen op je eduID Account.
 
 We sturen je een code om je nummer te verifiëren.
 ";
@@ -717,12 +735,27 @@ We sturen je een code om je nummer te verifiëren.
 "RegEXError.Email.COPY" = "Ongeldig e-mailformaat, pas je invoer aan";
 "RegEXError.Phone.COPY" = "Ongeldig telefoonnummer, pas je invoer aan";
 "RegEXError.Password.COPY" = "Wachtwoord niet sterk genoeg";
+"ResponseErrors.GeneralRequestError.COPY" = "Verzoek kan op dit moment niet worden voltooid. Probeer het later opnieuw.";
 "ResponseErrors.AuthenticationFailedTitle.COPY" = "Inloggen mislukt";
 "ResponseErrors.AuthenticationFailedMessage.COPY" = "Probeer het over een ogenblik opnieuw.";
 "ResponseErrors.UnauthorizedTitle.COPY" = "Gegevens kunnen niet laden";
 "ResponseErrors.UnauthorizedText.COPY" = "Verzoek kan niet worden voltooid, log in en geef toegang";
-"ResponseErrors.EmailInUseTitle.COPY" = "E-mail al in gebruik";
-"ResponseErrors.EmailInUseText.COPY" = "Er is al een eduID gekoppeld aan deze e-mail";
+"ResponseErrors.RequestSMSError.COPY" = "Kan geen sms-code aanvragen, probeer het opnieuw.";
+"ResponseErrors.PasswordUpdateError.COPY" = "Wachtwoord kan niet worden bijgewerkt";
+"ResponseErrors.InvalidPasswordError.COPY" = "Het gekozen wachtwoord is ongeldig";
+"ResponseErrors.PasswordMismatchError.COPY" = "Wachtwoorden zijn niet hetzelfde";
+"ResponseErrors.InvalidPasswordHash.COPY" = "Ongeldige wachtwoord-hash, stuur de e-maillink opnieuw";
+"ResponseErrors.MissingPasswordHash.COPY" = "Ontbrekende wachtwoord-hash, stuur de e-maillink opnieuw";
+"ResponseErrors.DeleteKeyLostError.COPY" = "De sleutel die u wilt verwijderen, is niet gevonden";
+"ResponseErrors.ModifyKeyLostError.COPY" = "De sleutel die u wilt wijzigen, is niet gevonden";
+"ResponseErrors.RequestResetLinkError.COPY" = "Kan de link voor het opnieuw instellen van het wachtwoord niet aanvragen.";
+"ResponseErrors.ConfirmSMSError.COPY" = "SMS-code niet bevestigd, probeer het opnieuw.";
+"ResponseErrors.InvalidChallenge.Title.COPY" = "Inschrijvingsuitdaging is ongeldig";
+"ResponseErrors.InvalidChallenge.Description.COPY" = "Kan de inschrijvingsuitdaging niet parseren, de uitdaging is ongeldig.";
+"ResponseErrors.DeactivationError.Title.COPY" = "Kan deactiveringscode niet aanvragen";
+"ResponseErrors.DeactivationError.Description.COPY" = "Kon geen deactiveringscode aanvragen voor bekend telefoonnummer: %1$@.";
+"ResponseErrors.EmailInUse.Title.COPY" = "E-mail al in gebruik";
+"ResponseErrors.EmailInUse.Description.COPY" = "Er is al een eduID gekoppeld aan deze e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Verboden domein";
 "ResponseErrors.ForbiddenDomainText.COPY" = "Het door jou opgegeven e-maildomein mag niet worden gebruikt";
 "ResponseErrors.NoInternetAccessTitle.COPY" = "Er is iets fout gegaan";
@@ -731,5 +764,19 @@ We sturen je een code om je nummer te verifiëren.
 "ResponseErrors.SMSErrorText.COPY" = "Je hebt een verkeerde verificatiecombinatie ingevoerd";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Onbekende fout";
 "ResponseErrors.UnknownErrorText.COPY" = "Er is een onbekende fout opgetreden met de volgende statuscode";
-"ResponseErrors.ExistinUserAndDeviceTitle.COPY" = "Reeds geassocieerd";
-"ResponseErrors.ExistinUserAndDeviceText.COPY" = "Dit account is al gekoppeld aan een ander apparaat. Verwijder eerst jouw andere apparaat uit je account voordat je een nieuw apparaat registreert.";
+"ResponseErrors.ExistingUserAndDeviceTitle.COPY" = "Reeds geassocieerd";
+"ResponseErrors.ExistingUserAndDeviceText.COPY" = "Dit account is al gekoppeld aan een ander apparaat. Verwijder eerst jouw andere apparaat uit je account voordat je een nieuw apparaat registreert.";
+"ResponseErrors.PersonalDetailsRetrieveError.COPY" = "Ophalen van persoonlijke informatie mislukt";
+"ResponseErrors.ActivityHistoryRetrieveError.COPY" = "Ophalen van account activiteit mislukt";
+"ResponseErrors.DeleteError.Title.COPY" = "Kan niet verwijderen";
+"ResponseErrors.DeleteError.Description.COPY" = "Account kan niet verwijderd worden";
+"ResponseErrors.DeleteError.NameMismatchDescription.COPY" = "De getypte naam is niet dezelfde als de bestaande naam";
+"ResponseErrors.AccountCreateError.COPY" = "Kan geen eduid-account maken voor e-mail %1$@.";
+"ResponseErrors.EmailDomainForbidden.Title.COPY" = "E-maildomein is verboden";
+"ResponseErrors.EmailDomainForbidden.Description.COPY" = "Het e-maildomein gebruikt in %1$@ is niet toegestaan.";
+"ResponseErrors.Auth.Invalid.Title.COPY" = "Autorisatie ongeldig";
+"ResponseErrors.Auth.Invalid.Description.COPY" = "Ontvangen verificatie is ongeldig.";
+"ResponseErrors.Auth.Failed.Title.COPY" = "Autorisatie mislukt";
+"ResponseErrors.Auth.Failed.Description.COPY" = "Er zijn geen autorisatiegegevens opgeslaan - herautorisatie is nodig.";
+"ResponseErrors.Auth.Failed.TokenFailedDescription.Generic.COPY" = "Autorisatiecode-uitwisseling mislukt";
+"ResponseErrors.Auth.Failed.TokenFailedDescription.WithException.COPY" = "Autorisatiecode-uitwisseling mislukt: %1$@.";
