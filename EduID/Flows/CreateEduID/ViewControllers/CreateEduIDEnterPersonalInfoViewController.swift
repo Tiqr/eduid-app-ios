@@ -145,37 +145,22 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         theSwitch.onTintColor = .primaryColor
         theSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
         
+        let htmlData = NSString(string: L.Login.AgreeWithTerms.localization).data(using: String.Encoding.unicode.rawValue)
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+        let attributedTerms = try! NSAttributedString(data: htmlData!, options: options, documentAttributes: nil)
+        
         let termsLabel = UITextView()
+        termsLabel.attributedText = attributedTerms
         termsLabel.font = .sourceSansProRegular(size: 12)
         termsLabel.textColor = .charcoalColor
         termsLabel.isScrollEnabled = false
         termsLabel.translatesAutoresizingMaskIntoConstraints = false
-        let part1 = L.CreateEduID.EnterPersonalInfo.Agreement.Part1.localization
-        let part2 = L.CreateEduID.EnterPersonalInfo.Agreement.Part2.localization
-        let part3 = L.CreateEduID.EnterPersonalInfo.Agreement.Part3.localization
-        let part4 = L.CreateEduID.EnterPersonalInfo.Agreement.Part4.localization
-        
-        let fullString = NSMutableAttributedString(
-            string: part1 + part2 + part3 + part4,
-            attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .charcoalColor, lineSpacing: 0)
-        )
-        fullString.addAttribute(
-            .link,
-            value: L.CreateEduID.EnterPersonalInfo.Agreement.Part2Link.localization,
-            range: .init(location: part1.count, length: part2.count)
-        )
-        fullString.addAttribute(
-            .link,
-            value: L.CreateEduID.EnterPersonalInfo.Agreement.Part4Link.localization,
-            range: .init(location: part1.count + part2.count + part3.count, length: part4.count)
-        )
         termsLabel.isEditable = false
 
         termsLabel.textContainer.lineBreakMode = .byWordWrapping
         termsLabel.dataDetectorTypes = .link
         termsLabel.textContainerInset = .zero
         termsLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        termsLabel.attributedText = fullString
         termsLabel.delegate = self
         termsLabel.isSelectable = true
         

@@ -16,8 +16,8 @@ extension Error {
                             message: L.ResponseErrors.SMSErrorText.localization,
                             statusCode: statusCode)
                 case 409:
-                    return (title: L.ResponseErrors.EmailInUseTitle.localization,
-                            message: L.ResponseErrors.EmailInUseText.localization,
+                    return (title: L.ResponseErrors.EmailInUse.Title.localization,
+                            message: L.ResponseErrors.EmailInUse.Description.localization,
                             statusCode: statusCode)
                 case 412:
                     return (title: L.ResponseErrors.ForbiddenDomainTitle.localization,

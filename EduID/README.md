@@ -68,7 +68,7 @@ You can convert this file to actual localizations used by the iOS build process 
 Use the following command ran from this directory to regenerate the strings files based on the changes you made in the YAML:
 
 ```
-localicious render localizations.yaml ./ --languages en,nl --outputTypes ios -c IOS &&\
+localicious render localizations.yaml ./ --languages en,nl --outputTypes ios -c SHARED &&\
 mv ios/en/Localizable.strings Resources/General/en.lproj/Localizable.strings &&\
 mv ios/nl/Localizable.strings Resources/General/nl.lproj/Localizable.strings &&\
 mv ios/Localizable.swift Localizable.swift &&\
