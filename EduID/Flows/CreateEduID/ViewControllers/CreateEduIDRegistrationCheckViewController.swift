@@ -51,8 +51,8 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
                 guard let self else { return }
                 if let existingUser = snapShot {
                     if existingUser {
-                        self.presentAlert(with: L.Security.Tiqr.AlreadyEnrolledTitle.localization,
-                                          and: L.Security.Tiqr.AlreadyEnrolledText.localization, for: .deactivate)
+                        self.presentAlert(with: L.Security.Tiqr.AlreadyEnrolled.Title.localization,
+                                          and: L.Security.Tiqr.AlreadyEnrolled.Description.localization, for: .deactivate)
                     } else {
                         self.showNextScreen()
                     }

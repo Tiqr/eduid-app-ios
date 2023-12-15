@@ -8,21 +8,23 @@
 "EnvironmentSwitcher.Button.COPY" = "Environment";
 "EnvironmentSwitcher.Title.COPY" = "Switch environment";
 "EnvironmentSwitcher.Subtitle.COPY" = "Click on one of the environments to use it in the app for communicating";
-"HomeView.MainText.COPY" = "Your eduID app
-is ready for use
-";
-"HomeView.YourEduId.COPY" = "Your eduID app";
+"PromptForOAuth.Title.COPY" = "Please log in";
+"PromptForOAuth.Description.COPY" = "To retrieve the information you must be logged in.";
+"HomeView.MainText.FirstPart.COPY" = "Your eduID app";
+"HomeView.MainText.SecondPart.COPY" = "is ready for use";
 "HomeView.SecurityButton.COPY" = "Security";
 "HomeView.PersonalInfoButton.COPY" = "Personal info";
 "HomeView.ActivityButton.COPY" = "Activity";
 "HomeView.ScanQRButton.COPY" = "Scan QR";
-"ScanView.MainText.COPY" = "Don't see a QR code?
-Go to eduid.nl/security
-Create your personal QR code/n
+"ScanView.Title.COPY" = "Scan the QR-code";
+"ScanView.MainText.COPY" = "<b>Don't see a QR code?</b><br/>
+Go to <a href=\"https://eduid.nl/security\" target=\"_blank\">eduid.nl/security</a><br/>
+Create your personal QR code<br/>
 Scan it here
 ";
 "ScanView.MainTextBoldPart.COPY" = "Don't see a QR code?";
-"ScanView.FlashlightNotAvailable.COPY" = "Torch isn't available";
+"ScanView.Flashlight.NotAvailable.COPY" = "Torch isn't available";
+"ScanView.Flashlight.TurnOn.COPY" = "Turn on flashlight";
 "ScanView.Error.COPY" = "Error";
 "Header.Title.COPY" = "eduID";
 "Header.Logout.COPY" = "Logout";
@@ -52,6 +54,7 @@ existing registration
 "Profile.RemoveServicePrompt.Delete.COPY" = "Delete";
 "Profile.RemoveServicePrompt.Cancel.COPY" = "Cancel";
 "Profile.ProvidedBy.COPY" = "provided by";
+"Profile.ProvidedByYou.COPY" = "Provided by you";
 "Profile.Title.COPY" = "Personal information";
 "Profile.Info.COPY" = "When you use eduID to login to other websites, some of your personal information will be shared. Some websites require that your personal information is validated by a third party.";
 "Profile.Basic.COPY" = "Basic information";
@@ -105,6 +108,7 @@ existing registration
 "Email.Placeholder.COPY" = "eg tim@bernerslee.com";
 "Email.Update.COPY" = "Request";
 "Email.Cancel.COPY" = "Cancel";
+"Email.Save.COPY" = "Save";
 "Email.Updated.COPY" = "A verification email has been sent to %1$@";
 "Email.Confirmed.COPY" = "Your email address has been changed to %1$@";
 "Email.Back.COPY" = "/personal";
@@ -114,6 +118,9 @@ existing registration
 "Email.OutstandingPasswordForgottenConfirmation.COPY" = "You have requested a password forgotten link. This link will no longer be valid if you confirm your email change.";
 "NameUpdated.Title.YourSchool.COPY" = "Your school/uni";
 "NameUpdated.Title.ContactedSuccessfully.COPY" = "was contacted successfully";
+"NameUpdated.Title.ContactedError.COPY" = "could not be contacted";
+"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reason: The account is already linked.";
+"NameUpdated.Title.FailReason.SessionExpired.COPY" = "Reason: Your session expired.";
 "NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
 "NameUpdated.FullName.COPY" = "Full name";
 "NameUpdated.Continue.COPY" = "Continue";
@@ -144,6 +151,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "MyAccount.PersonalDataDisclaimer.COPY" = "All of your personal data from your eduID is yours and can be either downloaded or deleted. This data also contains technical keys and references.";
 "MyAccount.DownloadDataButton.COPY" = "Download my data";
 "MyAccount.DeleteAccountButton.COPY" = "Delete your account";
+"MyAccount.DownloadSuccess.COPY" = "Your data was downloaded in your downloads folder.";
 "MyAccount.DownloadError.COPY" = "Failed to download your data";
 "NameOverview.Title.AllDetailsOf.COPY" = "All details of";
 "NameOverview.Title.FullName.COPY" = "Full name";
@@ -162,7 +170,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.ProvidedBy.COPY" = "Provided by";
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
 "Security.NotSupported.COPY" = "Not supported";
-"Security.UseMagicLink.COPY" = "Send magic link to";
+"Security.UseMagicLink.COPY" = "Send a magic link to";
 "Security.AddSecurityKeyInfo.COPY" = "You can add security keys to your eduID account which can be used to login. You can use, for example, the built-in sensor of your device (TouchID, FaceID) or a separate hardware key (YubiKey).";
 "Security.RememberMeInfo.COPY" = "<strong>Your device is currently remembered. You will be automatically logged in to eduID.</strong>";
 "Security.NoRememberMeInfo.COPY" = "When logging in with your eduID, you can choose to <strong>stay logged in</strong>. This remembers your login on the device you use at that moment.";
@@ -186,8 +194,14 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.Tiqr.BackupMethod.COPY" = "Recovery method";
 "Security.Tiqr.Sms.COPY" = "SMS";
 "Security.Tiqr.Code.COPY" = "Backup code";
-"Security.Tiqr.AlreadyEnrolledTitle.COPY" = "Already enrolled on a different device";
-"Security.Tiqr.AlreadyEnrolledText.COPY" = "This account already has a device setup for 2FA
+"Security.Tiqr.EnrollmentCompleted.Title.COPY" = "Already enrolled!";
+"Security.Tiqr.EnrollmentCompleted.Description.COPY" = "Enrollment was already completed.";
+"Security.Tiqr.MissingAccountDetails.Title.COPY" = "Missing account details";
+"Security.Tiqr.MissingAccountDetails.Description.COPY" = "Could not retrieve the account details.";
+"Security.Tiqr.EnrollmentIncomplete.Title.COPY" = "Enrollment incomplete";
+"Security.Tiqr.EnrollmentIncomplete.Description.COPY" = "Enrollment is incomplete, either recovery was not complete or access was revoked";
+"Security.Tiqr.AlreadyEnrolled.Title.COPY" = "Already enrolled on a different device";
+"Security.Tiqr.AlreadyEnrolled.Description.COPY" = "This account already has a device setup for 2FA
 Would you like to deactivate existing enrollment to enroll on this device?
 ";
 "PasswordResetLink.Title.AddPassword.COPY" = "Add password";
@@ -624,7 +638,8 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "SubContent.Warning.COPY" = "The service your logging into has explicitly requested you login using your eduID app. If you login with a different method, this service will not receive your attributes.";
 "SubContent.ConfirmLabel.COPY" = "Change login option anyway";
 "SubContent.CancelLabel.COPY" = "Did not know that";
-"PinAndBioMetrics.SetupBiometrics.COPY" = "Setup biometric access";
+"PinAndBioMetrics.SetupBiometrics.COPY" = "Set up biometric access";
+"PinAndBioMetrics.Skip.COPY" = "Skip this";
 "PinAndBioMetrics.BiometricsApproval.COPY" = "Biometric approval";
 "PinAndBioMetrics.BiometricsExplain.COPY" = "Do you want to use your biometrics to access the eduID app more easily?";
 "PinAndBioMetrics.BiometricsExplainBoldPart.COPY" = "biometrics";
@@ -637,7 +652,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "PinAndBioMetrics.SecondPinScreenSelectTitle.COPY" = "Repeat selected PIN";
 "PinAndBioMetrics.SecondPinScreenText.COPY" = "Please enter your PIN code again";
 "PinAndBioMetrics.VerifyPinScreenText.COPY" = "Enter the PIN and press OK";
-"PinAndBioMetrics.SignIn.COPY" = "Login";
+"PinAndBioMetrics.SignIn.COPY" = "Log in";
 "PinAndBioMetrics.OKButton.COPY" = "OK";
 "PinAndBioMetrics.LoginRequest.COPY" = "Request to log on";
 "PinAndBioMetrics.DoYouWantToLogInTo.COPY" = "Do you want to log in to";
@@ -665,17 +680,19 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WelcomeToApp.GotItButton.COPY" = "Ok, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
-"CreateEduID.LandingPage.MainText.COPY" = "Personal account for
-Education and Research
-";
+"CreateEduID.ErrorCreateFailed.Title.COPY" = "Could not create your eduID account!";
+"CreateEduID.ErrorCreateFailed.Message.COPY" = "The account creation has failed. Please try again.";
+"CreateEduID.LandingPage.MainText.COPY" = "Personal account for Education and Research";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Sign in";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "I don't have an eduID";
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Connect your school/institution";
-"CreateEduID.FirstTimeDialog.MainTextTitle.COPY" = "Are you studying in NL? Connect your institution!";
-"CreateEduID.FirstTimeDialog.MainTextTitleBoldPart.COPY" = "Connect your institution!";
+"CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY" = "Are you studying in NL?";
+"CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Connect your institution!";
 "CreateEduID.FirstTimeDialog.MainText.COPY" = "When you study in the Netherlands and you want to use eduID to logon to an educational services, we need to be sure it's you and not someone impersonating you You must therefore add the following information to your eduID
-• Validation of your full name by a third party • Proof of being a student • Your current institution";
+• Validation of your full name by a third party
+• Proof of being a student
+• Your current institution";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "When you study in the Netherlands";
 "CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "You must therefore add the following information to your eduID";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Add this information by connecting your school/institution via SURFconext";
@@ -691,16 +708,11 @@ of an educational institution.
 • eduID is a lifelong account. It stays valid after you graduate.
 ";
 "CreateEduID.Explanation.CreateEduidButton.COPY" = "Create a new eduID";
+"CreateEduID.Create.MainTitleLabel.COPY" = "Create a new eduID";
 "CreateEduID.Created.MainTitleLabel.COPY" = "Your eduID has been created";
 "CreateEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Your email address";
 "CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
-"CreateEduID.EnterPersonalInfo.Agreement.Part1.COPY" = "I agree with the ";
-"CreateEduID.EnterPersonalInfo.Agreement.Part2.COPY" = "terms of service";
-"CreateEduID.EnterPersonalInfo.Agreement.Part3.COPY" = ". I also understand the ";
-"CreateEduID.EnterPersonalInfo.Agreement.Part4.COPY" = "privacy policy.";
-"CreateEduID.EnterPersonalInfo.Agreement.Part2Link.COPY" = "https://eduid.nl/terms-of-use/";
-"CreateEduID.EnterPersonalInfo.Agreement.Part4Link.COPY" = "https://eduid.nl/privacy_policy/";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
 "CreateEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber. If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
@@ -716,12 +728,27 @@ We will text you a code to verify your number.
 "RegEXError.Email.COPY" = "Invalid email format, please revise your input";
 "RegEXError.Phone.COPY" = "Invalid phone format, please revise your input";
 "RegEXError.Password.COPY" = "Password is too weak";
-"ResponseErrors.AuthenticationFailedTitle.COPY" = "Authentication Failed";
+"ResponseErrors.GeneralRequestError.COPY" = "Request cannot be completed at this moment. Please retry later.";
+"ResponseErrors.AuthenticationFailedTitle.COPY" = "Authentication failed";
 "ResponseErrors.AuthenticationFailedMessage.COPY" = "Try again in a moment.";
 "ResponseErrors.UnauthorizedTitle.COPY" = "Cannot load data";
 "ResponseErrors.UnauthorizedText.COPY" = "Cannot complete request, please sign in and grant access.";
-"ResponseErrors.EmailInUseTitle.COPY" = "E-mail already in use";
-"ResponseErrors.EmailInUseText.COPY" = "There is already an eduID associated with this e-mail";
+"ResponseErrors.RequestSMSError.COPY" = "Could not request SMS code, please retry.";
+"ResponseErrors.PasswordUpdateError.COPY" = "Cannot update password";
+"ResponseErrors.InvalidPasswordError.COPY" = "Chosen password is invalid";
+"ResponseErrors.PasswordMismatchError.COPY" = "Passwords do not match";
+"ResponseErrors.InvalidPasswordHash.COPY" = "Invalid password hash, please resend email link";
+"ResponseErrors.MissingPasswordHash.COPY" = "Missing password hash, please resend email link";
+"ResponseErrors.DeleteKeyLostError.COPY" = "Cannot find key for deletion";
+"ResponseErrors.ModifyKeyLostError.COPY" = "Cannot find key for modification";
+"ResponseErrors.RequestResetLinkError.COPY" = "Could not request reset password link.";
+"ResponseErrors.ConfirmSMSError.COPY" = "SMS code not confirmed, please retry";
+"ResponseErrors.InvalidChallenge.Title.COPY" = "Enrollment challenge is invalid";
+"ResponseErrors.InvalidChallenge.Description.COPY" = "Cannot parse enrollment challenge, challenge is invalid.";
+"ResponseErrors.DeactivationError.Title.COPY" = "Failed to request deactivation code";
+"ResponseErrors.DeactivationError.Description.COPY" = "Could not request deactivation code for known phone number: %1$@.";
+"ResponseErrors.EmailInUse.Title.COPY" = "E-mail already in use";
+"ResponseErrors.EmailInUse.Description.COPY" = "There is already an eduID associated with this e-mail";
 "ResponseErrors.ForbiddenDomainTitle.COPY" = "Forbidden domain";
 "ResponseErrors.ForbiddenDomainText.COPY" = "The e-mail domain you specified may not be used";
 "ResponseErrors.NoInternetAccessTitle.COPY" = "Something went wrong";
@@ -730,5 +757,19 @@ We will text you a code to verify your number.
 "ResponseErrors.SMSErrorText.COPY" = "You have entered a wrong verification combination";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Uknown error";
 "ResponseErrors.UnknownErrorText.COPY" = "An unknown error occured with the following status code";
-"ResponseErrors.ExistinUserAndDeviceTitle.COPY" = "Already associated";
-"ResponseErrors.ExistinUserAndDeviceText.COPY" = "This account is already associated with a different device. Remove your other device first from your account before registering a new device.";
+"ResponseErrors.ExistingUserAndDeviceTitle.COPY" = "Already associated";
+"ResponseErrors.ExistingUserAndDeviceText.COPY" = "This account is already associated with a different device. Remove your other device first from your account before registering a new device.";
+"ResponseErrors.PersonalDetailsRetrieveError.COPY" = "Could not retrieve personal details";
+"ResponseErrors.ActivityHistoryRetrieveError.COPY" = "Could not retrieve activity details";
+"ResponseErrors.DeleteError.Title.COPY" = "Cannot delete";
+"ResponseErrors.DeleteError.Description.COPY" = "Could not delete account";
+"ResponseErrors.DeleteError.NameMismatchDescription.COPY" = "Typed name does not match known name";
+"ResponseErrors.AccountCreateError.COPY" = "Could not create eduid account for email %1$@.";
+"ResponseErrors.EmailDomainForbidden.Title.COPY" = "Email domain is forbidden";
+"ResponseErrors.EmailDomainForbidden.Description.COPY" = "The email domain used in %1$@ is not allowed.";
+"ResponseErrors.Auth.Invalid.Title.COPY" = "Authorization invalid";
+"ResponseErrors.Auth.Invalid.Description.COPY" = "Did not receive valid authentication.";
+"ResponseErrors.Auth.Failed.Title.COPY" = "Authorization failed";
+"ResponseErrors.Auth.Failed.Description.COPY" = "No authorization state retained - reauthorization required.";
+"ResponseErrors.Auth.Failed.TokenFailedDescription.Generic.COPY" = "Authorization token code exchange failed.";
+"ResponseErrors.Auth.Failed.TokenFailedDescription.WithException.COPY" = "Authorization code exchange failed: %1$@.";

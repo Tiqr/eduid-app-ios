@@ -127,7 +127,7 @@ class ScanViewController: UIViewController, ScreenWithScreenType {
     @objc
     private func toggleTorch() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
-        guard device.hasTorch else { print(L.ScanView.FlashlightNotAvailable.localization); return }
+        guard device.hasTorch else { print(L.ScanView.Flashlight.NotAvailable.localization); return }
 
         do {
             try device.lockForConfiguration()
