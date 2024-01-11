@@ -9,7 +9,7 @@
 "EnvironmentSwitcher.Title.COPY" = "Wisselen van omgeving";
 "EnvironmentSwitcher.Subtitle.COPY" = "Klik op een van de omgevingen om die te gebruiken voor de communicatie";
 "PromptForOAuth.Title.COPY" = "Inloggen";
-"PromptForOAuth.Description.COPY" = "Om imformatie op te halen moet je ingelogd zijn.";
+"PromptForOAuth.Description.COPY" = "Om informatie op te halen moet je ingelogd zijn.";
 "HomeView.MainText.FirstPart.COPY" = "Jouw eduID app";
 "HomeView.MainText.SecondPart.COPY" = "is klaar voor gebruik";
 "HomeView.SecurityButton.COPY" = "Beveiliging";
