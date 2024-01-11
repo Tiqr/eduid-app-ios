@@ -7,6 +7,7 @@
 
 import Foundation
 import OpenAPIClient
+import TiqrCoreObjC
 
 class ConfirmDeleteViewModel: ValidatedTextFieldDelegate {
 
@@ -41,6 +42,16 @@ class ConfirmDeleteViewModel: ValidatedTextFieldDelegate {
     }
     
     func confirmDelete() async throws -> StatusResponse {
+        // Remove the identity and its belonging secret
+        if let identity = ServiceContainer.sharedInstance().identityService.findIdentity(withIdentifier: personalInfo.id) {
+            let success = ServiceContainer.sharedInstance().secretService.deleteSecret(forIdentityIdentifier: identity.identifier, providerIdentifier: identity.identityProvider.identifier)
+            ServiceContainer.sharedInstance().identityService.delete(identity)
+            ServiceContainer.sharedInstance().identityService.saveIdentities()
+            NSLog("Deleted local identity with success: \(success)")
+        } else {
+            NSLog("Could not find identity to delete (ID: %@)", personalInfo.id ?? "<unknown ID>")
+        }
+        
         return try await UserControllerAPI.deleteUser()
     }
     
