@@ -2,7 +2,7 @@
 //  DeleteServiceViewController.swift
 //  eduID
 //
-//  Created by Dániel Zolnai on 2023. 06. 15..
+//  Created by Dániel Zolnai on 2024. 01. 18..
 //
 
 import Foundation
@@ -10,18 +10,18 @@ import UIKit
 import OpenAPIClient
 import TinyConstraints
 
-class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
+class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
     
-    var screenType: ScreenType = .confirmDeleteServiceScreen
+    var screenType: ScreenType = .confirmDeleteTokensScreen
     
     weak var delegate: ActivityViewControllerDelegate?
 
-    private var viewModel: DeleteServiceViewModel
+    private var viewModel: DeleteTokensViewModel
     
     private var confirmButton: EduIDButton!
     private var loadingIndicator: UIActivityIndicatorView!
-    
-    init(viewModel: DeleteServiceViewModel) {
+        
+    init(viewModel: DeleteTokensViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,40 +42,20 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
-        
-        let serviceName = viewModel.service.serviceName ?? viewModel.service.serviceNameNl ?? "?"
-        
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.DeleteService.Title.localization, size: 24, primary: L.DeleteService.Title.localization)
-            
-
-        let disclaimerContainer = UIView()
-        let disclaimerLabel = UILabel()
-        let errorImage = UIImageView()
-        errorImage.image = .error
-        errorImage.size(CGSize(width: 22.5, height: 21))
-        let disclaimerString = NSMutableAttributedString(
-            string: L.DeleteService.Disclaimer.localization,
-            attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 14), color: .charcoalColor, lineSpacing: 4)
+                
+        let mainTitle = UILabel.posterTextLabelBicolor(
+            text: L.RevokeAccessToken.Title.localization,
+            size: 24,
+            primary: L.RevokeAccessToken.Title.localization
         )
-        disclaimerLabel.attributedText = disclaimerString
-        disclaimerContainer.addSubview(disclaimerLabel)
-        disclaimerContainer.addSubview(errorImage)
-        errorImage.leftToSuperview(offset: 12)
-        errorImage.topToSuperview(offset: 18)
-        disclaimerLabel.leftToRight(of: errorImage, offset: 12)
-        disclaimerLabel.rightToSuperview(offset: -12)
-        disclaimerLabel.verticalToSuperview(insets: .vertical(12))
-        disclaimerLabel.numberOfLines = 0
-        disclaimerContainer.backgroundColor = UIColor.alertsBackgroundColor
         
         let description = UILabel.plainTextLabelPartlyBold(
-            text: L.DeleteService.Description(args: serviceName).localization,
+            text: L.RevokeAccessToken.Description(args: self.viewModel.serviceName).localization,
             partBold: ""
         )
                 
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle,
-            disclaimerContainer,
             description
         ])
         
@@ -110,7 +90,6 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         topStackView.spacing = 16
         
         mainTitle.widthToSuperview()
-        disclaimerContainer.widthToSuperview()
         description.widthToSuperview()
         spacer.widthToSuperview()
         bottomButtonStack.widthToSuperview()
@@ -128,7 +107,7 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
             loadingIndicator.startAnimating()
             confirmButton.isEnabled = false
             do {
-                let _ = try await viewModel.deleteActivity()
+                let _ = try await viewModel.deleteTokens()
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.delegate?.goBack(from: self, shouldUpdate: true)

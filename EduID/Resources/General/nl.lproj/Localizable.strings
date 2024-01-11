@@ -293,6 +293,11 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "DeleteService.Button.Confirm.COPY" = "Bevestigen";
 "DeleteService.Button.Cancel.COPY" = "Annuleer";
 "DeleteService.Error.COPY" = "Fout bij verwijderen dienst";
+"RevokeAccessToken.Title.COPY" = "Beveiligingssleutel intrekken";
+"RevokeAccessToken.Description.COPY" = "Weet je zeker dat de API access beveiligingssleutel voor %1$@ wilt intrekken?";
+"RevokeAccessToken.Button.Confirm.COPY" = "Bevestigen";
+"RevokeAccessToken.Button.Cancel.COPY" = "Annuleer";
+"RevokeAccessToken.Error.COPY" = "Fout bij verwijderen van beveiligingssleutel";
 "Institution.Title.COPY" = "Gekoppelde instelling";
 "Institution.Info.COPY" = "Deze instelling is op %1$@ om %2$@: %3$@ gekoppeld aan jouw eduID.";
 "Institution.Name.COPY" = "Naam van de instelling";

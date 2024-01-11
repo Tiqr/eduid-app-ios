@@ -11,7 +11,7 @@ import TinyConstraints
 
 class ConfirmDeleteViewController: UIViewController, ScreenWithScreenType {
     
-    var screenType: ScreenType = .confirmDeleteScreen
+    var screenType: ScreenType = .confirmDeleteAccountScreen
     
     weak var delegate: PersonalInfoViewControllerDelegate?
 
