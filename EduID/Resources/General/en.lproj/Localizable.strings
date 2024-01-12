@@ -232,11 +232,6 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "TwoFactorKeys.Label.UniqueKeyId.COPY" = "Unique KeyID";
 "TwoFactorKeys.Label.UseBiometrics.COPY" = "Use biometrics";
 "TwoFactorKeys.DeleteKey.COPY" = "Sleutel verwijderen";
-"ConfirmDeleteKey.Title.COPY" = "Delete key";
-"ConfirmDeleteKey.Subtitle.COPY" = "There is no way to undo this action";
-"ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
-"ConfirmDeleteKey.Button.Confirm.COPY" = "Confirm";
-"ConfirmDeleteKey.Button.Cancel.COPY" = "Cancel";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Data & activity";
@@ -713,6 +708,7 @@ of an educational institution.
 "CreateEduID.Created.MainText.COPY" = "To safely use this app, we need you to set a pincode and provide a phonenumber in case you might forget it";
 "CreateEduID.EnterPersonalInfo.EmailFieldTitle.COPY" = "Your email address";
 "CreateEduID.EnterPersonalInfo.EmailFieldPlaceHolder.COPY" = "e.g. timbernerslee@gmail.com";
+"CreateEduID.EnterPersonalInfo.Agreement.COPY" = "I agree with the terms of service. I also understand the privacy policy";
 "CreateEduID.EnterPhoneNumber.PhoneFieldTitle.COPY" = "Enter your phone number";
 "CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.COPY" = "0612345678";
 "CreateEduID.EnterPhoneNumber.MainText.COPY" = "Let's add a recovery phonenumber. If you can't access eduID with the app or via email, you can use this to sign in to your eduID Account.
