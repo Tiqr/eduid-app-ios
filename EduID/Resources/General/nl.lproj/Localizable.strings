@@ -233,6 +233,11 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "TwoFactorKeys.Label.UniqueKeyId.COPY" = "Uniek SleutelID";
 "TwoFactorKeys.Label.UseBiometrics.COPY" = "Gebruik biometrie";
 "TwoFactorKeys.DeleteKey.COPY" = "Delete key";
+"ConfirmDeleteKey.Title.COPY" = "Verwijder sleutel";
+"ConfirmDeleteKey.Subtitle.COPY" = "Dit kan niet ongedaan worden gemaakt";
+"ConfirmDeleteKey.Description.COPY" = "Weet je zeker dat je deze sleutel wil verwijderen?";
+"ConfirmDeleteKey.Button.Confirm.COPY" = "Bevestigen";
+"ConfirmDeleteKey.Button.Cancel.COPY" = "Annuleren";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Data & activiteit";
