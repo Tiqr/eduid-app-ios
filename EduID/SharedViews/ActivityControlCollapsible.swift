@@ -1,25 +1,45 @@
 import UIKit
 import SDWebImage
 import TinyConstraints
+import OpenAPIClient
 
 class ActivityControlCollapsible: UIControl {
 
     private var stack: UIStackView!
     private var isExpanded = false
-    private var removeAction: () -> Void
+    private var callbackRemoveDetailsButtonAction: () -> Void
+    private var callbackRevokeTokenButtonAction: (Token) -> Void
+    
+    private var tokens: [Token]
         
     //MARK: - init
-    init(logoImageURL: String, institutionTitle: String, date: Date, uniqueId: String, removeAction: @escaping () -> Void) {
-        self.removeAction = removeAction
+    init(
+        logoImageURL: String,
+        institutionTitle: String,
+        date: Date,
+        uniqueId: String,
+        accessTokens: [Token],
+        removeDetailsButtonAction: @escaping () -> Void,
+        revokeTokenButtonAction: @escaping (Token) -> Void
+    ) {
+        self.callbackRemoveDetailsButtonAction = removeDetailsButtonAction
+        self.callbackRevokeTokenButtonAction = revokeTokenButtonAction
+        self.tokens = accessTokens
         super.init(frame: .zero)
         
-        setupUI(logoImageURL: logoImageURL, institutionTitle: institutionTitle, date: date, uniqueId: uniqueId)
+        setupUI(
+            logoImageURL: logoImageURL,
+            institutionTitle: institutionTitle,
+            date: date,
+            uniqueId: uniqueId,
+            accessTokens: accessTokens
+        )
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
     }
             
     //MARK: - setup UI
-    func setupUI(logoImageURL: String, institutionTitle: String, date: Date, uniqueId: String) {
+    func setupUI(logoImageURL: String, institutionTitle: String, date: Date, uniqueId: String, accessTokens: [Token]) {
         
         backgroundColor = .disabledGrayBackground
         
@@ -105,7 +125,7 @@ class ActivityControlCollapsible: UIControl {
         
         // remove button
         let button = EduIDButton(type: .borderedRed, buttonTitle: L.DataActivity.Details.Delete.localization)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(removeDetailsButtonAction), for: .touchUpInside)
         
         let disclaimerParent = UIView()
         let disclaimerText = NSMutableAttributedString(
@@ -121,6 +141,124 @@ class ActivityControlCollapsible: UIControl {
         stack.axis = .vertical
         stack.distribution = .equalSpacing
         stack.spacing = 18
+        
+        for accessToken in accessTokens {
+            let line5 = UIView()
+            line5.height(1)
+            line5.backgroundColor = .backgroundColor
+            
+            let tokenDetailsParent = UIView()
+            let tokenDetailsLabel = UILabel()
+            tokenDetailsLabel.numberOfLines = 0
+            tokenDetailsParent.addSubview(tokenDetailsLabel)
+            tokenDetailsLabel.edges(to: tokenDetailsParent)
+            let tokenDetailsString = L.DataActivity.Details.Access.localization
+            let tokenDetailsAttributedString = NSMutableAttributedString(
+                string: tokenDetailsString,
+                attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6)
+            )
+            tokenDetailsLabel.attributedText = tokenDetailsAttributedString
+            
+            // line 6
+            let line6 = UIView()
+            line6.height(1)
+            line6.backgroundColor = .backgroundColor
+            
+            // Account details - label
+            let accountDetailsLabel = UILabel()
+            let accountDetailsAttributedString = NSAttributedString(string: L.DataActivity.Details.Details.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+            accountDetailsLabel.attributedText = accountDetailsAttributedString
+            
+            // Account details - value
+            let accountDetailsValueLabel = UILabel()
+            var scopesString = ""
+            for scope in (accessToken.scopes ?? []) {
+                let language: String
+                if #available(iOS 16, *) {
+                    language = Locale.current.language.languageCode?.identifier ?? "en"
+                } else {
+                    language = Locale.current.languageCode ?? "en"
+                }
+                let description = scope.descriptions?[language] ?? scope.descriptions?["en"] ?? scope.name ?? ""
+                if description.count > 0 {
+                    scopesString += "• \(description)\n"
+                }
+                scopesString = scopesString.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            let accountDetailsValueString = NSAttributedString(
+                string: scopesString,
+                attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6)
+            )
+            accountDetailsValueLabel.attributedText = accountDetailsValueString
+            accountDetailsValueLabel.numberOfLines = .zero
+            let accountDetailsStack = UIStackView(arrangedSubviews: [accountDetailsLabel, accountDetailsValueLabel])
+            accountDetailsStack.axis = .horizontal
+            accountDetailsStack.distribution = .fill
+            
+            // Date of consent - Label
+            let dateOfConsentLabel = UILabel()
+            let dateOfConsentAttributedString = NSAttributedString(string: L.DataActivity.Details.Consent.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+            dateOfConsentLabel.attributedText = dateOfConsentAttributedString
+            
+            // Date of consent - value
+            let dateOfConsentValue = UILabel()
+            let createdAtDateString: String
+            if let createdAt = accessToken.createdAt,
+               let createdAtDate = ActivityControlCollapsible.isoDateFormatter.date(from: createdAt) {
+                createdAtDateString = InstitutionControlCollapsible.dateFormatter.string(from: createdAtDate)
+            } else {
+                createdAtDateString = "-"
+            }
+            let dateOfConsentValueAttributedString = NSAttributedString(
+                string: createdAtDateString,
+                attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6)
+            )
+            dateOfConsentValue.attributedText = dateOfConsentValueAttributedString
+            dateOfConsentValue.numberOfLines = .zero
+            let dateOfConsentStack = UIStackView(arrangedSubviews: [dateOfConsentLabel, dateOfConsentValue])
+            dateOfConsentStack.axis = .horizontal
+            dateOfConsentStack.distribution = .fill
+            
+            // Expire date - label
+            let expireDateLabel = UILabel()
+            let expireDateAttributedString = NSAttributedString(string: L.DataActivity.Details.Expires.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .secondaryColor, lineSpacing: 6))
+            expireDateLabel.attributedText = expireDateAttributedString
+            
+            // Expire date - value
+            let expireDateValue = UILabel()
+            let expireDateString: String
+            if let expiresIn = accessToken.expiresIn,
+               let expiresInDate = ActivityControlCollapsible.isoDateFormatter.date(from: expiresIn) {
+                expireDateString = InstitutionControlCollapsible.dateFormatter.string(from: expiresInDate)
+            } else {
+                expireDateString = "-"
+            }
+            let expireDateValueAttributedString = NSAttributedString(
+                string: expireDateString,
+                attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 14), color: .secondaryColor, lineSpacing: 6)
+            )
+            expireDateValue.attributedText = expireDateValueAttributedString
+            expireDateValue.numberOfLines = .zero
+            let expireDateStack = UIStackView(arrangedSubviews: [expireDateLabel, expireDateValue])
+            expireDateStack.axis = .horizontal
+            expireDateStack.distribution = .fill
+            
+            // revoke button
+            let revokeButton = EduIDButton(type: .borderedRed, buttonTitle: L.DataActivity.Details.Revoke.localization)
+            revokeButton.tag = accessTokens.firstIndex(of: accessToken) ?? 0
+            revokeButton.addTarget(self, action: #selector(revokeButtonAction(sender:)), for: .touchUpInside)
+            
+            stack.addArrangedSubview(line5)
+            stack.addArrangedSubview(tokenDetailsParent)
+            stack.addArrangedSubview(accountDetailsStack)
+            stack.addArrangedSubview(dateOfConsentStack)
+            stack.addArrangedSubview(expireDateStack)
+            stack.addArrangedSubview(revokeButton)
+            
+            accountDetailsLabel.widthAnchor.constraint(equalTo: accountDetailsStack.widthAnchor, multiplier: 0.4).isActive = true
+            dateOfConsentLabel.widthAnchor.constraint(equalTo: dateOfConsentStack.widthAnchor, multiplier: 0.4).isActive = true
+            expireDateLabel.widthAnchor.constraint(equalTo: expireDateStack.widthAnchor, multiplier: 0.4).isActive = true
+        }
         
         addSubview(stack)
         stack.edges(to: self, insets: TinyEdgeInsets(top: 12, left: 18, bottom: 12, right: 18))
@@ -150,8 +288,14 @@ class ActivityControlCollapsible: UIControl {
     }
     
     @objc
-    func buttonAction() {
-        removeAction()
+    func removeDetailsButtonAction() {
+        self.callbackRemoveDetailsButtonAction()
+    }
+    
+    @objc
+    func revokeButtonAction(sender: UIButton) {
+        let tokenToDelete = tokens[sender.tag]
+        self.callbackRevokeTokenButtonAction(tokenToDelete)
     }
     
     required init?(coder: NSCoder) {
@@ -163,5 +307,7 @@ class ActivityControlCollapsible: UIControl {
         formatter.dateStyle = .full
         return formatter
     }
+    
+    static var isoDateFormatter = CodableHelper.dateFormatter
     
 }

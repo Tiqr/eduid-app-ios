@@ -2028,6 +2028,50 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct ConfirmDeleteKey {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeleteKey.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeleteKey.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeleteKey.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeleteKey.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeleteKey.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeleteKey.Description.COPY",
+            translationArgs: []
+        )
+        public struct Button {
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDeleteKey.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDeleteKey.Button.Confirm.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDeleteKey.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDeleteKey.Button.Cancel.COPY",
+                translationArgs: []
+            )
+        }
+    }
     public struct Home {
         public static let Home = LocaliciousData(
             accessibilityIdentifier: "Home.Home",
@@ -2525,6 +2569,52 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "DeleteService.Error.COPY",
+            translationArgs: []
+        )
+    }
+    public struct RevokeAccessToken {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "RevokeAccessToken.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "RevokeAccessToken.Title.COPY",
+            translationArgs: []
+        )
+        public static func Description(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "RevokeAccessToken.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "RevokeAccessToken.Description.COPY",
+            translationArgs: args
+        )
+        }
+        public struct Button {
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "RevokeAccessToken.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "RevokeAccessToken.Button.Confirm.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "RevokeAccessToken.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "RevokeAccessToken.Button.Cancel.COPY",
+                translationArgs: []
+            )
+        }
+        public static let Error = LocaliciousData(
+            accessibilityIdentifier: "RevokeAccessToken.Error",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "RevokeAccessToken.Error.COPY",
             translationArgs: []
         )
     }

@@ -233,6 +233,11 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "TwoFactorKeys.Label.UniqueKeyId.COPY" = "Unique KeyID";
 "TwoFactorKeys.Label.UseBiometrics.COPY" = "Use biometrics";
 "TwoFactorKeys.DeleteKey.COPY" = "Sleutel verwijderen";
+"ConfirmDeleteKey.Title.COPY" = "Delete key";
+"ConfirmDeleteKey.Subtitle.COPY" = "There is no way to undo this action";
+"ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
+"ConfirmDeleteKey.Button.Confirm.COPY" = "Confirm";
+"ConfirmDeleteKey.Button.Cancel.COPY" = "Cancel";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Data & activity";
@@ -293,6 +298,11 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "DeleteService.Button.Confirm.COPY" = "Confirm";
 "DeleteService.Button.Cancel.COPY" = "Cancel";
 "DeleteService.Error.COPY" = "Cannot remove service";
+"RevokeAccessToken.Title.COPY" = "Revoke access token";
+"RevokeAccessToken.Description.COPY" = "Are you sure you want to revoke the API access token for %1$@?";
+"RevokeAccessToken.Button.Confirm.COPY" = "Confirm";
+"RevokeAccessToken.Button.Cancel.COPY" = "Cancel";
+"RevokeAccessToken.Error.COPY" = "Cannot remove access token";
 "Institution.Title.COPY" = "Connected institution";
 "Institution.Info.COPY" = "This institution was connected to your eduID account on %1$@ at %2$@:%3$@";
 "Institution.Name.COPY" = "Institution name";

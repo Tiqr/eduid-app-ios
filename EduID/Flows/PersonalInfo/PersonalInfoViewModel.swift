@@ -4,7 +4,7 @@ import OpenAPIClient
 class PersonalInfoViewModel: NSObject {
     
     var userResponse: UserResponse?
-    
+
     // - closures
     var dataAvailableClosure: ((PersonalInfoDataCallbackModel) -> Void)?
     var serviceRemovedClosure: ((LinkedAccount) -> Void)?
@@ -46,13 +46,27 @@ class PersonalInfoViewModel: NSObject {
         if userResponse.linkedAccounts?.isEmpty ?? true {
             let name = "\(userResponse.givenName?.first ?? "X"). \(userResponse.familyName ?? "")"
             let nameProvidedBy = L.Profile.Me.localization
-            dataAvailableClosure?(PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: false))
+            dataAvailableClosure?(
+                PersonalInfoDataCallbackModel(
+                    userResponse: userResponse,
+                    tokensResponse: [],
+                    name: name,
+                    nameProvidedBy: nameProvidedBy,
+                    isNameProvidedByInstitution: false
+                )
+            )
         } else {
             guard let firstLinkedAccount = userResponse.linkedAccounts?.first else { return }
             
             let name = "\(firstLinkedAccount.givenName?.first ?? "X"). \(firstLinkedAccount.familyName ?? "")"
             let nameProvidedBy = firstLinkedAccount.schacHomeOrganization ?? ""
-            let model = PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: true)
+            let model = PersonalInfoDataCallbackModel(
+                userResponse: userResponse,
+                tokensResponse: [],
+                name: name,
+                nameProvidedBy: nameProvidedBy,
+                isNameProvidedByInstitution: true
+            )
             dataAvailableClosure?(model)
         }
     }
@@ -98,6 +112,7 @@ extension PersonalInfoViewModel {
 
 struct PersonalInfoDataCallbackModel {
     var userResponse: UserResponse
+    var tokensResponse: [Token]
     var name: String
     var nameProvidedBy: String
     var isNameProvidedByInstitution: Bool

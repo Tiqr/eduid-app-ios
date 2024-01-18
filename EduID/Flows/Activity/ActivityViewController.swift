@@ -1,5 +1,6 @@
 import UIKit
 import TinyConstraints
+import OpenAPIClient
 
 class ActivityViewController: BaseViewController {
     
@@ -87,13 +88,20 @@ class ActivityViewController: BaseViewController {
             if let keys = model.userResponse.eduIdPerServiceProvider?.keys {
                 for key in keys {
                     if let eduID = model.userResponse.eduIdPerServiceProvider?[key] {
+                        let serviceRelatedTokens = model.tokensResponse.filter({ $0.clientId == eduID.serviceProviderEntityId })
+                        let firstToken = serviceRelatedTokens.first(where: { $0.type == .refresh}) ?? serviceRelatedTokens.first(where: { $0.type == .access })
+                        let tokens: [Token] = firstToken == nil ? [] : [firstToken!]
                         let control = ActivityControlCollapsible(
                             logoImageURL: eduID.serviceLogoUrl ?? "",
                             institutionTitle: eduID.serviceName ?? "",
                             date: Date(timeIntervalSince1970: Double((eduID.createdAt ?? 0) / 1000)),
                             uniqueId: eduID.serviceInstutionGuid ?? eduID.value ?? "",
-                            removeAction: { [weak self] in
+                            accessTokens: tokens,
+                            removeDetailsButtonAction: { [weak self] in
                                 self?.delegate?.goToDeleteService(service: eduID)
+                            },
+                            revokeTokenButtonAction: { [weak self] token in
+                                self?.delegate?.goToDeleteTokens(serviceName: eduID.serviceName ?? "eduID", tokensToDelete: serviceRelatedTokens)
                             }
                         )
                         addedKeysCount += 1

@@ -48,6 +48,12 @@ extension ActivityCoordinator: ActivityViewControllerDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func goToDeleteTokens(serviceName: String, tokensToDelete: [Token]) {
+        let viewController = DeleteTokensViewController(viewModel: DeleteTokensViewModel(serviceName: serviceName, tokensToDelete: tokensToDelete))
+        viewController.delegate = self
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func shouldUpdate() -> Bool {
         return self.needsUpdate
     }

@@ -12,6 +12,8 @@
 		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
 		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
+		4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */; };
+		4F4355712B596DFF000384B4 /* DeleteTokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */; };
 		4F5DC7232A4EBCE2007D6497 /* auth_config_acceptance.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */; };
 		4F5DC7242A4EBCE2007D6497 /* auth_config_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */; };
 		4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7212A4EBCE2007D6497 /* auth_config.json */; };
@@ -270,6 +272,8 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewController.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewController.swift; sourceTree = SOURCE_ROOT; };
+		4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewModel.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewModel.swift; sourceTree = SOURCE_ROOT; };
 		4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_acceptance.json; sourceTree = "<group>"; };
 		4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test.json; sourceTree = "<group>"; };
 		4F5DC7212A4EBCE2007D6497 /* auth_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config.json; sourceTree = "<group>"; };
@@ -622,6 +626,15 @@
 				0AFD9E122745579C00D48C01 /* Info.plist */,
 			);
 			path = EduID;
+			sourceTree = "<group>";
+		};
+		4F43556D2B596DE5000384B4 /* DeleteTokens */ = {
+			isa = PBXGroup;
+			children = (
+				4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */,
+				4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */,
+			);
+			path = DeleteTokens;
 			sourceTree = "<group>";
 		};
 		4F5DC71E2A4EBCB2007D6497 /* AuthConfigs */ = {
@@ -1081,6 +1094,7 @@
 		4FF5676D2A31D32E00616341 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				4F43556D2B596DE5000384B4 /* DeleteTokens */,
 				4FFA8A8E2A3B5DB000F8F033 /* DeleteService */,
 				4FF5676E2A31D32E00616341 /* ActivityCoordinatorDelegate.swift */,
 				4FF567702A31D32E00616341 /* ActivityViewModel.swift */,
@@ -1485,6 +1499,7 @@
 				4FC37C2C2A3C47F60036A94C /* PasswordResetLinkViewController.swift in Sources */,
 				4F909EAB2A31CDDC00FC1506 /* CoordinatorType.swift in Sources */,
 				4FF567BD2A31D32E00616341 /* ScanViewControllerDelegate.swift in Sources */,
+				4F4355712B596DFF000384B4 /* DeleteTokensViewModel.swift in Sources */,
 				4F909EC22A31CDDC00FC1506 /* AnimatedVStackView.swift in Sources */,
 				4FF567A92A31D32E00616341 /* SecurityEnterEmailViewController.swift in Sources */,
 				4F958BDE2A3A00DF00DD0779 /* DeleteAccountViewController.swift in Sources */,
@@ -1551,6 +1566,7 @@
 				4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */,
 				4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */,
 				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
+				4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
 				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
 				4FF567A32A31D32E00616341 /* PersonalInfoViewController.swift in Sources */,
