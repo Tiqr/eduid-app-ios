@@ -1,3 +1,4 @@
+"About.Info.COPY" = "App information";
 "Sidebar.Home.COPY" = "Home";
 "Sidebar.PersonalInfo.COPY" = "Personal info";
 "Sidebar.DataActivity.COPY" = "Data & activity";
@@ -39,7 +40,7 @@ existing registration
 "RegistrationCheck.DeleteTitle.COPY" = "Your eduID account has been deleted";
 "RegistrationCheck.DeleteStatus.COPY" = "To finalise the removal process you must now close this browser.";
 "RegistrationCheck.RegisterAgain.COPY" = "Register again";
-"NotFound.Title.COPY" = "Whoops...";
+"NotFound.Title.COPY" = "Whoops…";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
 "Profile.YouAreLoggedIn.COPY" = "You are logged in";
 "Profile.ManageYourAccount.COPY" = "Manage your account";
@@ -157,7 +158,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "NameOverview.Title.FullName.COPY" = "Full name";
 "NameOverview.SelfAsserted.COPY" = "Self asserted";
 "NameOverview.Verified.COPY" = "Verified";
-"NameOverview.AnotherSource.COPY" = "Another source...";
+"NameOverview.AnotherSource.COPY" = "Another source…";
 "NameOverview.NotAvailable.COPY" = "Not available";
 "NameOverview.ProceedToAdd.COPY" = "Proceed to add this via your school/uni";
 "Security.Title.COPY" = "Security settings";
@@ -465,7 +466,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "LinkFromInstitution.AgreeWithTerms.COPY" = "<span>I agree with <a tabindex='-1' href='https://eduid.nl/terms-of-use/' target='_blank'>the terms of service.</a> I also understand <a tabindex='-1' href='https://eduid.nl/privacy_policy/' target='_blank'>the privacy policy</a>.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Request your eduID";
 "PollFromInstitution.Header.COPY" = "Check your email!";
-"PollFromInstitution.Awaiting.COPY" = "Waiting for you to click the link...";
+"PollFromInstitution.Awaiting.COPY" = "Waiting for you to click the link…";
 "PollFromInstitution.OpenGMail.COPY" = "Open Gmail.com";
 "PollFromInstitution.OpenOutlook.COPY" = "Open Outlook.com";
 "PollFromInstitution.Spam.COPY" = "Can't find the email? Check your spam folder.";
@@ -549,7 +550,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "MagicLink.OpenMailDisclaimer.COPY" = "If you can't find the email? Also check the spam folder";
 "MagicLink.Header.COPY" = "Check your email";
 "MagicLink.Info.COPY" = "To sign in, click the link in the email we sent to %1$@.";
-"MagicLink.Awaiting.COPY" = "Waiting for you to click the link...";
+"MagicLink.Awaiting.COPY" = "Waiting for you to click the link…";
 "MagicLink.OpenGMail.COPY" = "Open Gmail.com";
 "MagicLink.OpenOutlook.COPY" = "Open Outlook.com";
 "MagicLink.Spam.COPY" = "Can't find it? Check your spam folder.";
@@ -595,12 +596,12 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WebAuthnTest.Info.COPY" = "Test security key";
 "WebAuthnTest.BrowserPrompt.COPY" = "Click the button below to test a security key. Please follow the instructions given by your browser.";
 "WebAuthnTest.Start.COPY" = "Test";
-"AffiliationMissing.Header.COPY" = "Account linked, but...";
+"AffiliationMissing.Header.COPY" = "Account linked, but…";
 "AffiliationMissing.Info.COPY" = "Your eduID is successfully linked, however the institution you choose did not provide the correct affiliation.";
 "AffiliationMissing.Proceed.COPY" = "You can try to link to another institution or proceed to %1$@.";
 "AffiliationMissing.ProceedLink.COPY" = "Proceed";
 "AffiliationMissing.RetryLink.COPY" = "Retry";
-"ValidNameMissing.Header.COPY" = "Account linked, but...";
+"ValidNameMissing.Header.COPY" = "Account linked, but…";
 "ValidNameMissing.Info.COPY" = "Your eduID is successfully linked, however the institution you choose did not provide a valid name.";
 "ValidNameMissing.Proceed.COPY" = "You can try to link to another institution or proceed to %1$@.";
 "ValidNameMissing.ProceedLink.COPY" = "Proceed";
@@ -672,7 +673,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WelcomeToApp.ViewWhat.Highlight.COPY" = "View";
 "WelcomeToApp.VerifyYour.Text.COPY" = "so you can access more secure services";
 "WelcomeToApp.VerifyYour.Highlight.COPY" = "Verify your identity";
-"WelcomeToApp.GotItButton.COPY" = "Ok, got it!";
+"WelcomeToApp.GotItButton.COPY" = "OK, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
 "CreateEduID.ErrorCreateFailed.Title.COPY" = "Could not create your eduID account!";
@@ -752,7 +753,7 @@ We will text you a code to verify your number.
 "ResponseErrors.SMSErrorTitle.COPY" = "Wrong verification";
 "ResponseErrors.SMSErrorText.COPY" = "You have entered a wrong verification combination";
 "ResponseErrors.UnknownErrorTitle.COPY" = "Uknown error";
-"ResponseErrors.UnknownErrorText.COPY" = "An unknown error occured with the following status code";
+"ResponseErrors.UnknownErrorText.COPY" = "An unknown error occurred with the following status code";
 "ResponseErrors.ExistingUserAndDeviceTitle.COPY" = "Already associated";
 "ResponseErrors.ExistingUserAndDeviceText.COPY" = "This account is already associated with a different device. Remove your other device first from your account before registering a new device.";
 "ResponseErrors.PersonalDetailsRetrieveError.COPY" = "Could not retrieve personal details";

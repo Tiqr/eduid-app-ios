@@ -1,3 +1,4 @@
+"About.Info.COPY" = "App-informatie";
 "Sidebar.Home.COPY" = "Home";
 "Sidebar.PersonalInfo.COPY" = "Persoonlijke info";
 "Sidebar.DataActivity.COPY" = "Data & activiteit";
@@ -39,7 +40,7 @@ bestaande inschrijving
 "RegistrationCheck.DeleteTitle.COPY" = "Jouw eduID is verwijderd";
 "RegistrationCheck.DeleteStatus.COPY" = "Om het verwijderen van je eduID te voltooien, moet je jouw browser nu afsluiten.";
 "RegistrationCheck.RegisterAgain.COPY" = "Opnieuw registreren";
-"NotFound.Title.COPY" = "Oeps...";
+"NotFound.Title.COPY" = "Oeps…";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
 "Profile.YouAreLoggedIn.COPY" = "Je bent ingelogd";
 "Profile.ManageYourAccount.COPY" = "Beheer jouw gegevens";
@@ -157,7 +158,7 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "NameOverview.Title.FullName.COPY" = "Volledige naam";
 "NameOverview.SelfAsserted.COPY" = "Zelf ingevuld";
 "NameOverview.Verified.COPY" = "Gecontroleerd";
-"NameOverview.AnotherSource.COPY" = "Een andere bron...";
+"NameOverview.AnotherSource.COPY" = "Een andere bron…";
 "NameOverview.NotAvailable.COPY" = "Niet beschikbaar";
 "NameOverview.ProceedToAdd.COPY" = "Voeg dit toe door in te loggen bij jouw instelling";
 "Security.Title.COPY" = "Beveiliging";
@@ -466,7 +467,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden.</a> En ik begrijp <a tabindex='-1' href='https://eduid.nl/privacy/' target='_blank'>de privacyverklaring</a>.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Vraag je eduID aan";
 "PollFromInstitution.Header.COPY" = "Open je mailbox!";
-"PollFromInstitution.Awaiting.COPY" = "Wachten tot je op de link klikt...";
+"PollFromInstitution.Awaiting.COPY" = "Wachten tot je op de link klikt…";
 "PollFromInstitution.OpenGMail.COPY" = "Open Gmail.com";
 "PollFromInstitution.OpenOutlook.COPY" = "Open Outlook.com";
 "PollFromInstitution.Spam.COPY" = "Kan je de e-mail niet vinden? Kijk in je spam.";
@@ -550,7 +551,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "MagicLink.OpenMailDisclaimer.COPY" = "Kun je de mail niet vinden? Kijk ook in de spam folder";
 "MagicLink.Header.COPY" = "Controleer je email";
 "MagicLink.Info.COPY" = "Om in te loggen, klik op de link in de email die verstuurd is aan %1$@.";
-"MagicLink.Awaiting.COPY" = "Wachten tot je op de link klikt...";
+"MagicLink.Awaiting.COPY" = "Wachten tot je op de link klikt…";
 "MagicLink.OpenGMail.COPY" = "Open Gmail.com";
 "MagicLink.OpenOutlook.COPY" = "Open Outlook.com";
 "MagicLink.Spam.COPY" = "Kun je de mail niet vinden? Kijk ook in de spam folder.";
@@ -596,12 +597,12 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "WebAuthnTest.Info.COPY" = "Test een beveligingssleutel";
 "WebAuthnTest.BrowserPrompt.COPY" = "Klik op de onderstaande knop om een beveligingssleutel te testen. Volg daarbij de instructies van je browser op.";
 "WebAuthnTest.Start.COPY" = "Test";
-"AffiliationMissing.Header.COPY" = "Account is gekoppeld, maar...";
+"AffiliationMissing.Header.COPY" = "Account is gekoppeld, maar…";
 "AffiliationMissing.Info.COPY" = "Je eduID is succesvol gekoppeld, maar de instelling die je hebt gekozen heeft niet de juiste attributen teruggegeven.";
 "AffiliationMissing.Proceed.COPY" = "Je kan het nogmaals met een andere instelling proberen of doorgaan naar %1$@.";
 "AffiliationMissing.ProceedLink.COPY" = "Doorgaan";
 "AffiliationMissing.RetryLink.COPY" = "Opnieuw proberen";
-"ValidNameMissing.Header.COPY" = "Account is gekoppeld, maar...";
+"ValidNameMissing.Header.COPY" = "Account is gekoppeld, maar…";
 "ValidNameMissing.Info.COPY" = "Je eduID is succesvol gekoppeld, maar de instelling die je hebt gekozen heeft niet de juiste attributen teruggegeven.";
 "ValidNameMissing.Proceed.COPY" = "Je kan het nogmaals met een andere instelling proberen of doorgaan naar %1$@.";
 "ValidNameMissing.ProceedLink.COPY" = "Doorgaan";

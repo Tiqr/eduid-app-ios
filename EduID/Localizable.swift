@@ -88,6 +88,16 @@ public extension UILabel {
 }
 
 public struct L {
+    public struct About {
+        public static let Info = LocaliciousData(
+            accessibilityIdentifier: "About.Info",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "About.Info.COPY",
+            translationArgs: []
+        )
+    }
     public struct Sidebar {
         public static let Home = LocaliciousData(
             accessibilityIdentifier: "Sidebar.Home",
