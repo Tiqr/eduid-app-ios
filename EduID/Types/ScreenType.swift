@@ -92,7 +92,11 @@ enum ScreenType: Int, CaseIterable {
         case .smsChallengeScreen:
             return .welcomeScreen
         case .welcomeScreen:
-            return .firstTimeDialogScreen
+            if AppAuthController.shared.isLoggedIn() {
+                return .firstTimeDialogScreen
+            } else {
+                return .none
+            }
         case .firstTimeDialogScreen:
             return .addInstitutionScreen
         default:
