@@ -16,6 +16,12 @@ class ActivityViewModel: NSObject {
     }
     
     func getData() {
+        if AppAuthController.shared.hasPendingAuthFlow {
+            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
+                self?.getData()
+            }
+            return
+        }
         Task {
             do {
                 try await userResponse = UserControllerAPI.me()
