@@ -21,18 +21,32 @@ class EnvironmentSwitcherController: UIViewController {
     }
     
     private func setup() {
-        self.modalPresentationStyle = .overCurrentContext
-        self.modalTransitionStyle = .crossDissolve
+        if #available(iOS 15.0, *) {
+            self.modalPresentationStyle = .pageSheet
+        } else {
+            self.modalPresentationStyle = .overCurrentContext
+            self.modalTransitionStyle = .crossDissolve
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black.withAlphaComponent(0.2)
+        if #available(iOS 15.0, *) {
+            view.backgroundColor = .clear
+        } else {
+            view.backgroundColor = .black.withAlphaComponent(0.2)
+        }
         let insetView = UIView()
         insetView.backgroundColor = .white
         view.addSubview(insetView)
-        insetView.horizontalToSuperview(insets: .horizontal(20))
-        insetView.centerYToSuperview()
+        if #available(iOS 15.0, *) {
+            insetView.bottomToSuperview()
+            insetView.widthToSuperview()
+        } else {
+            insetView.centerYToSuperview()
+            insetView.horizontalToSuperview(insets: .horizontal(20))
+        }
+        
         let title = UILabel.posterTextLabelBicolor(text: L.EnvironmentSwitcher.Title.localization, primary: "")
         let subtitle = UILabel.plainTextLabelPartlyBold(text: L.EnvironmentSwitcher.Subtitle.localization)
         let stack = UIStackView(arrangedSubviews: [title, subtitle])

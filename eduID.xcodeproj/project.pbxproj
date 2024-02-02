@@ -19,6 +19,7 @@
 		4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7212A4EBCE2007D6497 /* auth_config.json */; };
 		4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */; };
 		4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */; };
+		4F6560742B6BC3CB004A303D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6560732B6BC3CB004A303D /* InfoViewController.swift */; };
 		4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */; };
 		4F909E1B2A31CD2200FC1506 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E0D2A31CD2200FC1506 /* README.md */; };
 		4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E242A31CD7E00FC1506 /* Result+Utils.swift */; };
@@ -279,6 +280,7 @@
 		4F5DC7212A4EBCE2007D6497 /* auth_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config.json; sourceTree = "<group>"; };
 		4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test2.json; sourceTree = "<group>"; };
 		4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
+		4F6560732B6BC3CB004A303D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSwitcherController.swift; sourceTree = "<group>"; };
 		4F909E0D2A31CD2200FC1506 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F909E242A31CD7E00FC1506 /* Result+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
@@ -1051,6 +1053,7 @@
 				4FF5675A2A31D32E00616341 /* HomeViewController.swift */,
 				4FF5675B2A31D32E00616341 /* MainCoordinator.swift */,
 				4FF5675C2A31D32E00616341 /* HomeViewControllerDelegate.swift */,
+				4F6560732B6BC3CB004A303D /* InfoViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1509,6 +1512,7 @@
 				4FF567B22A31D32E00616341 /* ActivityViewControllerDelegate.swift in Sources */,
 				4FF567A22A31D32E00616341 /* PersonalInfoViewModel.swift in Sources */,
 				4F909EC42A31CDDC00FC1506 /* BasicStackView.swift in Sources */,
+				4F6560742B6BC3CB004A303D /* InfoViewController.swift in Sources */,
 				4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */,
 				4F909EBC2A31CDDC00FC1506 /* BaseViewController.swift in Sources */,
 				4F909EC32A31CDDC00FC1506 /* TextFieldViewWithValidationAndTitle.swift in Sources */,

@@ -35,6 +35,14 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
                 action: #selector(openEnvironmentSwitcher)
             )
         }
+        navigationItem.leftBarButtonItem = .init(
+            image: .init(systemName: "info.circle")!.withRenderingMode(.alwaysTemplate),
+            style: .plain,
+            target: self,
+            action: #selector(openInfoPopup)
+        )
+        navigationItem.rightBarButtonItem?.tintColor = .disabledGray
+        navigationItem.leftBarButtonItem?.tintColor = .disabledGray
     }
     
     func setupUI() {
@@ -160,6 +168,11 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     @objc func openEnvironmentSwitcher() {
         let switcher = EnvironmentSwitcherController()
         present(switcher, animated: true)
+    }
+    
+    @objc func openInfoPopup() {
+        let infoVc = InfoViewController()
+        present(infoVc, animated: true)
     }
     
     private func askForAuthorisationIfNeeded() -> Bool {
