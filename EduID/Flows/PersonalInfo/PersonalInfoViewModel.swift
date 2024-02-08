@@ -43,8 +43,13 @@ class PersonalInfoViewModel: NSObject {
     @MainActor
     private func processUserData() {
         guard let userResponse = userResponse else { return }
+        let name: String
         if userResponse.linkedAccounts?.isEmpty ?? true {
-            let name = "\(userResponse.givenName?.first ?? "X"). \(userResponse.familyName ?? "")"
+            if let givenName = userResponse.givenName {
+                name = "\(givenName) \(userResponse.familyName ?? "")"
+            } else {
+                name = userResponse.familyName ?? ""
+            }
             let nameProvidedBy = L.Profile.Me.localization
             dataAvailableClosure?(
                 PersonalInfoDataCallbackModel(
@@ -57,8 +62,11 @@ class PersonalInfoViewModel: NSObject {
             )
         } else {
             guard let firstLinkedAccount = userResponse.linkedAccounts?.first else { return }
-            
-            let name = "\(firstLinkedAccount.givenName?.first ?? "X"). \(firstLinkedAccount.familyName ?? "")"
+            if let givenName = firstLinkedAccount.givenName {
+                name = "\(givenName). \(firstLinkedAccount.familyName ?? "")"
+            } else {
+                name = firstLinkedAccount.familyName ?? ""
+            }
             let nameProvidedBy = firstLinkedAccount.schacHomeOrganization ?? ""
             let model = PersonalInfoDataCallbackModel(
                 userResponse: userResponse,
