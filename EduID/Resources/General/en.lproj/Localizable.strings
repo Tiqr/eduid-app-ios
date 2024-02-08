@@ -87,11 +87,9 @@ existing registration
 "Profile.VerifyStudent.AddInstitutionConfirmation.COPY" = "When you proceed you will be asked to login at the institution you want to link to your eduID. First, select which institution you want to connect; then, login at that institution.<br/><br/>After a successful login you will come back here.";
 "Profile.VerifyParty.AddInstitution.COPY" = "Link party";
 "Profile.VerifyParty.AddInstitutionConfirmation.COPY" = "When you proceed you will be asked to login at the institution you want to link to your eduID. First, select which institution you want to connect; then, login at that institution.<br/><br/>After a successful login you will come back here.";
-"EppnAlreadyLinked.Header.COPY" = "Account not linked!";
+"EppnAlreadyLinked.Title.COPY" = "Account not linked!";
 "EppnAlreadyLinked.Info.COPY" = "Your eduID could not be linked. The trusted account with which you just logged in, is already linked to a different eduID account: %1$@.";
-"EppnAlreadyLinked.Proceed.COPY" = "You can try to link to another institution or proceed to %1$@.";
-"EppnAlreadyLinked.ProceedLink.COPY" = "Proceed";
-"EppnAlreadyLinked.RetryLink.COPY" = "Retry";
+"EppnAlreadyLinked.RetryButton.COPY" = "Retry";
 "Edit.Title.COPY" = "Name";
 "Edit.Info.COPY" = "Please provide your full name";
 "Edit.GivenName.COPY" = "Your first name";

@@ -27,6 +27,7 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         }
         viewModel.alertErrorHandlerDelegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(showNextScreen), name: .didAddLinkedAccounts, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -119,6 +120,13 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
     
     @objc func launchAddInstitutions() {
         viewModel.gotoAddInstitutionsInBrowser()
+    }
+    
+    @objc
+    func showLinkingErrorScreen(_ notification: NSNotification) {
+        // User tried to link account, but it was already linked
+        let linkedAccountEmail = notification.userInfo?[Constants.UserInfoKey.linkedAccountEmail] as? String
+        (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: linkedAccountEmail)
     }
 }
 

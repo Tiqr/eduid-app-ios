@@ -799,12 +799,12 @@ public struct L {
         }
     }
     public struct EppnAlreadyLinked {
-        public static let Header = LocaliciousData(
-            accessibilityIdentifier: "EppnAlreadyLinked.Header",
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "EppnAlreadyLinked.Title",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EppnAlreadyLinked.Header.COPY",
+            translationKey: "EppnAlreadyLinked.Title.COPY",
             translationArgs: []
         )
         public static func Info(args: CVarArg...) -> LocaliciousData {
@@ -817,30 +817,12 @@ public struct L {
             translationArgs: args
         )
         }
-        public static func Proceed(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
-            accessibilityIdentifier: "EppnAlreadyLinked.Proceed",
+        public static let RetryButton = LocaliciousData(
+            accessibilityIdentifier: "EppnAlreadyLinked.RetryButton",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "EppnAlreadyLinked.Proceed.COPY",
-            translationArgs: args
-        )
-        }
-        public static let ProceedLink = LocaliciousData(
-            accessibilityIdentifier: "EppnAlreadyLinked.ProceedLink",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "EppnAlreadyLinked.ProceedLink.COPY",
-            translationArgs: []
-        )
-        public static let RetryLink = LocaliciousData(
-            accessibilityIdentifier: "EppnAlreadyLinked.RetryLink",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "EppnAlreadyLinked.RetryLink.COPY",
+            translationKey: "EppnAlreadyLinked.RetryButton.COPY",
             translationArgs: []
         )
     }

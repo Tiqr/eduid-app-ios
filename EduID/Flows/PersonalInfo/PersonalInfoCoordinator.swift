@@ -3,7 +3,7 @@ import OpenAPIClient
 import TiqrCoreObjC
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
-    
+
     weak var viewControllerToPresentOn: UIViewController?
     
     weak var delegate: PersonalInfoCoordinatorDelegate?
@@ -87,6 +87,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(confirmDeleteViewController, animated: true)
     }
     
+    func goToAccountLinkingErrorScreen(linkedAccountEmail: String?) {
+        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
+        accountLinkingErrorViewController.delegate = self
+        navigationController?.pushViewController(accountLinkingErrorViewController, animated: true)
+    }
+    
     func deleteStateAndGoToHome() {
         AppAuthController.shared.clearAuthState()
         navigationController!.dismiss(animated: true)
@@ -99,5 +105,18 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     @objc
     func goBack(viewController: UIViewController) {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
+    func accountLinkingErrorGoBack(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+    }
+    
+    func accountLinkingErrorRetryLinking(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+        if let personalInfoVc = navigationController?.topViewController as? PersonalInfoViewController {
+            personalInfoVc.addInstitutionClicked()
+        }
     }
 }

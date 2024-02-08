@@ -87,11 +87,9 @@ bestaande inschrijving
 "Profile.VerifyStudent.AddInstitutionConfirmation.COPY" = "Als je doorgaat word je gevraagd in te loggen via de onderwijsinstelling die je wilt koppelen. Selecteer eerst welke instelling je wilt koppelen en log daarna in.<br/> <br/>Nadat je succesvol bent ingelogd kom je hier weer terug.";
 "Profile.VerifyParty.AddInstitution.COPY" = "Koppel instelling";
 "Profile.VerifyParty.AddInstitutionConfirmation.COPY" = "Als je doorgaat word je gevraagd in te loggen via de onderwijsinstelling die je wilt koppelen. Selecteer eerst welke instelling je wilt koppelen en log daarna in.<br/> <br/>Nadat je succesvol bent ingelogd kom je hier weer terug.";
-"EppnAlreadyLinked.Header.COPY" = "Account niet gekoppeld!";
+"EppnAlreadyLinked.Title.COPY" = "Koppeling niet gemaakt!";
 "EppnAlreadyLinked.Info.COPY" = "Je eduID kon niet worden gekoppeld. Het vertrouwde account waarmee je zojuist bent ingelogd, is al aan een ander eduID-account gekoppeld: %1$@.";
-"EppnAlreadyLinked.Proceed.COPY" = "Je kan het nogmaals met een andere instelling proberen of doorgaan naar %1$@.";
-"EppnAlreadyLinked.ProceedLink.COPY" = "Doorgaan";
-"EppnAlreadyLinked.RetryLink.COPY" = "Opnieuw proberen";
+"EppnAlreadyLinked.RetryButton.COPY" = "Opnieuw proberen";
 "Edit.Title.COPY" = "Aanpassen profielgegevens";
 "Edit.Info.COPY" = "Voer je volledige naam in.";
 "Edit.GivenName.COPY" = "Je voornaam";

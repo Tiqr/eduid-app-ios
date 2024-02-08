@@ -8,5 +8,5 @@ protocol CreateEduIDViewControllerDelegate: AnyObject, NavigationDelegate {
     func createEduIDViewControllerShowConfirmPincodeScreen(viewController: CreatePincodeFirstEntryViewController, viewModel: CreatePincodeAndBiometricAccessViewModel)
     func createEduIDViewControllerShowBiometricUsageScreen(viewController: CreatePincodeSecondEntryViewController, viewModel: CreatePincodeAndBiometricAccessViewModel)
     func createEduIDViewControllerRedoCreatePin(viewController: CreatePincodeSecondEntryViewController)
-    
+    func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?)
 }
