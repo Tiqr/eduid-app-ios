@@ -183,6 +183,10 @@ public class AppAuthController: NSObject {
         }
     }
     
+    public func refreshTokenMatches(_ refreshToken: String) -> Bool {
+        return authState?.refreshToken == refreshToken
+    }
+    
     /// Ends user session by clearing the auth state
     public func clearAuthState() {
        self.authState = nil

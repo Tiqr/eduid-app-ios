@@ -11,7 +11,7 @@ import OpenAPIClient
 class DeleteTokensViewModel {
     
     let serviceName: String
-    private let tokensToDelete: [Token]
+    let tokensToDelete: [Token]
     
     init(serviceName: String, tokensToDelete: [Token]) {
         self.serviceName = serviceName
