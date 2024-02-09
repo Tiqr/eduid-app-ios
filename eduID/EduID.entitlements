@@ -9,6 +9,8 @@
 		<string>applinks:eduid.nl</string>
 		<string>applinks:test2.eduid.nl</string>
 		<string>applinks:login.test2.eduid.nl</string>
+		<string>applinks:login.test.eduid.nl</string>
+		<string>applinks:test.eduid.nl</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>

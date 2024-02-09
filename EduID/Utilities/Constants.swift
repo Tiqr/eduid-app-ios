@@ -38,6 +38,7 @@ enum Constants {
         static let tiqrAuthObject = "tiqrAuthenticationObject"
         static let emailUpdateUrl = "emailUpdateUrl"
         static let passwordChangeUrl = "passwordChangeUrl"
+        static let linkedAccountEmail = "linkedAccountEmail"
     }
     
     enum RegistrationCheck {

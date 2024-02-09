@@ -95,6 +95,9 @@
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
 		4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */; };
 		4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */; };
+		4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA35482B74ED6900422949 /* URL+Extension.swift */; };
+		4FAA354C2B74EF3900422949 /* AccountLinkingErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA354B2B74EF3900422949 /* AccountLinkingErrorViewController.swift */; };
+		4FAA354E2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA354D2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift */; };
 		4FADBCDD2A4090BD002311E4 /* TwoFactorKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */; };
 		4FADBCDF2A4090CE002311E4 /* TwoFactorKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */; };
 		4FADBCE32A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */; };
@@ -456,6 +459,9 @@
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteKeyConfirmationViewController.swift; sourceTree = "<group>"; };
 		4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteKeyConfirmationViewModel.swift; path = EduID/Flows/Security/DeleteKeyConfirmation/DeleteKeyConfirmationViewModel.swift; sourceTree = SOURCE_ROOT; };
+		4FAA35482B74ED6900422949 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		4FAA354B2B74EF3900422949 /* AccountLinkingErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingErrorViewController.swift; sourceTree = "<group>"; };
+		4FAA354D2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingErrorViewModel.swift; sourceTree = "<group>"; };
 		4FADBCDC2A4090BD002311E4 /* TwoFactorKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewModel.swift; sourceTree = "<group>"; };
 		4FADBCDE2A4090CE002311E4 /* TwoFactorKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorKeysViewController.swift; sourceTree = "<group>"; };
 		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
@@ -666,6 +672,7 @@
 				4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */,
 				4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */,
 				73762F462A418B4300E37D96 /* Error+Extension.swift */,
+				4FAA35482B74ED6900422949 /* URL+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -976,6 +983,15 @@
 			path = DeleteKeyConfirmation;
 			sourceTree = "<group>";
 		};
+		4FAA354A2B74EF1E00422949 /* AccountLinkingError */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA354B2B74EF3900422949 /* AccountLinkingErrorViewController.swift */,
+				4FAA354D2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift */,
+			);
+			path = AccountLinkingError;
+			sourceTree = "<group>";
+		};
 		4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1077,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4FAA354A2B74EF1E00422949 /* AccountLinkingError */,
 				4FFA8A852A3AF1FE00F8F033 /* ConfirmDelete */,
 				4F958BDA2A3A00BA00DD0779 /* DeleteAccount */,
 				4F958BD52A39C20900DD0779 /* MyAccount */,
@@ -1518,6 +1535,7 @@
 				4F909EC32A31CDDC00FC1506 /* TextFieldViewWithValidationAndTitle.swift in Sources */,
 				4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */,
 				4FF567B42A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift in Sources */,
+				4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */,
 				4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */,
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
@@ -1570,6 +1588,7 @@
 				4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */,
 				4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */,
 				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
+				4FAA354C2B74EF3900422949 /* AccountLinkingErrorViewController.swift in Sources */,
 				4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
 				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
@@ -1621,6 +1640,7 @@
 				4F909EB82A31CDDC00FC1506 /* OIDTokenStorage.swift in Sources */,
 				4F909E2A2A31CDA000FC1506 /* Constants.swift in Sources */,
 				73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */,
+				4FAA354E2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift in Sources */,
 				4FF567C12A31D32E00616341 /* CreatePincodeAndBiometricAccessViewModel.swift in Sources */,
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
 				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,

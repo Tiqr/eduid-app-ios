@@ -74,6 +74,12 @@ extension CreateEduIDCoordinator: ScanCoordinatorDelegate {
 }
 
 extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
+    func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?) {
+        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
+        accountLinkingErrorViewController.delegate = self
+        navigationController.pushViewController(accountLinkingErrorViewController, animated: true)
+    }
+    
     
     func createEduIDViewControllerShowScanScreen(viewController: UIViewController) {
         let scanCoordinator = ScanCoordinator(viewControllerToPresentOn: navigationController)
@@ -161,3 +167,17 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
 extension CreateEduIDCoordinator: BiometricApprovalViewControllerDelegate {
 }
 
+extension CreateEduIDCoordinator: AccountLinkingErrorDelegate {
+    func accountLinkingErrorGoBack(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+    }
+    
+    func accountLinkingErrorRetryLinking(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+        if let vc = navigationController.topViewController as? CreateEduIDFirstTimeDialogViewController {
+            vc.launchAddInstitutions()
+        }
+    }
+    
+    
+}

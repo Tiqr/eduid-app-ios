@@ -20,7 +20,7 @@ class CreateEduIDBaseViewController: BaseViewController {
     func showNextScreen(_ sender: UIButton? = nil) {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
     }
-    
+
     @objc
     func showScanScreen() {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowScanScreen(viewController: self)

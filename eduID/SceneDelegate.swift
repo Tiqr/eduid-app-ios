@@ -84,6 +84,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             NotificationCenter.default.post(name: .willAddPassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
         } else if url.absoluteString.range(of: "reset-password") != nil {
             NotificationCenter.default.post(name: .willChangePassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
+        } else if url.absoluteString.range(of: "eppn-already-linked") != nil {
+            let linkedAccountEmail = url.queryParameters?["email"] as Any
+            NotificationCenter.default.post(
+                name: .accountAlreadyLinked,
+                object: nil,
+                userInfo: [Constants.UserInfoKey.linkedAccountEmail: linkedAccountEmail]
+            )
         }
     }
     
@@ -99,7 +106,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: userInfo)
-            
         }
     }
 }
