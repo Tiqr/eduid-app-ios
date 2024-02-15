@@ -78,8 +78,4 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
             goBack()
         }
     }
-    
-    override func goBack() {
-        navigationController?.popViewController(animated: true)
-    }
 }
