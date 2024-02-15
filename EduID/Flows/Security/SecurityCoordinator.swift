@@ -23,7 +23,8 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         securityOverviewViewController.refreshDelegate = refreshDelegate
         let navigationController = UINavigationController(rootViewController: securityOverviewViewController)
         self.navigationController = navigationController
-        navigationController.isModalInPresentation = true
+        navigationController.isModalInPresentation = false
+        navigationController.modalPresentationStyle = .fullScreen
         viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
     

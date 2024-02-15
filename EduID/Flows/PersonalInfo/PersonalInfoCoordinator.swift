@@ -22,7 +22,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         let editPersonalInfoViewcontroller = PersonalInfoViewController(viewModel: PersonalInfoViewModel(loadData))
         editPersonalInfoViewcontroller.refreshDelegate = refreshDelegate
         editPersonalInfoViewcontroller.delegate = self
-        navigationController.isModalInPresentation = true
+        navigationController.isModalInPresentation = false
+        navigationController.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(editPersonalInfoViewcontroller, animated: false)
         viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
