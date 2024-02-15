@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import TinyConstraints
+import TiqrCoreObjC
 
 class InfoViewController: UIViewController {
     
@@ -49,22 +50,14 @@ class InfoViewController: UIViewController {
         let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "eduID"
         let appVersionName = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
         let appVersionCode = Bundle.main.infoDictionary?[kCFBundleVersionKey as String] as? String ?? "0"
-        var tiqrReleaseVersion = (Bundle.main.infoDictionary?["TIQRGitReleaseVersion"] as? String)
-        if let longVersion = tiqrReleaseVersion,
-           longVersion.count > 7 {
-            tiqrReleaseVersion = String(longVersion[longVersion.startIndex..<longVersion.index(longVersion.startIndex, offsetBy: 7)])
-        }
-        var tiqrLibraryVersion = (Bundle.main.infoDictionary?["TIQRLibraryVersion"] as? String)
-        if let longVersion=tiqrLibraryVersion,
-           longVersion.count > 7 {
-            tiqrLibraryVersion = String(longVersion[longVersion.startIndex..<longVersion.index(longVersion.startIndex, offsetBy: 7)])
-        }
 #if DEBUG
         let debugString = "DEBUG"
 #else
         let debugString = ""
 #endif
-        let versionText = "\(appName) • v\(appVersionName) (\(appVersionCode)) • \(tiqrReleaseVersion ?? "<unknown>")-\(tiqrLibraryVersion ?? "<unknown>") \(debugString)"
+        let tiqrReleaseVersion = TiqrConfig.shortGitReleaseVersion
+        let tiqrLibraryVersion = TiqrConfig.shortCoreLibraryVersion
+        let versionText = "\(appName) • v\(appVersionName) (\(appVersionCode)) • \(tiqrReleaseVersion ?? "<unknown>") - core \(tiqrLibraryVersion ?? "<unknown>") \(debugString)"
         let eduidVersion = UILabel.plainTextLabelPartlyBold(text: versionText)
         eduidVersion.textAlignment = .center
         let eduidLogo = UIImageView()
@@ -85,7 +78,7 @@ class InfoViewController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 16
         insetView.addSubview(stack)
-        stack.edgesToSuperview(insets: .uniform(20))
+        stack.edgesToSuperview(insets: .uniform(20), usingSafeArea: true)
         
         eduidVersion.widthToSuperview()
         eduidLogo.widthToSuperview()
