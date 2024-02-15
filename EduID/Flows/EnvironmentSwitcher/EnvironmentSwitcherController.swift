@@ -54,7 +54,7 @@ class EnvironmentSwitcherController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 16
         insetView.addSubview(stack)
-        stack.edgesToSuperview(insets: .uniform(20))
+        stack.edgesToSuperview(insets: .uniform(20), usingSafeArea: true)
         EnvironmentService.shared.environments.enumerated().forEach { (index, environment) in
             let isCurrent = EnvironmentService.shared.currentEnvironment.name == environment.name
             let button = EduIDButton(type: .ghost, buttonTitle: environment.name)

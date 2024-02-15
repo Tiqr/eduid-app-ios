@@ -1280,8 +1280,8 @@
 				0AFD9DFD2745579900D48C01 /* Sources */,
 				0AFD9DFE2745579900D48C01 /* Frameworks */,
 				0AFD9DFF2745579900D48C01 /* Resources */,
-				C773FF2529263B2400A82451 /* Set Git Release and Library Version */,
 				4FF568032A31D60300616341 /* Embed Frameworks */,
+				C773FF2529263B2400A82451 /* Set Git Release and Library Version */,
 			);
 			buildRules = (
 			);
@@ -2499,7 +2499,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = c04b19c21426c9b48ea5fc9888925e2b6ef417aa;
+				revision = 5c10fb44d312ff91865c030f044984e9ee495e8a;
 			};
 		};
 		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
