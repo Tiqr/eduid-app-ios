@@ -182,7 +182,7 @@ public class AppAuthController: NSObject {
             })
         }
     }
-    
+
     /// Ends user session by clearing the auth state
     public func clearAuthState() {
        self.authState = nil

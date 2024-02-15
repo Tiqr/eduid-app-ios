@@ -110,7 +110,12 @@ class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
                 let _ = try await viewModel.deleteTokens()
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.goBack(from: self, shouldUpdate: true)
+                    if let clientId = viewModel.tokensToDelete.first?.clientId,
+                       clientId == AppAuthController.shared.clientId {
+                        self.delegate?.activityViewControllerDismissActivityFlow(viewController: self)
+                    } else {
+                        self.delegate?.goBack(from: self, shouldUpdate: true)
+                    }
                 }
             } catch {
                 DispatchQueue.main.async { [weak self] in
