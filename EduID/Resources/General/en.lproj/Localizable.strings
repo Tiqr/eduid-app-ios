@@ -118,7 +118,7 @@ existing registration
 "NameUpdated.Title.YourSchool.COPY" = "Your school/uni";
 "NameUpdated.Title.ContactedSuccessfully.COPY" = "was contacted successfully";
 "NameUpdated.Title.ContactedError.COPY" = "could not be contacted";
-"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reason: The account is already linked.";
+"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reason: The account is already linked: %1$@";
 "NameUpdated.Title.FailReason.SessionExpired.COPY" = "Reason: Your session expired.";
 "NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
 "NameUpdated.FullName.COPY" = "Full name";

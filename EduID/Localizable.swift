@@ -1067,14 +1067,16 @@ public struct L {
                 translationArgs: []
             )
             public struct FailReason {
-                public static let AlreadyLinked = LocaliciousData(
+                public static func AlreadyLinked(args: CVarArg...) -> LocaliciousData {
+                    return LocaliciousData(
                     accessibilityIdentifier: "NameUpdated.Title.FailReason.AlreadyLinked",
                     accessibilityHintKey: nil,
                     accessibilityLabelKey: nil,
                     accessibilityValueKey: nil,
                     translationKey: "NameUpdated.Title.FailReason.AlreadyLinked.COPY",
-                    translationArgs: []
+                    translationArgs: args
                 )
+                }
                 public static let SessionExpired = LocaliciousData(
                     accessibilityIdentifier: "NameUpdated.Title.FailReason.SessionExpired",
                     accessibilityHintKey: nil,
