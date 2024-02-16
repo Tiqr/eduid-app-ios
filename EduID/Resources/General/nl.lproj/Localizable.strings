@@ -118,7 +118,7 @@ bestaande inschrijving
 "NameUpdated.Title.YourSchool.COPY" = "Je school/instelling";
 "NameUpdated.Title.ContactedSuccessfully.COPY" = "is nu gekoppeld";
 "NameUpdated.Title.ContactedError.COPY" = "is niet gekoppeld";
-"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reden: Het account is al gekoppeld.";
+"NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reden: Het account is al gekoppeld: %1$@";
 "NameUpdated.Title.FailReason.SessionExpired.COPY" = "Reden: Je sessie is verlopen.";
 "NameUpdated.Description.COPY" = "De volgende gegevens zijn toegevoegd aan je eduID en kan gedeeld worden.";
 "NameUpdated.FullName.COPY" = "Volledige naam";
