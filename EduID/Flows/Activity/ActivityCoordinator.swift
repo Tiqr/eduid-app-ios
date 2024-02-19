@@ -24,7 +24,8 @@ final class ActivityCoordinator: CoordinatorType {
         activityViewController.refreshDelegate = refreshDelegate
         let navigationController = UINavigationController(rootViewController: activityViewController)
         self.navigationController = navigationController
-        navigationController.isModalInPresentation = true
+        navigationController.isModalInPresentation = false
+        navigationController.modalPresentationStyle = .fullScreen
         viewControllerToPresentOn?.present(navigationController, animated: animated)
     }
 }
