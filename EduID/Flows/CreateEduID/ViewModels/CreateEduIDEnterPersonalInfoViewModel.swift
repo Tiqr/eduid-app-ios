@@ -37,9 +37,7 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
         Task {
             do {
                 let account = CreateAccount(email: email, givenName: givenName, familyName: familyName, relyingPartClientId: AppAuthController.shared.clientId)
-                try await UserControllerAPI.createEduIDAccountWithRequestBuilder(createAccount: account)
-                    .execute()
-                    .body
+                let _ = try await UserControllerAPI.createEduIDAccount(createAccount: account)
                 createEduIDSuccessClosure?()
             } catch {
                 let errorResponse = error.eduIdResponseError()
