@@ -129,7 +129,7 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(topStackView)
         view.addSubview(bottomStackView)
         
-        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(80))
+        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(24), usingSafeArea: true)
         
         bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
 

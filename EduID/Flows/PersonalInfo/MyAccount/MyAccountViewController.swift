@@ -114,7 +114,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         topStackView.spacing = 20
         
         view.addSubview(topStackView)
-        topStackView.edges(to: view, insets: TinyEdgeInsets(top: 72, left: 24, bottom: 24, right: 24))
+        topStackView.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         
         downloadDataButton.addTarget(self, action: #selector(downloadDataClicked), for: .touchUpInside)
         deleteAccountButton.addTarget(self, action: #selector(deleteAccountClicked), for: .touchUpInside)

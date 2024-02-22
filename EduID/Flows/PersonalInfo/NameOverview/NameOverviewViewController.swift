@@ -68,7 +68,7 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         }
         // - scroll view
         let scrollView = UIScrollView()
-        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentInsetAdjustmentBehavior = .always
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.edges(to: view)
@@ -205,7 +205,7 @@ class NameOverviewViewController: UIViewController, ScreenWithScreenType {
         nameControl.width(to: topStackView)
         topStackView.setCustomSpacing(16, after: mainTitle)
         scrollView.addSubview(topStackView)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: -24))
+        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
         topStackView.width(to: scrollView, offset: -48)
         view.layoutIfNeeded()
     }

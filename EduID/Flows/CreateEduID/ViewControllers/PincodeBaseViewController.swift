@@ -134,7 +134,7 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         view.addSubview(mainStack)
         
         // - add constraints
-        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         textLabel.width(to: mainStack)
         posterLabel.height(34)
         posterParent.width(to: mainStack)

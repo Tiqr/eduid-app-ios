@@ -59,7 +59,7 @@ class AlertMessageViewController: BaseViewController {
         
         // constraints
         lowerSpace.height(to: upperSapce)
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         confirmButton.width(to: stack, offset: -24)
         posterParent.width(to: stack)
     

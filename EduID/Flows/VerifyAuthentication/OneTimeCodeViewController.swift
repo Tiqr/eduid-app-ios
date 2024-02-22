@@ -79,7 +79,7 @@ class OneTimeCodeViewController : BaseViewController {
         pinStack.widthToSuperview()
         closeButton.widthToSuperview()
         view.addSubview(mainStackView)
-        mainStackView.edgesToSuperview(insets: .horizontal(24) + .top(92) + .bottom(20))
+        mainStackView.edgesToSuperview(insets: .horizontal(24) + .top(24) + .bottom(20), usingSafeArea: true)
     }
     
     @objc

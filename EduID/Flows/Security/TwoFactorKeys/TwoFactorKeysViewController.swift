@@ -123,8 +123,9 @@ class TwoFactorKeysViewController: UIViewController, ScreenWithScreenType {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
         scrollView.addSubview(topStackView)
+        scrollView.contentInsetAdjustmentBehavior = .always
         topStackView.widthToSuperview(offset: -48)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: 24))
+        topStackView.edges(to: scrollView, insets: .uniform(24))
     }
     
     private func goToConfirmationScreen(_ identity: Identity) {

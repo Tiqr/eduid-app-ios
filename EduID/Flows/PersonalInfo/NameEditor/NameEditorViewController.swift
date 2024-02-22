@@ -52,8 +52,9 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
-        scrollView.edges(to: view)
+        scrollView.edgesToSuperview()
         
         let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.FullName.localization)"
         let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.FullName.localization)
@@ -105,7 +106,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         
         scrollView.addSubview(topStackView)
         topStackView.width(to: scrollView, offset: -48)
-        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(32))
+        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(24))
 
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.EditName.Button.Cancel.localization)

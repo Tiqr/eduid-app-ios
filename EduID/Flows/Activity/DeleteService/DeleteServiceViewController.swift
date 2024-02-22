@@ -116,7 +116,7 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         bottomButtonStack.widthToSuperview()
         
         view.addSubview(topStackView)
-        topStackView.edges(to: view, insets: TinyEdgeInsets(top: 80, left: 24, bottom: 24, right: 24))
+        topStackView.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         confirmButton.addTarget(self, action: #selector(confirmClicked), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
     }
