@@ -117,12 +117,10 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
-        
-        if let navigationBar = navigationController?.navigationBar {
-            scrollView.contentInset = .top((navigationBar.frame.height + 5))
-        }
+
         // - Main title
         let mainTitle = UILabel.posterTextLabelBicolor(text: L.Profile.Title.localization, size: 24, primary:  L.Profile.Title.localization)
         

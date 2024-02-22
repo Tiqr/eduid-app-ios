@@ -45,7 +45,7 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         view.addSubview(stack)
         
         // constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         imageView.width(to: view)
         imageParent.width(to: stack)
         imageView.width(to: view)

@@ -41,6 +41,7 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
@@ -101,7 +102,7 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
         
         topStackView.addArrangedSubview(bottomSpacer)
         scrollView.addSubview(topStackView)
-        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 36, left: 24, bottom: 24, right: -24))
+        topStackView.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
         topStackView.width(to: scrollView, offset: -48)
         nameControl.width(to: topStackView)
         

@@ -137,7 +137,7 @@ class ConfirmDeleteViewController: UIViewController, ScreenWithScreenType {
         bottomButtonStack.widthToSuperview()
         
         view.addSubview(topStackView)
-        topStackView.edges(to: view, insets: TinyEdgeInsets(top: 72, left: 24, bottom: 24, right: 24))
+        topStackView.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         confirmButton.addTarget(self, action: #selector(confirmClicked), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
     }
@@ -157,7 +157,7 @@ class ConfirmDeleteViewController: UIViewController, ScreenWithScreenType {
             setupUI(isLoading: true)
             Task {
                 do {
-                    let response = try await viewModel.confirmDelete()
+                    _ = try await viewModel.confirmDelete()
                     DispatchQueue.main.async { [weak self] in
                         self?.delegate?.deleteStateAndGoToHome()
                     }

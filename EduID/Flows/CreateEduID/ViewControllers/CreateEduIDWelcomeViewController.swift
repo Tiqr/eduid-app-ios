@@ -87,7 +87,7 @@ class CreateEduIDWelcomeViewController: CreateEduIDBaseViewController {
         view.addSubview(stack)
         
         // - add constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         posterLabel.height(34)
         okButton.width(to: stack, offset: -24)
     }
