@@ -160,7 +160,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "NameOverview.NotAvailable.COPY" = "Not available";
 "NameOverview.ProceedToAdd.COPY" = "Proceed to add this via your school/uni";
 "Security.Title.COPY" = "Security settings";
-"Security.SubTitle.COPY" = "We provide different methods to sign in to your eduID account.";
+"Security.SubTitle.COPY" = "We provide different methods to sign in using your eduID account.";
 "Security.SecondSubTitle.COPY" = "Sign-in methods";
 "Security.AddPassword.COPY" = "Add a password";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
