@@ -98,6 +98,8 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         //set the height of the spacer according to the view
         if scrollView.frame.size.height > scrollView.contentSize.height + CreateEduIDEnterPersonalInfoViewController.smallBuffer {
             spacingView.height(scrollView.frame.size.height - scrollView.contentSize.height - inset - view.safeAreaInsets.top)
+        } else {
+            spacingView.height(8)
         }
         _ = emailField.becomeFirstResponder()
     }
@@ -116,7 +118,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         // - add scrollview to hierarchy
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-        scrollView.edges(to: view)
+        scrollView.edgesToSuperview(usingSafeArea: false)
         
         
         // - poster text
@@ -177,6 +179,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         stack.setCustomSpacing(24, after: emailField)
         stack.setCustomSpacing(24, after: firstNameField)
         stack.setCustomSpacing(4, after: lastNameField)
+        stack.setCustomSpacing(0, after: spacingView)
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -187,6 +190,7 @@ class CreateEduIDEnterPersonalInfoViewController: ScrollingTextFieldsViewControl
         // - add constraints
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: inset, left: inset, bottom: inset, right: -inset))
         stack.width(to: scrollView, offset: -(2 * inset))
+        stack.height(to: scrollView, priority: .defaultLow)
         
         posterLabel.height(34)
         requestButton.width(to: stack, offset: -inset)
