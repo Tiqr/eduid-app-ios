@@ -4,7 +4,8 @@ import OpenAPIClient
 
 class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, ValidatedTextFieldDelegate {
     
-    var stack: AnimatedVStackView!
+    private var stack: AnimatedVStackView!
+    private var spaceView: UIView!
     
     // - phone textfield
     let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPhoneNumber.PhoneFieldTitle.localization,
@@ -13,7 +14,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     
     // - verify button
     let verifyButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.localization)
-    
+    var bottomConstraint: Constraint? = nil
     private var viewModel: CreateEduIDEnterPhoneNumberViewModel
     
     //MARK: - init
@@ -39,6 +40,8 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         setupUI()
         verifyButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +62,6 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     
     //MARK: - setup UI
     func setupUI() {
-        
         // - phone textfield delegate
         validatedPhoneTextField.delegate = self
         
@@ -87,7 +89,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.sizeToFit()
         
         // - Space
-        let spaceView = UIView()
+        spaceView = UIView()
         
         // - create the stackview
         stack = AnimatedVStackView(arrangedSubviews: [posterLabel, textViewParent, validatedPhoneTextField, spaceView, verifyButton])
@@ -96,10 +98,16 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         stack.distribution = .fill
         stack.alignment = .center
         stack.spacing = 32
+        
         view.addSubview(stack)
         
         // - add constraints
-        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
+        stack.widthToSuperview(offset: -48, usingSafeArea: true)
+        stack.centerXToSuperview()
+        stack.topToSuperview(offset: 24, usingSafeArea: true)
+        bottomConstraint = stack.bottomToSuperview(offset: 24, usingSafeArea: true)
+        
+        
         textViewParent.width(to: stack)
         posterLabel.height(34)
         verifyButton.width(to: stack, offset: -24)
@@ -132,6 +140,30 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     
     func goToConfirmSmsScreen() {
         (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+    }
+}
+
+extension CreateEduIDEnterPhoneNumberViewController {
+    
+    @objc
+    func keyboardDidShow(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        let height = keyboardFrame.height
+        // Hide some views so that we can show everything
+        self.spaceView.isHidden = true
+        self.stack.spacing = 8
+        self.bottomConstraint?.constant = -24 - height
+    }
+    
+    @objc
+    func keyboardDidHide() {
+        // Show views again
+        self.bottomConstraint?.constant = -24
+        self.spaceView.isHidden = false
+        self.stack.spacing = 32
+    
     }
 }
 
