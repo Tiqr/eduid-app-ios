@@ -687,7 +687,7 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
 "CreateEduID.ErrorCreateFailed.Title.COPY" = "Je eduID aanmaken is niet gelukt!";
 "CreateEduID.ErrorCreateFailed.Message.COPY" = "Het account aanmaken is mislukt. Probeer het nogmaals.";
-"CreateEduID.LandingPage.MainText.COPY" = "Persoonlijke login voor Onderwijs en Onderzoek";
+"CreateEduID.LandingPage.MainText.COPY" = "Jouw account voor Onderwijs en Onderzoek";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb nog geen eduID";
@@ -704,11 +704,13 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
-"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers verbonden aan het Nederlandse onderwijs en onderzoek. Het is van jou en bestaat onafhankelijk van een onderwijsinstelling.
+"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een centraal account voor gebruikers
+ verbonden aan het Nederlandse onderwijs en onderzoek.
+ Het is van jou en bestaat onafhankelijk van een onderwijsinstelling.
 
-• Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
-• Gebruikers zonder instellingsaccount kunnen ook een eduID aanvragen.
-• eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.
+ • Hiermee log je in op verschillende diensten die zijn aangesloten op SURFconext.
+ • Gebruikers zonder instellingsaccount kunnen ook een eduID aanvragen.
+ • eduID is een levenslang account. Het blijft geldig nadat je bent afgestudeerd.
 ";
 "CreateEduID.Explanation.CreateEduidButton.COPY" = "Maak een nieuw eduID aan";
 "CreateEduID.Create.MainTitleLabel.COPY" = "Maak een nieuw eduID aan";
