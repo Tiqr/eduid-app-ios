@@ -686,7 +686,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
 "CreateEduID.ErrorCreateFailed.Title.COPY" = "Could not create your eduID account!";
 "CreateEduID.ErrorCreateFailed.Message.COPY" = "The account creation has failed. Please try again.";
-"CreateEduID.LandingPage.MainText.COPY" = "Personal account for Education and Research";
+"CreateEduID.LandingPage.MainText.COPY" = "Your account for Education and Research";
 "CreateEduID.LandingPage.SignInButton.COPY" = "Sign in";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "Scan";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "I don't have an eduID";
@@ -703,7 +703,9 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Add this information";
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Skip this";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Don't have an eduID yet?";
-"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is a central account for users associated with Dutch education and research. It is yours and exists independent of an educational institution.
+"CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is a central account for users
+associated with Dutch education and research. It is yours and exists independent
+of an educational institution.
 
 • Use it to login to several services connected to SURFconext.
 • Users without an institution account can also request an eduID.
