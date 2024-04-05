@@ -56,8 +56,8 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
         
-        let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.FullName.localization)"
-        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.FullName.localization)
+        let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.YourName.localization)"
+        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.YourName.localization)
         
         
         let topStackView = UIStackView(arrangedSubviews: [
@@ -128,7 +128,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         bottomStackView.spacing = 20
         
         view.addSubview(bottomStackView)
-        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
+        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16), usingSafeArea: true)
 
         // Add click targets
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)

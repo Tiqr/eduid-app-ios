@@ -13,6 +13,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     private var stack: UIStackView!
     private var addInstitutionButton: ActionableControlWithBodyAndTitle!
+    private var verifyIdentityLoadingIndicator: UIActivityIndicatorView!
     weak var refreshDelegate: RefreshChildScreenDelegate?
     
     static var indexOfFirstLinkedAccount = 5
@@ -130,20 +131,23 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         mainDescriptionParent.addSubview(mainDescription)
         mainDescription.edges(to: mainDescriptionParent)
         
-        // Shareable information header
-        let shareableInformationHeader = UILabel()
-        let shareableInformationString = NSAttributedString(
-            string: L.Profile.ShareableInformation.localization,
+        // Your identity header
+        let yourIdentityContainer = UIView()
+        let yourIdentityHeader = UILabel()
+        let yourIdentityString = NSAttributedString(
+            string: L.Profile.YourIdentity.localization,
             attributes: AttributedStringHelper.attributes(
-                font: UIFont.nunitoBold(size: 20),
+                font: UIFont.nunitoBold(size: 22),
                 color: .primaryColor,
                 lineSpacing: 10)
         )
-        shareableInformationHeader.attributedText = shareableInformationString
+        yourIdentityHeader.attributedText = yourIdentityString
+        yourIdentityContainer.addSubview(yourIdentityHeader)
+        yourIdentityHeader.edgesToSuperview()
         
         
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, shareableInformationHeader])
+        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, yourIdentityContainer])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -156,91 +160,193 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
-        shareableInformationHeader.widthToSuperview(offset: -48)
+        yourIdentityContainer.widthToSuperview(offset: -48)
         
+        // Unverified disclaimer (if not verified yet)
+        let linkedAccounts = model?.userResponse.linkedAccounts
+        if linkedAccounts?.isEmpty != false {
+            let disclaimerShieldImage = UIImageView(image: .shield)
+            disclaimerShieldImage.size(CGSize(width: 24, height: 28))
+            let disclaimerTitle = UILabel()
+            disclaimerTitle.text = L.Profile.VerifyNow.Title.localization
+            disclaimerTitle.numberOfLines = 0
+            disclaimerTitle.textColor = .textColor
+            disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
+            let disclaimerButtonContainer = UIView()
+            disclaimerButtonContainer.size(CGSize(width: 250, height: 40))
+            let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 40)))
+            disclaimerButtonContainer.addSubview(disclaimerButton)
+            disclaimerButton.edgesToSuperview()
+            verifyIdentityLoadingIndicator = UIActivityIndicatorView()
+            verifyIdentityLoadingIndicator.size(CGSize(width: 32, height: 32))
+            disclaimerButtonContainer.addSubview(verifyIdentityLoadingIndicator)
+            verifyIdentityLoadingIndicator.rightToSuperview(offset: -8)
+            verifyIdentityLoadingIndicator.centerYToSuperview()
+            verifyIdentityLoadingIndicator.isHidden = true
+            let disclaimerTextStack = UIStackView(arrangedSubviews: [disclaimerTitle, disclaimerButtonContainer])
+            disclaimerTextStack.axis = .vertical
+            disclaimerTextStack.alignment = .leading
+            disclaimerTextStack.spacing = 12
+            disclaimerTextStack.distribution = .fill
+            let disclaimerContainer = UIStackView(arrangedSubviews: [disclaimerShieldImage, disclaimerTextStack])
+            disclaimerContainer.axis = .horizontal
+            disclaimerContainer.alignment = .leading
+            disclaimerContainer.spacing = 12
+            disclaimerContainer.distribution = .fill
+            disclaimerContainer.backgroundColor = .lightBackgroundColor
+            stack.insertArrangedSubview(disclaimerContainer, at: 2)
+            disclaimerContainer.isLayoutMarginsRelativeArrangement = true
+            disclaimerContainer.layoutMargins = .horizontal(24) + .vertical(12)
+            disclaimerContainer.widthToSuperview()
+            disclaimerButton.addTarget(self, action: #selector(verifyIdentityClicked), for: .touchUpInside)
+            // Add unverified badge
+            let unverifiedBadge = UIView()
+            unverifiedBadge.backgroundColor = .lightGray
+            unverifiedBadge.height(24)
+            unverifiedBadge.layer.cornerRadius = 5.2
+            let unverifiedLabel = UILabel()
+            unverifiedLabel.text = L.Profile.NotVerified.localization.lowercased()
+            unverifiedLabel.textColor = .grayGhost
+            unverifiedLabel.font = .nunitoBold(size: 12)
+            unverifiedBadge.addSubview(unverifiedLabel)
+            unverifiedLabel.edgesToSuperview(insets: .horizontal(12))
+            yourIdentityContainer.addSubview(unverifiedBadge)
+            unverifiedBadge.rightToSuperview()
+            unverifiedBadge.centerYToSuperview()
+        } else {
+            // Add verified badge
+            let verifiedBadge = UIView()
+            verifiedBadge.backgroundColor = .primaryColor
+            verifiedBadge.height(24)
+            verifiedBadge.layer.cornerRadius = 5.2
+            let verifiedLabel = UILabel()
+            verifiedLabel.text = L.Profile.Verified.localization.lowercased()
+            verifiedLabel.textColor = .white
+            verifiedLabel.font = .nunitoBold(size: 12)
+            verifiedBadge.addSubview(verifiedLabel)
+            verifiedLabel.edgesToSuperview(insets: .horizontal(12))
+            yourIdentityContainer.addSubview(verifiedBadge)
+            verifiedBadge.rightToSuperview()
+            verifiedBadge.centerYToSuperview()
+        }
         
         // Info controls
         if let model = model {
-            let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-            let nameSubtitleText = NSMutableAttributedString()
-            nameSubtitleText.append(NSAttributedString(
-                string: "\(model.name )\n",
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProSemiBold(size: 16),
-                    color: .backgroundColor,
-                    lineSpacing: 6
-                ))
-            )
-            nameSubtitleText.append(NSAttributedString(
-                string: "\(L.Profile.ProvidedBy.localization) ",
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProRegular(size: 12),
-                    color: .charcoalColor,
-                    lineSpacing: 6
-                ))
-            )
-            nameSubtitleText.append(NSAttributedString(
-                string: model.nameProvidedBy,
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProSemiBold(size: 12),
-                    color: .charcoalColor,
-                    lineSpacing: 6
-                ))
-            )
-            let nameControl = ActionableControlWithBodyAndTitle(
-                attributedTitle: nameTitle,
-                attributedBodyText: nameSubtitleText,
-                iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate),
-                isFilled: true
-            )
+            // First name
+            if let firstName = model.firstName {
+                let firstNameSubtitleText = NSMutableAttributedString()
+                firstNameSubtitleText.append(NSAttributedString(
+                    string: "\(firstName)\n",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProSemiBold(size: 16),
+                        color: .backgroundColor,
+                        lineSpacing: 6
+                    ))
+                )
+                firstNameSubtitleText.append(NSAttributedString(
+                    string: "\(L.Profile.FirstName.localization) ",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProRegular(size: 12),
+                        color: .grayGhost,
+                        lineSpacing: 6
+                    ))
+                )
+                let firstNameControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: nil,
+                    attributedBodyText: firstNameSubtitleText,
+                    iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(firstNameControl)
+                firstNameControl.widthToSuperview(offset: -48)
+                firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+            }
             
-            let emailTitle = NSAttributedString(string: L.Profile.Email.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
+            if let lastName = model.lastName {
+                let lastNameSubtitleText = NSMutableAttributedString()
+                lastNameSubtitleText.append(NSAttributedString(
+                    string: "\(lastName)\n",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProSemiBold(size: 16),
+                        color: .backgroundColor,
+                        lineSpacing: 6
+                    ))
+                )
+                lastNameSubtitleText.append(NSAttributedString(
+                    string: "\(L.Profile.LastName.localization) ",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProRegular(size: 12),
+                        color: .grayGhost,
+                        lineSpacing: 6
+                    ))
+                )
+                let lastNameControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: nil,
+                    attributedBodyText: lastNameSubtitleText,
+                    iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(lastNameControl)
+                lastNameControl.widthToSuperview(offset: -48)
+                lastNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+            }
             
-            let emailProvidedByText = NSMutableAttributedString(
-                string: "\(model.userResponse.email ?? "")\n",
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProSemiBold(size: 16),
-                    color: .backgroundColor,
-                    lineSpacing: 6
-                ))
-            emailProvidedByText.append(NSAttributedString(
-                string: "\(L.Profile.ProvidedBy.localization) ",
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProRegular(size: 12),
-                    color: .charcoalColor,
-                    lineSpacing: 6
-                ))
-            )
-            emailProvidedByText.append(NSAttributedString(
-                string: L.Profile.Me.localization,
-                attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProSemiBold(size: 12),
-                    color: .charcoalColor,
-                    lineSpacing: 6
-                ))
-            )
-            let emailControl = ActionableControlWithBodyAndTitle(
-                attributedTitle: emailTitle,
-                attributedBodyText: emailProvidedByText,
-                iconInBody: .pencil,
-                isFilled: true
-            )
+
+            if let email = model.userResponse.email {
+                let contactDetailsHeader = UILabel()
+                let contactDetailsString = NSAttributedString(
+                    string: L.Profile.ContactDetails.localization,
+                    attributes: AttributedStringHelper.attributes(
+                        font: UIFont.nunitoBold(size: 22),
+                        color: .primaryColor,
+                        lineSpacing: 10)
+                )
+                contactDetailsHeader.attributedText = contactDetailsString
+                stack.setCustomSpacing(32, after: stack.arrangedSubviews.last!)
+                stack.addArrangedSubview(contactDetailsHeader)
+                
+                contactDetailsHeader.widthToSuperview(offset: -48)
+                let emailSubtitleText = NSMutableAttributedString(
+                    string: "\(email)\n",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProSemiBold(size: 16),
+                        color: .backgroundColor,
+                        lineSpacing: 6
+                    ))
+                emailSubtitleText.append(NSAttributedString(
+                    string: "\(L.Profile.Email.localization) ",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProRegular(size: 12),
+                        color: .grayGhost,
+                        lineSpacing: 6
+                    ))
+                )
+                let emailControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: nil,
+                    attributedBodyText: emailSubtitleText,
+                    iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(emailControl)
+                emailControl.widthToSuperview(offset: -48)
+                emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
+            }
             
-            stack.addArrangedSubview(nameControl)
-            stack.addArrangedSubview(emailControl)
             
-            // - Institutions title
-            let institutionsLabel = UILabel()
-            institutionsLabel.attributedText = NSAttributedString(
+            // - Role & institution header
+            
+            let roleAndInstitutionHeader = UILabel()
+            let roleAndInstitutionString = NSAttributedString(
                 string: L.Profile.RoleAndInstitution.localization,
                 attributes: AttributedStringHelper.attributes(
-                    font: .sourceSansProSemiBold(size: 16),
-                    color: .charcoalColor,
-                    lineSpacing: 6)
+                    font: UIFont.nunitoBold(size: 22),
+                    color: .primaryColor,
+                    lineSpacing: 10)
             )
-            stack.addArrangedSubview(institutionsLabel)
-            stack.setCustomSpacing(6, after: institutionsLabel)
-            institutionsLabel.widthToSuperview(offset: -48)
+            roleAndInstitutionHeader.attributedText = roleAndInstitutionString
+            stack.setCustomSpacing(32, after: stack.arrangedSubviews.last!)
+            stack.addArrangedSubview(roleAndInstitutionHeader)
+            roleAndInstitutionHeader.widthToSuperview(offset: -48)
             
             // Add institution cards
             for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
@@ -305,14 +411,10 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             manageAccountButton.edgesToSuperview(insets: .horizontal(24) + .vertical(20))
             stack.addArrangedSubview(manageAccountContainer)
             
-            nameControl.widthToSuperview(offset: -48)
-            emailControl.widthToSuperview(offset: -48)
             addInstitutionButton.widthToSuperview(offset: -48)
             manageAccountContainer.widthToSuperview()
             
             // Add click handlers
-            emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
-            nameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
         } else {
             let loadingIndicator = UIActivityIndicatorView()
             stack.addArrangedSubview(loadingIndicator)
@@ -334,13 +436,23 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     @objc func nameControlClicked() {
         if let personalInfo = viewModel.userResponse {
-            delegate?.goToNameOverview(viewController: self, personalInfo: personalInfo)
+            delegate?.goToNameEditor(viewController: self, personalInfo: personalInfo)
         }
     }
     
     @objc func addInstitutionClicked() {
         self.addInstitutionButton.isEnabled = false
         self.addInstitutionButton.isLoading = true
+        startLinkingInstitution()
+    }
+    
+    @objc func verifyIdentityClicked() {
+        self.verifyIdentityLoadingIndicator.startAnimating()
+        self.verifyIdentityLoadingIndicator.isHidden = false
+        startLinkingInstitution()
+    }
+    
+    private func startLinkingInstitution() {
         Task {
             do {
                 let link = try await self.viewModel.getStartLinkAccount()
@@ -373,6 +485,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
             self.addInstitutionButton.isLoading = false
             self.addInstitutionButton.isEnabled = true
+            self.verifyIdentityLoadingIndicator.stopAnimating()
+            self.verifyIdentityLoadingIndicator.isHidden = true
         }
     }
     
