@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct DeactivateRequest: Codable, JSONEncodable, Hashable {
 
-    public var verificationCode: String?
+    public var verificationCode: String
 
-    public init(verificationCode: String? = nil) {
+    public init(verificationCode: String) {
         self.verificationCode = verificationCode
     }
 
@@ -26,7 +26,7 @@ public struct DeactivateRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(verificationCode, forKey: .verificationCode)
+        try container.encode(verificationCode, forKey: .verificationCode)
     }
 }
 

@@ -12,15 +12,18 @@ import AnyCodable
 
 public struct UpdateUserNameRequest: Codable, JSONEncodable, Hashable {
 
+    public var chosenName: String
     public var givenName: String
     public var familyName: String
 
-    public init(givenName: String, familyName: String) {
+    public init(chosenName: String, givenName: String, familyName: String) {
+        self.chosenName = chosenName
         self.givenName = givenName
         self.familyName = familyName
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case chosenName
         case givenName
         case familyName
     }
@@ -29,6 +32,7 @@ public struct UpdateUserNameRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(chosenName, forKey: .chosenName)
         try container.encode(givenName, forKey: .givenName)
         try container.encode(familyName, forKey: .familyName)
     }

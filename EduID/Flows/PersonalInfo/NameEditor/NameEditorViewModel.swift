@@ -40,7 +40,7 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     
     func saveNameChange(firstName: String, lastName: String) async throws -> UserResponse {
         return try await UserControllerAPI.updateUserProfile(
-            updateUserNameRequest: UpdateUserNameRequest(givenName: firstName, familyName: lastName)
+            updateUserNameRequest: UpdateUserNameRequest(chosenName: firstName, givenName: firstName, familyName: lastName)
         )
     }
     

@@ -26,6 +26,9 @@ open class AccountLinkerControllerAPI {
      Start link account flow
      - GET /mobile/api/sp/oidc/link
      - Start the link account flow for the current user.<br/>After the account has been linked the user is redirect to one the following URL's:<ul><li>Success: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/account-linked</a></li><li>Failure, EPPN already linked: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/eppn-already-linked?email=jdoe%40example.com</a></li><li>Failure, session expired: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/expired</a></li></ul>
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<AuthorizationURL> 
      */
     open class func startSPLinkAccountFlowWithRequestBuilder() -> RequestBuilder<AuthorizationURL> {

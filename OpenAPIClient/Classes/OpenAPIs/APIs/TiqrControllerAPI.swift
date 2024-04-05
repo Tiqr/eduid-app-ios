@@ -27,6 +27,9 @@ open class TiqrControllerAPI {
      De-activate the app
      - POST /mobile/tiqr/sp/deactivate-app
      - De-activate the eduID app for the current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter deactivateRequest: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -38,7 +41,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -63,6 +66,9 @@ open class TiqrControllerAPI {
      Poll enrollment
      - GET /mobile/tiqr/poll-enrollment
      - Poll Tiqr enrollment status
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter enrollmentKey: (query)  
      - returns: RequestBuilder<String> 
      */
@@ -101,6 +107,9 @@ open class TiqrControllerAPI {
      Finish enrollment
      - GET /mobile/tiqr/sp/finish-enrollment
      - Finish Tiqr enrollment for the current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<EnrollmentVerificationKey> 
      */
     open class func finishEnrollmentWithRequestBuilder() -> RequestBuilder<EnrollmentVerificationKey> {
@@ -135,6 +144,9 @@ open class TiqrControllerAPI {
      Generate back-up code
      - GET /mobile/tiqr/sp/generate-backup-code
      - Generate a back-up code for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<GeneratedBackupCode> 
      */
     open class func generateBackupCodeForSpWithRequestBuilder() -> RequestBuilder<GeneratedBackupCode> {
@@ -169,6 +181,9 @@ open class TiqrControllerAPI {
      Generate new back-up code
      - GET /mobile/tiqr/sp/re-generate-backup-code
      - Generate a new back-up code for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<GeneratedBackupCode> 
      */
     open class func regenerateBackupCodeForSpWithRequestBuilder() -> RequestBuilder<GeneratedBackupCode> {
@@ -204,6 +219,9 @@ open class TiqrControllerAPI {
      Send new phone code
      - POST /mobile/tiqr/sp/re-send-phone-code
      - Send a new verification code to mobile phone for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter phoneCode: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -215,7 +233,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -239,6 +257,9 @@ open class TiqrControllerAPI {
      Send de-activation code
      - GET /mobile/tiqr/sp/send-deactivation-phone-code
      - Send a de-activation code to the user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<FinishEnrollment> 
      */
     open class func sendDeactivationPhoneCodeForSpWithRequestBuilder() -> RequestBuilder<FinishEnrollment> {
@@ -274,6 +295,9 @@ open class TiqrControllerAPI {
      Send phone code
      - POST /mobile/tiqr/sp/send-phone-code
      - Send a verification code to mobile phone for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter phoneCode: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -285,7 +309,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -310,6 +334,9 @@ open class TiqrControllerAPI {
      Poll authentication
      - GET /mobile/tiqr/sp/poll-authentication
      - Poll Tiqr authentication status for current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter sessionKey: (query) Session key of the authentication 
      - returns: RequestBuilder<PollAuthenticationResult> 
      */
@@ -349,6 +376,9 @@ open class TiqrControllerAPI {
      Manual authentication
      - POST /mobile/tiqr/sp/manual-response
      - Manual Tiqr authentication response
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter manualResponse: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -360,7 +390,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -385,6 +415,9 @@ open class TiqrControllerAPI {
      Verify phone code again
      - POST /mobile/tiqr/sp/re-verify-phone-code
      - Verify verification code again for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter phoneVerification: (body)  
      - returns: RequestBuilder<VerifyPhoneCode> 
      */
@@ -396,7 +429,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -421,6 +454,9 @@ open class TiqrControllerAPI {
      Verify phone code
      - POST /mobile/tiqr/sp/verify-phone-code
      - Verify verification code for a finished authentication
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter phoneVerification: (body)  
      - returns: RequestBuilder<VerifyPhoneCode> 
      */
@@ -432,7 +468,7 @@ open class TiqrControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -456,6 +492,9 @@ open class TiqrControllerAPI {
      Start authentication
      - POST /mobile/tiqr/sp/start-authentication
      - Start Tiqr authentication for current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<StartAuthentication> 
      */
     open class func startAuthenticationForSPWithRequestBuilder() -> RequestBuilder<StartAuthentication> {
@@ -490,6 +529,9 @@ open class TiqrControllerAPI {
      Start enrollment
      - GET /mobile/tiqr/sp/start-enrollment
      - Start Tiqr enrollment for the current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<StartEnrollment> 
      */
     open class func startEnrollmentWithRequestBuilder() -> RequestBuilder<StartEnrollment> {

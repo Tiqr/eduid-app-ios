@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
+**chosenName** | **String** |  | [optional] 
 **givenName** | **String** |  | [optional] 
 **familyName** | **String** |  | [optional] 
 **uid** | **String** |  | [optional] 

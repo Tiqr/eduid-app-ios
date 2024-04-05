@@ -27,6 +27,9 @@ open class UserControllerAPI {
      Confirm email change
      - GET /mobile/api/sp/confirm-email
      - Confirm the user has clicked on the link in the email sent after requesting to change the users email<br/>A confirmation email is sent to notify the user of the security change with a link to the security settings <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/security</a>. <br/>If this URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/security</a>
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter h: (query) The hash obtained from the query parameter &#39;h&#39; in the URL sent to the user in the update-email 
      - returns: RequestBuilder<UserResponse> 
      */
@@ -66,6 +69,9 @@ open class UserControllerAPI {
      Create eduID account
      - POST /mobile/api/idp/create
      - Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>Link in the validation email is <a href=\"\">https://login.{environment}.eduid.nl/mobile/api/create-from-mobile-api?h=={{hash}}</a> whichmust NOT be captured by the eduID app.<br/>After the account is finalized server-side the user is logged in and the server redirects to <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/created</a><br/>If the URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/created?new=true</a>
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter createAccount: (body)  
      - returns: RequestBuilder<StatusResponse> 
      */
@@ -77,7 +83,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -101,6 +107,9 @@ open class UserControllerAPI {
      Delete
      - DELETE /mobile/api/sp/delete
      - Delete the current logged in user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<StatusResponse> 
      */
     open class func deleteUserWithRequestBuilder() -> RequestBuilder<StatusResponse> {
@@ -135,6 +144,9 @@ open class UserControllerAPI {
      Forget me
      - DELETE /mobile/api/sp/forget
      - Delete the long remember-me login for the current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<Int64> 
      */
     open class func forgetMeWithRequestBuilder() -> RequestBuilder<Int64> {
@@ -170,6 +182,9 @@ open class UserControllerAPI {
      Institution displaynames
      - GET /mobile/api/sp/institution/names
      - Retrieve the displayNames of the Institution by the schac_home value
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter schacHome: (query)  
      - returns: RequestBuilder<IdentityProvider> 
      */
@@ -208,6 +223,9 @@ open class UserControllerAPI {
      All institutional domains
      - GET /mobile/api/sp/create-from-institution/domain/institutional
      - All institutional domains which will generate a warning if a user enters an email at this domain
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<Set<String>> 
      */
     open class func institutionalDomainsWithRequestBuilder() -> RequestBuilder<Set<String>> {
@@ -242,6 +260,9 @@ open class UserControllerAPI {
      All institutional domains
      - GET /mobile/api/idp/email/domain/institutional
      - All institutional domains which will generate a warning if a user enters an email at this domain
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<Set<String>> 
      */
     open class func institutionalDomains1WithRequestBuilder() -> RequestBuilder<Set<String>> {
@@ -276,6 +297,9 @@ open class UserControllerAPI {
      Logout
      - GET /mobile/api/sp/logout
      - Logout the current logged in user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<StatusResponse> 
      */
     open class func logoutWithRequestBuilder() -> RequestBuilder<StatusResponse> {
@@ -310,6 +334,9 @@ open class UserControllerAPI {
      User details
      - GET /mobile/api/sp/me
      - Retrieve the attributes of the current user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<UserResponse> 
      */
     open class func meWithRequestBuilder() -> RequestBuilder<UserResponse> {
@@ -344,6 +371,9 @@ open class UserControllerAPI {
      Get all outstanding change-emails-requests
      - GET /mobile/api/sp/outstanding-email-links
      - Get all outstanding change-emails-requests for the logged in user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<Bool> 
      */
     open class func outstandingEmailLinksWithRequestBuilder() -> RequestBuilder<Bool> {
@@ -378,6 +408,9 @@ open class UserControllerAPI {
      Get personal data
      - GET /mobile/api/sp/personal
      - Get personal data for download
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<User> 
      */
     open class func personalWithRequestBuilder() -> RequestBuilder<User> {
@@ -413,6 +446,9 @@ open class UserControllerAPI {
      Remove user tokens
      - PUT /mobile/api/sp/tokens
      - Remove user token for a service
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter deleteServiceTokens: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
@@ -424,7 +460,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -449,6 +485,9 @@ open class UserControllerAPI {
      Remove linked account
      - PUT /mobile/api/sp/institution
      - Remove linked account for a logged in user
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter linkedAccount: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
@@ -460,7 +499,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -485,6 +524,9 @@ open class UserControllerAPI {
      Remove user service
      - PUT /mobile/api/sp/service
      - Remove user service by the eduID value
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter deleteService: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
@@ -496,7 +538,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -521,6 +563,9 @@ open class UserControllerAPI {
      Validate password hash
      - GET /mobile/api/sp/password-reset-hash-valid
      - Check if a password change hash is valid and not expired
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter hash: (query)  
      - returns: RequestBuilder<Bool> 
      */
@@ -559,6 +604,9 @@ open class UserControllerAPI {
      Reset password link
      - PUT /mobile/api/sp/reset-password-link
      - Sent the user a mail with a link for the user to change his / hers password. <br/>Link in the validation email is <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/reset-password?h=={{hash}}</a> if the user already had a password, otherwise <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/add-password?h=={{hash}}</a><br/>If the URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/reset-password?h={{hash}}</a>
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<UserResponse> 
      */
     open class func resetPasswordLinkWithRequestBuilder() -> RequestBuilder<UserResponse> {
@@ -593,6 +641,9 @@ open class UserControllerAPI {
      Get all OpenID Connect tokens
      - GET /mobile/api/sp/tokens
      - Get all OpenID Connect tokens for the logged in user
+     - :
+       - type: openIdConnect
+       - name: openId
      - returns: RequestBuilder<[Token]> 
      */
     open class func tokensWithRequestBuilder() -> RequestBuilder<[Token]> {
@@ -629,6 +680,9 @@ open class UserControllerAPI {
      Change email
      - PUT /mobile/api/sp/email
      - Request to change the email of the user. The link in the validation email is <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/update-email?h=={{hash}}</a>with an unique 'h' query param which must be used in 'mobile/api/sp/confirm-email' to confirm the update.<br/>If the URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/confirm-email?h={{hash}}</a>
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter updateEmailRequest: (body)  
      - parameter force: (query)  (optional, default to false)
      - returns: RequestBuilder<UserResponse> 
@@ -644,7 +698,46 @@ open class UserControllerAPI {
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Mark linkedAccount as preferred
+     
+     - parameter updateLinkedAccountRequest: (body)  
+     - returns: UserResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func updateLinkedAccount(updateLinkedAccountRequest: UpdateLinkedAccountRequest) async throws -> UserResponse {
+        return try await updateLinkedAccountWithRequestBuilder(updateLinkedAccountRequest: updateLinkedAccountRequest).execute().body
+    }
+
+    /**
+     Mark linkedAccount as preferred
+     - PUT /mobile/api/sp/prefer-linked-account
+     - Mark linkedAccount as preferred
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter updateLinkedAccountRequest: (body)  
+     - returns: RequestBuilder<UserResponse> 
+     */
+    open class func updateLinkedAccountWithRequestBuilder(updateLinkedAccountRequest: UpdateLinkedAccountRequest) -> RequestBuilder<UserResponse> {
+        let localVariablePath = "/mobile/api/sp/prefer-linked-account"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateLinkedAccountRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -669,6 +762,9 @@ open class UserControllerAPI {
      Update password
      - PUT /mobile/api/sp/update-password
      - Update or delete the user's password using the hash from the 'h' query param in the validation email. If 'newPassword' is null / empty than the password is removed.
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter updateUserSecurityRequest: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
@@ -680,7 +776,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
@@ -705,6 +801,9 @@ open class UserControllerAPI {
      Change names
      - PUT /mobile/api/sp/update
      - Update the givenName and / or familyName of the User
+     - :
+       - type: openIdConnect
+       - name: openId
      - parameter updateUserNameRequest: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
@@ -716,7 +815,7 @@ open class UserControllerAPI {
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)

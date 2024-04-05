@@ -14,8 +14,10 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
 
     public var id: String?
     public var email: String?
+    public var chosenName: String?
     public var givenName: String?
     public var familyName: String?
+    public var displayName: String?
     public var usePassword: Bool?
     public var usePublicKey: Bool?
     public var forgottenPassword: Bool?
@@ -29,11 +31,13 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var loginOptions: [String]?
     public var registration: [String: AnyCodable]?
 
-    public init(id: String? = nil, email: String? = nil, givenName: String? = nil, familyName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
         self.id = id
         self.email = email
+        self.chosenName = chosenName
         self.givenName = givenName
         self.familyName = familyName
+        self.displayName = displayName
         self.usePassword = usePassword
         self.usePublicKey = usePublicKey
         self.forgottenPassword = forgottenPassword
@@ -51,8 +55,10 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case email
+        case chosenName
         case givenName
         case familyName
+        case displayName
         case usePassword
         case usePublicKey
         case forgottenPassword
@@ -73,8 +79,10 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(email, forKey: .email)
+        try container.encodeIfPresent(chosenName, forKey: .chosenName)
         try container.encodeIfPresent(givenName, forKey: .givenName)
         try container.encodeIfPresent(familyName, forKey: .familyName)
+        try container.encodeIfPresent(displayName, forKey: .displayName)
         try container.encodeIfPresent(usePassword, forKey: .usePassword)
         try container.encodeIfPresent(usePublicKey, forKey: .usePublicKey)
         try container.encodeIfPresent(forgottenPassword, forKey: .forgottenPassword)

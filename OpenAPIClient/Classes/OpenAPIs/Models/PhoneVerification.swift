@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct PhoneVerification: Codable, JSONEncodable, Hashable {
 
-    public var phoneVerification: String?
+    public var phoneVerification: String
 
-    public init(phoneVerification: String? = nil) {
+    public init(phoneVerification: String) {
         self.phoneVerification = phoneVerification
     }
 
@@ -26,7 +26,7 @@ public struct PhoneVerification: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(phoneVerification, forKey: .phoneVerification)
+        try container.encode(phoneVerification, forKey: .phoneVerification)
     }
 }
 

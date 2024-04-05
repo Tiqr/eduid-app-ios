@@ -14,22 +14,30 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
 
     public var institutionIdentifier: String?
     public var schacHomeOrganization: String?
+    public var displayNameEn: String?
+    public var displayNameNl: String?
+    public var logoUrl: String?
     public var eduPersonPrincipalName: String?
     public var subjectId: String?
     public var givenName: String?
     public var familyName: String?
     public var eduPersonAffiliations: [String]?
+    public var preferred: Bool?
     public var createdAt: Int64?
     public var expiresAt: Int64?
 
-    public init(institutionIdentifier: String? = nil, schacHomeOrganization: String? = nil, eduPersonPrincipalName: String? = nil, subjectId: String? = nil, givenName: String? = nil, familyName: String? = nil, eduPersonAffiliations: [String]? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil) {
+    public init(institutionIdentifier: String? = nil, schacHomeOrganization: String? = nil, displayNameEn: String? = nil, displayNameNl: String? = nil, logoUrl: String? = nil, eduPersonPrincipalName: String? = nil, subjectId: String? = nil, givenName: String? = nil, familyName: String? = nil, eduPersonAffiliations: [String]? = nil, preferred: Bool? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil) {
         self.institutionIdentifier = institutionIdentifier
         self.schacHomeOrganization = schacHomeOrganization
+        self.displayNameEn = displayNameEn
+        self.displayNameNl = displayNameNl
+        self.logoUrl = logoUrl
         self.eduPersonPrincipalName = eduPersonPrincipalName
         self.subjectId = subjectId
         self.givenName = givenName
         self.familyName = familyName
         self.eduPersonAffiliations = eduPersonAffiliations
+        self.preferred = preferred
         self.createdAt = createdAt
         self.expiresAt = expiresAt
     }
@@ -37,11 +45,15 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case institutionIdentifier
         case schacHomeOrganization
+        case displayNameEn
+        case displayNameNl
+        case logoUrl
         case eduPersonPrincipalName
         case subjectId
         case givenName
         case familyName
         case eduPersonAffiliations
+        case preferred
         case createdAt
         case expiresAt
     }
@@ -52,11 +64,15 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(institutionIdentifier, forKey: .institutionIdentifier)
         try container.encodeIfPresent(schacHomeOrganization, forKey: .schacHomeOrganization)
+        try container.encodeIfPresent(displayNameEn, forKey: .displayNameEn)
+        try container.encodeIfPresent(displayNameNl, forKey: .displayNameNl)
+        try container.encodeIfPresent(logoUrl, forKey: .logoUrl)
         try container.encodeIfPresent(eduPersonPrincipalName, forKey: .eduPersonPrincipalName)
         try container.encodeIfPresent(subjectId, forKey: .subjectId)
         try container.encodeIfPresent(givenName, forKey: .givenName)
         try container.encodeIfPresent(familyName, forKey: .familyName)
         try container.encodeIfPresent(eduPersonAffiliations, forKey: .eduPersonAffiliations)
+        try container.encodeIfPresent(preferred, forKey: .preferred)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(expiresAt, forKey: .expiresAt)
     }

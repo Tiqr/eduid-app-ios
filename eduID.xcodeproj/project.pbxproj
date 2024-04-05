@@ -107,6 +107,7 @@
 		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
 		4FC37C2A2A3C47A80036A94C /* PasswordResetLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C292A3C47A80036A94C /* PasswordResetLinkViewModel.swift */; };
 		4FC37C2C2A3C47F60036A94C /* PasswordResetLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C2B2A3C47F60036A94C /* PasswordResetLinkViewController.swift */; };
+		4FDBF7532BC0414900371599 /* UpdateLinkedAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDBF7522BC0414900371599 /* UpdateLinkedAccountRequest.swift */; };
 		4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */; };
 		4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
@@ -469,6 +470,7 @@
 		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
 		4FC37C292A3C47A80036A94C /* PasswordResetLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetLinkViewModel.swift; sourceTree = "<group>"; };
 		4FC37C2B2A3C47F60036A94C /* PasswordResetLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetLinkViewController.swift; sourceTree = "<group>"; };
+		4FDBF7522BC0414900371599 /* UpdateLinkedAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLinkedAccountRequest.swift; sourceTree = "<group>"; };
 		4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewController.swift; sourceTree = "<group>"; };
 		4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewModel.swift; sourceTree = "<group>"; };
 		4FF5675A2A31D32E00616341 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -912,6 +914,7 @@
 		4F909F4C2A31D07500FC1506 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4FDBF7522BC0414900371599 /* UpdateLinkedAccountRequest.swift */,
 				4F909F4D2A31D07500FC1506 /* PollAuthenticationResult.swift */,
 				4F909F4E2A31D07500FC1506 /* GeneratedBackupCode.swift */,
 				4F909F4F2A31D07500FC1506 /* PublicKeyCredentials.swift */,
@@ -1638,6 +1641,7 @@
 				4FF568092A31D68400616341 /* APIHelper.swift in Sources */,
 				4FF5680A2A31D68400616341 /* URLSessionImplementations.swift in Sources */,
 				4FF5680B2A31D68400616341 /* UserControllerAPI.swift in Sources */,
+				4FDBF7532BC0414900371599 /* UpdateLinkedAccountRequest.swift in Sources */,
 				4FF5680C2A31D68400616341 /* TiqrControllerAPI.swift in Sources */,
 				4FF5680D2A31D68400616341 /* AccountLinkerControllerAPI.swift in Sources */,
 				4FF5680E2A31D68400616341 /* CodableHelper.swift in Sources */,

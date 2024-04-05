@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct ManualResponse: Codable, JSONEncodable, Hashable {
 
-    public var sessionKey: String?
-    public var response: String?
+    public var sessionKey: String
+    public var response: String
 
-    public init(sessionKey: String? = nil, response: String? = nil) {
+    public init(sessionKey: String, response: String) {
         self.sessionKey = sessionKey
         self.response = response
     }
@@ -29,8 +29,8 @@ public struct ManualResponse: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(sessionKey, forKey: .sessionKey)
-        try container.encodeIfPresent(response, forKey: .response)
+        try container.encode(sessionKey, forKey: .sessionKey)
+        try container.encode(response, forKey: .response)
     }
 }
 
