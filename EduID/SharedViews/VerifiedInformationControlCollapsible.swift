@@ -8,10 +8,8 @@ import UIKit
 import TinyConstraints
 import OpenAPIClient
 
-class VerifiedInformationControlCollapsible: UIControl {
+class VerifiedInformationControlCollapsible: ExpandableControl {
 
-    private var stack: UIStackView!
-    private var isExpanded = false
     private var manageVerifiedInformationAction: () -> Void
     
     //MARK: - init
@@ -21,14 +19,17 @@ class VerifiedInformationControlCollapsible: UIControl {
          manageVerifiedInformationAction: @escaping () -> Void
     ) {
         self.manageVerifiedInformationAction = manageVerifiedInformationAction
-        super.init(frame: .zero)
+        super.init()
         setupUI(title: title, subtitle: subtitle, linkedAccount: linkedAccount)
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
     }
             
     //MARK: - setup UI
     private func setupUI(title: String, subtitle: String, linkedAccount: LinkedAccount) {
         backgroundColor = .white
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.masksToBounds = false
         //body stackview
         let attributedStringBody = NSMutableAttributedString()
         attributedStringBody.append(NSAttributedString(string: title, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .backgroundColor, lineSpacing: 6)))
@@ -45,11 +46,11 @@ class VerifiedInformationControlCollapsible: UIControl {
         shieldImageView.image = .shield
         shieldImageView.size(CGSize(width: 24, height: 28))
         
-        let chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
-        chevronImage.tintColor = .backgroundColor
-        chevronImage.size(CGSize(width: 24, height: 24))
+        self.chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
+        self.chevronImage.tintColor = .backgroundColor
+        self.chevronImage.size(CGSize(width: 24, height: 24))
         
-        let bodyStack = UIStackView(arrangedSubviews: [shieldImageView, bodyParent, chevronImage])
+        let bodyStack = UIStackView(arrangedSubviews: [shieldImageView, bodyParent, self.chevronImage])
         bodyStack.setCustomSpacing(12, after: shieldImageView)
         bodyStack.alignment = .center
         bodyStack.height(50)
@@ -110,7 +111,7 @@ class VerifiedInformationControlCollapsible: UIControl {
         bottomStack.spacing = 18
         bottomStack.distribution = .equalSpacing
         bottomStack.isLayoutMarginsRelativeArrangement = true
-        bottomStack.layoutMargins = .left(36)
+        bottomStack.layoutMargins = .left(36) + .bottom(8)
                         
         stack = UIStackView(arrangedSubviews: [bodyStack, bottomStack])
         stack.axis = .vertical
@@ -132,18 +133,7 @@ class VerifiedInformationControlCollapsible: UIControl {
         }
     }
     
-    //MARK: - expand or contract action
-    @objc
-    func expandOrContract() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            for i in (1..<(self?.stack.arrangedSubviews.count ?? 0)) {
-                self?.stack.arrangedSubviews[i].isHidden = self?.isExpanded ?? true
-                self?.stack.arrangedSubviews[i].alpha = (self?.isExpanded ?? true) ? 0 : 1
-            }
-        }
-        isExpanded.toggle()
-    }
-    
+
     @objc
     func manageVerifiedInformation() {
         self.manageVerifiedInformationAction()
