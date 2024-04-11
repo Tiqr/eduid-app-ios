@@ -76,7 +76,7 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         
         // - the info controls
         let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.name )\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
+        let nameBodyText = NSMutableAttributedString(string: "\(model.firstName) \(model.lastName)\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
         nameBodyText.setAttributeTo(part: "\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
         let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
         

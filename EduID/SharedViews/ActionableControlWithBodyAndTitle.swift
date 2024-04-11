@@ -35,7 +35,13 @@ class ActionableControlWithBodyAndTitle: UIControl {
     }
 
     //MARK: - init
-    init(attributedTitle: NSAttributedString? = nil, attributedBodyText: NSAttributedString, iconInTitle: UIImage? = nil, iconInBody: UIImage? = nil, isFilled: Bool, shadow: Bool = false) {
+    init(attributedTitle: NSAttributedString? = nil,
+         attributedBodyText: NSAttributedString,
+         iconInTitle: UIImage? = nil,
+         iconInBody: UIImage? = nil,
+         isFilled: Bool,
+         shadow: Bool = false
+    ) {
         super.init(frame: .zero)
                 
         backgroundColor = .white
@@ -59,7 +65,7 @@ class ActionableControlWithBodyAndTitle: UIControl {
             view.setShadow(opacity: 0.2, color: .black, radius: 2, offset: CGSize(width: 2, height: 2))
         }
         view.layer.cornerRadius = 6
-        view.layer.borderWidth = isFilled ? 3 : 1
+        view.layer.borderWidth = isFilled ? 2 : 1
         view.layer.borderWidth = shadow ? 1 : view.layer.borderWidth
         view.layer.borderColor = isFilled ? UIColor.backgroundColor.cgColor : UIColor.disabledGray.cgColor
         let bodyLabel = UILabel()

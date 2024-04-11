@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chosenName** | **String** |  | 
 **givenName** | **String** |  | 
 **familyName** | **String** |  | 
 

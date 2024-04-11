@@ -47,8 +47,8 @@ extension UILabel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         paragraphStyle.lineSpacing = 6
-        let attributedString = NSMutableAttributedString(string: text, attributes: [.font: UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
-        attributedString.setAttributeTo(part: partBold, attributes: [.font: UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
+        let attributedString = NSMutableAttributedString(string: text, attributes: [.font: UIFont.sourceSansProRegular(size: 14), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
+        attributedString.setAttributeTo(part: partBold, attributes: [.font: UIFont.sourceSansProSemiBold(size: 14), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
         label.attributedText = attributedString
         label.sizeToFit()
         return label

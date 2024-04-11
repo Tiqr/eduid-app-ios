@@ -305,18 +305,49 @@ SHARED:
         nl: Zelf ingesteld
     Title:
       COPY:
-        en: Personal information
-        nl: Persoonlijke informatie
+        en: Your personal info
+        nl: Jouw persoonlijke informatie
     Info:
       COPY:
         en: >-
-          When you use eduID to login to other websites, some of your personal
-          information will be shared. Some websites require that your personal
-          information is validated by a third party.
+          When you use eduID to logon to other websites, some of your personal
+          information will be shared.
         nl: >-
           Wanneer je eduID gebruikt om in te loggen op andere websites, kan jouw
-          persoonlijke informatie worden gedeeld. Sommige websites vereisen dat
-          je persoonlijke gegevens worden gevalideerd door een derde partij.
+          persoonlijke informatie worden gedeeld.
+    YourIdentity:
+      COPY:
+        en: Your identity
+        nl: Jouw identiteit
+    Verified:
+      COPY:
+        nl: geverifieerd
+        en: verified
+    NotVerified:
+      COPY:
+        nl: niet geverifieerd
+        en: not verified
+    VerifyNow:
+      Title:
+        COPY:
+          en: Some services require your identity to be verified by a trusted party.
+          nl: Sommige diensten eisen dat jouw identiteit geverifieerd is door een vertrouwde instelling.
+      Button:
+        COPY:
+          en: Verify identity now
+          nl: Verifïeer mijn identiteit
+    FirstName:
+      COPY:
+        en: First name
+        nl: Voornaam
+    LastName:
+      COPY:
+        en: Last name
+        nl: Achternaam
+    ContactDetails:
+      COPY:
+        en: Contact details
+        nl: Contactgegevens
     Basic:
       COPY:
         en: Basic information
@@ -634,10 +665,10 @@ SHARED:
         COPY:
           en: Edit
           nl: Bewerk
-      FullName:
+      YourName:
         COPY:
-          en: Full name
-          nl: Volledige naam
+          en: Your name
+          nl: Jouw naam
     FirstName:
       COPY:
         en: First name
@@ -757,36 +788,6 @@ SHARED:
       COPY:
         en: Failed to download your data
         nl: Downloaden mislukt
-  NameOverview:
-    Title:
-      AllDetailsOf:
-        COPY:
-          nl: Alle gegevens van
-          en: All details of
-      FullName:
-        COPY:
-          nl: Volledige naam
-          en: Full name
-    SelfAsserted:
-      COPY:
-        nl: Zelf ingevuld
-        en: Self asserted
-    Verified:
-      COPY:
-        nl: Gecontroleerd
-        en: Verified
-    AnotherSource:
-      COPY:
-        nl: Een andere bron…
-        en: Another source…
-    NotAvailable:
-      COPY:
-        nl: Niet beschikbaar
-        en: Not available
-    ProceedToAdd:
-      COPY:
-        nl: Voeg dit toe door in te loggen bij jouw instelling
-        en: Proceed to add this via your school/uni
   Security:
     Title:
       COPY:

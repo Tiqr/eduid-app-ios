@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 

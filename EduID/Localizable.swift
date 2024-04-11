@@ -553,6 +553,72 @@ public struct L {
             translationKey: "Profile.Info.COPY",
             translationArgs: []
         )
+        public static let YourIdentity = LocaliciousData(
+            accessibilityIdentifier: "Profile.YourIdentity",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.YourIdentity.COPY",
+            translationArgs: []
+        )
+        public static let Verified = LocaliciousData(
+            accessibilityIdentifier: "Profile.Verified",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.Verified.COPY",
+            translationArgs: []
+        )
+        public static let NotVerified = LocaliciousData(
+            accessibilityIdentifier: "Profile.NotVerified",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.NotVerified.COPY",
+            translationArgs: []
+        )
+        public struct VerifyNow {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "Profile.VerifyNow.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Profile.VerifyNow.Title.COPY",
+                translationArgs: []
+            )
+            public static let Button = LocaliciousData(
+                accessibilityIdentifier: "Profile.VerifyNow.Button",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "Profile.VerifyNow.Button.COPY",
+                translationArgs: []
+            )
+        }
+        public static let FirstName = LocaliciousData(
+            accessibilityIdentifier: "Profile.FirstName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.FirstName.COPY",
+            translationArgs: []
+        )
+        public static let LastName = LocaliciousData(
+            accessibilityIdentifier: "Profile.LastName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.LastName.COPY",
+            translationArgs: []
+        )
+        public static let ContactDetails = LocaliciousData(
+            accessibilityIdentifier: "Profile.ContactDetails",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ContactDetails.COPY",
+            translationArgs: []
+        )
         public static let Basic = LocaliciousData(
             accessibilityIdentifier: "Profile.Basic",
             accessibilityHintKey: nil,
@@ -1122,12 +1188,12 @@ public struct L {
                 translationKey: "EditName.Title.Edit.COPY",
                 translationArgs: []
             )
-            public static let FullName = LocaliciousData(
-                accessibilityIdentifier: "EditName.Title.FullName",
+            public static let YourName = LocaliciousData(
+                accessibilityIdentifier: "EditName.Title.YourName",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "EditName.Title.FullName.COPY",
+                translationKey: "EditName.Title.YourName.COPY",
                 translationArgs: []
             )
         }
@@ -1353,66 +1419,6 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "MyAccount.DownloadError.COPY",
-            translationArgs: []
-        )
-    }
-    public struct NameOverview {
-        public struct Title {
-            public static let AllDetailsOf = LocaliciousData(
-                accessibilityIdentifier: "NameOverview.Title.AllDetailsOf",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "NameOverview.Title.AllDetailsOf.COPY",
-                translationArgs: []
-            )
-            public static let FullName = LocaliciousData(
-                accessibilityIdentifier: "NameOverview.Title.FullName",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "NameOverview.Title.FullName.COPY",
-                translationArgs: []
-            )
-        }
-        public static let SelfAsserted = LocaliciousData(
-            accessibilityIdentifier: "NameOverview.SelfAsserted",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "NameOverview.SelfAsserted.COPY",
-            translationArgs: []
-        )
-        public static let Verified = LocaliciousData(
-            accessibilityIdentifier: "NameOverview.Verified",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "NameOverview.Verified.COPY",
-            translationArgs: []
-        )
-        public static let AnotherSource = LocaliciousData(
-            accessibilityIdentifier: "NameOverview.AnotherSource",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "NameOverview.AnotherSource.COPY",
-            translationArgs: []
-        )
-        public static let NotAvailable = LocaliciousData(
-            accessibilityIdentifier: "NameOverview.NotAvailable",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "NameOverview.NotAvailable.COPY",
-            translationArgs: []
-        )
-        public static let ProceedToAdd = LocaliciousData(
-            accessibilityIdentifier: "NameOverview.ProceedToAdd",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "NameOverview.ProceedToAdd.COPY",
             translationArgs: []
         )
     }

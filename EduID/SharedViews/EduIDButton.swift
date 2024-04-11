@@ -9,6 +9,7 @@ final class EduIDButton: UIButton {
         case naked
         case borderedRed
         case filledRed
+        case empty
     }
 
     let type: ButtonType
@@ -25,6 +26,8 @@ final class EduIDButton: UIButton {
                 setupWithBorderedRedStyle()
             case .filledRed:
                 setupWithFilledRedStyle()
+            case .empty:
+                setupWithEmptyStyle()
             }
         }
     }
@@ -40,7 +43,7 @@ final class EduIDButton: UIButton {
                     layer.borderColor = UIColor.disabledGray.cgColor
                 case .filledRed:
                     backgroundColor = UIColor.alertsRedColor.withAlphaComponent(0.5)
-                case .naked:
+                case .naked, .empty:
                     break
                 }
             case true:
@@ -51,7 +54,7 @@ final class EduIDButton: UIButton {
                     layer.borderColor = UIColor.grayGhost.cgColor
                 case .filledRed:
                     backgroundColor = UIColor.alertsRedColor
-                case .naked:
+                case .naked, .empty:
                     break
                 }
             }
@@ -102,6 +105,8 @@ final class EduIDButton: UIButton {
             setupWithBorderedRedStyle()
         case .filledRed:
             setupWithFilledRedStyle()
+        case .empty:
+            setupWithEmptyStyle()
         }
     }
     
@@ -123,6 +128,16 @@ final class EduIDButton: UIButton {
         backgroundColor = .white
         
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.grayGhost])
+        setAttributedTitle(attributedTitleNormal, for: .normal)
+        
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.grayGhost.cgColor
+    }
+    
+    private func setupWithEmptyStyle() {
+        backgroundColor = .clear
+        
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.textColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
         
         layer.borderWidth = 1

@@ -5,8 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
+**chosenName** | **String** |  | [optional] 
 **givenName** | **String** |  | [optional] 
 **familyName** | **String** |  | [optional] 
+**displayName** | **String** |  | [optional] 
 **usePassword** | **Bool** |  | [optional] 
 **usePublicKey** | **Bool** |  | [optional] 
 **forgottenPassword** | **Bool** |  | [optional] 

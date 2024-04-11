@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**resetPasswordLink**](UserControllerAPI.md#resetpasswordlink) | **PUT** /mobile/api/sp/reset-password-link | Reset password link
 [**tokens**](UserControllerAPI.md#tokens) | **GET** /mobile/api/sp/tokens | Get all OpenID Connect tokens
 [**updateEmail**](UserControllerAPI.md#updateemail) | **PUT** /mobile/api/sp/email | Change email
+[**updateLinkedAccount**](UserControllerAPI.md#updatelinkedaccount) | **PUT** /mobile/api/sp/prefer-linked-account | Mark linkedAccount as preferred
 [**updateUserPassword**](UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
 [**updateUserProfile**](UserControllerAPI.md#updateuserprofile) | **PUT** /mobile/api/sp/update | Change names
 
@@ -67,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -117,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -163,7 +164,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -209,7 +210,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -259,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -305,7 +306,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -351,7 +352,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -397,7 +398,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -443,7 +444,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -489,7 +490,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -535,7 +536,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -585,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -608,7 +609,7 @@ Remove linked account for a logged in user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let linkedAccount = LinkedAccount(institutionIdentifier: "institutionIdentifier_example", schacHomeOrganization: "schacHomeOrganization_example", eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", givenName: "givenName_example", familyName: "familyName_example", eduPersonAffiliations: ["eduPersonAffiliations_example"], createdAt: 123, expiresAt: 123) // LinkedAccount | 
+let linkedAccount = LinkedAccount(institutionIdentifier: "institutionIdentifier_example", schacHomeOrganization: "schacHomeOrganization_example", displayNameEn: "displayNameEn_example", displayNameNl: "displayNameNl_example", logoUrl: "logoUrl_example", eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", givenName: "givenName_example", familyName: "familyName_example", eduPersonAffiliations: ["eduPersonAffiliations_example"], preferred: false, createdAt: 123, expiresAt: 123) // LinkedAccount | 
 
 // Remove linked account
 UserControllerAPI.removeUserLinkedAccounts(linkedAccount: linkedAccount) { (response, error) in
@@ -635,7 +636,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -685,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -735,7 +736,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -781,7 +782,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -827,7 +828,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -879,7 +880,57 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateLinkedAccount**
+```swift
+    open class func updateLinkedAccount(updateLinkedAccountRequest: UpdateLinkedAccountRequest, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Mark linkedAccount as preferred
+
+Mark linkedAccount as preferred
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example") // UpdateLinkedAccountRequest | 
+
+// Mark linkedAccount as preferred
+UserControllerAPI.updateLinkedAccount(updateLinkedAccountRequest: updateLinkedAccountRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateLinkedAccountRequest** | [**UpdateLinkedAccountRequest**](UpdateLinkedAccountRequest.md) |  | 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -929,7 +980,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -952,7 +1003,7 @@ Update the givenName and / or familyName of the User
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let updateUserNameRequest = UpdateUserNameRequest(givenName: "givenName_example", familyName: "familyName_example") // UpdateUserNameRequest | 
+let updateUserNameRequest = UpdateUserNameRequest(chosenName: "chosenName_example", givenName: "givenName_example", familyName: "familyName_example") // UpdateUserNameRequest | 
 
 // Change names
 UserControllerAPI.updateUserProfile(updateUserNameRequest: updateUserNameRequest) { (response, error) in
@@ -979,7 +1030,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 

@@ -13,9 +13,9 @@ import AnyCodable
 public struct UpdateUserSecurityRequest: Codable, JSONEncodable, Hashable {
 
     public var newPassword: String
-    public var hash: String?
+    public var hash: String
 
-    public init(newPassword: String, hash: String? = nil) {
+    public init(newPassword: String, hash: String) {
         self.newPassword = newPassword
         self.hash = hash
     }
@@ -30,7 +30,7 @@ public struct UpdateUserSecurityRequest: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(newPassword, forKey: .newPassword)
-        try container.encodeIfPresent(hash, forKey: .hash)
+        try container.encode(hash, forKey: .hash)
     }
 }
 

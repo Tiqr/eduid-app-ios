@@ -51,7 +51,7 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
         let bottomSpacer = UIView()
 
 
-        let verifiedName = "\(viewModel.linkedAccount.givenName ?? "") \(viewModel.linkedAccount.familyName ?? "")"
+        let verifiedName = (viewModel.linkedAccount.givenName ?? "") + " " + (viewModel.linkedAccount.familyName ?? "")
         var nameTitleText = NSMutableAttributedString()
         nameTitleText.append(NSAttributedString(
              string: L.NameUpdated.FullName.localization,

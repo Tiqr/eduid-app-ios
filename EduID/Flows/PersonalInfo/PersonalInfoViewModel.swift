@@ -43,35 +43,26 @@ class PersonalInfoViewModel: NSObject {
     @MainActor
     private func processUserData() {
         guard let userResponse = userResponse else { return }
-        let name: String
         if userResponse.linkedAccounts?.isEmpty ?? true {
-            if let givenName = userResponse.givenName {
-                name = "\(givenName) \(userResponse.familyName ?? "")"
-            } else {
-                name = userResponse.familyName ?? ""
-            }
             let nameProvidedBy = L.Profile.Me.localization
             dataAvailableClosure?(
                 PersonalInfoDataCallbackModel(
                     userResponse: userResponse,
                     tokensResponse: [],
-                    name: name,
+                    firstName: userResponse.givenName,
+                    lastName: userResponse.familyName,
                     nameProvidedBy: nameProvidedBy,
                     isNameProvidedByInstitution: false
                 )
             )
         } else {
             guard let firstLinkedAccount = userResponse.linkedAccounts?.first else { return }
-            if let givenName = firstLinkedAccount.givenName {
-                name = "\(givenName). \(firstLinkedAccount.familyName ?? "")"
-            } else {
-                name = firstLinkedAccount.familyName ?? ""
-            }
             let nameProvidedBy = firstLinkedAccount.schacHomeOrganization ?? ""
             let model = PersonalInfoDataCallbackModel(
                 userResponse: userResponse,
                 tokensResponse: [],
-                name: name,
+                firstName: firstLinkedAccount.givenName,
+                lastName: firstLinkedAccount.familyName,
                 nameProvidedBy: nameProvidedBy,
                 isNameProvidedByInstitution: true
             )
@@ -121,7 +112,8 @@ extension PersonalInfoViewModel {
 struct PersonalInfoDataCallbackModel {
     var userResponse: UserResponse
     var tokensResponse: [Token]
-    var name: String
+    var firstName: String?
+    var lastName: String?
     var nameProvidedBy: String
     var isNameProvidedByInstitution: Bool
 }
