@@ -161,86 +161,84 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
         yourIdentityContainer.widthToSuperview(offset: -48)
-        
-        // Unverified disclaimer (if not verified yet)
-        let linkedAccounts = model?.userResponse.linkedAccounts
-        let hasLinkedAccount = model?.userResponse != nil && linkedAccounts?.isEmpty != false
-        if hasLinkedAccount {
-            let disclaimerShieldImage = UIImageView(image: .shield)
-            disclaimerShieldImage.size(CGSize(width: 24, height: 28))
-            let disclaimerTitle = UILabel()
-            disclaimerTitle.text = L.Profile.VerifyNow.Title.localization
-            disclaimerTitle.numberOfLines = 0
-            disclaimerTitle.textColor = .textColor
-            disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
-            let disclaimerButtonContainer = UIView()
-            disclaimerButtonContainer.size(CGSize(width: 250, height: 40))
-            let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 40)))
-            disclaimerButtonContainer.addSubview(disclaimerButton)
-            disclaimerButton.edgesToSuperview()
-            verifyIdentityLoadingIndicator = UIActivityIndicatorView()
-            verifyIdentityLoadingIndicator.size(CGSize(width: 32, height: 32))
-            disclaimerButtonContainer.addSubview(verifyIdentityLoadingIndicator)
-            verifyIdentityLoadingIndicator.rightToSuperview(offset: -8)
-            verifyIdentityLoadingIndicator.centerYToSuperview()
-            verifyIdentityLoadingIndicator.isHidden = true
-            let disclaimerTextStack = UIStackView(arrangedSubviews: [disclaimerTitle, disclaimerButtonContainer])
-            disclaimerTextStack.axis = .vertical
-            disclaimerTextStack.alignment = .leading
-            disclaimerTextStack.spacing = 12
-            disclaimerTextStack.distribution = .fill
-            let disclaimerContainer = UIStackView(arrangedSubviews: [disclaimerShieldImage, disclaimerTextStack])
-            disclaimerContainer.axis = .horizontal
-            disclaimerContainer.alignment = .leading
-            disclaimerContainer.spacing = 12
-            disclaimerContainer.distribution = .fill
-            disclaimerContainer.backgroundColor = .lightBackgroundColor
-            stack.insertArrangedSubview(disclaimerContainer, at: 2)
-            disclaimerContainer.isLayoutMarginsRelativeArrangement = true
-            disclaimerContainer.layoutMargins = .horizontal(24) + .vertical(12)
-            disclaimerContainer.widthToSuperview()
-            disclaimerButton.addTarget(self, action: #selector(verifyIdentityClicked), for: .touchUpInside)
-            // Add unverified badge
-            let unverifiedBadge = UIView()
-            unverifiedBadge.backgroundColor = .lightGray
-            unverifiedBadge.height(24)
-            unverifiedBadge.layer.cornerRadius = 5.2
-            let unverifiedLabel = UILabel()
-            unverifiedLabel.text = L.Profile.NotVerified.localization.lowercased()
-            unverifiedLabel.textColor = .grayGhost
-            unverifiedLabel.font = .nunitoBold(size: 12)
-            unverifiedBadge.addSubview(unverifiedLabel)
-            unverifiedLabel.edgesToSuperview(insets: .horizontal(12))
-            yourIdentityContainer.addSubview(unverifiedBadge)
-            unverifiedBadge.rightToSuperview()
-            unverifiedBadge.centerYToSuperview()
-        } else {
-            // Add verified badge
-            let verifiedBadge = UIView()
-            let verifiedCheckmark = UIImageView()
-            verifiedCheckmark.size(CGSize(width: 13, height: 12))
-            verifiedCheckmark.image = .verifiedCheckmark.withRenderingMode(.alwaysTemplate)
-            verifiedCheckmark.tintColor = .white
-            verifiedBadge.addSubview(verifiedCheckmark)
-            verifiedCheckmark.centerYToSuperview()
-            verifiedCheckmark.leftToSuperview(offset: 6)
-            verifiedBadge.backgroundColor = .primaryColor
-            verifiedBadge.height(24)
-            verifiedBadge.layer.cornerRadius = 5.2
-            let verifiedLabel = UILabel()
-            verifiedLabel.text = L.Profile.Verified.localization.lowercased()
-            verifiedLabel.textColor = .white
-            verifiedLabel.font = .nunitoBold(size: 12)
-            verifiedBadge.addSubview(verifiedLabel)
-            verifiedLabel.edgesToSuperview(excluding: .left, insets: .horizontal(12))
-            verifiedLabel.leftToRight(of: verifiedCheckmark, offset: 6)
-            yourIdentityContainer.addSubview(verifiedBadge)
-            verifiedBadge.rightToSuperview()
-            verifiedBadge.centerYToSuperview()
-        }
-        
         // Info controls
         if let model = model {
+            // Unverified disclaimer (if not verified yet)
+            let linkedAccounts = model.userResponse.linkedAccounts
+            let hasLinkedAccount = linkedAccounts?.isEmpty == false
+            if !hasLinkedAccount {
+                let disclaimerShieldImage = UIImageView(image: .shield)
+                disclaimerShieldImage.size(CGSize(width: 24, height: 28))
+                let disclaimerTitle = UILabel()
+                disclaimerTitle.text = L.Profile.VerifyNow.Title.localization
+                disclaimerTitle.numberOfLines = 0
+                disclaimerTitle.textColor = .textColor
+                disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
+                let disclaimerButtonContainer = UIView()
+                disclaimerButtonContainer.size(CGSize(width: 250, height: 40))
+                let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 40)))
+                disclaimerButtonContainer.addSubview(disclaimerButton)
+                disclaimerButton.edgesToSuperview()
+                verifyIdentityLoadingIndicator = UIActivityIndicatorView()
+                verifyIdentityLoadingIndicator.size(CGSize(width: 32, height: 32))
+                disclaimerButtonContainer.addSubview(verifyIdentityLoadingIndicator)
+                verifyIdentityLoadingIndicator.rightToSuperview(offset: -8)
+                verifyIdentityLoadingIndicator.centerYToSuperview()
+                verifyIdentityLoadingIndicator.isHidden = true
+                let disclaimerTextStack = UIStackView(arrangedSubviews: [disclaimerTitle, disclaimerButtonContainer])
+                disclaimerTextStack.axis = .vertical
+                disclaimerTextStack.alignment = .leading
+                disclaimerTextStack.spacing = 12
+                disclaimerTextStack.distribution = .fill
+                let disclaimerContainer = UIStackView(arrangedSubviews: [disclaimerShieldImage, disclaimerTextStack])
+                disclaimerContainer.axis = .horizontal
+                disclaimerContainer.alignment = .leading
+                disclaimerContainer.spacing = 12
+                disclaimerContainer.distribution = .fill
+                disclaimerContainer.backgroundColor = .lightBackgroundColor
+                stack.insertArrangedSubview(disclaimerContainer, at: 2)
+                disclaimerContainer.isLayoutMarginsRelativeArrangement = true
+                disclaimerContainer.layoutMargins = .horizontal(24) + .vertical(12)
+                disclaimerContainer.widthToSuperview()
+                disclaimerButton.addTarget(self, action: #selector(verifyIdentityClicked), for: .touchUpInside)
+                // Add unverified badge
+                let unverifiedBadge = UIView()
+                unverifiedBadge.backgroundColor = .lightGray
+                unverifiedBadge.height(24)
+                unverifiedBadge.layer.cornerRadius = 5.2
+                let unverifiedLabel = UILabel()
+                unverifiedLabel.text = L.Profile.NotVerified.localization.lowercased()
+                unverifiedLabel.textColor = .grayGhost
+                unverifiedLabel.font = .nunitoBold(size: 12)
+                unverifiedBadge.addSubview(unverifiedLabel)
+                unverifiedLabel.edgesToSuperview(insets: .horizontal(12))
+                yourIdentityContainer.addSubview(unverifiedBadge)
+                unverifiedBadge.rightToSuperview()
+                unverifiedBadge.centerYToSuperview()
+            } else {
+                // Add verified badge
+                let verifiedBadge = UIView()
+                let verifiedCheckmark = UIImageView()
+                verifiedCheckmark.size(CGSize(width: 13, height: 12))
+                verifiedCheckmark.image = .verifiedCheckmark.withRenderingMode(.alwaysTemplate)
+                verifiedCheckmark.tintColor = .white
+                verifiedBadge.addSubview(verifiedCheckmark)
+                verifiedCheckmark.centerYToSuperview()
+                verifiedCheckmark.leftToSuperview(offset: 6)
+                verifiedBadge.backgroundColor = .primaryColor
+                verifiedBadge.height(24)
+                verifiedBadge.layer.cornerRadius = 5.2
+                let verifiedLabel = UILabel()
+                verifiedLabel.text = L.Profile.Verified.localization.lowercased()
+                verifiedLabel.textColor = .white
+                verifiedLabel.font = .nunitoBold(size: 12)
+                verifiedBadge.addSubview(verifiedLabel)
+                verifiedLabel.edgesToSuperview(excluding: .left, insets: .horizontal(12))
+                verifiedLabel.leftToRight(of: verifiedCheckmark, offset: 6)
+                yourIdentityContainer.addSubview(verifiedBadge)
+                verifiedBadge.rightToSuperview()
+                verifiedBadge.centerYToSuperview()
+            }
             let linkedAccount = model.userResponse.linkedAccounts?.first
             // First name
             if let linkedAccount,
