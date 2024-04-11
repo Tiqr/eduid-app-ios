@@ -42,7 +42,7 @@ class InstitutionControlCollapsible: UIControl {
     //MARK: - setup UI
     func setupUI(title: String, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?) {
         
-        backgroundColor = .disabledGrayBackground
+        backgroundColor = .white
         
         //body stackview
         let attributedStringBody = NSMutableAttributedString()
@@ -160,7 +160,7 @@ class InstitutionControlCollapsible: UIControl {
         stack.edges(to: self, insets: TinyEdgeInsets(top: 12, left: 18, bottom: 12, right: 18))
         
         //border
-        layer.borderWidth = 3
+        layer.borderWidth = 2
         layer.borderColor = UIColor.backgroundColor.cgColor
         layer.cornerRadius = 6
         

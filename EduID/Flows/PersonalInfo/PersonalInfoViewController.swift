@@ -164,7 +164,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         // Unverified disclaimer (if not verified yet)
         let linkedAccounts = model?.userResponse.linkedAccounts
-        if linkedAccounts?.isEmpty != false {
+        
+        if model?.userResponse != nil && linkedAccounts?.isEmpty != false {
             let disclaimerShieldImage = UIImageView(image: .shield)
             disclaimerShieldImage.size(CGSize(width: 24, height: 28))
             let disclaimerTitle = UILabel()
@@ -216,6 +217,13 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         } else {
             // Add verified badge
             let verifiedBadge = UIView()
+            let verifiedCheckmark = UIImageView()
+            verifiedCheckmark.size(CGSize(width: 13, height: 12))
+            verifiedCheckmark.image = .verifiedCheckmark.withRenderingMode(.alwaysTemplate)
+            verifiedCheckmark.tintColor = .white
+            verifiedBadge.addSubview(verifiedCheckmark)
+            verifiedCheckmark.centerYToSuperview()
+            verifiedCheckmark.leftToSuperview(offset: 6)
             verifiedBadge.backgroundColor = .primaryColor
             verifiedBadge.height(24)
             verifiedBadge.layer.cornerRadius = 5.2
@@ -224,7 +232,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             verifiedLabel.textColor = .white
             verifiedLabel.font = .nunitoBold(size: 12)
             verifiedBadge.addSubview(verifiedLabel)
-            verifiedLabel.edgesToSuperview(insets: .horizontal(12))
+            verifiedLabel.edgesToSuperview(excluding: .left, insets: .horizontal(12))
+            verifiedLabel.leftToRight(of: verifiedCheckmark, offset: 6)
             yourIdentityContainer.addSubview(verifiedBadge)
             verifiedBadge.rightToSuperview()
             verifiedBadge.centerYToSuperview()
