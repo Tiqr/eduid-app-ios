@@ -61,6 +61,12 @@ existing registration
 "Profile.YourIdentity.COPY" = "Your identity";
 "Profile.Verified.COPY" = "verified";
 "Profile.NotVerified.COPY" = "not verified";
+"Profile.VerifiedGivenName.COPY" = "Verified given name";
+"Profile.VerifiedFamilyName.COPY" = "Verified family name";
+"Profile.VerifiedDateOfBirth.COPY" = "Verified date of birth";
+"Profile.LinkedAccountCreatedAt.COPY" = "on ";
+"Profile.LinkedAccountValidUntil.COPY" = "valid until ";
+"Profile.ManageYourVerifiedInformation.COPY" = "Manage your verified information";
 "Profile.VerifyNow.Title.COPY" = "Some services require your identity to be verified by a trusted party.";
 "Profile.VerifyNow.Button.COPY" = "Verify identity now";
 "Profile.FirstName.COPY" = "First name";
