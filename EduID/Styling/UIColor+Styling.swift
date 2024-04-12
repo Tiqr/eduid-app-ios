@@ -18,4 +18,5 @@ extension UIColor {
     static let yellowColor = UIColor(named: "YellowColor")!
     static let dividerColor = UIColor(named: "Divider")!
     static let textColor = UIColor(named: "TextColor")!
+    static let supportBlueColor = UIColor(named: "SupportBlueColor")!
 }

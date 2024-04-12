@@ -327,6 +327,30 @@ SHARED:
       COPY:
         nl: niet geverifieerd
         en: not verified
+    VerifiedGivenName:
+      COPY:
+        nl: Geverifieerde voornaam
+        en: Verified given name
+    VerifiedFamilyName:
+      COPY:
+        nl: Geverifieerde achternaam
+        en: Verified family name
+    VerifiedDateOfBirth:
+      COPY:
+        nl: Geverifieerde geboortedatum
+        en: Verified date of birth
+    LinkedAccountCreatedAt:
+      COPY:
+        nl: "op "
+        en: "on "
+    LinkedAccountValidUntil:
+      COPY:
+        nl: "geldig tot "
+        en: "valid until "
+    ManageYourVerifiedInformation:
+      COPY:
+        nl: "Beheer jouw geverifieerde gegevens"
+        en: "Manage your verified information"
     VerifyNow:
       Title:
         COPY:

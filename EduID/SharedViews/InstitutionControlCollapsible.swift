@@ -1,10 +1,8 @@
 import UIKit
 import TinyConstraints
 
-class InstitutionControlCollapsible: UIControl {
+class InstitutionControlCollapsible: ExpandableControl {
 
-    private var stack: UIStackView!
-    private var isExpanded = false
     private var removeAction: () -> Void
     
     var institution: String
@@ -13,7 +11,7 @@ class InstitutionControlCollapsible: UIControl {
     init(institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
         self.institution = institution
         self.removeAction = removeAction
-        super.init(frame: .zero)
+        super.init()
         
         let role: String
         if affiliation.contains("@") {
@@ -25,17 +23,17 @@ class InstitutionControlCollapsible: UIControl {
         let iconEmoji = role.lowercased() == L.Profile.Employee.localization ? "🏢️" : "🧑‍🎓"
         let title = "\(iconEmoji) \(role.capitalized)"
         setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
-        
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
     }
     
     init(title: String, institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
         self.institution = institution
         self.removeAction = removeAction
-        super.init(frame: .zero)
+        super.init()
         setupUI(title: title, institution: institution, verifiedAt: verifiedAt, affiliation: affiliation, expires: expires)
-
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandOrContract)))
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
             
@@ -57,11 +55,11 @@ class InstitutionControlCollapsible: UIControl {
         bodyLabel.numberOfLines = 0
         bodyLabel.attributedText = attributedStringBody
         
-        let chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
-        chevronImage.tintColor = .backgroundColor
-        chevronImage.size(CGSize(width: 24, height: 24))
+        self.chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
+        self.chevronImage.tintColor = .backgroundColor
+        self.chevronImage.size(CGSize(width: 24, height: 24))
         
-        let bodyStack = UIStackView(arrangedSubviews: [bodyParent, chevronImage])
+        let bodyStack = UIStackView(arrangedSubviews: [bodyParent, self.chevronImage])
         bodyStack.alignment = .center
         bodyStack.height(50)
         
@@ -171,25 +169,9 @@ class InstitutionControlCollapsible: UIControl {
         }
     }
     
-    //MARK: - expand or contract action
-    @objc
-    func expandOrContract() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            for i in (1..<(self?.stack.arrangedSubviews.count ?? 0)) {
-                self?.stack.arrangedSubviews[i].isHidden = self?.isExpanded ?? true
-                self?.stack.arrangedSubviews[i].alpha = (self?.isExpanded ?? true) ? 0 : 1
-            }
-        }
-        isExpanded.toggle()
-    }
-    
     @objc
     func buttonAction() {
         removeAction()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     static var dateFormatter: DateFormatter {

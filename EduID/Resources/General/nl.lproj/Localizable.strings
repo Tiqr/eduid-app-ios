@@ -61,6 +61,12 @@ bestaande inschrijving
 "Profile.YourIdentity.COPY" = "Jouw identiteit";
 "Profile.Verified.COPY" = "geverifieerd";
 "Profile.NotVerified.COPY" = "niet geverifieerd";
+"Profile.VerifiedGivenName.COPY" = "Geverifieerde voornaam";
+"Profile.VerifiedFamilyName.COPY" = "Geverifieerde achternaam";
+"Profile.VerifiedDateOfBirth.COPY" = "Geverifieerde geboortedatum";
+"Profile.LinkedAccountCreatedAt.COPY" = "op ";
+"Profile.LinkedAccountValidUntil.COPY" = "geldig tot ";
+"Profile.ManageYourVerifiedInformation.COPY" = "Beheer jouw geverifieerde gegevens";
 "Profile.VerifyNow.Title.COPY" = "Sommige diensten eisen dat jouw identiteit geverifieerd is door een vertrouwde instelling.";
 "Profile.VerifyNow.Button.COPY" = "Verifïeer mijn identiteit";
 "Profile.FirstName.COPY" = "Voornaam";

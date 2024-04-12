@@ -577,6 +577,54 @@ public struct L {
             translationKey: "Profile.NotVerified.COPY",
             translationArgs: []
         )
+        public static let VerifiedGivenName = LocaliciousData(
+            accessibilityIdentifier: "Profile.VerifiedGivenName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.VerifiedGivenName.COPY",
+            translationArgs: []
+        )
+        public static let VerifiedFamilyName = LocaliciousData(
+            accessibilityIdentifier: "Profile.VerifiedFamilyName",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.VerifiedFamilyName.COPY",
+            translationArgs: []
+        )
+        public static let VerifiedDateOfBirth = LocaliciousData(
+            accessibilityIdentifier: "Profile.VerifiedDateOfBirth",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.VerifiedDateOfBirth.COPY",
+            translationArgs: []
+        )
+        public static let LinkedAccountCreatedAt = LocaliciousData(
+            accessibilityIdentifier: "Profile.LinkedAccountCreatedAt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.LinkedAccountCreatedAt.COPY",
+            translationArgs: []
+        )
+        public static let LinkedAccountValidUntil = LocaliciousData(
+            accessibilityIdentifier: "Profile.LinkedAccountValidUntil",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.LinkedAccountValidUntil.COPY",
+            translationArgs: []
+        )
+        public static let ManageYourVerifiedInformation = LocaliciousData(
+            accessibilityIdentifier: "Profile.ManageYourVerifiedInformation",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Profile.ManageYourVerifiedInformation.COPY",
+            translationArgs: []
+        )
         public struct VerifyNow {
             public static let Title = LocaliciousData(
                 accessibilityIdentifier: "Profile.VerifyNow.Title",

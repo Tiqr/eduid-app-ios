@@ -82,6 +82,8 @@
 		4F909F822A31D1A600FC1506 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E632A31CDB200FC1506 /* ProximaNova-Regular.otf */; };
 		4F909F852A31D1F400FC1506 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F842A31D1F400FC1506 /* AppAuth */; };
 		4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F872A31D21500FC1506 /* SDWebImage */; };
+		4F93D47D2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D47C2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift */; };
+		4F93D47F2BC80C6300D92A53 /* ExpandableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D47E2BC80C6300D92A53 /* ExpandableControl.swift */; };
 		4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */; };
 		4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */; };
 		4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */; };
@@ -445,6 +447,8 @@
 		4F909F6D2A31D07500FC1506 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F909F6E2A31D07500FC1506 /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
 		4F909F6F2A31D07500FC1506 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F93D47C2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedInformationControlCollapsible.swift; sourceTree = "<group>"; };
+		4F93D47E2BC80C6300D92A53 /* ExpandableControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableControl.swift; sourceTree = "<group>"; };
 		4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewController.swift; sourceTree = "<group>"; };
 		4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewModel.swift; sourceTree = "<group>"; };
 		4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
@@ -830,6 +834,8 @@
 				4F909EA12A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift */,
 				4F909EA22A31CDDC00FC1506 /* TextViewBackgroundColor.swift */,
 				4F909EA32A31CDDC00FC1506 /* EduIDButton.swift */,
+				4F93D47C2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift */,
+				4F93D47E2BC80C6300D92A53 /* ExpandableControl.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -1528,6 +1534,7 @@
 				4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */,
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
+				4F93D47D2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift in Sources */,
 				4FF567C32A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift in Sources */,
 				4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */,
 				4F909EA82A31CDDC00FC1506 /* NSAttributedString+Styling.swift in Sources */,
@@ -1623,6 +1630,7 @@
 				7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */,
 				4FF567D72A31D32E00616341 /* CreateEduIDViewControllerDelegate.swift in Sources */,
 				4F909EA92A31CDDC00FC1506 /* UIColor+Styling.swift in Sources */,
+				4F93D47F2BC80C6300D92A53 /* ExpandableControl.swift in Sources */,
 				4F909EB22A31CDDC00FC1506 /* NavigationDelegate.swift in Sources */,
 				4F909EB82A31CDDC00FC1506 /* OIDTokenStorage.swift in Sources */,
 				4F909E2A2A31CDA000FC1506 /* Constants.swift in Sources */,

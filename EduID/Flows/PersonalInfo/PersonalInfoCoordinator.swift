@@ -82,6 +82,10 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(confirmDeleteViewController, animated: true)
     }
     
+    func goToYourVerifiedInformationScreen(linkedAccount: LinkedAccount?) {
+        // TODO
+    }
+    
     func goToAccountLinkingErrorScreen(linkedAccountEmail: String?) {
         let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
         accountLinkingErrorViewController.delegate = self
