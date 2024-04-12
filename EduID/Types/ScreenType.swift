@@ -36,6 +36,7 @@ enum ScreenType: Int, CaseIterable {
     case personalInfoEditEmailScreen
     case personalInfoNameUpdatedScreen
     case personalInfoNameEditorScreen
+    case personalInfoYourVerifiedInformationScreen
     case accountLinkingError
     
     case yourAccountScreen

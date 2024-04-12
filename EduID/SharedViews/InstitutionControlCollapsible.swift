@@ -8,7 +8,13 @@ class InstitutionControlCollapsible: ExpandableControl {
     var institution: String
     
     //MARK: - init
-    init(institution: String, verifiedAt: Date?, affiliation: String, expires: Date?, removeAction: @escaping () -> Void) {
+    init(
+        institution: String,
+        verifiedAt: Date?,
+        affiliation: String,
+        expires: Date?,
+        removeAction: @escaping () -> Void
+    ) {
         self.institution = institution
         self.removeAction = removeAction
         super.init()

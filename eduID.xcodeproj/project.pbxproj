@@ -84,6 +84,8 @@
 		4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F909F872A31D21500FC1506 /* SDWebImage */; };
 		4F93D47D2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D47C2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift */; };
 		4F93D47F2BC80C6300D92A53 /* ExpandableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D47E2BC80C6300D92A53 /* ExpandableControl.swift */; };
+		4F93D4822BC8102700D92A53 /* YourVerifiedInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D4812BC8102700D92A53 /* YourVerifiedInformationViewController.swift */; };
+		4F93D4842BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F93D4832BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift */; };
 		4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */; };
 		4F958BD42A39A78C00DD0779 /* NameEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */; };
 		4F958BD72A39C22E00DD0779 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */; };
@@ -449,6 +451,8 @@
 		4F909F6F2A31D07500FC1506 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F93D47C2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedInformationControlCollapsible.swift; sourceTree = "<group>"; };
 		4F93D47E2BC80C6300D92A53 /* ExpandableControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableControl.swift; sourceTree = "<group>"; };
+		4F93D4812BC8102700D92A53 /* YourVerifiedInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourVerifiedInformationViewController.swift; sourceTree = "<group>"; };
+		4F93D4832BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourVerifiedInformationViewModel.swift; sourceTree = "<group>"; };
 		4F958BD12A39A78400DD0779 /* NameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewController.swift; sourceTree = "<group>"; };
 		4F958BD32A39A78C00DD0779 /* NameEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditorViewModel.swift; sourceTree = "<group>"; };
 		4F958BD62A39C22E00DD0779 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
@@ -953,6 +957,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4F93D4802BC8101700D92A53 /* YourVerifiedInformation */ = {
+			isa = PBXGroup;
+			children = (
+				4F93D4812BC8102700D92A53 /* YourVerifiedInformationViewController.swift */,
+				4F93D4832BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift */,
+			);
+			path = YourVerifiedInformation;
+			sourceTree = "<group>";
+		};
 		4F958BD02A39A74A00DD0779 /* NameEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1073,6 +1086,7 @@
 		4FF5675D2A31D32E00616341 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4F93D4802BC8101700D92A53 /* YourVerifiedInformation */,
 				4FAA354A2B74EF1E00422949 /* AccountLinkingError */,
 				4FFA8A852A3AF1FE00F8F033 /* ConfirmDelete */,
 				4F958BDA2A3A00BA00DD0779 /* DeleteAccount */,
@@ -1511,6 +1525,7 @@
 				4FF567B72A31D32E00616341 /* ScanViewModelDelegate.swift in Sources */,
 				4FF567C82A31D32E00616341 /* CreatePincodeFirstEntryViewController.swift in Sources */,
 				4FF567D62A31D32E00616341 /* CheckEmailViewController.swift in Sources */,
+				4F93D4822BC8102700D92A53 /* YourVerifiedInformationViewController.swift in Sources */,
 				4FC37C2C2A3C47F60036A94C /* PasswordResetLinkViewController.swift in Sources */,
 				4F909EAB2A31CDDC00FC1506 /* CoordinatorType.swift in Sources */,
 				4FF567BD2A31D32E00616341 /* ScanViewControllerDelegate.swift in Sources */,
@@ -1528,6 +1543,7 @@
 				4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */,
 				4F909EBC2A31CDDC00FC1506 /* BaseViewController.swift in Sources */,
 				4F909EC32A31CDDC00FC1506 /* TextFieldViewWithValidationAndTitle.swift in Sources */,
+				4F93D4842BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift in Sources */,
 				4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */,
 				4FF567B42A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift in Sources */,
 				4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */,

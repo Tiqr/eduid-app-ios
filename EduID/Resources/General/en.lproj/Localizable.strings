@@ -42,6 +42,15 @@ existing registration
 "RegistrationCheck.RegisterAgain.COPY" = "Register again";
 "NotFound.Title.COPY" = "Whoops…";
 "NotFound.Title2.COPY" = "Something went wrong (404)";
+"YourVerifiedInformation.Title.COPY" = "Your verified information";
+"YourVerifiedInformation.Subtitle.COPY" = "This is an overview of the verified information we have received from trusted sources.";
+"YourVerifiedInformation.ExplainIcon.COPY" = "This icon indicates the information is used on ‘your personal info’ as default.";
+"YourVerifiedInformation.FromInstitution.COPY" = "From %1$@";
+"YourVerifiedInformation.AtInstitution.COPY" = "At %1$@";
+"YourVerifiedInformation.ReceivedOn.COPY" = "Received on ";
+"YourVerifiedInformation.ValidUntil.COPY" = "Valid until ";
+"YourVerifiedInformation.RemoveThisInformation.COPY" = "Remove this information";
+"YourVerifiedInformation.FromYourEduID.COPY" = " from you eduID";
 "Profile.YouAreLoggedIn.COPY" = "You are logged in";
 "Profile.ManageYourAccount.COPY" = "Manage your account";
 "Profile.AccountLinkError.Title.COPY" = "Could not retrieve URL for linking your current account.";

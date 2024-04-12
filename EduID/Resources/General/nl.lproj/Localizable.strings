@@ -42,6 +42,15 @@ bestaande inschrijving
 "RegistrationCheck.RegisterAgain.COPY" = "Opnieuw registreren";
 "NotFound.Title.COPY" = "Oeps…";
 "NotFound.Title2.COPY" = "Er is iets fout gegaan (404).";
+"YourVerifiedInformation.Title.COPY" = "Jouw geverifieerde gegevens";
+"YourVerifiedInformation.Subtitle.COPY" = "Dit is een overzicht van je geverifieerde gegevens die wij van de vertrouwde instellingen hebben gekregen.";
+"YourVerifiedInformation.ExplainIcon.COPY" = "Dit pictogram geeft aan dat de informatie standaard wordt gebruikt voor ‘jouw persoonlijke informatie’";
+"YourVerifiedInformation.FromInstitution.COPY" = "Van %1$@";
+"YourVerifiedInformation.AtInstitution.COPY" = "Bij %1$@";
+"YourVerifiedInformation.ReceivedOn.COPY" = "Gekregen op ";
+"YourVerifiedInformation.ValidUntil.COPY" = "Geldig tot ";
+"YourVerifiedInformation.RemoveThisInformation.COPY" = "Verwijder deze informatie";
+"YourVerifiedInformation.FromYourEduID.COPY" = " van jouw eduID";
 "Profile.YouAreLoggedIn.COPY" = "Je bent ingelogd";
 "Profile.ManageYourAccount.COPY" = "Beheer jouw gegevens";
 "Profile.AccountLinkError.Title.COPY" = "De URL kon niet worden opgehaald voor het koppelen van uw huidige account.";

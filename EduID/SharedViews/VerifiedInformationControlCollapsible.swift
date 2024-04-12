@@ -10,21 +10,40 @@ import OpenAPIClient
 
 class VerifiedInformationControlCollapsible: ExpandableControl {
 
-    private var manageVerifiedInformationAction: () -> Void
+    private var manageVerifiedInformationAction: (() -> Void)?
     
     //MARK: - init
     init(title: String,
          subtitle: String,
          linkedAccount: LinkedAccount,
-         manageVerifiedInformationAction: @escaping () -> Void
+         manageVerifiedInformationAction: (() -> Void)?,
+         expandable: Bool = true,
+         leftEmoji: String? = nil,
+         rightIcon: UIImage? = nil
     ) {
         self.manageVerifiedInformationAction = manageVerifiedInformationAction
         super.init()
-        setupUI(title: title, subtitle: subtitle, linkedAccount: linkedAccount)
+        setupUI(
+            title: title,
+            subtitle: subtitle,
+            linkedAccount: linkedAccount,
+            expandable: expandable,
+            leftEmoji: leftEmoji,
+            rightIcon: rightIcon)
+        if !expandable {
+            self.gestureRecognizers?.forEach { removeGestureRecognizer($0) }
+        }
     }
             
     //MARK: - setup UI
-    private func setupUI(title: String, subtitle: String, linkedAccount: LinkedAccount) {
+    private func setupUI(
+        title: String,
+        subtitle: String,
+        linkedAccount: LinkedAccount,
+        expandable: Bool,
+        leftEmoji: String?,
+        rightIcon: UIImage?
+    ) {
         backgroundColor = .white
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0
@@ -42,16 +61,34 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         bodyLabel.numberOfLines = 0
         bodyLabel.attributedText = attributedStringBody
         
-        let shieldImageView = UIImageView()
-        shieldImageView.image = .shield
-        shieldImageView.size(CGSize(width: 24, height: 28))
+        let leftIconView: UIView
+        if let leftEmoji {
+            let emojiLabel = UILabel()
+            emojiLabel.text = leftEmoji
+            emojiLabel.font = .sourceSansProRegular(size: 30)
+            leftIconView = emojiLabel
+        } else {
+            let shieldImageView = UIImageView()
+            shieldImageView.image = .shield
+            shieldImageView.size(CGSize(width: 24, height: 28))
+            leftIconView = shieldImageView
+        }
         
-        self.chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
-        self.chevronImage.tintColor = .backgroundColor
-        self.chevronImage.size(CGSize(width: 24, height: 24))
+        let rightIconView: UIView
+        if expandable {
+            self.chevronImage = UIImageView(image: UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
+            self.chevronImage.tintColor = .backgroundColor
+            self.chevronImage.size(CGSize(width: 24, height: 24))
+            rightIconView = self.chevronImage
+        } else if let rightIcon {
+            rightIconView = UIImageView(image: rightIcon)
+            rightIconView.size(CGSize(width: 24, height: 24))
+        } else {
+            rightIconView = UIView(frame: .zero)
+        }
         
-        let bodyStack = UIStackView(arrangedSubviews: [shieldImageView, bodyParent, self.chevronImage])
-        bodyStack.setCustomSpacing(12, after: shieldImageView)
+        let bodyStack = UIStackView(arrangedSubviews: [leftIconView, bodyParent, rightIconView])
+        bodyStack.setCustomSpacing(12, after: leftIconView)
         bodyStack.alignment = .center
         bodyStack.height(50)
         
@@ -136,7 +173,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
 
     @objc
     func manageVerifiedInformation() {
-        self.manageVerifiedInformationAction()
+        self.manageVerifiedInformationAction?()
     }
     
     required init?(coder: NSCoder) {

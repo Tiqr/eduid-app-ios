@@ -28,4 +28,6 @@ extension UIImage {
     static let error = UIImage(named: "error")!
     static let bigPlus = UIImage(named: "big_plus")!
     static let returnToBrowser = UIImage(named: "return_to_browser")!
+    static let wallet = UIImage(named: "wallet")!
+    static let bin = UIImage(named: "bin")!
 }
