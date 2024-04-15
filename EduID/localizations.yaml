@@ -244,6 +244,43 @@ SHARED:
       COPY:
         en: Something went wrong (404)
         nl: Er is iets fout gegaan (404).
+  YourVerifiedInformation:
+    Title:
+      COPY:
+        en: "Your verified information"
+        nl: "Jouw geverifieerde gegevens"
+    Subtitle:
+      COPY:
+        en: "This is an overview of the verified information we have received from trusted sources."
+        nl: "Dit is een overzicht van je geverifieerde gegevens die wij van de vertrouwde instellingen hebben gekregen."
+    ExplainIcon:
+      COPY:
+        en: "This icon indicates the information is used on ‘your personal info’ as default."
+        nl: "Dit pictogram geeft aan dat de informatie standaard wordt gebruikt voor ‘jouw persoonlijke informatie’"
+    FromInstitution:
+      COPY:
+        en: "From %1{{s}}"
+        nl: "Van %1{{s}}"
+    AtInstitution:
+      COPY:
+        en: "At %1{{s}}"
+        nl: "Bij %1{{s}}"
+    ReceivedOn:
+      COPY:
+        en: "Received on "
+        nl: "Gekregen op "
+    ValidUntil:
+      COPY:
+        en: "Valid until "
+        nl: "Geldig tot "
+    RemoveThisInformation:
+      COPY:
+        en: "Remove this information"
+        nl: "Verwijder deze informatie"
+    FromYourEduID:
+      COPY:
+        en: " from you eduID"
+        nl: " van jouw eduID"
   Profile:
     YouAreLoggedIn:
       COPY:

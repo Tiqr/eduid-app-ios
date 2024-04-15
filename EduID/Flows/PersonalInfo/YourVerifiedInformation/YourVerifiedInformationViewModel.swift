@@ -1,0 +1,42 @@
+//
+//  YourVerifiedInformationViewModel.swift
+//  eduID
+//
+//  Created by Dániel Zolnai on 11/04/2024.
+//
+
+import Foundation
+import OpenAPIClient
+
+class YourVerifiedInformationViewModel {
+    
+    let linkedAccounts: [LinkedAccount]
+    
+    init(linkedAccounts: [LinkedAccount]) {
+        self.linkedAccounts = linkedAccounts
+    }
+    
+    func removeLinkedAccount(
+        _ linkedAccount: LinkedAccount,
+        onRemoved: @escaping () -> Void,
+        onError: @escaping (Error) -> Void
+    ) {
+        Task {
+            do {
+                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(linkedAccount: linkedAccount)
+                    .execute()
+                    .body
+                
+                if !(result.linkedAccounts?.contains(linkedAccount) ?? true) {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        onRemoved()
+                    }
+                }
+            } catch let error {
+                assertionFailure(error.localizedDescription)
+                onError(error)
+            }
+        }
+    }
+}

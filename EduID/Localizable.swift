@@ -420,6 +420,84 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct YourVerifiedInformation {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static let ExplainIcon = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.ExplainIcon",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.ExplainIcon.COPY",
+            translationArgs: []
+        )
+        public static func FromInstitution(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.FromInstitution",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.FromInstitution.COPY",
+            translationArgs: args
+        )
+        }
+        public static func AtInstitution(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.AtInstitution",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.AtInstitution.COPY",
+            translationArgs: args
+        )
+        }
+        public static let ReceivedOn = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.ReceivedOn",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.ReceivedOn.COPY",
+            translationArgs: []
+        )
+        public static let ValidUntil = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.ValidUntil",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.ValidUntil.COPY",
+            translationArgs: []
+        )
+        public static let RemoveThisInformation = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.RemoveThisInformation",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.RemoveThisInformation.COPY",
+            translationArgs: []
+        )
+        public static let FromYourEduID = LocaliciousData(
+            accessibilityIdentifier: "YourVerifiedInformation.FromYourEduID",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "YourVerifiedInformation.FromYourEduID.COPY",
+            translationArgs: []
+        )
+    }
     public struct Profile {
         public static let YouAreLoggedIn = LocaliciousData(
             accessibilityIdentifier: "Profile.YouAreLoggedIn",

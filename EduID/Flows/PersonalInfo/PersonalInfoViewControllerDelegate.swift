@@ -13,7 +13,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func goToAccountLinkingErrorScreen(linkedAccountEmail: String?)
-    func goToYourVerifiedInformationScreen(linkedAccount: LinkedAccount?)
+    func goToYourVerifiedInformationScreen(linkedAccounts: [LinkedAccount])
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
     func deleteStateAndGoToHome()
