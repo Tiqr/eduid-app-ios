@@ -307,10 +307,9 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "DataActivity.Details.Consent.COPY" = "Toestemming gegeven op: ";
 "DataActivity.Details.Expires.COPY" = "Toegang vervalt op: ";
 "DataActivity.Details.Revoke.COPY" = "Deze toegangsrechten intrekken";
-"DeleteService.Title.COPY" = "Verwijder dienst";
-"DeleteService.Description.COPY" = "Weet je zeker dat je het unieke gepseudonimiseerde eduID voor %1$@ wilt verwijderen? Deze dienst herkent je wellicht niet meer de volgende keer dat je inlogt en je persoonlijke gegevens bij deze dienst zijn daardoor mogelijk niet meer toegankelijk.";
-"DeleteService.Disclaimer.COPY" = "Er is geen manier om deze actie ongedaan te maken.";
-"DeleteService.Button.Confirm.COPY" = "Bevestigen";
+"DeleteService.Title.COPY" = "Verwijder logingegevens van ";
+"DeleteService.Description.COPY" = "Het verwijderen van deze logingegevens betekent dat eduID deze informatie verwijderd van jouw eduID account. Je hebt nog steeds een account bij de dienst zichzelf. Als je die ook wil verwijderen, doe je dat bij de dienst.";
+"DeleteService.Button.Confirm.COPY" = "Ja, verwijder";
 "DeleteService.Button.Cancel.COPY" = "Annuleer";
 "DeleteService.Error.COPY" = "Fout bij verwijderen dienst";
 "RevokeAccessToken.Title.COPY" = "Beveiligingssleutel intrekken";

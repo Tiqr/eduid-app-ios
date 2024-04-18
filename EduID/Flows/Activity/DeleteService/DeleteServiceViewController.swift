@@ -36,7 +36,6 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         // Remove any previous views
         view.subviews.forEach {
@@ -45,43 +44,13 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         
         let serviceName = viewModel.service.serviceName ?? viewModel.service.serviceNameNl ?? "?"
         
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.DeleteService.Title.localization, size: 24, primary: L.DeleteService.Title.localization)
-            
-
-        let disclaimerContainer = UIView()
-        let disclaimerLabel = UILabel()
-        let errorImage = UIImageView()
-        errorImage.image = .error
-        errorImage.size(CGSize(width: 22.5, height: 21))
-        let disclaimerString = NSMutableAttributedString(
-            string: L.DeleteService.Disclaimer.localization,
-            attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 14), color: .charcoalColor, lineSpacing: 4)
-        )
-        disclaimerLabel.attributedText = disclaimerString
-        disclaimerContainer.addSubview(disclaimerLabel)
-        disclaimerContainer.addSubview(errorImage)
-        errorImage.leftToSuperview(offset: 12)
-        errorImage.topToSuperview(offset: 18)
-        disclaimerLabel.leftToRight(of: errorImage, offset: 12)
-        disclaimerLabel.rightToSuperview(offset: -12)
-        disclaimerLabel.verticalToSuperview(insets: .vertical(12))
-        disclaimerLabel.numberOfLines = 0
-        disclaimerContainer.backgroundColor = UIColor.alertsBackgroundColor
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.DeleteService.Title.localization + serviceName, size: 24, primary: serviceName)
         
         let description = UILabel.plainTextLabelPartlyBold(
-            text: L.DeleteService.Description(args: serviceName).localization,
+            text: L.DeleteService.Description.localization,
             partBold: ""
         )
-                
-        let topStackView = UIStackView(arrangedSubviews: [
-            mainTitle,
-            disclaimerContainer,
-            description
-        ])
-        
-        let spacer = UIView()
-        spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        
+
         let confirmContainer = UIView()
         confirmButton = EduIDButton(type: .filledRed, buttonTitle: L.DeleteService.Button.Confirm.localization)
         confirmContainer.addSubview(confirmButton)
@@ -101,24 +70,37 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         bottomButtonStack.spacing = 20
         bottomButtonStack.distribution = .fillEqually
         
-        topStackView.addArrangedSubview(spacer)
-        topStackView.addArrangedSubview(bottomButtonStack)
+        let stack = UIStackView(arrangedSubviews: [
+            mainTitle,
+            description,
+            bottomButtonStack
+        ])
         
-        topStackView.alignment = .leading
-        topStackView.axis = .vertical
-        topStackView.distribution = .fill
-        topStackView.spacing = 16
+        stack.setCustomSpacing(24, after: description)
+        stack.alignment = .leading
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.spacing = 16
         
         mainTitle.widthToSuperview()
-        disclaimerContainer.widthToSuperview()
         description.widthToSuperview()
-        spacer.widthToSuperview()
         bottomButtonStack.widthToSuperview()
         
-        view.addSubview(topStackView)
-        topStackView.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
+        let insetView = UIView()
+        insetView.backgroundColor = .white
+        insetView.layer.cornerRadius = 10
+        insetView.layer.masksToBounds = true
+        view.addSubview(insetView)
+        insetView.addSubview(stack)
+        insetView.centerYToSuperview()
+        insetView.centerXToSuperview()
+        insetView.widthToSuperview(offset: -48)
+        stack.edgesToSuperview(insets: .uniform(24))
         confirmButton.addTarget(self, action: #selector(confirmClicked), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
+        insetView.isUserInteractionEnabled = true
+        insetView.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: nil)) // Catch touches
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissInfoScreen)))
     }
     
     

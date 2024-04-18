@@ -220,6 +220,7 @@ class ActivityControlCollapsible: ExpandableControl {
         addSubview(borderView)
         borderView.edgesToSuperview()
         borderView.layer.borderWidth = 2
+        borderView.isUserInteractionEnabled = false
         borderView.layer.borderColor = UIColor.grayGhost.cgColor
         borderView.layer.cornerRadius = 6
         

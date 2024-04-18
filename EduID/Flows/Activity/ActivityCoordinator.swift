@@ -35,7 +35,14 @@ extension ActivityCoordinator: ActivityViewControllerDelegate {
     
     func goBack(from: UIViewController, shouldUpdate: Bool = false) {
         self.needsUpdate = shouldUpdate
-        navigationController?.popViewController(animated: true)
+        if from.navigationController == nil {
+            from.dismiss(animated: true)
+            // In this case, the viewWillAppear will not trigger of the top VC, so we call it manually
+            navigationController?.topViewController?.viewWillAppear(true)
+            navigationController?.topViewController?.viewDidAppear(true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     
@@ -46,13 +53,15 @@ extension ActivityCoordinator: ActivityViewControllerDelegate {
     func goToDeleteService(service: EduID) {
         let viewController = DeleteServiceViewController(viewModel: DeleteServiceViewModel(service: service))
         viewController.delegate = self
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.modalPresentationStyle = .pageSheet
+        navigationController?.present(viewController, animated: true)
     }
     
     func goToDeleteTokens(serviceName: String, tokensToDelete: [Token]) {
         let viewController = DeleteTokensViewController(viewModel: DeleteTokensViewModel(serviceName: serviceName, tokensToDelete: tokensToDelete))
         viewController.delegate = self
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.modalPresentationStyle = .pageSheet
+        navigationController?.present(viewController, animated: true)
     }
     
     func shouldUpdate() -> Bool {
