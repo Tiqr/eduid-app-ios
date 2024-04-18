@@ -265,7 +265,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     let chosenNameControl = ActionableControlWithBodyAndTitle(
                         attributedTitle: nil,
                         attributedBodyText: chosenNameSubtitleText,
-                        iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
                         isFilled: true
                     )
                     stack.addArrangedSubview(chosenNameControl)
@@ -303,7 +303,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 let firstNameControl = ActionableControlWithBodyAndTitle(
                     attributedTitle: nil,
                     attributedBodyText: firstNameSubtitleText,
-                    iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                    rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
                     isFilled: true
                 )
                 stack.addArrangedSubview(firstNameControl)
@@ -343,7 +343,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     let lastNameControl = ActionableControlWithBodyAndTitle(
                         attributedTitle: nil,
                         attributedBodyText: lastNameSubtitleText,
-                        iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
                         isFilled: true
                     )
                     stack.addArrangedSubview(lastNameControl)
@@ -383,7 +383,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     let emailControl = ActionableControlWithBodyAndTitle(
                         attributedTitle: nil,
                         attributedBodyText: emailSubtitleText,
-                        iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
+                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
                         isFilled: true
                     )
                     stack.addArrangedSubview(emailControl)
@@ -452,7 +452,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             addInstitutionTitle.setAttributeTo(part: L.Profile.AddViaSurfconext.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
             addInstitutionButton = ActionableControlWithBodyAndTitle(
                 attributedBodyText: addInstitutionTitle,
-                iconInBody: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
+                rightIcon: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
                 isFilled: false
             )
             addInstitutionButton.addTarget(self, action: #selector(addInstitutionClicked), for: .touchUpInside)

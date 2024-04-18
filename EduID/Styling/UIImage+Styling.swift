@@ -31,4 +31,7 @@ extension UIImage {
     static let returnToBrowser = UIImage(named: "return_to_browser")!
     static let wallet = UIImage(named: "wallet")!
     static let bin = UIImage(named: "bin")!
+    static let password = UIImage(named: "password")!
+    static let securityKey = UIImage(named: "security_key")!
+    static let magicLink = UIImage(named: "magic_link")!
 }
