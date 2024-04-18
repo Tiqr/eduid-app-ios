@@ -13,7 +13,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     private var stack: UIStackView!
     private var addInstitutionButton: ActionableControlWithBodyAndTitle!
-    private var verifyIdentityLoadingIndicator: UIActivityIndicatorView!
+    private var verifyIdentityLoadingIndicator: UIActivityIndicatorView?
     weak var refreshDelegate: RefreshChildScreenDelegate?
     
     static var indexOfFirstLinkedAccount = 5
@@ -179,12 +179,13 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 40)))
                 disclaimerButtonContainer.addSubview(disclaimerButton)
                 disclaimerButton.edgesToSuperview()
-                verifyIdentityLoadingIndicator = UIActivityIndicatorView()
-                verifyIdentityLoadingIndicator.size(CGSize(width: 32, height: 32))
-                disclaimerButtonContainer.addSubview(verifyIdentityLoadingIndicator)
-                verifyIdentityLoadingIndicator.rightToSuperview(offset: -8)
-                verifyIdentityLoadingIndicator.centerYToSuperview()
-                verifyIdentityLoadingIndicator.isHidden = true
+                let loadingIndicator  = UIActivityIndicatorView()
+                loadingIndicator.size(CGSize(width: 32, height: 32))
+                disclaimerButtonContainer.addSubview(loadingIndicator)
+                loadingIndicator.rightToSuperview(offset: -8)
+                loadingIndicator.centerYToSuperview()
+                loadingIndicator.isHidden = true
+                verifyIdentityLoadingIndicator = loadingIndicator
                 let disclaimerTextStack = UIStackView(arrangedSubviews: [disclaimerTitle, disclaimerButtonContainer])
                 disclaimerTextStack.axis = .vertical
                 disclaimerTextStack.alignment = .leading
@@ -243,17 +244,17 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             // First name
             if let firstNameLinkedAccount,
                let verifiedFirstName = firstNameLinkedAccount.givenName {
-                if let firstName = model.userResponse.givenName {
-                    let firstNameSubtitleText = NSMutableAttributedString()
-                    firstNameSubtitleText.append(NSAttributedString(
-                        string: "\(firstName)\n",
+                if let chosenName = model.userResponse.chosenName {
+                    let chosenNameSubtitleText = NSMutableAttributedString()
+                    chosenNameSubtitleText.append(NSAttributedString(
+                        string: "\(chosenName)\n",
                         attributes: AttributedStringHelper.attributes(
                             font: .sourceSansProSemiBold(size: 16),
                             color: .backgroundColor,
                             lineSpacing: 6
                         ))
                     )
-                    firstNameSubtitleText.append(NSAttributedString(
+                    chosenNameSubtitleText.append(NSAttributedString(
                         string: "\(L.Profile.FirstName.localization) ",
                         attributes: AttributedStringHelper.attributes(
                             font: .sourceSansProRegular(size: 12),
@@ -261,15 +262,15 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                             lineSpacing: 6
                         ))
                     )
-                    let firstNameControl = ActionableControlWithBodyAndTitle(
+                    let chosenNameControl = ActionableControlWithBodyAndTitle(
                         attributedTitle: nil,
-                        attributedBodyText: firstNameSubtitleText,
+                        attributedBodyText: chosenNameSubtitleText,
                         iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
                         isFilled: true
                     )
-                    stack.addArrangedSubview(firstNameControl)
-                    firstNameControl.widthToSuperview(offset: -48)
-                    firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+                    stack.addArrangedSubview(chosenNameControl)
+                    chosenNameControl.widthToSuperview(offset: -48)
+                    chosenNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
                 }
                 let verifiedFirstNameControl = VerifiedInformationControlCollapsible(
                     title: verifiedFirstName,
@@ -504,8 +505,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func verifyIdentityClicked() {
-        self.verifyIdentityLoadingIndicator.startAnimating()
-        self.verifyIdentityLoadingIndicator.isHidden = false
+        self.verifyIdentityLoadingIndicator?.startAnimating()
+        self.verifyIdentityLoadingIndicator?.isHidden = false
         startLinkingInstitution()
     }
     
@@ -542,8 +543,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
             self.addInstitutionButton.isLoading = false
             self.addInstitutionButton.isEnabled = true
-            self.verifyIdentityLoadingIndicator.stopAnimating()
-            self.verifyIdentityLoadingIndicator.isHidden = true
+            self.verifyIdentityLoadingIndicator?.stopAnimating()
+            self.verifyIdentityLoadingIndicator?.isHidden = true
         }
     }
     
