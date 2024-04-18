@@ -1382,15 +1382,14 @@ SHARED:
     Info:
       COPY:
         en: >-
-          Each service you accessed through eduID receives certain personal data
-          (attributes) from your eduID account. For example, your name, your
-          email address or a pseudonym which the service can use to uniquely
-          identify you.
+          When you use eduID to logon to other websites, the following information can be shared.
         nl: >-
-          Elke dienst waarvoor je eduID gebruikt ontvangt bepaalde gegevens
-          (attributen) vanuit jouw eduID account. Denk hierbij aan je naam,
-          e-mailadres of aan een pseudoniem waarmee de dienst jou uniek kan
-          identificeren.
+          Wanneer je eduID gebruikt om aan te melden bij andere diensten, de volgende gegevens kunnen worden gedeeld.
+    ExplainIcon:
+      COPY:
+        en: "This icon indicates the service has access to your data."
+        nl: "Dit pictogram geeft aan dat de dienst toegang heeft tot je gegevens."
+
     AppsHeader:
       COPY:
         en: Apps you logged into using eduID.
@@ -1422,16 +1421,16 @@ SHARED:
           nl: Logingegevens
       Delete:
         COPY:
-          en: Delete login details *
-          nl: Verwijder logingegevens *
+          en: Delete these login details
+          nl: Verwijder deze logingegevens
       FirstLogin:
         COPY:
-          en: First login
-          nl: Eerste login
+          en: "First login: "
+          nl: "Eerste login: "
       UniqueEduID:
         COPY:
-          en: Unique eduID
-          nl: Unieke eduID
+          en: "eduID#: "
+          nl: "eduID#: "
       HomePage:
         COPY:
           en: Homepage
@@ -1449,7 +1448,7 @@ SHARED:
             rechtstreeks bij de dienst.
       Access:
         COPY:
-          en: Access rights
+          en: Granted access rights
           nl: Toegangsrechten
       Details:
         COPY:
@@ -1457,16 +1456,16 @@ SHARED:
           nl: Accountgegevens
       Consent:
         COPY:
-          en: Date of consent
-          nl: Datum toestemming
+          en: "Consent given on: "
+          nl: "Toestemming gegeven op: "
       Expires:
         COPY:
-          en: Date of expiry
-          nl: Vervaldatum
+          en: "Access expires on: "
+          nl: "Toegang vervalt op: "
       Revoke:
         COPY:
-          en: Revoke access
-          nl: Intrekken
+          en: Revoke these access right
+          nl: Deze toegangsrechten intrekken
   DeleteService:
     Title:
       COPY:

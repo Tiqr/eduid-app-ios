@@ -19,4 +19,11 @@ extension UIColor {
     static let dividerColor = UIColor(named: "Divider")!
     static let textColor = UIColor(named: "TextColor")!
     static let supportBlueColor = UIColor(named: "SupportBlueColor")!
+    
+    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { rendererContext in
+            self.setFill()
+            rendererContext.fill(CGRect(origin: .zero, size: size))
+        }
+    }
 }

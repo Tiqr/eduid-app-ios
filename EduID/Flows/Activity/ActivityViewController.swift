@@ -79,9 +79,27 @@ class ActivityViewController: BaseViewController {
         
         let description = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.Info.localization, partBold: "")
         
-        let appsHeader = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.AppsHeader.localization, partBold:  L.DataActivity.AppsHeader.localization)
+        let infoImageView = UIImageView(image: .info)
+        infoImageView.contentMode = .scaleAspectFit
+        infoImageView.size(CGSize(width: 24, height:  36))
         
-        let stack = AnimatedVStackView(arrangedSubviews: [posterParent, description, appsHeader])
+        let infoExplanation = UILabel()
+        infoExplanation.numberOfLines = 0
+        infoExplanation.attributedText = NSAttributedString(
+            string: L.DataActivity.ExplainIcon.localization,
+            attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 15), color: .charcoalColor, lineSpacing: 6)
+        )
+        let infoExplanationContainer = UIStackView(arrangedSubviews: [infoImageView, infoExplanation])
+        infoExplanationContainer.axis = .horizontal
+        infoExplanationContainer.spacing = 11
+        infoExplanationContainer.distribution = .fill
+        infoExplanationContainer.alignment = .top
+        
+        let separator = UIView()
+        separator.backgroundColor = .lightGray
+        separator.height(1)
+        
+        let stack = AnimatedVStackView(arrangedSubviews: [posterParent, description, infoExplanationContainer, separator])
         
         if let model = model {
             var addedKeysCount = 0
@@ -129,6 +147,7 @@ class ActivityViewController: BaseViewController {
         }
         stack.spacing = 16
         stack.setCustomSpacing(24, after: description)
+        stack.setCustomSpacing(22, after: separator)
         stack.alignment = .center
         
         // - constraints
@@ -137,7 +156,8 @@ class ActivityViewController: BaseViewController {
         stack.width(to: scrollView)
         posterParent.widthToSuperview(offset: -48)
         description.widthToSuperview(offset: -48)
-        appsHeader.widthToSuperview(offset: -48)
+        infoExplanationContainer.widthToSuperview(offset: -48)
+        separator.widthToSuperview(offset: -48)
     }
     
     @objc
