@@ -9,6 +9,8 @@ class ActivityControlCollapsible: ExpandableControl {
     private var callbackRevokeTokenButtonAction: (Token) -> Void
     
     private var tokens: [Token]
+    
+    private var borderView: UIView!
         
     //MARK: - init
     init(
@@ -168,7 +170,6 @@ class ActivityControlCollapsible: ExpandableControl {
             consentGivenString.append(NSAttributedString(string: createdAtDateString, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 12), color: .grayGhost, lineSpacing: 0)))
             consentGivenLabel.attributedText = consentGivenString
             
-            let expireDateValue = UILabel()
             let expireDateString: String
             if let expiresIn = accessToken.expiresIn,
                let expiresInDate = ActivityControlCollapsible.isoDateFormatter.date(from: expiresIn) {
@@ -214,10 +215,28 @@ class ActivityControlCollapsible: ExpandableControl {
         addSubview(stack)
         stack.edges(to: self, insets: TinyEdgeInsets(top: 12, left: 18, bottom: 12, right: 18))
         
-        //border
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.grayGhost.cgColor
-        layer.cornerRadius = 6
+        // Border
+        borderView = UIView()
+        addSubview(borderView)
+        borderView.edgesToSuperview()
+        borderView.layer.borderWidth = 2
+        borderView.layer.borderColor = UIColor.grayGhost.cgColor
+        borderView.layer.cornerRadius = 6
+        
+        // Info icon
+        if !accessTokens.isEmpty {
+            let infoIcon = UIImageView(image: .info)
+            let infoContainer = UIView()
+            infoContainer.size(CGSize(width: 24, height: 24))
+            infoContainer.backgroundColor = .white
+            infoContainer.layer.masksToBounds = true
+            infoContainer.layer.cornerRadius = 12
+            infoContainer.addSubview(infoIcon)
+            infoIcon.edgesToSuperview(insets: .uniform(1.5))
+            addSubview(infoIcon)
+            infoIcon.rightToSuperview(offset: 12)
+            infoIcon.topToSuperview(offset: -12)
+        }
         
         // initially hide elements
         for i in (1..<stack.arrangedSubviews.count) {
@@ -230,7 +249,7 @@ class ActivityControlCollapsible: ExpandableControl {
         let chevronColorCollapsed: UIColor = .grayGhost
         let chevronColorExpanded: UIColor = .backgroundColor
         self.chevronImage.tintColor = isExpanded ? chevronColorExpanded : chevronColorCollapsed
-        layer.borderColor = isExpanded ? UIColor.backgroundColor.cgColor : UIColor.grayGhost.cgColor
+        self.borderView.layer.borderColor = isExpanded ? UIColor.backgroundColor.cgColor : UIColor.grayGhost.cgColor
     }
     
     @objc

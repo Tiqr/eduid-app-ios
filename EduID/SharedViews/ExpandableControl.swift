@@ -37,8 +37,8 @@ class ExpandableControl: UIControl {
             }
             let radian = 180 * CGFloat.pi / 180
             self.backgroundColor = self.isExpanded ? .supportBlueColor : .white
-            self.layer.shadowRadius = self.isExpanded ? 4 : 0
-            self.layer.shadowOpacity = self.isExpanded ? 0.2 : 0
+            self.layer.shadowRadius = self.isExpanded ? 3 : 0
+            self.layer.shadowOpacity = self.isExpanded ? 0.15 : 0
             self.chevronImage.transform = self.chevronImage.transform.rotated(by: radian)
             animateViewsOnExpandOrContract(self.isExpanded)
         }
