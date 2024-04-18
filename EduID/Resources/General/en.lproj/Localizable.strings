@@ -307,10 +307,9 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "DataActivity.Details.Consent.COPY" = "Consent given on: ";
 "DataActivity.Details.Expires.COPY" = "Access expires on: ";
 "DataActivity.Details.Revoke.COPY" = "Revoke these access right";
-"DeleteService.Title.COPY" = "Delete service";
-"DeleteService.Description.COPY" = "Are you sure you want to delete your unique pseudonymised eduID for %1$@ and revoke access to your linked accounts? This service might not recognize you the next time you login and all your personal data within this service might be lost.";
-"DeleteService.Disclaimer.COPY" = "There is no way to undo this action";
-"DeleteService.Button.Confirm.COPY" = "Confirm";
+"DeleteService.Title.COPY" = "Delete login details of ";
+"DeleteService.Description.COPY" = "Deleting these login details means edulD removes this information from your edulD account. You still have an account at the service itself. If you want that removed, please do so at the service.";
+"DeleteService.Button.Confirm.COPY" = "Yes, delete";
 "DeleteService.Button.Cancel.COPY" = "Cancel";
 "DeleteService.Error.COPY" = "Cannot remove service";
 "RevokeAccessToken.Title.COPY" = "Revoke access token";

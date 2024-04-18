@@ -2651,22 +2651,12 @@ public struct L {
             translationKey: "DeleteService.Title.COPY",
             translationArgs: []
         )
-        public static func Description(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
+        public static let Description = LocaliciousData(
             accessibilityIdentifier: "DeleteService.Description",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "DeleteService.Description.COPY",
-            translationArgs: args
-        )
-        }
-        public static let Disclaimer = LocaliciousData(
-            accessibilityIdentifier: "DeleteService.Disclaimer",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "DeleteService.Disclaimer.COPY",
             translationArgs: []
         )
         public struct Button {

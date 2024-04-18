@@ -36,8 +36,6 @@ class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
-        screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         // Remove any previous views
         view.subviews.forEach {
             $0.removeFromSuperview()
@@ -53,17 +51,9 @@ class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
             text: L.RevokeAccessToken.Description(args: self.viewModel.serviceName).localization,
             partBold: ""
         )
-                
-        let topStackView = UIStackView(arrangedSubviews: [
-            mainTitle,
-            description
-        ])
-        
-        let spacer = UIView()
-        spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         let confirmContainer = UIView()
-        confirmButton = EduIDButton(type: .filledRed, buttonTitle: L.DeleteService.Button.Confirm.localization)
+        confirmButton = EduIDButton(type: .filledRed, buttonTitle: L.RevokeAccessToken.Button.Confirm.localization)
         confirmContainer.addSubview(confirmButton)
         confirmButton.edgesToSuperview()
         loadingIndicator = UIActivityIndicatorView()
@@ -71,7 +61,7 @@ class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
         loadingIndicator.width(20)
         loadingIndicator.heightToSuperview()
         loadingIndicator.centerXToSuperview(offset: 56)
-        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.DeleteService.Button.Cancel.localization)
+        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.RevokeAccessToken.Button.Cancel.localization)
         
         let bottomButtonStack = UIStackView(arrangedSubviews: [
             cancelButton, confirmContainer
@@ -81,23 +71,31 @@ class DeleteTokensViewController: UIViewController, ScreenWithScreenType {
         bottomButtonStack.spacing = 20
         bottomButtonStack.distribution = .fillEqually
         
-        topStackView.addArrangedSubview(spacer)
-        topStackView.addArrangedSubview(bottomButtonStack)
-        
-        topStackView.alignment = .leading
-        topStackView.axis = .vertical
-        topStackView.distribution = .fill
-        topStackView.spacing = 16
+        let stack = UIStackView(arrangedSubviews: [mainTitle, description, bottomButtonStack])
+        stack.alignment = .leading
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.spacing = 16
+        stack.setCustomSpacing(24, after: description)
         
         mainTitle.widthToSuperview()
         description.widthToSuperview()
-        spacer.widthToSuperview()
         bottomButtonStack.widthToSuperview()
-        
-        view.addSubview(topStackView)
-        topStackView.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
+        let insetView = UIView()
+        insetView.backgroundColor = .white
+        insetView.layer.cornerRadius = 10
+        insetView.layer.masksToBounds = true
+        view.addSubview(insetView)
+        insetView.addSubview(stack)
+        insetView.centerYToSuperview()
+        insetView.centerXToSuperview()
+        insetView.widthToSuperview(offset: -48)
+        stack.edgesToSuperview(insets: .uniform(24))
         confirmButton.addTarget(self, action: #selector(confirmClicked), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
+        insetView.isUserInteractionEnabled = true
+        insetView.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: nil)) // Catch touches
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissInfoScreen)))
     }
     
     
