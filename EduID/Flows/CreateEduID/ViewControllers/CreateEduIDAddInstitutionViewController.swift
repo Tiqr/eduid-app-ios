@@ -74,14 +74,8 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         textLabelParent.addSubview(textLabel)
         textLabel.edges(to: textLabelParent)
         
-        // - the info controls
-        let nameTitle = NSAttributedString(string: L.Profile.Name.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let nameBodyText = NSMutableAttributedString(string: "\(model.firstName) \(model.lastName)\n\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .backgroundColor, lineSpacing: 6))
-        nameBodyText.setAttributeTo(part: "\(L.Profile.ProvidedBy.localization) \(model.nameProvidedBy )", attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .charcoalColor, lineSpacing: 6))
-        let nameControl = ActionableControlWithBodyAndTitle(attributedTitle: nameTitle, attributedBodyText: nameBodyText, iconInBody: model.isNameProvidedByInstitution ? .shield.withRenderingMode(.alwaysOriginal) : UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate), isFilled: true)
-        
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [posterLabel, textLabelParent, nameControl])
+        stack = UIStackView(arrangedSubviews: [posterLabel, textLabelParent])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -89,41 +83,31 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         stack.spacing = 20
         scrollView.addSubview(stack)
         
-        // - institutions title
-        let institutionsTitle = NSAttributedString(string: L.Profile.Institution.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProSemiBold(size: 16), color: .charcoalColor, lineSpacing: 6))
-        let institutionsLabel = UILabel()
-        institutionsLabel.attributedText = institutionsTitle
-        let institutionTitleParent = UIView()
-        institutionTitleParent.addSubview(institutionsLabel)
-        institutionsLabel.edges(to: institutionTitleParent)
-        stack.addArrangedSubview(institutionTitleParent)
-        stack.setCustomSpacing(6, after: institutionTitleParent)
-        let createdAt = Date(timeIntervalSince1970: TimeInterval((model.userResponse.linkedAccounts?.first?.createdAt ?? .zero) / 1000))
-        let expiresAt = Date(timeIntervalSince1970: TimeInterval((model.userResponse.linkedAccounts?.first?.expiresAt ?? .zero) / 1000))
-        let institutionControl = InstitutionControlCollapsible(
-            institution: model.userResponse.linkedAccounts?.first?.schacHomeOrganization ?? "",
-            verifiedAt: createdAt,
-            affiliation: model.userResponse.linkedAccounts?.first?.eduPersonAffiliations?.first ?? "",
-            expires: expiresAt) { [weak self] in
-            
-            guard let linkedAccount = model.userResponse.linkedAccounts?.first else { return }
-            
-            // - alert to confirm service removal
-            let alert = UIAlertController(
-                title: L.Profile.RemoveServicePrompt.Title.localization,
-                message: L.Profile.RemoveServicePrompt.Description.localization,
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .destructive) { [weak self] action in
-                self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
-            })
-            alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
-                alert.dismiss(animated: true)
-            })
-            self?.present(alert, animated: true)
+        if let linkedAccount = model.userResponse.linkedAccounts?.last {
+            if let givenName = linkedAccount.givenName {
+                let givenNameControl = VerifiedInformationControlCollapsible(
+                    title: givenName,
+                    subtitle: L.Profile.VerifiedGivenName.localization,
+                    linkedAccount: linkedAccount,
+                    manageVerifiedInformationAction: nil,
+                    expandable: false
+                )
+                stack.addArrangedSubview(givenNameControl)
+                givenNameControl.widthToSuperview()
+            }
+            if let familyName = linkedAccount.familyName {
+                let familyNameControl = VerifiedInformationControlCollapsible(
+                    title: familyName,
+                    subtitle: L.Profile.VerifiedFamilyName.localization,
+                    linkedAccount: linkedAccount,
+                    manageVerifiedInformationAction: nil,
+                    expandable: false
+                )
+                stack.addArrangedSubview(familyNameControl)
+                familyNameControl.widthToSuperview()
+            }
         }
-        stack.addArrangedSubview(institutionControl)
-        institutionControl.width(to: stack)
+        
         
         let spaceView = UIView()
         
@@ -135,7 +119,6 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
         stack.width(to: scrollView, offset: -48)
         textLabel.width(to: stack)
         posterLabel.width(to: stack)
-        nameControl.width(to: stack)
         posterLabel.height(68)
         continueButton.width(to: stack)
     }
