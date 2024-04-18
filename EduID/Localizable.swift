@@ -2495,6 +2495,14 @@ public struct L {
             translationKey: "DataActivity.Info.COPY",
             translationArgs: []
         )
+        public static let ExplainIcon = LocaliciousData(
+            accessibilityIdentifier: "DataActivity.ExplainIcon",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "DataActivity.ExplainIcon.COPY",
+            translationArgs: []
+        )
         public static let AppsHeader = LocaliciousData(
             accessibilityIdentifier: "DataActivity.AppsHeader",
             accessibilityHintKey: nil,

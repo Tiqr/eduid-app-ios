@@ -15,6 +15,7 @@ extension UIImage {
     static let personalInfo = UIImage(named: "personal_info")!
     static let activity = UIImage(named: "activity")!
     static let qrFrame = UIImage(named: "qr_frame")!
+    static let info = UIImage(named: "info")!
     static let flashLight = UIImage(named: "flashlight")!
     static let flashLightOff = UIImage(named: "flashlight_off")!
     static let shield = UIImage(named: "shield")!
