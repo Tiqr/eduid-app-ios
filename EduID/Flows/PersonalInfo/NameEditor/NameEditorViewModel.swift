@@ -22,9 +22,15 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     var currentFirstName: String
     var currentLastName: String
     
+    let editLastNameAllowed: Bool
+    
     init(personalInfo: UserResponse) {
-        currentFirstName = personalInfo.givenName ?? ""
+        currentFirstName = personalInfo.chosenName ?? personalInfo.givenName ?? ""
         currentLastName = personalInfo.familyName ?? ""
+        editLastNameAllowed = personalInfo.linkedAccounts?.isEmpty != false
+        if !editLastNameAllowed {
+            lastNameIsValid = true
+        }
     }
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {

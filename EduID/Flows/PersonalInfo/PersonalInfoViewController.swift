@@ -244,17 +244,17 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             // First name
             if let firstNameLinkedAccount,
                let verifiedFirstName = firstNameLinkedAccount.givenName {
-                if let firstName = model.userResponse.givenName {
-                    let firstNameSubtitleText = NSMutableAttributedString()
-                    firstNameSubtitleText.append(NSAttributedString(
-                        string: "\(firstName)\n",
+                if let chosenName = model.userResponse.chosenName {
+                    let chosenNameSubtitleText = NSMutableAttributedString()
+                    chosenNameSubtitleText.append(NSAttributedString(
+                        string: "\(chosenName)\n",
                         attributes: AttributedStringHelper.attributes(
                             font: .sourceSansProSemiBold(size: 16),
                             color: .backgroundColor,
                             lineSpacing: 6
                         ))
                     )
-                    firstNameSubtitleText.append(NSAttributedString(
+                    chosenNameSubtitleText.append(NSAttributedString(
                         string: "\(L.Profile.FirstName.localization) ",
                         attributes: AttributedStringHelper.attributes(
                             font: .sourceSansProRegular(size: 12),
@@ -262,15 +262,15 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                             lineSpacing: 6
                         ))
                     )
-                    let firstNameControl = ActionableControlWithBodyAndTitle(
+                    let chosenNameControl = ActionableControlWithBodyAndTitle(
                         attributedTitle: nil,
-                        attributedBodyText: firstNameSubtitleText,
+                        attributedBodyText: chosenNameSubtitleText,
                         iconInBody: .pencil.withRenderingMode(.alwaysTemplate),
                         isFilled: true
                     )
-                    stack.addArrangedSubview(firstNameControl)
-                    firstNameControl.widthToSuperview(offset: -48)
-                    firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+                    stack.addArrangedSubview(chosenNameControl)
+                    chosenNameControl.widthToSuperview(offset: -48)
+                    chosenNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
                 }
                 let verifiedFirstNameControl = VerifiedInformationControlCollapsible(
                     title: verifiedFirstName,

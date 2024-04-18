@@ -18,7 +18,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     private var viewModel: NameEditorViewModel
     
     private var firstNameField: TextFieldViewWithValidationAndTitle!
-    private var lastNameField: TextFieldViewWithValidationAndTitle!
+    private var lastNameField: TextFieldViewWithValidationAndTitle?
     private var saveButton: EduIDButton!
 
     init(viewModel: NameEditorViewModel) {
@@ -59,7 +59,6 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.YourName.localization)"
         let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.YourName.localization)
         
-        
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle
         ])
@@ -82,23 +81,24 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
             firstNameField.textField.text = viewModel.currentFirstName
             firstNameField.tag = NameEditorViewModel.TAG_FIRST_NAME
             firstNameField.delegate = viewModel
-            
-            lastNameField = TextFieldViewWithValidationAndTitle(
-                title: L.EditName.LastName.localization,
-                placeholder: "",
-                field: .name,
-                keyboardType: .namePhonePad,
-                isPassword: false
-            )
-            lastNameField.textField.text = viewModel.currentLastName
-            lastNameField.tag = NameEditorViewModel.TAG_LAST_NAME
-            lastNameField.delegate = viewModel
-            
             topStackView.addArrangedSubview(firstNameField)
-            topStackView.addArrangedSubview(lastNameField)
-            
             firstNameField.widthToSuperview()
-            lastNameField.widthToSuperview()
+            if viewModel.editLastNameAllowed {
+                let lastNameField = TextFieldViewWithValidationAndTitle(
+                    title: L.EditName.LastName.localization,
+                    placeholder: "",
+                    field: .name,
+                    keyboardType: .namePhonePad,
+                    isPassword: false
+                )
+                lastNameField.textField.text = viewModel.currentLastName
+                lastNameField.tag = NameEditorViewModel.TAG_LAST_NAME
+                lastNameField.delegate = viewModel
+                
+                topStackView.addArrangedSubview(lastNameField)
+                lastNameField.widthToSuperview()
+                self.lastNameField = lastNameField
+            }
         }
 
         let bottomSpacer = UIView()
@@ -138,13 +138,16 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
 
     @objc func saveNameChange() {
         Task {
-            guard let firstName = firstNameField.textField.text,
-                  let lastName = lastNameField.textField.text else {
+            guard let firstName = firstNameField.textField.text else {
+                return
+            }
+            let lastName = lastNameField?.textField.text
+            if lastName == nil && viewModel.editLastNameAllowed {
                 return
             }
             setupUI(isLoading: true)
             do {
-                _ = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName)
+                _ = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName ?? viewModel.currentLastName)
                 delegate?.goBackToInfoScreen(updateData: true)
             } catch {
                 NSLog("Unable to update name of the user: \(error)")
@@ -177,6 +180,6 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     
     @objc func resignKeyboardResponder() {
         _ = firstNameField.resignFirstResponder()
-        _ = lastNameField.resignFirstResponder()
+        _ = lastNameField?.resignFirstResponder()
     }
 }
