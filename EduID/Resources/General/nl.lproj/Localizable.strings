@@ -180,7 +180,7 @@ Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppel
 "Security.OtherMethods.COPY" = "Andere methoden";
 "Security.AddPassword.COPY" = "Wachtwoord toevoegen";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
-"Security.ChangePassword.COPY" = "Wijzig uw wachtwoord";
+"Security.ChangePassword.COPY" = "Wachtwoord";
 "Security.TwoFAKey.COPY" = "Beveiligingssleutel";
 "Security.ProvidedBy.COPY" = "Geleverd door";
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";

@@ -180,7 +180,7 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.OtherMethods.COPY" = "Other methods";
 "Security.AddPassword.COPY" = "Add a password";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
-"Security.ChangePassword.COPY" = "Change your password";
+"Security.ChangePassword.COPY" = "Password";
 "Security.TwoFAKey.COPY" = "Security key";
 "Security.ProvidedBy.COPY" = "Provided by";
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
