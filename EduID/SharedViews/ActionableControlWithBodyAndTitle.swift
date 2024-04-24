@@ -5,7 +5,7 @@ class ActionableControlWithBodyAndTitle: UIControl {
 
     let view = UIView()
     let loadingIndicator = UIActivityIndicatorView()
-    var iconInBodyView: UIImageView!
+    var rightIconView: UIImageView!
     
     override var isEnabled: Bool {
         didSet {
@@ -25,7 +25,7 @@ class ActionableControlWithBodyAndTitle: UIControl {
     var isLoading: Bool = false {
         didSet {
             loadingIndicator.isHidden = !isLoading
-            iconInBodyView.isHidden = isLoading
+            rightIconView.isHidden = isLoading
             if isLoading {
                 loadingIndicator.startAnimating()
             } else {
@@ -38,9 +38,9 @@ class ActionableControlWithBodyAndTitle: UIControl {
     init(attributedTitle: NSAttributedString? = nil,
          attributedBodyText: NSAttributedString,
          iconInTitle: UIImage? = nil,
-         iconInBody: UIImage? = nil,
-         isFilled: Bool,
-         shadow: Bool = false
+         leftIcon: UIImage? = nil,
+         rightIcon: UIImage? = nil,
+         isFilled: Bool
     ) {
         super.init(frame: .zero)
                 
@@ -61,13 +61,10 @@ class ActionableControlWithBodyAndTitle: UIControl {
         // - the control view
         view.height(70)
         view.backgroundColor = .white
-        if shadow {
-            view.setShadow(opacity: 0.2, color: .black, radius: 2, offset: CGSize(width: 2, height: 2))
-        }
         view.layer.cornerRadius = 6
         view.layer.borderWidth = isFilled ? 2 : 1
-        view.layer.borderWidth = shadow ? 1 : view.layer.borderWidth
-        view.layer.borderColor = isFilled ? UIColor.backgroundColor.cgColor : UIColor.disabledGray.cgColor
+        view.layer.borderColor = isFilled ? UIColor.backgroundColor.cgColor : UIColor.grayGhost.cgColor
+        
         let bodyLabel = UILabel()
         bodyLabel.numberOfLines = 0
         bodyLabel.attributedText = attributedBodyText
@@ -76,12 +73,12 @@ class ActionableControlWithBodyAndTitle: UIControl {
         rightIconContainer.width(24)
         rightIconContainer.height(24)
         
-        iconInBodyView = UIImageView(image: iconInBody)
+        rightIconView = UIImageView(image: rightIcon)
         let colorAttribute = attributedBodyText.attributes(at: 0, effectiveRange: nil)[.foregroundColor]
-        iconInBodyView.tintColor = colorAttribute as? UIColor
-        iconInBodyView.contentMode = .scaleAspectFit
-        rightIconContainer.addSubview(iconInBodyView)
-        iconInBodyView.edges(to: rightIconContainer)
+        rightIconView.tintColor = colorAttribute as? UIColor
+        rightIconView.contentMode = .scaleAspectFit
+        rightIconContainer.addSubview(rightIconView)
+        rightIconView.edges(to: rightIconContainer)
         
         rightIconContainer.addSubview(loadingIndicator)
         loadingIndicator.edges(to: rightIconContainer)
@@ -91,9 +88,20 @@ class ActionableControlWithBodyAndTitle: UIControl {
         bodyStack.axis = .horizontal
         bodyStack.spacing = 12
         bodyStack.alignment = .center
-        bodyStack.distribution = .equalSpacing
+        bodyStack.distribution = .fill
         view.addSubview(bodyStack)
         bodyStack.edges(to: view, insets: TinyEdgeInsets(top: 6, left: 18, bottom: 6, right: 18))
+        
+        if let leftIcon {
+            let leftIconView = UIImageView(image: leftIcon)
+            leftIconView.size(CGSize(width: 24, height: 24))
+            bodyStack.insertArrangedSubview(leftIconView, at: 0)
+            if isFilled {
+                leftIconView.tintColor = .backgroundColor
+            } else {
+                leftIconView.tintColor = .grayGhost
+            }
+        }
         
         // - super stack
         let stack = UIStackView(arrangedSubviews: [titleParent, view])

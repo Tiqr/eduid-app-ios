@@ -85,7 +85,7 @@ class NameUpdatedViewController: UIViewController, ScreenWithScreenType {
         let nameControl = ActionableControlWithBodyAndTitle(
             attributedTitle: nameTitleText,
             attributedBodyText: nameSubtitleText,
-            iconInBody: .shield.withRenderingMode(.alwaysOriginal),
+            rightIcon: .shield.withRenderingMode(.alwaysOriginal),
             isFilled: true
         )
         

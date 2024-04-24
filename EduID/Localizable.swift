@@ -1565,12 +1565,12 @@ public struct L {
             translationKey: "Security.SubTitle.COPY",
             translationArgs: []
         )
-        public static let SecondSubTitle = LocaliciousData(
-            accessibilityIdentifier: "Security.SecondSubTitle",
+        public static let OtherMethods = LocaliciousData(
+            accessibilityIdentifier: "Security.OtherMethods",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Security.SecondSubTitle.COPY",
+            translationKey: "Security.OtherMethods.COPY",
             translationArgs: []
         )
         public static let AddPassword = LocaliciousData(
