@@ -20,6 +20,7 @@
 		4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */; };
 		4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */; };
 		4F6560742B6BC3CB004A303D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6560732B6BC3CB004A303D /* InfoViewController.swift */; };
+		4F7E1C442BDA5834009405A6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */; };
 		4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */; };
 		4F909E1B2A31CD2200FC1506 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F909E0D2A31CD2200FC1506 /* README.md */; };
 		4F909E262A31CD7E00FC1506 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E242A31CD7E00FC1506 /* Result+Utils.swift */; };
@@ -287,6 +288,7 @@
 		4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test2.json; sourceTree = "<group>"; };
 		4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		4F6560732B6BC3CB004A303D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSwitcherController.swift; sourceTree = "<group>"; };
 		4F909E0D2A31CD2200FC1506 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F909E242A31CD7E00FC1506 /* Result+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */,
 				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
 				0AFD9E122745579C00D48C01 /* Info.plist */,
+				4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */,
 			);
 			path = EduID;
 			sourceTree = "<group>";
@@ -1440,6 +1443,7 @@
 				4F909F722A31D1A600FC1506 /* Nunito-Bold.ttf in Resources */,
 				4F5DC7232A4EBCE2007D6497 /* auth_config_acceptance.json in Resources */,
 				4F909F732A31D1A600FC1506 /* OFL.txt in Resources */,
+				4F7E1C442BDA5834009405A6 /* PrivacyInfo.xcprivacy in Resources */,
 				4F909F742A31D1A600FC1506 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				4F909F752A31D1A600FC1506 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 				4F909F762A31D1A600FC1506 /* SourceSansPro-Regular.ttf in Resources */,
@@ -2523,7 +2527,7 @@
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
 				kind = exactVersion;
-				version = 5.16.0;
+				version = 5.19.1;
 			};
 		};
 		4F9D272B2A33287C00F5A6ED /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */ = {
