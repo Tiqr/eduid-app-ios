@@ -44,7 +44,7 @@ class DeleteServiceViewController: UIViewController, ScreenWithScreenType {
         
         let serviceName = viewModel.service.serviceName ?? viewModel.service.serviceNameNl ?? "?"
         
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.DeleteService.Title.localization + serviceName, size: 24, primary: serviceName)
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.DeleteService.Title.localization + serviceName + "?", size: 24, primary: serviceName + "?")
         
         let description = UILabel.plainTextLabelPartlyBold(
             text: L.DeleteService.Description.localization,
