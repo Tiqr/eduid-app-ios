@@ -50,6 +50,16 @@ ANDROID:
         COPY:
           en: Allow the mobile application to access your data.
           nl: Geef de mobiele app toegang tot jouw gegevens.
+  Profile:
+    You:
+      COPY:
+        en: you
+        nl: Zelf
+  ManageAccount:
+    CreatedAt:
+      COPY:
+        en: "EEEE, dd MMMM yyyy 'at' HH:MM"
+        nl: "EEEE, dd MMMM yyyy 'om' HH:MM"
   AppData:
     InitializationError:
       Generic:
