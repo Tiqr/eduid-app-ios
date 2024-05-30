@@ -1392,6 +1392,84 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct OneTimePassword {
+        public struct GenerateError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "OneTimePassword.GenerateError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "OneTimePassword.GenerateError.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "OneTimePassword.GenerateError.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "OneTimePassword.GenerateError.Description.COPY",
+                translationArgs: []
+            )
+        }
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "OneTimePassword.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimePassword.Title.COPY",
+            translationArgs: []
+        )
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "OneTimePassword.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimePassword.Description.COPY",
+            translationArgs: []
+        )
+        public static let YourId = LocaliciousData(
+            accessibilityIdentifier: "OneTimePassword.YourId",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimePassword.YourId.COPY",
+            translationArgs: []
+        )
+        public static let OneTimePassword = LocaliciousData(
+            accessibilityIdentifier: "OneTimePassword.OneTimePassword",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimePassword.OneTimePassword.COPY",
+            translationArgs: []
+        )
+        public struct PinNotVerified {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "OneTimePassword.PinNotVerified.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "OneTimePassword.PinNotVerified.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "OneTimePassword.PinNotVerified.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "OneTimePassword.PinNotVerified.Description.COPY",
+                translationArgs: []
+            )
+        }
+        public static let CloseButton = LocaliciousData(
+            accessibilityIdentifier: "OneTimePassword.CloseButton",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "OneTimePassword.CloseButton.COPY",
+            translationArgs: []
+        )
+    }
     public struct ConfirmDelete {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "ConfirmDelete.Title",
@@ -5845,16 +5923,6 @@ public struct L {
                 translationArgs: []
             )
         }
-    }
-    public struct OneTimeCode {
-        public static let CloseButton = LocaliciousData(
-            accessibilityIdentifier: "OneTimeCode.CloseButton",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "OneTimeCode.CloseButton.COPY",
-            translationArgs: []
-        )
     }
     public struct WelcomeToApp {
         public static let Title = LocaliciousData(
