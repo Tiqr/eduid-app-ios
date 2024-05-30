@@ -157,6 +157,15 @@ bestaande inschrijving
 "DeleteAccount.LongDescription.COPY" = "Je kunt je eduID account verwijderen wanneer je maar wilt.
 Let op, je verliest de unieke eduID nummers die aan je e-mailadres zijn gekoppeld. Wanneer je je opnieuw registreert voor eduID met hetzelfde e-mailadres, krijg je een nieuw eduID nummer. Sommige diensten gebruiken deze nummers om je uniek te identificeren, dus voor die diensten word je dan gezien als een nieuwe gebruiker. Houd er rekening mee dat het verwijderen van je eduID niet betekent dat alle diensten die je met je eduID hebt gebruikt, ook je gegevens zullen verwijderen.";
 "DeleteAccount.DeleteAccountButton.COPY" = "Verwijder je account";
+"OneTimePassword.GenerateError.Title.COPY" = "Kan OTP niet genereren";
+"OneTimePassword.GenerateError.Description.COPY" = "Er is iets misgegaan bij het genereren van je eenmalige wachtwoord.";
+"OneTimePassword.Title.COPY" = "Je lijkt offline te zijn";
+"OneTimePassword.Description.COPY" = "Geen paniek! Klik op de QR code op de website. Je zult gevraagd worden om de volgende eenmalige gegevens in te geven:";
+"OneTimePassword.YourId.COPY" = "Je gebruikers ID is:";
+"OneTimePassword.OneTimePassword.COPY" = "Eénmalig wachtwoord:";
+"OneTimePassword.PinNotVerified.Title.COPY" = "Opmerking: Je PIN is nog niet geverifieerd";
+"OneTimePassword.PinNotVerified.Description.COPY" = "Als je niet kunt inloggen met bovenstaande gegevens, scan dan opnieuw en geef de correcte PIN code in.";
+"OneTimePassword.CloseButton.COPY" = "Sluiten";
 "ConfirmDelete.Title.COPY" = "Je account voor alle eeuwigheid verwijderen?";
 "ConfirmDelete.Disclaimer.COPY" = "Er is geen manier om deze actie ongedaan te maken.";
 "ConfirmDelete.TypeNameToConfirm.COPY" = "Als je wilt doorgaan, typ dan je volledige naam zoals bekend in je eduID account ter bevestiging.";
@@ -690,7 +699,6 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
-"OneTimeCode.CloseButton.COPY" = "Sluiten";
 "WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app voor";
 "WelcomeToApp.Quickly.Text.COPY" = "op educatieve diensten";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";
@@ -710,14 +718,12 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
 "CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY" = "Studeer je in Nederland?";
 "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Sluit dan je instelling aan!";
-"CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij.
-
-Daarom moet je de volgende gegevens toevoegen aan jouw eduID:
-    • Validatie van je volledige naam door een derde partij
-    • Bewijs dat je student bent
-    • Je huidige instelling";
+"CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij. Daarom moet je de volgende gegevens toevoegen aan jouw eduID
+• Validatie van je volledige naam door een derde partij
+• Bewijs dat je student bent
+• Je huidige instelling";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
-"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID:";
+"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";
 "CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
