@@ -710,12 +710,13 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Sluit je school/instelling aan";
 "CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY" = "Studeer je in Nederland?";
 "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Sluit dan je instelling aan!";
-"CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij. Daarom moet je de volgende gegevens toevoegen aan jouw eduID
-• Validatie van je volledige naam door een derde partij
-• Bewijs dat je student bent
-• Je huidige instelling";
+"CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij.
+Daarom moet je de volgende gegevens toevoegen aan jouw eduID:
+    • Validatie van je volledige naam door een derde partij
+    • Bewijs dat je student bent
+    • Je huidige instelling";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
-"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID";
+"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID:";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";
 "CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
 "CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Sla dit over";
