@@ -73,8 +73,8 @@ existing registration
 "Profile.VerifiedGivenName.COPY" = "Verified given name";
 "Profile.VerifiedFamilyName.COPY" = "Verified family name";
 "Profile.VerifiedDateOfBirth.COPY" = "Verified date of birth";
-"Profile.LinkedAccountCreatedAt.COPY" = "on ";
-"Profile.LinkedAccountValidUntil.COPY" = "valid until ";
+"Profile.LinkedAccountCreatedAt.COPY" = "• on ";
+"Profile.LinkedAccountValidUntil.COPY" = "• valid until ";
 "Profile.ManageYourVerifiedInformation.COPY" = "Manage your verified information";
 "Profile.VerifyNow.Title.COPY" = "Some services require your identity to be verified by a trusted party.";
 "Profile.VerifyNow.Button.COPY" = "Verify identity now";
@@ -143,7 +143,7 @@ existing registration
 "NameUpdated.Title.ContactedError.COPY" = "could not be contacted";
 "NameUpdated.Title.FailReason.AlreadyLinked.COPY" = "Reason: The account is already linked: %1$@";
 "NameUpdated.Title.FailReason.SessionExpired.COPY" = "Reason: Your session expired.";
-"NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.!";
+"NameUpdated.Description.COPY" = "The following information has been added to your eduID and can now be shared.";
 "NameUpdated.FullName.COPY" = "Full name";
 "NameUpdated.Continue.COPY" = "Continue";
 "EditName.Title.Edit.COPY" = "Edit";
