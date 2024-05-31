@@ -99,7 +99,6 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         
         // Verified by
         let verifiedByLabel = UILabel()
-        let bulletPoint = " • "
         let verifiedByString = NSMutableAttributedString(
             string: L.Profile.VerifiedBy(args: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "").localization,
             attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 6)
@@ -107,7 +106,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         if let createdAt = linkedAccount.createdAt {
             let createdAtDate = Date(timeIntervalSince1970: TimeInterval(createdAt / 1000))
             verifiedByString.append(NSAttributedString(
-                string: "\n" + bulletPoint + L.Profile.LinkedAccountCreatedAt.localization,
+                string: "\n" + L.Profile.LinkedAccountCreatedAt.localization,
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
             verifiedByString.append(NSAttributedString(
@@ -118,7 +117,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         if let expiresAt = linkedAccount.expiresAt {
             let expiresAtDate = Date(timeIntervalSince1970: TimeInterval(expiresAt / 1000))
             verifiedByString.append(NSAttributedString(
-                string: "\n" + bulletPoint + L.Profile.LinkedAccountValidUntil.localization,
+                string: "\n" + L.Profile.LinkedAccountValidUntil.localization,
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
             verifiedByString.append(NSAttributedString(

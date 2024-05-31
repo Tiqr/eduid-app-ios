@@ -29,8 +29,8 @@ class OneTimeCodeViewController : BaseViewController {
         
         screenType = .oneTimeCodeScreen
         
-        let title = Localization.localize("authentication_fallback_title", comment: "You appear to be offline")
-        let subtitle = Localization.localize("authentication_fallback_description", comment: "Don\'t worry! Click the QR tag on the\nwebsite. You will be asked to enter the\nfollowing one-time credentials:")
+        let title = L.OneTimePassword.Title.localization
+        let subtitle = L.OneTimePassword.Description.localization
         
         // - poster label
         let posterLabel = UILabel.posterTextLabelBicolor(text: title, primary: title)
@@ -50,18 +50,18 @@ class OneTimeCodeViewController : BaseViewController {
             pinStack.addArrangedSubview(pinField)
         }
         
-        let idText = Localization.localize("fallback_identifier_label", comment: "Your ID is:") + " " + authenticationChallenge.identity.identifier
+        let idText = L.OneTimePassword.YourId.localization + " " + authenticationChallenge.identity.identifier
         let yourIdLabel = UILabel.plainTextLabelPartlyBold(text: idText, partBold: authenticationChallenge.identity.identifier)
-        let otcText = Localization.localize("otp_label", comment: "One time password:")
+        let otcText = L.OneTimePassword.OneTimePassword.localization
         let otcLabel = UILabel.plainTextLabelPartlyBold(text: otcText)
 
-        let unverifiedPinLabel = UILabel.plainTextLabelPartlyBold(text: Localization.localize("note_pin_not_verified_title", comment: "Note: your PIN has not been verified yet"))
-        let retryLabel = UILabel.plainTextLabelPartlyBold(text: Localization.localize("note_pin_not_verified", comment: "If you can\'t login with the credentials above, scan\nagain and enter the correct PIN code"))
+        let unverifiedPinLabel = UILabel.plainTextLabelPartlyBold(text: L.OneTimePassword.PinNotVerified.Title.localization)
+        let retryLabel = UILabel.plainTextLabelPartlyBold(text: L.OneTimePassword.PinNotVerified.Description.localization)
         
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
 
-        let closeButton = EduIDButton(type: .primary, buttonTitle: L.OneTimeCode.CloseButton.localization)
+        let closeButton = EduIDButton(type: .primary, buttonTitle: L.OneTimePassword.CloseButton.localization)
         closeButton.addTarget(self, action: #selector(closeFlow), for: .touchUpInside)
 
         let mainStackView = UIStackView(arrangedSubviews: [posterLabel, textLabel, yourIdLabel, otcLabel, pinStack, unverifiedPinLabel, retryLabel, spacer, closeButton])

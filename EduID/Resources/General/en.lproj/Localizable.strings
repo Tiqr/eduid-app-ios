@@ -157,6 +157,15 @@ existing registration
 "DeleteAccount.LongDescription.COPY" = "You can delete your eduID whenever you want.
 When you re-register for a new eduID with that same email address, you will receive a new eduID number. Some services use this unique number to identify you, so for those services you will be treated as a new user. Please note that deleting your eduID account does not mean all services you accessed with that eduID account will also have your data removed.";
 "DeleteAccount.DeleteAccountButton.COPY" = "Delete your account";
+"OneTimePassword.GenerateError.Title.COPY" = "Cannot generate OTP";
+"OneTimePassword.GenerateError.Description.COPY" = "Something went wrong when generating your one time password.";
+"OneTimePassword.Title.COPY" = "You appear to be offline";
+"OneTimePassword.Description.COPY" = "Don't worry! Click the QR code on the website. You will be asked to enter the following one-time credentials:";
+"OneTimePassword.YourId.COPY" = "Your ID is:";
+"OneTimePassword.OneTimePassword.COPY" = "One-time password:";
+"OneTimePassword.PinNotVerified.Title.COPY" = "Note: your PIN has not been verified yet.";
+"OneTimePassword.PinNotVerified.Description.COPY" = "If you can't login with the credentials above, scan again and enter the correct PIN code.";
+"OneTimePassword.CloseButton.COPY" = "Close";
 "ConfirmDelete.Title.COPY" = "Delete your account for all eternity?";
 "ConfirmDelete.Disclaimer.COPY" = "There is no way to undo this action.";
 "ConfirmDelete.TypeNameToConfirm.COPY" = "If you wish to proceed, please type in your full name for confirmation.";
@@ -689,7 +698,6 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
-"OneTimeCode.CloseButton.COPY" = "Close";
 "WelcomeToApp.Title.COPY" = "Welcome! Use this app to";
 "WelcomeToApp.Quickly.Text.COPY" = "to educational services";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Quickly login";
