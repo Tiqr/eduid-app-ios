@@ -87,7 +87,7 @@ existing registration
 "Profile.Name.COPY" = "Name";
 "Profile.Validated.COPY" = "Validated information";
 "Profile.FirstAndLastName.COPY" = "First and last name";
-"Profile.FirstAndLastNameInfo.COPY" = "Your first and lastname are not yet verified by a third party";
+"Profile.FirstAndLastNameInfo.COPY" = "Your first and last name are not yet verified by a third party";
 "Profile.Verify.COPY" = "Verify";
 "Profile.Student.COPY" = "Proof of student";
 "Profile.StudentInfo.COPY" = "You have not yet proven that you are a student in the Netherlands.";
@@ -367,7 +367,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Password.DeletePassword.COPY" = "Delete password";
 "Password.DeletePasswordConfirmation.COPY" = "Are you sure that you want to delete your password? Login with a password will be no longer possible.";
 "Password.Back.COPY" = "/security";
-"Password.PasswordDisclaimer.COPY" = "Make sure it's at least 15 characters OR at least 8 characters including a number and a uppercase letter.";
+"Password.PasswordDisclaimer.COPY" = "Make sure it's at least 15 characters OR at least 8 characters including a number and an uppercase letter.";
 "Password.InvalidCurrentPassword.COPY" = "Your current password is invalid.";
 "Password.PasswordResetHashExpired.COPY" = "Your password reset link has expired. ";
 "Password.ForgotPassword.COPY" = "Help! I forgot my current password";
@@ -391,7 +391,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Webauthn.CredentialNamePlaceholder.COPY" = "e.g. my red Yubikey";
 "Webauthn.Test.COPY" = "Test";
 "Webauthn.TestInfo.COPY" = "Click the <strong>test</strong> button to test one of your security keys. You will be redirected to the eduID login screen.";
-"Webauthn.TestFlash.COPY" = "You successfully tested your security key to authenticate";
+"Webauthn.TestFlash.COPY" = "You successfully tested your security key to authenticate.";
 "RememberMe.Yes.COPY" = "Yes";
 "RememberMe.No.COPY" = "No";
 "RememberMe.Header.COPY" = "Stay signed in?";
