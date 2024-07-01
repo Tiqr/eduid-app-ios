@@ -377,7 +377,7 @@ SHARED:
     VerifiedGivenName:
       COPY:
         nl: Geverifieerde voornaam
-        en: Verified first name
+        en: Verified given name
     VerifiedFamilyName:
       COPY:
         nl: Geverifieerde achternaam
