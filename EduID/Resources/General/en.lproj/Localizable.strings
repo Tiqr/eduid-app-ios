@@ -317,7 +317,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "DataActivity.Details.Expires.COPY" = "Access expires on: ";
 "DataActivity.Details.Revoke.COPY" = "Revoke these access right";
 "DeleteService.Title.COPY" = "Delete login details of ";
-"DeleteService.Description.COPY" = "Deleting these login details means edulD removes this information from your edulD account. You still have an account at the service itself. If you want that removed, please do so at the service.";
+"DeleteService.Description.COPY" = "Deleting these login details means eduID removes this information from your eduID account. You still have an account at the service itself. If you want that removed, please do so at the service.";
 "DeleteService.Button.Confirm.COPY" = "Yes, delete";
 "DeleteService.Button.Cancel.COPY" = "Cancel";
 "DeleteService.Error.COPY" = "Cannot remove service";
@@ -676,7 +676,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "PinAndBioMetrics.SkipAlertTitle.COPY" = "Proceed without using biometric access?";
 "PinAndBioMetrics.SkipAlertText.COPY" = "This permanently disables this feature";
 "PinAndBioMetrics.FirstPinScreenSelectTitle.COPY" = "Select a PIN code";
-"PinAndBioMetrics.PinScreenEnterTitle.COPY" = "Enter your edulD PIN";
+"PinAndBioMetrics.PinScreenEnterTitle.COPY" = "Enter your eduID PIN";
 "PinAndBioMetrics.FirstPinScreenText.COPY" = "To use the eduID app you need a PIN code";
 "PinAndBioMetrics.SecondPinScreenSelectTitle.COPY" = "Repeat selected PIN";
 "PinAndBioMetrics.SecondPinScreenText.COPY" = "Please enter your PIN code again";
@@ -707,7 +707,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WelcomeToApp.VerifyYour.Highlight.COPY" = "Verify your identity";
 "WelcomeToApp.GotItButton.COPY" = "OK, got it!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Return to your web browser";
-"WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your edulD account";
+"WelcomeToApp.ReturnBrowserText.COPY" = "Continue in your browser to finish the connection of this app to your eduID account";
 "CreateEduID.ErrorCreateFailed.Title.COPY" = "Could not create your eduID account!";
 "CreateEduID.ErrorCreateFailed.Message.COPY" = "The account creation has failed. Please try again.";
 "CreateEduID.LandingPage.MainText.COPY" = "Your account for Education and Research";
@@ -719,10 +719,10 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Connect your institution!";
 "CreateEduID.FirstTimeDialog.MainText.COPY" = "When you study in the Netherlands and you want to use eduID to logon to an educational services, we need to be sure it is you and not someone impersonating you.
 
-You must therefore add the following information to your eduID:
-    • Validation of your full name by a third party
-    • Proof of being a student
-    • Your current institution";
+You must therefore add the following information to your eduID:";
+"CreateEduID.FirstTimeDialog.MainTextPoint1.COPY" = "Validation of your full name by a third party";
+"CreateEduID.FirstTimeDialog.MainTextPoint2.COPY" = "Proof of being a student";
+"CreateEduID.FirstTimeDialog.MainTextPoint3.COPY" = "Your current institution";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "When you study in the Netherlands";
 "CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "You must therefore add the following information to your eduID:";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Add this information by connecting your school/institution via SURFconext";

@@ -6100,6 +6100,30 @@ public struct L {
                 translationKey: "CreateEduID.FirstTimeDialog.MainText.COPY",
                 translationArgs: []
             )
+            public static let MainTextPoint1 = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextPoint1",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.FirstTimeDialog.MainTextPoint1.COPY",
+                translationArgs: []
+            )
+            public static let MainTextPoint2 = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextPoint2",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.FirstTimeDialog.MainTextPoint2.COPY",
+                translationArgs: []
+            )
+            public static let MainTextPoint3 = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextPoint3",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.FirstTimeDialog.MainTextPoint3.COPY",
+                translationArgs: []
+            )
             public static let MainTextFirstBoldPart = LocaliciousData(
                 accessibilityIdentifier: "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart",
                 accessibilityHintKey: nil,
