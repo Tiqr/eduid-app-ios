@@ -73,8 +73,20 @@ class CreateEduIDFirstTimeDialogViewController: CreateEduIDBaseViewController {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 24 - 16
         
-        let attributedText = NSMutableAttributedString(string: L.CreateEduID.FirstTimeDialog.MainText.localization
-                                                       , attributes: [.foregroundColor: UIColor.charcoalColor, .font: UIFont.sourceSansProRegular(size: 16), .paragraphStyle: paragraph])
+        let separator = "\n    •  "
+        let fullText = L.CreateEduID.FirstTimeDialog.MainText.localization + separator
+        + L.CreateEduID.FirstTimeDialog.MainTextPoint1.localization + separator
+        + L.CreateEduID.FirstTimeDialog.MainTextPoint2.localization + separator
+        + L.CreateEduID.FirstTimeDialog.MainTextPoint3.localization
+        
+        let attributedText = NSMutableAttributedString(
+            string: fullText,
+            attributes: [
+                .foregroundColor: UIColor.charcoalColor,
+                .font: UIFont.sourceSansProRegular(size: 16),
+                .paragraphStyle: paragraph
+            ]
+        )
         attributedText.setAttributeTo(part: L.CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
         attributedText.setAttributeTo(part: L.CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.localization, attributes: [.font: UIFont.sourceSansProBold(size: 16), .paragraphStyle: paragraph])
         let textView = TextViewBackgroundColor(attributedText: attributedText, backgroundColor: .yellowColor, insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12))
