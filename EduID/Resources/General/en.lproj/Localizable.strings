@@ -255,7 +255,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "TwoFactorKeys.Label.Account.COPY" = "Account";
 "TwoFactorKeys.Label.UniqueKeyId.COPY" = "Unique KeyID";
 "TwoFactorKeys.Label.UseBiometrics.COPY" = "Use biometrics";
-"TwoFactorKeys.DeleteKey.COPY" = "Sleutel verwijderen";
+"TwoFactorKeys.DeleteKey.COPY" = "Delete key";
 "ConfirmDeleteKey.Title.COPY" = "Delete key";
 "ConfirmDeleteKey.Subtitle.COPY" = "There is no way to undo this action";
 "ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
