@@ -699,16 +699,16 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
-"WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app voor";
+"WelcomeToApp.Title.COPY" = "Welkom! Gebruik deze app om";
 "WelcomeToApp.Quickly.Text.COPY" = "op educatieve diensten";
-"WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";
-"WelcomeToApp.ViewWhat.Text.COPY" = "welke gegevens van je eduID met die diensten worden gedeeld";
-"WelcomeToApp.ViewWhat.Highlight.COPY" = "Bekijk";
+"WelcomeToApp.Quickly.Highlight.COPY" = "In te loggen";
+"WelcomeToApp.ViewWhat.Text.COPY" = "welke gegevens van je eduID worden gedeeld met die diensten";
+"WelcomeToApp.ViewWhat.Highlight.COPY" = "Te bekijken";
 "WelcomeToApp.VerifyYour.Text.COPY" = "zodat je toegang krijgt tot beter beveiligde services";
-"WelcomeToApp.VerifyYour.Highlight.COPY" = "Verifieer jouw identiteit";
+"WelcomeToApp.VerifyYour.Highlight.COPY" = "Je identiteit te verifiëren";
 "WelcomeToApp.GotItButton.COPY" = "Ok, begrepen!";
 "WelcomeToApp.ReturnBrowserTitle.COPY" = "Keer terug naar je webbrowser";
-"WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien";
+"WelcomeToApp.ReturnBrowserText.COPY" = "Ga verder in je browser om de verbinding van deze app met jouw eduID account te voltooien";
 "CreateEduID.ErrorCreateFailed.Title.COPY" = "Je eduID aanmaken is niet gelukt!";
 "CreateEduID.ErrorCreateFailed.Message.COPY" = "Het account aanmaken is mislukt. Probeer het nogmaals.";
 "CreateEduID.LandingPage.MainText.COPY" = "Jouw account voor Onderwijs en Onderzoek";
@@ -720,10 +720,10 @@ Wil je 2FA op het bestaande toestel deactiveren en hier toevoegen?
 "CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Sluit dan je instelling aan!";
 "CreateEduID.FirstTimeDialog.MainText.COPY" = "Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst, moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij.
 
-Daarom moet je de volgende gegevens toevoegen aan jouw eduID:
-    • Validatie van je volledige naam door een derde partij
-    • Bewijs dat je student bent
-    • Je huidige instelling";
+Daarom moet je de volgende gegevens toevoegen aan jouw eduID:";
+"CreateEduID.FirstTimeDialog.MainTextPoint1.COPY" = "Validatie van je volledige naam door een derde partij";
+"CreateEduID.FirstTimeDialog.MainTextPoint2.COPY" = "Bewijs dat je student bent";
+"CreateEduID.FirstTimeDialog.MainTextPoint3.COPY" = "Je huidige instelling";
 "CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
 "CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Daarom moet je de volgende gegevens toevoegen aan jouw eduID:";
 "CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Voeg deze informatie toe door je school/instelling aan te sluiten via SURFconext";

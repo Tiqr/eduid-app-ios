@@ -1533,7 +1533,7 @@ SHARED:
     Description:
       COPY:
         en: >-
-          Deleting these login details means edulD removes this information from your edulD account. You still have an account at the service itself. If you want that removed, please do so at the service.
+          Deleting these login details means eduID removes this information from your eduID account. You still have an account at the service itself. If you want that removed, please do so at the service.
         nl: >-
           Het verwijderen van deze logingegevens betekent dat eduID deze informatie verwijderd van jouw eduID account. Je hebt nog steeds een account bij de dienst zelf. Als je die ook wil verwijderen, doe je dat bij de dienst.
     Button:
@@ -3319,7 +3319,7 @@ SHARED:
         nl: Kies een PIN
     PinScreenEnterTitle:
       COPY:
-        en: Enter your edulD PIN
+        en: Enter your eduID PIN
         nl: PIN invoeren
     FirstPinScreenText:
       COPY:
@@ -3412,7 +3412,7 @@ SHARED:
     Title:
       COPY:
         en: Welcome! Use this app to
-        nl: Welkom! Gebruik deze app voor
+        nl: Welkom! Gebruik deze app om
     Quickly:
       Text:
         COPY:
@@ -3421,16 +3421,16 @@ SHARED:
       Highlight:
         COPY:
           en: Quickly login
-          nl: Snel inloggen
+          nl: In te loggen
     ViewWhat:
       Text:
         COPY:
           en: what details of your eduID get shared with those services
-          nl: welke gegevens van je eduID met die diensten worden gedeeld
+          nl: welke gegevens van je eduID worden gedeeld met die diensten
       Highlight:
         COPY:
           en: View
-          nl: Bekijk
+          nl: Te bekijken
     VerifyYour:
       Text:
         COPY:
@@ -3439,7 +3439,7 @@ SHARED:
       Highlight:
         COPY:
           en: Verify your identity
-          nl: Verifieer jouw identiteit
+          nl: Je identiteit te verifiëren
     GotItButton:
       COPY:
         en: OK, got it!
@@ -3450,8 +3450,8 @@ SHARED:
         nl: Keer terug naar je webbrowser
     ReturnBrowserText:
       COPY:
-        en: Continue in your browser to finish the connection of this app to your edulD account
-        nl: Ga verder in je browser om de verbinding van deze app met jouw edulD account te voltooien
+        en: Continue in your browser to finish the connection of this app to your eduID account
+        nl: Ga verder in je browser om de verbinding van deze app met jouw eduID account te voltooien
   CreateEduID:
     ErrorCreateFailed:
       Title:
@@ -3501,18 +3501,25 @@ SHARED:
             
             
             You must therefore add the following information to your eduID:
-                • Validation of your full name by a third party
-                • Proof of being a student
-                • Your current institution
           nl: >-
             Wanneer je in Nederland studeert en je wilt met eduID inloggen bij een onderwijsdienst,
             moeten we er zeker van zijn dat jij het bent en niet iemand die zich voordoet als jij.
             
             
             Daarom moet je de volgende gegevens toevoegen aan jouw eduID:
-                • Validatie van je volledige naam door een derde partij
-                • Bewijs dat je student bent
-                • Je huidige instelling
+      MainTextPoint1:
+        COPY:
+          en: Validation of your full name by a third party
+          nl: Validatie van je volledige naam door een derde partij
+      MainTextPoint2:
+        COPY:
+          en: Proof of being a student
+          nl: Bewijs dat je student bent
+      MainTextPoint3:
+        COPY:
+          en: Your current institution
+          nl: Je huidige instelling
+
       MainTextFirstBoldPart:
         COPY:
           en: When you study in the Netherlands
