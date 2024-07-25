@@ -98,7 +98,7 @@ class DeleteKeyConfirmationViewController: UIViewController, ScreenWithScreenTyp
         
         topStackView.edgesToSuperview(insets: .horizontal(24) + .top(24), usingSafeArea: true)
         
-        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
+        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16), usingSafeArea: true)
 
         // Add click targets
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)

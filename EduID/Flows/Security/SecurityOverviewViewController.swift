@@ -181,7 +181,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 hasPassword = true
             }
             
-            if !hasTwoFactorKey {
+            if !hasTwoFactorKey && false { // Disabled on purpose - adding a security key is not possible yet. See TIQR-450 for more info.
                 let twoFactorText = NSMutableAttributedString(
                     string: (L.Security.TwoFAKey.localization),
                     attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.grayGhost])
