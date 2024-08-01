@@ -12,6 +12,10 @@
 		<string>applinks:login.test.eduid.nl</string>
 		<string>applinks:test.eduid.nl</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>$(TIQR_APP_GROUP)</string>
+	</array>
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)$(CFBundleIdentifier)</string>
