@@ -35,6 +35,8 @@ import OpenAPIClient
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    private let appGroup = Bundle.main.object(forInfoDictionaryKey: "TiqrAppGroup") as! String
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         OpenAPIClientAPI.basePath = EnvironmentService.shared.currentEnvironment.baseUrl
@@ -52,7 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
+        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+            // Home will listen to the notification, so we add a bit of delay to make sure it has been started.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.getNotificationObject(from: challenge)
+            }
+        }
         return true
     }
     
@@ -84,7 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return false
         }
-        return true
     }
 }
 
@@ -126,6 +132,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+            self.getNotificationObject(from: challenge)
+        }
     }
 }
 

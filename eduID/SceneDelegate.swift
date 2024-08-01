@@ -37,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     let mainCoordinator: MainCoordinator = MainCoordinator(viewControllerToPresentOn: nil)
     private var accountWasJustCreated: Bool?
+    private let appGroup = Bundle.main.object(forInfoDictionaryKey: "TiqrAppGroup") as! String
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -107,6 +108,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: userInfo)
         }
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+            let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
+            NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                                            object: nil, userInfo: notificationObject)
+        }
+
     }
 }
 
