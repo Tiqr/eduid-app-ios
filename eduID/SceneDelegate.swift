@@ -111,12 +111,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge(),
+           !appDelegate.didHandleNotification {
             let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: notificationObject)
         }
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            appDelegate.didHandleNotification = false
+        }
     }
 }
 

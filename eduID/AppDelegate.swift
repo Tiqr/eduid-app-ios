@@ -36,6 +36,7 @@ import OpenAPIClient
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let appGroup = Bundle.main.object(forInfoDictionaryKey: "TiqrAppGroup") as! String
+    var didHandleNotification = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -56,8 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
             // Home will listen to the notification, so we add a bit of delay to make sure it has been started.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.getNotificationObject(from: challenge)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                guard let self else {
+                    return
+                }
+                if !self.didHandleNotification {
+                    self.getNotificationObject(from: challenge)
+                }
+                // Reset back to default value
+                self.didHandleNotification = false
             }
         }
         return true
@@ -118,6 +126,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let challenge = userInfo["challenge"] as? String {
+            didHandleNotification = true
             DispatchQueue.main.async { [weak self] in
                 self?.getNotificationObject(from: challenge)
             }
