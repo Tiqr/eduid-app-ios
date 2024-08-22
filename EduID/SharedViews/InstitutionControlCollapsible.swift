@@ -182,7 +182,7 @@ class InstitutionControlCollapsible: ExpandableControl {
     
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
+        formatter.dateStyle = .medium
         return formatter
     }
     
