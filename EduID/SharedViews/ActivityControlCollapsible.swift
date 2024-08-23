@@ -267,13 +267,6 @@ class ActivityControlCollapsible: ExpandableControl {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    static var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        return formatter
-    }
-    
-    static var isoDateFormatter = CodableHelper.dateFormatter
-    
+
+    static var isoDateFormatter = CodableHelper.dateFormatter    
 }
