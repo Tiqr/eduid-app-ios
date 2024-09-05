@@ -190,12 +190,12 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.AddPassword.COPY" = "Add a password";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Password";
-"Security.TwoFAKey.COPY" = "Security key";
+"Security.TwoFAKey.COPY" = "Login with app";
 "Security.ProvidedBy.COPY" = "Provided by";
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
 "Security.NotSupported.COPY" = "Not supported";
 "Security.UseMagicLink.COPY" = "Magic link email";
-"Security.AddSecurityKeyInfo.COPY" = "You can add security keys to your eduID account which can be used to login. You can use, for example, the built-in sensor of your device (TouchID, FaceID) or a separate hardware key (YubiKey).";
+"Security.AddSecurityKeyInfo.COPY" = "You can add a passkey to your eduID account which can be used to login. You can use, for example, the built-in sensor of your device (TouchID, FaceID) or a separate hardware key (YubiKey).";
 "Security.RememberMeInfo.COPY" = "<strong>Your device is currently remembered. You will be automatically logged in to eduID.</strong>";
 "Security.NoRememberMeInfo.COPY" = "When logging in with your eduID, you can choose to <strong>stay logged in</strong>. This remembers your login on the device you use at that moment.";
 "Security.ForgetMe.COPY" = "Forget me";
@@ -225,8 +225,8 @@ When you re-register for a new eduID with that same email address, you will rece
 "Security.Tiqr.EnrollmentIncomplete.Title.COPY" = "Enrollment incomplete";
 "Security.Tiqr.EnrollmentIncomplete.Description.COPY" = "Enrollment is incomplete, either recovery was not complete or access was revoked";
 "Security.Tiqr.AlreadyEnrolled.Title.COPY" = "Already enrolled on a different device";
-"Security.Tiqr.AlreadyEnrolled.Description.COPY" = "This account already has a device setup for 2FA
-Would you like to deactivate existing enrollment to enroll on this device?
+"Security.Tiqr.AlreadyEnrolled.Description.COPY" = "This account already has a eduid app registration
+Would you like to deactivate the existing app registration and add this device?
 ";
 "PasswordResetLink.Title.AddPassword.COPY" = "Add password";
 "PasswordResetLink.Title.ChangePassword.COPY" = "Change or delete password";
@@ -321,11 +321,11 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "DeleteService.Button.Confirm.COPY" = "Yes, delete";
 "DeleteService.Button.Cancel.COPY" = "Cancel";
 "DeleteService.Error.COPY" = "Cannot remove service";
-"RevokeAccessToken.Title.COPY" = "Revoke access token";
-"RevokeAccessToken.Description.COPY" = "Are you sure you want to revoke the API access token for %1$@?";
+"RevokeAccessToken.Title.COPY" = "Revoke access";
+"RevokeAccessToken.Description.COPY" = "Are you sure you want to revoke the API access for %1$@?";
 "RevokeAccessToken.Button.Confirm.COPY" = "Confirm";
 "RevokeAccessToken.Button.Cancel.COPY" = "Cancel";
-"RevokeAccessToken.Error.COPY" = "Cannot remove access token";
+"RevokeAccessToken.Error.COPY" = "Cannot remove access";
 "Institution.Title.COPY" = "Connected institution";
 "Institution.Info.COPY" = "This institution was connected to your eduID account on %1$@ at %2$@:%3$@";
 "Institution.Name.COPY" = "Institution name";
@@ -340,16 +340,16 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Institution.Back.COPY" = "/institutions";
 "Institution.DeleteInstitution.COPY" = "Delete institution";
 "Institution.DeleteInstitutionConfirmation.COPY" = "Are you sure you want to delete the connection with this institution?<br/><br/>Some services require that you your eduID is connected to an institution. You might be prompted to connect an institution if you access one of those services.";
-"Credential.Title.COPY" = "Edit security key";
-"Credential.Info.COPY" = "You added this security key on %1$@ at %2$@:%3$@";
-"Credential.Name.COPY" = "Security key name";
+"Credential.Title.COPY" = "Edit passkey";
+"Credential.Info.COPY" = "You added this passkey on %1$@ at %2$@:%3$@";
+"Credential.Name.COPY" = "Passkey name";
 "Credential.Cancel.COPY" = "Cancel";
 "Credential.Update.COPY" = "Update";
-"Credential.Deleted.COPY" = "Your security key %1$@ has been deleted";
-"Credential.Updated.COPY" = "Your security key %1$@ has been updated";
+"Credential.Deleted.COPY" = "Your passkey %1$@ has been deleted";
+"Credential.Updated.COPY" = "Your passkey %1$@ has been updated";
 "Credential.Back.COPY" = "/weauthn";
-"Credential.DeleteCredential.COPY" = "Delete security key";
-"Credential.DeleteCredentialConfirmation.COPY" = "Are you sure you want to delete your security key %1$@? The secuirity key will be deleted from your eduID account, but will not be removed from your browser and / or Yubikey device.";
+"Credential.DeleteCredential.COPY" = "Delete passkey";
+"Credential.DeleteCredentialConfirmation.COPY" = "Are you sure you want to delete your passkey %1$@? The passkey will be deleted from your eduID account, but will not be removed from your browser and / or Yubikey device.";
 "Password.AddTitle.COPY" = "Add password";
 "Password.UpdateTitle.COPY" = "Change password";
 "Password.AddInfo.COPY" = "If you want to add a password to your eduID account, press <strong>Confirm</strong> below to instantly receive an email with a link to add a password.";
@@ -376,21 +376,22 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Password.OutstandingEmailReset.COPY" = "Outstanding email change request";
 "Password.OutstandingEmailResetConfirmation.COPY" = "You have an outstanding new email confirmation link. This link will no longer be valid if you confirm your password forgotten request.";
 "Password.Flash.PasswordLink.COPY" = "An email has been sent to %1$@ with a link to reset your password";
-"Webauthn.SetTitle.COPY" = "Add security key";
-"Webauthn.UpdateTitle.COPY" = "Add security key";
+"Webauthn.SetTitle.COPY" = "Add passkey";
+"Webauthn.UpdateTitle.COPY" = "Add passkey";
 "Webauthn.PublicKeys.COPY" = "Your public tokens";
-"Webauthn.NoPublicKeys.COPY" = "You have not added any security keys. ";
-"Webauthn.NameRequired.COPY" = "Before you can add a new security key you must give it a name.";
+"Webauthn.NoPublicKeys.COPY" = "You have not added any passkey. ";
+"Webauthn.NameRequired.COPY" = "Before you can add a new passkey you must give it a name.";
 "Webauthn.Revoke.COPY" = "Revoke";
 "Webauthn.AddDevice.COPY" = "Add device";
 "Webauthn.Info.COPY" = "You can choose to use a Bluetooth security key, USB security key or the security key built into your device.";
 "Webauthn.Back.COPY" = "/security";
 "Webauthn.SetUpdate.COPY" = "Start";
-"Webauthn.UpdateUpdate.COPY" = "Add device";
-"Webauthn.CredentialName.COPY" = "Security key";
+"Webauthn.UpdateUpdate.COPY" = "Add passkey";
+"Webauthn.CredentialName.COPY" = "Passkey name";
 "Webauthn.CredentialNamePlaceholder.COPY" = "e.g. my red Yubikey";
 "Webauthn.Test.COPY" = "Test";
-"Webauthn.TestInfo.COPY" = "Click the <strong>test</strong> button to test one of your security keys. You will be redirected to the eduID login screen.";
+"Webauthn.TestInfo.COPY" = "Click the <strong>test</strong> button to test one of your passkeys.
+ You will be redirected to the eduID login screen.";
 "Webauthn.TestFlash.COPY" = "You successfully tested your security key to authenticate.";
 "RememberMe.Yes.COPY" = "Yes";
 "RememberMe.No.COPY" = "No";
@@ -519,7 +520,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Login.Header2.COPY" = "Request your eduID";
 "Login.Trust.COPY" = "Trust this computer";
 "Login.LoginOptions.COPY" = "Other sign-in options";
-"Login.LoginOptionsToolTip.COPY" = "We offer 3 ways to sign-in:</br><ol><li>You can receive a magic link sent to your email address.</li><li>You can use a password. You must first set this up in My eduID.</li><li>You can use a security key. You must first set this up in My eduID.</li></ol>";
+"Login.LoginOptionsToolTip.COPY" = "We offer 3 ways to sign-in:</br><ol><li>You can receive a magic link sent to your email address.</li><li>You can use a password. You must first set this up in My eduID.</li><li>You can use a passkey. You must first set this up in My eduID.</li></ol>";
 "Login.Email.COPY" = "Your email address";
 "Login.EmailPlaceholder.COPY" = "e.g. user@gmail.com";
 "Login.PasswordPlaceholder.COPY" = "Password";
@@ -528,7 +529,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Login.FamilyNamePlaceholder.COPY" = "e.g. Berners-Lee";
 "Login.GivenNamePlaceholder.COPY" = "e.g. Tim";
 "Login.SendMagicLink.COPY" = "Email a magic link";
-"Login.LoginWebAuthn.COPY" = "Login with security key";
+"Login.LoginWebAuthn.COPY" = "Login with passkey";
 "Login.UsePassword.COPY" = "type a password.";
 "Login.UsePasswordNoWebAuthn.COPY" = "Type a password.";
 "Login.UseMagicLink.COPY" = "Email a magic link";
@@ -562,7 +563,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Login.PasswordDisclaimer.COPY" = "Make sure it's at least 15 characters long OR at least 8 characters when including a number and an UpperCase letter.";
 "Login.AlreadyGuestAccount.COPY" = "Already have an eduID?";
 "Login.UsePasswordLink.COPY" = "Type a password anyway";
-"Login.UseWebAuthnLink.COPY" = "Or use a security key";
+"Login.UseWebAuthnLink.COPY" = "Or use a passkey";
 "Login.AgreeWithTerms.COPY" = "<span>I agree with <a tabindex='-1' href='https://eduid.nl/terms-of-use/' target='_blank'>the terms of service.</a> I also understand <a tabindex='-1' href='https://eduid.nl/privacy_policy/' target='_blank'>the privacy policy</a>.</span>";
 "Login.Next.COPY" = "Next";
 "Login.UseOtherAccount.COPY" = "Use another account";
@@ -576,7 +577,7 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "Options.Learn.COPY" = "Learn how to";
 "Options.LearnLink.COPY" = "recover your acccount";
 "Options.UseApp.COPY" = "Use the <strong>eduID app</strong> to sign in with your mobile device.";
-"Options.UseWebAuthn.COPY" = "Use your <strong>security key</strong>.";
+"Options.UseWebAuthn.COPY" = "Use your <strong>passkey</strong>.";
 "Options.UseLink.COPY" = "Get a <strong>magic link</strong> sent to your inbox.";
 "Options.UsePassword.COPY" = "Use <strong>a password</strong>.";
 "MagicLink.OpenMailTitle.COPY" = "Open the mail app";
@@ -618,10 +619,10 @@ Would you like to deactivate existing enrollment to enroll on this device?
 "WebAuthn.Info.COPY" = "Add security key";
 "WebAuthn.BrowserPrompt.COPY" = "Click the button below to add a security key to your eduID account. Please follow the instructions given by your browser.";
 "WebAuthn.Start.COPY" = "Start";
-"WebAuthn.Header.COPY" = "Sign in with a security key";
+"WebAuthn.Header.COPY" = "Sign in with a passkey";
 "WebAuthn.Explanation.COPY" = "Your device will open a security window. Follow the instructions there to sign in.";
-"WebAuthn.Next.COPY" = "Log in with a security key";
-"WebAuthn.Error.COPY" = "Currently you can not use your security key to login.";
+"WebAuthn.Next.COPY" = "Log in with a passkey";
+"WebAuthn.Error.COPY" = "Currently you can not use your passkey to login.";
 "UseLink.Header.COPY" = "Request a magic link";
 "UseLink.Next.COPY" = "Email a magic link";
 "UsePassword.Header.COPY" = "Enter your password";
