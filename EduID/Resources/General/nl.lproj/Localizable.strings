@@ -813,7 +813,7 @@ We sturen je een code om je nummer te verifiëren.
 "VerifyIdentity.VerifyWithBankingApp.Title.COPY" = "Verifieer met een Nederlandse bank app";
 "VerifyIdentity.VerifyWithBankingApp.Button.COPY" = "Selecteer je bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verifieer met een Europees ID";
-"VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Use a European ID";
+"VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Selecteer een Europees ID";
 "VerifyIdentity.OtherOptions.COPY" = "Meer opties…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "Kun je deze opties niet gebruiken, bezoek dan onze support pagina's";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pagina's";

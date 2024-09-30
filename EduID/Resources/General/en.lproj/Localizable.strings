@@ -813,7 +813,7 @@ We will text you a code to verify your number.
 "VerifyIdentity.VerifyWithBankingApp.Title.COPY" = "Verify with a Dutch banking app";
 "VerifyIdentity.VerifyWithBankingApp.Button.COPY" = "Select your bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verify with a European ID";
-"VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Selecteer een Europees ID";
+"VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Use a European ID";
 "VerifyIdentity.OtherOptions.COPY" = "Other options…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "If you can’t use any of these methods, please visit our support pages";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pages";
