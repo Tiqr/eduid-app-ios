@@ -15,6 +15,10 @@ struct AuthConfig : Decodable {
     let tokenEndpointUri: String
 }
 
+public enum FeatureFlag {
+    case identityVerification
+}
+
 struct Environment {
     let baseUrl: String
     let authConfigFilename: String
@@ -57,6 +61,8 @@ class EnvironmentService {
     
     let environments: [Environment] = [.production, .acceptance, .test, .test2]
     
+
+    
     var currentEnvironment: Environment
     
     private static var lastEnvironmentKey = "lastEnvironment"
@@ -79,6 +85,14 @@ class EnvironmentService {
         currentEnvironment = environment
         AppAuthController.shared.loadAuthConfig(environment.getAuthConfig())
         OpenAPIClientAPI.basePath = environment.baseUrl
+    }
+    
+    public func setFeatureFlagEnabled(_ flag: FeatureFlag, enabled: Bool) {
+        UserDefaults.standard.setValue(enabled, forKey: "featureflag-\(String(describing: flag))")
+    }
+    
+    public func isFeatureFlagEnabled(_ flag: FeatureFlag) -> Bool {
+        return UserDefaults.standard.bool(forKey: "featureflag-\(String(describing: flag))")
     }
     
 }

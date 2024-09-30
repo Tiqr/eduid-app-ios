@@ -123,6 +123,15 @@ SHARED:
       COPY:
         en: Click on one of the environments to use it in the app for communicating
         nl: Klik op een van de omgevingen om die te gebruiken voor de communicatie
+  FeatureFlags:
+    Title:
+      COPY:
+        en: Feature flags
+        nl: Feature flags
+    IdentityVerification:
+      COPY:
+        en: Identity verification
+        nl: Identiteits verification
   PromptForOAuth:
     Title:
       COPY:

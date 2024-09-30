@@ -9,6 +9,8 @@
 "EnvironmentSwitcher.Button.COPY" = "Environment";
 "EnvironmentSwitcher.Title.COPY" = "Switch environment";
 "EnvironmentSwitcher.Subtitle.COPY" = "Click on one of the environments to use it in the app for communicating";
+"FeatureFlags.Title.COPY" = "Feature flags";
+"FeatureFlags.IdentityVerification.COPY" = "Identity verification";
 "PromptForOAuth.Title.COPY" = "Please log in";
 "PromptForOAuth.Description.COPY" = "To retrieve the information you must be logged in.";
 "HomeView.MainText.FirstPart.COPY" = "Your eduID app";

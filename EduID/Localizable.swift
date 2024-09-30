@@ -186,6 +186,24 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct FeatureFlags {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "FeatureFlags.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "FeatureFlags.Title.COPY",
+            translationArgs: []
+        )
+        public static let IdentityVerification = LocaliciousData(
+            accessibilityIdentifier: "FeatureFlags.IdentityVerification",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "FeatureFlags.IdentityVerification.COPY",
+            translationArgs: []
+        )
+    }
     public struct PromptForOAuth {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "PromptForOAuth.Title",
