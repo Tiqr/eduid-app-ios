@@ -19,6 +19,9 @@
 		4F1AFD012C5BBC77002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFD002C5BBC77002A8D95 /* Tiqr */; };
 		4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */; };
 		4F4355712B596DFF000384B4 /* DeleteTokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */; };
+		4F4A3D632CAAAC780007FCE6 /* VerifyIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */; };
+		4F4A3D652CAAD1510007FCE6 /* VerifyIdentityControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3D642CAAD14C0007FCE6 /* VerifyIdentityControl.swift */; };
+		4F4A3D982CAAEC2B0007FCE6 /* SelectYourBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3D972CAAEC270007FCE6 /* SelectYourBankViewController.swift */; };
 		4F5DC7232A4EBCE2007D6497 /* auth_config_acceptance.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */; };
 		4F5DC7242A4EBCE2007D6497 /* auth_config_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */; };
 		4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7212A4EBCE2007D6497 /* auth_config.json */; };
@@ -309,6 +312,9 @@
 		4F1AFCE62C5BA689002A8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewController.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewModel.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewModel.swift; sourceTree = SOURCE_ROOT; };
+		4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityViewController.swift; sourceTree = "<group>"; };
+		4F4A3D642CAAD14C0007FCE6 /* VerifyIdentityControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityControl.swift; sourceTree = "<group>"; };
+		4F4A3D972CAAEC270007FCE6 /* SelectYourBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYourBankViewController.swift; sourceTree = "<group>"; };
 		4F5DC71F2A4EBCE2007D6497 /* auth_config_acceptance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_acceptance.json; sourceTree = "<group>"; };
 		4F5DC7202A4EBCE2007D6497 /* auth_config_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test.json; sourceTree = "<group>"; };
 		4F5DC7212A4EBCE2007D6497 /* auth_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config.json; sourceTree = "<group>"; };
@@ -703,6 +709,24 @@
 				4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */,
 			);
 			path = DeleteTokens;
+			sourceTree = "<group>";
+		};
+		4F4A3D612CAAAC680007FCE6 /* VerifyIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				4F4A3D962CAAEC1E0007FCE6 /* SelectYourBank */,
+				4F4A3D642CAAD14C0007FCE6 /* VerifyIdentityControl.swift */,
+				4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */,
+			);
+			path = VerifyIdentity;
+			sourceTree = "<group>";
+		};
+		4F4A3D962CAAEC1E0007FCE6 /* SelectYourBank */ = {
+			isa = PBXGroup;
+			children = (
+				4F4A3D972CAAEC270007FCE6 /* SelectYourBankViewController.swift */,
+			);
+			path = SelectYourBank;
 			sourceTree = "<group>";
 		};
 		4F5DC71E2A4EBCB2007D6497 /* AuthConfigs */ = {
@@ -1116,6 +1140,7 @@
 				4F83FB0C2A4DB4F200C2930E /* EnvironmentSwitcher */,
 				7364BAC82A389AD6003FB978 /* VerifyAuthentication */,
 				73DD92302A334FCC0065956E /* VerifyPinCode */,
+				4F4A3D612CAAAC680007FCE6 /* VerifyIdentity */,
 				4FF567592A31D32E00616341 /* Home */,
 				4FF5675D2A31D32E00616341 /* PersonalInfo */,
 				4FF567642A31D32E00616341 /* Security */,
@@ -1682,6 +1707,7 @@
 				4FF567D52A31D32E00616341 /* BiometricAccessApprovalViewController.swift in Sources */,
 				4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */,
 				4FB51EF42AF3EA5600069B13 /* OneTimeCodeViewController.swift in Sources */,
+				4F4A3D632CAAAC780007FCE6 /* VerifyIdentityViewController.swift in Sources */,
 				4FFA8A872A3AF20A00F8F033 /* ConfirmDeleteViewModel.swift in Sources */,
 				4FF567BA2A31D32E00616341 /* ConfirmViewControllerDelegate.swift in Sources */,
 				4F909EAC2A31CDDC00FC1506 /* Notification.Name.swift in Sources */,
@@ -1695,6 +1721,7 @@
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
 				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
 				4FF567A32A31D32E00616341 /* PersonalInfoViewController.swift in Sources */,
+				4F4A3D652CAAD1510007FCE6 /* VerifyIdentityControl.swift in Sources */,
 				4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */,
 				4FF567A62A31D32E00616341 /* PersonalInfoCoordinator.swift in Sources */,
 				4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */,
@@ -1703,6 +1730,7 @@
 				4FF567CE2A31D32E00616341 /* CreateEduIDExplanationViewController.swift in Sources */,
 				4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */,
 				4FF567A42A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift in Sources */,
+				4F4A3D982CAAEC2B0007FCE6 /* SelectYourBankViewController.swift in Sources */,
 				4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */,
 				73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */,
 				4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */,

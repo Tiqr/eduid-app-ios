@@ -10,6 +10,8 @@ import UIKit
 
 class EnvironmentSwitcherController: UIViewController {
     
+    private var idSwitch: UISwitch!
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -68,13 +70,37 @@ class EnvironmentSwitcherController: UIViewController {
             button.tag = index
             button.addTarget(self, action: #selector(environmentButtonClicked), for: .touchUpInside)
         }
+        // Feature flags
+        let featureFlagsTitle = UILabel.posterTextLabelBicolor(text: L.FeatureFlags.Title.localization, primary: "")
+        stack.addArrangedSubview(featureFlagsTitle)
+        // Identity verification
+        idSwitch = UISwitch()
+        idSwitch.isOn = EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.identityVerification)
+        let idLabel = UILabel.plainTextLabelPartlyBold(text: L.FeatureFlags.IdentityVerification.localization)
+        let switchStack = UIStackView(arrangedSubviews: [idLabel, idSwitch])
+        switchStack.axis = .horizontal
+        switchStack.alignment = .center
+        let switchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleIdSwitch))
+        switchStack.addGestureRecognizer(switchStackGesture)
+        stack.addArrangedSubview(switchStack)
+        stack.setCustomSpacing(0, after: featureFlagsTitle)
+        stack.setCustomSpacing(0, after: title)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
         view.addGestureRecognizer(gesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.identityVerification, enabled: idSwitch.isOn)
     }
     
     @objc
     func dismissPopup() {
         self.dismiss(animated: true)
+    }
+    
+    @objc
+    func toggleIdSwitch() {
+        self.idSwitch.isOn = !self.idSwitch.isOn
     }
     
     @objc

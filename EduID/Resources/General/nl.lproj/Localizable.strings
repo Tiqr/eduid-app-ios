@@ -9,6 +9,8 @@
 "EnvironmentSwitcher.Button.COPY" = "Omgeving";
 "EnvironmentSwitcher.Title.COPY" = "Wisselen van omgeving";
 "EnvironmentSwitcher.Subtitle.COPY" = "Klik op een van de omgevingen om die te gebruiken voor de communicatie";
+"FeatureFlags.Title.COPY" = "Feature flags";
+"FeatureFlags.IdentityVerification.COPY" = "Identiteits verification";
 "PromptForOAuth.Title.COPY" = "Inloggen";
 "PromptForOAuth.Description.COPY" = "Om informatie op te halen moet je ingelogd zijn.";
 "HomeView.MainText.FirstPart.COPY" = "Jouw eduID app";
@@ -803,3 +805,16 @@ We sturen je een code om je nummer te verifiëren.
 "ResponseErrors.Auth.Failed.Description.COPY" = "Er zijn geen autorisatiegegevens opgeslaan - herautorisatie is nodig.";
 "ResponseErrors.Auth.Failed.TokenFailedDescription.Generic.COPY" = "Autorisatiecode-uitwisseling mislukt";
 "ResponseErrors.Auth.Failed.TokenFailedDescription.WithException.COPY" = "Autorisatiecode-uitwisseling mislukt: %1$@.";
+"VerifyIdentity.Title.FirstLine.COPY" = "Verifieer jouw identiteit";
+"VerifyIdentity.Title.SecondLine.COPY" = "Snel en eenvoudig";
+"VerifyIdentity.Subtitle.COPY" = "Verifieer dat je bent wie je zegt dat je bent.";
+"VerifyIdentity.VerifyViaDutchInstitution.Title.COPY" = "Verifieer via een Nederlandse onderwijsinstelling";
+"VerifyIdentity.VerifyViaDutchInstitution.Button.COPY" = "Selecteer je instelling";
+"VerifyIdentity.VerifyWithBankingApp.Title.COPY" = "Verifieer met een Nederlandse bank app";
+"VerifyIdentity.VerifyWithBankingApp.Button.COPY" = "Selecteer je bank";
+"VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verifieer met een Europees ID";
+"VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Selecteer een Europees ID";
+"VerifyIdentity.OtherOptions.COPY" = "Meer opties…";
+"VerifyIdentity.VisitSupport.Full.COPY" = "Kun je deze opties niet gebruiken, bezoek dan onze support pagina's";
+"VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pagina's";
+"VerifyIdentity.VisitSupport.Link.COPY" = "https://eduid.nl/help/";

@@ -53,4 +53,23 @@ extension UILabel {
         label.sizeToFit()
         return label
     }
+    
+    static func subtitleLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        paragraphStyle.lineSpacing = 6
+        let attributedString = NSMutableAttributedString(
+            string: text,
+            attributes: [
+                .font: UIFont.sourceSansProRegular(size: 16),
+                .foregroundColor: UIColor.charcoalColor,
+                .paragraphStyle: paragraphStyle
+            ])
+        label.attributedText = attributedString
+        label.sizeToFit()
+        return label
+    }
 }
