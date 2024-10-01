@@ -25,8 +25,10 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
     public var preferred: Bool?
     public var createdAt: Int64?
     public var expiresAt: Int64?
+    public var external: Bool?
+    public var institutionGuid: String?
 
-    public init(institutionIdentifier: String? = nil, schacHomeOrganization: String? = nil, displayNameEn: String? = nil, displayNameNl: String? = nil, logoUrl: String? = nil, eduPersonPrincipalName: String? = nil, subjectId: String? = nil, givenName: String? = nil, familyName: String? = nil, eduPersonAffiliations: [String]? = nil, preferred: Bool? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil) {
+    public init(institutionIdentifier: String? = nil, schacHomeOrganization: String? = nil, displayNameEn: String? = nil, displayNameNl: String? = nil, logoUrl: String? = nil, eduPersonPrincipalName: String? = nil, subjectId: String? = nil, givenName: String? = nil, familyName: String? = nil, eduPersonAffiliations: [String]? = nil, preferred: Bool? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil, external: Bool? = nil, institutionGuid: String? = nil) {
         self.institutionIdentifier = institutionIdentifier
         self.schacHomeOrganization = schacHomeOrganization
         self.displayNameEn = displayNameEn
@@ -40,6 +42,8 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
         self.preferred = preferred
         self.createdAt = createdAt
         self.expiresAt = expiresAt
+        self.external = external
+        self.institutionGuid = institutionGuid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -56,6 +60,8 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
         case preferred
         case createdAt
         case expiresAt
+        case external
+        case institutionGuid
     }
 
     // Encodable protocol methods
@@ -75,6 +81,8 @@ public struct LinkedAccount: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(preferred, forKey: .preferred)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(expiresAt, forKey: .expiresAt)
+        try container.encodeIfPresent(external, forKey: .external)
+        try container.encodeIfPresent(institutionGuid, forKey: .institutionGuid)
     }
 }
 

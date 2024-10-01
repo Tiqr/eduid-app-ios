@@ -12,34 +12,37 @@ import AnyCodable
 
 public struct EduID: Codable, JSONEncodable, Hashable {
 
-    public var serviceProviderEntityId: String?
     public var value: String?
+    public var serviceProviderEntityId: String?
     public var serviceName: String?
     public var serviceNameNl: String?
     public var serviceLogoUrl: String?
     public var serviceHomeUrl: String?
     public var serviceInstutionGuid: String?
+    public var services: [ServiceProvider]?
     public var createdAt: Int64?
 
-    public init(serviceProviderEntityId: String? = nil, value: String? = nil, serviceName: String? = nil, serviceNameNl: String? = nil, serviceLogoUrl: String? = nil, serviceHomeUrl: String? = nil, serviceInstutionGuid: String? = nil, createdAt: Int64? = nil) {
-        self.serviceProviderEntityId = serviceProviderEntityId
+    public init(value: String? = nil, serviceProviderEntityId: String? = nil, serviceName: String? = nil, serviceNameNl: String? = nil, serviceLogoUrl: String? = nil, serviceHomeUrl: String? = nil, serviceInstutionGuid: String? = nil, services: [ServiceProvider]? = nil, createdAt: Int64? = nil) {
         self.value = value
+        self.serviceProviderEntityId = serviceProviderEntityId
         self.serviceName = serviceName
         self.serviceNameNl = serviceNameNl
         self.serviceLogoUrl = serviceLogoUrl
         self.serviceHomeUrl = serviceHomeUrl
         self.serviceInstutionGuid = serviceInstutionGuid
+        self.services = services
         self.createdAt = createdAt
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case serviceProviderEntityId
         case value
+        case serviceProviderEntityId
         case serviceName
         case serviceNameNl
         case serviceLogoUrl
         case serviceHomeUrl
         case serviceInstutionGuid
+        case services
         case createdAt
     }
 
@@ -47,13 +50,14 @@ public struct EduID: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(serviceProviderEntityId, forKey: .serviceProviderEntityId)
         try container.encodeIfPresent(value, forKey: .value)
+        try container.encodeIfPresent(serviceProviderEntityId, forKey: .serviceProviderEntityId)
         try container.encodeIfPresent(serviceName, forKey: .serviceName)
         try container.encodeIfPresent(serviceNameNl, forKey: .serviceNameNl)
         try container.encodeIfPresent(serviceLogoUrl, forKey: .serviceLogoUrl)
         try container.encodeIfPresent(serviceHomeUrl, forKey: .serviceHomeUrl)
         try container.encodeIfPresent(serviceInstutionGuid, forKey: .serviceInstutionGuid)
+        try container.encodeIfPresent(services, forKey: .services)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
     }
 }
