@@ -18,6 +18,63 @@
 		4F1AFCFC2C5BBAAD002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFCFB2C5BBAAD002A8D95 /* Tiqr */; };
 		4F1AFD012C5BBC77002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFD002C5BBC77002A8D95 /* Tiqr */; };
 		4F1F127E2CAD587F002DA23A /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F127D2CAD587B002DA23A /* String+NSRange.swift */; };
+		4F1F12812CAD5DEB002DA23A /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1F12802CAD5DEB002DA23A /* SVGKit */; };
+		4F1F12832CAD5DEB002DA23A /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1F12822CAD5DEB002DA23A /* SVGKitSwift */; };
+		4F1F12BF2CAD611F002DA23A /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B12CAD611F002DA23A /* APIHelper.swift */; };
+		4F1F12C02CAD611F002DA23A /* JSONDataEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B62CAD611F002DA23A /* JSONDataEncoding.swift */; };
+		4F1F12C12CAD611F002DA23A /* UpdateLinkedAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A92CAD611F002DA23A /* UpdateLinkedAccountRequest.swift */; };
+		4F1F12C22CAD611F002DA23A /* PhoneVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129D2CAD611F002DA23A /* PhoneVerification.swift */; };
+		4F1F12C32CAD611F002DA23A /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B72CAD611F002DA23A /* JSONEncodingHelper.swift */; };
+		4F1F12C42CAD611F002DA23A /* UpdateEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A72CAD611F002DA23A /* UpdateEmailRequest.swift */; };
+		4F1F12C52CAD611F002DA23A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B42CAD611F002DA23A /* Configuration.swift */; };
+		4F1F12C62CAD611F002DA23A /* StartEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A32CAD611F002DA23A /* StartEnrollment.swift */; };
+		4F1F12C72CAD611F002DA23A /* AuthorizationURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128A2CAD611F002DA23A /* AuthorizationURL.swift */; };
+		4F1F12C82CAD611F002DA23A /* URLSessionImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12BB2CAD611F002DA23A /* URLSessionImplementations.swift */; };
+		4F1F12C92CAD611F002DA23A /* TokenRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A62CAD611F002DA23A /* TokenRepresentation.swift */; };
+		4F1F12CA2CAD611F002DA23A /* DeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128D2CAD611F002DA23A /* DeleteService.swift */; };
+		4F1F12CB2CAD611F002DA23A /* InviteControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12852CAD611F002DA23A /* InviteControllerAPI.swift */; };
+		4F1F12CC2CAD611F002DA23A /* TiqrControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12872CAD611F002DA23A /* TiqrControllerAPI.swift */; };
+		4F1F12CD2CAD611F002DA23A /* NewExternalEduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129B2CAD611F002DA23A /* NewExternalEduID.swift */; };
+		4F1F12CE2CAD611F002DA23A /* PublicKeyCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129F2CAD611F002DA23A /* PublicKeyCredentials.swift */; };
+		4F1F12CF2CAD611F002DA23A /* AccountLinkerControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12842CAD611F002DA23A /* AccountLinkerControllerAPI.swift */; };
+		4F1F12D02CAD611F002DA23A /* EnrollmentVerificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12942CAD611F002DA23A /* EnrollmentVerificationKey.swift */; };
+		4F1F12D12CAD611F002DA23A /* StartAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A22CAD611F002DA23A /* StartAuthentication.swift */; };
+		4F1F12D22CAD611F002DA23A /* VerifyPhoneCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AF2CAD611F002DA23A /* VerifyPhoneCode.swift */; };
+		4F1F12D32CAD611F002DA23A /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A42CAD611F002DA23A /* StatusResponse.swift */; };
+		4F1F12D42CAD611F002DA23A /* EduIDInstitutionPseudonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12902CAD611F002DA23A /* EduIDInstitutionPseudonym.swift */; };
+		4F1F12D52CAD611F002DA23A /* FinishEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12962CAD611F002DA23A /* FinishEnrollment.swift */; };
+		4F1F12D62CAD611F002DA23A /* IdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12982CAD611F002DA23A /* IdentityProvider.swift */; };
+		4F1F12D72CAD611F002DA23A /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12BA2CAD611F002DA23A /* SynchronizedDictionary.swift */; };
+		4F1F12D82CAD611F002DA23A /* EduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128F2CAD611F002DA23A /* EduID.swift */; };
+		4F1F12D92CAD611F002DA23A /* PhoneCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129C2CAD611F002DA23A /* PhoneCode.swift */; };
+		4F1F12DA2CAD611F002DA23A /* RemoteCreationControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12862CAD611F002DA23A /* RemoteCreationControllerAPI.swift */; };
+		4F1F12DB2CAD611F002DA23A /* OpenISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B92CAD611F002DA23A /* OpenISO8601DateFormatter.swift */; };
+		4F1F12DC2CAD611F002DA23A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AC2CAD611F002DA23A /* User.swift */; };
+		4F1F12DD2CAD611F002DA23A /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A12CAD611F002DA23A /* ServiceProvider.swift */; };
+		4F1F12DE2CAD611F002DA23A /* VerifyIssuer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AE2CAD611F002DA23A /* VerifyIssuer.swift */; };
+		4F1F12DF2CAD611F002DA23A /* ManualResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129A2CAD611F002DA23A /* ManualResponse.swift */; };
+		4F1F12E02CAD611F002DA23A /* UpdateUserSecurityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AB2CAD611F002DA23A /* UpdateUserSecurityRequest.swift */; };
+		4F1F12E12CAD611F002DA23A /* EmailExistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12932CAD611F002DA23A /* EmailExistsResponse.swift */; };
+		4F1F12E22CAD611F002DA23A /* GeneratedBackupCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12972CAD611F002DA23A /* GeneratedBackupCode.swift */; };
+		4F1F12E32CAD611F002DA23A /* EduIDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12922CAD611F002DA23A /* EduIDValue.swift */; };
+		4F1F12E42CAD611F002DA23A /* UpdateExternalEduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A82CAD611F002DA23A /* UpdateExternalEduID.swift */; };
+		4F1F12E52CAD611F002DA23A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B82CAD611F002DA23A /* Models.swift */; };
+		4F1F12E62CAD611F002DA23A /* LinkedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12992CAD611F002DA23A /* LinkedAccount.swift */; };
+		4F1F12E72CAD611F002DA23A /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128B2CAD611F002DA23A /* CreateAccount.swift */; };
+		4F1F12E82CAD611F002DA23A /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AD2CAD611F002DA23A /* UserResponse.swift */; };
+		4F1F12E92CAD611F002DA23A /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B32CAD611F002DA23A /* CodableHelper.swift */; };
+		4F1F12EA2CAD611F002DA23A /* DeactivateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128C2CAD611F002DA23A /* DeactivateRequest.swift */; };
+		4F1F12EB2CAD611F002DA23A /* DeleteServiceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F128E2CAD611F002DA23A /* DeleteServiceTokens.swift */; };
+		4F1F12EC2CAD611F002DA23A /* PollAuthenticationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F129E2CAD611F002DA23A /* PollAuthenticationResult.swift */; };
+		4F1F12ED2CAD611F002DA23A /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B22CAD611F002DA23A /* APIs.swift */; };
+		4F1F12EE2CAD611F002DA23A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12B52CAD611F002DA23A /* Extensions.swift */; };
+		4F1F12EF2CAD611F002DA23A /* ExternalLinkedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12952CAD611F002DA23A /* ExternalLinkedAccount.swift */; };
+		4F1F12F02CAD611F002DA23A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12BC2CAD611F002DA23A /* Validation.swift */; };
+		4F1F12F12CAD611F002DA23A /* UserControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12882CAD611F002DA23A /* UserControllerAPI.swift */; };
+		4F1F12F22CAD611F002DA23A /* EduIDProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12912CAD611F002DA23A /* EduIDProvision.swift */; };
+		4F1F12F32CAD611F002DA23A /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A02CAD611F002DA23A /* Scope.swift */; };
+		4F1F12F42CAD611F002DA23A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12A52CAD611F002DA23A /* Token.swift */; };
+		4F1F12F52CAD611F002DA23A /* UpdateUserNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F12AA2CAD611F002DA23A /* UpdateUserNameRequest.swift */; };
 		4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */; };
 		4F4355712B596DFF000384B4 /* DeleteTokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */; };
 		4F4A3D632CAAAC780007FCE6 /* VerifyIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */; };
@@ -422,6 +479,61 @@
 		4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4F1AFCE62C5BA689002A8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F1F127D2CAD587B002DA23A /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
+		4F1F12842CAD611F002DA23A /* AccountLinkerControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkerControllerAPI.swift; sourceTree = "<group>"; };
+		4F1F12852CAD611F002DA23A /* InviteControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteControllerAPI.swift; sourceTree = "<group>"; };
+		4F1F12862CAD611F002DA23A /* RemoteCreationControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCreationControllerAPI.swift; sourceTree = "<group>"; };
+		4F1F12872CAD611F002DA23A /* TiqrControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiqrControllerAPI.swift; sourceTree = "<group>"; };
+		4F1F12882CAD611F002DA23A /* UserControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerAPI.swift; sourceTree = "<group>"; };
+		4F1F128A2CAD611F002DA23A /* AuthorizationURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationURL.swift; sourceTree = "<group>"; };
+		4F1F128B2CAD611F002DA23A /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		4F1F128C2CAD611F002DA23A /* DeactivateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeactivateRequest.swift; sourceTree = "<group>"; };
+		4F1F128D2CAD611F002DA23A /* DeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteService.swift; sourceTree = "<group>"; };
+		4F1F128E2CAD611F002DA23A /* DeleteServiceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceTokens.swift; sourceTree = "<group>"; };
+		4F1F128F2CAD611F002DA23A /* EduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduID.swift; sourceTree = "<group>"; };
+		4F1F12902CAD611F002DA23A /* EduIDInstitutionPseudonym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDInstitutionPseudonym.swift; sourceTree = "<group>"; };
+		4F1F12912CAD611F002DA23A /* EduIDProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDProvision.swift; sourceTree = "<group>"; };
+		4F1F12922CAD611F002DA23A /* EduIDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDValue.swift; sourceTree = "<group>"; };
+		4F1F12932CAD611F002DA23A /* EmailExistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailExistsResponse.swift; sourceTree = "<group>"; };
+		4F1F12942CAD611F002DA23A /* EnrollmentVerificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollmentVerificationKey.swift; sourceTree = "<group>"; };
+		4F1F12952CAD611F002DA23A /* ExternalLinkedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkedAccount.swift; sourceTree = "<group>"; };
+		4F1F12962CAD611F002DA23A /* FinishEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishEnrollment.swift; sourceTree = "<group>"; };
+		4F1F12972CAD611F002DA23A /* GeneratedBackupCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedBackupCode.swift; sourceTree = "<group>"; };
+		4F1F12982CAD611F002DA23A /* IdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityProvider.swift; sourceTree = "<group>"; };
+		4F1F12992CAD611F002DA23A /* LinkedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccount.swift; sourceTree = "<group>"; };
+		4F1F129A2CAD611F002DA23A /* ManualResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualResponse.swift; sourceTree = "<group>"; };
+		4F1F129B2CAD611F002DA23A /* NewExternalEduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExternalEduID.swift; sourceTree = "<group>"; };
+		4F1F129C2CAD611F002DA23A /* PhoneCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCode.swift; sourceTree = "<group>"; };
+		4F1F129D2CAD611F002DA23A /* PhoneVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerification.swift; sourceTree = "<group>"; };
+		4F1F129E2CAD611F002DA23A /* PollAuthenticationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAuthenticationResult.swift; sourceTree = "<group>"; };
+		4F1F129F2CAD611F002DA23A /* PublicKeyCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyCredentials.swift; sourceTree = "<group>"; };
+		4F1F12A02CAD611F002DA23A /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
+		4F1F12A12CAD611F002DA23A /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		4F1F12A22CAD611F002DA23A /* StartAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAuthentication.swift; sourceTree = "<group>"; };
+		4F1F12A32CAD611F002DA23A /* StartEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEnrollment.swift; sourceTree = "<group>"; };
+		4F1F12A42CAD611F002DA23A /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		4F1F12A52CAD611F002DA23A /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		4F1F12A62CAD611F002DA23A /* TokenRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepresentation.swift; sourceTree = "<group>"; };
+		4F1F12A72CAD611F002DA23A /* UpdateEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailRequest.swift; sourceTree = "<group>"; };
+		4F1F12A82CAD611F002DA23A /* UpdateExternalEduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateExternalEduID.swift; sourceTree = "<group>"; };
+		4F1F12A92CAD611F002DA23A /* UpdateLinkedAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLinkedAccountRequest.swift; sourceTree = "<group>"; };
+		4F1F12AA2CAD611F002DA23A /* UpdateUserNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameRequest.swift; sourceTree = "<group>"; };
+		4F1F12AB2CAD611F002DA23A /* UpdateUserSecurityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserSecurityRequest.swift; sourceTree = "<group>"; };
+		4F1F12AC2CAD611F002DA23A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4F1F12AD2CAD611F002DA23A /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		4F1F12AE2CAD611F002DA23A /* VerifyIssuer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIssuer.swift; sourceTree = "<group>"; };
+		4F1F12AF2CAD611F002DA23A /* VerifyPhoneCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneCode.swift; sourceTree = "<group>"; };
+		4F1F12B12CAD611F002DA23A /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		4F1F12B22CAD611F002DA23A /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		4F1F12B32CAD611F002DA23A /* CodableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		4F1F12B42CAD611F002DA23A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F1F12B52CAD611F002DA23A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4F1F12B62CAD611F002DA23A /* JSONDataEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataEncoding.swift; sourceTree = "<group>"; };
+		4F1F12B72CAD611F002DA23A /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
+		4F1F12B82CAD611F002DA23A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4F1F12B92CAD611F002DA23A /* OpenISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenISO8601DateFormatter.swift; sourceTree = "<group>"; };
+		4F1F12BA2CAD611F002DA23A /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
+		4F1F12BB2CAD611F002DA23A /* URLSessionImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionImplementations.swift; sourceTree = "<group>"; };
+		4F1F12BC2CAD611F002DA23A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewController.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewModel.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewModel.swift; sourceTree = SOURCE_ROOT; };
 		4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityViewController.swift; sourceTree = "<group>"; };
@@ -824,6 +936,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1F12832CAD5DEB002DA23A /* SVGKitSwift in Frameworks */,
 				4F909F882A31D21500FC1506 /* SDWebImage in Frameworks */,
 				4F909F852A31D1F400FC1506 /* AppAuth in Frameworks */,
 				4F1AFD012C5BBC77002A8D95 /* Tiqr in Frameworks */,
@@ -833,6 +946,7 @@
 				4F1AFCFC2C5BBAAD002A8D95 /* Tiqr in Frameworks */,
 				4F1AFCF72C5BB7DB002A8D95 /* Tiqr in Frameworks */,
 				4FF567E12A31D50000616341 /* AnyCodable in Frameworks */,
+				4F1F12812CAD5DEB002DA23A /* SVGKit in Frameworks */,
 				4FF567DB2A31D3FA00616341 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,6 +1036,92 @@
 				4F1AFCE62C5BA689002A8D95 /* Info.plist */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		4F1F12892CAD611F002DA23A /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				4F1F12842CAD611F002DA23A /* AccountLinkerControllerAPI.swift */,
+				4F1F12852CAD611F002DA23A /* InviteControllerAPI.swift */,
+				4F1F12862CAD611F002DA23A /* RemoteCreationControllerAPI.swift */,
+				4F1F12872CAD611F002DA23A /* TiqrControllerAPI.swift */,
+				4F1F12882CAD611F002DA23A /* UserControllerAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		4F1F12B02CAD611F002DA23A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F1F128A2CAD611F002DA23A /* AuthorizationURL.swift */,
+				4F1F128B2CAD611F002DA23A /* CreateAccount.swift */,
+				4F1F128C2CAD611F002DA23A /* DeactivateRequest.swift */,
+				4F1F128D2CAD611F002DA23A /* DeleteService.swift */,
+				4F1F128E2CAD611F002DA23A /* DeleteServiceTokens.swift */,
+				4F1F128F2CAD611F002DA23A /* EduID.swift */,
+				4F1F12902CAD611F002DA23A /* EduIDInstitutionPseudonym.swift */,
+				4F1F12912CAD611F002DA23A /* EduIDProvision.swift */,
+				4F1F12922CAD611F002DA23A /* EduIDValue.swift */,
+				4F1F12932CAD611F002DA23A /* EmailExistsResponse.swift */,
+				4F1F12942CAD611F002DA23A /* EnrollmentVerificationKey.swift */,
+				4F1F12952CAD611F002DA23A /* ExternalLinkedAccount.swift */,
+				4F1F12962CAD611F002DA23A /* FinishEnrollment.swift */,
+				4F1F12972CAD611F002DA23A /* GeneratedBackupCode.swift */,
+				4F1F12982CAD611F002DA23A /* IdentityProvider.swift */,
+				4F1F12992CAD611F002DA23A /* LinkedAccount.swift */,
+				4F1F129A2CAD611F002DA23A /* ManualResponse.swift */,
+				4F1F129B2CAD611F002DA23A /* NewExternalEduID.swift */,
+				4F1F129C2CAD611F002DA23A /* PhoneCode.swift */,
+				4F1F129D2CAD611F002DA23A /* PhoneVerification.swift */,
+				4F1F129E2CAD611F002DA23A /* PollAuthenticationResult.swift */,
+				4F1F129F2CAD611F002DA23A /* PublicKeyCredentials.swift */,
+				4F1F12A02CAD611F002DA23A /* Scope.swift */,
+				4F1F12A12CAD611F002DA23A /* ServiceProvider.swift */,
+				4F1F12A22CAD611F002DA23A /* StartAuthentication.swift */,
+				4F1F12A32CAD611F002DA23A /* StartEnrollment.swift */,
+				4F1F12A42CAD611F002DA23A /* StatusResponse.swift */,
+				4F1F12A52CAD611F002DA23A /* Token.swift */,
+				4F1F12A62CAD611F002DA23A /* TokenRepresentation.swift */,
+				4F1F12A72CAD611F002DA23A /* UpdateEmailRequest.swift */,
+				4F1F12A82CAD611F002DA23A /* UpdateExternalEduID.swift */,
+				4F1F12A92CAD611F002DA23A /* UpdateLinkedAccountRequest.swift */,
+				4F1F12AA2CAD611F002DA23A /* UpdateUserNameRequest.swift */,
+				4F1F12AB2CAD611F002DA23A /* UpdateUserSecurityRequest.swift */,
+				4F1F12AC2CAD611F002DA23A /* User.swift */,
+				4F1F12AD2CAD611F002DA23A /* UserResponse.swift */,
+				4F1F12AE2CAD611F002DA23A /* VerifyIssuer.swift */,
+				4F1F12AF2CAD611F002DA23A /* VerifyPhoneCode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F1F12BD2CAD611F002DA23A /* OpenAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				4F1F12892CAD611F002DA23A /* APIs */,
+				4F1F12B02CAD611F002DA23A /* Models */,
+				4F1F12B12CAD611F002DA23A /* APIHelper.swift */,
+				4F1F12B22CAD611F002DA23A /* APIs.swift */,
+				4F1F12B32CAD611F002DA23A /* CodableHelper.swift */,
+				4F1F12B42CAD611F002DA23A /* Configuration.swift */,
+				4F1F12B52CAD611F002DA23A /* Extensions.swift */,
+				4F1F12B62CAD611F002DA23A /* JSONDataEncoding.swift */,
+				4F1F12B72CAD611F002DA23A /* JSONEncodingHelper.swift */,
+				4F1F12B82CAD611F002DA23A /* Models.swift */,
+				4F1F12B92CAD611F002DA23A /* OpenISO8601DateFormatter.swift */,
+				4F1F12BA2CAD611F002DA23A /* SynchronizedDictionary.swift */,
+				4F1F12BB2CAD611F002DA23A /* URLSessionImplementations.swift */,
+				4F1F12BC2CAD611F002DA23A /* Validation.swift */,
+			);
+			path = OpenAPIs;
+			sourceTree = "<group>";
+		};
+		4F1F12BE2CAD611F002DA23A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4F1F12BD2CAD611F002DA23A /* OpenAPIs */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		4F43556D2B596DE5000384B4 /* DeleteTokens */ = {
@@ -1691,6 +1891,7 @@
 		4FF567E82A31D60300616341 /* OpenAPIClient */ = {
 			isa = PBXGroup;
 			children = (
+				4F1F12BE2CAD611F002DA23A /* Classes */,
 				4FB7FE232CAC23010063ABC3 /* Classes */,
 				4F8E507B2CAC11130018D05E /* Classes */,
 				4F909F1E2A31D07500FC1506 /* generate command.md */,
@@ -1804,6 +2005,8 @@
 				4F1AFCFB2C5BBAAD002A8D95 /* Tiqr */,
 				4F1AFD002C5BBC77002A8D95 /* Tiqr */,
 				4FB7DB572C5BCC46007CD6E7 /* Tiqr */,
+				4F1F12802CAD5DEB002DA23A /* SVGKit */,
+				4F1F12822CAD5DEB002DA23A /* SVGKitSwift */,
 			);
 			productName = EduID;
 			productReference = 0AFD9E012745579900D48C01 /* eduID.app */;
@@ -1922,6 +2125,7 @@
 				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4FF567DF2A31D50000616341 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				4FB7DB562C5BCC46007CD6E7 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
+				4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
 			projectDirPath = "";
@@ -2266,6 +2470,61 @@
 				4FB7FE282CAC23010063ABC3 /* OpenISO8601DateFormatter.swift in Sources */,
 				4FB7FE292CAC23010063ABC3 /* StatusResponse.swift in Sources */,
 				4FB7FE2A2CAC23010063ABC3 /* APIs.swift in Sources */,
+				4F1F12BF2CAD611F002DA23A /* APIHelper.swift in Sources */,
+				4F1F12C02CAD611F002DA23A /* JSONDataEncoding.swift in Sources */,
+				4F1F12C12CAD611F002DA23A /* UpdateLinkedAccountRequest.swift in Sources */,
+				4F1F12C22CAD611F002DA23A /* PhoneVerification.swift in Sources */,
+				4F1F12C32CAD611F002DA23A /* JSONEncodingHelper.swift in Sources */,
+				4F1F12C42CAD611F002DA23A /* UpdateEmailRequest.swift in Sources */,
+				4F1F12C52CAD611F002DA23A /* Configuration.swift in Sources */,
+				4F1F12C62CAD611F002DA23A /* StartEnrollment.swift in Sources */,
+				4F1F12C72CAD611F002DA23A /* AuthorizationURL.swift in Sources */,
+				4F1F12C82CAD611F002DA23A /* URLSessionImplementations.swift in Sources */,
+				4F1F12C92CAD611F002DA23A /* TokenRepresentation.swift in Sources */,
+				4F1F12CA2CAD611F002DA23A /* DeleteService.swift in Sources */,
+				4F1F12CB2CAD611F002DA23A /* InviteControllerAPI.swift in Sources */,
+				4F1F12CC2CAD611F002DA23A /* TiqrControllerAPI.swift in Sources */,
+				4F1F12CD2CAD611F002DA23A /* NewExternalEduID.swift in Sources */,
+				4F1F12CE2CAD611F002DA23A /* PublicKeyCredentials.swift in Sources */,
+				4F1F12CF2CAD611F002DA23A /* AccountLinkerControllerAPI.swift in Sources */,
+				4F1F12D02CAD611F002DA23A /* EnrollmentVerificationKey.swift in Sources */,
+				4F1F12D12CAD611F002DA23A /* StartAuthentication.swift in Sources */,
+				4F1F12D22CAD611F002DA23A /* VerifyPhoneCode.swift in Sources */,
+				4F1F12D32CAD611F002DA23A /* StatusResponse.swift in Sources */,
+				4F1F12D42CAD611F002DA23A /* EduIDInstitutionPseudonym.swift in Sources */,
+				4F1F12D52CAD611F002DA23A /* FinishEnrollment.swift in Sources */,
+				4F1F12D62CAD611F002DA23A /* IdentityProvider.swift in Sources */,
+				4F1F12D72CAD611F002DA23A /* SynchronizedDictionary.swift in Sources */,
+				4F1F12D82CAD611F002DA23A /* EduID.swift in Sources */,
+				4F1F12D92CAD611F002DA23A /* PhoneCode.swift in Sources */,
+				4F1F12DA2CAD611F002DA23A /* RemoteCreationControllerAPI.swift in Sources */,
+				4F1F12DB2CAD611F002DA23A /* OpenISO8601DateFormatter.swift in Sources */,
+				4F1F12DC2CAD611F002DA23A /* User.swift in Sources */,
+				4F1F12DD2CAD611F002DA23A /* ServiceProvider.swift in Sources */,
+				4F1F12DE2CAD611F002DA23A /* VerifyIssuer.swift in Sources */,
+				4F1F12DF2CAD611F002DA23A /* ManualResponse.swift in Sources */,
+				4F1F12E02CAD611F002DA23A /* UpdateUserSecurityRequest.swift in Sources */,
+				4F1F12E12CAD611F002DA23A /* EmailExistsResponse.swift in Sources */,
+				4F1F12E22CAD611F002DA23A /* GeneratedBackupCode.swift in Sources */,
+				4F1F12E32CAD611F002DA23A /* EduIDValue.swift in Sources */,
+				4F1F12E42CAD611F002DA23A /* UpdateExternalEduID.swift in Sources */,
+				4F1F12E52CAD611F002DA23A /* Models.swift in Sources */,
+				4F1F12E62CAD611F002DA23A /* LinkedAccount.swift in Sources */,
+				4F1F12E72CAD611F002DA23A /* CreateAccount.swift in Sources */,
+				4F1F12E82CAD611F002DA23A /* UserResponse.swift in Sources */,
+				4F1F12E92CAD611F002DA23A /* CodableHelper.swift in Sources */,
+				4F1F12EA2CAD611F002DA23A /* DeactivateRequest.swift in Sources */,
+				4F1F12EB2CAD611F002DA23A /* DeleteServiceTokens.swift in Sources */,
+				4F1F12EC2CAD611F002DA23A /* PollAuthenticationResult.swift in Sources */,
+				4F1F12ED2CAD611F002DA23A /* APIs.swift in Sources */,
+				4F1F12EE2CAD611F002DA23A /* Extensions.swift in Sources */,
+				4F1F12EF2CAD611F002DA23A /* ExternalLinkedAccount.swift in Sources */,
+				4F1F12F02CAD611F002DA23A /* Validation.swift in Sources */,
+				4F1F12F12CAD611F002DA23A /* UserControllerAPI.swift in Sources */,
+				4F1F12F22CAD611F002DA23A /* EduIDProvision.swift in Sources */,
+				4F1F12F32CAD611F002DA23A /* Scope.swift in Sources */,
+				4F1F12F42CAD611F002DA23A /* Token.swift in Sources */,
+				4F1F12F52CAD611F002DA23A /* UpdateUserNameRequest.swift in Sources */,
 				4FB7FE2B2CAC23010063ABC3 /* VerifyPhoneCode.swift in Sources */,
 				4FB7FE2C2CAC23010063ABC3 /* StartEnrollment.swift in Sources */,
 				4FB7FE2D2CAC23010063ABC3 /* UpdateEmailRequest.swift in Sources */,
@@ -3297,6 +3556,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.0;
+			};
+		};
 		4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
@@ -3359,6 +3626,16 @@
 		4F1AFD002C5BBC77002A8D95 /* Tiqr */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Tiqr;
+		};
+		4F1F12802CAD5DEB002DA23A /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		4F1F12822CAD5DEB002DA23A /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
 		};
 		4F909F842A31D1F400FC1506 /* AppAuth */ = {
 			isa = XCSwiftPackageProductDependency;

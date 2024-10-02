@@ -7,6 +7,8 @@
 import UIKit
 import TinyConstraints
 import OpenAPIClient
+import SVGKit
+
 
 class SelectBankOptionControl: UIControl {
     
@@ -22,8 +24,19 @@ class SelectBankOptionControl: UIControl {
         // icon on the left
         let iconView = UIImageView()
         iconView.contentMode = .scaleAspectFit
-        iconView.image = UIImage.bigPlus // TODO determine from issuer
-        iconView.size(CGSize(width: 48, height: 48))
+        if let svgString = issuer.logo,
+           let svgData = svgString.data(using: .utf8) {
+            // Initialize an SVGKImage from the data
+            if let svgImage = SVGKImage(data: svgData) {
+                // Use the Swift extension to get a UIImageView directly
+                iconView.image = svgImage.uiImage
+            } else {
+                NSLog("Failed to create SVGKImage from data for issuer: \(issuer.name ?? "")")
+            }
+        } else {
+            NSLog("Failed to convert SVG string to data for issuer: \(issuer.name ?? "")")
+        }
+        iconView.size(CGSize(width: 72, height: 72))
         
         // name on the right
         let nameLabel = UILabel()
@@ -42,7 +55,7 @@ class SelectBankOptionControl: UIControl {
         stack.spacing = 32
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
-        stack.edges(to: self, insets: .horizontal(20))
+        stack.edges(to: self, insets: .horizontal(8))
         stack.alignment = .center
         stack.height(72)
         

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **institutionGuid** | **String** |  | [optional] 
 **logoUrl** | **String** |  | [optional] 
 **homeUrl** | **String** |  | [optional] 
-**createdAt** | **Date** |  | [optional] 
+**createdAt** | **Int64** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
