@@ -22,13 +22,14 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://login.test.eduid.nl*
+All URIs are relative to *https://login.test2.eduid.nl*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountLinkerControllerAPI* | [**issuers**](docs/AccountLinkerControllerAPI.md#issuers) | **GET** /mobile/api/sp/idin/issuers | All verify issuers
 *AccountLinkerControllerAPI* | [**startSPLinkAccountFlow**](docs/AccountLinkerControllerAPI.md#startsplinkaccountflow) | **GET** /mobile/api/sp/oidc/link | Start link account flow
 *AccountLinkerControllerAPI* | [**startSPVerifyIDLinkAccountFlow**](docs/AccountLinkerControllerAPI.md#startspverifyidlinkaccountflow) | **GET** /mobile/api/sp/verify/link | Start verify ID flow for signicat from SP flow
+*InviteControllerAPI* | [**provisionEduid**](docs/InviteControllerAPI.md#provisioneduid) | **POST** /myconext/api/invite/provision-eduid | 
 *RemoteCreationControllerAPI* | [**createEduID**](docs/RemoteCreationControllerAPI.md#createeduid) | **POST** /api/remote-creation/eduid-create | Create an eduID
 *RemoteCreationControllerAPI* | [**eduIDForInstitution**](docs/RemoteCreationControllerAPI.md#eduidforinstitution) | **POST** /api/remote-creation/eduid-institution-pseudonym | Return a eduID pseudonym for an institution
 *RemoteCreationControllerAPI* | [**emailEduIDExists**](docs/RemoteCreationControllerAPI.md#emaileduidexists) | **GET** /api/remote-creation/email-eduid-exists | Does an eduID exists
@@ -80,6 +81,7 @@ Class | Method | HTTP request | Description
  - [DeleteServiceTokens](docs/DeleteServiceTokens.md)
  - [EduID](docs/EduID.md)
  - [EduIDInstitutionPseudonym](docs/EduIDInstitutionPseudonym.md)
+ - [EduIDProvision](docs/EduIDProvision.md)
  - [EduIDValue](docs/EduIDValue.md)
  - [EmailExistsResponse](docs/EmailExistsResponse.md)
  - [EnrollmentVerificationKey](docs/EnrollmentVerificationKey.md)

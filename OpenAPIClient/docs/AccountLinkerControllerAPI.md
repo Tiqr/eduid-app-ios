@@ -1,6 +1,6 @@
 # AccountLinkerControllerAPI
 
-All URIs are relative to *https://login.test.eduid.nl*
+All URIs are relative to *https://login.test2.eduid.nl*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

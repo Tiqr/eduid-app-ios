@@ -6,6 +6,7 @@ OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/AccountLinkerControllerAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/InviteControllerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/RemoteCreationControllerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/TiqrControllerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/UserControllerAPI.swift
@@ -22,6 +23,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/DeleteService.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteServiceTokens.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EduID.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EduIDInstitutionPseudonym.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EduIDProvision.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EduIDValue.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EmailExistsResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EnrollmentVerificationKey.swift
@@ -66,6 +68,7 @@ docs/DeleteService.md
 docs/DeleteServiceTokens.md
 docs/EduID.md
 docs/EduIDInstitutionPseudonym.md
+docs/EduIDProvision.md
 docs/EduIDValue.md
 docs/EmailExistsResponse.md
 docs/EnrollmentVerificationKey.md
@@ -73,6 +76,7 @@ docs/ExternalLinkedAccount.md
 docs/FinishEnrollment.md
 docs/GeneratedBackupCode.md
 docs/IdentityProvider.md
+docs/InviteControllerAPI.md
 docs/LinkedAccount.md
 docs/ManualResponse.md
 docs/NewExternalEduID.md

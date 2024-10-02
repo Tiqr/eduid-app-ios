@@ -79,9 +79,13 @@ class ActivityViewModel: NSObject {
     func removeLinkedAccount(linkedAccount: LinkedAccount) {
         Task {
             do {
-                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(linkedAccount: linkedAccount)
-                    .execute()
-                    .body
+                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(updateLinkedAccountRequest: UpdateLinkedAccountRequest(
+                    eduPersonPrincipalName: linkedAccount.eduPersonPrincipalName,
+                    subjectId: linkedAccount.subjectId,
+                    external: linkedAccount.external,
+                    idpScoping: nil
+                    )
+                ).execute().body
                 
                 if !(result.linkedAccounts?.contains(linkedAccount) ?? true) {
                     DispatchQueue.main.async { [weak self] in
