@@ -42,7 +42,8 @@ class SelectBankOptionControl: UIControl {
         stack.spacing = 32
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
-        stack.edges(to: self)
+        stack.edges(to: self, insets: .horizontal(20))
+        stack.alignment = .center
         stack.height(72)
         
         self.addTarget(self, action: #selector(onSelfTouchUpInside), for: .touchUpInside)

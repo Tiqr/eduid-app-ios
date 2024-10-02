@@ -54,7 +54,7 @@ extension UILabel {
         return label
     }
     
-    static func subtitleLabel(text: String) -> UILabel {
+    static func subtitleLabel(text: String, partBold: String? = nil) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -68,6 +68,13 @@ extension UILabel {
                 .foregroundColor: UIColor.charcoalColor,
                 .paragraphStyle: paragraphStyle
             ])
+        if let partBold {
+            attributedString.setAttributeTo(part: partBold, attributes: [
+                .font: UIFont.sourceSansProSemiBold(size: 16),
+                .foregroundColor: UIColor.charcoalColor,
+                .paragraphStyle: paragraphStyle]
+            )
+        }
         label.attributedText = attributedString
         label.sizeToFit()
         return label

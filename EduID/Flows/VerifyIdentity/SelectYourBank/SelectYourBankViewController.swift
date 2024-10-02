@@ -42,38 +42,111 @@ class SelectYourBankViewController: BaseViewController {
         scrollView.edgesToSuperview()
 
         // - Main title
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.SelectYourBank.Title.localization, size: 24, primary:  L.Profile.Title.localization)
+        let mainTitle = UILabel.posterTextLabelBicolor(
+            text: L.SelectYourBank.Title.localization,
+            size: 24,
+            primary: L.SelectYourBank.Title.localization
+        )
         
         // - Description below title
         let mainDescriptionParent = UIView()
-        let mainDescription = UILabel.plainTextLabelPartlyBold(text: L.SelectYourBank.Subtitle.Full.localization, partBold: L.SelectYourBank.Subtitle.HighlightedPart.localization)
+        let mainDescription = UILabel.subtitleLabel(
+            text: L.SelectYourBank.Subtitle.Full.localization,
+            partBold: L.SelectYourBank.Subtitle.HighlightedPart.localization
+        )
         mainDescriptionParent.addSubview(mainDescription)
         mainDescription.edges(to: mainDescriptionParent)
         
+        // Link to iDIN support
+        let supportLabel = UILabel()
+        supportLabel.attributedText = NSAttributedString(
+            string: L.SelectYourBank.MoreAboutIdin.localization,
+            attributes: [
+                .font: UIFont.sourceSansProRegular(size: 16),
+                .foregroundColor: UIColor.textColor,
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ]
+        )
+        supportLabel.isUserInteractionEnabled = true
+        supportLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openIdinLink)))
         
         // - create the stackview
-        let stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent])
+        let stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, supportLabel])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
         stack.alignment = .center
-        stack.spacing = 20
+        stack.spacing = 24
         scrollView.addSubview(stack)
         
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
         stack.width(to: scrollView, offset: 0)
+        stack.setCustomSpacing(4, after: mainDescriptionParent)
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
-
-        let loadingIndicator = UIActivityIndicatorView()
-        stack.addArrangedSubview(loadingIndicator)
-        loadingIndicator.height(80)
-        loadingIndicator.widthToSuperview()
-        loadingIndicator.startAnimating()
+        supportLabel.widthToSuperview(offset: -48)
+        
+        if let issuers {
+            for issuer in issuers {
+                let control = SelectBankOptionControl(issuer: issuer, clickDelegate: { [weak self] in
+                    // TODO
+                })
+                stack.addArrangedSubview(control)
+                control.widthToSuperview(offset: -48)
+            }
+            
+            // Add disclaimer
+            let disclaimerContainer = UIView()
+            let disclaimerLabel = UILabel()
+            let warningImage = UIImageView()
+            warningImage.image = .warning
+            warningImage.size(CGSize(width: 22.5, height: 21))
+            let disclaimerString = NSMutableAttributedString(
+                string: L.SelectYourBank.BankNotInList.Full.localization,
+                attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 16), color: .charcoalColor, lineSpacing: 6)
+            )
+            disclaimerString.setAttributes([
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .font: UIFont.sourceSansProRegular(size: 16),
+                .foregroundColor: UIColor.backgroundColor
+            ], range: disclaimerString.nsRange(of: L.SelectYourBank.BankNotInList.HighlightedPart.localization)!)
+            
+            disclaimerContainer.addSubview(disclaimerLabel)
+            disclaimerContainer.addSubview(warningImage)
+            warningImage.leftToSuperview(offset: 12)
+            warningImage.topToSuperview(offset: 18)
+            disclaimerLabel.attributedText = disclaimerString
+            disclaimerLabel.leftToRight(of: warningImage, offset: 12)
+            disclaimerLabel.rightToSuperview(offset: -12)
+            disclaimerLabel.verticalToSuperview(insets: .vertical(12))
+            disclaimerLabel.numberOfLines = 0
+            disclaimerContainer.backgroundColor = UIColor.yellowColor
+            stack.addArrangedSubview(disclaimerContainer)
+            disclaimerContainer.widthToSuperview(offset: -48)
+            disclaimerLabel.isUserInteractionEnabled = true
+            disclaimerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openAnotherMethod)))
+        } else {
+            let loadingIndicator = UIActivityIndicatorView()
+            stack.addArrangedSubview(loadingIndicator)
+            loadingIndicator.height(80)
+            loadingIndicator.widthToSuperview()
+            loadingIndicator.startAnimating()
+        }
     }
     
     @objc func dismissInfoScreen() {
+        delegate?.goBack(viewController: self)
+    }
+    
+    @objc func openIdinLink() {
+        if let url = URL(string: L.SelectYourBank.IdinkLink.localization),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc func openAnotherMethod() {
         delegate?.goBack(viewController: self)
     }
 }

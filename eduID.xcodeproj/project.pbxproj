@@ -17,6 +17,7 @@
 		4F1AFCF72C5BB7DB002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFCF62C5BB7DB002A8D95 /* Tiqr */; };
 		4F1AFCFC2C5BBAAD002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFCFB2C5BBAAD002A8D95 /* Tiqr */; };
 		4F1AFD012C5BBC77002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFD002C5BBC77002A8D95 /* Tiqr */; };
+		4F1F127E2CAD587F002DA23A /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F127D2CAD587B002DA23A /* String+NSRange.swift */; };
 		4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */; };
 		4F4355712B596DFF000384B4 /* DeleteTokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */; };
 		4F4A3D632CAAAC780007FCE6 /* VerifyIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */; };
@@ -420,6 +421,7 @@
 		4F1AFCE22C5BA689002A8D95 /* Notifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4F1AFCE62C5BA689002A8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F1F127D2CAD587B002DA23A /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 		4F43556E2B596DF2000384B4 /* DeleteTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewController.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F4355702B596DFF000384B4 /* DeleteTokensViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteTokensViewModel.swift; path = EduID/Flows/Activity/DeleteTokens/DeleteTokensViewModel.swift; sourceTree = SOURCE_ROOT; };
 		4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityViewController.swift; sourceTree = "<group>"; };
@@ -1057,6 +1059,7 @@
 		4F909E232A31CD7E00FC1506 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4F1F127D2CAD587B002DA23A /* String+NSRange.swift */,
 				4F909E242A31CD7E00FC1506 /* Result+Utils.swift */,
 				4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */,
 				4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */,
@@ -2026,6 +2029,7 @@
 				4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */,
 				4F909EB92A31CDDC00FC1506 /* AppAuthController.swift in Sources */,
 				4FF567C02A31D32E00616341 /* CreateEduIDEnterPhoneNumberViewModel.swift in Sources */,
+				4F1F127E2CAD587F002DA23A /* String+NSRange.swift in Sources */,
 				4FF567C92A31D32E00616341 /* CreateEduIDLandingPageViewController.swift in Sources */,
 				0AFD9E092745579900D48C01 /* ViewController.swift in Sources */,
 				4FF567B62A31D32E00616341 /* ScanViewModel.swift in Sources */,
