@@ -1,37 +1,35 @@
 //
-//  SelectYourBankViewModel.swift
+//  VerifyIdentityViewModel.swift
 //  eduID
 //
-//  Created by Dániel Zolnai on 01/10/2024.
+//  Created by Dániel Zolnai on 2024. 10. 02..
 //
-import OpenAPIClient
 import UIKit
+import OpenAPIClient
 
-class SelectYourBankViewModel: NSObject {
+class VerifyIdentityViewModel: NSObject {
     
-    var issuers: [VerifyIssuer]?
-    
-    var dataAvailableClosure: (([VerifyIssuer]) -> Void)?
     var dataFetchErrorClosure: ((String, String, Int) -> Void)?
     
-    func fetchIssuerList() {
+    func startLinkingInstitution(_ control: VerifyIdentityControl) {
+        control.isLoading = true
         Task {
             do {
-                issuers = try await AccountLinkerControllerAPI.issuers()
-                await processIssuersList()
+                let authUrl = try await AccountLinkerControllerAPI.startSPLinkAccountFlow().url
+                await openAuthUrl(URL(string: authUrl!)!, control: control)
             } catch {
                 await processError(with: error)
             }
         }
     }
     
-    func openIssuerLink(with issuer: VerifyIssuer, control: SelectBankOptionControl) {
+    func openEidasLink(_ control: VerifyIdentityControl) {
         control.isLoading = true
         Task {
             do {
                 let authUrl = try await AccountLinkerControllerAPI.startSPVerifyIDLinkAccountFlow(
-                    idpScoping: AccountLinkerControllerAPI.IdpScoping_startSPVerifyIDLinkAccountFlow.idin,
-                    bankId: issuer.id
+                    idpScoping: AccountLinkerControllerAPI.IdpScoping_startSPVerifyIDLinkAccountFlow.eherkenning,
+                    bankId: nil
                 ).url
                 await openAuthUrl(URL(string: authUrl!)!, control: control)
             } catch {
@@ -41,16 +39,9 @@ class SelectYourBankViewModel: NSObject {
     }
     
     @MainActor
-    func openAuthUrl(_ url: URL, control: SelectBankOptionControl) {
+    func openAuthUrl(_ url: URL, control: VerifyIdentityControl) {
         control.isLoading = false
         UIApplication.shared.open(url)
-    }
-    
-    @MainActor
-    private func processIssuersList() {
-        if let issuers {
-            dataAvailableClosure?(issuers)
-        }
     }
     
     @MainActor

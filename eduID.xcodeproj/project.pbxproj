@@ -86,6 +86,7 @@
 		4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */; };
 		4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */; };
 		4F6560742B6BC3CB004A303D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6560732B6BC3CB004A303D /* InfoViewController.swift */; };
+		4F6FB2792CAD8CFB005DF803 /* VerifyIdentityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */; };
 		4F7E1C442BDA5834009405A6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */; };
 		4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */; };
 		4F8E507C2CAC11130018D05E /* PhoneVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8E505A2CAC11130018D05E /* PhoneVerification.swift */; };
@@ -545,6 +546,7 @@
 		4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test2.json; sourceTree = "<group>"; };
 		4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		4F6560732B6BC3CB004A303D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityViewModel.swift; sourceTree = "<group>"; };
 		4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F83FB0D2A4DB50000C2930E /* EnvironmentSwitcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSwitcherController.swift; sourceTree = "<group>"; };
 		4F8E50432CAC11130018D05E /* AccountLinkerControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkerControllerAPI.swift; sourceTree = "<group>"; };
@@ -1138,6 +1140,7 @@
 			children = (
 				4F4A3D962CAAEC1E0007FCE6 /* SelectYourBank */,
 				4F4A3D642CAAD14C0007FCE6 /* VerifyIdentityControl.swift */,
+				4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */,
 				4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */,
 			);
 			path = VerifyIdentity;
@@ -2267,6 +2270,7 @@
 				4FF567B42A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift in Sources */,
 				4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */,
 				4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */,
+				4F6FB2792CAD8CFB005DF803 /* VerifyIdentityViewModel.swift in Sources */,
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
 				4F93D47D2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift in Sources */,

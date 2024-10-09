@@ -165,7 +165,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         if let model = model {
             // Unverified disclaimer (if not verified yet)
             let linkedAccounts = model.userResponse.linkedAccounts
-            let hasLinkedAccount = linkedAccounts?.isEmpty == false
+            let externalLinkedAccounts = model.userResponse.externalLinkedAccounts
+            let hasLinkedAccount = linkedAccounts?.isEmpty == false || externalLinkedAccounts?.isEmpty == false
             if !hasLinkedAccount {
                 let disclaimerShieldImage = UIImageView(image: .shield)
                 disclaimerShieldImage.size(CGSize(width: 24, height: 28))

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **chosenName** | **String** |  | [optional] 
 **familyName** | **String** |  | [optional] 
 **givenName** | **String** |  | [optional] 
-**dateOfBirth** | **Date** |  | [optional] 
+**dateOfBirth** | **Int64** |  | [optional] 
 **givenNameVerified** | **Bool** |  | [optional] 
 **displayName** | **String** |  | [optional] 
 **usePassword** | **Bool** |  | [optional] 

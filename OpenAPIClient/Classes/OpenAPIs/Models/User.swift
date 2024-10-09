@@ -17,7 +17,7 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var chosenName: String?
     public var givenName: String?
     public var familyName: String?
-    public var dateOfBirth: Date?
+    public var dateOfBirth: Int64?
     public var uid: String?
     public var schacHomeOrganization: String?
     public var password: String?
@@ -40,7 +40,7 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var lastSeenAppNudge: Int64?
     public var eduPersonPrincipalName: String?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, dateOfBirth: Date? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: [String]]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, updatedAt: Int64? = nil, trackingUuid: String? = nil, lastSeenAppNudge: Int64? = nil, eduPersonPrincipalName: String? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, dateOfBirth: Int64? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: [String]]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, updatedAt: Int64? = nil, trackingUuid: String? = nil, lastSeenAppNudge: Int64? = nil, eduPersonPrincipalName: String? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName

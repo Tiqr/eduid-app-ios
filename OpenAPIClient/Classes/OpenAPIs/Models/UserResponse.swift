@@ -17,7 +17,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var chosenName: String?
     public var familyName: String?
     public var givenName: String?
-    public var dateOfBirth: Date?
+    public var dateOfBirth: Int64?
     public var givenNameVerified: Bool?
     public var displayName: String?
     public var usePassword: Bool?
@@ -34,7 +34,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var loginOptions: [String]?
     public var registration: [String: AnyCodable]?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Date? = nil, givenNameVerified: Bool? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, givenNameVerified: Bool? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName

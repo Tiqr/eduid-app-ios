@@ -13,6 +13,8 @@ class VerifyIdentityViewController: BaseViewController {
     
     private var moreOptionsExpanded = false
     
+    private var viewModel = VerifyIdentityViewModel()
+    
     var delegate: PersonalInfoViewControllerDelegate?
     
     //MARK: - init
@@ -71,8 +73,8 @@ class VerifyIdentityViewController: BaseViewController {
             icon: .verifyIdentityInstitution,
             buttonTitle: L.VerifyIdentity.VerifyViaDutchInstitution.Button.localization,
             buttonIcon: nil,
-            buttonDelegate: {
-                // TODO
+            buttonDelegate: { [weak self] control in
+                self?.viewModel.startLinkingInstitution(control)
             })
         
         
@@ -99,7 +101,7 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityBankingApp,
                 buttonTitle: L.VerifyIdentity.VerifyWithBankingApp.Button.localization,
                 buttonIcon: .verifyButtonIdin,
-                buttonDelegate: { [weak self] in
+                buttonDelegate: { [weak self] _ in
                     guard let self else {
                         return
                     }
@@ -112,8 +114,11 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityEuId,
                 buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
                 buttonIcon: .verifyButtonEidas,
-                buttonDelegate: { [weak self] in
-                    // TODO
+                buttonDelegate: { [weak self] control in
+                    guard let self else {
+                        return
+                    }
+                    self.viewModel.openEidasLink(control)
                 })
             
             // Support link

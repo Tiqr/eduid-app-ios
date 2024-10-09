@@ -89,8 +89,8 @@ class SelectYourBankViewController: BaseViewController {
         
         if let issuers {
             for issuer in issuers {
-                let control = SelectBankOptionControl(issuer: issuer, clickDelegate: { [weak self] in
-                    // TODO
+                let control = SelectBankOptionControl(issuer: issuer, clickDelegate: { [weak self] control in
+                    self?.viewModel.openIssuerLink(with: issuer, control: control)
                 })
                 stack.addArrangedSubview(control)
                 control.widthToSuperview(offset: -48)

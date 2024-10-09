@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **chosenName** | **String** |  | [optional] 
 **givenName** | **String** |  | [optional] 
 **familyName** | **String** |  | [optional] 
-**dateOfBirth** | **Date** |  | [optional] 
+**dateOfBirth** | **Int64** |  | [optional] 
 **uid** | **String** |  | [optional] 
 **schacHomeOrganization** | **String** |  | [optional] 
 **password** | **String** |  | [optional] 

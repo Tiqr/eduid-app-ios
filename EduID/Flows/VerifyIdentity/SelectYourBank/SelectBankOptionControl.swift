@@ -12,13 +12,28 @@ import SVGKit
 
 class SelectBankOptionControl: UIControl {
     
-    private var delegate: () -> ()
+    private var delegate: (SelectBankOptionControl) -> ()
+    private var loadingIndicator: UIActivityIndicatorView
     
+    var isLoading: Bool {
+        didSet {
+            loadingIndicator.isHidden = !isLoading
+            self.isUserInteractionEnabled = !isLoading
+            if isLoading {
+                loadingIndicator.startAnimating()
+            } else {
+                loadingIndicator.stopAnimating()
+            }
+        }
+    }
+
     init(
         issuer: VerifyIssuer,
-        clickDelegate: @escaping () -> ()
+        clickDelegate: @escaping (SelectBankOptionControl) -> ()
     ) {
         self.delegate = clickDelegate
+        self.loadingIndicator = UIActivityIndicatorView(style: .medium)
+        self.isLoading = false
         super.init(frame: .zero)
         
         // icon on the left
@@ -50,17 +65,18 @@ class SelectBankOptionControl: UIControl {
         )
         
         // - the master stack
-        let stack = UIStackView(arrangedSubviews: [iconView, nameLabel])
+        let stack = UIStackView(arrangedSubviews: [iconView, nameLabel, self.loadingIndicator])
         stack.axis = .horizontal
         stack.spacing = 32
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
         stack.edges(to: self, insets: .horizontal(8))
+        self.loadingIndicator.size(CGSize(width: 32, height: 32))
         stack.alignment = .center
         stack.height(72)
         
-        self.addTarget(self, action: #selector(onSelfTouchUpInside), for: .touchUpInside)
-        
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSelfTouchUpInside)))
         layer.borderColor = UIColor.backgroundColor.cgColor
         layer.borderWidth = 3
         layer.cornerRadius = 6
@@ -72,7 +88,7 @@ class SelectBankOptionControl: UIControl {
     }
     
     @objc func onSelfTouchUpInside() {
-        self.delegate()
+        self.delegate(self)
     }
 
 }
