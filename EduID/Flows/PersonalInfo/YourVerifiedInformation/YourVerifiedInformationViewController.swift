@@ -108,14 +108,14 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         var isFirstAffiliation = true
         
         // From institution header
-        for linkedAccount in (viewModel.userResponse.linkedAccounts ?? []) {
+        for linkedAccount in viewModel.userResponse.getAllModels() {
             let separator = UIView()
             separator.backgroundColor = .lightGray
             separator.height(1)
             let institutionContainer = UIView()
             let institutionHeader = UILabel()
             let institutionString = NSAttributedString(
-                string: L.YourVerifiedInformation.FromInstitution(args: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "").localization,
+                string: L.YourVerifiedInformation.FromInstitution(args: linkedAccount.providerName).localization,
                 attributes: AttributedStringHelper.attributes(
                     font: UIFont.nunitoBold(size: 18),
                     color: .primaryColor,
@@ -160,7 +160,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 let verifiedFirstNameControl = VerifiedInformationControlCollapsible(
                     title: givenName,
                     subtitle: L.Profile.VerifiedGivenName.localization,
-                    linkedAccount: linkedAccount,
+                    model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
                     rightIcon: isFirstGivenName ? .wallet : nil
@@ -174,7 +174,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 let verifiedFamilyNameControl = VerifiedInformationControlCollapsible(
                     title: familyName,
                     subtitle: L.Profile.VerifiedFamilyName.localization,
-                    linkedAccount: linkedAccount,
+                    model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
                     rightIcon: isFirstLastName ? .wallet : nil
@@ -192,11 +192,11 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                     role = affiliation
                 }
                 let iconEmoji = role.lowercased() == L.Profile.Employee.localization ? "🏢️" : "🧑‍🎓"
-                let subtitle = L.YourVerifiedInformation.AtInstitution(args: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "").localization
+                let subtitle = L.YourVerifiedInformation.AtInstitution(args: linkedAccount.providerName).localization
                 let affiliationControl = VerifiedInformationControlCollapsible(
                     title: role.capitalized,
                     subtitle: subtitle,
-                    linkedAccount: linkedAccount,
+                    model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
                     leftEmoji: iconEmoji,
@@ -226,7 +226,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
             removeLink.setAttributedTitle(clickableTitle, for: .normal)
-            removeLink.tag = (viewModel.userResponse.linkedAccounts!.firstIndex(of: linkedAccount))!
+            removeLink.tag = (viewModel.userResponse.getAllModels().firstIndex(of: linkedAccount))!
             removeLinkedAccountContainer.addSubview(removeLink)
             removeLink.leftToRight(of: removeIcon, offset: 13)
             removeLink.centerYToSuperview()
@@ -251,7 +251,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
     
     @objc func removeLinkedAccount(sender: Any) {
         let index = (sender as! UIButton).tag
-        let account = viewModel.userResponse.linkedAccounts![index]
+        let account = viewModel.userResponse.getAllModels()[index]
         // - alert to confirm service removal
         let alert = UIAlertController(
             title: L.Profile.RemoveServicePrompt.Title.localization,
@@ -261,26 +261,28 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
             guard let self else {
                 return
             }
-            viewModel.removeLinkedAccount(account,
-            onRemoved: { [weak self] in
-                guard let self else {
-                    return
+            viewModel.removeLinkedAccount(
+                request: account.removeRequest,
+                onRemoved: { [weak self] in
+                    guard let self else {
+                        return
+                    }
+                    self.delegate?.goBack(viewController: self)
+                },
+                onError: { [weak self] error in
+                    guard let self else {
+                        return
+                    }
+                    let alert = UIAlertController(
+                        title: L.Generic.RequestError.Title.localization,
+                        message: L.Generic.RequestError.Description(args: error.localizedFromApi).localization,
+                        preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                        alert.dismiss(animated: true)
+                    })
+                    self.present(alert, animated: true)
                 }
-                self.delegate?.goBack(viewController: self)
-            },
-            onError: { [weak self] error in
-                guard let self else {
-                    return
-                }
-                let alert = UIAlertController(
-                    title: L.Generic.RequestError.Title.localization,
-                    message: L.Generic.RequestError.Description(args: error.localizedFromApi).localization,
-                    preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
-                    alert.dismiss(animated: true)
-                })
-                self.present(alert, animated: true)
-            })
+            )
         })
         alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
             alert.dismiss(animated: true)

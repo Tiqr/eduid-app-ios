@@ -76,10 +76,11 @@ class SelectYourBankViewModel: NSObject {
     }
     
     private func handleError(_ error: Error) -> SelectYourBankError {
+        let eduIdError = EduIdError.from(error)
         return SelectYourBankError(
-            title: error.eduIdResponseError().title,
-            message: error.eduIdResponseError().message,
-            statusCode: error.eduIdResponseError().statusCode
+            title: eduIdError.title,
+            message: eduIdError.message,
+            statusCode: eduIdError.statusCode
         )
     }
 }

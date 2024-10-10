@@ -17,16 +17,16 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     init(viewModel: SecurityOverviewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.dataFetchErrorClosure = {  [weak self] title, message, statusCode in
+        viewModel.dataFetchErrorClosure = {  [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
-                    if statusCode == 401 {
+                    if eduidError.statusCode == 401 {
                         AppAuthController.shared.authorize(viewController: self)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .security)
-                    } else if statusCode == -1 {
+                    } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
                 }

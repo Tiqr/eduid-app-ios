@@ -16,7 +16,7 @@ class SelectYourBankViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenType = .selectYourBank
+        screenType = .selectYourBankScreen
         setupUI(issuers: viewModel.issuers)
         viewModel.dataHandler = { [weak self] result in
             guard let self else { return }

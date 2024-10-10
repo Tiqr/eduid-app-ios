@@ -169,8 +169,9 @@ extension CreateEduIDEnterPhoneNumberViewController {
 
 extension CreateEduIDEnterPhoneNumberViewController: AlertErrorHandlerDelegate {
     func presentAlert(with error: Error) {
-        let alertController = UIAlertController(title: error.eduIdResponseError().title,
-                                                message: error.eduIdResponseError().message,
+        let eduIdError = EduIdError.from(error)
+        let alertController = UIAlertController(title: eduIdError.title,
+                                                message: eduIdError.message,
                                                 preferredStyle: .alert)
         let alertAction = UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .cancel) { [weak self] _ in
             self?.verifyButton.isUserInteractionEnabled = true
