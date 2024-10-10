@@ -18,10 +18,29 @@ class SelectYourBankViewController: BaseViewController {
         super.viewDidLoad()
         screenType = .selectYourBank
         setupUI(issuers: viewModel.issuers)
-        viewModel.dataAvailableClosure = { [weak self] issuers in
-            self?.setupUI(issuers: issuers)
+        viewModel.dataHandler = { [weak self] result in
+            guard let self else { return }
+            if let data = try? result.get() {
+                self.setupUI(issuers: try! result.get())
+                return
+            }
+            _ = result.inspectError { error in
+                self.handleError(error)
+            }
         }
         viewModel.fetchIssuerList()
+    }
+    
+    private func handleError(_ error: Error) {
+        let errorTitle = (error as? SelectYourBankError)?.title ?? error.localizedFromApi
+        let errorMessage = (error as? SelectYourBankError)?.message ?? error.localizedDescription
+        let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
+            alert.dismiss(animated: true) {
+                self.dismiss(animated: true)
+            }
+        })
+        self.present(alert, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +108,7 @@ class SelectYourBankViewController: BaseViewController {
         
         if let issuers {
             for issuer in issuers {
-                let control = SelectBankOptionControl(issuer: issuer, clickDelegate: { [weak self] control in
+                let control = SelectBankOptionControl(issuer: issuer, clickHandler: { [weak self] control in
                     self?.viewModel.openIssuerLink(with: issuer, control: control)
                 })
                 stack.addArrangedSubview(control)
@@ -140,8 +159,7 @@ class SelectYourBankViewController: BaseViewController {
     }
     
     @objc func openIdinLink() {
-        if let url = URL(string: L.SelectYourBank.IdinkLink.localization),
-           UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: L.SelectYourBank.IdinkLink.localization) {
             UIApplication.shared.open(url)
         }
     }

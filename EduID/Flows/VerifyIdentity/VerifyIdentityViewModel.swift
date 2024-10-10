@@ -33,7 +33,7 @@ class VerifyIdentityViewModel: NSObject {
                 ).url
                 await openAuthUrl(URL(string: authUrl!)!, control: control)
             } catch {
-                await processError(with: error)
+                await processError(with: error, control: control)
             }
         }
     }
@@ -45,7 +45,8 @@ class VerifyIdentityViewModel: NSObject {
     }
     
     @MainActor
-    private func processError(with error: Error) {
+    private func processError(with error: Error, control: VerifyIdentityControl) {
+        control.isLoading = false
         dataFetchErrorClosure?(error.eduIdResponseError().title,
                                error.eduIdResponseError().message,
                                error.eduIdResponseError().statusCode)

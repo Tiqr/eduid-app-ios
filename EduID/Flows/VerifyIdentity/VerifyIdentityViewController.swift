@@ -165,9 +165,7 @@ class VerifyIdentityViewController: BaseViewController {
     
     @objc func onVisitSupportTapped() {
         if let supportUrl = URL(string: L.VerifyIdentity.VisitSupport.Link.localization) {
-            if UIApplication.shared.canOpenURL(supportUrl) {
-                UIApplication.shared.open(supportUrl)
-            }
+            UIApplication.shared.open(supportUrl)
         }
     }
 }

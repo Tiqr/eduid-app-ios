@@ -12,7 +12,7 @@ import SVGKit
 
 class SelectBankOptionControl: UIControl {
     
-    private var delegate: (SelectBankOptionControl) -> ()
+    private var clickHandler: (SelectBankOptionControl) -> ()
     private var loadingIndicator: UIActivityIndicatorView
     
     var isLoading: Bool {
@@ -29,9 +29,9 @@ class SelectBankOptionControl: UIControl {
 
     init(
         issuer: VerifyIssuer,
-        clickDelegate: @escaping (SelectBankOptionControl) -> ()
+        clickHandler: @escaping (SelectBankOptionControl) -> ()
     ) {
-        self.delegate = clickDelegate
+        self.clickHandler = clickHandler
         self.loadingIndicator = UIActivityIndicatorView(style: .medium)
         self.isLoading = false
         super.init(frame: .zero)
@@ -88,7 +88,7 @@ class SelectBankOptionControl: UIControl {
     }
     
     @objc func onSelfTouchUpInside() {
-        self.delegate(self)
+        self.clickHandler(self)
     }
 
 }
