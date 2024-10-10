@@ -9,7 +9,7 @@ import TinyConstraints
 
 class VerifyIdentityControl: UIControl {
     
-    private var delegate: (VerifyIdentityControl) -> ()
+    private var clickHandler: (VerifyIdentityControl) -> ()
     private var loadingIndicator: UIActivityIndicatorView
     
     var isLoading: Bool {
@@ -30,9 +30,9 @@ class VerifyIdentityControl: UIControl {
          subtitle: String? = nil,
          subtitleBoldPart: String? = nil,
          buttonIcon: UIImage? = nil,
-         buttonDelegate: @escaping (VerifyIdentityControl) -> ()
+         clickHandler: @escaping (VerifyIdentityControl) -> ()
     ) {
-        self.delegate = buttonDelegate
+        self.clickHandler = clickHandler
         self.isLoading = false
         self.loadingIndicator = UIActivityIndicatorView(style: .medium)
         super.init(frame: .zero)
@@ -103,6 +103,6 @@ class VerifyIdentityControl: UIControl {
     }
     
     @objc func onButtonTouchUpInside() {
-        self.delegate(self)
+        self.clickHandler(self)
     }
 }

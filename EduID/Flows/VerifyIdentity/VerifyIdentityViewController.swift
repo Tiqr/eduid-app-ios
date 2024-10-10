@@ -73,7 +73,7 @@ class VerifyIdentityViewController: BaseViewController {
             icon: .verifyIdentityInstitution,
             buttonTitle: L.VerifyIdentity.VerifyViaDutchInstitution.Button.localization,
             buttonIcon: nil,
-            buttonDelegate: { [weak self] control in
+            clickHandler: { [weak self] control in
                 self?.viewModel.startLinkingInstitution(control)
             })
         
@@ -101,7 +101,7 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityBankingApp,
                 buttonTitle: L.VerifyIdentity.VerifyWithBankingApp.Button.localization,
                 buttonIcon: .verifyButtonIdin,
-                buttonDelegate: { [weak self] _ in
+                clickHandler: { [weak self] _ in
                     guard let self else {
                         return
                     }
@@ -114,7 +114,7 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityEuId,
                 buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
                 buttonIcon: .verifyButtonEidas,
-                buttonDelegate: { [weak self] control in
+                clickHandler: { [weak self] control in
                     guard let self else {
                         return
                     }
