@@ -18,7 +18,7 @@ class VerifyIdentityViewModel: NSObject {
                 let authUrl = try await AccountLinkerControllerAPI.startSPLinkAccountFlow().url
                 await openAuthUrl(URL(string: authUrl!)!, control: control)
             } catch {
-                await processError(with: error)
+                await processError(with: error, control: control)
             }
         }
     }
