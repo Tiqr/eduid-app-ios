@@ -10,10 +10,10 @@ import OpenAPIClient
 
 class YourVerifiedInformationViewModel {
     
-    let linkedAccounts: [LinkedAccount]
+    let userResponse: UserResponse
     
-    init(linkedAccounts: [LinkedAccount]) {
-        self.linkedAccounts = linkedAccounts
+    init(userResponse: UserResponse) {
+        self.userResponse = userResponse
     }
     
     func removeLinkedAccount(

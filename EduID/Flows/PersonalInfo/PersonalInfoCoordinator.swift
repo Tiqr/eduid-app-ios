@@ -82,8 +82,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(confirmDeleteViewController, animated: true)
     }
     
-    func goToYourVerifiedInformationScreen(linkedAccounts: [LinkedAccount]) {
-        let yourVerifiedInformationViewController = YourVerifiedInformationViewController(viewModel: YourVerifiedInformationViewModel(linkedAccounts: linkedAccounts))
+    func goToYourVerifiedInformationScreen(userResponse: UserResponse) {
+        let yourVerifiedInformationViewController = YourVerifiedInformationViewController(viewModel: YourVerifiedInformationViewModel(userResponse: userResponse))
         yourVerifiedInformationViewController.delegate = self
         navigationController!.pushViewController(yourVerifiedInformationViewController, animated: true)
     }

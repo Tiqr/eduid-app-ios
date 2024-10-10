@@ -26,7 +26,34 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         setupUI(
             title: title,
             subtitle: subtitle,
-            linkedAccount: linkedAccount,
+            verifiedBy: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "",
+            createdAt: linkedAccount.createdAt,
+            expiresAt: linkedAccount.expiresAt,
+            expandable: expandable,
+            leftEmoji: leftEmoji,
+            rightIcon: rightIcon)
+        if !expandable {
+            self.gestureRecognizers?.forEach { removeGestureRecognizer($0) }
+        }
+    }
+    
+    //MARK: - init
+    init(title: String,
+         subtitle: String,
+         externalLinkedAccount: ExternalLinkedAccount,
+         manageVerifiedInformationAction: (() -> Void)?,
+         expandable: Bool = true,
+         leftEmoji: String? = nil,
+         rightIcon: UIImage? = nil
+    ) {
+        self.manageVerifiedInformationAction = manageVerifiedInformationAction
+        super.init()
+        setupUI(
+            title: title,
+            subtitle: subtitle,
+            verifiedBy: externalLinkedAccount.serviceID ?? "",
+            createdAt: externalLinkedAccount.createdAt,
+            expiresAt: externalLinkedAccount.expiresAt,
             expandable: expandable,
             leftEmoji: leftEmoji,
             rightIcon: rightIcon)
@@ -39,7 +66,9 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
     private func setupUI(
         title: String,
         subtitle: String,
-        linkedAccount: LinkedAccount,
+        verifiedBy: String,
+        createdAt: Int64?,
+        expiresAt: Int64?,
         expandable: Bool,
         leftEmoji: String?,
         rightIcon: UIImage?
@@ -100,10 +129,10 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         // Verified by
         let verifiedByLabel = UILabel()
         let verifiedByString = NSMutableAttributedString(
-            string: L.Profile.VerifiedBy(args: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "").localization,
+            string: L.Profile.VerifiedBy(args: verifiedBy).localization,
             attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 6)
         )
-        if let createdAt = linkedAccount.createdAt {
+        if let createdAt {
             let createdAtDate = Date(timeIntervalSince1970: TimeInterval(createdAt / 1000))
             verifiedByString.append(NSAttributedString(
                 string: "\n" + L.Profile.LinkedAccountCreatedAt.localization,
@@ -114,7 +143,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
         }
-        if let expiresAt = linkedAccount.expiresAt {
+        if let expiresAt {
             let expiresAtDate = Date(timeIntervalSince1970: TimeInterval(expiresAt / 1000))
             verifiedByString.append(NSAttributedString(
                 string: "\n" + L.Profile.LinkedAccountValidUntil.localization,

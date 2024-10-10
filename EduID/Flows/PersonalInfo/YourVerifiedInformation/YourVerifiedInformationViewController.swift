@@ -108,7 +108,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         var isFirstAffiliation = true
         
         // From institution header
-        for linkedAccount in viewModel.linkedAccounts {
+        for linkedAccount in (viewModel.userResponse.linkedAccounts ?? []) {
             let separator = UIView()
             separator.backgroundColor = .lightGray
             separator.height(1)
@@ -226,7 +226,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
             removeLink.setAttributedTitle(clickableTitle, for: .normal)
-            removeLink.tag = (viewModel.linkedAccounts.firstIndex(of: linkedAccount))!
+            removeLink.tag = (viewModel.userResponse.linkedAccounts!.firstIndex(of: linkedAccount))!
             removeLinkedAccountContainer.addSubview(removeLink)
             removeLink.leftToRight(of: removeIcon, offset: 13)
             removeLink.centerYToSuperview()
@@ -251,7 +251,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
     
     @objc func removeLinkedAccount(sender: Any) {
         let index = (sender as! UIButton).tag
-        let account = viewModel.linkedAccounts[index]
+        let account = viewModel.userResponse.linkedAccounts![index]
         // - alert to confirm service removal
         let alert = UIAlertController(
             title: L.Profile.RemoveServicePrompt.Title.localization,

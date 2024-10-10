@@ -1,5 +1,6 @@
 import UIKit
 import TinyConstraints
+import OpenAPIClient
 
 class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
@@ -241,49 +242,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 verifiedBadge.rightToSuperview()
                 verifiedBadge.centerYToSuperview()
             }
-            let firstNameLinkedAccount = model.userResponse.linkedAccounts?.first(where: { $0.givenName?.isEmpty == false })
-            // First name
-            if let firstNameLinkedAccount,
-               let verifiedFirstName = firstNameLinkedAccount.givenName {
-                if let chosenName = model.userResponse.chosenName {
-                    let chosenNameSubtitleText = NSMutableAttributedString()
-                    chosenNameSubtitleText.append(NSAttributedString(
-                        string: "\(chosenName)\n",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProSemiBold(size: 16),
-                            color: .backgroundColor,
-                            lineSpacing: 6
-                        ))
-                    )
-                    chosenNameSubtitleText.append(NSAttributedString(
-                        string: "\(L.Profile.FirstName.localization) ",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProRegular(size: 12),
-                            color: .grayGhost,
-                            lineSpacing: 6
-                        ))
-                    )
-                    let chosenNameControl = ActionableControlWithBodyAndTitle(
-                        attributedTitle: nil,
-                        attributedBodyText: chosenNameSubtitleText,
-                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
-                        isFilled: true
-                    )
-                    stack.addArrangedSubview(chosenNameControl)
-                    chosenNameControl.widthToSuperview(offset: -48)
-                    chosenNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
-                }
-                let verifiedFirstNameControl = VerifiedInformationControlCollapsible(
-                    title: verifiedFirstName,
-                    subtitle: L.Profile.VerifiedGivenName.localization,
-                    linkedAccount: firstNameLinkedAccount,
-                    manageVerifiedInformationAction: { [weak self] in
-                        self?.delegate?.goToYourVerifiedInformationScreen(linkedAccounts: model.userResponse.linkedAccounts!)
-                    }
-                )
-                stack.addArrangedSubview(verifiedFirstNameControl)
-                verifiedFirstNameControl.widthToSuperview(offset: -48)
-            } else if let firstName = model.userResponse.givenName {
+            // We always allow editing the first name
+            if let firstName = model.userResponse.chosenName {
                 let firstNameSubtitleText = NSMutableAttributedString()
                 firstNameSubtitleText.append(NSAttributedString(
                     string: "\(firstName)\n",
@@ -311,19 +271,80 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 firstNameControl.widthToSuperview(offset: -48)
                 firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
             }
-            if let lastNameLinkedAccount = model.userResponse.linkedAccounts?.first(where: { $0.familyName?.isEmpty == false }),
-               let verifiedLastName = lastNameLinkedAccount.familyName {
-                let verifiedLastNameControl = VerifiedInformationControlCollapsible(
-                    title: verifiedLastName,
-                    subtitle: L.Profile.VerifiedFamilyName.localization,
-                    linkedAccount: lastNameLinkedAccount,
-                    manageVerifiedInformationAction: { [weak self] in
-                        self?.delegate?.goToYourVerifiedInformationScreen(linkedAccounts: model.userResponse.linkedAccounts!)
-                    }
-                )
-                stack.addArrangedSubview(verifiedLastNameControl)
-                verifiedLastNameControl.widthToSuperview(offset: -48)
-            } else if let lastName = model.userResponse.familyName {
+            
+            var hasVerifiedGivenName = false
+            var hasVerifiedFamilyName = false
+            // First name
+            for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
+                if let givenName = linkedAccount.givenName,
+                   givenName == model.userResponse.givenName  {
+                    let nameControl = VerifiedInformationControlCollapsible(
+                        title: givenName,
+                        subtitle: L.Profile.VerifiedGivenName.localization,
+                        linkedAccount: linkedAccount,
+                        manageVerifiedInformationAction: { [weak self] in
+                            guard let self else { return }
+                            self.delegate?.goToYourVerifiedInformationScreen(userResponse: self.viewModel.userResponse!)
+                        }
+                    )
+                    stack.addArrangedSubview(nameControl)
+                    nameControl.widthToSuperview(offset: -48)
+                    hasVerifiedGivenName = true
+                }
+                if let familyName = linkedAccount.familyName,
+                   familyName == model.userResponse.familyName {
+                    let nameControl = VerifiedInformationControlCollapsible(
+                        title: familyName,
+                        subtitle: L.Profile.VerifiedFamilyName.localization,
+                        linkedAccount: linkedAccount,
+                        manageVerifiedInformationAction: { [weak self] in
+                            guard let self else { return }
+                            self.delegate?.goToYourVerifiedInformationScreen(userResponse: self.viewModel.userResponse!)
+                        }
+                    )
+                    stack.addArrangedSubview(nameControl)
+                    nameControl.widthToSuperview(offset: -48)
+                    hasVerifiedFamilyName = true
+                }
+            }
+            // Now also search in external linked accounts
+            for linkedAccount in (model.userResponse.externalLinkedAccounts ?? []) {
+                if !hasVerifiedGivenName,
+                   let givenName = linkedAccount.firstName,
+                   givenName == model.userResponse.givenName  {
+                    let nameControl = VerifiedInformationControlCollapsible(
+                        title: givenName,
+                        subtitle: L.Profile.VerifiedGivenName.localization,
+                        externalLinkedAccount: linkedAccount,
+                        manageVerifiedInformationAction: { [weak self] in
+                            guard let self else { return }
+                            self.delegate?.goToYourVerifiedInformationScreen(userResponse: self.viewModel.userResponse!)
+                        }
+                    )
+                    stack.addArrangedSubview(nameControl)
+                    nameControl.widthToSuperview(offset: -48)
+                    hasVerifiedGivenName = true
+                }
+                if !hasVerifiedFamilyName,
+                   let familyName = linkedAccount.legalLastName ?? linkedAccount.preferredLastName,
+                   familyName == model.userResponse.familyName  {
+                    let nameControl = VerifiedInformationControlCollapsible(
+                        title: familyName,
+                        subtitle: L.Profile.VerifiedFamilyName.localization,
+                        externalLinkedAccount: linkedAccount,
+                        manageVerifiedInformationAction: { [weak self] in
+                            guard let self else { return }
+                            self.delegate?.goToYourVerifiedInformationScreen(userResponse: self.viewModel.userResponse!)
+                        }
+                    )
+                    stack.addArrangedSubview(nameControl)
+                    nameControl.widthToSuperview(offset: -48)
+
+                    hasVerifiedFamilyName = true
+                }
+            }
+            if !hasVerifiedFamilyName,
+               let lastName = model.userResponse.familyName {
                     let lastNameSubtitleText = NSMutableAttributedString()
                     lastNameSubtitleText.append(NSAttributedString(
                         string: "\(lastName)\n",
@@ -552,7 +573,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             self.verifyIdentityLoadingIndicator?.isHidden = true
         }
     }
-    
+
     @objc func manageAccountClicked() {
         guard let personalInfo = viewModel.userResponse else {
             return
