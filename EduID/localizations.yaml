@@ -3951,7 +3951,7 @@ SHARED:
     Subtitle:
       COPY:
         en: "The following information has been added to your eduID."
-        nl: ""
+        nl: "De volgende informatie is toegevoegd aan jouw eduID account."
     SubtitlePreferInstitution:
       COPY:
        en: "Do you want to use the following information to be the default information shared with applications?"
@@ -3969,7 +3969,3 @@ SHARED:
         COPY:
           en: "No, thanks"
           nl: "Nee, bedankt"
-    
-    
-    
-    
