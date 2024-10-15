@@ -16,6 +16,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToYourVerifiedInformationScreen(userResponse: UserResponse)
     func goToVerifyYourIdentityScreen(viewController: UIViewController)
     func goToSelectYourBankScreen(viewController: UIViewController)
+    func goToLinkingSuccessScreen(linkedInstitution: String?, previousUserInfo: UserResponse?)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
     func deleteStateAndGoToHome()

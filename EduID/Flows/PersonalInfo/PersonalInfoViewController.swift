@@ -61,6 +61,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didAddLinkedInstitution), name: .didAddLinkedAccounts, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +92,14 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         let linkedAccountEmail = notification.userInfo?[Constants.UserInfoKey.linkedAccountEmail] as? String
         delegate?.goToAccountLinkingErrorScreen(linkedAccountEmail: linkedAccountEmail)
     }
+    
+    @objc
+    func didAddLinkedInstitution(_ notification: NSNotification) {
+        // User tried to link account, but it was already linked
+        let linkedInstitution = notification.userInfo?[Constants.UserInfoKey.linkedAccountInstitution] as? String
+        delegate?.goToLinkingSuccessScreen(linkedInstitution: linkedInstitution, previousUserInfo: viewModel.userResponse)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

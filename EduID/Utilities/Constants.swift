@@ -39,6 +39,7 @@ enum Constants {
         static let emailUpdateUrl = "emailUpdateUrl"
         static let passwordChangeUrl = "passwordChangeUrl"
         static let linkedAccountEmail = "linkedAccountEmail"
+        static let linkedAccountInstitution = "linkedAccountInstitution"
     }
     
     enum RegistrationCheck {

@@ -6932,4 +6932,56 @@ public struct L {
             )
         }
     }
+    public struct LinkingSuccess {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "LinkingSuccess.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LinkingSuccess.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "LinkingSuccess.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LinkingSuccess.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static let SubtitlePreferInstitution = LocaliciousData(
+            accessibilityIdentifier: "LinkingSuccess.SubtitlePreferInstitution",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LinkingSuccess.SubtitlePreferInstitution.COPY",
+            translationArgs: []
+        )
+        public struct Button {
+            public static let Continue = LocaliciousData(
+                accessibilityIdentifier: "LinkingSuccess.Button.Continue",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "LinkingSuccess.Button.Continue.COPY",
+                translationArgs: []
+            )
+            public static let YesPlease = LocaliciousData(
+                accessibilityIdentifier: "LinkingSuccess.Button.YesPlease",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "LinkingSuccess.Button.YesPlease.COPY",
+                translationArgs: []
+            )
+            public static let NoThanks = LocaliciousData(
+                accessibilityIdentifier: "LinkingSuccess.Button.NoThanks",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "LinkingSuccess.Button.NoThanks.COPY",
+                translationArgs: []
+            )
+        }
+    }
 }

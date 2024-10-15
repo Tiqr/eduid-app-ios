@@ -12,7 +12,7 @@ class LinkingSuccessViewController: BaseViewController {
     
     var delegate: PersonalInfoViewControllerDelegate?
     
-    var viewModel = LinkingSuccessViewModel()
+    var viewModel: LinkingSuccessViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,11 @@ class LinkingSuccessViewController: BaseViewController {
             }
         }
         viewModel.getData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
     }
     
     private func handleError(_ error: Error) {
@@ -54,17 +59,14 @@ class LinkingSuccessViewController: BaseViewController {
 
         // - Main title
         let mainTitle = UILabel.posterTextLabelBicolor(
-            text: L.SelectYourBank.Title.localization,
+            text: L.LinkingSuccess.Title.localization,
             size: 24,
-            primary: L.SelectYourBank.Title.localization
+            primary: L.LinkingSuccess.Title.localization
         )
         
         // - Description below title
         let mainDescriptionParent = UIView()
-        let mainDescription = UILabel.subtitleLabel(
-            text: L.SelectYourBank.Subtitle.Full.localization, // TODO use correct title and message
-            partBold: L.SelectYourBank.Subtitle.HighlightedPart.localization
-        )
+        let mainDescription = UILabel.subtitleLabel(text: L.LinkingSuccess.Subtitle.localization)
         mainDescriptionParent.addSubview(mainDescription)
         mainDescription.edges(to: mainDescriptionParent)
         
@@ -77,15 +79,39 @@ class LinkingSuccessViewController: BaseViewController {
         stack.spacing = 24
         scrollView.addSubview(stack)
         
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
+        let buttonStack = UIStackView()
+        view.addSubview(buttonStack)
+        buttonStack.widthToSuperview(offset: -48)
+        buttonStack.centerXToSuperview()
+        buttonStack.spacing = 24
+        buttonStack.bottomToSuperview(usingSafeArea: true)
+        
+        stack.edges(to: scrollView, excluding: .bottom, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
+        stack.bottomToTop(of: buttonStack)
         stack.width(to: scrollView, offset: 0)
         stack.setCustomSpacing(4, after: mainDescriptionParent)
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
         
-        if userResponse != nil {
-            // TODO
+        if let userResponse {
+            let addedAccount = viewModel.getAddedAccount()
+            let isFirstLinkedAccount = (userResponse.linkedAccounts?.count ?? 0) + (userResponse.externalLinkedAccounts?.count ?? 0) < 2
+            buttonStack.axis = .vertical
+            if let addedAccount {
+                if let verifiedFirstname = addedAccount.givenName {
+                    
+                }
+            }
+            if isFirstLinkedAccount || addedAccount == nil {
+                let continueButton = EduIDButton(type: .primary, buttonTitle: L.LinkingSuccess.Button.Continue.localization)
+                buttonStack.addArrangedSubview(continueButton)
+            } else {
+                let yesButton = EduIDButton(type: .primary, buttonTitle: L.LinkingSuccess.Button.YesPlease.localization)
+                buttonStack.addArrangedSubview(yesButton)
+                let noButton = EduIDButton(type: .naked, buttonTitle: L.LinkingSuccess.Button.NoThanks.localization)
+                buttonStack.addArrangedSubview(noButton)
+            }
         } else {
             let loadingIndicator = UIActivityIndicatorView()
             stack.addArrangedSubview(loadingIndicator)
@@ -93,6 +119,14 @@ class LinkingSuccessViewController: BaseViewController {
             loadingIndicator.widthToSuperview()
             loadingIndicator.startAnimating()
         }
+        
+        let spacer = UIView()
+        spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        stack.addArrangedSubview(spacer)
+    }
+    
+    @objc func dismissInfoScreen() {
+        delegate?.goBack(viewController: self)
     }
     
 }

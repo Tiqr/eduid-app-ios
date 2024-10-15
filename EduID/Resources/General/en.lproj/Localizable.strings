@@ -825,3 +825,9 @@ We will text you a code to verify your number.
 "SelectYourBank.IdinkLink.COPY" = "https://www.idin.nl/en/";
 "SelectYourBank.BankNotInList.Full.COPY" = "If your bank is not shown in the list, please select another method";
 "SelectYourBank.BankNotInList.HighlightedPart.COPY" = "another method";
+"LinkingSuccess.Title.COPY" = "Your personal info 🎉";
+"LinkingSuccess.Subtitle.COPY" = "The following information has been added to your eduID.";
+"LinkingSuccess.SubtitlePreferInstitution.COPY" = "Do you want to use the following information to be the default information shared with applications?";
+"LinkingSuccess.Button.Continue.COPY" = "Continue";
+"LinkingSuccess.Button.YesPlease.COPY" = "Yes, please";
+"LinkingSuccess.Button.NoThanks.COPY" = "No, thanks";

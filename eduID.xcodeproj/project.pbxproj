@@ -230,61 +230,6 @@
 		4FB51EF42AF3EA5600069B13 /* OneTimeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */; };
 		4FB7DB582C5BCC46007CD6E7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB7DB572C5BCC46007CD6E7 /* Tiqr */; };
 		4FB7DB5A2C5BCC4E007CD6E7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB7DB592C5BCC4E007CD6E7 /* Tiqr */; };
-		4FB7FE242CAC23010063ABC3 /* DeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF22CAC23010063ABC3 /* DeleteService.swift */; };
-		4FB7FE252CAC23010063ABC3 /* PhoneVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE022CAC23010063ABC3 /* PhoneVerification.swift */; };
-		4FB7FE262CAC23010063ABC3 /* EduIDInstitutionPseudonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF52CAC23010063ABC3 /* EduIDInstitutionPseudonym.swift */; };
-		4FB7FE272CAC23010063ABC3 /* AccountLinkerControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDE92CAC23010063ABC3 /* AccountLinkerControllerAPI.swift */; };
-		4FB7FE282CAC23010063ABC3 /* OpenISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1E2CAC23010063ABC3 /* OpenISO8601DateFormatter.swift */; };
-		4FB7FE292CAC23010063ABC3 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE092CAC23010063ABC3 /* StatusResponse.swift */; };
-		4FB7FE2A2CAC23010063ABC3 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE172CAC23010063ABC3 /* APIs.swift */; };
-		4FB7FE2B2CAC23010063ABC3 /* VerifyPhoneCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE142CAC23010063ABC3 /* VerifyPhoneCode.swift */; };
-		4FB7FE2C2CAC23010063ABC3 /* StartEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE082CAC23010063ABC3 /* StartEnrollment.swift */; };
-		4FB7FE2D2CAC23010063ABC3 /* UpdateEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0C2CAC23010063ABC3 /* UpdateEmailRequest.swift */; };
-		4FB7FE2E2CAC23010063ABC3 /* PollAuthenticationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE032CAC23010063ABC3 /* PollAuthenticationResult.swift */; };
-		4FB7FE2F2CAC23010063ABC3 /* IdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFD2CAC23010063ABC3 /* IdentityProvider.swift */; };
-		4FB7FE302CAC23010063ABC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE112CAC23010063ABC3 /* User.swift */; };
-		4FB7FE312CAC23010063ABC3 /* UpdateExternalEduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0D2CAC23010063ABC3 /* UpdateExternalEduID.swift */; };
-		4FB7FE322CAC23010063ABC3 /* UpdateUserSecurityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE102CAC23010063ABC3 /* UpdateUserSecurityRequest.swift */; };
-		4FB7FE332CAC23010063ABC3 /* ManualResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFF2CAC23010063ABC3 /* ManualResponse.swift */; };
-		4FB7FE342CAC23010063ABC3 /* DeactivateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF12CAC23010063ABC3 /* DeactivateRequest.swift */; };
-		4FB7FE352CAC23010063ABC3 /* LinkedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFE2CAC23010063ABC3 /* LinkedAccount.swift */; };
-		4FB7FE362CAC23010063ABC3 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1F2CAC23010063ABC3 /* SynchronizedDictionary.swift */; };
-		4FB7FE372CAC23010063ABC3 /* TiqrControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDEC2CAC23010063ABC3 /* TiqrControllerAPI.swift */; };
-		4FB7FE382CAC23010063ABC3 /* RemoteCreationControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDEB2CAC23010063ABC3 /* RemoteCreationControllerAPI.swift */; };
-		4FB7FE392CAC23010063ABC3 /* URLSessionImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE202CAC23010063ABC3 /* URLSessionImplementations.swift */; };
-		4FB7FE3A2CAC23010063ABC3 /* FinishEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFB2CAC23010063ABC3 /* FinishEnrollment.swift */; };
-		4FB7FE3B2CAC23010063ABC3 /* InviteControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDEA2CAC23010063ABC3 /* InviteControllerAPI.swift */; };
-		4FB7FE3C2CAC23010063ABC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE212CAC23010063ABC3 /* Validation.swift */; };
-		4FB7FE3D2CAC23010063ABC3 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE162CAC23010063ABC3 /* APIHelper.swift */; };
-		4FB7FE3E2CAC23010063ABC3 /* TokenRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0B2CAC23010063ABC3 /* TokenRepresentation.swift */; };
-		4FB7FE3F2CAC23010063ABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1A2CAC23010063ABC3 /* Extensions.swift */; };
-		4FB7FE402CAC23010063ABC3 /* StartAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE072CAC23010063ABC3 /* StartAuthentication.swift */; };
-		4FB7FE412CAC23010063ABC3 /* PublicKeyCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE042CAC23010063ABC3 /* PublicKeyCredentials.swift */; };
-		4FB7FE422CAC23010063ABC3 /* UpdateUserNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0F2CAC23010063ABC3 /* UpdateUserNameRequest.swift */; };
-		4FB7FE432CAC23010063ABC3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE192CAC23010063ABC3 /* Configuration.swift */; };
-		4FB7FE442CAC23010063ABC3 /* UserControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDED2CAC23010063ABC3 /* UserControllerAPI.swift */; };
-		4FB7FE452CAC23010063ABC3 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE052CAC23010063ABC3 /* Scope.swift */; };
-		4FB7FE462CAC23010063ABC3 /* JSONDataEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1B2CAC23010063ABC3 /* JSONDataEncoding.swift */; };
-		4FB7FE472CAC23010063ABC3 /* EnrollmentVerificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF92CAC23010063ABC3 /* EnrollmentVerificationKey.swift */; };
-		4FB7FE482CAC23010063ABC3 /* GeneratedBackupCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFC2CAC23010063ABC3 /* GeneratedBackupCode.swift */; };
-		4FB7FE492CAC23010063ABC3 /* EduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF42CAC23010063ABC3 /* EduID.swift */; };
-		4FB7FE4A2CAC23010063ABC3 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE062CAC23010063ABC3 /* ServiceProvider.swift */; };
-		4FB7FE4B2CAC23010063ABC3 /* NewExternalEduID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE002CAC23010063ABC3 /* NewExternalEduID.swift */; };
-		4FB7FE4C2CAC23010063ABC3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1D2CAC23010063ABC3 /* Models.swift */; };
-		4FB7FE4D2CAC23010063ABC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0A2CAC23010063ABC3 /* Token.swift */; };
-		4FB7FE4E2CAC23010063ABC3 /* DeleteServiceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF32CAC23010063ABC3 /* DeleteServiceTokens.swift */; };
-		4FB7FE4F2CAC23010063ABC3 /* AuthorizationURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDEF2CAC23010063ABC3 /* AuthorizationURL.swift */; };
-		4FB7FE502CAC23010063ABC3 /* VerifyIssuer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE132CAC23010063ABC3 /* VerifyIssuer.swift */; };
-		4FB7FE512CAC23010063ABC3 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE122CAC23010063ABC3 /* UserResponse.swift */; };
-		4FB7FE522CAC23010063ABC3 /* UpdateLinkedAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE0E2CAC23010063ABC3 /* UpdateLinkedAccountRequest.swift */; };
-		4FB7FE532CAC23010063ABC3 /* ExternalLinkedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDFA2CAC23010063ABC3 /* ExternalLinkedAccount.swift */; };
-		4FB7FE542CAC23010063ABC3 /* EduIDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF72CAC23010063ABC3 /* EduIDValue.swift */; };
-		4FB7FE552CAC23010063ABC3 /* EduIDProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF62CAC23010063ABC3 /* EduIDProvision.swift */; };
-		4FB7FE562CAC23010063ABC3 /* PhoneCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE012CAC23010063ABC3 /* PhoneCode.swift */; };
-		4FB7FE572CAC23010063ABC3 /* EmailExistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF82CAC23010063ABC3 /* EmailExistsResponse.swift */; };
-		4FB7FE582CAC23010063ABC3 /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE1C2CAC23010063ABC3 /* JSONEncodingHelper.swift */; };
-		4FB7FE592CAC23010063ABC3 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FDF02CAC23010063ABC3 /* CreateAccount.swift */; };
-		4FB7FE5A2CAC23010063ABC3 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7FE182CAC23010063ABC3 /* CodableHelper.swift */; };
 		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
 		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
@@ -792,61 +737,6 @@
 		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
 		4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTimeCodeViewController.swift; sourceTree = "<group>"; };
 		4FB7DB552C5BC0E5007CD6E7 /* Notifications.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Notifications.entitlements; sourceTree = "<group>"; };
-		4FB7FDE92CAC23010063ABC3 /* AccountLinkerControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkerControllerAPI.swift; sourceTree = "<group>"; };
-		4FB7FDEA2CAC23010063ABC3 /* InviteControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteControllerAPI.swift; sourceTree = "<group>"; };
-		4FB7FDEB2CAC23010063ABC3 /* RemoteCreationControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCreationControllerAPI.swift; sourceTree = "<group>"; };
-		4FB7FDEC2CAC23010063ABC3 /* TiqrControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiqrControllerAPI.swift; sourceTree = "<group>"; };
-		4FB7FDED2CAC23010063ABC3 /* UserControllerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerAPI.swift; sourceTree = "<group>"; };
-		4FB7FDEF2CAC23010063ABC3 /* AuthorizationURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationURL.swift; sourceTree = "<group>"; };
-		4FB7FDF02CAC23010063ABC3 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
-		4FB7FDF12CAC23010063ABC3 /* DeactivateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeactivateRequest.swift; sourceTree = "<group>"; };
-		4FB7FDF22CAC23010063ABC3 /* DeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteService.swift; sourceTree = "<group>"; };
-		4FB7FDF32CAC23010063ABC3 /* DeleteServiceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceTokens.swift; sourceTree = "<group>"; };
-		4FB7FDF42CAC23010063ABC3 /* EduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduID.swift; sourceTree = "<group>"; };
-		4FB7FDF52CAC23010063ABC3 /* EduIDInstitutionPseudonym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDInstitutionPseudonym.swift; sourceTree = "<group>"; };
-		4FB7FDF62CAC23010063ABC3 /* EduIDProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDProvision.swift; sourceTree = "<group>"; };
-		4FB7FDF72CAC23010063ABC3 /* EduIDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDValue.swift; sourceTree = "<group>"; };
-		4FB7FDF82CAC23010063ABC3 /* EmailExistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailExistsResponse.swift; sourceTree = "<group>"; };
-		4FB7FDF92CAC23010063ABC3 /* EnrollmentVerificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollmentVerificationKey.swift; sourceTree = "<group>"; };
-		4FB7FDFA2CAC23010063ABC3 /* ExternalLinkedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkedAccount.swift; sourceTree = "<group>"; };
-		4FB7FDFB2CAC23010063ABC3 /* FinishEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishEnrollment.swift; sourceTree = "<group>"; };
-		4FB7FDFC2CAC23010063ABC3 /* GeneratedBackupCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedBackupCode.swift; sourceTree = "<group>"; };
-		4FB7FDFD2CAC23010063ABC3 /* IdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityProvider.swift; sourceTree = "<group>"; };
-		4FB7FDFE2CAC23010063ABC3 /* LinkedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccount.swift; sourceTree = "<group>"; };
-		4FB7FDFF2CAC23010063ABC3 /* ManualResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualResponse.swift; sourceTree = "<group>"; };
-		4FB7FE002CAC23010063ABC3 /* NewExternalEduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExternalEduID.swift; sourceTree = "<group>"; };
-		4FB7FE012CAC23010063ABC3 /* PhoneCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCode.swift; sourceTree = "<group>"; };
-		4FB7FE022CAC23010063ABC3 /* PhoneVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerification.swift; sourceTree = "<group>"; };
-		4FB7FE032CAC23010063ABC3 /* PollAuthenticationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAuthenticationResult.swift; sourceTree = "<group>"; };
-		4FB7FE042CAC23010063ABC3 /* PublicKeyCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyCredentials.swift; sourceTree = "<group>"; };
-		4FB7FE052CAC23010063ABC3 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
-		4FB7FE062CAC23010063ABC3 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		4FB7FE072CAC23010063ABC3 /* StartAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAuthentication.swift; sourceTree = "<group>"; };
-		4FB7FE082CAC23010063ABC3 /* StartEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEnrollment.swift; sourceTree = "<group>"; };
-		4FB7FE092CAC23010063ABC3 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
-		4FB7FE0A2CAC23010063ABC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		4FB7FE0B2CAC23010063ABC3 /* TokenRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepresentation.swift; sourceTree = "<group>"; };
-		4FB7FE0C2CAC23010063ABC3 /* UpdateEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailRequest.swift; sourceTree = "<group>"; };
-		4FB7FE0D2CAC23010063ABC3 /* UpdateExternalEduID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateExternalEduID.swift; sourceTree = "<group>"; };
-		4FB7FE0E2CAC23010063ABC3 /* UpdateLinkedAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLinkedAccountRequest.swift; sourceTree = "<group>"; };
-		4FB7FE0F2CAC23010063ABC3 /* UpdateUserNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameRequest.swift; sourceTree = "<group>"; };
-		4FB7FE102CAC23010063ABC3 /* UpdateUserSecurityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserSecurityRequest.swift; sourceTree = "<group>"; };
-		4FB7FE112CAC23010063ABC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4FB7FE122CAC23010063ABC3 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		4FB7FE132CAC23010063ABC3 /* VerifyIssuer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIssuer.swift; sourceTree = "<group>"; };
-		4FB7FE142CAC23010063ABC3 /* VerifyPhoneCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneCode.swift; sourceTree = "<group>"; };
-		4FB7FE162CAC23010063ABC3 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		4FB7FE172CAC23010063ABC3 /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
-		4FB7FE182CAC23010063ABC3 /* CodableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
-		4FB7FE192CAC23010063ABC3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		4FB7FE1A2CAC23010063ABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4FB7FE1B2CAC23010063ABC3 /* JSONDataEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataEncoding.swift; sourceTree = "<group>"; };
-		4FB7FE1C2CAC23010063ABC3 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
-		4FB7FE1D2CAC23010063ABC3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		4FB7FE1E2CAC23010063ABC3 /* OpenISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenISO8601DateFormatter.swift; sourceTree = "<group>"; };
-		4FB7FE1F2CAC23010063ABC3 /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
-		4FB7FE202CAC23010063ABC3 /* URLSessionImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionImplementations.swift; sourceTree = "<group>"; };
-		4FB7FE212CAC23010063ABC3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
 		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
@@ -1615,92 +1505,6 @@
 			path = TwoFactorKeys;
 			sourceTree = "<group>";
 		};
-		4FB7FDEE2CAC23010063ABC3 /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				4FB7FDE92CAC23010063ABC3 /* AccountLinkerControllerAPI.swift */,
-				4FB7FDEA2CAC23010063ABC3 /* InviteControllerAPI.swift */,
-				4FB7FDEB2CAC23010063ABC3 /* RemoteCreationControllerAPI.swift */,
-				4FB7FDEC2CAC23010063ABC3 /* TiqrControllerAPI.swift */,
-				4FB7FDED2CAC23010063ABC3 /* UserControllerAPI.swift */,
-			);
-			path = APIs;
-			sourceTree = "<group>";
-		};
-		4FB7FE152CAC23010063ABC3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4FB7FDEF2CAC23010063ABC3 /* AuthorizationURL.swift */,
-				4FB7FDF02CAC23010063ABC3 /* CreateAccount.swift */,
-				4FB7FDF12CAC23010063ABC3 /* DeactivateRequest.swift */,
-				4FB7FDF22CAC23010063ABC3 /* DeleteService.swift */,
-				4FB7FDF32CAC23010063ABC3 /* DeleteServiceTokens.swift */,
-				4FB7FDF42CAC23010063ABC3 /* EduID.swift */,
-				4FB7FDF52CAC23010063ABC3 /* EduIDInstitutionPseudonym.swift */,
-				4FB7FDF62CAC23010063ABC3 /* EduIDProvision.swift */,
-				4FB7FDF72CAC23010063ABC3 /* EduIDValue.swift */,
-				4FB7FDF82CAC23010063ABC3 /* EmailExistsResponse.swift */,
-				4FB7FDF92CAC23010063ABC3 /* EnrollmentVerificationKey.swift */,
-				4FB7FDFA2CAC23010063ABC3 /* ExternalLinkedAccount.swift */,
-				4FB7FDFB2CAC23010063ABC3 /* FinishEnrollment.swift */,
-				4FB7FDFC2CAC23010063ABC3 /* GeneratedBackupCode.swift */,
-				4FB7FDFD2CAC23010063ABC3 /* IdentityProvider.swift */,
-				4FB7FDFE2CAC23010063ABC3 /* LinkedAccount.swift */,
-				4FB7FDFF2CAC23010063ABC3 /* ManualResponse.swift */,
-				4FB7FE002CAC23010063ABC3 /* NewExternalEduID.swift */,
-				4FB7FE012CAC23010063ABC3 /* PhoneCode.swift */,
-				4FB7FE022CAC23010063ABC3 /* PhoneVerification.swift */,
-				4FB7FE032CAC23010063ABC3 /* PollAuthenticationResult.swift */,
-				4FB7FE042CAC23010063ABC3 /* PublicKeyCredentials.swift */,
-				4FB7FE052CAC23010063ABC3 /* Scope.swift */,
-				4FB7FE062CAC23010063ABC3 /* ServiceProvider.swift */,
-				4FB7FE072CAC23010063ABC3 /* StartAuthentication.swift */,
-				4FB7FE082CAC23010063ABC3 /* StartEnrollment.swift */,
-				4FB7FE092CAC23010063ABC3 /* StatusResponse.swift */,
-				4FB7FE0A2CAC23010063ABC3 /* Token.swift */,
-				4FB7FE0B2CAC23010063ABC3 /* TokenRepresentation.swift */,
-				4FB7FE0C2CAC23010063ABC3 /* UpdateEmailRequest.swift */,
-				4FB7FE0D2CAC23010063ABC3 /* UpdateExternalEduID.swift */,
-				4FB7FE0E2CAC23010063ABC3 /* UpdateLinkedAccountRequest.swift */,
-				4FB7FE0F2CAC23010063ABC3 /* UpdateUserNameRequest.swift */,
-				4FB7FE102CAC23010063ABC3 /* UpdateUserSecurityRequest.swift */,
-				4FB7FE112CAC23010063ABC3 /* User.swift */,
-				4FB7FE122CAC23010063ABC3 /* UserResponse.swift */,
-				4FB7FE132CAC23010063ABC3 /* VerifyIssuer.swift */,
-				4FB7FE142CAC23010063ABC3 /* VerifyPhoneCode.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4FB7FE222CAC23010063ABC3 /* OpenAPIs */ = {
-			isa = PBXGroup;
-			children = (
-				4FB7FDEE2CAC23010063ABC3 /* APIs */,
-				4FB7FE152CAC23010063ABC3 /* Models */,
-				4FB7FE162CAC23010063ABC3 /* APIHelper.swift */,
-				4FB7FE172CAC23010063ABC3 /* APIs.swift */,
-				4FB7FE182CAC23010063ABC3 /* CodableHelper.swift */,
-				4FB7FE192CAC23010063ABC3 /* Configuration.swift */,
-				4FB7FE1A2CAC23010063ABC3 /* Extensions.swift */,
-				4FB7FE1B2CAC23010063ABC3 /* JSONDataEncoding.swift */,
-				4FB7FE1C2CAC23010063ABC3 /* JSONEncodingHelper.swift */,
-				4FB7FE1D2CAC23010063ABC3 /* Models.swift */,
-				4FB7FE1E2CAC23010063ABC3 /* OpenISO8601DateFormatter.swift */,
-				4FB7FE1F2CAC23010063ABC3 /* SynchronizedDictionary.swift */,
-				4FB7FE202CAC23010063ABC3 /* URLSessionImplementations.swift */,
-				4FB7FE212CAC23010063ABC3 /* Validation.swift */,
-			);
-			path = OpenAPIs;
-			sourceTree = "<group>";
-		};
-		4FB7FE232CAC23010063ABC3 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4FB7FE222CAC23010063ABC3 /* OpenAPIs */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		4FC350B02A373B05003CB086 /* EmailEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1909,7 +1713,6 @@
 			isa = PBXGroup;
 			children = (
 				4F1F12BE2CAD611F002DA23A /* Classes */,
-				4FB7FE232CAC23010063ABC3 /* Classes */,
 				4F8E507B2CAC11130018D05E /* Classes */,
 				4F909F1E2A31D07500FC1506 /* generate command.md */,
 				4F909F1F2A31D07500FC1506 /* docs */,
@@ -2483,13 +2286,6 @@
 				4F8E50A22CAC11130018D05E /* APIs.swift in Sources */,
 				4F8E50A32CAC11130018D05E /* UpdateUserSecurityRequest.swift in Sources */,
 				4F8E50A42CAC11130018D05E /* UserControllerAPI.swift in Sources */,
-				4FB7FE242CAC23010063ABC3 /* DeleteService.swift in Sources */,
-				4FB7FE252CAC23010063ABC3 /* PhoneVerification.swift in Sources */,
-				4FB7FE262CAC23010063ABC3 /* EduIDInstitutionPseudonym.swift in Sources */,
-				4FB7FE272CAC23010063ABC3 /* AccountLinkerControllerAPI.swift in Sources */,
-				4FB7FE282CAC23010063ABC3 /* OpenISO8601DateFormatter.swift in Sources */,
-				4FB7FE292CAC23010063ABC3 /* StatusResponse.swift in Sources */,
-				4FB7FE2A2CAC23010063ABC3 /* APIs.swift in Sources */,
 				4F1F12BF2CAD611F002DA23A /* APIHelper.swift in Sources */,
 				4F1F12C02CAD611F002DA23A /* JSONDataEncoding.swift in Sources */,
 				4F1F12C12CAD611F002DA23A /* UpdateLinkedAccountRequest.swift in Sources */,
@@ -2545,54 +2341,6 @@
 				4F1F12F32CAD611F002DA23A /* Scope.swift in Sources */,
 				4F1F12F42CAD611F002DA23A /* Token.swift in Sources */,
 				4F1F12F52CAD611F002DA23A /* UpdateUserNameRequest.swift in Sources */,
-				4FB7FE2B2CAC23010063ABC3 /* VerifyPhoneCode.swift in Sources */,
-				4FB7FE2C2CAC23010063ABC3 /* StartEnrollment.swift in Sources */,
-				4FB7FE2D2CAC23010063ABC3 /* UpdateEmailRequest.swift in Sources */,
-				4FB7FE2E2CAC23010063ABC3 /* PollAuthenticationResult.swift in Sources */,
-				4FB7FE2F2CAC23010063ABC3 /* IdentityProvider.swift in Sources */,
-				4FB7FE302CAC23010063ABC3 /* User.swift in Sources */,
-				4FB7FE312CAC23010063ABC3 /* UpdateExternalEduID.swift in Sources */,
-				4FB7FE322CAC23010063ABC3 /* UpdateUserSecurityRequest.swift in Sources */,
-				4FB7FE332CAC23010063ABC3 /* ManualResponse.swift in Sources */,
-				4FB7FE342CAC23010063ABC3 /* DeactivateRequest.swift in Sources */,
-				4FB7FE352CAC23010063ABC3 /* LinkedAccount.swift in Sources */,
-				4FB7FE362CAC23010063ABC3 /* SynchronizedDictionary.swift in Sources */,
-				4FB7FE372CAC23010063ABC3 /* TiqrControllerAPI.swift in Sources */,
-				4FB7FE382CAC23010063ABC3 /* RemoteCreationControllerAPI.swift in Sources */,
-				4FB7FE392CAC23010063ABC3 /* URLSessionImplementations.swift in Sources */,
-				4FB7FE3A2CAC23010063ABC3 /* FinishEnrollment.swift in Sources */,
-				4FB7FE3B2CAC23010063ABC3 /* InviteControllerAPI.swift in Sources */,
-				4FB7FE3C2CAC23010063ABC3 /* Validation.swift in Sources */,
-				4FB7FE3D2CAC23010063ABC3 /* APIHelper.swift in Sources */,
-				4FB7FE3E2CAC23010063ABC3 /* TokenRepresentation.swift in Sources */,
-				4FB7FE3F2CAC23010063ABC3 /* Extensions.swift in Sources */,
-				4FB7FE402CAC23010063ABC3 /* StartAuthentication.swift in Sources */,
-				4FB7FE412CAC23010063ABC3 /* PublicKeyCredentials.swift in Sources */,
-				4FB7FE422CAC23010063ABC3 /* UpdateUserNameRequest.swift in Sources */,
-				4FB7FE432CAC23010063ABC3 /* Configuration.swift in Sources */,
-				4FB7FE442CAC23010063ABC3 /* UserControllerAPI.swift in Sources */,
-				4FB7FE452CAC23010063ABC3 /* Scope.swift in Sources */,
-				4FB7FE462CAC23010063ABC3 /* JSONDataEncoding.swift in Sources */,
-				4FB7FE472CAC23010063ABC3 /* EnrollmentVerificationKey.swift in Sources */,
-				4FB7FE482CAC23010063ABC3 /* GeneratedBackupCode.swift in Sources */,
-				4FB7FE492CAC23010063ABC3 /* EduID.swift in Sources */,
-				4FB7FE4A2CAC23010063ABC3 /* ServiceProvider.swift in Sources */,
-				4FB7FE4B2CAC23010063ABC3 /* NewExternalEduID.swift in Sources */,
-				4FB7FE4C2CAC23010063ABC3 /* Models.swift in Sources */,
-				4FB7FE4D2CAC23010063ABC3 /* Token.swift in Sources */,
-				4FB7FE4E2CAC23010063ABC3 /* DeleteServiceTokens.swift in Sources */,
-				4FB7FE4F2CAC23010063ABC3 /* AuthorizationURL.swift in Sources */,
-				4FB7FE502CAC23010063ABC3 /* VerifyIssuer.swift in Sources */,
-				4FB7FE512CAC23010063ABC3 /* UserResponse.swift in Sources */,
-				4FB7FE522CAC23010063ABC3 /* UpdateLinkedAccountRequest.swift in Sources */,
-				4FB7FE532CAC23010063ABC3 /* ExternalLinkedAccount.swift in Sources */,
-				4FB7FE542CAC23010063ABC3 /* EduIDValue.swift in Sources */,
-				4FB7FE552CAC23010063ABC3 /* EduIDProvision.swift in Sources */,
-				4FB7FE562CAC23010063ABC3 /* PhoneCode.swift in Sources */,
-				4FB7FE572CAC23010063ABC3 /* EmailExistsResponse.swift in Sources */,
-				4FB7FE582CAC23010063ABC3 /* JSONEncodingHelper.swift in Sources */,
-				4FB7FE592CAC23010063ABC3 /* CreateAccount.swift in Sources */,
-				4FB7FE5A2CAC23010063ABC3 /* CodableHelper.swift in Sources */,
 				4F8E50A52CAC11130018D05E /* VerifyPhoneCode.swift in Sources */,
 				4F8E50A62CAC11130018D05E /* APIHelper.swift in Sources */,
 				4F8E50A72CAC11130018D05E /* Scope.swift in Sources */,

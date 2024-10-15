@@ -119,6 +119,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     func goBack(viewController: UIViewController) {
         navigationController?.popViewController(animated: true)
     }
+    
+    func goToLinkingSuccessScreen(linkedInstitution: String?, previousUserInfo: UserResponse?) {
+        let linkingSuccessViewController = LinkingSuccessViewController()
+        linkingSuccessViewController.viewModel = LinkingSuccessViewModel(linkedInstitution: linkedInstitution, previousUserResponse: previousUserInfo)
+        navigationController?.pushViewController(linkingSuccessViewController, animated: true)
+    }
 }
 
 extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
