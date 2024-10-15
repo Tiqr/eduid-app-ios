@@ -15,14 +15,17 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var id: String?
     public var email: String?
     public var chosenName: String?
-    public var givenName: String?
     public var familyName: String?
+    public var givenName: String?
+    public var dateOfBirth: Int64?
+    public var givenNameVerified: Bool?
     public var displayName: String?
     public var usePassword: Bool?
     public var usePublicKey: Bool?
     public var forgottenPassword: Bool?
     public var publicKeyCredentials: [PublicKeyCredentials]?
     public var linkedAccounts: [LinkedAccount]?
+    public var externalLinkedAccounts: [ExternalLinkedAccount]?
     public var schacHomeOrganization: String?
     public var uid: String?
     public var rememberMe: Bool?
@@ -31,18 +34,21 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var loginOptions: [String]?
     public var registration: [String: AnyCodable]?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, givenNameVerified: Bool? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName
-        self.givenName = givenName
         self.familyName = familyName
+        self.givenName = givenName
+        self.dateOfBirth = dateOfBirth
+        self.givenNameVerified = givenNameVerified
         self.displayName = displayName
         self.usePassword = usePassword
         self.usePublicKey = usePublicKey
         self.forgottenPassword = forgottenPassword
         self.publicKeyCredentials = publicKeyCredentials
         self.linkedAccounts = linkedAccounts
+        self.externalLinkedAccounts = externalLinkedAccounts
         self.schacHomeOrganization = schacHomeOrganization
         self.uid = uid
         self.rememberMe = rememberMe
@@ -56,14 +62,17 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         case id
         case email
         case chosenName
-        case givenName
         case familyName
+        case givenName
+        case dateOfBirth
+        case givenNameVerified
         case displayName
         case usePassword
         case usePublicKey
         case forgottenPassword
         case publicKeyCredentials
         case linkedAccounts
+        case externalLinkedAccounts
         case schacHomeOrganization
         case uid
         case rememberMe
@@ -80,14 +89,17 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(chosenName, forKey: .chosenName)
-        try container.encodeIfPresent(givenName, forKey: .givenName)
         try container.encodeIfPresent(familyName, forKey: .familyName)
+        try container.encodeIfPresent(givenName, forKey: .givenName)
+        try container.encodeIfPresent(dateOfBirth, forKey: .dateOfBirth)
+        try container.encodeIfPresent(givenNameVerified, forKey: .givenNameVerified)
         try container.encodeIfPresent(displayName, forKey: .displayName)
         try container.encodeIfPresent(usePassword, forKey: .usePassword)
         try container.encodeIfPresent(usePublicKey, forKey: .usePublicKey)
         try container.encodeIfPresent(forgottenPassword, forKey: .forgottenPassword)
         try container.encodeIfPresent(publicKeyCredentials, forKey: .publicKeyCredentials)
         try container.encodeIfPresent(linkedAccounts, forKey: .linkedAccounts)
+        try container.encodeIfPresent(externalLinkedAccounts, forKey: .externalLinkedAccounts)
         try container.encodeIfPresent(schacHomeOrganization, forKey: .schacHomeOrganization)
         try container.encodeIfPresent(uid, forKey: .uid)
         try container.encodeIfPresent(rememberMe, forKey: .rememberMe)

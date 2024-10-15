@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 # **removeUserLinkedAccounts**
 ```swift
-    open class func removeUserLinkedAccounts(linkedAccount: LinkedAccount, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+    open class func removeUserLinkedAccounts(updateLinkedAccountRequest: UpdateLinkedAccountRequest, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
 ```
 
 Remove linked account
@@ -609,10 +609,10 @@ Remove linked account for a logged in user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let linkedAccount = LinkedAccount(institutionIdentifier: "institutionIdentifier_example", schacHomeOrganization: "schacHomeOrganization_example", displayNameEn: "displayNameEn_example", displayNameNl: "displayNameNl_example", logoUrl: "logoUrl_example", eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", givenName: "givenName_example", familyName: "familyName_example", eduPersonAffiliations: ["eduPersonAffiliations_example"], preferred: false, createdAt: 123, expiresAt: 123) // LinkedAccount | 
+let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", external: false, idpScoping: "idpScoping_example") // UpdateLinkedAccountRequest | 
 
 // Remove linked account
-UserControllerAPI.removeUserLinkedAccounts(linkedAccount: linkedAccount) { (response, error) in
+UserControllerAPI.removeUserLinkedAccounts(updateLinkedAccountRequest: updateLinkedAccountRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -628,7 +628,7 @@ UserControllerAPI.removeUserLinkedAccounts(linkedAccount: linkedAccount) { (resp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkedAccount** | [**LinkedAccount**](LinkedAccount.md) |  | 
+ **updateLinkedAccountRequest** | [**UpdateLinkedAccountRequest**](UpdateLinkedAccountRequest.md) |  | 
 
 ### Return type
 
@@ -903,7 +903,7 @@ Mark linkedAccount as preferred
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example") // UpdateLinkedAccountRequest | 
+let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", external: false, idpScoping: "idpScoping_example") // UpdateLinkedAccountRequest | 
 
 // Mark linkedAccount as preferred
 UserControllerAPI.updateLinkedAccount(updateLinkedAccountRequest: updateLinkedAccountRequest) { (response, error) in
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 
 Change names
 
-Update the givenName and / or familyName of the User
+Update the givenName, chosenName and / or the familyName of the User
 
 ### Example
 ```swift

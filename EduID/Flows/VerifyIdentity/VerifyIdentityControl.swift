@@ -9,7 +9,20 @@ import TinyConstraints
 
 class VerifyIdentityControl: UIControl {
     
-    private var delegate: () -> ()
+    private var clickHandler: (VerifyIdentityControl) -> ()
+    private var loadingIndicator: UIActivityIndicatorView
+    
+    var isLoading: Bool {
+        didSet {
+            loadingIndicator.isHidden = !isLoading
+            self.isUserInteractionEnabled = !isLoading
+            if isLoading {
+                loadingIndicator.startAnimating()
+            } else {
+                loadingIndicator.stopAnimating()
+            }
+        }
+    }
     
     init(title: String,
          icon: UIImage,
@@ -17,9 +30,11 @@ class VerifyIdentityControl: UIControl {
          subtitle: String? = nil,
          subtitleBoldPart: String? = nil,
          buttonIcon: UIImage? = nil,
-         buttonDelegate: @escaping () -> ()
+         clickHandler: @escaping (VerifyIdentityControl) -> ()
     ) {
-        self.delegate = buttonDelegate
+        self.clickHandler = clickHandler
+        self.isLoading = false
+        self.loadingIndicator = UIActivityIndicatorView(style: .medium)
         super.init(frame: .zero)
         
         // - top title
@@ -63,6 +78,10 @@ class VerifyIdentityControl: UIControl {
             buttonIconView.centerYToSuperview()
         }
         
+        buttonContainer.addSubview(loadingIndicator)
+        loadingIndicator.centerYToSuperview()
+        loadingIndicator.rightToSuperview(offset: -12)
+        
         // - the master stack
         let stack = UIStackView(arrangedSubviews: [topHorizontalStack, buttonContainer])
         stack.axis = .vertical
@@ -84,6 +103,6 @@ class VerifyIdentityControl: UIControl {
     }
     
     @objc func onButtonTouchUpInside() {
-        self.delegate()
+        self.clickHandler(self)
     }
 }

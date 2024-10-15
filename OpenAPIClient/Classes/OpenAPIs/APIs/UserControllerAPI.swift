@@ -473,12 +473,12 @@ open class UserControllerAPI {
     /**
      Remove linked account
      
-     - parameter linkedAccount: (body)  
+     - parameter updateLinkedAccountRequest: (body)  
      - returns: UserResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func removeUserLinkedAccounts(linkedAccount: LinkedAccount) async throws -> UserResponse {
-        return try await removeUserLinkedAccountsWithRequestBuilder(linkedAccount: linkedAccount).execute().body
+    open class func removeUserLinkedAccounts(updateLinkedAccountRequest: UpdateLinkedAccountRequest) async throws -> UserResponse {
+        return try await removeUserLinkedAccountsWithRequestBuilder(updateLinkedAccountRequest: updateLinkedAccountRequest).execute().body
     }
 
     /**
@@ -488,13 +488,13 @@ open class UserControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
-     - parameter linkedAccount: (body)  
+     - parameter updateLinkedAccountRequest: (body)  
      - returns: RequestBuilder<UserResponse> 
      */
-    open class func removeUserLinkedAccountsWithRequestBuilder(linkedAccount: LinkedAccount) -> RequestBuilder<UserResponse> {
+    open class func removeUserLinkedAccountsWithRequestBuilder(updateLinkedAccountRequest: UpdateLinkedAccountRequest) -> RequestBuilder<UserResponse> {
         let localVariablePath = "/mobile/api/sp/institution"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: linkedAccount)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateLinkedAccountRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -800,7 +800,7 @@ open class UserControllerAPI {
     /**
      Change names
      - PUT /mobile/api/sp/update
-     - Update the givenName and / or familyName of the User
+     - Update the givenName, chosenName and / or the familyName of the User
      - :
        - type: openIdConnect
        - name: openId

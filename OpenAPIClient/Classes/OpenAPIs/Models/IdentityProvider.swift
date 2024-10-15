@@ -12,29 +12,41 @@ import AnyCodable
 
 public struct IdentityProvider: Codable, JSONEncodable, Hashable {
 
-    public var displayNameEn: String?
-    public var displayNameNl: String?
+    public var entityId: String?
+    public var name: String?
+    public var nameNl: String?
+    public var institutionGuid: String?
     public var logoUrl: String?
+    public var institutionBrin: String?
 
-    public init(displayNameEn: String? = nil, displayNameNl: String? = nil, logoUrl: String? = nil) {
-        self.displayNameEn = displayNameEn
-        self.displayNameNl = displayNameNl
+    public init(entityId: String? = nil, name: String? = nil, nameNl: String? = nil, institutionGuid: String? = nil, logoUrl: String? = nil, institutionBrin: String? = nil) {
+        self.entityId = entityId
+        self.name = name
+        self.nameNl = nameNl
+        self.institutionGuid = institutionGuid
         self.logoUrl = logoUrl
+        self.institutionBrin = institutionBrin
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case displayNameEn
-        case displayNameNl
+        case entityId
+        case name
+        case nameNl
+        case institutionGuid
         case logoUrl
+        case institutionBrin
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(displayNameEn, forKey: .displayNameEn)
-        try container.encodeIfPresent(displayNameNl, forKey: .displayNameNl)
+        try container.encodeIfPresent(entityId, forKey: .entityId)
+        try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(nameNl, forKey: .nameNl)
+        try container.encodeIfPresent(institutionGuid, forKey: .institutionGuid)
         try container.encodeIfPresent(logoUrl, forKey: .logoUrl)
+        try container.encodeIfPresent(institutionBrin, forKey: .institutionBrin)
     }
 }
 

@@ -23,7 +23,13 @@ class YourVerifiedInformationViewModel {
     ) {
         Task {
             do {
-                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(linkedAccount: linkedAccount)
+                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(updateLinkedAccountRequest: UpdateLinkedAccountRequest(
+                    eduPersonPrincipalName: linkedAccount.eduPersonPrincipalName,
+                    subjectId: linkedAccount.subjectId,
+                    external: linkedAccount.external,
+                    idpScoping: nil
+                    )
+                )
                     .execute()
                     .body
                 

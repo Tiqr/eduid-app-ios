@@ -13,6 +13,8 @@ class VerifyIdentityViewController: BaseViewController {
     
     private var moreOptionsExpanded = false
     
+    private var viewModel = VerifyIdentityViewModel()
+    
     var delegate: PersonalInfoViewControllerDelegate?
     
     //MARK: - init
@@ -71,8 +73,8 @@ class VerifyIdentityViewController: BaseViewController {
             icon: .verifyIdentityInstitution,
             buttonTitle: L.VerifyIdentity.VerifyViaDutchInstitution.Button.localization,
             buttonIcon: nil,
-            buttonDelegate: {
-                // TODO
+            clickHandler: { [weak self] control in
+                self?.viewModel.startLinkingInstitution(control)
             })
         
         
@@ -99,7 +101,7 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityBankingApp,
                 buttonTitle: L.VerifyIdentity.VerifyWithBankingApp.Button.localization,
                 buttonIcon: .verifyButtonIdin,
-                buttonDelegate: { [weak self] in
+                clickHandler: { [weak self] _ in
                     guard let self else {
                         return
                     }
@@ -112,8 +114,11 @@ class VerifyIdentityViewController: BaseViewController {
                 icon: .verifyIdentityEuId,
                 buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
                 buttonIcon: .verifyButtonEidas,
-                buttonDelegate: { [weak self] in
-                    // TODO
+                clickHandler: { [weak self] control in
+                    guard let self else {
+                        return
+                    }
+                    self.viewModel.openEidasLink(control)
                 })
             
             // Support link
@@ -160,16 +165,7 @@ class VerifyIdentityViewController: BaseViewController {
     
     @objc func onVisitSupportTapped() {
         if let supportUrl = URL(string: L.VerifyIdentity.VisitSupport.Link.localization) {
-            if UIApplication.shared.canOpenURL(supportUrl) {
-                UIApplication.shared.open(supportUrl)
-            }
+            UIApplication.shared.open(supportUrl)
         }
-    }
-}
-
-private extension NSAttributedString {
-    func nsRange(of string: String) -> NSRange? {
-        guard let range = self.string.range(of: string) else { return nil }
-        return NSRange(range, in: self.string)
     }
 }

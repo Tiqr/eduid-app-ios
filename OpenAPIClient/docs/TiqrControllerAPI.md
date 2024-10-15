@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -157,7 +157,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -203,7 +203,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -249,7 +249,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -345,7 +345,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -641,7 +641,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -687,7 +687,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[openId](../README.md#openId)
+[openId](../README.md#openId), [basic](../README.md#basic)
 
 ### HTTP request headers
 

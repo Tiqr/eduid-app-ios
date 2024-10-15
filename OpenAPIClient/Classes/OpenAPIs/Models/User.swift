@@ -17,6 +17,7 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var chosenName: String?
     public var givenName: String?
     public var familyName: String?
+    public var dateOfBirth: Int64?
     public var uid: String?
     public var schacHomeOrganization: String?
     public var password: String?
@@ -31,6 +32,7 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var surfSecureId: [String: AnyCodable]?
     public var publicKeyCredentials: [PublicKeyCredentials]?
     public var linkedAccounts: [LinkedAccount]?
+    public var externalLinkedAccounts: [ExternalLinkedAccount]?
     public var eduIDS: [EduID]?
     public var created: Int64?
     public var updatedAt: Int64?
@@ -38,12 +40,13 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var lastSeenAppNudge: Int64?
     public var eduPersonPrincipalName: String?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: [String]]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, updatedAt: Int64? = nil, trackingUuid: String? = nil, lastSeenAppNudge: Int64? = nil, eduPersonPrincipalName: String? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, dateOfBirth: Int64? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: [String]]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, updatedAt: Int64? = nil, trackingUuid: String? = nil, lastSeenAppNudge: Int64? = nil, eduPersonPrincipalName: String? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName
         self.givenName = givenName
         self.familyName = familyName
+        self.dateOfBirth = dateOfBirth
         self.uid = uid
         self.schacHomeOrganization = schacHomeOrganization
         self.password = password
@@ -58,6 +61,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         self.surfSecureId = surfSecureId
         self.publicKeyCredentials = publicKeyCredentials
         self.linkedAccounts = linkedAccounts
+        self.externalLinkedAccounts = externalLinkedAccounts
         self.eduIDS = eduIDS
         self.created = created
         self.updatedAt = updatedAt
@@ -72,6 +76,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         case chosenName
         case givenName
         case familyName
+        case dateOfBirth
         case uid
         case schacHomeOrganization
         case password
@@ -86,6 +91,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         case surfSecureId
         case publicKeyCredentials
         case linkedAccounts
+        case externalLinkedAccounts
         case eduIDS
         case created
         case updatedAt
@@ -103,6 +109,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(chosenName, forKey: .chosenName)
         try container.encodeIfPresent(givenName, forKey: .givenName)
         try container.encodeIfPresent(familyName, forKey: .familyName)
+        try container.encodeIfPresent(dateOfBirth, forKey: .dateOfBirth)
         try container.encodeIfPresent(uid, forKey: .uid)
         try container.encodeIfPresent(schacHomeOrganization, forKey: .schacHomeOrganization)
         try container.encodeIfPresent(password, forKey: .password)
@@ -117,6 +124,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(surfSecureId, forKey: .surfSecureId)
         try container.encodeIfPresent(publicKeyCredentials, forKey: .publicKeyCredentials)
         try container.encodeIfPresent(linkedAccounts, forKey: .linkedAccounts)
+        try container.encodeIfPresent(externalLinkedAccounts, forKey: .externalLinkedAccounts)
         try container.encodeIfPresent(eduIDS, forKey: .eduIDS)
         try container.encodeIfPresent(created, forKey: .created)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)

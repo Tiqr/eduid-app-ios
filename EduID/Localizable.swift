@@ -6870,4 +6870,66 @@ public struct L {
             )
         }
     }
+    public struct SelectYourBank {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "SelectYourBank.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "SelectYourBank.Title.COPY",
+            translationArgs: []
+        )
+        public struct Subtitle {
+            public static let Full = LocaliciousData(
+                accessibilityIdentifier: "SelectYourBank.Subtitle.Full",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "SelectYourBank.Subtitle.Full.COPY",
+                translationArgs: []
+            )
+            public static let HighlightedPart = LocaliciousData(
+                accessibilityIdentifier: "SelectYourBank.Subtitle.HighlightedPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "SelectYourBank.Subtitle.HighlightedPart.COPY",
+                translationArgs: []
+            )
+        }
+        public static let MoreAboutIdin = LocaliciousData(
+            accessibilityIdentifier: "SelectYourBank.MoreAboutIdin",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "SelectYourBank.MoreAboutIdin.COPY",
+            translationArgs: []
+        )
+        public static let IdinkLink = LocaliciousData(
+            accessibilityIdentifier: "SelectYourBank.IdinkLink",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "SelectYourBank.IdinkLink.COPY",
+            translationArgs: []
+        )
+        public struct BankNotInList {
+            public static let Full = LocaliciousData(
+                accessibilityIdentifier: "SelectYourBank.BankNotInList.Full",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "SelectYourBank.BankNotInList.Full.COPY",
+                translationArgs: []
+            )
+            public static let HighlightedPart = LocaliciousData(
+                accessibilityIdentifier: "SelectYourBank.BankNotInList.HighlightedPart",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "SelectYourBank.BankNotInList.HighlightedPart.COPY",
+                translationArgs: []
+            )
+        }
+    }
 }

@@ -30,6 +30,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter deactivateRequest: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -69,6 +72,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter enrollmentKey: (query)  
      - returns: RequestBuilder<String> 
      */
@@ -110,6 +116,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<EnrollmentVerificationKey> 
      */
     open class func finishEnrollmentWithRequestBuilder() -> RequestBuilder<EnrollmentVerificationKey> {
@@ -147,6 +156,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<GeneratedBackupCode> 
      */
     open class func generateBackupCodeForSpWithRequestBuilder() -> RequestBuilder<GeneratedBackupCode> {
@@ -184,6 +196,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<GeneratedBackupCode> 
      */
     open class func regenerateBackupCodeForSpWithRequestBuilder() -> RequestBuilder<GeneratedBackupCode> {
@@ -222,6 +237,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter phoneCode: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -260,6 +278,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<FinishEnrollment> 
      */
     open class func sendDeactivationPhoneCodeForSpWithRequestBuilder() -> RequestBuilder<FinishEnrollment> {
@@ -298,6 +319,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter phoneCode: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -337,6 +361,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter sessionKey: (query) Session key of the authentication 
      - returns: RequestBuilder<PollAuthenticationResult> 
      */
@@ -379,6 +406,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter manualResponse: (body)  
      - returns: RequestBuilder<FinishEnrollment> 
      */
@@ -418,6 +448,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter phoneVerification: (body)  
      - returns: RequestBuilder<VerifyPhoneCode> 
      */
@@ -457,6 +490,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - parameter phoneVerification: (body)  
      - returns: RequestBuilder<VerifyPhoneCode> 
      */
@@ -495,6 +531,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<StartAuthentication> 
      */
     open class func startAuthenticationForSPWithRequestBuilder() -> RequestBuilder<StartAuthentication> {
@@ -532,6 +571,9 @@ open class TiqrControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<StartEnrollment> 
      */
     open class func startEnrollmentWithRequestBuilder() -> RequestBuilder<StartEnrollment> {

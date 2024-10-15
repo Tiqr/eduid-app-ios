@@ -13,6 +13,46 @@ import AnyCodable
 open class AccountLinkerControllerAPI {
 
     /**
+     All verify issuers
+     
+     - returns: [VerifyIssuer]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func issuers() async throws -> [VerifyIssuer] {
+        return try await issuersWithRequestBuilder().execute().body
+    }
+
+    /**
+     All verify issuers
+     - GET /mobile/api/sp/idin/issuers
+     - All verify issuers to build the select Bank page for ID verificatin
+     - :
+       - type: openIdConnect
+       - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
+     - returns: RequestBuilder<[VerifyIssuer]> 
+     */
+    open class func issuersWithRequestBuilder() -> RequestBuilder<[VerifyIssuer]> {
+        let localVariablePath = "/mobile/api/sp/idin/issuers"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[VerifyIssuer]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Start link account flow
      
      - returns: AuthorizationURL
@@ -29,6 +69,9 @@ open class AccountLinkerControllerAPI {
      - :
        - type: openIdConnect
        - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
      - returns: RequestBuilder<AuthorizationURL> 
      */
     open class func startSPLinkAccountFlowWithRequestBuilder() -> RequestBuilder<AuthorizationURL> {
@@ -37,6 +80,63 @@ open class AccountLinkerControllerAPI {
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AuthorizationURL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     * enum for parameter idpScoping
+     */
+    public enum IdpScoping_startSPVerifyIDLinkAccountFlow: String, CaseIterable {
+        case idin = "idin"
+        case eherkenning = "eherkenning"
+        case studielink = "studielink"
+    }
+
+    /**
+     Start verify ID flow for signicat from SP flow
+     
+     - parameter idpScoping: (query)  
+     - parameter bankId: (query)  (optional)
+     - returns: AuthorizationURL
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func startSPVerifyIDLinkAccountFlow(idpScoping: IdpScoping_startSPVerifyIDLinkAccountFlow, bankId: String? = nil) async throws -> AuthorizationURL {
+        return try await startSPVerifyIDLinkAccountFlowWithRequestBuilder(idpScoping: idpScoping, bankId: bankId).execute().body
+    }
+
+    /**
+     Start verify ID flow for signicat from SP flow
+     - GET /mobile/api/sp/verify/link
+     - Start the verify ID flow for the current user.<br/>After the account has been linked the user is redirect to one the following URL's:<ul><li>Success: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-account-linked</a></li><li>Failure, something went wrong: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-error</a></li></ul>
+     - :
+       - type: openIdConnect
+       - name: openId
+     - BASIC:
+       - type: http
+       - name: basic
+     - parameter idpScoping: (query)  
+     - parameter bankId: (query)  (optional)
+     - returns: RequestBuilder<AuthorizationURL> 
+     */
+    open class func startSPVerifyIDLinkAccountFlowWithRequestBuilder(idpScoping: IdpScoping_startSPVerifyIDLinkAccountFlow, bankId: String? = nil) -> RequestBuilder<AuthorizationURL> {
+        let localVariablePath = "/mobile/api/sp/verify/link"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "idpScoping": (wrappedValue: idpScoping.encodeToJSON(), isExplode: true),
+            "bankId": (wrappedValue: bankId?.encodeToJSON(), isExplode: true),
+        ])
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
