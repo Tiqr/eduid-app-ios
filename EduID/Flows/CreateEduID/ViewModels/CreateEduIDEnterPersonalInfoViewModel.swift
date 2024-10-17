@@ -40,7 +40,7 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
                 let _ = try await UserControllerAPI.createEduIDAccount(createAccount: account)
                 createEduIDSuccessClosure?()
             } catch {
-                let errorResponse = error.eduIdResponseError()
+                let errorResponse = EduIdError.from(error)
                 createEduIDErrorClosure?(errorResponse.title, errorResponse.message)
             }
         }

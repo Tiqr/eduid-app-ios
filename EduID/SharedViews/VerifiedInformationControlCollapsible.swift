@@ -15,7 +15,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
     //MARK: - init
     init(title: String,
          subtitle: String,
-         linkedAccount: LinkedAccount,
+         model: VerifiedInformationModel,
          manageVerifiedInformationAction: (() -> Void)?,
          expandable: Bool = true,
          leftEmoji: String? = nil,
@@ -26,7 +26,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         setupUI(
             title: title,
             subtitle: subtitle,
-            linkedAccount: linkedAccount,
+            model: model,
             expandable: expandable,
             leftEmoji: leftEmoji,
             rightIcon: rightIcon)
@@ -34,12 +34,12 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
             self.gestureRecognizers?.forEach { removeGestureRecognizer($0) }
         }
     }
-            
+    
     //MARK: - setup UI
     private func setupUI(
         title: String,
         subtitle: String,
-        linkedAccount: LinkedAccount,
+        model: VerifiedInformationModel,
         expandable: Bool,
         leftEmoji: String?,
         rightIcon: UIImage?
@@ -100,10 +100,10 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         // Verified by
         let verifiedByLabel = UILabel()
         let verifiedByString = NSMutableAttributedString(
-            string: L.Profile.VerifiedBy(args: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "").localization,
+            string: L.Profile.VerifiedBy(args: model.providerName).localization,
             attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 6)
         )
-        if let createdAt = linkedAccount.createdAt {
+        if let createdAt = model.createdAt {
             let createdAtDate = Date(timeIntervalSince1970: TimeInterval(createdAt / 1000))
             verifiedByString.append(NSAttributedString(
                 string: "\n" + L.Profile.LinkedAccountCreatedAt.localization,
@@ -114,7 +114,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
                 attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 6)
             ))
         }
-        if let expiresAt = linkedAccount.expiresAt {
+        if let expiresAt = model.expiresAt {
             let expiresAtDate = Date(timeIntervalSince1970: TimeInterval(expiresAt / 1000))
             verifiedByString.append(NSAttributedString(
                 string: "\n" + L.Profile.LinkedAccountValidUntil.localization,

@@ -825,3 +825,9 @@ We sturen je een code om je nummer te verifiëren.
 "SelectYourBank.IdinkLink.COPY" = "https://www.idin.nl/";
 "SelectYourBank.BankNotInList.Full.COPY" = "Staat jouw bank niet in deze lijst, selecteer dan een andere methode";
 "SelectYourBank.BankNotInList.HighlightedPart.COPY" = "andere methode";
+"LinkingSuccess.Title.COPY" = "Jouw persoonlijk informatie 🎉";
+"LinkingSuccess.Subtitle.COPY" = "De volgende informatie is toegevoegd aan jouw eduID account.";
+"LinkingSuccess.SubtitlePreferInstitution.COPY" = "Wil je de volgende informatie, gebruiken als standaardinformatie om met diensten te delen?";
+"LinkingSuccess.Button.Continue.COPY" = "Ga door";
+"LinkingSuccess.Button.YesPlease.COPY" = "Ja, graag";
+"LinkingSuccess.Button.NoThanks.COPY" = "Nee, bedankt";

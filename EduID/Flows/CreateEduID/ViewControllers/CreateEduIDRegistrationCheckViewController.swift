@@ -63,7 +63,8 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
             .receive(on: DispatchQueue.main)
             .sink { [weak self] snapShot in
                 if let snapShot {
-                    self?.presentAlert(with: snapShot.eduIdResponseError().title, and: snapShot.eduIdResponseError().message, for: .error)
+                    let eduIdError = EduIdError.from(snapShot)
+                    self?.presentAlert(with: eduIdError.title, and: eduIdError.message, for: .error)
                 }
             }.store(in: &cancellable)
     }

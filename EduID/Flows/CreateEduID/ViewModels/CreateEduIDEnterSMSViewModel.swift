@@ -15,7 +15,7 @@ class CreateEduIDEnterSMSViewModel: NSObject {
                     .body
                 smsEntryWasCorrect?(result)
             } catch {
-                let responseError = error.eduIdResponseError()
+                let responseError = EduIdError.from(error)
                 smsEntryFailed?(responseError.title, responseError.message)
             }
         }

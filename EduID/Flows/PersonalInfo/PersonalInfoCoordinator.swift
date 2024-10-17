@@ -82,8 +82,8 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController!.pushViewController(confirmDeleteViewController, animated: true)
     }
     
-    func goToYourVerifiedInformationScreen(linkedAccounts: [LinkedAccount]) {
-        let yourVerifiedInformationViewController = YourVerifiedInformationViewController(viewModel: YourVerifiedInformationViewModel(linkedAccounts: linkedAccounts))
+    func goToYourVerifiedInformationScreen(userResponse: UserResponse) {
+        let yourVerifiedInformationViewController = YourVerifiedInformationViewController(viewModel: YourVerifiedInformationViewModel(userResponse: userResponse))
         yourVerifiedInformationViewController.delegate = self
         navigationController!.pushViewController(yourVerifiedInformationViewController, animated: true)
     }
@@ -118,6 +118,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     @objc
     func goBack(viewController: UIViewController) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func goToLinkingSuccessScreen(linkedInstitution: String?, previousUserInfo: UserResponse?) {
+        let linkingSuccessViewController = LinkingSuccessViewController()
+        linkingSuccessViewController.viewModel = LinkingSuccessViewModel(linkedInstitution: linkedInstitution, previousUserResponse: previousUserInfo)
+        navigationController?.pushViewController(linkingSuccessViewController, animated: true)
     }
 }
 

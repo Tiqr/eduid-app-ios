@@ -1,5 +1,6 @@
 import UIKit
 import TinyConstraints
+import OpenAPIClient
 
 class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
@@ -42,16 +43,16 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             }
         }
         
-        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+        viewModel.dataFetchErrorClosure = { [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
-                    if statusCode == 401 {
+                    if eduidError.statusCode == 401 {
                         AppAuthController.shared.authorize(viewController: self)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .personalInfo)
-                    } else if statusCode == -1 {
+                    } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
                 }
@@ -60,6 +61,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didAddLinkedInstitution), name: .didAddLinkedAccounts, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -90,6 +92,14 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         let linkedAccountEmail = notification.userInfo?[Constants.UserInfoKey.linkedAccountEmail] as? String
         delegate?.goToAccountLinkingErrorScreen(linkedAccountEmail: linkedAccountEmail)
     }
+    
+    @objc
+    func didAddLinkedInstitution(_ notification: NSNotification) {
+        // User tried to link account, but it was already linked
+        let linkedInstitution = notification.userInfo?[Constants.UserInfoKey.linkedAccountInstitution] as? String
+        delegate?.goToLinkingSuccessScreen(linkedInstitution: linkedInstitution, previousUserInfo: viewModel.userResponse)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -241,49 +251,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 verifiedBadge.rightToSuperview()
                 verifiedBadge.centerYToSuperview()
             }
-            let firstNameLinkedAccount = model.userResponse.linkedAccounts?.first(where: { $0.givenName?.isEmpty == false })
-            // First name
-            if let firstNameLinkedAccount,
-               let verifiedFirstName = firstNameLinkedAccount.givenName {
-                if let chosenName = model.userResponse.chosenName {
-                    let chosenNameSubtitleText = NSMutableAttributedString()
-                    chosenNameSubtitleText.append(NSAttributedString(
-                        string: "\(chosenName)\n",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProSemiBold(size: 16),
-                            color: .backgroundColor,
-                            lineSpacing: 6
-                        ))
-                    )
-                    chosenNameSubtitleText.append(NSAttributedString(
-                        string: "\(L.Profile.FirstName.localization) ",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProRegular(size: 12),
-                            color: .grayGhost,
-                            lineSpacing: 6
-                        ))
-                    )
-                    let chosenNameControl = ActionableControlWithBodyAndTitle(
-                        attributedTitle: nil,
-                        attributedBodyText: chosenNameSubtitleText,
-                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
-                        isFilled: true
-                    )
-                    stack.addArrangedSubview(chosenNameControl)
-                    chosenNameControl.widthToSuperview(offset: -48)
-                    chosenNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
-                }
-                let verifiedFirstNameControl = VerifiedInformationControlCollapsible(
-                    title: verifiedFirstName,
-                    subtitle: L.Profile.VerifiedGivenName.localization,
-                    linkedAccount: firstNameLinkedAccount,
-                    manageVerifiedInformationAction: { [weak self] in
-                        self?.delegate?.goToYourVerifiedInformationScreen(linkedAccounts: model.userResponse.linkedAccounts!)
-                    }
-                )
-                stack.addArrangedSubview(verifiedFirstNameControl)
-                verifiedFirstNameControl.widthToSuperview(offset: -48)
-            } else if let firstName = model.userResponse.givenName {
+            // We always allow editing the first name
+            if let firstName = model.userResponse.chosenName {
                 let firstNameSubtitleText = NSMutableAttributedString()
                 firstNameSubtitleText.append(NSAttributedString(
                     string: "\(firstName)\n",
@@ -311,19 +280,74 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 firstNameControl.widthToSuperview(offset: -48)
                 firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
             }
-            if let lastNameLinkedAccount = model.userResponse.linkedAccounts?.first(where: { $0.familyName?.isEmpty == false }),
-               let verifiedLastName = lastNameLinkedAccount.familyName {
-                let verifiedLastNameControl = VerifiedInformationControlCollapsible(
-                    title: verifiedLastName,
-                    subtitle: L.Profile.VerifiedFamilyName.localization,
-                    linkedAccount: lastNameLinkedAccount,
-                    manageVerifiedInformationAction: { [weak self] in
-                        self?.delegate?.goToYourVerifiedInformationScreen(linkedAccounts: model.userResponse.linkedAccounts!)
+            
+            var hasVerifiedGivenName = false
+            var hasVerifiedFamilyName = false
+
+            // First name
+            for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
+                if let givenName = linkedAccount.givenName, givenName == model.userResponse.givenName  {
+                    addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, linkedAccount: linkedAccount)
+                    hasVerifiedGivenName = true
+                }
+                if let familyName = linkedAccount.familyName, familyName == model.userResponse.familyName {
+                    addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, linkedAccount: linkedAccount)
+                    hasVerifiedFamilyName = true
+                }
+            }
+            // Now also search in external linked accounts
+            for linkedAccount in (model.userResponse.externalLinkedAccounts ?? []) {
+                if !hasVerifiedGivenName, let givenName = linkedAccount.firstName, givenName == model.userResponse.givenName  {
+                    addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                    hasVerifiedGivenName = true
+                }
+                if !hasVerifiedFamilyName, let familyName = linkedAccount.legalLastName ?? linkedAccount.preferredLastName, familyName == model.userResponse.familyName  {
+                    addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                    hasVerifiedFamilyName = true
+                }
+            }
+            // It is possible that there's a verified name, but it doesn't match the one in the profile. In this case we still need to show it
+            // So we go through the accounts once more, but do not check for matches anymore
+            if !hasVerifiedGivenName || !hasVerifiedFamilyName {
+                for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
+                    if !hasVerifiedGivenName, let givenName = linkedAccount.givenName {
+                        addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, linkedAccount: linkedAccount)
+                        hasVerifiedGivenName = true
                     }
-                )
-                stack.addArrangedSubview(verifiedLastNameControl)
-                verifiedLastNameControl.widthToSuperview(offset: -48)
-            } else if let lastName = model.userResponse.familyName {
+                    if !hasVerifiedFamilyName, let familyName = linkedAccount.familyName {
+                        addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, linkedAccount: linkedAccount)
+                        hasVerifiedFamilyName = true
+                    }
+                }
+                for linkedAccount in (model.userResponse.externalLinkedAccounts ?? []) {
+                    if !hasVerifiedGivenName, let givenName = linkedAccount.firstName  {
+                        addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                        hasVerifiedGivenName = true
+                    }
+                    if !hasVerifiedFamilyName, let familyName = linkedAccount.legalLastName ?? linkedAccount.preferredLastName  {
+                        addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                        hasVerifiedFamilyName = true
+                    }
+                }
+            }
+            // Now also search in external linked accounts
+            for linkedAccount in (model.userResponse.externalLinkedAccounts ?? []) {
+                if !hasVerifiedGivenName,
+                   let givenName = linkedAccount.firstName,
+                   givenName == model.userResponse.givenName  {
+                    addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack)
+                    hasVerifiedGivenName = true
+                }
+                if !hasVerifiedFamilyName,
+                   let familyName = linkedAccount.legalLastName ?? linkedAccount.preferredLastName,
+                   familyName == model.userResponse.familyName  {
+                    addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack)
+                    hasVerifiedFamilyName = true
+                }
+            }
+            // If there's not verified family name at all, we show the self-asserted one
+            if !hasVerifiedFamilyName,
+               let lastName = model.userResponse.familyName {
                     let lastNameSubtitleText = NSMutableAttributedString()
                     lastNameSubtitleText.append(NSAttributedString(
                         string: "\(lastName)\n",
@@ -515,6 +539,39 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
     }
     
+    private func addNameControlToStack(
+        value: String,
+        label: String,
+        stack: UIStackView,
+        linkedAccount: LinkedAccount? = nil,
+        externalLinkedAccount: ExternalLinkedAccount? = nil
+    ) {
+        let nameControl: VerifiedInformationControlCollapsible
+        let goToVerifiedScreenAction = { [weak self] in
+            guard let self else { return }
+            self.delegate?.goToYourVerifiedInformationScreen(userResponse: self.viewModel.userResponse!)
+        }
+        if let linkedAccount {
+            nameControl = VerifiedInformationControlCollapsible(
+                title: value,
+                subtitle: label,
+                model: VerifiedInformationModel(linkedAccount: linkedAccount),
+                manageVerifiedInformationAction: goToVerifiedScreenAction
+            )
+        } else if let externalLinkedAccount {
+            nameControl = VerifiedInformationControlCollapsible(
+                title: value,
+                subtitle: label,
+                model: VerifiedInformationModel(externalLinkedAccount: externalLinkedAccount),
+                manageVerifiedInformationAction: goToVerifiedScreenAction
+            )
+        } else {
+            fatalError("You should either provide a linkedAccount or externalLinkedAccount when adding a name control!")
+        }
+        stack.addArrangedSubview(nameControl)
+        nameControl.widthToSuperview(offset: -48)
+    }
+    
     private func startLinkingInstitution() {
         Task {
             do {
@@ -552,7 +609,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             self.verifyIdentityLoadingIndicator?.isHidden = true
         }
     }
-    
+
     @objc func manageAccountClicked() {
         guard let personalInfo = viewModel.userResponse else {
             return

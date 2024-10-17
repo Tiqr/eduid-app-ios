@@ -22,14 +22,14 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
             self?.setupUI(model: model)
         }
         
-        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+        viewModel.dataFetchErrorClosure = { [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
-                    if statusCode == 401 {
+                    if eduidError.statusCode == 401 {
                         AppAuthController.shared.authorize(viewController: self)
-                    } else if statusCode == -1 {
+                    } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
                 }
@@ -88,7 +88,7 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
                 let givenNameControl = VerifiedInformationControlCollapsible(
                     title: givenName,
                     subtitle: L.Profile.VerifiedGivenName.localization,
-                    linkedAccount: linkedAccount,
+                    model: VerifiedInformationModel(linkedAccount: linkedAccount),
                     manageVerifiedInformationAction: nil,
                     expandable: false
                 )
@@ -99,7 +99,7 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
                 let familyNameControl = VerifiedInformationControlCollapsible(
                     title: familyName,
                     subtitle: L.Profile.VerifiedFamilyName.localization,
-                    linkedAccount: linkedAccount,
+                    model: VerifiedInformationModel(linkedAccount: linkedAccount),
                     manageVerifiedInformationAction: nil,
                     expandable: false
                 )

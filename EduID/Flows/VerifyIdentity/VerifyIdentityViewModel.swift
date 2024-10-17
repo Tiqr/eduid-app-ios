@@ -9,7 +9,7 @@ import OpenAPIClient
 
 class VerifyIdentityViewModel: NSObject {
     
-    var dataFetchErrorClosure: ((String, String, Int) -> Void)?
+    var dataFetchErrorClosure: ((EduIdError) -> Void)?
     
     func startLinkingInstitution(_ control: VerifyIdentityControl) {
         control.isLoading = true
@@ -47,9 +47,6 @@ class VerifyIdentityViewModel: NSObject {
     @MainActor
     private func processError(with error: Error, control: VerifyIdentityControl) {
         control.isLoading = false
-        dataFetchErrorClosure?(error.eduIdResponseError().title,
-                               error.eduIdResponseError().message,
-                               error.eduIdResponseError().statusCode)
+        dataFetchErrorClosure?(EduIdError.from(error))
     }
-    
 }
