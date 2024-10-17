@@ -19,16 +19,22 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
          manageVerifiedInformationAction: (() -> Void)?,
          expandable: Bool = true,
          leftEmoji: String? = nil,
+         leftIconUrl: URL? = nil,
          rightIcon: UIImage? = nil
     ) {
         self.manageVerifiedInformationAction = manageVerifiedInformationAction
         super.init()
+        if leftEmoji != nil && leftIconUrl != nil {
+            assertionFailure("You cannot use leftEmoji and leftIconUrl at the same time!")
+            return
+        }
         setupUI(
             title: title,
             subtitle: subtitle,
             model: model,
             expandable: expandable,
             leftEmoji: leftEmoji,
+            leftIconUrl: leftIconUrl,
             rightIcon: rightIcon)
         if !expandable {
             self.gestureRecognizers?.forEach { removeGestureRecognizer($0) }
@@ -42,6 +48,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         model: VerifiedInformationModel,
         expandable: Bool,
         leftEmoji: String?,
+        leftIconUrl: URL?,
         rightIcon: UIImage?
     ) {
         backgroundColor = .white
@@ -67,6 +74,11 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
             emojiLabel.text = leftEmoji
             emojiLabel.font = .sourceSansProRegular(size: 30)
             leftIconView = emojiLabel
+        } else if let leftIconUrl {
+            let iconImageView = UIImageView()
+            iconImageView.downloadImage(from: leftIconUrl)
+            iconImageView.size(CGSize(width: 24, height: 28))
+            leftIconView = iconImageView
         } else {
             let shieldImageView = UIImageView()
             shieldImageView.image = .shield

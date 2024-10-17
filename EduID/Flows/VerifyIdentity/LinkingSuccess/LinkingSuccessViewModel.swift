@@ -14,6 +14,7 @@ class LinkingSuccessViewModel: NSObject {
     
     var userResponse: UserResponse?
     var dataHandler: ((Result<UserResponse, Error>) -> Void)?
+    var linkingSuccessHandler: (() -> Void)?
     
     init(linkedInstitution: String?, previousUserResponse: UserResponse?) {
         self.linkedInstitution = linkedInstitution
@@ -23,9 +24,7 @@ class LinkingSuccessViewModel: NSObject {
     func getData() {
         Task {
             do {
-                try await userResponse = UserControllerAPI.meWithRequestBuilder()
-                    .execute()
-                    .body
+                try await userResponse = UserControllerAPI.me()
                 await processUserData()
             } catch {
                 await processError(with: error)
@@ -64,6 +63,23 @@ class LinkingSuccessViewModel: NSObject {
         return nil
     }
     
+    func preferLinkedInstitution() {
+        guard let addedAccount = getAddedAccount() else {
+            assertionFailure("You should not be able to prefer a linked account if there is no added account!")
+            return
+        }
+        Task {
+            do {
+                try await userResponse = UserControllerAPI.updateLinkedAccount(updateLinkedAccountRequest: addedAccount.updateRequest)
+                await processLinkingSuccess()
+            } catch {
+                await processError(with: error)
+            }
+            
+        }
+
+    }
+    
     @MainActor
     private func processError(with error: Error) {
         dataHandler?(.failure(EduIdError.from(error)))
@@ -73,6 +89,11 @@ class LinkingSuccessViewModel: NSObject {
     private func processUserData() {
         guard let userResponse = userResponse else { return }
         dataHandler?(.success(userResponse))
+    }
+    
+    @MainActor
+    private func processLinkingSuccess() {
+        linkingSuccessHandler?()
     }
     
 }
