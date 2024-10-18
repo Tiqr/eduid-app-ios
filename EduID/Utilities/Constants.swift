@@ -46,4 +46,8 @@ enum Constants {
         static let useApp = "useApp"
         static let phoneVerified = "phoneVerified"
     }
+    
+    enum Urls {
+        static let OrganizationLogo = "https://static.surfconext.nl/logos/org/"
+    }
 }

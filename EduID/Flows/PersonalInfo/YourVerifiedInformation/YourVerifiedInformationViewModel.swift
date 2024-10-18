@@ -48,23 +48,30 @@ extension UserResponse {
 
 
 class VerifiedInformationModel: Equatable {
+    
+    let id: String?
+    
     let givenName: String?
     let familyName: String?
+    let dateOfBirth: Int64?
+    
     let providerName: String
     let createdAt: Int64?
     let expiresAt: Int64?
     let eduPersonAffiliations: [String]?
     
-    let removeRequest: UpdateLinkedAccountRequest
+    let updateRequest: UpdateLinkedAccountRequest
     
     init(linkedAccount: LinkedAccount) {
+        id = linkedAccount.institutionGuid
         givenName = linkedAccount.givenName
         familyName = linkedAccount.familyName
+        dateOfBirth = nil
         providerName = linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? ""
         createdAt = linkedAccount.createdAt
         expiresAt = linkedAccount.expiresAt
         eduPersonAffiliations = linkedAccount.eduPersonAffiliations
-        removeRequest = UpdateLinkedAccountRequest(
+        updateRequest = UpdateLinkedAccountRequest(
             eduPersonPrincipalName: linkedAccount.eduPersonPrincipalName,
             subjectId: linkedAccount.subjectId,
             external: linkedAccount.external,
@@ -73,13 +80,15 @@ class VerifiedInformationModel: Equatable {
     }
     
     init(externalLinkedAccount: ExternalLinkedAccount) {
+        id = externalLinkedAccount.serviceID
         givenName = externalLinkedAccount.firstName
         familyName = externalLinkedAccount.preferredLastName ?? externalLinkedAccount.legalLastName
+        dateOfBirth = externalLinkedAccount.dateOfBirth
         providerName = externalLinkedAccount.issuer?.name ?? externalLinkedAccount.issuer?.id ?? "?"
         createdAt = externalLinkedAccount.createdAt
         expiresAt = externalLinkedAccount.expiresAt
         eduPersonAffiliations = nil
-        removeRequest = UpdateLinkedAccountRequest(
+        updateRequest = UpdateLinkedAccountRequest(
             eduPersonPrincipalName: nil,
             subjectId: externalLinkedAccount.subjectId,
             external: externalLinkedAccount.external,
@@ -92,9 +101,11 @@ class VerifiedInformationModel: Equatable {
         return lhs.givenName == rhs.givenName &&
                lhs.familyName == rhs.familyName &&
                lhs.providerName == rhs.providerName &&
+               lhs.dateOfBirth == rhs.dateOfBirth &&
                lhs.createdAt == rhs.createdAt &&
                lhs.expiresAt == rhs.expiresAt &&
                lhs.eduPersonAffiliations == rhs.eduPersonAffiliations &&
-               lhs.removeRequest == rhs.removeRequest
+               lhs.updateRequest == rhs.updateRequest &&
+               lhs.id == rhs.id
     }
 }

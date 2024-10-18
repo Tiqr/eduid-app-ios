@@ -262,7 +262,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 return
             }
             viewModel.removeLinkedAccount(
-                request: account.removeRequest,
+                request: account.updateRequest,
                 onRemoved: { [weak self] in
                     guard let self else {
                         return

@@ -219,6 +219,7 @@
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
 		4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */; };
 		4F9D27362A3341BD00F5A6ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D27342A3341BD00F5A6ED /* Localizable.strings */; };
+		4FA153162CC14B97001AE759 /* ImageView+downloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */; };
 		4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */; };
 		4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */; };
 		4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA35482B74ED6900422949 /* URL+Extension.swift */; };
@@ -727,6 +728,7 @@
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
 		4F9D27352A3341BD00F5A6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9D27372A3341C500F5A6ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+downloadImage.swift"; sourceTree = "<group>"; };
 		4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteKeyConfirmationViewController.swift; sourceTree = "<group>"; };
 		4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteKeyConfirmationViewModel.swift; path = EduID/Flows/Security/DeleteKeyConfirmation/DeleteKeyConfirmationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		4FAA35482B74ED6900422949 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
@@ -1157,6 +1159,7 @@
 		4F909E232A31CD7E00FC1506 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */,
 				4F1F127D2CAD587B002DA23A /* String+NSRange.swift */,
 				4F909E242A31CD7E00FC1506 /* Result+Utils.swift */,
 				4F909E252A31CD7E00FC1506 /* UITextField+Extension.swift */,
@@ -2086,6 +2089,7 @@
 				4F93D4842BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift in Sources */,
 				4FF567A02A31D32E00616341 /* MainCoordinator.swift in Sources */,
 				4FF567B42A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift in Sources */,
+				4FA153162CC14B97001AE759 /* ImageView+downloadImage.swift in Sources */,
 				4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */,
 				4FF567A12A31D32E00616341 /* HomeViewControllerDelegate.swift in Sources */,
 				4F6FB2792CAD8CFB005DF803 /* VerifyIdentityViewModel.swift in Sources */,

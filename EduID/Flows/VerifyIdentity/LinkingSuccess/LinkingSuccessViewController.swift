@@ -14,6 +14,8 @@ class LinkingSuccessViewController: BaseViewController {
     
     var viewModel: LinkingSuccessViewModel!
     
+    private var buttonStack: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         screenType = .linkingSuccessScreen
@@ -23,7 +25,11 @@ class LinkingSuccessViewController: BaseViewController {
                 self?.setupUI(userResponse)
             } else if case .failure(let error) = result {
                 self?.handleError(error)
+                self?.setButtonsLoading(false)
             }
+        }
+        viewModel.linkingSuccessHandler = { [weak self] in
+            self?.delegate?.goBackToInfoScreen(updateData: true)
         }
         viewModel.getData()
     }
@@ -70,8 +76,11 @@ class LinkingSuccessViewController: BaseViewController {
         mainDescriptionParent.addSubview(mainDescription)
         mainDescription.edges(to: mainDescriptionParent)
         
+        let spacerTop = UIView()
+        spacerTop.height(4)
+        
         // - create the stackview
-        let stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent])
+        let stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, spacerTop])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -79,7 +88,7 @@ class LinkingSuccessViewController: BaseViewController {
         stack.spacing = 24
         scrollView.addSubview(stack)
         
-        let buttonStack = UIStackView()
+        buttonStack = UIStackView()
         view.addSubview(buttonStack)
         buttonStack.widthToSuperview(offset: -48)
         buttonStack.centerXToSuperview()
@@ -93,6 +102,8 @@ class LinkingSuccessViewController: BaseViewController {
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
+        spacerTop.widthToSuperview(offset: -48)
+        
         
         if let userResponse {
             let addedAccount = viewModel.getAddedAccount()
@@ -100,7 +111,68 @@ class LinkingSuccessViewController: BaseViewController {
             buttonStack.axis = .vertical
             if let addedAccount {
                 if let verifiedFirstname = addedAccount.givenName {
-                    
+                    let control = VerifiedInformationControlCollapsible(
+                        title: verifiedFirstname,
+                        subtitle: L.Profile.VerifiedGivenName.localization,
+                        model: addedAccount,
+                        manageVerifiedInformationAction: nil,
+                        expandable: false,
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
+                }
+                if let verifiedFamilyName = addedAccount.familyName {
+                    let control = VerifiedInformationControlCollapsible(
+                        title: verifiedFamilyName,
+                        subtitle: L.Profile.VerifiedFamilyName.localization,
+                        model: addedAccount,
+                        manageVerifiedInformationAction: nil,
+                        expandable: false,
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
+                }
+                if let dateOfBirth = addedAccount.dateOfBirth {
+                    let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateOfBirth))
+                    let birthdayString = VerifiedInformationControlCollapsible.dateFormatter.string(from: birthdayDate)
+                    let control = VerifiedInformationControlCollapsible(
+                        title: birthdayString,
+                        subtitle: L.Profile.VerifiedDateOfBirth.localization,
+                        model: addedAccount,
+                        manageVerifiedInformationAction: nil,
+                        expandable: false,
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
+                }
+                if isFirstLinkedAccount {
+                    let role: String
+                    let affiliation = addedAccount.eduPersonAffiliations?.first ?? ""
+                    if affiliation.contains("@") {
+                        role = affiliation.components(separatedBy: "@")[0]
+                    } else {
+                        role = affiliation
+                    }
+                    let logoUrl: URL?
+                    if let id = addedAccount.id {
+                        logoUrl = URL(string: Constants.Urls.OrganizationLogo + id)
+                    } else {
+                        logoUrl = nil
+                    }
+                    let control = VerifiedInformationControlCollapsible(
+                        title: addedAccount.providerName,
+                        subtitle: role.capitalized,
+                        model: addedAccount,
+                        manageVerifiedInformationAction: nil,
+                        expandable: false,
+                        leftIconUrl: logoUrl,
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
                 }
             }
             if isFirstLinkedAccount || addedAccount == nil {
@@ -109,8 +181,11 @@ class LinkingSuccessViewController: BaseViewController {
             } else {
                 let yesButton = EduIDButton(type: .primary, buttonTitle: L.LinkingSuccess.Button.YesPlease.localization)
                 buttonStack.addArrangedSubview(yesButton)
+                yesButton.addTarget(self, action: #selector(preferLinkedInstitution), for: .touchUpInside)
+                
                 let noButton = EduIDButton(type: .naked, buttonTitle: L.LinkingSuccess.Button.NoThanks.localization)
                 buttonStack.addArrangedSubview(noButton)
+                noButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
             }
         } else {
             let loadingIndicator = UIActivityIndicatorView()
@@ -125,10 +200,21 @@ class LinkingSuccessViewController: BaseViewController {
         stack.addArrangedSubview(spacer)
     }
     
-    @objc func dismissInfoScreen() {
-        delegate?.goBack(viewController: self)
+    func setButtonsLoading(_ isLoading: Bool) {
+        buttonStack.arrangedSubviews.forEach {
+            $0.isUserInteractionEnabled = !isLoading
+            $0.alpha = isLoading ? 0.2 : 1
+        }
     }
     
+    @objc func preferLinkedInstitution() {
+        setButtonsLoading(true)
+        viewModel.preferLinkedInstitution()
+    }
+    
+    @objc func dismissInfoScreen() {
+        self.delegate?.goBackToInfoScreen(updateData: true)
+    }
 }
     
     
