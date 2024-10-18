@@ -110,6 +110,46 @@ class LinkingSuccessViewController: BaseViewController {
             let isFirstLinkedAccount = (userResponse.linkedAccounts?.count ?? 0) + (userResponse.externalLinkedAccounts?.count ?? 0) < 2
             buttonStack.axis = .vertical
             if let addedAccount {
+                if !addedAccount.isExternal {
+                    let role: String
+                    let affiliation = addedAccount.eduPersonAffiliations?.first ?? ""
+                    if affiliation.contains("@") {
+                        role = affiliation.components(separatedBy: "@")[0]
+                    } else {
+                        role = affiliation
+                    }
+                    let leftIcon: VerifiedInformationControlCollapsible.LeftIconType
+                    if let id = addedAccount.id, let logoUrl = URL(string: Constants.Urls.OrganizationLogo + id) {
+                        leftIcon = VerifiedInformationControlCollapsible.LeftIconType.url(logoUrl)
+                    } else {
+                        let defaultImage = UIImage.defaultInstitution.withRenderingMode(.alwaysTemplate)
+                        leftIcon = VerifiedInformationControlCollapsible.LeftIconType.image(defaultImage, UIColor.backgroundColor)
+                    }
+                    let control = VerifiedInformationControlCollapsible(
+                        title: addedAccount.providerName,
+                        subtitle: role.capitalized,
+                        model: addedAccount,
+                        manageVerifiedInformationAction: nil,
+                        expandable: false,
+                        leftIcon: leftIcon,
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(control)
+                    control.widthToSuperview(offset: -48)
+                    
+                    if !isFirstLinkedAccount {
+                        // Add divider
+                        let divider = UIView()
+                        divider.backgroundColor = .dividerColor
+                        stack.addArrangedSubview(divider)
+                        divider.height(1)
+                        divider.widthToSuperview(offset: -48)
+                        
+                        let questionSubtitle = UILabel.subtitleLabel(text: L.LinkingSuccess.SubtitlePreferInstitution.localization)
+                        stack.addArrangedSubview(questionSubtitle)
+                        questionSubtitle.widthToSuperview(offset: -48)
+                    }
+                }
                 if let verifiedFirstname = addedAccount.givenName {
                     let control = VerifiedInformationControlCollapsible(
                         title: verifiedFirstname,
@@ -148,36 +188,11 @@ class LinkingSuccessViewController: BaseViewController {
                     stack.addArrangedSubview(control)
                     control.widthToSuperview(offset: -48)
                 }
-                if isFirstLinkedAccount {
-                    let role: String
-                    let affiliation = addedAccount.eduPersonAffiliations?.first ?? ""
-                    if affiliation.contains("@") {
-                        role = affiliation.components(separatedBy: "@")[0]
-                    } else {
-                        role = affiliation
-                    }
-                    let logoUrl: URL?
-                    if let id = addedAccount.id {
-                        logoUrl = URL(string: Constants.Urls.OrganizationLogo + id)
-                    } else {
-                        logoUrl = nil
-                    }
-                    let control = VerifiedInformationControlCollapsible(
-                        title: addedAccount.providerName,
-                        subtitle: role.capitalized,
-                        model: addedAccount,
-                        manageVerifiedInformationAction: nil,
-                        expandable: false,
-                        leftIconUrl: logoUrl,
-                        rightIcon: nil
-                    )
-                    stack.addArrangedSubview(control)
-                    control.widthToSuperview(offset: -48)
-                }
             }
             if isFirstLinkedAccount || addedAccount == nil {
                 let continueButton = EduIDButton(type: .primary, buttonTitle: L.LinkingSuccess.Button.Continue.localization)
                 buttonStack.addArrangedSubview(continueButton)
+                continueButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
             } else {
                 let yesButton = EduIDButton(type: .primary, buttonTitle: L.LinkingSuccess.Button.YesPlease.localization)
                 buttonStack.addArrangedSubview(yesButton)

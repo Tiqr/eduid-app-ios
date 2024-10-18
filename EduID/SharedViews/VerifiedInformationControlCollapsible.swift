@@ -12,30 +12,31 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
 
     private var manageVerifiedInformationAction: (() -> Void)?
     
+    enum LeftIconType {
+        case emoji(String)
+        case image(UIImage, UIColor?)
+        case url(URL)
+    }
+    
     //MARK: - init
     init(title: String,
          subtitle: String,
          model: VerifiedInformationModel,
          manageVerifiedInformationAction: (() -> Void)?,
          expandable: Bool = true,
-         leftEmoji: String? = nil,
-         leftIconUrl: URL? = nil,
+         leftIcon: LeftIconType? = nil,
          rightIcon: UIImage? = nil
     ) {
         self.manageVerifiedInformationAction = manageVerifiedInformationAction
         super.init()
-        if leftEmoji != nil && leftIconUrl != nil {
-            assertionFailure("You cannot use leftEmoji and leftIconUrl at the same time!")
-            return
-        }
         setupUI(
             title: title,
             subtitle: subtitle,
             model: model,
             expandable: expandable,
-            leftEmoji: leftEmoji,
-            leftIconUrl: leftIconUrl,
-            rightIcon: rightIcon)
+            leftIcon: leftIcon,
+            rightIcon: rightIcon
+        )
         if !expandable {
             self.gestureRecognizers?.forEach { removeGestureRecognizer($0) }
         }
@@ -47,8 +48,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         subtitle: String,
         model: VerifiedInformationModel,
         expandable: Bool,
-        leftEmoji: String?,
-        leftIconUrl: URL?,
+        leftIcon: LeftIconType?,
         rightIcon: UIImage?
     ) {
         backgroundColor = .white
@@ -69,15 +69,23 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         bodyLabel.attributedText = attributedStringBody
         
         let leftIconView: UIView
-        if let leftEmoji {
+        if let leftIcon, case let LeftIconType.emoji(emoji) = leftIcon {
             let emojiLabel = UILabel()
-            emojiLabel.text = leftEmoji
+            emojiLabel.text = emoji
             emojiLabel.font = .sourceSansProRegular(size: 30)
             leftIconView = emojiLabel
-        } else if let leftIconUrl {
+        } else if let leftIcon, case let LeftIconType.url(url) = leftIcon {
             let iconImageView = UIImageView()
-            iconImageView.downloadImage(from: leftIconUrl)
+            iconImageView.downloadImage(from: url)
             iconImageView.size(CGSize(width: 24, height: 28))
+            leftIconView = iconImageView
+        } else if let leftIcon, case let LeftIconType.image(image, tintColor) = leftIcon {
+            let iconImageView = UIImageView()
+            iconImageView.image = image
+            iconImageView.size(CGSize(width: 24, height: 28))
+            if let tintColor {
+                iconImageView.tintColor = tintColor
+            }
             leftIconView = iconImageView
         } else {
             let shieldImageView = UIImageView()

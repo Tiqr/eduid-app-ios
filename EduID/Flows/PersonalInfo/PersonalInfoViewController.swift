@@ -29,18 +29,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         }
         
         viewModel.serviceRemovedClosure = { [weak self] account in
-            let views = self?.stack.arrangedSubviews.filter { view in
-                (view as? InstitutionControlCollapsible)?.institution == account.schacHomeOrganization
-            } as? [UIView] ?? []
-            UIView.animate(withDuration: 0.2, delay: 0, animations: {
-                views.forEach { view in
-                    view.isHidden = true
-                }
-            }) { [weak self] _ in
-                views.forEach { view in
-                    self?.stack.removeArrangedSubview(view)
-                }
-            }
+            self?.setupUI(model: nil)
+            self?.viewModel.getData()
         }
         
         viewModel.dataFetchErrorClosure = { [weak self] eduidError in
@@ -62,6 +52,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didAddLinkedInstitution), name: .didAddLinkedAccounts, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showExternalAccountLinkingErrorScreen), name: .externalAccountLinkError, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +82,11 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         // User tried to link account, but it was already linked
         let linkedAccountEmail = notification.userInfo?[Constants.UserInfoKey.linkedAccountEmail] as? String
         delegate?.goToAccountLinkingErrorScreen(linkedAccountEmail: linkedAccountEmail)
+    }
+    
+    @objc
+    func showExternalAccountLinkingErrorScreen() {
+        delegate?.goToExternalAccountLinkingErrorScreen()
     }
     
     @objc
@@ -286,11 +282,11 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
 
             // First name
             for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
-                if let givenName = linkedAccount.givenName, givenName == model.userResponse.givenName  {
+                if !hasVerifiedGivenName, let givenName = linkedAccount.givenName, givenName == model.userResponse.givenName  {
                     addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, linkedAccount: linkedAccount)
                     hasVerifiedGivenName = true
                 }
-                if let familyName = linkedAccount.familyName, familyName == model.userResponse.familyName {
+                if !hasVerifiedFamilyName, let familyName = linkedAccount.familyName, familyName == model.userResponse.familyName {
                     addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, linkedAccount: linkedAccount)
                     hasVerifiedFamilyName = true
                 }
@@ -348,73 +344,73 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             // If there's not verified family name at all, we show the self-asserted one
             if !hasVerifiedFamilyName,
                let lastName = model.userResponse.familyName {
-                    let lastNameSubtitleText = NSMutableAttributedString()
-                    lastNameSubtitleText.append(NSAttributedString(
-                        string: "\(lastName)\n",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProSemiBold(size: 16),
-                            color: .backgroundColor,
-                            lineSpacing: 6
-                        ))
-                    )
-                    lastNameSubtitleText.append(NSAttributedString(
-                        string: "\(L.Profile.LastName.localization) ",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProRegular(size: 12),
-                            color: .grayGhost,
-                            lineSpacing: 6
-                        ))
-                    )
-                    let lastNameControl = ActionableControlWithBodyAndTitle(
-                        attributedTitle: nil,
-                        attributedBodyText: lastNameSubtitleText,
-                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
-                        isFilled: true
-                    )
-                    stack.addArrangedSubview(lastNameControl)
-                    lastNameControl.widthToSuperview(offset: -48)
-                    lastNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
-                }
+                let lastNameSubtitleText = NSMutableAttributedString()
+                lastNameSubtitleText.append(NSAttributedString(
+                    string: "\(lastName)\n",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProSemiBold(size: 16),
+                        color: .backgroundColor,
+                        lineSpacing: 6
+                    ))
+                )
+                lastNameSubtitleText.append(NSAttributedString(
+                    string: "\(L.Profile.LastName.localization) ",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProRegular(size: 12),
+                        color: .grayGhost,
+                        lineSpacing: 6
+                    ))
+                )
+                let lastNameControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: nil,
+                    attributedBodyText: lastNameSubtitleText,
+                    rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(lastNameControl)
+                lastNameControl.widthToSuperview(offset: -48)
+                lastNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
+            }
                 
-                if let email = model.userResponse.email {
-                    let contactDetailsHeader = UILabel()
-                    let contactDetailsString = NSAttributedString(
-                        string: L.Profile.ContactDetails.localization,
-                        attributes: AttributedStringHelper.attributes(
-                            font: UIFont.nunitoBold(size: 22),
-                            color: .primaryColor,
-                            lineSpacing: 10)
-                    )
-                    contactDetailsHeader.attributedText = contactDetailsString
-                    stack.setCustomSpacing(32, after: stack.arrangedSubviews.last!)
-                    stack.addArrangedSubview(contactDetailsHeader)
-                    
-                    contactDetailsHeader.widthToSuperview(offset: -48)
-                    let emailSubtitleText = NSMutableAttributedString(
-                        string: "\(email)\n",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProSemiBold(size: 16),
-                            color: .backgroundColor,
-                            lineSpacing: 6
-                        ))
-                    emailSubtitleText.append(NSAttributedString(
-                        string: "\(L.Profile.Email.localization) ",
-                        attributes: AttributedStringHelper.attributes(
-                            font: .sourceSansProRegular(size: 12),
-                            color: .grayGhost,
-                            lineSpacing: 6
-                        ))
-                    )
-                    let emailControl = ActionableControlWithBodyAndTitle(
-                        attributedTitle: nil,
-                        attributedBodyText: emailSubtitleText,
-                        rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
-                        isFilled: true
-                    )
-                    stack.addArrangedSubview(emailControl)
-                    emailControl.widthToSuperview(offset: -48)
-                    emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
-                }
+            if let email = model.userResponse.email {
+                let contactDetailsHeader = UILabel()
+                let contactDetailsString = NSAttributedString(
+                    string: L.Profile.ContactDetails.localization,
+                    attributes: AttributedStringHelper.attributes(
+                        font: UIFont.nunitoBold(size: 22),
+                        color: .primaryColor,
+                        lineSpacing: 10)
+                )
+                contactDetailsHeader.attributedText = contactDetailsString
+                stack.setCustomSpacing(32, after: stack.arrangedSubviews.last!)
+                stack.addArrangedSubview(contactDetailsHeader)
+                
+                contactDetailsHeader.widthToSuperview(offset: -48)
+                let emailSubtitleText = NSMutableAttributedString(
+                    string: "\(email)\n",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProSemiBold(size: 16),
+                        color: .backgroundColor,
+                        lineSpacing: 6
+                    ))
+                emailSubtitleText.append(NSAttributedString(
+                    string: "\(L.Profile.Email.localization) ",
+                    attributes: AttributedStringHelper.attributes(
+                        font: .sourceSansProRegular(size: 12),
+                        color: .grayGhost,
+                        lineSpacing: 6
+                    ))
+                )
+                let emailControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: nil,
+                    attributedBodyText: emailSubtitleText,
+                    rightIcon: .pencil.withRenderingMode(.alwaysTemplate),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(emailControl)
+                emailControl.widthToSuperview(offset: -48)
+                emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
+            }
             
             // - Role & institution header
             

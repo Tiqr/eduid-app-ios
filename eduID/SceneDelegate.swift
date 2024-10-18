@@ -77,6 +77,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 getAppropriateLaunchOption()
             }
             return
+        } else if (url.absoluteString.range(of: "external-account-linked-error") != nil) {
+            NotificationCenter.default.post(name: .externalAccountLinkError, object: nil)
         } else if (url.absoluteString.range(of: "account-linked") != nil) {
             let linkedAccountInstitution = url.queryParameters?["institution"] ?? ""
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil, userInfo: [Constants.UserInfoKey.linkedAccountInstitution: linkedAccountInstitution])

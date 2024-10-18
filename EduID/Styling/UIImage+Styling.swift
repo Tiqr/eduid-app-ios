@@ -39,4 +39,6 @@ extension UIImage {
     static let verifyIdentityBankingApp = UIImage(named: "verify_identity_banking_app")!
     static let verifyIdentityEuId = UIImage(named: "verify_identity_eu_id")!
     static let verifyIdentityInstitution = UIImage(named: "verify_identity_institution")!
+    static let defaultInstitution = UIImage(named: "default_institution")!
+    static let accessDenied = UIImage(named: "access_denied")!
 }
