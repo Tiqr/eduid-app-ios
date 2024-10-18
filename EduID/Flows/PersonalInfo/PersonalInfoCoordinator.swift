@@ -120,10 +120,26 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController?.popViewController(animated: true)
     }
     
+    @objc
+    func goBackToVerifyIdentityScreen() {
+        if let verifyIdentityController = navigationController?.viewControllers.first(where: { $0 is VerifyIdentityViewController }) {
+            navigationController?.popToViewController(verifyIdentityController, animated: true)
+        } else {
+            goBackToInfoScreen(updateData: false)
+        }
+    }
+    
     func goToLinkingSuccessScreen(linkedInstitution: String?, previousUserInfo: UserResponse?) {
         let linkingSuccessViewController = LinkingSuccessViewController()
         linkingSuccessViewController.viewModel = LinkingSuccessViewModel(linkedInstitution: linkedInstitution, previousUserResponse: previousUserInfo)
+        linkingSuccessViewController.delegate = self
         navigationController?.pushViewController(linkingSuccessViewController, animated: true)
+    }
+    
+    func goToExternalAccountLinkingErrorScreen() {
+        let externalAccountLinkingErrorViewController = ExternalAccountLinkingErrorViewController()
+        externalAccountLinkingErrorViewController.delegate = self
+        navigationController?.pushViewController(externalAccountLinkingErrorViewController, animated: true)
     }
 }
 

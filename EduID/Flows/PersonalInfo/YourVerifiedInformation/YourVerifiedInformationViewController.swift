@@ -36,7 +36,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         
         view.backgroundColor = .white
         
-        setupUI(model: nil)
+        setupUI(userResponse: viewModel.userResponse)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +45,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
     }
     
     //MARK: - setup UI
-    func setupUI(model: PersonalInfoDataCallbackModel?) {
+    func setupUI(userResponse: UserResponse?) {
         // Try to remember scroll position
         var previousScrollPosition: CGFloat = 0
         // Remove any previous views
@@ -103,12 +103,11 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         mainDescriptionParent.widthToSuperview(offset: -48)
         walletExplanationContainer.widthToSuperview(offset: -48)
         
-        var isFirstGivenName = true
-        var isFirstLastName = true
-        var isFirstAffiliation = true
+        let selectedGivenName = userResponse?.givenName
+        let selectedFamilyName = userResponse?.familyName
         
         // From institution header
-        for linkedAccount in viewModel.userResponse.getAllModels() {
+        for linkedAccount in (userResponse?.getAllModels() ?? []) {
             let separator = UIView()
             separator.backgroundColor = .lightGray
             separator.height(1)
@@ -163,9 +162,8 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                     model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
-                    rightIcon: isFirstGivenName ? .wallet : nil
+                    rightIcon: givenName == selectedGivenName ? .wallet : nil
                 )
-                isFirstGivenName = false
                 stack.addArrangedSubview(verifiedFirstNameControl)
                 verifiedFirstNameControl.widthToSuperview(offset: -48)
             }
@@ -177,9 +175,8 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                     model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
-                    rightIcon: isFirstLastName ? .wallet : nil
+                    rightIcon: familyName == selectedFamilyName ? .wallet : nil
                 )
-                isFirstLastName = false
                 stack.addArrangedSubview(verifiedFamilyNameControl)
                 verifiedFamilyNameControl.widthToSuperview(offset: -48)
             }
@@ -199,10 +196,9 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                     model: linkedAccount,
                     manageVerifiedInformationAction: nil,
                     expandable: false,
-                    leftEmoji: iconEmoji,
-                    rightIcon: isFirstAffiliation ? .wallet : nil
+                    leftIcon: VerifiedInformationControlCollapsible.LeftIconType.emoji(iconEmoji),
+                    rightIcon: .wallet
                 )
-                isFirstAffiliation = false
                 stack.addArrangedSubview(affiliationControl)
                 affiliationControl.widthToSuperview(offset: -48)
             }

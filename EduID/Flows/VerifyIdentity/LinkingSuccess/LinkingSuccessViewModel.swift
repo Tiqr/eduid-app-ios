@@ -75,9 +75,7 @@ class LinkingSuccessViewModel: NSObject {
             } catch {
                 await processError(with: error)
             }
-            
         }
-
     }
     
     @MainActor

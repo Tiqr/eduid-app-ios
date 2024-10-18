@@ -50,6 +50,7 @@ extension UserResponse {
 class VerifiedInformationModel: Equatable {
     
     let id: String?
+    let isExternal: Bool
     
     let givenName: String?
     let familyName: String?
@@ -64,6 +65,7 @@ class VerifiedInformationModel: Equatable {
     
     init(linkedAccount: LinkedAccount) {
         id = linkedAccount.institutionGuid
+        isExternal = false
         givenName = linkedAccount.givenName
         familyName = linkedAccount.familyName
         dateOfBirth = nil
@@ -81,6 +83,7 @@ class VerifiedInformationModel: Equatable {
     
     init(externalLinkedAccount: ExternalLinkedAccount) {
         id = externalLinkedAccount.serviceID
+        isExternal = true
         givenName = externalLinkedAccount.firstName
         familyName = externalLinkedAccount.preferredLastName ?? externalLinkedAccount.legalLastName
         dateOfBirth = externalLinkedAccount.dateOfBirth
@@ -106,6 +109,7 @@ class VerifiedInformationModel: Equatable {
                lhs.expiresAt == rhs.expiresAt &&
                lhs.eduPersonAffiliations == rhs.eduPersonAffiliations &&
                lhs.updateRequest == rhs.updateRequest &&
-               lhs.id == rhs.id
+               lhs.id == rhs.id &&
+               lhs.isExternal == rhs.isExternal
     }
 }
