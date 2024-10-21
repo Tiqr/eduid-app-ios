@@ -6984,4 +6984,30 @@ public struct L {
             )
         }
     }
+    public struct ExternalAccountLinkingError {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ExternalAccountLinkingError.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ExternalAccountLinkingError.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "ExternalAccountLinkingError.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ExternalAccountLinkingError.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static let TryAnotherOption = LocaliciousData(
+            accessibilityIdentifier: "ExternalAccountLinkingError.TryAnotherOption",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ExternalAccountLinkingError.TryAnotherOption.COPY",
+            translationArgs: []
+        )
+    }
 }

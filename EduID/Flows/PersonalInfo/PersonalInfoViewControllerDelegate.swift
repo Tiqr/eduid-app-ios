@@ -13,6 +13,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func goToConfirmDeleteAccount(viewController: UIViewController, personalInfo: UserResponse)
     func goToAccountLinkingErrorScreen(linkedAccountEmail: String?)
+    func goToExternalAccountLinkingErrorScreen()
     func goToYourVerifiedInformationScreen(userResponse: UserResponse)
     func goToVerifyYourIdentityScreen(viewController: UIViewController)
     func goToSelectYourBankScreen(viewController: UIViewController)
@@ -20,4 +21,5 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)
     func shouldUpdateData() -> Bool
     func deleteStateAndGoToHome()
+    func goBackToVerifyIdentityScreen()
 }

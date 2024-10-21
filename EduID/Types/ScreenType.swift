@@ -48,6 +48,7 @@ enum ScreenType: Int, CaseIterable {
     case verifyIdentityScreen
     case selectYourBankScreen
     case linkingSuccessScreen
+    case externalAccountLinkingError
     
     // security screens
     case securityOverviewScreen
@@ -175,7 +176,8 @@ enum ScreenType: Int, CaseIterable {
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
                 .firstTimeDialogScreen, .eduIDCreatedScreen, .registrationCheck,
-                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
+                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser,
+                .externalAccountLinkingError:
             addLogoTo(item: item)
             item.hidesBackButton = true
             

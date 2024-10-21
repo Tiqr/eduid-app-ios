@@ -831,3 +831,6 @@ We will text you a code to verify your number.
 "LinkingSuccess.Button.Continue.COPY" = "Continue";
 "LinkingSuccess.Button.YesPlease.COPY" = "Yes, please";
 "LinkingSuccess.Button.NoThanks.COPY" = "No, thanks";
+"ExternalAccountLinkingError.Title.COPY" = "Something went wrong";
+"ExternalAccountLinkingError.Subtitle.COPY" = "We’re sorry, we were unable to retrieve the requested information.";
+"ExternalAccountLinkingError.TryAnotherOption.COPY" = "Please try another option";
