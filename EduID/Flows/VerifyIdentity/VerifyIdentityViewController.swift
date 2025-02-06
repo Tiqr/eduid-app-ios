@@ -134,7 +134,7 @@ class VerifyIdentityViewController: BaseViewController {
           stack.spacing = 20
           scrollView.addSubview(stack)
           
-          stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 240, right: 0))
+          stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
           stack.width(to: scrollView, offset: 0)
           
           mainTitle.widthToSuperview(offset: -48)
@@ -192,8 +192,7 @@ class VerifyIdentityViewController: BaseViewController {
                verifyWithEuId.widthToSuperview(offset: -48)
                fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
                fallbackButtonContainer.widthToSuperview()
-//               fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-//               scrollView.bottomToSuperview()
+               fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
                
           } else if !viewModel.isLinkedAccount {
                let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
