@@ -3964,10 +3964,6 @@ SHARED:
         COPY:
           en: "https://eduid.nl/help-en/"
           nl: "https://eduid.nl/help/"
-      FallbackButtonTitle:
-        COPY:
-          en: I can’t use these methods
-          nl: Ik kan deze methoden niet gebruiken
   SelectYourBank:
     Title:
       COPY:

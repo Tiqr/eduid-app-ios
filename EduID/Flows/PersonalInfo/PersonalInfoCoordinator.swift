@@ -3,7 +3,7 @@ import OpenAPIClient
 import TiqrCoreObjC
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
-    
+ 
     weak var viewControllerToPresentOn: UIViewController?
     
     weak var delegate: PersonalInfoCoordinatorDelegate?
@@ -102,6 +102,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController?.pushViewController(verifyYourIdentityViewController, animated: true)
     }
     
+     func goToVerifyIdentityIntroScreen(viewController: UIViewController) {
+          let verifyWithIdIntroViewController = VerifyWithIdIntroViewController()
+          verifyWithIdIntroViewController.delegate = self
+          navigationController?.pushViewController(verifyWithIdIntroViewController, animated: true)
+     }
+     
     func goToSelectYourBankScreen(viewController: UIViewController) {
         let selectYourBankViewController = SelectYourBankViewController()
         selectYourBankViewController.delegate = self

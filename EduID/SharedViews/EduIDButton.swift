@@ -8,6 +8,7 @@ final class EduIDButton: UIButton {
         case ghost
         case naked
         case borderedRed
+        case borderedGray
         case filledRed
         case empty
     }
@@ -28,6 +29,8 @@ final class EduIDButton: UIButton {
                 setupWithFilledRedStyle()
             case .empty:
                 setupWithEmptyStyle()
+            case .borderedGray:
+                 setupWithBorderedGrayStyle()
             }
         }
     }
@@ -45,6 +48,8 @@ final class EduIDButton: UIButton {
                     backgroundColor = UIColor.alertsRedColor.withAlphaComponent(0.5)
                 case .naked, .empty:
                     break
+                case .borderedGray:
+                     backgroundColor = UIColor(resource: .fallbackContainer)
                 }
             case true:
                 switch type {
@@ -56,6 +61,8 @@ final class EduIDButton: UIButton {
                     backgroundColor = UIColor.alertsRedColor
                 case .naked, .empty:
                     break
+                case .borderedGray:
+                     backgroundColor = UIColor(resource: .fallbackContainer)
                 }
             }
         }
@@ -107,6 +114,8 @@ final class EduIDButton: UIButton {
             setupWithFilledRedStyle()
         case .empty:
             setupWithEmptyStyle()
+        case .borderedGray:
+             setupWithBorderedGrayStyle()
         }
     }
     
@@ -165,5 +174,12 @@ final class EduIDButton: UIButton {
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
     }
+     
+     private func setupWithBorderedGrayStyle() {
+         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor(resource: .fallbackButtonTitleAndStroke)])
+         setAttributedTitle(attributedTitleNormal, for: .normal)
+         layer.borderWidth = 1
+          layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
+     }
 
 }

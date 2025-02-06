@@ -172,33 +172,16 @@ class VerifyIdentityViewController: BaseViewController {
                let fallbackButtonContainer: UIView = .init()
                fallbackButtonContainer.backgroundColor = UIColor(resource: .fallbackContainer)
                
-               let fallbackButton: UIView = .init()
-               fallbackButton.layer.borderWidth = 1
-               fallbackButton.layer.cornerRadius = 5
-               fallbackButton.layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
-               fallbackButton.backgroundColor = UIColor(resource: .fallbackContainer)
-               fallbackButton.isUserInteractionEnabled = true
-               
-               let fallbackButtonGestureRecognizer: UITapGestureRecognizer = .init(target: self, action: #selector(onFallbackButtonTapped))
-               fallbackButtonGestureRecognizer.numberOfTapsRequired = 1
-               fallbackButton.addGestureRecognizer(fallbackButtonGestureRecognizer)
-               
-               let fallbackButtonTextLabel: UILabel = .init()
-               fallbackButtonTextLabel.textAlignment = .center
-               fallbackButtonTextLabel.text = L.VerifyIdentity.ICantUseTheseMethods.localization
-               fallbackButtonTextLabel.textColor = UIColor(resource: .fallbackButtonTitleAndStroke)
-               fallbackButtonTextLabel.font = UIFont.sourceSansProSemiBold(size: 16)
-               
-               fallbackButton.addSubview(fallbackButtonTextLabel)
-               fallbackButtonTextLabel.center(in: fallbackButton)
+               let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
+               fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
+
                fallbackButtonContainer.addSubview(fallbackButton)
                fallbackButton.center(in: fallbackButtonContainer)
                fallbackButton.widthToSuperview(offset: -48)
-               fallbackButton.height(48)
-               fallbackButtonTextLabel.height(48)
+
                
                let spacer = UIView()
-               spacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
+               spacer.height(80)
                
                stack.addArrangedSubview(verifyWithBankingApp)
                stack.addArrangedSubview(verifyWithEuId)
@@ -209,8 +192,8 @@ class VerifyIdentityViewController: BaseViewController {
                verifyWithEuId.widthToSuperview(offset: -48)
                fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
                fallbackButtonContainer.widthToSuperview()
-               fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-               scrollView.bottomToSuperview()
+//               fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+//               scrollView.bottomToSuperview()
                
           } else if !viewModel.isLinkedAccount {
                let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
@@ -237,6 +220,6 @@ class VerifyIdentityViewController: BaseViewController {
      }
      
      @objc private func onFallbackButtonTapped() {
-          
+          delegate?.goToVerifyIdentityIntroScreen(viewController: self)
      }
 }
