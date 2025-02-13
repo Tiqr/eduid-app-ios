@@ -13,7 +13,13 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     var cancellables = Set<AnyCancellable>()
     
     //MARK: - init
-    init(title: String, placeholder: String, field validationType: TextFieldValidationType, keyboardType: UIKeyboardType, isPassword: Bool = false) {
+    init(title: String,
+         placeholder: String,
+         field validationType: TextFieldValidationType? = .none,
+         keyboardType: UIKeyboardType,
+         isPassword: Bool = false,
+         showNextInsteadOfReturn: Bool = false) {
+        
         super.init(frame: .zero)
         
         extraBorderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
@@ -36,8 +42,20 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textField.keyboardType = keyboardType
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.enablesReturnKeyAutomatically = true
-        textField.returnKeyType = .continue
+        if #available(iOS 17.0, *) {
+            textField.inlinePredictionType = .no
+        }
+        
+        if #available(iOS 18.0, *) {
+            textField.writingToolsBehavior = .none
+        }
+        
+        if showNextInsteadOfReturn {
+            textField.returnKeyType = .next
+        } else {
+            textField.enablesReturnKeyAutomatically = true
+            textField.returnKeyType = .continue
+        }
         textField.isSecureTextEntry = isPassword
         
         let textFieldPublisher = NotificationCenter.default
@@ -46,14 +64,16 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
                 ($0.object as? UITextField)?.text
             })
         
-        textFieldPublisher
-            .receive(on: RunLoop.main)
-            .debounce(for: 1, scheduler: RunLoop.main)
-            .sink(receiveValue: { [weak self] value in
-                guard let self else { return }
-                self.validateText(with: validationType, and: self.textField.text ?? "")
-            })
-            .store(in: &cancellables)
+        if let validationType {
+            textFieldPublisher
+                .receive(on: RunLoop.main)
+                .debounce(for: 1, scheduler: RunLoop.main)
+                .sink(receiveValue: { [weak self] value in
+                    guard let self else { return }
+                    self.validateText(with: validationType, and: self.textField.text ?? "")
+                })
+                .store(in: &cancellables)
+        }
         
         // - textfield border
         extraBorderView.layer.borderWidth = 2
@@ -76,13 +96,15 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textField.width(to: self, offset: -24)
         
         // - validationMessage
-        validLabel.font = .sourceSansProSemiBold(size: 12)
-        validLabel.height(12)
-        validLabel.textColor = .red
-        validLabel.text = provideCorrectError(for: validationType)
-        validLabel.alpha = 0
-        validLabel.clipsToBounds = false
-        addArrangedSubview(validLabel)
+        if let validationType {
+            validLabel.font = .sourceSansProSemiBold(size: 12)
+            validLabel.height(12)
+            validLabel.textColor = .red
+            validLabel.text = provideCorrectError(for: validationType)
+            validLabel.alpha = 0
+            validLabel.clipsToBounds = false
+            addArrangedSubview(validLabel)
+        }
     }
     
     required init(coder: NSCoder) {
@@ -113,6 +135,7 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         extraBorderView.layer.borderColor = UIColor.clear.cgColor
+        validateText(with: .email, and: textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

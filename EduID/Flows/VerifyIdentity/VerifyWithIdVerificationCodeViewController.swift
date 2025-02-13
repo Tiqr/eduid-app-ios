@@ -18,8 +18,12 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
     weak var delegate: VerifyWithIdVerificationCodeViewControllerDelegate?
     
+    // person
+    var person: VerifyPerson
+    
     //MARK: - init
-    init() {
+    init(person: VerifyPerson) {
+        self.person = person
         super.init(nibName: nil, bundle: nil)
     }
     

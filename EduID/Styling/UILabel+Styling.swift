@@ -64,7 +64,7 @@ extension UILabel {
         let attributedString = NSMutableAttributedString(
             string: text,
             attributes: [
-                .font: UIFont.sourceSansProRegular(size: 16),
+                .font: UIFont.sourceSansProRegular(size: 18),
                 .foregroundColor: UIColor.charcoalColor,
                 .paragraphStyle: paragraphStyle
             ])

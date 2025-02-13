@@ -215,6 +215,7 @@
 		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
+		E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPerson.swift; sourceTree = "<group>"; };
 		3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		4F1AFCE22C5BA689002A8D95 /* Notifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -590,8 +592,17 @@
 				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
 				0AFD9E122745579C00D48C01 /* Info.plist */,
 				4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */,
+				4468A1C1D04A765137D5241A /* Models */,
 			);
 			path = EduID;
+			sourceTree = "<group>";
+		};
+		4468A1C1D04A765137D5241A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4F1AFCE32C5BA689002A8D95 /* Notifications */ = {
@@ -1608,6 +1619,7 @@
 				08D7749DCC40ADBD0CE7CBB3 /* VerifyWithIdIntroViewController.swift in Sources */,
 				33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */,
 				3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */,
+				E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

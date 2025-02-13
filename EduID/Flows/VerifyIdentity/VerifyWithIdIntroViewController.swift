@@ -64,7 +64,6 @@ class VerifyWithIdIntroViewController: BaseViewController {
         )
         
         let mainDescription = UILabel.subtitleLabel(text:L.ConfirmIdentityWithIdIntro.Description.ServiceDesk.localization)
-        mainDescription.numberOfLines = 0
         
         // - create the stackview
         stack = UIStackView(arrangedSubviews: [mainTitle, mainDescription])

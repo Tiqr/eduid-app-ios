@@ -12,7 +12,7 @@ final class EduIDButton: UIButton {
         case filledRed
         case empty
     }
-
+    
     let type: ButtonType
     var buttonTitle: String {
         didSet {
@@ -30,7 +30,7 @@ final class EduIDButton: UIButton {
             case .empty:
                 setupWithEmptyStyle()
             case .borderedGray:
-                 setupWithBorderedGrayStyle()
+                setupWithBorderedGrayStyle()
             }
         }
     }
@@ -49,7 +49,7 @@ final class EduIDButton: UIButton {
                 case .naked, .empty:
                     break
                 case .borderedGray:
-                     backgroundColor = UIColor(resource: .fallbackContainer)
+                    backgroundColor = UIColor(resource: .fallbackContainer)
                 }
             case true:
                 switch type {
@@ -62,7 +62,7 @@ final class EduIDButton: UIButton {
                 case .naked, .empty:
                     break
                 case .borderedGray:
-                     backgroundColor = UIColor(resource: .fallbackContainer)
+                    backgroundColor = UIColor(resource: .fallbackContainer)
                 }
             }
         }
@@ -85,7 +85,7 @@ final class EduIDButton: UIButton {
             }
         }
     }
-
+    
     
     init(type: ButtonType, buttonTitle: String, frame: CGRect? = nil) {
         self.type = type
@@ -115,7 +115,7 @@ final class EduIDButton: UIButton {
         case .empty:
             setupWithEmptyStyle()
         case .borderedGray:
-             setupWithBorderedGrayStyle()
+            setupWithBorderedGrayStyle()
         }
     }
     
@@ -174,12 +174,12 @@ final class EduIDButton: UIButton {
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
     }
-     
-     private func setupWithBorderedGrayStyle() {
-         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor(resource: .fallbackButtonTitleAndStroke)])
-         setAttributedTitle(attributedTitleNormal, for: .normal)
-         layer.borderWidth = 1
-          layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
-     }
-
+    
+    private func setupWithBorderedGrayStyle() {
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor(resource: .fallbackButtonTitleAndStroke)])
+        setAttributedTitle(attributedTitleNormal, for: .normal)
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
+    }
+    
 }
