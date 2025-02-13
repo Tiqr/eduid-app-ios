@@ -177,3 +177,15 @@ extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
 
     }
 }
+
+extension PersonalInfoCoordinator: VerifyWithIdIntroViewControllerDelegate {
+    func goToVerifyWithIdInputScreen(viewController: UIViewController) {
+        let verifyWithIdInputViewController = VerifyWithIdInputViewController()
+        verifyWithIdInputViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdInputViewController, animated: true)
+    }
+}
+
+extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
+    
+}

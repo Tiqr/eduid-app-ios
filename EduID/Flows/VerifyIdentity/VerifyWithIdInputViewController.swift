@@ -1,22 +1,22 @@
 //
-//  VerifyWithIdIntroVieController.swift
+//  VerifyWithIdInputViewController.swift
 //  eduID
 //
-//  Created by Yasser Farahi on 06/02/2025.
+//  Created by Yasser Farahi on 13/02/2025.
 //
 
 import UIKit
 import TinyConstraints
 
-protocol VerifyWithIdIntroViewControllerDelegate: AnyObject, NavigationDelegate {
-    func goToVerifyWithIdInputScreen(viewController: UIViewController)
+protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate {
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController)
 }
 
-class VerifyWithIdIntroViewController: BaseViewController {
+class VerifyWithIdInputViewController: BaseViewController {
     
     private var stack: UIStackView!
     
-    weak var delegate: VerifyWithIdIntroViewControllerDelegate?
+    weak var delegate: VerifyWithIdInputViewControllerDelegate?
     
     //MARK: - init
     init() {
@@ -30,7 +30,7 @@ class VerifyWithIdIntroViewController: BaseViewController {
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenType = .verifyIdentityIntroScreen
+        screenType = .verifyWithIdInputScreen
         view.backgroundColor = .white
         setupUI()
     }
@@ -193,5 +193,6 @@ class VerifyWithIdIntroViewController: BaseViewController {
     @objc private func onEnterDetailsButtonTapped() {
         delegate?.goToVerifyWithIdInputScreen(viewController: self)
     }
+    
     
 }

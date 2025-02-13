@@ -15,7 +15,7 @@ class VerifyIdentityViewController: BaseViewController {
      
      var viewModel: VerifyIdentityViewModel!
      
-     var delegate: PersonalInfoViewControllerDelegate?
+     weak var delegate: PersonalInfoViewControllerDelegate?
      
      //MARK: - init
      init() {

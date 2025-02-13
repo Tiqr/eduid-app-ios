@@ -13,6 +13,8 @@
 		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
 		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
+		33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */; };
+		3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */; };
 		4F1AFCE52C5BA689002A8D95 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */; };
 		4F1AFCE92C5BA689002A8D95 /* Notifications.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4F1AFCE22C5BA689002A8D95 /* Notifications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F1AFCF72C5BB7DB002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFCF62C5BB7DB002A8D95 /* Tiqr */; };
@@ -273,6 +275,7 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		4F1AFCE22C5BA689002A8D95 /* Notifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4F1AFCE62C5BA689002A8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -491,6 +494,7 @@
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F8389D294265B3002015A8 /* eduIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eduIDTests.swift; sourceTree = "<group>"; };
+		F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,6 +622,8 @@
 				4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */,
 				4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */,
 				7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */,
+				F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */,
+				3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */,
 			);
 			path = VerifyIdentity;
 			sourceTree = "<group>";
@@ -1600,6 +1606,8 @@
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
 				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,
 				08D7749DCC40ADBD0CE7CBB3 /* VerifyWithIdIntroViewController.swift in Sources */,
+				33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */,
+				3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
