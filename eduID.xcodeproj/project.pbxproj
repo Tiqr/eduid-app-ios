@@ -214,6 +214,7 @@
 		73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */; };
 		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
+		8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 		E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */; };
 /* End PBXBuildFile section */
@@ -492,6 +493,7 @@
 		73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewController.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdIntroViewController.swift; sourceTree = "<group>"; };
+		98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -635,6 +637,7 @@
 				7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */,
 				F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */,
 				3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */,
+				98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */,
 			);
 			path = VerifyIdentity;
 			sourceTree = "<group>";
@@ -1620,6 +1623,7 @@
 				33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */,
 				3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */,
 				E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */,
+				8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
