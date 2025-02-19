@@ -83,6 +83,8 @@ existing registration
 "Profile.LinkedAccountCreatedAt.COPY" = "• on ";
 "Profile.LinkedAccountValidUntil.COPY" = "• valid until ";
 "Profile.ManageYourVerifiedInformation.COPY" = "Manage your verified information";
+"Profile.VerifyWithControlCode.Title.COPY" = "Verify your identity at an eduID Service Desk by presenting your ID and verification code.";
+"Profile.VerifyWithControlCode.Button.COPY" = "Show code";
 "Profile.VerifyNow.Title.COPY" = "Some services require your identity to be verified by a trusted party.";
 "Profile.VerifyNow.Button.COPY" = "Verify now";
 "Profile.FirstName.COPY" = "First name";
@@ -771,6 +773,7 @@ We will text you a code to verify your number.
 "ResponseErrors.UnauthorizedTitle.COPY" = "Cannot load data";
 "ResponseErrors.UnauthorizedText.COPY" = "Cannot complete request, please sign in and grant access.";
 "ResponseErrors.RequestSMSError.COPY" = "Could not request SMS code, please retry.";
+"ResponseErrors.RemoveControlCodeError.COPY" = "Could not remove control code, please retry.";
 "ResponseErrors.PasswordUpdateError.COPY" = "Cannot update password";
 "ResponseErrors.InvalidPasswordError.COPY" = "Chosen password is invalid";
 "ResponseErrors.PasswordMismatchError.COPY" = "Passwords do not match";
@@ -869,3 +872,18 @@ Please note: copies, public transport cards, and student cards are not valid IDs
 "ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "First name(s)";
 "ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Date of birth";
 "ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Generate verification code";
+"ConfirmIdentityWithIdInput.GenerateError.COPY" = "Could not generate control code";
+"ConfirmIdentityWithIdCode.Title.COPY" = "Your verification code";
+"ConfirmIdentityWithIdCode.Explanation.COPY" = "You will also receive an email with this code. The code is valid for 14 days and is intended for: ";
+"ConfirmIdentityWithIdCode.LastName.COPY" = "Last name";
+"ConfirmIdentityWithIdCode.FirstNames.COPY" = "First name(s)";
+"ConfirmIdentityWithIdCode.DateOfBirth.COPY" = "Date of birth";
+"ConfirmIdentityWithIdCode.MadeATypo.Label.COPY" = "Made a typo?";
+"ConfirmIdentityWithIdCode.MadeATypo.Link.COPY" = "Edit your details";
+"ConfirmIdentityWithIdCode.WhatsNext.COPY" = "What's next?";
+"ConfirmIdentityWithIdCode.ScheduleAnAppointment.COPY" = "Schedule an appointment with an eduID Service Desk (online or in person). During your appointment, show your verification code and ID.";
+"ConfirmIdentityWithIdCode.ShowServiceDesksButton.COPY" = "Show eduID Service Desks";
+"ConfirmIdentityWithIdCode.ServiceDeskUrl.COPY" = "https://eduid.nl/servicedesk-en";
+"ConfirmIdentityWithIdCode.GoToHomePageButton.COPY" = "Go to homepage";
+"ConfirmIdentityWithIdCode.ProveIdentityOtherWay.COPY" = "Want to prove your identity another way? Make sure to delete your verification code first.";
+"ConfirmIdentityWithIdCode.DeleteVerificationCodeButton.COPY" = "Delete verification code";

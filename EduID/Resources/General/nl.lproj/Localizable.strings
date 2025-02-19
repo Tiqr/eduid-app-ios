@@ -82,6 +82,8 @@ Mogelijk wordt je gevraagd om je gegevens opnieuw te valideren als je er inlogt.
 "Profile.LinkedAccountCreatedAt.COPY" = "• op ";
 "Profile.LinkedAccountValidUntil.COPY" = "• geldig tot ";
 "Profile.ManageYourVerifiedInformation.COPY" = "Beheer jouw geverifieerde gegevens";
+"Profile.VerifyWithControlCode.Title.COPY" = "Bevestig je identiteit bij een eduID Service Desk. Dit doe je door je identiteitsbewijs en controlecode te laten zien.";
+"Profile.VerifyWithControlCode.Button.COPY" = "Toon code";
 "Profile.VerifyNow.Title.COPY" = "Sommige diensten eisen dat jouw identiteit geverifieerd is door een vertrouwde instelling.";
 "Profile.VerifyNow.Button.COPY" = "Start verificatie";
 "Profile.FirstName.COPY" = "Voornaam";
@@ -770,6 +772,7 @@ We sturen je een code om je nummer te verifiëren.
 "ResponseErrors.UnauthorizedTitle.COPY" = "Gegevens kunnen niet laden";
 "ResponseErrors.UnauthorizedText.COPY" = "Verzoek kan niet worden voltooid, log in en geef toegang";
 "ResponseErrors.RequestSMSError.COPY" = "Kan geen sms-code aanvragen, probeer het opnieuw.";
+"ResponseErrors.RemoveControlCodeError.COPY" = "Kan de controlecode niet verwijderen, probeer het opnieuw.";
 "ResponseErrors.PasswordUpdateError.COPY" = "Wachtwoord kan niet worden bijgewerkt";
 "ResponseErrors.InvalidPasswordError.COPY" = "Het gekozen wachtwoord is ongeldig";
 "ResponseErrors.PasswordMismatchError.COPY" = "Wachtwoorden zijn niet hetzelfde";
@@ -868,3 +871,18 @@ Let op: kopieën, OV-kaarten en studentenkaarten zijn geen geldige identiteitsbe
 "ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "Voornamen";
 "ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Geboortedatum";
 "ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Genereer controlecode";
+"ConfirmIdentityWithIdInput.GenerateError.COPY" = "Genereren van controlecode mislukt";
+"ConfirmIdentityWithIdCode.Title.COPY" = "Je controlecode";
+"ConfirmIdentityWithIdCode.Explanation.COPY" = "Je krijgt ook een e-mail met deze code. De code is 14 dagen geldig en is bedoeld voor:";
+"ConfirmIdentityWithIdCode.LastName.COPY" = "Achternaam";
+"ConfirmIdentityWithIdCode.FirstNames.COPY" = "Voornamen";
+"ConfirmIdentityWithIdCode.DateOfBirth.COPY" = "Geboortedatum";
+"ConfirmIdentityWithIdCode.MadeATypo.Label.COPY" = "Typfout gemaakt?";
+"ConfirmIdentityWithIdCode.MadeATypo.Link.COPY" = "Pas gegevens aan";
+"ConfirmIdentityWithIdCode.WhatsNext.COPY" = "Wat moet je nu doen?";
+"ConfirmIdentityWithIdCode.ScheduleAnAppointment.COPY" = "Maak een afspraak met een eduID Service Desk (digitaal of op locatie). Laat tijdens je afspraak je controlecode en identiteisbewijs zien.";
+"ConfirmIdentityWithIdCode.ShowServiceDesksButton.COPY" = "Bekijk eduID Service Desks";
+"ConfirmIdentityWithIdCode.ServiceDeskUrl.COPY" = "https://eduid.nl/servicedesk";
+"ConfirmIdentityWithIdCode.GoToHomePageButton.COPY" = "Terug naar overzicht";
+"ConfirmIdentityWithIdCode.ProveIdentityOtherWay.COPY" = "Wil je toch op een andere manier bewijzen wie je bent? Verwijder dan eerst je controlecode.";
+"ConfirmIdentityWithIdCode.DeleteVerificationCodeButton.COPY" = "Verwijder controlecode";
