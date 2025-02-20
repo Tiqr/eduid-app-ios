@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class VerifyWithIdVerificationCodeViewModel {
     
     var person: VerifyPerson
+    var generatedCode: String?
     
     init(person: VerifyPerson) {
         self.person = person

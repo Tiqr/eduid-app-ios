@@ -13,20 +13,6 @@ protocol VerifyWithIdVerificationCodeViewControllerDelegate: AnyObject, Navigati
 
 class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
-    fileprivate enum C {
-        static let title: String = "Your verification code"
-        static let code: String = "87451"
-        static let description: String = "You will also receive an email with this code. The code is valid for 14 days and is intended for:"
-        static let typo: String = "Made a typo?"
-        static let edit: String = "Edit your details"
-        static let next: String = "What’s next?"
-        static let nextStepDes: String = "Schedule an appointment with an eduID Service Desk (online or in person). During your appointment, show your verification code and ID."
-        static let showEduIDServiceDesks: String = "Show eduID Service Desks"
-        static let goToHomepage: String = "Go to homepage"
-        static let proveOtherWay: String = "Want to prove your identity another way? Make sure to delete your verification code first."
-        static let deleteVerificationCode: String = "Delete verification code"
-    }
-    
     private enum ViewConstants {
         static let idImageName: String = "VerifyIDImage"
         enum FieldTag: Int {
@@ -73,7 +59,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
     // MARK: TextFields
     private lazy var lastNameTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.LastName.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.LastName.localization,
                                                                    placeholder: "", field: .name,
                                                                    keyboardType: .alphabet,
                                                                    showNextInsteadOfReturn: true,
@@ -86,7 +72,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }()
     
     private lazy var firstNameTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.FirstNames.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.FirstNames.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet,
@@ -100,7 +86,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }()
     
     private lazy var dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.DateOfBirth.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.DateOfBirth.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet,
@@ -120,14 +106,14 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
     // - show eduID service desk button
     private lazy var showEduIDServiceDeskButton: EduIDButton = {
-        let button: EduIDButton = .init(type: .primary, buttonTitle: C.showEduIDServiceDesks)
+        let button: EduIDButton = .init(type: .primary, buttonTitle: L.ConfirmIdentityWithIdCode.ShowServiceDesksButton.localization)
         button.addTarget(self, action: #selector(onShowEduIDServiceDeskButtonTapped), for: .touchUpInside)
         return button
     }()
     
     // - go to home page button
     private lazy var goToHomePageButton: EduIDButton = {
-        let button: EduIDButton = .init(type: .borderedGray, buttonTitle: C.goToHomepage)
+        let button: EduIDButton = .init(type: .borderedGray, buttonTitle: L.ConfirmIdentityWithIdCode.GoToHomePageButton.localization)
         button.addTarget(self, action: #selector(onGoToHomePageButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -135,7 +121,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
     // - delete verification code button
     private lazy var deleteVerificationCodeButton: EduIDButton = {
-        let button: EduIDButton = .init(type: .borderedRed, buttonTitle: C.deleteVerificationCode)
+        let button: EduIDButton = .init(type: .borderedRed, buttonTitle: L.ConfirmIdentityWithIdCode.DeleteVerificationCodeButton.localization)
         button.addTarget(self, action: #selector(onDeleteVerificationCodeButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -185,17 +171,16 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         scrollView.edgesToSuperview()
 
         let mainTitle: UILabel = UILabel.posterTextLabelBicolor(
-            text: C.title,
+            text: L.ConfirmIdentityWithIdCode.Title.localization,
             size: 24,
-            primary: C.title
+            primary: L.ConfirmIdentityWithIdCode.Title.localization
         )
         
-        let mainDescription = UILabel.subtitleLabel(text: C.description)
-        
+        let mainDescription = UILabel.subtitleLabel(text: L.ConfirmIdentityWithIdCode.Explanation.localization)
         
         // - generated code container
         let generatedCodeContainer: UIView = getContainer()
-        setGeneratedTextLabel(with: C.code)
+        setGeneratedTextLabel(with: "")
         generatedCodeContainer.addSubview(generatedCodeLabel)
         
         // - textfield container
@@ -214,14 +199,14 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         
         // - correct typo
         let madeTypoLabel: UILabel = .init()
-        madeTypoLabel.text = C.typo
+        madeTypoLabel.text = L.ConfirmIdentityWithIdCode.MadeATypo.Label.localization
         madeTypoLabel.font = UIFont.sourceSansProRegular(size: 18)
         madeTypoLabel.textColor = UIColor.textColor
         
         // - correct typo
         let editLabel: UILabel = .init()
         editLabel.attributedText = NSAttributedString(
-            string: C.edit,
+            string: L.ConfirmIdentityWithIdCode.MadeATypo.Link.localization,
             attributes: [
                 .font: UIFont.sourceSansProRegular(size: 18),
                 .foregroundColor: UIColor.backgroundColor,
@@ -243,12 +228,12 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         
         //- what is next stack
         let whatsNextLabel: UILabel = .init()
-        whatsNextLabel.text = C.next
+        whatsNextLabel.text = L.ConfirmIdentityWithIdCode.WhatsNext.localization
         whatsNextLabel.font = UIFont.sourceSansProBold(size: 18)
         whatsNextLabel.textColor = UIColor.textColor
         
         let whatsNextDescriptionLabel: UILabel = .init()
-        whatsNextDescriptionLabel.text = C.nextStepDes
+        whatsNextDescriptionLabel.text = L.ConfirmIdentityWithIdCode.ScheduleAnAppointment.localization
         whatsNextDescriptionLabel.numberOfLines = .zero
         whatsNextDescriptionLabel.font = UIFont.sourceSansProRegular(size: 18)
         whatsNextDescriptionLabel.textColor = UIColor.textColor
@@ -257,7 +242,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         divider.backgroundColor = UIColor.lightGray
         
         let proveOtherWayLabel: UILabel = .init()
-        proveOtherWayLabel.text = C.proveOtherWay
+        proveOtherWayLabel.text = L.ConfirmIdentityWithIdCode.ProveIdentityOtherWay.localization
         proveOtherWayLabel.numberOfLines = .zero
         proveOtherWayLabel.font = UIFont.sourceSansProRegular(size: 14)
         proveOtherWayLabel.textColor = UIColor.textColor
@@ -274,7 +259,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         whatsNextStackView.alignment = .center
         whatsNextStackView.spacing = 25
         
-        whatsNextStackView.setCustomSpacing(15, after: whatsNextDescriptionLabel)
+        whatsNextStackView.setCustomSpacing(15, after: showEduIDServiceDeskButton)
         
         
         // - create the stackview
