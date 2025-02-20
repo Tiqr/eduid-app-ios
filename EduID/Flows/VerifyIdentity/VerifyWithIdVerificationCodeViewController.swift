@@ -334,7 +334,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }
     
     @objc private func onGoToHomePageButtonTapped() {
-        // TODO:
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func onDeleteVerificationCodeButtonTapped() {
@@ -406,8 +406,8 @@ extension VerifyWithIdVerificationCodeViewController {
         Task {
             let controlCodeIsStillValid = await viewModel.controlCodeIsStillValid()
             if !controlCodeIsStillValid {
-                navigationController?.popToRootViewController(animated: true)
                 timer?.invalidate()
+                navigationController?.popToRootViewController(animated: true)
             }
         }
     }
