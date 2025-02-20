@@ -8,7 +8,7 @@
 import Foundation
 
 public struct VerifyPerson: Codable {
-    let lastName: String
-    let firstName: String
-    let dateOfBirth: String
+    var lastName: String
+    var firstName: String
+    var dateOfBirth: String
 }

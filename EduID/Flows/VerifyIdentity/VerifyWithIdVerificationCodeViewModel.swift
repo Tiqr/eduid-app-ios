@@ -6,15 +6,28 @@
 //
 
 import Foundation
+import OpenAPIClient
 import Combine
 
-class VerifyWithIdVerificationCodeViewModel {
+class VerifyWithIdVerificationCodeViewModel: ObservableObject {
     
-    var person: VerifyPerson
-    var generatedCode: String?
+    let person: VerifyPerson
+    let controlCode: String
     
-    init(person: VerifyPerson) {
+    var userResponse: UserResponse?
+    
+    init(person: VerifyPerson, controlCode: String) {
         self.person = person
+        self.controlCode = controlCode
     }
     
+
+    
+    func deleteVerificationCode() async {
+        do {
+            userResponse = try await UserControllerAPI.deleteUserControlCode()
+        } catch {
+            assertionFailure("Failed to delete user control code: \(error) -- \(error.localizedDescription)")
+        }
+    }
 }

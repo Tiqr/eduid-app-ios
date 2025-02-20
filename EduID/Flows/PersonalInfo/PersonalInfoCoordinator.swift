@@ -187,8 +187,8 @@ extension PersonalInfoCoordinator: VerifyWithIdIntroViewControllerDelegate {
 }
 
 extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
-    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson) {
-        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person))
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: String) {
+        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
         verifyWithIdVerificationCodeViewController.delegate = self
         navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
     }

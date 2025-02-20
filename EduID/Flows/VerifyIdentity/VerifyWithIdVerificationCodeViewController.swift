@@ -34,14 +34,6 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     private var isKeyBoardOnScreen = false
     private var keyboardHeight: CGFloat?
     
-    // - activate userInteraction for textfields
-    private var activateUserInteraction: Bool = false {
-        didSet {
-            lastNameTextField.isUserInteractionEnabled = activateUserInteraction
-            firstNameTextField.isUserInteractionEnabled = activateUserInteraction
-            dateOfBirthTextField.isUserInteractionEnabled = activateUserInteraction
-        }
-    }
     
     var validationMap: [Int: Bool] = [ViewConstants.FieldTag.lastName.rawValue: false,
                                       ViewConstants.FieldTag.firstName.rawValue: false] {
@@ -161,9 +153,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
-        
-        activateUserInteraction = false
-        
+                
         // - scroll view
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentInsetAdjustmentBehavior = .always
@@ -180,7 +170,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         
         // - generated code container
         let generatedCodeContainer: UIView = getContainer()
-        setGeneratedTextLabel(with: "")
+        setGeneratedTextLabel(with: viewModel.controlCode)
         generatedCodeContainer.addSubview(generatedCodeLabel)
         
         // - textfield container
@@ -338,21 +328,23 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }
     
     @objc private func onDeleteVerificationCodeButtonTapped() {
-        // TODO:
+        Task {
+            await viewModel.deleteVerificationCode()
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     
     // - edit mode related
     private func gestureRecognizerForEditDetailsText() -> UITapGestureRecognizer {
-        let gestureRecognizer: UITapGestureRecognizer = .init(target: self, action: #selector(enableUserInteractionForTextFields))
+        let gestureRecognizer: UITapGestureRecognizer = .init(target: self, action: #selector(popViewController))
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.numberOfTapsRequired = 1
         return gestureRecognizer
     }
     
-    @objc private func enableUserInteractionForTextFields() {
-        activateUserInteraction = true
-        _ = lastNameTextField.becomeFirstResponder()
+    @objc private func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

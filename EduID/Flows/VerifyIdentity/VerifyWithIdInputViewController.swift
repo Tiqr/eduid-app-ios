@@ -7,9 +7,10 @@
 
 import UIKit
 import TinyConstraints
+import Combine
 
 protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate {
-    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson)
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: String)
 }
 
 class VerifyWithIdInputViewController: BaseViewController {
@@ -22,6 +23,11 @@ class VerifyWithIdInputViewController: BaseViewController {
             case dateOfBirth = 100000003
         }
     }
+    
+    //- viewmodel
+    private let viewModel: VerifyWithIdInputViewModel = .init()
+    
+    private var cancellable = Set<AnyCancellable>()
     
     private var stack: UIStackView!
     weak var delegate: VerifyWithIdInputViewControllerDelegate?
@@ -102,6 +108,7 @@ class VerifyWithIdInputViewController: BaseViewController {
         screenType = .verifyWithIdInputScreen
         view.backgroundColor = .white
         setupUI()
+        setupCombine()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
@@ -114,6 +121,35 @@ class VerifyWithIdInputViewController: BaseViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    //// - setup combine
+    private func setupCombine() {
+//        lastNameTextField.textField.textPublisher
+//            .compactMap { $0 }
+//            .assign(to: \.person?.lastName, on: viewModel)
+//            .store(in: &cancellable)
+//        
+//        firstNameTextField.textField.textPublisher
+//            .compactMap { $0 }
+//            .assign(to: \.person?.firstName, on: viewModel)
+//            .store(in: &cancellable)
+//        
+//        dateOfBirthTextField.textField.textPublisher
+//            .compactMap { $0 }
+//            .assign(to: \.person.dateOfBirth, on: viewModel)
+//            .store(in: &cancellable)
+//        
+        // observe changes to verification code
+        viewModel.controlCodePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] controlCode in
+                guard let self else { return }
+                if let person = viewModel.person {
+                    delegate?.goToVerifyWithIdVerificationCodeScreen(viewController: self, person: person, controlCode: controlCode)
+                }
+            }.store(in: &cancellable)
+    }
+
     
     private func setupUI() {
         // Remove any previous views
@@ -190,11 +226,12 @@ class VerifyWithIdInputViewController: BaseViewController {
         if let lastName = lastNameTextField.textField.text,
            let firstName = firstNameTextField.textField.text,
            let dateOfBirth = dateOfBirthTextField.textField.text {
-            let person: VerifyPerson = .init(lastName: lastName,
-                           firstName: firstName,
-                           dateOfBirth: dateOfBirth)
-            delegate?.goToVerifyWithIdVerificationCodeScreen(viewController: self, person: person)
+            viewModel.person = .init(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
+            Task {
+                await viewModel.createVerificationCode()
+            }
         }
+        
     }
 }
 

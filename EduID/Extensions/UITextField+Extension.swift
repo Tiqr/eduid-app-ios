@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 extension UITextField {
     
@@ -32,5 +33,14 @@ extension UITextField {
             return [try! NSRegularExpression(pattern: Constants.RegEx.phoneRegex)]
             
         }
+    }
+}
+
+/// Will notify the subscribers that textfield text value did change
+extension UITextField {
+    var textPublisher: AnyPublisher<String?, Never> {
+         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: self)
+             .map { ($0.object as? UITextField)?.text }
+             .eraseToAnyPublisher()
     }
 }
