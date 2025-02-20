@@ -13,10 +13,12 @@ class MainCoordinator: CoordinatorType {
     //MARK: - init
     required init(viewControllerToPresentOn: UIViewController?) {
         self.viewControllerToPresentOn = viewControllerToPresentOn
-        let homeViewController = HomeViewController()
+//        let homeViewController = HomeViewController()
+        // YASSER
+        let homeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: .init(lastName: "Farahi", firstName: "Yasser", dateOfBirth: "01-July-1988")))
         let homeNavigationController = UINavigationController(rootViewController: homeViewController)
         self.homeNavigationController = homeNavigationController
-        homeViewController.delegate = self
+//        homeViewController.delegate = self
     }
     
     func start(option: OnboardingFlowType) {

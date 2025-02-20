@@ -8,6 +8,8 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     private let extraBorderView = UIView()
     let textField = UITextField()
     weak var delegate: ValidatedTextFieldDelegate?
+    private var extraBorderViewBackgroundColor: UIColor?
+    private var textFieldValidationType: TextFieldValidationType?
     
     // - cancellables
     var cancellables = Set<AnyCancellable>()
@@ -18,13 +20,21 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
          field validationType: TextFieldValidationType? = .none,
          keyboardType: UIKeyboardType,
          isPassword: Bool = false,
-         showNextInsteadOfReturn: Bool = false) {
+         showNextInsteadOfReturn: Bool = false,
+         excludeBorder: Bool = false,
+         backgroundColor: UIColor? = nil) {
         
         super.init(frame: .zero)
         
         extraBorderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
         axis = .vertical
         spacing = 6
+        
+        textFieldValidationType = validationType
+        
+        // - set background color
+        extraBorderViewBackgroundColor = backgroundColor != nil ? backgroundColor : .clear
+        extraBorderView.backgroundColor = extraBorderViewBackgroundColor
         
         // - title
         let label = UILabel()
@@ -89,8 +99,10 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textFieldParent.leading(to: extraBorderView, offset: 2)
         textFieldParent.trailing(to: extraBorderView, offset: -2)
         textFieldParent.layer.cornerRadius = 6
-        textFieldParent.layer.borderWidth = 1
-        textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
+        if !excludeBorder {
+            textFieldParent.layer.borderWidth = 1
+            textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
+        }
         textFieldParent.addSubview(textField)
         textField.center(in: textFieldParent)
         textField.width(to: self, offset: -24)
@@ -121,6 +133,9 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     //MARK: - texfield delegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
+        if extraBorderViewBackgroundColor != nil {
+            extraBorderView.backgroundColor = .white
+        }
         delegate?.didBecomeFirstResponder(tag: tag)
     }
     
@@ -134,8 +149,11 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if let extraBorderViewBackgroundColor {
+            extraBorderView.backgroundColor = extraBorderViewBackgroundColor
+        }
         extraBorderView.layer.borderColor = UIColor.clear.cgColor
-        validateText(with: .email, and: textField.text ?? "")
+        validateText(with: textFieldValidationType ?? .email, and: textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

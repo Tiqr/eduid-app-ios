@@ -5,19 +5,140 @@
 //  Created by Yasser Farahi on 13/02/2025.
 //
 
-import Foundation
 import UIKit
+import TinyConstraints
 
 protocol VerifyWithIdVerificationCodeViewControllerDelegate: AnyObject, NavigationDelegate {
 }
 
 class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
-    private var stack: UIStackView!
-    weak var delegate: VerifyWithIdVerificationCodeViewControllerDelegate?
+    fileprivate enum C {
+        static let title: String = "Your verification code"
+        static let code: String = "87451"
+        static let description: String = "You will also receive an email with this code. The code is valid for 14 days and is intended for:"
+        static let typo: String = "Made a typo?"
+        static let edit: String = "Edit your details"
+        static let next: String = "What’s next?"
+        static let nextStepDes: String = "Schedule an appointment with an eduID Service Desk (online or in person). During your appointment, show your verification code and ID."
+        static let showEduIDServiceDesks: String = "Show eduID Service Desks"
+        static let goToHomepage: String = "Go to homepage"
+        static let proveOtherWay: String = "Want to prove your identity another way? Make sure to delete your verification code first."
+        static let deleteVerificationCode: String = "Delete verification code"
+    }
     
+    private enum ViewConstants {
+        static let idImageName: String = "VerifyIDImage"
+        enum FieldTag: Int {
+            case lastName = 100000001
+            case firstName = 100000002
+            case dateOfBirth = 100000003
+        }
+    }
     // viewmodel
     private var viewModel: VerifyWithIdVerificationCodeViewModel
+    
+    private var stack: UIStackView!
+    weak var delegate: VerifyWithIdInputViewControllerDelegate?
+    
+    // - scroll view
+    private let scrollView = UIScrollView()
+    
+    // - keyboard related
+    private var isKeyBoardOnScreen = false
+    private var keyboardHeight: CGFloat?
+    
+    // - activate userInteraction for textfields
+    private var activateUserInteraction: Bool = false {
+        didSet {
+            lastNameTextField.isUserInteractionEnabled = activateUserInteraction
+            firstNameTextField.isUserInteractionEnabled = activateUserInteraction
+            dateOfBirthTextField.isUserInteractionEnabled = activateUserInteraction
+        }
+    }
+    
+    var validationMap: [Int: Bool] = [ViewConstants.FieldTag.lastName.rawValue: false,
+                                      ViewConstants.FieldTag.firstName.rawValue: false] {
+        didSet {
+            var isTrue = true
+            validationMap.forEach({ (key: Int, value: Bool) in
+                if !value {
+                    isTrue = false
+                }
+            })
+            
+            setVerificationCodeButtonEnabled(state: isTrue)
+        }
+    }
+    
+    // MARK: TextFields
+    private lazy var lastNameTextField: TextFieldViewWithValidationAndTitle = {
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.LastName.localization,
+                                                                   placeholder: "", field: .name,
+                                                                   keyboardType: .alphabet,
+                                                                   showNextInsteadOfReturn: true,
+                                                                   excludeBorder: true,
+                                                                   backgroundColor: UIColor(resource: .darkYellow))
+        textField.delegate = self
+        textField.tag = ViewConstants.FieldTag.lastName.rawValue
+        textField.textField.text = viewModel.person.lastName
+        return textField
+    }()
+    
+    private lazy var firstNameTextField: TextFieldViewWithValidationAndTitle = {
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.FirstNames.localization,
+                                                                   placeholder: "",
+                                                                   field: .name,
+                                                                   keyboardType: .alphabet,
+                                                                   showNextInsteadOfReturn: true,
+                                                                   excludeBorder: true,
+                                                                   backgroundColor: UIColor(resource: .darkYellow))
+        textField.delegate = self
+        textField.tag = ViewConstants.FieldTag.firstName.rawValue
+        textField.textField.text = viewModel.person.firstName
+        return textField
+    }()
+    
+    private lazy var dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.DateOfBirth.localization,
+                                                                   placeholder: "",
+                                                                   field: .name,
+                                                                   keyboardType: .alphabet,
+                                                                   excludeBorder: true,
+                                                                   backgroundColor: UIColor(resource: .darkYellow))
+        textField.delegate = self
+        textField.tag = ViewConstants.FieldTag.dateOfBirth.rawValue
+        textField.textField.text = viewModel.person.dateOfBirth
+        return textField
+    }()
+    
+    // - generated code label
+    private lazy var generatedCodeLabel: UILabel = {
+       let label = UILabel()
+        return label
+    }()
+    
+    // - show eduID service desk button
+    private lazy var showEduIDServiceDeskButton: EduIDButton = {
+        let button: EduIDButton = .init(type: .primary, buttonTitle: C.showEduIDServiceDesks)
+        button.addTarget(self, action: #selector(onShowEduIDServiceDeskButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    // - go to home page button
+    private lazy var goToHomePageButton: EduIDButton = {
+        let button: EduIDButton = .init(type: .borderedGray, buttonTitle: C.goToHomepage)
+        button.addTarget(self, action: #selector(onGoToHomePageButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    // - delete verification code button
+    private lazy var deleteVerificationCodeButton: EduIDButton = {
+        let button: EduIDButton = .init(type: .borderedRed, buttonTitle: C.deleteVerificationCode)
+        button.addTarget(self, action: #selector(onDeleteVerificationCodeButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     //MARK: - init
     init(viewModel: VerifyWithIdVerificationCodeViewModel) {
@@ -25,7 +146,8 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    @MainActor required init?(coder: NSCoder) {
+    
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -35,11 +157,17 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         screenType = .verifyWithIdVerificationCodeScreen
         view.backgroundColor = .white
         setupUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
@@ -48,145 +176,263 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
             $0.removeFromSuperview()
         }
         
+        activateUserInteraction = false
+        
         // - scroll view
-        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
-        
-        let mainTitleFirstLine: String = L.ConfirmIdentityWithIdInput.Title.FirstLine.localization
-        
+
         let mainTitle: UILabel = UILabel.posterTextLabelBicolor(
-            text: mainTitleFirstLine,
+            text: C.title,
             size: 24,
-            primary: mainTitleFirstLine
+            primary: C.title
         )
         
-        let mainDescription = UILabel.subtitleLabel(text:L.ConfirmIdentityWithIdIntro.Description.ServiceDesk.localization)
+        let mainDescription = UILabel.subtitleLabel(text: C.description)
+        
+        
+        // - generated code container
+        let generatedCodeContainer: UIView = getContainer()
+        setGeneratedTextLabel(with: C.code)
+        generatedCodeContainer.addSubview(generatedCodeLabel)
+        
+        // - textfield container
+        let textFieldsContainer: UIView = getContainer()
+        
+        // - textField stack view
+        let textFieldStack: UIStackView = .init(arrangedSubviews: [lastNameTextField,
+                                                                   firstNameTextField,
+                                                                   dateOfBirthTextField])
+        textFieldStack.axis = .vertical
+        textFieldStack.alignment = .center
+        textFieldStack.distribution = .fill
+        textFieldStack.spacing = .zero
+        
+        textFieldsContainer.addSubview(textFieldStack)
+        
+        // - correct typo
+        let madeTypoLabel: UILabel = .init()
+        madeTypoLabel.text = C.typo
+        madeTypoLabel.font = UIFont.sourceSansProRegular(size: 18)
+        madeTypoLabel.textColor = UIColor.textColor
+        
+        // - correct typo
+        let editLabel: UILabel = .init()
+        editLabel.attributedText = NSAttributedString(
+            string: C.edit,
+            attributes: [
+                .font: UIFont.sourceSansProRegular(size: 18),
+                .foregroundColor: UIColor.backgroundColor,
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .underlineColor: UIColor.backgroundColor
+            ]
+        )
+        editLabel.isUserInteractionEnabled = true
+        editLabel.addGestureRecognizer(gestureRecognizerForEditDetailsText())
+        
+        let madeTypoStack: UIStackView = .init(arrangedSubviews: [madeTypoLabel,
+                                                                  editLabel])
+        madeTypoStack.axis = .horizontal
+        madeTypoStack.alignment = .center
+        madeTypoStack.distribution = .fill
+        madeTypoStack.spacing = 2
+        
+        textFieldsContainer.addSubview(madeTypoStack)
+        
+        //- what is next stack
+        let whatsNextLabel: UILabel = .init()
+        whatsNextLabel.text = C.next
+        whatsNextLabel.font = UIFont.sourceSansProBold(size: 18)
+        whatsNextLabel.textColor = UIColor.textColor
+        
+        let whatsNextDescriptionLabel: UILabel = .init()
+        whatsNextDescriptionLabel.text = C.nextStepDes
+        whatsNextDescriptionLabel.numberOfLines = .zero
+        whatsNextDescriptionLabel.font = UIFont.sourceSansProRegular(size: 18)
+        whatsNextDescriptionLabel.textColor = UIColor.textColor
+        
+        let divider: UIView = .init()
+        divider.backgroundColor = UIColor.lightGray
+        
+        let proveOtherWayLabel: UILabel = .init()
+        proveOtherWayLabel.text = C.proveOtherWay
+        proveOtherWayLabel.numberOfLines = .zero
+        proveOtherWayLabel.font = UIFont.sourceSansProRegular(size: 14)
+        proveOtherWayLabel.textColor = UIColor.textColor
+        
+        let whatsNextStackView: UIStackView = .init(arrangedSubviews: [whatsNextLabel,
+                                                                       whatsNextDescriptionLabel,
+                                                                       showEduIDServiceDeskButton,
+                                                                       goToHomePageButton,
+                                                                       divider,
+                                                                       proveOtherWayLabel,
+                                                                       deleteVerificationCodeButton])
+        whatsNextStackView.axis = .vertical
+        whatsNextStackView.distribution = .fill
+        whatsNextStackView.alignment = .center
+        whatsNextStackView.spacing = 25
+        
+        whatsNextStackView.setCustomSpacing(15, after: whatsNextDescriptionLabel)
+        
         
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescription])
+        stack = UIStackView(arrangedSubviews: [mainTitle,
+                                               generatedCodeContainer,
+                                               mainDescription,
+                                               textFieldsContainer,
+                                               whatsNextStackView])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
         stack.alignment = .center
-        stack.spacing = 20
+        stack.spacing = 30
         scrollView.addSubview(stack)
-        mainTitle.widthToSuperview(offset: -48)
-        mainDescription.widthToSuperview(offset: -48)
+        
+        // - setup constraints
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: .zero, right: 0))
         stack.width(to: scrollView, offset: 0)
+        mainTitle.widthToSuperview(offset: -48)
+        mainDescription.widthToSuperview(offset: -48)
+        generatedCodeContainer.widthToSuperview(offset: -48)
+        generatedCodeContainer.height(90)
+        generatedCodeLabel.centerInSuperview()
+        textFieldsContainer.widthToSuperview(offset: -48)
+        textFieldsContainer.height(360)
+        textFieldStack.widthToSuperview(offset: -48)
+        textFieldStack.centerInSuperview()
+        madeTypoStack.centerX(to: textFieldsContainer)
+        madeTypoStack.bottomToSuperview(offset: -15)
+        whatsNextLabel.widthToSuperview(offset: -48)
+        whatsNextDescriptionLabel.widthToSuperview(offset: -48)
+        showEduIDServiceDeskButton.widthToSuperview(offset: -48)
+        goToHomePageButton.widthToSuperview(offset: -48)
+        divider.height(2)
+        divider.widthToSuperview(offset: -48)
+        proveOtherWayLabel.widthToSuperview(offset: -48)
+        deleteVerificationCodeButton.widthToSuperview(offset: -48)
+        lastNameTextField.widthToSuperview()
+        firstNameTextField.widthToSuperview()
+        dateOfBirthTextField.widthToSuperview()
+        stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
         
-        
-        // - steps
-        let followStepsHeaderLabel: UILabel = .init()
-        followStepsHeaderLabel.text = L.ConfirmIdentityWithIdIntro.Description.Steps.Header.localization
-        followStepsHeaderLabel.font = UIFont.sourceSansProBold(size: 18)
-        
-        stack.addArrangedSubview(followStepsHeaderLabel)
-        followStepsHeaderLabel.widthToSuperview(offset: -48)
-        
-        let stepsString: [String] = [L.ConfirmIdentityWithIdIntro.Description.Steps.Step1.localization,
-                                     L.ConfirmIdentityWithIdIntro.Description.Steps.Step2.localization,
-                                     L.ConfirmIdentityWithIdIntro.Description.Steps.Step3.localization]
-        
-        var stepLabels: [UIStackView] = []
-        
-        for step in 0..<stepsString.count {
-            
-            let horizontalStack: UIStackView = .init()
-            horizontalStack.axis = .horizontal
-            horizontalStack.alignment = .top
-            horizontalStack.distribution = .fill
-            horizontalStack.spacing = 8
-            
-            let stepNumberLabel: UILabel = .init()
-            stepNumberLabel.text = "\(step + 1)."
-            stepNumberLabel.font = UIFont.sourceSansProRegular(size: 18)
-            
-            
-            let stepLabel: UILabel = .init()
-            stepLabel.text =  stepsString[step]
-            stepLabel.font = UIFont.sourceSansProRegular(size: 18)
-            stepLabel.numberOfLines = .zero
-            
-            horizontalStack.addArrangedSubview(stepNumberLabel)
-            horizontalStack.addArrangedSubview(stepLabel)
-            
-            stepLabels.append(horizontalStack)
-        }
-        
-        stepLabels.forEach { label in
-            stack.addArrangedSubview(label)
-            label.widthToSuperview(offset: -48)
-        }
-        
-        // - spacer
-        let spacer: UIView = .init()
-        stack.addArrangedSubview(spacer)
-        spacer.height(30)
-        
-        // - disclaimer container
-        let disclaimerContainer: UIView = .init()
-        disclaimerContainer.backgroundColor = UIColor(resource: .fallbackYellow)
-        disclaimerContainer.height(320)
-        stack.addArrangedSubview(disclaimerContainer)
-        disclaimerContainer.widthToSuperview(offset: -48)
-        
-        let disclaimerMainStack: UIStackView = .init()
-        disclaimerMainStack.alignment = .top
-        disclaimerMainStack.distribution = .fill
-        disclaimerMainStack.spacing = 20
-        disclaimerContainer.addSubview(disclaimerMainStack)
-        disclaimerMainStack.widthToSuperview(offset: -48)
-        
-        let warningImage: UIImageView = .init()
-        warningImage.image = UIImage(resource: .warning)
-        warningImage.height(25)
-        warningImage.width(25)
-        
-        disclaimerMainStack.addArrangedSubview(warningImage)
-        
-        let validDocumentsDisclaimerLabel: UILabel = .init()
-        validDocumentsDisclaimerLabel.numberOfLines = 0
-        validDocumentsDisclaimerLabel.textAlignment = .left
-        validDocumentsDisclaimerLabel.font = UIFont.sourceSansProRegular(size: 16)
-        validDocumentsDisclaimerLabel.text = L.ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.List.localization
-        
-        
-        
-        let disclaimerVStack: UIStackView = .init()
-        disclaimerVStack.alignment = .leading
-        disclaimerVStack.distribution = .fill
-        disclaimerVStack.axis = .vertical
-        disclaimerVStack.spacing = 20
-        disclaimerMainStack.addArrangedSubview(disclaimerVStack)
-        
-        let validDocumentsDisclaimerLabelExtra: UILabel = .init()
-        validDocumentsDisclaimerLabelExtra.numberOfLines = 0
-        validDocumentsDisclaimerLabelExtra.textAlignment = .left
-        validDocumentsDisclaimerLabelExtra.font = UIFont.sourceSansProRegular(size: 12)
-        validDocumentsDisclaimerLabelExtra.text = L.ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.Asterisk.localization
-        
-        
-        disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabel)
-        disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabelExtra)
-        disclaimerMainStack.center(in: disclaimerContainer)
-        
-        stack.setCustomSpacing(80, after: disclaimerContainer)
-        
-        // - enter details button
-        let enterDetailsButton = EduIDButton(type: .primary, buttonTitle: L.ConfirmIdentityWithIdIntro.EnterDetailsButton.localization)
-        enterDetailsButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
-        stack.addArrangedSubview(enterDetailsButton)
-        enterDetailsButton.widthToSuperview(offset: -48)
-        enterDetailsButton.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-        
+    }
+    
+    private func setGeneratedTextLabel(with code: String) {
+        generatedCodeLabel.attributedText = NSAttributedString(
+            string: code,
+            attributes: [
+                .font: UIFont.sourceSansProSemiBold(size: 45),
+                .foregroundColor: UIColor.textColor,
+                .kern: 10.0
+            ]
+        )
+    }
+    
+    private func getContainer() -> UIView {
+        let coontainer: UIView = .init()
+        coontainer.backgroundColor = UIColor(resource: .fallbackYellow)
+        coontainer.layer.cornerRadius = 8
+        coontainer.layer.borderWidth = 1
+        coontainer.layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
+        coontainer.layer.masksToBounds = true
+        return coontainer
     }
     
     @objc private func dismissInfoScreen() {
         delegate?.goBack(viewController: self)
     }
     
+    @objc private func onShowEduIDServiceDeskButtonTapped() {
+        // TODO:
+    }
+    
+    @objc private func onGoToHomePageButtonTapped() {
+        // TODO:
+    }
+    
+    @objc private func onDeleteVerificationCodeButtonTapped() {
+        // TODO:
+    }
+    
+    
+    // - edit mode related
+    private func gestureRecognizerForEditDetailsText() -> UITapGestureRecognizer {
+        let gestureRecognizer: UITapGestureRecognizer = .init(target: self, action: #selector(enableUserInteractionForTextFields))
+        gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.numberOfTapsRequired = 1
+        return gestureRecognizer
+    }
+    
+    @objc private func enableUserInteractionForTextFields() {
+        activateUserInteraction = true
+        _ = lastNameTextField.becomeFirstResponder()
+    }
+}
+
+// MARK: ValidatedTextFieldDelegate
+extension VerifyWithIdVerificationCodeViewController: ValidatedTextFieldDelegate {
+    
+    func updateValidation(with value: String, isValid: Bool, from tag: Int) {
+        validationMap[tag] = isValid
+    }
+    
+    func keyBoardDidReturn(tag: Int) {
+        switch tag {
+        case ViewConstants.FieldTag.lastName.rawValue:
+            _ = firstNameTextField.becomeFirstResponder()
+        case ViewConstants.FieldTag.firstName.rawValue:
+            _ = dateOfBirthTextField.becomeFirstResponder()
+        case ViewConstants.FieldTag.dateOfBirth.rawValue:
+            _ = dateOfBirthTextField.resignFirstResponder()
+        default: break
+        }
+    }
+    
+    func didBecomeFirstResponder(tag: Int) {
+        switch tag {
+        case ViewConstants.FieldTag.lastName.rawValue:
+            break
+            
+        case ViewConstants.FieldTag.firstName.rawValue:
+            break
+            
+        case ViewConstants.FieldTag.dateOfBirth.rawValue:
+            break
+        default: break
+        }
+    }
+}
+
+// MARK: Keyboard presentation
+extension VerifyWithIdVerificationCodeViewController {
+    @objc private func keyboardFrameChanged(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        keyboardHeight = keyboardFrame.size.height
+        guard isKeyBoardOnScreen else { return }
+        scrollView.contentInset.bottom = keyboardHeight ?? 0 + scrollView.safeAreaInsets.bottom
+    }
+    
+    @objc private func keyboardDidShow(notification: Notification) {
+        isKeyBoardOnScreen = true
+        keyboardFrameChanged(notification: notification)
+    }
+    
+    @objc private func keyboardDidHide() {
+        isKeyBoardOnScreen = false
+        resetScrollviewInsets()
+    }
+    
+    private func resetScrollviewInsets() {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self else { return }
+            self.scrollView.contentInset.bottom = 0
+            self.scrollView.contentOffset.y = -(self.view.safeAreaInsets.top)
+        }
+    }
+    
+    private func setVerificationCodeButtonEnabled(state: Bool) {
+        showEduIDServiceDeskButton.isEnabled = state
+    }
 }
