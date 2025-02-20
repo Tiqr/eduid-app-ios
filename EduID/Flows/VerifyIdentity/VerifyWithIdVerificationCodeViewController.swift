@@ -358,7 +358,11 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }
     
     @objc private func popViewController() {
-        navigationController?.popViewController(animated: true)
+        if viewModel.presentedDirectlyFromPersonalInfo == true {
+            delegate?.goToVerifyWithIdInputScreen(viewController: self, controlCode: viewModel.controlCode)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 

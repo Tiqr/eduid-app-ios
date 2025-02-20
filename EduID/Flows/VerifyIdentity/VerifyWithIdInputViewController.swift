@@ -11,6 +11,7 @@ import OpenAPIClient
 import Combine
 
 protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate, PersonalInfoViewControllerDelegate {
+    func goToVerifyWithIdInputScreen(viewController: UIViewController, controlCode: ControlCode?)
     func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?)
 }
 
@@ -26,7 +27,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     }
     
     //- viewmodel
-    private let viewModel: VerifyWithIdInputViewModel = .init()
+    private var viewModel: VerifyWithIdInputViewModel
     
     private var cancellable = Set<AnyCancellable>()
     
@@ -95,7 +96,8 @@ class VerifyWithIdInputViewController: BaseViewController {
     }()
     
     //MARK: - init
-    init() {
+    init(viewModel: VerifyWithIdInputViewModel = .init()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -125,23 +127,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     
     //// - setup combine
     private func setupCombine() {
-//        lastNameTextField.textField.textPublisher
-//            .compactMap { $0 }
-//            .assign(to: \.person?.lastName, on: viewModel)
-//            .store(in: &cancellable)
-//        
-//        firstNameTextField.textField.textPublisher
-//            .compactMap { $0 }
-//            .assign(to: \.person?.firstName, on: viewModel)
-//            .store(in: &cancellable)
-//        
-//        dateOfBirthTextField.textField.textPublisher
-//            .compactMap { $0 }
-//            .assign(to: \.person.dateOfBirth, on: viewModel)
-//            .store(in: &cancellable)
-//        
-        // observe changes to verification code
-        viewModel.controlCodePublisher
+        viewModel.controlCodePublisher?
             .receive(on: DispatchQueue.main)
             .sink { [weak self] controlCode in
                 guard let self else { return }
@@ -157,6 +143,16 @@ class VerifyWithIdInputViewController: BaseViewController {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
+        
+        //- setup textfields if view model has person data
+        if let lastName = viewModel.person?.lastName,
+           let firstName = viewModel.person?.firstName,
+           let dateOfBirth = viewModel.person?.dateOfBirth {
+            lastNameTextField.textField.text = lastName
+            firstNameTextField.textField.text = firstName
+            dateOfBirthTextField.textField.text = dateOfBirth
+        }
+        
         
         // - scroll view
         scrollView.translatesAutoresizingMaskIntoConstraints = false

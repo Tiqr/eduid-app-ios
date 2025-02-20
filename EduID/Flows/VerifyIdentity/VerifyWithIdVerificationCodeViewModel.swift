@@ -13,6 +13,7 @@ class VerifyWithIdVerificationCodeViewModel: ObservableObject {
     var person: VerifyPerson?
     var controlCode: ControlCode?
     var userResponse: UserResponse?
+    var presentedDirectlyFromPersonalInfo: Bool?
     
     init(person: VerifyPerson, controlCode: ControlCode?) {
         self.person = person
@@ -24,8 +25,11 @@ class VerifyWithIdVerificationCodeViewModel: ObservableObject {
         if let firstName = controlCode?.firstName ,
            let lastName = controlCode?.lastName ,
            let dateOfBirth = controlCode?.dayOfBirth {
-            self.person = VerifyPerson(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
+            self.person = VerifyPerson(lastName: lastName,
+                                       firstName: firstName,
+                                       dateOfBirth: dateOfBirth)
             self.controlCode = controlCode
+            self.presentedDirectlyFromPersonalInfo = true
         }
     }
     
