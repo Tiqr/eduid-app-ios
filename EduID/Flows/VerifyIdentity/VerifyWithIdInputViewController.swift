@@ -9,7 +9,7 @@ import UIKit
 import TinyConstraints
 import Combine
 
-protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate {
+protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate, PersonalInfoViewControllerDelegate {
     func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: String)
 }
 
@@ -40,7 +40,8 @@ class VerifyWithIdInputViewController: BaseViewController {
     private var keyboardHeight: CGFloat?
     
     var validationMap: [Int: Bool] = [ViewConstants.FieldTag.lastName.rawValue: false,
-                                      ViewConstants.FieldTag.firstName.rawValue: false] {
+                                      ViewConstants.FieldTag.firstName.rawValue: false,
+                                      ViewConstants.FieldTag.dateOfBirth.rawValue: false] {
         didSet {
             var isTrue = true
             validationMap.forEach({ (key: Int, value: Bool) in
@@ -48,7 +49,6 @@ class VerifyWithIdInputViewController: BaseViewController {
                     isTrue = false
                 }
             })
-            
             setVerificationCodeButtonEnabled(state: isTrue)
         }
     }

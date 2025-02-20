@@ -20,7 +20,6 @@ final class VerifyWithIdInputViewModel: ObservableObject {
     
     init() {}
     
-    
     func createVerificationCode() async {
         guard let person else {
             assertionFailure("No valid details provided")

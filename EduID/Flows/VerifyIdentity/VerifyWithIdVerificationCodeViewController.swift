@@ -24,6 +24,9 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     // viewmodel
     private var viewModel: VerifyWithIdVerificationCodeViewModel
     
+    //- timer
+    private var timer: Timer?
+    
     private var stack: UIStackView!
     weak var delegate: VerifyWithIdInputViewControllerDelegate?
     
@@ -135,6 +138,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         screenType = .verifyWithIdVerificationCodeScreen
         view.backgroundColor = .white
         setupUI()
+        setupTimer()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
@@ -146,6 +150,8 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        timer?.invalidate()
+        timer = nil
     }
     
     private func setupUI() {
@@ -177,9 +183,11 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         let textFieldsContainer: UIView = getContainer()
         
         // - textField stack view
+        let spacer: UIView = .init()
         let textFieldStack: UIStackView = .init(arrangedSubviews: [lastNameTextField,
                                                                    firstNameTextField,
-                                                                   dateOfBirthTextField])
+                                                                   dateOfBirthTextField,
+                                                                   spacer])
         textFieldStack.axis = .vertical
         textFieldStack.alignment = .center
         textFieldStack.distribution = .fill
@@ -193,7 +201,6 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         madeTypoLabel.font = UIFont.sourceSansProRegular(size: 18)
         madeTypoLabel.textColor = UIColor.textColor
         
-        // - correct typo
         let editLabel: UILabel = .init()
         editLabel.attributedText = NSAttributedString(
             string: L.ConfirmIdentityWithIdCode.MadeATypo.Link.localization,
@@ -274,11 +281,12 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         generatedCodeContainer.height(90)
         generatedCodeLabel.centerInSuperview()
         textFieldsContainer.widthToSuperview(offset: -48)
-        textFieldsContainer.height(360)
+        textFieldsContainer.height(380)
         textFieldStack.widthToSuperview(offset: -48)
         textFieldStack.centerInSuperview()
+        spacer.height(20)
         madeTypoStack.centerX(to: textFieldsContainer)
-        madeTypoStack.bottomToSuperview(offset: -15)
+        madeTypoStack.bottomToSuperview(offset: -25)
         whatsNextLabel.widthToSuperview(offset: -48)
         whatsNextDescriptionLabel.widthToSuperview(offset: -48)
         showEduIDServiceDeskButton.widthToSuperview(offset: -48)
@@ -320,7 +328,9 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }
     
     @objc private func onShowEduIDServiceDeskButtonTapped() {
-        // TODO:
+        if let url = URL(string: L.ConfirmIdentityWithIdCode.ServiceDeskUrl.localization) {
+            delegate?.openInWebView(url)
+        }
     }
     
     @objc private func onGoToHomePageButtonTapped() {
@@ -378,6 +388,27 @@ extension VerifyWithIdVerificationCodeViewController: ValidatedTextFieldDelegate
         case ViewConstants.FieldTag.dateOfBirth.rawValue:
             break
         default: break
+        }
+    }
+}
+
+// MARK: Check control code
+extension VerifyWithIdVerificationCodeViewController {
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 10,
+                                     target: self,
+                                     selector: #selector(checkControlCodeValidation),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc private func checkControlCodeValidation() {
+        Task {
+            let controlCodeIsStillValid = await viewModel.controlCodeIsStillValid()
+            if !controlCodeIsStillValid {
+                navigationController?.popToRootViewController(animated: true)
+                timer?.invalidate()
+            }
         }
     }
 }
