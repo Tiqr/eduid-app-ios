@@ -13,8 +13,8 @@ final class VerifyWithIdInputViewModel: ObservableObject {
     
     @Published var person: VerifyPerson?
     var userResponse: UserResponse?
-    private let controlCode: CurrentValueSubject<String, Never> = .init("")
-    var controlCodePublisher: AnyPublisher<String, Never> {
+    private let controlCode: CurrentValueSubject<ControlCode?, Never> = .init(.init(firstName: "", lastName: "", dayOfBirth: ""))
+    var controlCodePublisher: AnyPublisher<ControlCode?, Never> {
         return controlCode.eraseToAnyPublisher()
     }
     
@@ -28,7 +28,7 @@ final class VerifyWithIdInputViewModel: ObservableObject {
         let controlCode: ControlCode = .init(firstName: person.firstName, lastName: person.lastName, dayOfBirth: person.dateOfBirth)
         do {
             let controlCode = try await UserControllerAPI.createUserControlCode(controlCode: controlCode)
-            self.controlCode.send(controlCode.code ?? "")
+            self.controlCode.send(controlCode)
         } catch {
             assertionFailure(" Failed to generate control code: \(error) -- \(error.localizedDescription)")
         }

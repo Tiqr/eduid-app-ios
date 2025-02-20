@@ -114,6 +114,12 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController?.pushViewController(selectYourBankViewController, animated: true)
     }
     
+    func showControlCode(viewController: UIViewController, controlCode: ControlCode?) {
+        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(controlCode: controlCode))
+        verifyWithIdVerificationCodeViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
+    }
+    
     func deleteStateAndGoToHome() {
         AppAuthController.shared.clearAuthState()
         navigationController!.dismiss(animated: true)
@@ -187,7 +193,7 @@ extension PersonalInfoCoordinator: VerifyWithIdIntroViewControllerDelegate {
 }
 
 extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
-    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: String) {
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?) {
         let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
         verifyWithIdVerificationCodeViewController.delegate = self
         navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)

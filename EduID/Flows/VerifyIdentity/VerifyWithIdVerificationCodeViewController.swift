@@ -62,7 +62,8 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
                                                                    backgroundColor: UIColor(resource: .darkYellow))
         textField.delegate = self
         textField.tag = ViewConstants.FieldTag.lastName.rawValue
-        textField.textField.text = viewModel.person.lastName
+        textField.textField.text = viewModel.person?.lastName ?? ""
+        textField.textField.isUserInteractionEnabled = false
         return textField
     }()
     
@@ -76,7 +77,8 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
                                                                    backgroundColor: UIColor(resource: .darkYellow))
         textField.delegate = self
         textField.tag = ViewConstants.FieldTag.firstName.rawValue
-        textField.textField.text = viewModel.person.firstName
+        textField.textField.text = viewModel.person?.firstName ?? ""
+        textField.textField.isUserInteractionEnabled = false
         return textField
     }()
     
@@ -89,7 +91,9 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
                                                                    backgroundColor: UIColor(resource: .darkYellow))
         textField.delegate = self
         textField.tag = ViewConstants.FieldTag.dateOfBirth.rawValue
-        textField.textField.text = viewModel.person.dateOfBirth
+        textField.textField.text = viewModel.person?.dateOfBirth ?? ""
+        textField.textField.isUserInteractionEnabled = false
+        
         return textField
     }()
     
@@ -176,7 +180,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         
         // - generated code container
         let generatedCodeContainer: UIView = getContainer()
-        setGeneratedTextLabel(with: viewModel.controlCode)
+        setGeneratedTextLabel(with: viewModel.controlCode?.code ?? "")
         generatedCodeContainer.addSubview(generatedCodeLabel)
         
         // - textfield container

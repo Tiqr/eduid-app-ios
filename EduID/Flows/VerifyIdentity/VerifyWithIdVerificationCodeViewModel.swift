@@ -10,15 +10,25 @@ import OpenAPIClient
 
 class VerifyWithIdVerificationCodeViewModel: ObservableObject {
     
-    let person: VerifyPerson
-    let controlCode: String
+    var person: VerifyPerson?
+    var controlCode: ControlCode?
     var userResponse: UserResponse?
     
-    init(person: VerifyPerson, controlCode: String) {
+    init(person: VerifyPerson, controlCode: ControlCode?) {
         self.person = person
         self.controlCode = controlCode
     }
-
+    
+    init(controlCode: ControlCode?) {
+        self.controlCode = controlCode
+        if let firstName = controlCode?.firstName ,
+           let lastName = controlCode?.lastName ,
+           let dateOfBirth = controlCode?.dayOfBirth {
+            self.person = VerifyPerson(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
+            self.controlCode = controlCode
+        }
+    }
+    
     func deleteVerificationCode() async {
         do {
             userResponse = try await UserControllerAPI.deleteUserControlCode()

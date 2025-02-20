@@ -182,6 +182,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 getDisclaimerBanner(image: .shield,
                                     yourIdentityContainer,
                                     disclaimerTitleText: L.Profile.VerifyNow.Title.localization,
+                                    selector: #selector(verifyIdentityClicked),
                                     disclaimerButtonTitle: L.Profile.VerifyNow.Button.localization,
                                     containerBackgroundColor: .lightBackgroundColor,
                                     includeActivityIndicator: true)
@@ -190,6 +191,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 getDisclaimerBanner(image: .warning,
                                     yourIdentityContainer,
                                     disclaimerTitleText: L.Profile.VerifyWithControlCode.Title.localization,
+                                    selector: #selector(onShowCodeButtonTap),
                                     disclaimerButtonTitle: L.Profile.VerifyWithControlCode.Button.localization,
                                     containerBackgroundColor: .yellowColor)
             } else {
@@ -574,6 +576,7 @@ extension PersonalInfoViewController {
     private func getDisclaimerBanner(image: ImageResource,
                                      _ yourIdentityContainer: UIView,
                                      disclaimerTitleText: String,
+                                     selector: Selector,
                                      disclaimerButtonTitle: String,
                                      containerBackgroundColor: UIColor,
                                      includeActivityIndicator: Bool = false) {
@@ -618,7 +621,7 @@ extension PersonalInfoViewController {
         disclaimerContainer.isLayoutMarginsRelativeArrangement = true
         disclaimerContainer.layoutMargins = .horizontal(24) + .vertical(12)
         disclaimerContainer.widthToSuperview()
-        disclaimerButton.addTarget(self, action: #selector(verifyIdentityClicked), for: .touchUpInside)
+        disclaimerButton.addTarget(self, action: selector, for: .touchUpInside)
         // Add unverified badge
         let unverifiedBadge = UIView()
         unverifiedBadge.backgroundColor = .lightGray
@@ -633,6 +636,14 @@ extension PersonalInfoViewController {
         yourIdentityContainer.addSubview(unverifiedBadge)
         unverifiedBadge.rightToSuperview()
         unverifiedBadge.centerYToSuperview()
+    }
+    
+    @objc private func onShowCodeButtonTap() {
+        guard let controlCode = viewModel.userResponse?.controlCode else {
+            assertionFailure("Failed to get userresponse")
+            return
+        }
+        delegate?.showControlCode(viewController: self, controlCode: controlCode)
     }
     
 }

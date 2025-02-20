@@ -7,10 +7,11 @@
 
 import UIKit
 import TinyConstraints
+import OpenAPIClient
 import Combine
 
 protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate, PersonalInfoViewControllerDelegate {
-    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: String)
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?)
 }
 
 class VerifyWithIdInputViewController: BaseViewController {
