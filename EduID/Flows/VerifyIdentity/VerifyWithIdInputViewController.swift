@@ -15,6 +15,10 @@ protocol VerifyWithIdInputViewControllerDelegate: AnyObject, NavigationDelegate,
     func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?)
 }
 
+protocol VerifyWithIdVerificationCodeDelegate: AnyObject {
+    func send(person: VerifyPerson, controlCode: ControlCode?)
+}
+
 class VerifyWithIdInputViewController: BaseViewController {
     
     private enum ViewConstants {
@@ -28,11 +32,11 @@ class VerifyWithIdInputViewController: BaseViewController {
     
     //- viewmodel
     private var viewModel: VerifyWithIdInputViewModel
-    
     private var cancellable = Set<AnyCancellable>()
     
     private var stack: UIStackView!
     weak var delegate: VerifyWithIdInputViewControllerDelegate?
+    weak var verifyWithIdVerificationCodeDelegate: VerifyWithIdVerificationCodeDelegate?
     
     // - scroll view
     private let scrollView = UIScrollView()
@@ -56,41 +60,37 @@ class VerifyWithIdInputViewController: BaseViewController {
     }
     
     // MARK: TextFields
-    private lazy var lastNameTextField: TextFieldViewWithValidationAndTitle = {
+    private let lastNameTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.LastName.localization,
                                                                    placeholder: "", field: .name,
                                                                    keyboardType: .alphabet,
                                                                    showNextInsteadOfReturn: true)
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.lastName.rawValue
         return textField
     }()
     
-    private lazy var firstNameTextField: TextFieldViewWithValidationAndTitle = {
+    private let firstNameTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.FirstNames.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet,
                                                                    showNextInsteadOfReturn: true)
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.firstName.rawValue
         return textField
     }()
     
-    private lazy var dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
+    private let dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.DateOfBirth.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet)
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.dateOfBirth.rawValue
         return textField
     }()
     
     // - generate verification code button
-    private lazy var generateVerificationCodeButton: EduIDButton = {
+    private let generateVerificationCodeButton: EduIDButton = {
         let button: EduIDButton = .init(type: .primary, buttonTitle: L.ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.localization)
-        button.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
         button.isEnabled = false
         return button
     }()
@@ -110,14 +110,14 @@ class VerifyWithIdInputViewController: BaseViewController {
         super.viewDidLoad()
         screenType = .verifyWithIdInputScreen
         view.backgroundColor = .white
-        setupUI()
-        setupCombine()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
+        setupCombine()
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
     }
     
@@ -127,12 +127,17 @@ class VerifyWithIdInputViewController: BaseViewController {
     
     //// - setup combine
     private func setupCombine() {
-        viewModel.controlCodePublisher?
+        viewModel.controlCodePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] controlCode in
                 guard let self else { return }
                 if let person = viewModel.person {
-                    delegate?.goToVerifyWithIdVerificationCodeScreen(viewController: self, person: person, controlCode: controlCode)
+                    if viewModel.viewShouldPop {
+                        verifyWithIdVerificationCodeDelegate?.send(person: person, controlCode: controlCode)
+                        navigationController?.popViewController(animated: true)
+                    } else {
+                        delegate?.goToVerifyWithIdVerificationCodeScreen(viewController: self, person: person, controlCode: controlCode)
+                    }
                 }
             }.store(in: &cancellable)
     }
@@ -144,15 +149,17 @@ class VerifyWithIdInputViewController: BaseViewController {
             $0.removeFromSuperview()
         }
         
-        //- setup textfields if view model has person data
-        if let lastName = viewModel.person?.lastName,
-           let firstName = viewModel.person?.firstName,
-           let dateOfBirth = viewModel.person?.dateOfBirth {
-            lastNameTextField.textField.text = lastName
-            firstNameTextField.textField.text = firstName
-            dateOfBirthTextField.textField.text = dateOfBirth
-        }
+        // - set textfield values
+        lastNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        dateOfBirthTextField.delegate = self
         
+        generateVerificationCodeButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
+        
+        //- setup textfields if view model has person data
+        lastNameTextField.textField.text = viewModel.person?.lastName ?? viewModel.placeHolder.lastName
+        firstNameTextField.textField.text = viewModel.person?.firstName ?? viewModel.placeHolder.firstName
+        dateOfBirthTextField.textField.text = viewModel.person?.dateOfBirth ?? viewModel.placeHolder.dateOfBirth
         
         // - scroll view
         scrollView.translatesAutoresizingMaskIntoConstraints = false

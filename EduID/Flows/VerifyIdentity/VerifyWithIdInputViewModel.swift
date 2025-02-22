@@ -12,17 +12,20 @@ import Combine
 final class VerifyWithIdInputViewModel: ObservableObject {
     
     @Published var person: VerifyPerson?
-    private var controlCode: CurrentValueSubject<ControlCode?, Never>?
-    var controlCodePublisher: AnyPublisher<ControlCode?, Never>? {
-        return controlCode?.eraseToAnyPublisher()
+    var placeHolder: VerifyPerson = .init(lastName: "", firstName: "", dateOfBirth: "")
+    public private(set) var viewShouldPop: Bool = false
+    private var controlCode: CurrentValueSubject<ControlCode?, Never> = .init(.init(firstName: "", lastName: "", dayOfBirth: ""))
+    var controlCodePublisher: AnyPublisher<ControlCode?, Never> {
+        return controlCode.eraseToAnyPublisher()
     }
     
-    init(controlCode: ControlCode? = nil) {
-        if let firstName = controlCode?.firstName ,
-           let lastName = controlCode?.lastName ,
+    init(controlCode: ControlCode? = nil, viewShouldPop: Bool = false) {
+        if let firstName = controlCode?.firstName,
+           let lastName = controlCode?.lastName,
            let dateOfBirth = controlCode?.dayOfBirth {
-            self.person = VerifyPerson(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
+            placeHolder = .init(lastName: firstName, firstName: lastName, dateOfBirth: dateOfBirth)
         }
+        self.viewShouldPop = viewShouldPop
     }
     
     func createVerificationCode() async {
@@ -33,7 +36,7 @@ final class VerifyWithIdInputViewModel: ObservableObject {
         let controlCode: ControlCode = .init(firstName: person.firstName, lastName: person.lastName, dayOfBirth: person.dateOfBirth)
         do {
             let controlCode = try await UserControllerAPI.createUserControlCode(controlCode: controlCode)
-            self.controlCode?.send(controlCode)
+            self.controlCode.send(controlCode)
         } catch {
             assertionFailure(" Failed to generate control code: \(error) -- \(error.localizedDescription)")
         }

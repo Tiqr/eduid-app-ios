@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OpenAPIClient
 import TinyConstraints
 
 protocol VerifyWithIdVerificationCodeViewControllerDelegate: AnyObject, NavigationDelegate {
@@ -53,21 +54,19 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     }
     
     // MARK: TextFields
-    private lazy var lastNameTextField: TextFieldViewWithValidationAndTitle = {
+    private let lastNameTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.LastName.localization,
                                                                    placeholder: "", field: .name,
                                                                    keyboardType: .alphabet,
                                                                    showNextInsteadOfReturn: true,
                                                                    excludeBorder: true,
                                                                    backgroundColor: UIColor(resource: .darkYellow))
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.lastName.rawValue
-        textField.textField.text = viewModel.person?.lastName ?? ""
         textField.textField.isUserInteractionEnabled = false
         return textField
     }()
     
-    private lazy var firstNameTextField: TextFieldViewWithValidationAndTitle = {
+    private let firstNameTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.FirstNames.localization,
                                                                    placeholder: "",
                                                                    field: .name,
@@ -75,53 +74,46 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
                                                                    showNextInsteadOfReturn: true,
                                                                    excludeBorder: true,
                                                                    backgroundColor: UIColor(resource: .darkYellow))
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.firstName.rawValue
-        textField.textField.text = viewModel.person?.firstName ?? ""
         textField.textField.isUserInteractionEnabled = false
         return textField
     }()
     
-    private lazy var dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
+    private let dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdCode.DateOfBirth.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet,
                                                                    excludeBorder: true,
                                                                    backgroundColor: UIColor(resource: .darkYellow))
-        textField.delegate = self
         textField.tag = ViewConstants.FieldTag.dateOfBirth.rawValue
-        textField.textField.text = viewModel.person?.dateOfBirth ?? ""
         textField.textField.isUserInteractionEnabled = false
         
         return textField
     }()
     
     // - generated code label
-    private lazy var generatedCodeLabel: UILabel = {
+    private let generatedCodeLabel: UILabel = {
        let label = UILabel()
         return label
     }()
     
     // - show eduID service desk button
-    private lazy var showEduIDServiceDeskButton: EduIDButton = {
+    private let showEduIDServiceDeskButton: EduIDButton = {
         let button: EduIDButton = .init(type: .primary, buttonTitle: L.ConfirmIdentityWithIdCode.ShowServiceDesksButton.localization)
-        button.addTarget(self, action: #selector(onShowEduIDServiceDeskButtonTapped), for: .touchUpInside)
         return button
     }()
     
     // - go to home page button
-    private lazy var goToHomePageButton: EduIDButton = {
+    private let goToHomePageButton: EduIDButton = {
         let button: EduIDButton = .init(type: .borderedGray, buttonTitle: L.ConfirmIdentityWithIdCode.GoToHomePageButton.localization)
-        button.addTarget(self, action: #selector(onGoToHomePageButtonTapped), for: .touchUpInside)
         return button
     }()
     
     
     // - delete verification code button
-    private lazy var deleteVerificationCodeButton: EduIDButton = {
+    private let deleteVerificationCodeButton: EduIDButton = {
         let button: EduIDButton = .init(type: .borderedRed, buttonTitle: L.ConfirmIdentityWithIdCode.DeleteVerificationCodeButton.localization)
-        button.addTarget(self, action: #selector(onDeleteVerificationCodeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -139,23 +131,27 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
     //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenType = .verifyWithIdVerificationCodeScreen
         view.backgroundColor = .white
+        screenType = .verifyWithIdVerificationCodeScreen
         setupUI()
-        setupTimer()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupTimer()
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+        timer = nil
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        timer?.invalidate()
-        timer = nil
     }
     
     private func setupUI() {
@@ -163,6 +159,22 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
+        
+        stack?.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        // - set textfield values
+        lastNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        dateOfBirthTextField.delegate = self
+        lastNameTextField.textField.text = viewModel.person?.lastName ?? ""
+        firstNameTextField.textField.text = viewModel.person?.firstName ?? ""
+        dateOfBirthTextField.textField.text = viewModel.person?.dateOfBirth ?? ""
+        
+        // - setup button actions
+        showEduIDServiceDeskButton.addTarget(self, action: #selector(onShowEduIDServiceDeskButtonTapped), for: .touchUpInside)
+        goToHomePageButton.addTarget(self, action: #selector(onGoToHomePageButtonTapped), for: .touchUpInside)
+        deleteVerificationCodeButton.addTarget(self, action: #selector(onDeleteVerificationCodeButtonTapped), for: .touchUpInside)
                 
         // - scroll view
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -450,5 +462,13 @@ extension VerifyWithIdVerificationCodeViewController {
     
     private func setVerificationCodeButtonEnabled(state: Bool) {
         showEduIDServiceDeskButton.isEnabled = state
+    }
+}
+
+extension VerifyWithIdVerificationCodeViewController: VerifyWithIdVerificationCodeDelegate {
+    func send(person: VerifyPerson, controlCode: ControlCode?) {
+        viewModel = .init(person: person, controlCode: controlCode)
+        viewModel.presentedDirectlyFromPersonalInfo = true
+        setupUI()
     }
 }
