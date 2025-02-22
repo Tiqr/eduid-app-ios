@@ -137,11 +137,13 @@ class VerifyWithIdInputViewController: BaseViewController {
                         navigationController?.popViewController(animated: true)
                     } else {
                         delegate?.goToVerifyWithIdVerificationCodeScreen(viewController: self, person: person, controlCode: controlCode)
+                        viewModel.placeHolder = person
+                        viewModel.person = nil
                     }
                 }
             }.store(in: &cancellable)
     }
-
+    
     
     private func setupUI() {
         // Remove any previous views
@@ -205,7 +207,7 @@ class VerifyWithIdInputViewController: BaseViewController {
         stack.alignment = .center
         stack.spacing = 30
         scrollView.addSubview(stack)
-
+        
         // - setup constraints
         stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: .zero, right: 0))
         stack.width(to: scrollView, offset: 0)
@@ -227,13 +229,12 @@ class VerifyWithIdInputViewController: BaseViewController {
     }
     
     @objc private func onEnterDetailsButtonTapped() {
-        if let lastName = lastNameTextField.textField.text,
-           let firstName = firstNameTextField.textField.text,
-           let dateOfBirth = dateOfBirthTextField.textField.text {
-            viewModel.person = .init(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
-            Task {
-                await viewModel.createVerificationCode()
-            }
+        let lastName = lastNameTextField.textField.text ?? viewModel.placeHolder.lastName
+        let firstName = firstNameTextField.textField.text ?? viewModel.placeHolder.firstName
+        let dateOfBirth = dateOfBirthTextField.textField.text ?? viewModel.placeHolder.dateOfBirth
+        viewModel.person = .init(lastName: lastName, firstName: firstName, dateOfBirth: dateOfBirth)
+        Task {
+            await viewModel.createVerificationCode()
         }
         
     }
