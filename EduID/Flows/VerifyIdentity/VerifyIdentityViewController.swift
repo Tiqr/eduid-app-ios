@@ -167,32 +167,33 @@ class VerifyIdentityViewController: BaseViewController {
                          }
                          self.viewModel.openEidasLink(control)
                     })
-          
-               // Fallback container and button
-               let fallbackButtonContainer: UIView = .init()
-               fallbackButtonContainer.backgroundColor = UIColor(resource: .fallbackContainer)
-               
-               let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
-               fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
-
-               fallbackButtonContainer.addSubview(fallbackButton)
-               fallbackButton.center(in: fallbackButtonContainer)
-               fallbackButton.widthToSuperview(offset: -48)
-
-               
-               let spacer = UIView()
-               spacer.height(80)
-               
-               stack.addArrangedSubview(verifyWithBankingApp)
-               stack.addArrangedSubview(verifyWithEuId)
-               stack.addArrangedSubview(spacer)
-               stack.addArrangedSubview(fallbackButtonContainer)
-               
-               verifyWithBankingApp.widthToSuperview(offset: -48)
-               verifyWithEuId.widthToSuperview(offset: -48)
-               fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
-               fallbackButtonContainer.widthToSuperview()
-               fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+              
+              stack.addArrangedSubview(verifyWithBankingApp)
+              stack.addArrangedSubview(verifyWithEuId)
+              
+          //- fallback feature flag start
+              if EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback) {
+                  // Fallback container and button
+                  let fallbackButtonContainer: UIView = .init()
+                  fallbackButtonContainer.backgroundColor = UIColor(resource: .fallbackContainer)
+                  let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
+                  fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
+                  fallbackButtonContainer.addSubview(fallbackButton)
+                  fallbackButton.center(in: fallbackButtonContainer)
+                  fallbackButton.widthToSuperview(offset: -48)
+                  let spacer = UIView()
+                  spacer.height(80)
+                  stack.addArrangedSubview(spacer)
+                  stack.addArrangedSubview(fallbackButtonContainer)
+                  verifyWithBankingApp.widthToSuperview(offset: -48)
+                  verifyWithEuId.widthToSuperview(offset: -48)
+                  fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
+                  fallbackButtonContainer.widthToSuperview()
+                  fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+              } else {
+                  verifyWithBankingApp.widthToSuperview(offset: -48)
+                  verifyWithEuId.widthToSuperview(offset: -48)
+              }
                
           } else if !viewModel.isLinkedAccount {
                let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
