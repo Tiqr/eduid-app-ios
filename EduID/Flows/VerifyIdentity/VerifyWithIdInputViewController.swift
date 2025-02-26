@@ -121,6 +121,13 @@ class VerifyWithIdInputViewController: BaseViewController {
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        validationMap.forEach {
+            validationMap[$0.key] = false
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -157,6 +164,7 @@ class VerifyWithIdInputViewController: BaseViewController {
         dateOfBirthTextField.delegate = self
         
         generateVerificationCodeButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
+        generateVerificationCodeButton.isEnabled = false
         
         //- setup textfields if view model has person data
         lastNameTextField.textField.text = viewModel.person?.lastName ?? viewModel.placeHolder.lastName
@@ -259,19 +267,7 @@ extension VerifyWithIdInputViewController: ValidatedTextFieldDelegate {
         }
     }
     
-    func didBecomeFirstResponder(tag: Int) {
-        switch tag {
-        case ViewConstants.FieldTag.lastName.rawValue:
-            break
-            
-        case ViewConstants.FieldTag.firstName.rawValue:
-            break
-            
-        case ViewConstants.FieldTag.dateOfBirth.rawValue:
-            break
-        default: break
-        }
-    }
+    func didBecomeFirstResponder(tag: Int) {}
 }
 
 // MARK: Keyboard presentation
@@ -294,11 +290,8 @@ extension VerifyWithIdInputViewController {
     }
     
     private func resetScrollviewInsets() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let self else { return }
-            self.scrollView.contentInset.bottom = 0
-            self.scrollView.contentOffset.y = -(self.view.safeAreaInsets.top)
-        }
+            scrollView.contentInset.bottom = scrollView.safeAreaInsets.bottom
+            scrollView.contentOffset.y = -(view.safeAreaInsets.top) + 25
     }
     
     private func setVerificationCodeButtonEnabled(state: Bool) {
