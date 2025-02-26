@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **serviceUUID** | **String** |  | [optional] 
 **serviceID** | **String** |  | [optional] 
 **subjectIssuer** | **String** |  | [optional] 
-**brinCode** | **String** |  | [optional] 
+**brinCodes** | **[String]** |  | [optional] 
+**affiliations** | **[String]** |  | [optional] 
 **initials** | **String** |  | [optional] 
 **chosenName** | **String** |  | [optional] 
 **firstName** | **String** |  | [optional] 
@@ -24,6 +25,10 @@ Name | Type | Description | Notes
 **createdAt** | **Int64** |  | [optional] 
 **expiresAt** | **Int64** |  | [optional] 
 **external** | **Bool** |  | [optional] 
+**preferred** | **Bool** |  | [optional] 
+**documentId** | **String** |  | [optional] 
+**familyName** | **String** |  | [optional] 
+**givenName** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
