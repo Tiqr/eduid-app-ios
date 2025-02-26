@@ -123,8 +123,7 @@ class VerifyIdentityViewController: BaseViewController {
             clickHandler: { [weak self] control in
                 self?.viewModel.startLinkingInstitution(control)
             })
-        
-        
+
         // - create the stackview
         stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, verifyViaDutchInstitution])
         stack.axis = .vertical

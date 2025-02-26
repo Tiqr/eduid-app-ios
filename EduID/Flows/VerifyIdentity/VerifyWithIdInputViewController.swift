@@ -45,20 +45,6 @@ class VerifyWithIdInputViewController: BaseViewController {
     private var isKeyBoardOnScreen = false
     private var keyboardHeight: CGFloat?
     
-    var validationMap: [Int: Bool] = [ViewConstants.FieldTag.lastName.rawValue: false,
-                                      ViewConstants.FieldTag.firstName.rawValue: false,
-                                      ViewConstants.FieldTag.dateOfBirth.rawValue: false] {
-        didSet {
-            var isTrue = true
-            validationMap.forEach({ (key: Int, value: Bool) in
-                if !value {
-                    isTrue = false
-                }
-            })
-            setVerificationCodeButtonEnabled(state: isTrue)
-        }
-    }
-    
     // MARK: TextFields
     private let lastNameTextField: TextFieldViewWithValidationAndTitle = {
         let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.LastName.localization,
@@ -121,15 +107,13 @@ class VerifyWithIdInputViewController: BaseViewController {
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        validationMap.forEach {
-            validationMap[$0.key] = false
-        }
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setVerificationCodeButtonEnabled()
     }
     
     //// - setup combine
@@ -164,7 +148,6 @@ class VerifyWithIdInputViewController: BaseViewController {
         dateOfBirthTextField.delegate = self
         
         generateVerificationCodeButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
-        generateVerificationCodeButton.isEnabled = false
         
         //- setup textfields if view model has person data
         lastNameTextField.textField.text = viewModel.person?.lastName ?? viewModel.placeHolder.lastName
@@ -252,7 +235,7 @@ class VerifyWithIdInputViewController: BaseViewController {
 extension VerifyWithIdInputViewController: ValidatedTextFieldDelegate {
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {
-        validationMap[tag] = isValid
+        setVerificationCodeButtonEnabled()
     }
     
     func keyBoardDidReturn(tag: Int) {
@@ -267,7 +250,9 @@ extension VerifyWithIdInputViewController: ValidatedTextFieldDelegate {
         }
     }
     
-    func didBecomeFirstResponder(tag: Int) {}
+    func didBecomeFirstResponder(tag: Int) {
+        setVerificationCodeButtonEnabled()
+    }
 }
 
 // MARK: Keyboard presentation
@@ -294,7 +279,8 @@ extension VerifyWithIdInputViewController {
             scrollView.contentOffset.y = -(view.safeAreaInsets.top) + 25
     }
     
-    private func setVerificationCodeButtonEnabled(state: Bool) {
-        generateVerificationCodeButton.isEnabled = state
+    private func setVerificationCodeButtonEnabled() {
+        let buttonState: Bool = lastNameTextField.textField.text?.isEmpty == false && firstNameTextField.textField.text?.isEmpty == false && dateOfBirthTextField.textField.text?.isEmpty == false
+        generateVerificationCodeButton.isEnabled = buttonState
     }
 }
