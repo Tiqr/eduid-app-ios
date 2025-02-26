@@ -8,14 +8,14 @@ import UIKit
 import TinyConstraints
 
 class VerifyIdentityViewController: BaseViewController {
-        
+    
     private var stack: UIStackView!
     
     private var moreOptionsExpanded = false
     
     var viewModel: VerifyIdentityViewModel!
     
-    var delegate: PersonalInfoViewControllerDelegate?
+    weak var delegate: PersonalInfoViewControllerDelegate?
     
     //MARK: - init
     init() {
@@ -123,8 +123,7 @@ class VerifyIdentityViewController: BaseViewController {
             clickHandler: { [weak self] control in
                 self?.viewModel.startLinkingInstitution(control)
             })
-        
-        
+
         // - create the stackview
         stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, verifyViaDutchInstitution])
         stack.axis = .vertical
@@ -134,7 +133,7 @@ class VerifyIdentityViewController: BaseViewController {
         stack.spacing = 20
         scrollView.addSubview(stack)
         
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 240, right: 0))
+        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
         stack.width(to: scrollView, offset: 0)
         
         mainTitle.widthToSuperview(offset: -48)
@@ -168,37 +167,60 @@ class VerifyIdentityViewController: BaseViewController {
                     self.viewModel.openEidasLink(control)
                 })
             
-            // Support link
-            let supportLabel = UILabel()
-            supportLabel.numberOfLines = 0
-            let supportString = NSMutableAttributedString(
-                string: L.VerifyIdentity.VisitSupport.Full.localization,
-                attributes: [
-                    .foregroundColor: UIColor.grayGhost,
-                    .font: UIFont.sourceSansProRegular(size: 16)
-                ])
-            supportString.setAttributes([
-                .underlineStyle: NSUnderlineStyle.single.rawValue,
-                .font: UIFont.sourceSansProRegular(size: 16),
-                .foregroundColor: UIColor.backgroundColor
-            ], range: supportString.nsRange(of: L.VerifyIdentity.VisitSupport.HighlightedPart.localization)!)
-            supportLabel.attributedText = supportString
-            supportLabel.isUserInteractionEnabled = true
-            supportLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onVisitSupportTapped)))
-            
             stack.addArrangedSubview(verifyWithBankingApp)
             stack.addArrangedSubview(verifyWithEuId)
-            stack.addArrangedSubview(supportLabel)
-            verifyWithBankingApp.widthToSuperview(offset: -48)
-            verifyWithEuId.widthToSuperview(offset: -48)
-            supportLabel.widthToSuperview(offset: -48)
+            
+            //- fallback feature flag start
+            if EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback) {
+                // Fallback container and button
+                let fallbackButtonContainer: UIView = .init()
+                fallbackButtonContainer.backgroundColor = UIColor(resource: .fallbackContainer)
+                let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
+                fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
+                fallbackButtonContainer.addSubview(fallbackButton)
+                fallbackButton.center(in: fallbackButtonContainer)
+                fallbackButton.widthToSuperview(offset: -48)
+                let spacer = UIView()
+                spacer.height(80)
+                stack.addArrangedSubview(spacer)
+                stack.addArrangedSubview(fallbackButtonContainer)
+                verifyWithBankingApp.widthToSuperview(offset: -48)
+                verifyWithEuId.widthToSuperview(offset: -48)
+                fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
+                fallbackButtonContainer.widthToSuperview()
+                fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+            } else {
+                // - support link
+                let supportLabel = UILabel()
+                supportLabel.numberOfLines = 0
+                let supportString = NSMutableAttributedString(
+                    string: L.VerifyIdentity.VisitSupport.Full.localization,
+                    attributes: [
+                        .foregroundColor: UIColor.grayGhost,
+                        .font: UIFont.sourceSansProRegular(size: 16)
+                    ])
+                supportString.setAttributes([
+                    .underlineStyle: NSUnderlineStyle.single.rawValue,
+                    .font: UIFont.sourceSansProRegular(size: 16),
+                    .foregroundColor: UIColor.backgroundColor
+                ], range: supportString.nsRange(of: L.VerifyIdentity.VisitSupport.HighlightedPart.localization)!)
+                supportLabel.attributedText = supportString
+                supportLabel.isUserInteractionEnabled = true
+                supportLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onVisitSupportTapped)))
+                
+                stack.addArrangedSubview(supportLabel)
+                verifyWithBankingApp.widthToSuperview(offset: -48)
+                verifyWithEuId.widthToSuperview(offset: -48)
+                supportLabel.widthToSuperview(offset: -48)
+            }
+            
         } else if !viewModel.isLinkedAccount {
             let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
             moreOptionsButton.addTarget(self, action: #selector(expandMoreOptions), for: .touchUpInside)
             stack.addArrangedSubview(moreOptionsButton)
             moreOptionsButton.widthToSuperview(offset: -48)
         }
-
+        
     }
     
     @objc func expandMoreOptions() {
@@ -214,5 +236,9 @@ class VerifyIdentityViewController: BaseViewController {
         if let supportUrl = URL(string: L.VerifyIdentity.VisitSupport.Link.localization) {
             UIApplication.shared.open(supportUrl)
         }
+    }
+    
+    @objc private func onFallbackButtonTapped() {
+        delegate?.goToVerifyIdentityIntroScreen(viewController: self)
     }
 }

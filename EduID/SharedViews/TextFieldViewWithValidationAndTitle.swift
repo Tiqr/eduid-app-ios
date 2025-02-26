@@ -8,17 +8,33 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     private let extraBorderView = UIView()
     let textField = UITextField()
     weak var delegate: ValidatedTextFieldDelegate?
+    private var extraBorderViewBackgroundColor: UIColor?
+    private var textFieldValidationType: TextFieldValidationType?
     
     // - cancellables
     var cancellables = Set<AnyCancellable>()
     
     //MARK: - init
-    init(title: String, placeholder: String, field validationType: TextFieldValidationType, keyboardType: UIKeyboardType, isPassword: Bool = false) {
+    init(title: String,
+         placeholder: String,
+         field validationType: TextFieldValidationType? = .none,
+         keyboardType: UIKeyboardType,
+         isPassword: Bool = false,
+         showNextInsteadOfReturn: Bool = false,
+         excludeBorder: Bool = false,
+         backgroundColor: UIColor? = nil) {
+        
         super.init(frame: .zero)
         
         extraBorderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
         axis = .vertical
         spacing = 6
+        
+        textFieldValidationType = validationType
+        
+        // - set background color
+        extraBorderViewBackgroundColor = backgroundColor != nil ? backgroundColor : .clear
+        extraBorderView.backgroundColor = extraBorderViewBackgroundColor
         
         // - title
         let label = UILabel()
@@ -36,8 +52,20 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textField.keyboardType = keyboardType
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.enablesReturnKeyAutomatically = true
-        textField.returnKeyType = .continue
+        if #available(iOS 17.0, *) {
+            textField.inlinePredictionType = .no
+        }
+        
+        if #available(iOS 18.0, *) {
+            textField.writingToolsBehavior = .none
+        }
+        
+        if showNextInsteadOfReturn {
+            textField.returnKeyType = .next
+        } else {
+            textField.enablesReturnKeyAutomatically = true
+            textField.returnKeyType = .continue
+        }
         textField.isSecureTextEntry = isPassword
         
         let textFieldPublisher = NotificationCenter.default
@@ -46,14 +74,16 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
                 ($0.object as? UITextField)?.text
             })
         
-        textFieldPublisher
-            .receive(on: RunLoop.main)
-            .debounce(for: 1, scheduler: RunLoop.main)
-            .sink(receiveValue: { [weak self] value in
-                guard let self else { return }
-                self.validateText(with: validationType, and: self.textField.text ?? "")
-            })
-            .store(in: &cancellables)
+        if let validationType {
+            textFieldPublisher
+                .receive(on: RunLoop.main)
+                .debounce(for: 1, scheduler: RunLoop.main)
+                .sink(receiveValue: { [weak self] value in
+                    guard let self else { return }
+                    self.validateText(with: validationType, and: self.textField.text ?? "")
+                })
+                .store(in: &cancellables)
+        }
         
         // - textfield border
         extraBorderView.layer.borderWidth = 2
@@ -69,20 +99,24 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         textFieldParent.leading(to: extraBorderView, offset: 2)
         textFieldParent.trailing(to: extraBorderView, offset: -2)
         textFieldParent.layer.cornerRadius = 6
-        textFieldParent.layer.borderWidth = 1
-        textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
+        if !excludeBorder {
+            textFieldParent.layer.borderWidth = 1
+            textFieldParent.layer.borderColor = UIColor.tertiaryColor.cgColor
+        }
         textFieldParent.addSubview(textField)
         textField.center(in: textFieldParent)
         textField.width(to: self, offset: -24)
         
         // - validationMessage
-        validLabel.font = .sourceSansProSemiBold(size: 12)
-        validLabel.height(12)
-        validLabel.textColor = .red
-        validLabel.text = provideCorrectError(for: validationType)
-        validLabel.alpha = 0
-        validLabel.clipsToBounds = false
-        addArrangedSubview(validLabel)
+        if let validationType {
+            validLabel.font = .sourceSansProSemiBold(size: 12)
+            validLabel.height(12)
+            validLabel.textColor = .red
+            validLabel.text = provideCorrectError(for: validationType)
+            validLabel.alpha = 0
+            validLabel.clipsToBounds = false
+            addArrangedSubview(validLabel)
+        }
     }
     
     required init(coder: NSCoder) {
@@ -99,6 +133,9 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     //MARK: - texfield delegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         extraBorderView.layer.borderColor = UIColor.textfieldFocusColor.cgColor
+        if extraBorderViewBackgroundColor != nil {
+            extraBorderView.backgroundColor = .white
+        }
         delegate?.didBecomeFirstResponder(tag: tag)
     }
     
@@ -112,7 +149,11 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if let extraBorderViewBackgroundColor {
+            extraBorderView.backgroundColor = extraBorderViewBackgroundColor
+        }
         extraBorderView.layer.borderColor = UIColor.clear.cgColor
+        validateText(with: textFieldValidationType ?? .email, and: textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

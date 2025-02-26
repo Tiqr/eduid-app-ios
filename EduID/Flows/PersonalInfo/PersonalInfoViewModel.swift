@@ -1,5 +1,5 @@
 import UIKit
-import OpenAPIClient
+@preconcurrency import OpenAPIClient
 
 class PersonalInfoViewModel: NSObject {
     

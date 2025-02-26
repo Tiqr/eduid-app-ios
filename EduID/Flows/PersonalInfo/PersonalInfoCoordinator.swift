@@ -3,7 +3,7 @@ import OpenAPIClient
 import TiqrCoreObjC
 
 class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelegate {
-    
+ 
     weak var viewControllerToPresentOn: UIViewController?
     
     weak var delegate: PersonalInfoCoordinatorDelegate?
@@ -102,10 +102,22 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController?.pushViewController(verifyYourIdentityViewController, animated: true)
     }
     
+     func goToVerifyIdentityIntroScreen(viewController: UIViewController) {
+          let verifyWithIdIntroViewController = VerifyWithIdIntroViewController()
+          verifyWithIdIntroViewController.delegate = self
+          navigationController?.pushViewController(verifyWithIdIntroViewController, animated: true)
+     }
+     
     func goToSelectYourBankScreen(viewController: UIViewController) {
         let selectYourBankViewController = SelectYourBankViewController()
         selectYourBankViewController.delegate = self
         navigationController?.pushViewController(selectYourBankViewController, animated: true)
+    }
+    
+    func showControlCode(viewController: UIViewController, controlCode: ControlCode?) {
+        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(controlCode: controlCode))
+        verifyWithIdVerificationCodeViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
     }
     
     func deleteStateAndGoToHome() {
@@ -169,5 +181,32 @@ extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
         let wrappingNavController = UINavigationController(rootViewController: webViewController)
         navigationController.present(wrappingNavController, animated: true)
 
+    }
+}
+
+extension PersonalInfoCoordinator: VerifyWithIdIntroViewControllerDelegate {
+    func goToVerifyWithIdInputScreen(viewController: UIViewController) {
+        let verifyWithIdInputViewController = VerifyWithIdInputViewController()
+        verifyWithIdInputViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdInputViewController, animated: true)
+    }
+}
+
+extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
+    
+    func goToVerifyWithIdInputScreen(viewController: UIViewController, controlCode: ControlCode?) {
+        let verifyWithIdInputViewController = VerifyWithIdInputViewController(viewModel: .init(controlCode: controlCode, viewShouldPop: true))
+        verifyWithIdInputViewController.delegate = self
+        if let delegate = viewController as? VerifyWithIdVerificationCodeViewController {
+            verifyWithIdInputViewController.verifyWithIdVerificationCodeDelegate = delegate
+        }
+        verifyWithIdInputViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdInputViewController, animated: true)
+    }
+    
+    func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?) {
+        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
+        verifyWithIdVerificationCodeViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
     }
 }

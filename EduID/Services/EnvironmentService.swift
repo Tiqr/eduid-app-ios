@@ -17,6 +17,7 @@ struct AuthConfig : Decodable {
 
 public enum FeatureFlag {
     case identityVerification
+    case fallback
 }
 
 struct Environment {

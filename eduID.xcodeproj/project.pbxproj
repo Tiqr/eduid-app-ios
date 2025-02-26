@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08D7749DCC40ADBD0CE7CBB3 /* VerifyWithIdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */; };
+		08FC738C521A9F355260E769 /* VerifyWithIdInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D9C38E9FBA4F6796ED9D7 /* VerifyWithIdInputViewModel.swift */; };
 		0A9F8D45274F8D0200F24188 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F8D44274F8D0200F24188 /* Theme.swift */; };
 		0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E042745579900D48C01 /* AppDelegate.swift */; };
 		0AFD9E072745579900D48C01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E062745579900D48C01 /* SceneDelegate.swift */; };
 		0AFD9E092745579900D48C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9E082745579900D48C01 /* ViewController.swift */; };
 		0AFD9E112745579C00D48C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9E0F2745579C00D48C01 /* LaunchScreen.storyboard */; };
+		33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */; };
+		3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */; };
 		4F1AFCE52C5BA689002A8D95 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */; };
 		4F1AFCE92C5BA689002A8D95 /* Notifications.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4F1AFCE22C5BA689002A8D95 /* Notifications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F1AFCF72C5BB7DB002A8D95 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1AFCF62C5BB7DB002A8D95 /* Tiqr */; };
@@ -211,7 +215,9 @@
 		73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */; };
 		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
+		8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
+		E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +278,8 @@
 		0AFD9E102745579C00D48C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFD9E122745579C00D48C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFD9E1B274557F000D48C01 /* EduID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EduID.entitlements; sourceTree = "<group>"; };
+		104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPerson.swift; sourceTree = "<group>"; };
+		3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		4F1AFCE22C5BA689002A8D95 /* Notifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1AFCE42C5BA689002A8D95 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4F1AFCE62C5BA689002A8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -477,6 +485,7 @@
 		4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedError+errorDescription.swift"; sourceTree = "<group>"; };
 		4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewModel.swift; sourceTree = "<group>"; };
 		4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewController.swift; sourceTree = "<group>"; };
+		550D9C38E9FBA4F6796ED9D7 /* VerifyWithIdInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdInputViewModel.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		73762F462A418B4300E37D96 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
@@ -485,10 +494,13 @@
 		73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewModel.swift; sourceTree = "<group>"; };
 		73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewController.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
+		7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdIntroViewController.swift; sourceTree = "<group>"; };
+		98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7F6016C2938C5FD00AF2FFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C7F8389B294265B3002015A8 /* eduIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eduIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F8389D294265B3002015A8 /* eduIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eduIDTests.swift; sourceTree = "<group>"; };
+		F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,8 +596,17 @@
 				0AFD9E1B274557F000D48C01 /* EduID.entitlements */,
 				0AFD9E122745579C00D48C01 /* Info.plist */,
 				4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */,
+				4468A1C1D04A765137D5241A /* Models */,
 			);
 			path = EduID;
+			sourceTree = "<group>";
+		};
+		4468A1C1D04A765137D5241A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4F1AFCE32C5BA689002A8D95 /* Notifications */ = {
@@ -615,6 +636,11 @@
 				4F4A3D642CAAD14C0007FCE6 /* VerifyIdentityControl.swift */,
 				4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */,
 				4F4A3D622CAAAC730007FCE6 /* VerifyIdentityViewController.swift */,
+				7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */,
+				F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */,
+				3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */,
+				98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */,
+				550D9C38E9FBA4F6796ED9D7 /* VerifyWithIdInputViewModel.swift */,
 			);
 			path = VerifyIdentity;
 			sourceTree = "<group>";
@@ -1331,13 +1357,13 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
+				4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */,
 				4F909F862A31D21500FC1506 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
-				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */,
+				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */,
 				4FF567DF2A31D50000616341 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				4FB7DB562C5BCC46007CD6E7 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
-				4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */,
+				4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */,
 				739FCE142D6EEE630051CD8B /* XCLocalSwiftPackageReference "OpenAPIClient" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
@@ -1596,6 +1622,12 @@
 				4FF567C12A31D32E00616341 /* CreatePincodeAndBiometricAccessViewModel.swift in Sources */,
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
 				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,
+				08D7749DCC40ADBD0CE7CBB3 /* VerifyWithIdIntroViewController.swift in Sources */,
+				33A0F159AEFBB4A2CE0E08F9 /* VerifyWithIdVerificationCodeViewController.swift in Sources */,
+				3ADD3C24AB3FCF08B3C6E36B /* VerifyWithIdInputViewController.swift in Sources */,
+				E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */,
+				8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */,
+				08FC738C521A9F355260E769 /* VerifyWithIdInputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2569,7 +2601,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+		4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
 			requirement = {
@@ -2577,7 +2609,7 @@
 				version = 3.0.0;
 			};
 		};
-		4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+		4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
 			requirement = {
@@ -2601,7 +2633,7 @@
 				revision = 833b7cc7001fc8abf45b98ab0cc41ed43ef6c91d;
 			};
 		};
-		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
 			requirement = {
@@ -2609,7 +2641,7 @@
 				version = 4.0.2;
 			};
 		};
-		4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
@@ -2642,17 +2674,17 @@
 		};
 		4F1F12802CAD5DEB002DA23A /* SVGKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */;
 			productName = SVGKit;
 		};
 		4F1F12822CAD5DEB002DA23A /* SVGKitSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */;
 			productName = SVGKitSwift;
 		};
 		4F909F842A31D1F400FC1506 /* AppAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			package = 4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */;
 			productName = AppAuth;
 		};
 		4F909F872A31D21500FC1506 /* SDWebImage */ = {
@@ -2672,12 +2704,12 @@
 		};
 		4FF567DA2A31D3FA00616341 /* TinyConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			package = 4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */;
 			productName = TinyConstraints;
 		};
 		4FF567DD2A31D42900616341 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			package = 4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */;
 			productName = KeychainSwift;
 		};
 		4FF567E02A31D50000616341 /* AnyCodable */ = {

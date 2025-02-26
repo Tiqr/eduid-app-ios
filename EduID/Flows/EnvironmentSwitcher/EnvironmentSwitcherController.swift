@@ -11,6 +11,7 @@ import UIKit
 class EnvironmentSwitcherController: UIViewController {
     
     private var idSwitch: UISwitch!
+    private var fallbackSwitch: UISwitch!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -83,6 +84,19 @@ class EnvironmentSwitcherController: UIViewController {
         let switchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleIdSwitch))
         switchStack.addGestureRecognizer(switchStackGesture)
         stack.addArrangedSubview(switchStack)
+        
+        
+        // fallback
+        fallbackSwitch = UISwitch()
+        fallbackSwitch.isOn = EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback)
+        let fallbackLabel = UILabel.plainTextLabelPartlyBold(text: "Fallback")
+        let fallbackSwitchStack = UIStackView(arrangedSubviews: [fallbackLabel, fallbackSwitch])
+        fallbackSwitchStack.axis = .horizontal
+        fallbackSwitchStack.alignment = .center
+        let fallbackSwitchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFallbackSwitch))
+        switchStack.addGestureRecognizer(fallbackSwitchStackGesture)
+        stack.addArrangedSubview(fallbackSwitchStack)
+        
         stack.setCustomSpacing(0, after: featureFlagsTitle)
         stack.setCustomSpacing(0, after: title)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
@@ -91,6 +105,7 @@ class EnvironmentSwitcherController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.identityVerification, enabled: idSwitch.isOn)
+        EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.fallback, enabled: fallbackSwitch.isOn)
     }
     
     @objc
@@ -101,6 +116,11 @@ class EnvironmentSwitcherController: UIViewController {
     @objc
     func toggleIdSwitch() {
         self.idSwitch.isOn = !self.idSwitch.isOn
+    }
+    
+    @objc
+    func toggleFallbackSwitch() {
+        self.fallbackSwitch.isOn = !self.fallbackSwitch.isOn
     }
     
     @objc

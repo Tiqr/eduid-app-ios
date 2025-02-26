@@ -46,6 +46,9 @@ enum ScreenType: Int, CaseIterable {
     case confirmDeleteTokensScreen
     
     case verifyIdentityScreen
+    case verifyIdentityIntroScreen
+    case verifyWithIdInputScreen
+    case verifyWithIdVerificationCodeScreen
     case selectYourBankScreen
     case linkingSuccessScreen
     case externalAccountLinkingError
