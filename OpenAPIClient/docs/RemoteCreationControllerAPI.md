@@ -5,6 +5,7 @@ All URIs are relative to *https://login.test2.eduid.nl*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createEduID**](RemoteCreationControllerAPI.md#createeduid) | **POST** /api/remote-creation/eduid-create | Create an eduID
+[**deleteEduID**](RemoteCreationControllerAPI.md#deleteeduid) | **DELETE** /api/remote-creation/eduid-delete/{eduid} | Delete an eduID
 [**eduIDForInstitution**](RemoteCreationControllerAPI.md#eduidforinstitution) | **POST** /api/remote-creation/eduid-institution-pseudonym | Return a eduID pseudonym for an institution
 [**emailEduIDExists**](RemoteCreationControllerAPI.md#emaileduidexists) | **GET** /api/remote-creation/email-eduid-exists | Does an eduID exists
 [**remoteCreation**](RemoteCreationControllerAPI.md#remotecreation) | **GET** /api/remote-creation/eduid-exists | Does an eduID exists
@@ -25,7 +26,7 @@ Create an eduID
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let newExternalEduID = NewExternalEduID(email: "email_example", chosenName: "chosenName_example", firstName: "firstName_example", lastNamePrefix: "lastNamePrefix_example", lastName: "lastName_example", dateOfBirth: "dateOfBirth_example", identifier: "identifier_example", verification: "verification_example", brinCode: "brinCode_example") // NewExternalEduID | 
+let newExternalEduID = NewExternalEduID(email: "email_example", chosenName: "chosenName_example", firstName: "firstName_example", lastNamePrefix: "lastNamePrefix_example", lastName: "lastName_example", dateOfBirth: "dateOfBirth_example", identifier: "identifier_example", verification: "verification_example", brinCodes: ["brinCodes_example"]) // NewExternalEduID | 
 
 // Create an eduID
 RemoteCreationControllerAPI.createEduID(newExternalEduID: newExternalEduID) { (response, error) in
@@ -57,6 +58,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteEduID**
+```swift
+    open class func deleteEduID(eduid: String, completion: @escaping (_ data: UpdateExternalEduID?, _ error: Error?) -> Void)
+```
+
+Delete an eduID
+
+Delete an eduID
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let eduid = "eduid_example" // String | 
+
+// Delete an eduID
+RemoteCreationControllerAPI.deleteEduID(eduid: eduid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eduid** | **String** |  | 
+
+### Return type
+
+[**UpdateExternalEduID**](UpdateExternalEduID.md)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -225,7 +276,7 @@ Update an eduID
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let updateExternalEduID = UpdateExternalEduID(email: "email_example", chosenName: "chosenName_example", firstName: "firstName_example", lastNamePrefix: "lastNamePrefix_example", lastName: "lastName_example", dateOfBirth: "dateOfBirth_example", identifier: "identifier_example", verification: "verification_example", brinCode: "brinCode_example", eduIDValue: "eduIDValue_example") // UpdateExternalEduID | 
+let updateExternalEduID = UpdateExternalEduID(email: "email_example", chosenName: "chosenName_example", firstName: "firstName_example", lastNamePrefix: "lastNamePrefix_example", lastName: "lastName_example", dateOfBirth: "dateOfBirth_example", identifier: "identifier_example", verification: "verification_example", brinCodes: ["brinCodes_example"], eduIDValue: "eduIDValue_example") // UpdateExternalEduID | 
 
 // Update an eduID
 RemoteCreationControllerAPI.updateEduID(updateExternalEduID: updateExternalEduID) { (response, error) in

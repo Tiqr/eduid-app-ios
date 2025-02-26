@@ -1,16 +1,15 @@
-# ServiceProvider
+# ControlCode
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entityId** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**nameNl** | **String** |  | [optional] 
-**institutionGuid** | **String** |  | [optional] 
-**logoUrl** | **String** |  | [optional] 
-**homeUrl** | **String** |  | [optional] 
+**firstName** | **String** |  | 
+**lastName** | **String** |  | 
+**dayOfBirth** | **String** |  | 
+**code** | **String** |  | [optional] 
+**documentId** | **String** |  | [optional] 
 **createdAt** | **Int64** |  | [optional] 
-**lastLogin** | **Int64** |  | [optional] 
+**userUid** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

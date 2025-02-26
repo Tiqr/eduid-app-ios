@@ -17,6 +17,7 @@ OpenAPIClient/Classes/OpenAPIs/JSONDataEncoding.swift
 OpenAPIClient/Classes/OpenAPIs/JSONEncodingHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AuthorizationURL.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ControlCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateAccount.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeactivateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteService.swift
@@ -62,6 +63,7 @@ Package.swift
 README.md
 docs/AccountLinkerControllerAPI.md
 docs/AuthorizationURL.md
+docs/ControlCode.md
 docs/CreateAccount.md
 docs/DeactivateRequest.md
 docs/DeleteService.md
