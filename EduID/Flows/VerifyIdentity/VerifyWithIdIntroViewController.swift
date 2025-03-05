@@ -99,13 +99,14 @@ class VerifyWithIdIntroViewController: BaseViewController {
             horizontalStack.axis = .horizontal
             horizontalStack.alignment = .top
             horizontalStack.distribution = .fill
-            horizontalStack.spacing = 8
+            horizontalStack.spacing = 5
             
             let stepNumberLabel: UILabel = .init()
+            stepNumberLabel.textAlignment = .left
+            stepNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+            stepNumberLabel.widthAnchor.constraint(equalToConstant: 15).isActive = true
             stepNumberLabel.text = "\(step + 1)."
             stepNumberLabel.font = UIFont.sourceSansProRegular(size: 18)
-            
-            
             let stepLabel: UILabel = .init()
             stepLabel.text =  stepsString[step]
             stepLabel.font = UIFont.sourceSansProRegular(size: 18)
