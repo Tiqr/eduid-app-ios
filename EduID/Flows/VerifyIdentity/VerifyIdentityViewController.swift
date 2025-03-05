@@ -173,7 +173,7 @@ class VerifyIdentityViewController: BaseViewController {
             if EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback) {
                 // Fallback container and button
                 let fallbackButtonContainer: UIView = .init()
-                fallbackButtonContainer.backgroundColor = UIColor(resource: .fallbackContainer)
+                fallbackButtonContainer.backgroundColor = .disabledGrayBackground
                 let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
                 fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
                 fallbackButtonContainer.addSubview(fallbackButton)

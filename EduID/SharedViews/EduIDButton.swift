@@ -49,7 +49,7 @@ final class EduIDButton: UIButton {
                 case .naked, .empty:
                     break
                 case .borderedGray:
-                    backgroundColor = UIColor(resource: .fallbackContainer)
+                    backgroundColor = UIColor.disabledGrayBackground
                 }
             case true:
                 switch type {
@@ -62,7 +62,7 @@ final class EduIDButton: UIButton {
                 case .naked, .empty:
                     break
                 case .borderedGray:
-                    backgroundColor = UIColor(resource: .fallbackContainer)
+                    backgroundColor = UIColor.disabledGrayBackground
                 }
             }
         }

@@ -164,9 +164,9 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.alignment = .center
         stack.spacing = 20
         scrollView.addSubview(stack)
-        
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
-        stack.width(to: scrollView, offset: 0)
+        stack.widthToSuperview()
+        stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+        stack.edges(to: scrollView, excluding: .bottom, insets: .top(24))
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
@@ -427,20 +427,23 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             addInstitutionButton.addTarget(self, action: #selector(addInstitutionClicked), for: .touchUpInside)
             
             stack.addArrangedSubview(addInstitutionButton)
-            
-            let manageAccountContainer = UIView()
+                
+            let manageAccountContainer: UIView = .init()
             manageAccountContainer.backgroundColor = .disabledGrayBackground
             let manageAccountButton = EduIDButton(type: .ghost, buttonTitle: L.Profile.ManageYourAccount.localization)
             manageAccountButton.setImage(.cog, for: .normal)
             manageAccountButton.imageEdgeInsets = .right(32)
             manageAccountButton.addTarget(self, action: #selector(manageAccountClicked), for: .touchUpInside)
             manageAccountContainer.addSubview(manageAccountButton)
-            manageAccountButton.edgesToSuperview(insets: .horizontal(24) + .vertical(20))
-            stack.addArrangedSubview(manageAccountContainer)
-            
+            manageAccountButton.center(in: manageAccountContainer)
+            manageAccountButton.widthToSuperview(offset: -48)
+            let spacer = UIView()
+            spacer.height(80)
             addInstitutionButton.widthToSuperview(offset: -48)
+            stack.addArrangedSubview(spacer)
+            stack.addArrangedSubview(manageAccountContainer)
+            manageAccountContainer.height(100 + view.safeAreaInsets.bottom)
             manageAccountContainer.widthToSuperview()
-            
             // Add click handlers
         } else {
             let loadingIndicator = UIActivityIndicatorView()
