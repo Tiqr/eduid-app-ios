@@ -165,9 +165,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         stack.spacing = 20
         scrollView.addSubview(stack)
         stack.widthToSuperview()
-        stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-        stack.edges(to: scrollView, excluding: .bottom, insets: .top(24))
-        
+        stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
         yourIdentityContainer.widthToSuperview(offset: -48)

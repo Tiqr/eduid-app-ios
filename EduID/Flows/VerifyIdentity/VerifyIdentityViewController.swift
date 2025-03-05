@@ -187,8 +187,7 @@ class VerifyIdentityViewController: BaseViewController {
                 verifyWithEuId.widthToSuperview(offset: -48)
                 fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
                 fallbackButtonContainer.widthToSuperview()
-                stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-                stack.edges(to: scrollView, excluding: .bottom, insets: .top(24))
+                stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
                 
             } else {
                 // - support link
