@@ -184,10 +184,9 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                                     disclaimerTitleText: L.Profile.VerifyNow.Title.localization,
                                     selector: #selector(verifyIdentityClicked),
                                     disclaimerButtonTitle: L.Profile.VerifyNow.Button.localization,
-                                    containerBackgroundColor: .lightBackgroundColor,
-                                    includeActivityIndicator: true)
+                                    containerBackgroundColor: .lightBackgroundColor)
                 
-            } else if let controlCode {
+            } else if controlCode != nil {
                 getDisclaimerBanner(image: .warning,
                                     yourIdentityContainer,
                                     disclaimerTitleText: L.Profile.VerifyWithControlCode.Title.localization,
@@ -578,8 +577,7 @@ extension PersonalInfoViewController {
                                      disclaimerTitleText: String,
                                      selector: Selector,
                                      disclaimerButtonTitle: String,
-                                     containerBackgroundColor: UIColor,
-                                     includeActivityIndicator: Bool = false) {
+                                     containerBackgroundColor: UIColor) {
         
         let image = UIImageView(image: UIImage(resource: image))
         image.size(image == UIImage(resource: .warning) ? CGSize(width: 30, height: 30) : CGSize(width: 24, height: 28))
@@ -595,16 +593,13 @@ extension PersonalInfoViewController {
         disclaimerButtonContainer.addSubview(disclaimerButton)
         disclaimerButton.edgesToSuperview()
         
-        //- add an activity indicator if needed
-        if includeActivityIndicator {
-            let loadingIndicator  = UIActivityIndicatorView()
-            loadingIndicator.size(CGSize(width: 32, height: 32))
-            disclaimerButtonContainer.addSubview(loadingIndicator)
-            loadingIndicator.rightToSuperview(offset: -8)
-            loadingIndicator.centerYToSuperview()
-            loadingIndicator.isHidden = true
-            verifyIdentityLoadingIndicator = loadingIndicator
-        }
+        let loadingIndicator  = UIActivityIndicatorView()
+        loadingIndicator.size(CGSize(width: 32, height: 32))
+        disclaimerButtonContainer.addSubview(loadingIndicator)
+        loadingIndicator.rightToSuperview(offset: -8)
+        loadingIndicator.centerYToSuperview()
+        loadingIndicator.isHidden = true
+        verifyIdentityLoadingIndicator = loadingIndicator
         
         let disclaimerTextStack = UIStackView(arrangedSubviews: [disclaimerTitle, disclaimerButtonContainer])
         disclaimerTextStack.axis = .vertical
@@ -639,6 +634,8 @@ extension PersonalInfoViewController {
     }
     
     @objc private func onShowCodeButtonTap() {
+        self.verifyIdentityLoadingIndicator?.startAnimating()
+        self.verifyIdentityLoadingIndicator?.isHidden = false
         guard let controlCode = viewModel.userResponse?.controlCode else {
             assertionFailure("Failed to get userresponse")
             return
