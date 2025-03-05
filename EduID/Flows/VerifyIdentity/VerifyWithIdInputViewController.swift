@@ -200,7 +200,6 @@ class VerifyWithIdInputViewController: BaseViewController {
         scrollView.addSubview(stack)
         
         // - setup constraints
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: .zero, right: 0))
         stack.width(to: scrollView, offset: 0)
         mainTitle.widthToSuperview(offset: -48)
         mainDescription.widthToSuperview(offset: -48)
@@ -211,8 +210,7 @@ class VerifyWithIdInputViewController: BaseViewController {
         firstNameTextField.widthToSuperview()
         dateOfBirthTextField.widthToSuperview()
         generateVerificationCodeButton.widthToSuperview(offset: -48)
-        generateVerificationCodeButton.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-        
+        stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: scrollView.safeAreaInsets.bottom, right: .zero))
     }
     
     @objc private func dismissInfoScreen() {

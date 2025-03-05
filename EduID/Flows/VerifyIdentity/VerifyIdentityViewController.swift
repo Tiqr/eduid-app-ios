@@ -133,7 +133,6 @@ class VerifyIdentityViewController: BaseViewController {
         stack.spacing = 20
         scrollView.addSubview(stack)
         
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
         stack.width(to: scrollView, offset: 0)
         
         mainTitle.widthToSuperview(offset: -48)
@@ -188,7 +187,9 @@ class VerifyIdentityViewController: BaseViewController {
                 verifyWithEuId.widthToSuperview(offset: -48)
                 fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
                 fallbackButtonContainer.widthToSuperview()
-                fallbackButtonContainer.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+                stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+                stack.edges(to: scrollView, excluding: .bottom, insets: .top(24))
+                
             } else {
                 // - support link
                 let supportLabel = UILabel()
@@ -220,7 +221,6 @@ class VerifyIdentityViewController: BaseViewController {
             stack.addArrangedSubview(moreOptionsButton)
             moreOptionsButton.widthToSuperview(offset: -48)
         }
-        
     }
     
     @objc func expandMoreOptions() {

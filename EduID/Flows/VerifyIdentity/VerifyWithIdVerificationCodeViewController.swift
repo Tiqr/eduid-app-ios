@@ -289,7 +289,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         scrollView.addSubview(stack)
         
         // - setup constraints
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 0, bottom: .zero, right: 0))
+        stack.edges(to: scrollView, insets: .init(top: 24, left: 0, bottom: scrollView.safeAreaInsets.bottom, right: 0))
         stack.width(to: scrollView, offset: 0)
         mainTitle.widthToSuperview(offset: -48)
         mainDescription.widthToSuperview(offset: -48)
@@ -314,8 +314,6 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         lastNameTextField.widthToSuperview()
         firstNameTextField.widthToSuperview()
         dateOfBirthTextField.widthToSuperview()
-        stack.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
-        
     }
     
     private func setGeneratedTextLabel(with code: String) {
