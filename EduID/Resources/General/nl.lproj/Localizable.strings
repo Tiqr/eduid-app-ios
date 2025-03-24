@@ -297,12 +297,12 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Account.Info1.COPY" = "Je kunt je eduID verwijderen wanneer je maar wilt.";
 "Account.Info2.COPY" = "Let op: als je je eduID verwijdert, verlies je ook je unieke eduID-nummer dat gekoppeld is aan je e-mailadres. Wanneer je een nieuwe eduID maakt met hetzelfde e-mailadres, krijg je een nieuw eduID-nummer. Door dit nieuwe nummer zien sommige websites jou ook als nieuwe gebruiker.";
 "Account.Info3.COPY" = "Goed om te weten: als je je eduID verwijdert, betekent dat niet dat alle websites die gekoppeld zijn aan je eduID ook je gegevens verwijderen.";
-"Account.Info4.COPY" = "Sluit de browser om je eduID te verwijderen.";
+"Account.Info4.COPY" = "Sluit na afloop de browser om de verwijdering van je eduID te voltooien.";
 "Account.DeleteAccount.COPY" = "Verwijder je eduID";
 "Account.DeleteAccountConfirmation.COPY" = "Weet je zeker dat je je eduID wilt verwijderen?";
 "Account.DeleteAccountSure.COPY" = "Je eduID voor altijd verwijderen?";
 "Account.DeleteAccountWarning.COPY" = "Je kunt deze actie daarna niet meer ongedaan maken.";
-"Account.Proceed.COPY" = "Typ je voornamen en achternaam zoals die in <strong>Je persoonlijke gegevens</strong> staan om verder te gaan";
+"Account.Proceed.COPY" = "Typ 'verwijder' als je er zeker van bent dat je je eduID wil verwijderen.";
 "Account.Name.COPY" = "Je volledige naam";
 "Account.NamePlaceholder.COPY" = "Je volledige naam zoals gebruikt in je profiel";
 "DataActivity.Title.COPY" = "Activiteit";
@@ -404,7 +404,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Webauthn.CredentialNamePlaceholder.COPY" = "bijv. mijn gele Yubikey";
 "Webauthn.Test.COPY" = "Test";
 "Webauthn.TestInfo.COPY" = "Druk op de <strong>test</strong>knop om een 1 van je passkeys te testen. Je wordt doorgestuurd naar het eduID-loginscherm.";
-"Webauthn.TestFlash.COPY" = "Je hebt met succes de beveligingssleutel getest voor inloggen.";
+"Webauthn.TestFlash.COPY" = "Je hebt met succes de beveiligingssleutel getest voor inloggen.";
 "RememberMe.Yes.COPY" = "Ja";
 "RememberMe.No.COPY" = "Nee";
 "RememberMe.Header.COPY" = "Ingelogd blijven?";
@@ -509,7 +509,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "LinkFromInstitution.InstitutionDomainNameWarning2.COPY" = "We raden je aan om je persoonlijke e-mailadres te gebruiken voor eduID.";
 "LinkFromInstitution.AllowedDomainNamesError.COPY" = "Domeinnaam %1$@ niet toegestaan.";
 "LinkFromInstitution.AllowedDomainNamesError2.COPY" = "eduID is beperkt om alleen te worden gebruikt voor toegestane domeinen.";
-"LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden</a> en ik heb de <a tabindex='-1' href='https://eduid.nl/privacy/' target='_blank'>de privacyverklaring</a>gelezen.</span>";
+"LinkFromInstitution.AgreeWithTerms.COPY" = "<span>Ik ga akkoord met <a tabindex='-1' href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de voorwaarden</a> en ik heb de <a tabindex='-1' href='https://eduid.nl/privacy/' target='_blank'>de privacyverklaring</a> gelezen.</span>";
 "LinkFromInstitution.RequestEduIdButton.COPY" = "Maak een eduID";
 "PollFromInstitution.Header.COPY" = "Je krijgt een e-mail van ons";
 "PollFromInstitution.Awaiting.COPY" = "Wachten tot je op de link klikt…";
@@ -546,7 +546,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Login.UsePasswordNoWebAuthn.COPY" = "Typ een wachtwoord";
 "Login.UseMagicLink.COPY" = "Gebruik magische link";
 "Login.UseMagicLinkNoWebAuthn.COPY" = "Gebruik magische link.";
-"Login.UseWebAuth.COPY" = "Log in in met een beveligingssleutel";
+"Login.UseWebAuth.COPY" = "Log in in met een beveiligingssleutel";
 "Login.UseOr.COPY" = " of ";
 "Login.RequestEduIdButton.COPY" = "eduID aanmaken";
 "Login.RememberMe.COPY" = "Ingelogd blijven";
@@ -595,7 +595,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "MagicLink.OpenMailTitle.COPY" = "Open je e-mail";
 "MagicLink.OpenMailDisclaimer.COPY" = "Kun je de mail niet vinden? Kijk ook in de spam folder";
 "MagicLink.Header.COPY" = "Controleer je e-mail";
-"MagicLink.Info.COPY" = "Druk op de link die we verstuurd hebben naar %1$@.";
+"MagicLink.Info.COPY" = "Druk op de link die we verstuurd hebben naar";
 "MagicLink.Awaiting.COPY" = "Wachten tot je op de link drukt…";
 "MagicLink.OpenGMail.COPY" = "Open gmail.com";
 "MagicLink.OpenOutlook.COPY" = "Open outlook.com";
@@ -628,7 +628,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Expired.Back.COPY" = "Ga naar eduid.nl";
 "MaxAttempt.Title.COPY" = "Maximum aantal pogingen bereikt";
 "MaxAttempt.Info.COPY" = "Je hebt het maximale aantal controlepogingen bereikt.";
-"WebAuthn.Info.COPY" = "Voeg een beveligingssleutel toe";
+"WebAuthn.Info.COPY" = "Voeg een beveiligingssleutel toe";
 "WebAuthn.BrowserPrompt.COPY" = "Druk op de knop hieronder om een beveiligingssleutel toe te voegen aan je eduID. Volg daarbij de instructies van je browser op.";
 "WebAuthn.Start.COPY" = "Start";
 "WebAuthn.Header.COPY" = "Log in met een passkey";
@@ -639,7 +639,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "UseLink.Next.COPY" = "Stuur een link";
 "UsePassword.Header.COPY" = "Voer je wachtwoord in";
 "UsePassword.PasswordIncorrect.COPY" = "Wachtwoord is onjuist";
-"WebAuthnTest.Info.COPY" = "Test een beveligingssleutel";
+"WebAuthnTest.Info.COPY" = "Test een beveiligingssleutel";
 "WebAuthnTest.BrowserPrompt.COPY" = "Druk op de onderstaande knop om een beveiligingssleutel te testen. Volg daarbij de instructies van je browser op.";
 "WebAuthnTest.Start.COPY" = "Test";
 "AffiliationMissing.Header.COPY" = "Account is gekoppeld, maar…";
@@ -872,6 +872,10 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "ServiceDesk.IdCard.FirstName.COPY" = "Voornamen";
 "ServiceDesk.IdCard.DayOfBirth.COPY" = "Geboortedatum";
 "ServiceDesk.IdCard.GenerateControlCode.COPY" = "Genereer controlcode";
+"ServiceDesk.IdCard.SelectPlaceholder.COPY" = "Selecteer...";
+"ServiceDesk.IdCard.DateOfBirth.COPY" = "Geboortedag";
+"ServiceDesk.IdCard.MonthOfBirth.COPY" = "Maand";
+"ServiceDesk.IdCard.YearOfBirth.COPY" = "Jaar";
 "ServiceDesk.ControlCode.ControlCode.COPY" = "Controlecode";
 "ServiceDesk.ControlCode.YourControlCode.COPY" = "Je controlecode";
 "ServiceDesk.ControlCode.Info.COPY" = "Je krijgt ook een e-mail met deze code. De code is %%1$s dagen geldig en is bedoeld voor:";

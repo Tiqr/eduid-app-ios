@@ -5011,16 +5011,14 @@ public struct L {
             translationKey: "MagicLink.Header.COPY",
             translationArgs: []
         )
-        public static func Info(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
+        public static let Info = LocaliciousData(
             accessibilityIdentifier: "MagicLink.Info",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "MagicLink.Info.COPY",
-            translationArgs: args
+            translationArgs: []
         )
-        }
         public static let Awaiting = LocaliciousData(
             accessibilityIdentifier: "MagicLink.Awaiting",
             accessibilityHintKey: nil,
@@ -7304,6 +7302,38 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "ServiceDesk.IdCard.GenerateControlCode.COPY",
+                translationArgs: []
+            )
+            public static let SelectPlaceholder = LocaliciousData(
+                accessibilityIdentifier: "ServiceDesk.IdCard.SelectPlaceholder",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ServiceDesk.IdCard.SelectPlaceholder.COPY",
+                translationArgs: []
+            )
+            public static let DateOfBirth = LocaliciousData(
+                accessibilityIdentifier: "ServiceDesk.IdCard.DateOfBirth",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ServiceDesk.IdCard.DateOfBirth.COPY",
+                translationArgs: []
+            )
+            public static let MonthOfBirth = LocaliciousData(
+                accessibilityIdentifier: "ServiceDesk.IdCard.MonthOfBirth",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ServiceDesk.IdCard.MonthOfBirth.COPY",
+                translationArgs: []
+            )
+            public static let YearOfBirth = LocaliciousData(
+                accessibilityIdentifier: "ServiceDesk.IdCard.YearOfBirth",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ServiceDesk.IdCard.YearOfBirth.COPY",
                 translationArgs: []
             )
         }
