@@ -80,9 +80,7 @@ class VerifyWithIdIntroViewController: BaseViewController {
         
         
         // - steps
-        let followStepsHeaderLabel: UILabel = .init()
-        followStepsHeaderLabel.text = L.ServiceDesk.StepsHeader.localization
-        followStepsHeaderLabel.font = UIFont.sourceSansProBold(size: 18)
+        let followStepsHeaderLabel: UILabel = createUILabel(text: L.ServiceDesk.StepsHeader.localization, font: UIFont.sourceSansProBold(size: 18))
         
         stack.addArrangedSubview(followStepsHeaderLabel)
         followStepsHeaderLabel.widthToSuperview(offset: -48)
@@ -149,31 +147,34 @@ class VerifyWithIdIntroViewController: BaseViewController {
         
         disclaimerMainStack.addArrangedSubview(warningImage)
         
-        let validDocumentsDisclaimerLabel: UILabel = .init()
-        validDocumentsDisclaimerLabel.numberOfLines = 0
-        validDocumentsDisclaimerLabel.textAlignment = .left
-        validDocumentsDisclaimerLabel.font = UIFont.sourceSansProRegular(size: 16)
-        validDocumentsDisclaimerLabel.text = L.ServiceDesk.AcceptedIds.localization
-        
-        
-        
+        let validDocumentsDisclaimerLabel: UILabel = createUILabel(text: L.ServiceDesk.AcceptedIds.localization,
+                                                                   font: UIFont.sourceSansProRegular(size: 16))
+
         let disclaimerVStack: UIStackView = .init()
         disclaimerVStack.alignment = .leading
         disclaimerVStack.distribution = .fill
         disclaimerVStack.axis = .vertical
-        disclaimerVStack.spacing = 20
+        disclaimerVStack.spacing = .zero
         disclaimerMainStack.addArrangedSubview(disclaimerVStack)
         
-        let validDocumentsDisclaimerLabelExtra: UILabel = .init()
-        validDocumentsDisclaimerLabelExtra.numberOfLines = 0
-        validDocumentsDisclaimerLabelExtra.textAlignment = .left
-        validDocumentsDisclaimerLabelExtra.attributedText = L.ServiceDesk.EeaNote.localization.htmlAttributedString(fontFamily: "SourceSansPro-Regular",fontSize: 12)
-        // TODO: YASSER ADD BULLETS
+        let validDocumentsDisclaimerLabelExtra: UILabel = createUILabel(attributedText: L.ServiceDesk.EeaNote.localization.htmlAttributedString(fontFamily: "SourceSansPro-Regular",fontSize: 12))
+        let passportLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.Passports.localization)")
+        let eeaIDCardLabel: UILabel = createUILabel(attributedText: "\("- " + L.ServiceDesk.Eea.localization)".htmlAttributedString(fontFamily: "SourceSansPro-Regular", fontSize: 16))
+        let dutchDriversLicensesLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.DriverLicense.localization)")
+        let dutchResidencePermitsLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.ResidencePermit.localization)")
+        let disclaimerNoteLabel: UILabel = createUILabel(text: L.ServiceDesk.Note.localization)
         
         disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabel)
+        disclaimerVStack.addArrangedSubview(passportLabel)
+        disclaimerVStack.addArrangedSubview(eeaIDCardLabel)
+        disclaimerVStack.addArrangedSubview(dutchDriversLicensesLabel)
+        disclaimerVStack.addArrangedSubview(dutchResidencePermitsLabel)
+        disclaimerVStack.addArrangedSubview(disclaimerNoteLabel)
         disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabelExtra)
         disclaimerMainStack.center(in: disclaimerContainer)
         
+        disclaimerVStack.setCustomSpacing(20, after: dutchResidencePermitsLabel)
+        disclaimerVStack.setCustomSpacing(20, after: disclaimerNoteLabel)
         stack.setCustomSpacing(80, after: disclaimerContainer)
         
         // - enter details button
@@ -191,6 +192,22 @@ class VerifyWithIdIntroViewController: BaseViewController {
     
     @objc private func onEnterDetailsButtonTapped() {
         delegate?.goToVerifyWithIdInputScreen(viewController: self)
+    }
+    
+    private func createUILabel(text: String? = nil,
+                               attributedText: NSMutableAttributedString? = nil,
+                               font: UIFont = UIFont.sourceSansProRegular(size: 16)) -> UILabel {
+        let label = UILabel()
+        label.font = font
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        if let text {
+            label.text = text
+        }
+        if let attributedText {
+            label.attributedText = attributedText
+        }
+        return label
     }
     
 }
