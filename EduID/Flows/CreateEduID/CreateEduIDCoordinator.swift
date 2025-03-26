@@ -75,9 +75,10 @@ extension CreateEduIDCoordinator: ScanCoordinatorDelegate {
 
 extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
     func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?) {
-        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
-        accountLinkingErrorViewController.delegate = self
-        navigationController.pushViewController(accountLinkingErrorViewController, animated: true)
+        // TODO: YASSER
+//        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
+//        accountLinkingErrorViewController.delegate = self
+//        navigationController.pushViewController(accountLinkingErrorViewController, animated: true)
     }
     
     

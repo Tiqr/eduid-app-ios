@@ -47,7 +47,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     
     // MARK: TextFields
     private let lastNameTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.LastName.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ServiceDesk.IdCard.LastName.localization,
                                                                    placeholder: "", field: .name,
                                                                    keyboardType: .alphabet,
                                                                    showNextInsteadOfReturn: true)
@@ -56,7 +56,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     }()
     
     private let firstNameTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.FirstNames.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ServiceDesk.IdCard.FirstName.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet,
@@ -66,7 +66,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     }()
     
     private let dateOfBirthTextField: TextFieldViewWithValidationAndTitle = {
-        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ConfirmIdentityWithIdInput.InputField.DateOfBirth.localization,
+        let textField: TextFieldViewWithValidationAndTitle = .init(title: L.ServiceDesk.IdCard.DayOfBirth.localization,
                                                                    placeholder: "",
                                                                    field: .name,
                                                                    keyboardType: .alphabet)
@@ -76,7 +76,7 @@ class VerifyWithIdInputViewController: BaseViewController {
     
     // - generate verification code button
     private let generateVerificationCodeButton: EduIDButton = {
-        let button: EduIDButton = .init(type: .primary, buttonTitle: L.ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.localization)
+        let button: EduIDButton = .init(type: .primary, buttonTitle: L.ServiceDesk.IdCard.GenerateControlCode.localization)
         button.isEnabled = false
         return button
     }()
@@ -160,8 +160,8 @@ class VerifyWithIdInputViewController: BaseViewController {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
         
-        let mainTitleFirstLine: String = L.ConfirmIdentityWithIdInput.Title.FirstLine.localization
-        let mainTitleSecondLine: String = L.ConfirmIdentityWithIdInput.Title.SecondLine.localization
+        let mainTitleFirstLine: String = L.ConfirmIdentityWithIdIntro.Title.FirstLine.localization
+        let mainTitleSecondLine: String = L.ConfirmIdentityWithIdIntro.Title.SecondLine.localization
         let mainTitleSting: String = "\(mainTitleFirstLine)\n\(mainTitleSecondLine)"
         
         let mainTitle: UILabel = UILabel.posterTextLabelBicolor(
@@ -170,7 +170,7 @@ class VerifyWithIdInputViewController: BaseViewController {
             primary: mainTitleFirstLine
         )
         
-        let mainDescription = UILabel.subtitleLabel(text: L.ConfirmIdentityWithIdInput.Explanation.localization)
+        let mainDescription = UILabel.subtitleLabel(text: L.ServiceDesk.IdCard.Information.localization)
         
         // - verify id image
         let imageView: UIImageView = .init(image: .init(named: ViewConstants.idImageName))
