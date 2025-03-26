@@ -162,10 +162,10 @@ class VerifyWithIdInputViewController: BaseViewController {
         
         let mainTitleFirstLine: String = L.ConfirmIdentityWithIdIntro.Title.FirstLine.localization
         let mainTitleSecondLine: String = L.ConfirmIdentityWithIdIntro.Title.SecondLine.localization
-        let mainTitleSting: String = "\(mainTitleFirstLine)\n\(mainTitleSecondLine)"
+        let mainTitleString: String = "\(mainTitleFirstLine)\n\(mainTitleSecondLine)"
         
         let mainTitle: UILabel = UILabel.posterTextLabelBicolor(
-            text: mainTitleSting,
+            text: mainTitleString,
             size: 24,
             primary: mainTitleFirstLine
         )

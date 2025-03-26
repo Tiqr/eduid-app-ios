@@ -215,6 +215,7 @@
 		73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */; };
 		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
+		73FD4FCC2D93D68500CE0369 /* String+Extension+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD4FCB2D93D68500CE0369 /* String+Extension+AttributedString.swift */; };
 		8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */; };
 		C7F8389E294265B3002015A8 /* eduIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8389D294265B3002015A8 /* eduIDTests.swift */; };
 		E376C6C1BBF4E45A2C8C2FAD /* VerifyPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F0A6379A9B5F86A4B9996 /* VerifyPerson.swift */; };
@@ -494,6 +495,7 @@
 		73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewModel.swift; sourceTree = "<group>"; };
 		73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewController.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
+		73FD4FCB2D93D68500CE0369 /* String+Extension+AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension+AttributedString.swift"; sourceTree = "<group>"; };
 		7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdIntroViewController.swift; sourceTree = "<group>"; };
 		98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		C7F6016B2938C5FD00AF2FFF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */,
 				73762F462A418B4300E37D96 /* Error+Extension.swift */,
 				4FAA35482B74ED6900422949 /* URL+Extension.swift */,
+				73FD4FCB2D93D68500CE0369 /* String+Extension+AttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1357,13 +1360,13 @@
 			);
 			mainGroup = 0AFD9DF82745579900D48C01;
 			packageReferences = (
-				4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */,
+				4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 				4F909F862A31D21500FC1506 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */,
-				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */,
+				4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4FF567DF2A31D50000616341 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				4FB7DB562C5BCC46007CD6E7 /* XCRemoteSwiftPackageReference "tiqr-app-core-ios" */,
-				4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */,
+				4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */,
 				739FCE142D6EEE630051CD8B /* XCLocalSwiftPackageReference "OpenAPIClient" */,
 			);
 			productRefGroup = 0AFD9E022745579900D48C01 /* Products */;
@@ -1620,6 +1623,7 @@
 				73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */,
 				4FAA354E2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift in Sources */,
 				4FF567C12A31D32E00616341 /* CreatePincodeAndBiometricAccessViewModel.swift in Sources */,
+				73FD4FCC2D93D68500CE0369 /* String+Extension+AttributedString.swift in Sources */,
 				4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */,
 				4F958BD22A39A78400DD0779 /* NameEditorViewController.swift in Sources */,
 				08D7749DCC40ADBD0CE7CBB3 /* VerifyWithIdIntroViewController.swift in Sources */,
@@ -2601,7 +2605,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */ = {
+		4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
 			requirement = {
@@ -2609,7 +2613,7 @@
 				version = 3.0.0;
 			};
 		};
-		4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */ = {
+		4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
 			requirement = {
@@ -2633,7 +2637,7 @@
 				revision = 833b7cc7001fc8abf45b98ab0cc41ed43ef6c91d;
 			};
 		};
-		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */ = {
+		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
 			requirement = {
@@ -2641,7 +2645,7 @@
 				version = 4.0.2;
 			};
 		};
-		4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */ = {
+		4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
@@ -2674,17 +2678,17 @@
 		};
 		4F1F12802CAD5DEB002DA23A /* SVGKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKit;
 		};
 		4F1F12822CAD5DEB002DA23A /* SVGKitSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit.git" */;
+			package = 4F1F127F2CAD5DEB002DA23A /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKitSwift;
 		};
 		4F909F842A31D1F400FC1506 /* AppAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS.git" */;
+			package = 4F909F832A31D1F400FC1506 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
 			productName = AppAuth;
 		};
 		4F909F872A31D21500FC1506 /* SDWebImage */ = {
@@ -2704,12 +2708,12 @@
 		};
 		4FF567DA2A31D3FA00616341 /* TinyConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints.git" */;
+			package = 4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
 			productName = TinyConstraints;
 		};
 		4FF567DD2A31D42900616341 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift.git" */;
+			package = 4FF567DC2A31D42900616341 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
 		};
 		4FF567E02A31D50000616341 /* AnyCodable */ = {
