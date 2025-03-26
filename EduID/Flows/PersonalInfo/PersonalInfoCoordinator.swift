@@ -196,20 +196,18 @@ extension PersonalInfoCoordinator: VerifyWithIdIntroViewControllerDelegate {
 extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
     
     func goToVerifyWithIdInputScreen(viewController: UIViewController, controlCode: ControlCode?) {
-        // TODO: YASSER
         let verifyWithIdInputViewController = VerifyWithIdInputViewController(viewModel: .init(controlCode: controlCode, viewShouldPop: true))
         verifyWithIdInputViewController.delegate = self
-//        if let delegate = viewController as? VerifyWithIdVerificationCodeViewController {
-//            verifyWithIdInputViewController.verifyWithIdVerificationCodeDelegate = delegate
-//        }
+        if let delegate = viewController as? VerifyWithIdVerificationCodeViewController {
+            verifyWithIdInputViewController.verifyWithIdVerificationCodeDelegate = delegate
+        }
         verifyWithIdInputViewController.delegate = self
         navigationController?.pushViewController(verifyWithIdInputViewController, animated: true)
     }
     
     func goToVerifyWithIdVerificationCodeScreen(viewController: UIViewController, person: VerifyPerson, controlCode: ControlCode?) {
-        // TODO: YASSER
-//        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
-//        verifyWithIdVerificationCodeViewController.delegate = self
-//        navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
+        let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
+        verifyWithIdVerificationCodeViewController.delegate = self
+        navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
     }
 }
