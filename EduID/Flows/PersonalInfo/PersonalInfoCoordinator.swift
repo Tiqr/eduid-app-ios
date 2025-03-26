@@ -89,10 +89,9 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToAccountLinkingErrorScreen(linkedAccountEmail: String?) {
-        // TODO: YASSER
-//        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
-//        accountLinkingErrorViewController.delegate = self
-//        navigationController?.pushViewController(accountLinkingErrorViewController, animated: true)
+        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
+        accountLinkingErrorViewController.delegate = self
+        navigationController?.pushViewController(accountLinkingErrorViewController, animated: true)
     }
     
     func goToVerifyYourIdentityScreen(viewController: UIViewController, userResponse: UserResponse) {
