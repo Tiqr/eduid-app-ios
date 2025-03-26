@@ -53,17 +53,17 @@ class VerifyWithIdIntroViewController: BaseViewController {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
         
-        let mainTitleFirstLine: String = L.ConfirmIdentityWithIdInput.Title.FirstLine.localization
-        let mainTitleSecondLine: String = L.ConfirmIdentityWithIdInput.Title.SecondLine.localization
-        let mainTitleSting: String = "\(mainTitleFirstLine)\n\(mainTitleSecondLine)"
+        let mainTitleFirstLine: String = L.ConfirmIdentityWithIdIntro.Title.FirstLine.localization
+        let mainTitleSecondLine: String = L.ConfirmIdentityWithIdIntro.Title.SecondLine.localization
+        let mainTitleString: String = "\(mainTitleFirstLine)\n\(mainTitleSecondLine)"
         
         let mainTitle: UILabel = UILabel.posterTextLabelBicolor(
-            text: mainTitleSting,
+            text: mainTitleString,
             size: 24,
             primary: mainTitleFirstLine
         )
         
-        let mainDescription = UILabel.subtitleLabel(text:L.ConfirmIdentityWithIdIntro.Description.ServiceDesk.localization)
+        let mainDescription = UILabel.subtitleLabel(text:L.ServiceDesk.ConfirmIdentity.localization)
         
         // - create the stackview
         stack = UIStackView(arrangedSubviews: [mainTitle, mainDescription])
@@ -80,16 +80,14 @@ class VerifyWithIdIntroViewController: BaseViewController {
         
         
         // - steps
-        let followStepsHeaderLabel: UILabel = .init()
-        followStepsHeaderLabel.text = L.ConfirmIdentityWithIdIntro.Description.Steps.Header.localization
-        followStepsHeaderLabel.font = UIFont.sourceSansProBold(size: 18)
+        let followStepsHeaderLabel: UILabel = createUILabel(text: L.ServiceDesk.StepsHeader.localization, font: UIFont.sourceSansProBold(size: 18))
         
         stack.addArrangedSubview(followStepsHeaderLabel)
         followStepsHeaderLabel.widthToSuperview(offset: -48)
         
-        let stepsString: [String] = [L.ConfirmIdentityWithIdIntro.Description.Steps.Step1.localization,
-                                     L.ConfirmIdentityWithIdIntro.Description.Steps.Step2.localization,
-                                     L.ConfirmIdentityWithIdIntro.Description.Steps.Step3.localization]
+        let stepsString: [String] = [L.ServiceDesk.Step1.localization,
+                                     L.ServiceDesk.Step2.localization,
+                                     L.ServiceDesk.Step3.localization]
         
         var stepLabels: [UIStackView] = []
         
@@ -149,36 +147,38 @@ class VerifyWithIdIntroViewController: BaseViewController {
         
         disclaimerMainStack.addArrangedSubview(warningImage)
         
-        let validDocumentsDisclaimerLabel: UILabel = .init()
-        validDocumentsDisclaimerLabel.numberOfLines = 0
-        validDocumentsDisclaimerLabel.textAlignment = .left
-        validDocumentsDisclaimerLabel.font = UIFont.sourceSansProRegular(size: 16)
-        validDocumentsDisclaimerLabel.text = L.ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.List.localization
-        
-        
-        
+        let validDocumentsDisclaimerLabel: UILabel = createUILabel(text: L.ServiceDesk.AcceptedIds.localization,
+                                                                   font: UIFont.sourceSansProRegular(size: 16))
+
         let disclaimerVStack: UIStackView = .init()
         disclaimerVStack.alignment = .leading
         disclaimerVStack.distribution = .fill
         disclaimerVStack.axis = .vertical
-        disclaimerVStack.spacing = 20
+        disclaimerVStack.spacing = .zero
         disclaimerMainStack.addArrangedSubview(disclaimerVStack)
         
-        let validDocumentsDisclaimerLabelExtra: UILabel = .init()
-        validDocumentsDisclaimerLabelExtra.numberOfLines = 0
-        validDocumentsDisclaimerLabelExtra.textAlignment = .left
-        validDocumentsDisclaimerLabelExtra.font = UIFont.sourceSansProRegular(size: 12)
-        validDocumentsDisclaimerLabelExtra.text = L.ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.Asterisk.localization
-        
+        let validDocumentsDisclaimerLabelExtra: UILabel = createUILabel(attributedText: L.ServiceDesk.EeaNote.localization.htmlAttributedString(fontFamily: "SourceSansPro-Regular",fontSize: 12))
+        let passportLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.Passports.localization)")
+        let eeaIDCardLabel: UILabel = createUILabel(attributedText: "\("- " + L.ServiceDesk.Eea.localization)".htmlAttributedString(fontFamily: "SourceSansPro-Regular", fontSize: 16))
+        let dutchDriversLicensesLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.DriverLicense.localization)")
+        let dutchResidencePermitsLabel: UILabel = createUILabel(text: "- \(L.ServiceDesk.ResidencePermit.localization)")
+        let disclaimerNoteLabel: UILabel = createUILabel(text: L.ServiceDesk.Note.localization)
         
         disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabel)
+        disclaimerVStack.addArrangedSubview(passportLabel)
+        disclaimerVStack.addArrangedSubview(eeaIDCardLabel)
+        disclaimerVStack.addArrangedSubview(dutchDriversLicensesLabel)
+        disclaimerVStack.addArrangedSubview(dutchResidencePermitsLabel)
+        disclaimerVStack.addArrangedSubview(disclaimerNoteLabel)
         disclaimerVStack.addArrangedSubview(validDocumentsDisclaimerLabelExtra)
         disclaimerMainStack.center(in: disclaimerContainer)
         
+        disclaimerVStack.setCustomSpacing(20, after: dutchResidencePermitsLabel)
+        disclaimerVStack.setCustomSpacing(20, after: disclaimerNoteLabel)
         stack.setCustomSpacing(80, after: disclaimerContainer)
         
         // - enter details button
-        let enterDetailsButton = EduIDButton(type: .primary, buttonTitle: L.ConfirmIdentityWithIdIntro.EnterDetailsButton.localization)
+        let enterDetailsButton = EduIDButton(type: .primary, buttonTitle: L.ServiceDesk.Next.localization)
         enterDetailsButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
         stack.addArrangedSubview(enterDetailsButton)
         enterDetailsButton.widthToSuperview(offset: -48)
@@ -192,6 +192,22 @@ class VerifyWithIdIntroViewController: BaseViewController {
     
     @objc private func onEnterDetailsButtonTapped() {
         delegate?.goToVerifyWithIdInputScreen(viewController: self)
+    }
+    
+    private func createUILabel(text: String? = nil,
+                               attributedText: NSMutableAttributedString? = nil,
+                               font: UIFont = UIFont.sourceSansProRegular(size: 16)) -> UILabel {
+        let label = UILabel()
+        label.font = font
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        if let text {
+            label.text = text
+        }
+        if let attributedText {
+            label.attributedText = attributedText
+        }
+        return label
     }
     
 }

@@ -22,6 +22,4 @@ extension UIFont {
     static func nunitoBold(size: CGFloat) -> UIFont {
         return UIFont(name: "Nunito-Bold", size: size)!
     }
-    
-    
 }

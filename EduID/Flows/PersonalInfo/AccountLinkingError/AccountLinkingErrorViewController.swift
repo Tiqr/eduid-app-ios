@@ -43,9 +43,9 @@ class AccountLinkingErrorViewController: UIViewController, ScreenWithScreenType 
             $0.removeFromSuperview()
         }
         
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.EppnAlreadyLinked.Title.localization, size: 24, primary: L.EppnAlreadyLinked.Title.localization)
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.EppnAlreadyLinked.Title.AccountNotConnected.localization, size: 24, primary: L.EppnAlreadyLinked.Title.AccountNotConnected.localization)
         mainTitle.attributedText = NSAttributedString(
-            string: L.EppnAlreadyLinked.Title.localization,
+            string: L.EppnAlreadyLinked.Title.AccountNotConnected.localization,
             attributes: AttributedStringHelper.attributes(font: .proximaNovaSoftSemiBold(size: 24), color: .alertsRedColor, lineSpacing: 16)
         )
         let descriptionLabel = UILabel()

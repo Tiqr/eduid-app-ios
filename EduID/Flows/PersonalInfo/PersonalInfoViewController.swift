@@ -182,15 +182,17 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                                     disclaimerTitleText: L.Profile.VerifyNow.Title.localization,
                                     selector: #selector(verifyIdentityClicked),
                                     disclaimerButtonTitle: L.Profile.VerifyNow.Button.localization,
-                                    containerBackgroundColor: .lightBackgroundColor)
+                                    containerBackgroundColor: .lightBackgroundColor,
+                                    eduIDButtonWidth: 170)
                 
             } else if controlCode != nil {
                 getDisclaimerBanner(image: .warning,
                                     yourIdentityContainer,
-                                    disclaimerTitleText: L.Profile.VerifyWithControlCode.Title.localization,
+                                    disclaimerTitleText: L.ServiceDesk.ControlCode.Banner.localization,
                                     selector: #selector(onShowCodeButtonTap),
-                                    disclaimerButtonTitle: L.Profile.VerifyWithControlCode.Button.localization,
-                                    containerBackgroundColor: .yellowColor)
+                                    disclaimerButtonTitle: L.ServiceDesk.ControlCode.ShowCode.localization,
+                                    containerBackgroundColor: .yellowColor,
+                                    eduIDButtonWidth: 100)
             } else {
                 // Add verified badge
                 let verifiedBadge = UIView()
@@ -578,7 +580,8 @@ extension PersonalInfoViewController {
                                      disclaimerTitleText: String,
                                      selector: Selector,
                                      disclaimerButtonTitle: String,
-                                     containerBackgroundColor: UIColor) {
+                                     containerBackgroundColor: UIColor,
+                                     eduIDButtonWidth: CGFloat) {
         
         let image = UIImageView(image: UIImage(resource: image))
         image.size(image == UIImage(resource: .warning) ? CGSize(width: 30, height: 30) : CGSize(width: 24, height: 28))
@@ -588,9 +591,9 @@ extension PersonalInfoViewController {
         disclaimerTitle.textColor = .textColor
         disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
         let disclaimerButtonContainer = UIView()
-        disclaimerButtonContainer.size(CGSize(width: 130, height: 40))
+        disclaimerButtonContainer.size(CGSize(width: eduIDButtonWidth, height: 40))
 
-        let disclaimerButton = EduIDButton(type: .empty, buttonTitle: disclaimerButtonTitle, frame: CGRect(origin: .zero, size: CGSize(width: 130, height: 40)))
+        let disclaimerButton = EduIDButton(type: .empty, buttonTitle: disclaimerButtonTitle, frame: CGRect(origin: .zero, size: CGSize(width: eduIDButtonWidth, height: 40)))
         disclaimerButtonContainer.addSubview(disclaimerButton)
         disclaimerButton.edgesToSuperview()
         

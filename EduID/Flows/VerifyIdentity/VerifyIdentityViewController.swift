@@ -174,7 +174,7 @@ class VerifyIdentityViewController: BaseViewController {
                 // Fallback container and button
                 let fallbackButtonContainer: UIView = .init()
                 fallbackButtonContainer.backgroundColor = .disabledGrayBackground
-                let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.VerifyIdentity.ICantUseTheseMethods.localization)
+                let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.ServiceDesk.ControlCode.CantUse.localization)
                 fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
                 fallbackButtonContainer.addSubview(fallbackButton)
                 fallbackButton.center(in: fallbackButtonContainer)
