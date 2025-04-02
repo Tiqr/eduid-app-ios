@@ -17,7 +17,9 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     var hideKeyboard: (() -> Void)?
 
     var currentFirstName: String
+    var modifiedFirstName: String?
     var currentLastName: String
+    var modifiedLastName: String?
     
     let editLastNameAllowed: Bool
     
@@ -29,11 +31,28 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {
         if tag == NameEditorViewModel.TAG_FIRST_NAME {
-            currentFirstName = value
+            modifiedFirstName = value
         } else if tag == NameEditorViewModel.TAG_LAST_NAME {
-            currentLastName = value
+            modifiedLastName = value
         }
-        setSaveButtonEnabled?(currentFirstName.replacingOccurrences(of: " ", with: "") != "" && (currentLastName.replacingOccurrences(of: " ", with: "") != "" || !editLastNameAllowed))
+        
+        let effectiveFirstName = modifiedFirstName ?? currentFirstName
+        let effectiveLastName = modifiedLastName ?? currentLastName
+
+        let firstNameChanged = modifiedFirstName != nil && modifiedFirstName != currentFirstName
+        let lastNameChanged = modifiedLastName != nil && modifiedLastName != currentLastName
+
+        let firstNameIsValid = !effectiveFirstName.trimmingCharacters(in: .whitespaces).isEmpty
+        let lastNameIsValid = editLastNameAllowed
+            ? !effectiveLastName.trimmingCharacters(in: .whitespaces).isEmpty
+            : true
+
+        
+        let shouldEnableButton = firstNameIsValid
+            && lastNameIsValid
+            && (firstNameChanged || lastNameChanged)
+
+        setSaveButtonEnabled?(shouldEnableButton)
     }
     
     func saveNameChange(firstName: String, lastName: String) async throws -> UserResponse {
