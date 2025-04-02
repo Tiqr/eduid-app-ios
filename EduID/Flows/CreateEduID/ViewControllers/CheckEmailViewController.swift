@@ -25,7 +25,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
         // - messageLabel
         let email = emailToCheck ?? UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults) ?? ""
         let messageLabel = UILabel.plainTextLabelPartlyBold(
-            text: subtitleOverride ?? L.MagicLink.Info(args: email).localization,
+            text: subtitleOverride ?? L.MagicLink.Info.localization,
             partBold: email)
         
         let disclaimerLabel = UILabel.plainTextLabelPartlyBold(text: L.MagicLink.OpenMailDisclaimer.localization, alignment: .center)
