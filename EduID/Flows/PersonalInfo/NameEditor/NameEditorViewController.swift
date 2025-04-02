@@ -40,6 +40,8 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         viewModel.setSaveButtonEnabled = { [weak self] enabled in
             self?.saveButton.isEnabled = enabled
         }
+        
+        saveButton.isEnabled = false
     }
     
     private func setupUI(isLoading: Bool) {
