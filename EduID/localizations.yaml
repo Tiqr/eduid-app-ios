@@ -1372,7 +1372,7 @@ SHARED:
       COPY:
         en: >-
           Press the button to download all your personal data from your
-          eduID .
+          eduID.
         nl: >-
           Druk op de knop om al je persoonlijke gegevens in je
           eduID te downloaden.
@@ -1423,9 +1423,9 @@ SHARED:
     Info4:
       COPY:
         en: >-
-          Close the browser to delete your eduID.
+          Close the browser afterwards to complete the deletion of your eduID.
         nl: >-
-          Sluit de browser om je eduID te verwijderen.
+          Sluit na afloop de browser om de verwijdering van je eduID te voltooien.
     DeleteAccount:
       COPY:
         en: Delete your eduID
@@ -1444,12 +1444,8 @@ SHARED:
         nl: Je kunt deze actie daarna niet meer ongedaan maken.
     Proceed:
       COPY:
-        en: >-
-          Type your first and last name exactly as they appear
-          in <strong>Your personal info</strong> to proceed.
-        nl: >-
-          Typ je voornamen en achternaam zoals die in
-          <strong>Je persoonlijke gegevens</strong> staan om verder te gaan
+        en: "Type 'delete' if you are sure you want to delete your eduID."
+        nl: "Typ 'verwijder' als je er zeker van bent dat je je eduID wil verwijderen."
     Name:
       COPY:
         en: Your full name
@@ -1943,7 +1939,7 @@ SHARED:
     TestFlash:
       COPY:
         en: You successfully tested your security key to authenticate.
-        nl: Je hebt met succes de beveligingssleutel getest voor inloggen.
+        nl: Je hebt met succes de beveiligingssleutel getest voor inloggen.
   RememberMe:
     'Yes':
       COPY:
@@ -2471,7 +2467,7 @@ SHARED:
         en: >-
           <span>I agree with <a tabindex='-1'
           href='https://eduid.nl/terms-of-use/' target='_blank'>the terms of
-          service</a> and I've read<a tabindex='-1'
+          service</a> and I've read <a tabindex='-1'
           href='https://eduid.nl/privacy_policy/' target='_blank'>the privacy
           policy</a>.</span>
         nl: >-
@@ -2479,7 +2475,7 @@ SHARED:
           href='https://eduid.nl/gebruiksvoorwaarden/' target='_blank'>de
           voorwaarden</a> en ik heb de <a tabindex='-1'
           href='https://eduid.nl/privacy/' target='_blank'>de
-          privacyverklaring</a>gelezen.</span>
+          privacyverklaring</a> gelezen.</span>
     RequestEduIdButton:
       COPY:
         en: Make an eduID
@@ -2644,7 +2640,7 @@ SHARED:
     UseWebAuth:
       COPY:
         en: Log in with a security key
-        nl: Log in in met een beveligingssleutel
+        nl: Log in in met een beveiligingssleutel
     UseOr:
       COPY:
         en: or
@@ -2872,8 +2868,8 @@ SHARED:
         nl: Controleer je e-mail
     Info:
       COPY:
-        en: Press the link we sent to %1{{s}}.
-        nl: Druk op de link die we verstuurd hebben naar %1{{s}}.
+        en: Press the link we sent to
+        nl: Druk op de link die we verstuurd hebben naar
     Awaiting:
       COPY:
         en: Waiting for you to press the link…
@@ -3034,7 +3030,7 @@ SHARED:
     Info:
       COPY:
         en: Add security key
-        nl: Voeg een beveligingssleutel toe
+        nl: Voeg een beveiligingssleutel toe
     BrowserPrompt:
       COPY:
         en: >-
@@ -3089,7 +3085,7 @@ SHARED:
     Info:
       COPY:
         en: Test security key
-        nl: Test een beveligingssleutel
+        nl: Test een beveiligingssleutel
     BrowserPrompt:
       COPY:
         en: >-
@@ -4114,6 +4110,22 @@ SHARED:
         COPY:
           en: "Generate verification code"
           nl: "Genereer controlcode"
+      SelectPlaceholder:
+        COPY:
+          en: "Select..."
+          nl: "Selecteer..."
+      DateOfBirth:
+        COPY:
+          en: "Day of birth"
+          nl: "Geboortedag"
+      MonthOfBirth:
+        COPY:
+          en: "Month"
+          nl: "Maand"
+      YearOfBirth:
+        COPY:
+          en: "Year"
+          nl: "Jaar"
     ControlCode:
       ControlCode:
         COPY:
