@@ -16,9 +16,6 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     var setSaveButtonEnabled: ((Bool) -> Void)?
     var hideKeyboard: (() -> Void)?
 
-    private var firstNameIsValid = false
-    private var lastNameIsValid = false
-    
     var currentFirstName: String
     var currentLastName: String
     
@@ -28,20 +25,15 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
         currentFirstName = personalInfo.chosenName ?? personalInfo.givenName ?? ""
         currentLastName = personalInfo.familyName ?? ""
         editLastNameAllowed = personalInfo.linkedAccounts?.isEmpty != false
-        if !editLastNameAllowed {
-            lastNameIsValid = true
-        }
     }
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {
         if tag == NameEditorViewModel.TAG_FIRST_NAME {
             currentFirstName = value
-            firstNameIsValid = isValid
         } else if tag == NameEditorViewModel.TAG_LAST_NAME {
             currentLastName = value
-            lastNameIsValid = isValid
         }
-        setSaveButtonEnabled?(firstNameIsValid && lastNameIsValid)
+        setSaveButtonEnabled?(currentFirstName.replacingOccurrences(of: " ", with: "") != "" && (currentLastName.replacingOccurrences(of: " ", with: "") != "" || !editLastNameAllowed))
     }
     
     func saveNameChange(firstName: String, lastName: String) async throws -> UserResponse {
