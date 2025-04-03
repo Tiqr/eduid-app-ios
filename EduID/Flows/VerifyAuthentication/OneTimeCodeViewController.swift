@@ -31,11 +31,12 @@ class OneTimeCodeViewController : BaseViewController {
         
         let title = L.OneTimePassword.Title.localization
         let subtitle = L.OneTimePassword.Description.localization
+        let modifiedSubtitle = subtitle.replacingOccurrences(of: ":", with: ":\n").replacingOccurrences(of: "(?<!\\d)\\.(?!\\d)", with: ".\n", options: .regularExpression)
         
         // - poster label
         let posterLabel = UILabel.posterTextLabelBicolor(text: title, primary: title)
         // - text
-        let textLabel = UILabel.plainTextLabelPartlyBold(text: subtitle)
+        let textLabel = UILabel.plainTextLabelPartlyBold(text: modifiedSubtitle)
         
         
         let pinStack = AnimatedHStackView()
@@ -64,7 +65,7 @@ class OneTimeCodeViewController : BaseViewController {
         let closeButton = EduIDButton(type: .primary, buttonTitle: L.OneTimePassword.CloseButton.localization)
         closeButton.addTarget(self, action: #selector(closeFlow), for: .touchUpInside)
 
-        let mainStackView = UIStackView(arrangedSubviews: [posterLabel, textLabel, yourIdLabel, otcLabel, pinStack, unverifiedPinLabel, retryLabel, spacer, closeButton])
+        let mainStackView = UIStackView(arrangedSubviews: [posterLabel, textLabel, otcLabel, pinStack, yourIdLabel, unverifiedPinLabel, retryLabel, spacer, closeButton])
         mainStackView.alignment = .leading
         mainStackView.axis = .vertical
         mainStackView.distribution = .fill
