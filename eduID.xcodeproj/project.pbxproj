@@ -206,6 +206,7 @@
 		4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A8A2A3B138A00F8F033 /* LocalizedError+errorDescription.swift */; };
 		4FFA8A942A3B604400F8F033 /* DeleteServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */; };
 		4FFA8A962A3B606500F8F033 /* DeleteServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */; };
+		7330FF572D9E77A900944924 /* VerifyAlreadyUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7330FF562D9E77A900944924 /* VerifyAlreadyUsedViewController.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
 		73762F472A418B4300E37D96 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73762F462A418B4300E37D96 /* Error+Extension.swift */; };
 		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
@@ -487,6 +488,7 @@
 		4FFA8A932A3B604400F8F033 /* DeleteServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewModel.swift; sourceTree = "<group>"; };
 		4FFA8A952A3B606500F8F033 /* DeleteServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteServiceViewController.swift; sourceTree = "<group>"; };
 		550D9C38E9FBA4F6796ED9D7 /* VerifyWithIdInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdInputViewModel.swift; sourceTree = "<group>"; };
+		7330FF562D9E77A900944924 /* VerifyAlreadyUsedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAlreadyUsedViewController.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		73762F462A418B4300E37D96 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
@@ -641,6 +643,7 @@
 				7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */,
 				F4AEC1723438678BA5496B1F /* VerifyWithIdInputViewController.swift */,
 				3C6513863120CFF731E3EE67 /* VerifyWithIdVerificationCodeViewController.swift */,
+				7330FF562D9E77A900944924 /* VerifyAlreadyUsedViewController.swift */,
 				98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */,
 				550D9C38E9FBA4F6796ED9D7 /* VerifyWithIdInputViewModel.swift */,
 			);
@@ -1493,6 +1496,7 @@
 				4F909EC22A31CDDC00FC1506 /* AnimatedVStackView.swift in Sources */,
 				4FF567A92A31D32E00616341 /* SecurityEnterEmailViewController.swift in Sources */,
 				4F958BDE2A3A00DF00DD0779 /* DeleteAccountViewController.swift in Sources */,
+				7330FF572D9E77A900944924 /* VerifyAlreadyUsedViewController.swift in Sources */,
 				4FF567B82A31D32E00616341 /* ScanCoordinatorDelegate.swift in Sources */,
 				4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */,
 				4F909EBA2A31CDDC00FC1506 /* ActivityControlCollapsible.swift in Sources */,

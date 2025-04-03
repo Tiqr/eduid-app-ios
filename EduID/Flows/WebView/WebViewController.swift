@@ -8,6 +8,10 @@ import WebKit
 import TinyConstraints
 import NotificationCenter
 
+protocol WebViewControllerDelegate: AnyObject {
+    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyAlreadyUsedEmail: String?)
+}
+
 class WebViewController: BaseViewController {
     
     var startURL: URL!
@@ -15,6 +19,7 @@ class WebViewController: BaseViewController {
     
     private var webView: WKWebView!
     private var dontInterceptNextNavigation = false
+    weak var webViewControllerDelegate: WebViewControllerDelegate?
     
     required init(startURL: URL) {
         self.startURL = startURL
@@ -93,6 +98,13 @@ extension WebViewController: WKNavigationDelegate {
                 guard let scenedelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
                     return
                 }
+                let urlResult = extractPathSegmentAndEmail(from: url.absoluteString)
+                guard urlResult.pathSegment != "verify-already-used" else {
+                    webViewControllerDelegate?.webViewControllerDidFinish(self, with: urlResult.email)
+                    decisionHandler(.cancel)
+                    dismissInfoScreen()
+                    return
+                }
                 if isAppHost(url) && scenedelegate.handleURLFromRedirect(url: url) {
                     decisionHandler(.cancel)
                     dismissInfoScreen()
@@ -107,4 +119,19 @@ extension WebViewController: WKNavigationDelegate {
         let appHost = URL(string: EnvironmentService.shared.currentEnvironment.baseUrl)!.host
         return url.host == appHost
     }
+    
+    func extractPathSegmentAndEmail(from urlString: String) -> (pathSegment: String?, email: String?) {
+        guard let urlComponents = URLComponents(string: urlString) else {
+            return (nil, nil)
+        }
+        
+        let pathSegments = urlComponents.path.components(separatedBy: "/")
+        let targetSegment = pathSegments.first { $0 == "verify-already-used" }
+        
+        let emailParam = urlComponents.queryItems?.first { $0.name == "email" }?.value
+        let decodedEmail = emailParam?.removingPercentEncoding
+        
+        return (targetSegment, decodedEmail)
+    }
 }
+
