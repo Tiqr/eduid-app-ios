@@ -192,6 +192,9 @@ enum ScreenType: Int, CaseIterable {
             break
             
             // Back button with logo
+        case .verifyAlreadyUsedScreen:
+            addLogoTo(item: item)
+            item.hidesBackButton = true
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true
