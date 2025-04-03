@@ -8,14 +8,8 @@
 import UIKit
 import TinyConstraints
 
-protocol VerifyAlreadyUsedViewControllerDelegate: AnyObject, NavigationDelegate {
-}
-
-
 final class VerifyAlreadyUsedViewController: BaseViewController {
-    
-    weak var delegate: VerifyAlreadyUsedViewControllerDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         screenType = .verifyAlreadyUsedScreen
@@ -29,6 +23,6 @@ final class VerifyAlreadyUsedViewController: BaseViewController {
     }
     
     @objc private func dismissInfoScreen() {
-        delegate?.goBack(viewController: self)
+        self.navigationController?.popViewController(animated: true)
     }
 }
