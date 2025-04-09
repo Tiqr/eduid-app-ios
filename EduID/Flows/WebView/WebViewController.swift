@@ -9,7 +9,7 @@ import TinyConstraints
 import NotificationCenter
 
 protocol WebViewControllerDelegate: AnyObject {
-    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyAlreadyUsedEmail: String?)
+    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyUsedEmail: String?)
 }
 
 class WebViewController: BaseViewController {

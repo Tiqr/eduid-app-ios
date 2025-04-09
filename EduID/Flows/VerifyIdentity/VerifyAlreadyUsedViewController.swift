@@ -9,9 +9,9 @@ import UIKit
 
 final class VerifyAlreadyUsedViewController: BaseViewController {
     
-    var email: String
+    var email: String?
     
-    init(email: String) {
+    init(email: String?) {
         self.email = email
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,7 +35,8 @@ final class VerifyAlreadyUsedViewController: BaseViewController {
             size: 24,
             primary: L.EppnAlreadyLinked.Title.VerificationFailed.localization
         )
-        let description = UILabel.subtitleLabel(text: L.EppnAlreadyLinked.InfoExternalAccountWithEmail(args: "\n\(email)").localization)
+        let descriptionString: String = email != nil ? L.EppnAlreadyLinked.InfoExternalAccountWithEmail(args: "\n\(email ?? "")").localization : L.EppnAlreadyLinked.InfoExternalAccountWithoutEmail.localization
+        let description = UILabel.subtitleLabel(text: descriptionString)
         let spacer: UIView = .init()
         
         let continueButton: EduIDButton = .init(type: .primary, buttonTitle: L.LinkingSuccess.Button.Continue.localization)

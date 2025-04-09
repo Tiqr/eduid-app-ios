@@ -213,9 +213,8 @@ extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
 }
 
 extension PersonalInfoCoordinator: WebViewControllerDelegate {
-    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyAlreadyUsedEmail: String?) {
-        guard let email = alreadyVerifyAlreadyUsedEmail else { return }
-        let verifyAlreadyUsedViewController = VerifyAlreadyUsedViewController(email: email)
+    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyUsedEmail: String?) {
+        let verifyAlreadyUsedViewController = VerifyAlreadyUsedViewController(email: alreadyVerifyUsedEmail)
         navigationController?.pushViewController(verifyAlreadyUsedViewController, animated: true)
     }
 }
