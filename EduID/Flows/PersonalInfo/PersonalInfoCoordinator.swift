@@ -174,6 +174,7 @@ extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
         let webViewController = WebViewController(startURL: url)
         webViewController.modalPresentationStyle = .pageSheet
         webViewController.isRegistrationFlow = false
+        webViewController.webViewControllerDelegate = self
         if #available(iOS 15.0, *),
            let sheet = navigationController.sheetPresentationController {
             sheet.detents = [.large()]
@@ -208,5 +209,12 @@ extension PersonalInfoCoordinator: VerifyWithIdInputViewControllerDelegate {
         let verifyWithIdVerificationCodeViewController = VerifyWithIdVerificationCodeViewController(viewModel: .init(person: person, controlCode: controlCode))
         verifyWithIdVerificationCodeViewController.delegate = self
         navigationController?.pushViewController(verifyWithIdVerificationCodeViewController, animated: true)
+    }
+}
+
+extension PersonalInfoCoordinator: WebViewControllerDelegate {
+    func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyUsedEmail: String?) {
+        let verifyAlreadyUsedViewController = VerifyAlreadyUsedViewController(email: alreadyVerifyUsedEmail)
+        navigationController?.pushViewController(verifyAlreadyUsedViewController, animated: true)
     }
 }
