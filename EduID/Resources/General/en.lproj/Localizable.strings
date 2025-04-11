@@ -168,8 +168,10 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "OneTimePassword.GenerateError.Title.COPY" = "Unable to generate a one-time password";
 "OneTimePassword.GenerateError.Description.COPY" = "Something went wrong when generating your one-time password.";
 "OneTimePassword.Title.COPY" = "Your device seems to be offline";
-"OneTimePassword.Description.COPY" = "Fortunately, you can log in another way: 1. Select ‘Enter Code’ under the QR code on your computer. 2. Enter the following code:";
-"OneTimePassword.YourId.COPY" = "Your ID is:";
+"OneTimePassword.Description.COPY" = "Fortunately, you can log in another way:
+  1. Select ‘Enter Code’ under the QR code on your computer.
+  2. Enter the following code:";
+"OneTimePassword.YourId.COPY" = "Your ID:";
 "OneTimePassword.OneTimePassword.COPY" = "One-time code:";
 "OneTimePassword.PinNotVerified.Title.COPY" = "Note: your PIN has not been verified yet.";
 "OneTimePassword.PinNotVerified.Description.COPY" = "If you can't login with the credentials above, scan again and enter the correct PIN code.";
