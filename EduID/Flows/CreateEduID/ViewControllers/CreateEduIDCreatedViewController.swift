@@ -63,8 +63,9 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
             assertionFailure("Navigation controller could not be found!")
             return
         }
-        AppAuthController.shared.authorize(navigationController: navigationController)
-        showNextScreen()
+        AppAuthController.shared.authorize(navigationController: navigationController) { [weak self] in
+            self?.showNextScreen()
+        }
     }
 
 }

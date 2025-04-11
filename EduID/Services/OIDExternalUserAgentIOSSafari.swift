@@ -3,7 +3,7 @@ import AppAuth
 
 class OIDExternalUserAgentUsingWebViewController: NSObject {
     var _navigationController: UINavigationController!
-    var _isRegistrationFlow: Bool = false
+    var _registrationURL: URL? = nil
     var _externalUserAgentFlowInProgress: Bool = false
     weak var _session: OIDExternalUserAgentSession?
 
@@ -22,11 +22,11 @@ class OIDExternalUserAgentUsingWebViewController: NSObject {
      */
     required init(
         navigationController: UINavigationController,
-        isRegistrationFlow: Bool
+        registrationURL: URL?
     ) {
         super.init()
         self._navigationController = navigationController
-        self._isRegistrationFlow = isRegistrationFlow
+        self._registrationURL = registrationURL
     }
 
     func cleanUp() {
@@ -47,9 +47,8 @@ extension OIDExternalUserAgentUsingWebViewController: OIDExternalUserAgent {
 
         
         if let requestURL = request.externalUserAgentRequestURL() {
-            let webViewController = WebViewController(startURL: requestURL)
+            let webViewController = WebViewController(startURL: requestURL, registrationURL: _registrationURL)
             webViewController.modalPresentationStyle = .pageSheet
-            webViewController.isRegistrationFlow = _isRegistrationFlow
             if #available(iOS 15.0, *),
                let sheet = _navigationController.sheetPresentationController {
                 sheet.detents = [.large()]

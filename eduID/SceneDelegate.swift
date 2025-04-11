@@ -71,12 +71,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return true
         } else if (url.absoluteString.range(of: "created") != nil) {
             accountWasJustCreated = true
-            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
             return true
         } else if (url.absoluteString.range(of: "saml/guest-idp/magic") != nil) {
             // Email verification URI
             NotificationCenter.default.post(name: .onMagicLinkOpened, object: nil, userInfo: [Constants.UserInfoKey.magicLinkUrl: url])
             return false
+        } else if (url.absoluteString.range(of: "api/create-from-mobile-api/in-app") != nil) {
+            accountWasJustCreated = true
+            AppAuthController.shared.registrationUrl = url
+            NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+            return true
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             userDidFinishAuthentication()

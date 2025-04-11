@@ -15,14 +15,15 @@ protocol WebViewControllerDelegate: AnyObject {
 class WebViewController: BaseViewController {
     
     var startURL: URL!
-    var isRegistrationFlow = false
+    var registrationURL: URL?
     
     private var webView: WKWebView!
     private var dontInterceptNextNavigation = false
     weak var webViewControllerDelegate: WebViewControllerDelegate?
     
-    required init(startURL: URL) {
+    required init(startURL: URL, registrationURL: URL?) {
         self.startURL = startURL
+        self.registrationURL = registrationURL
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,7 +40,12 @@ class WebViewController: BaseViewController {
         webView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(webView)
         webView.edgesToSuperview(usingSafeArea: true)
-        webView.load(URLRequest(url: startURL))
+        if registrationURL != nil {
+            webView.load(URLRequest(url: registrationURL!))
+            dontInterceptNextNavigation = true
+        } else {
+            webView.load(URLRequest(url: startURL))
+        }
         webView.navigationDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(onMagicLinkOpened), name: .onMagicLinkOpened, object: nil)
@@ -87,13 +93,6 @@ extension WebViewController: WKNavigationDelegate {
                     sceneDelegate.userDidFinishAuthentication()
                 }
                 return
-            } else if url.absoluteString.contains("eduid.nl/login/") && isRegistrationFlow {
-                // Navigate from login to registration
-                decisionHandler(.cancel)
-                let previousUrl = url.absoluteString
-                let modifiedUrl = previousUrl.replacingOccurrences(of: "/login/", with: "/request/")
-                webView.load(URLRequest(url: URL(string: modifiedUrl)!))
-                return
             } else {
                 guard let scenedelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
                     return
@@ -106,8 +105,15 @@ extension WebViewController: WKNavigationDelegate {
                     return
                 }
                 if isAppHost(url) && scenedelegate.handleURLFromRedirect(url: url) {
-                    decisionHandler(.cancel)
-                    dismissInfoScreen()
+                    if registrationURL != nil {
+                        // Continue with the original auth flow
+                        decisionHandler(.cancel)
+                        webView.load(URLRequest(url: startURL))
+                        registrationURL = nil
+                    } else {
+                        decisionHandler(.cancel)
+                        dismissInfoScreen()
+                    }
                     return
                 }
             }
