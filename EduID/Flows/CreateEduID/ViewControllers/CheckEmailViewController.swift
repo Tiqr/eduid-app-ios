@@ -71,7 +71,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
          }
     }
 
-        @objc func dismissInfoScreen() {
+    @objc func dismissInfoScreen() {
         if let navigationController = navigationController {
             navigationController.dismiss(animated: true)
         } else {
