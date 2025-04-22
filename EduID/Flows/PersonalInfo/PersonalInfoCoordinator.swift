@@ -173,6 +173,7 @@ extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
         guard let navigationController else { return }
         let webViewController = WebViewController(startURL: url, registrationURL: nil)
         webViewController.modalPresentationStyle = .pageSheet
+        webViewController.webViewControllerDelegate = self
         if #available(iOS 15.0, *),
            let sheet = navigationController.sheetPresentationController {
             sheet.detents = [.large()]
