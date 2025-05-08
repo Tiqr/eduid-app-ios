@@ -124,8 +124,10 @@ class VerifyIdentityViewController: BaseViewController {
                 self?.viewModel.startLinkingInstitution(control)
             })
 
+        let spacer: UIView = .init()
+        
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, verifyViaDutchInstitution])
+        stack = UIStackView(arrangedSubviews: [spacer, mainTitle, mainDescriptionParent, verifyViaDutchInstitution])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill

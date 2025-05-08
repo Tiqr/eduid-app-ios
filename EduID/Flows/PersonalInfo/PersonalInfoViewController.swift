@@ -483,10 +483,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     @objc func verifyIdentityClicked() {
         self.verifyIdentityLoadingIndicator?.startAnimating()
         self.verifyIdentityLoadingIndicator?.isHidden = false
-        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification), let userResponse = viewModel.userResponse {
+        if let userResponse = viewModel.userResponse {
             delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
-        } else {
-            startLinkingInstitution()
         }
     }
     
