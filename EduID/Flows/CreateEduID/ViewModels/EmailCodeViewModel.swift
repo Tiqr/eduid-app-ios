@@ -11,7 +11,11 @@ import Combine
 
 class EmailCodeViewModel: NSObject {
     
-    override init() {
+    let email: String
+    
+    init(email: String) {
+        self.email = email
+        super.init()
     }
     
 }

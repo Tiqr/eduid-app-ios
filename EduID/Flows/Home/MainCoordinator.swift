@@ -14,7 +14,7 @@ class MainCoordinator: CoordinatorType {
     required init(viewControllerToPresentOn: UIViewController?) {
         self.viewControllerToPresentOn = viewControllerToPresentOn
 //        let homeViewController = HomeViewController()
-        let homeViewController = EmailCodeViewController(viewModel: .init())
+        let homeViewController = EmailCodeViewController(viewModel: .init(email: "jp.dikhout@planken.com"))
         let homeNavigationController = UINavigationController(rootViewController: homeViewController)
         self.homeNavigationController = homeNavigationController
 //        homeViewController.delegate = self
