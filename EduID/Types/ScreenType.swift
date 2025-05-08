@@ -21,6 +21,7 @@ enum ScreenType: Int, CaseIterable {
     case welcomeScreen
     case createPincodefirstEntryScreen
     case createPincodeSecondEntryScreen
+    case emailCodeScreen
     case firstTimeDialogScreen
     case addInstitutionScreen
     case biometricApprovalScreen
