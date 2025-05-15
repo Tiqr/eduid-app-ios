@@ -18,6 +18,10 @@ public struct UpdateExternalEduID: Codable, JSONEncodable, Hashable {
         case decentraal = "Decentraal"
         case ongeverifieerd = "Ongeverifieerd"
     }
+    static let chosenNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let lastNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let identifierRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let eduIDValueRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var email: String?
     public var chosenName: String
     public var firstName: String?

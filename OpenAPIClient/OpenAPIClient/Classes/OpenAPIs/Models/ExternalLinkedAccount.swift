@@ -48,10 +48,10 @@ public struct ExternalLinkedAccount: Codable, JSONEncodable, Hashable {
     public var external: Bool?
     public var preferred: Bool?
     public var documentId: String?
-    public var familyName: String?
     public var givenName: String?
+    public var familyName: String?
 
-    public init(subjectId: String? = nil, idpScoping: IdpScoping? = nil, issuer: VerifyIssuer? = nil, verification: Verification? = nil, serviceUUID: String? = nil, serviceID: String? = nil, subjectIssuer: String? = nil, brinCodes: [String]? = nil, affiliations: [String]? = nil, initials: String? = nil, chosenName: String? = nil, firstName: String? = nil, preferredLastName: String? = nil, legalLastName: String? = nil, partnerLastNamePrefix: String? = nil, legalLastNamePrefix: String? = nil, preferredLastNamePrefix: String? = nil, partnerLastName: String? = nil, dateOfBirth: Int64? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil, external: Bool? = nil, preferred: Bool? = nil, documentId: String? = nil, familyName: String? = nil, givenName: String? = nil) {
+    public init(subjectId: String? = nil, idpScoping: IdpScoping? = nil, issuer: VerifyIssuer? = nil, verification: Verification? = nil, serviceUUID: String? = nil, serviceID: String? = nil, subjectIssuer: String? = nil, brinCodes: [String]? = nil, affiliations: [String]? = nil, initials: String? = nil, chosenName: String? = nil, firstName: String? = nil, preferredLastName: String? = nil, legalLastName: String? = nil, partnerLastNamePrefix: String? = nil, legalLastNamePrefix: String? = nil, preferredLastNamePrefix: String? = nil, partnerLastName: String? = nil, dateOfBirth: Int64? = nil, createdAt: Int64? = nil, expiresAt: Int64? = nil, external: Bool? = nil, preferred: Bool? = nil, documentId: String? = nil, givenName: String? = nil, familyName: String? = nil) {
         self.subjectId = subjectId
         self.idpScoping = idpScoping
         self.issuer = issuer
@@ -76,8 +76,8 @@ public struct ExternalLinkedAccount: Codable, JSONEncodable, Hashable {
         self.external = external
         self.preferred = preferred
         self.documentId = documentId
-        self.familyName = familyName
         self.givenName = givenName
+        self.familyName = familyName
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -105,8 +105,8 @@ public struct ExternalLinkedAccount: Codable, JSONEncodable, Hashable {
         case external
         case preferred
         case documentId
-        case familyName
         case givenName
+        case familyName
     }
 
     // Encodable protocol methods
@@ -137,8 +137,8 @@ public struct ExternalLinkedAccount: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(external, forKey: .external)
         try container.encodeIfPresent(preferred, forKey: .preferred)
         try container.encodeIfPresent(documentId, forKey: .documentId)
-        try container.encodeIfPresent(familyName, forKey: .familyName)
         try container.encodeIfPresent(givenName, forKey: .givenName)
+        try container.encodeIfPresent(familyName, forKey: .familyName)
     }
 }
 

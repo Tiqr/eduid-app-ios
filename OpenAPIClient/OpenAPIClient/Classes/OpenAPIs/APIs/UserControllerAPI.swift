@@ -26,7 +26,7 @@ open class UserControllerAPI {
     /**
      Confirm email change
      - GET /mobile/api/sp/confirm-email
-     - Confirm the user has clicked on the link in the email sent after requesting to change the users email<br/>A confirmation email is sent to notify the user of the security change with a link to the security settings <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/security</a>. <br/>If this URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/security</a>
+     - Confirm the user has entered the correct one-time code or has clicked on the link in the email sent after requesting to change the users email <br/>A confirmation email is sent to notify the user of the security change with a link to the security settings <a href=\"/#\">https://login.{environment}.eduid.nl/client/mobile/security</a>. <br/>If this URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"/#\">eduid://client/mobile/security</a> 
      - :
        - type: openIdConnect
        - name: openId
@@ -246,6 +246,87 @@ open class UserControllerAPI {
         let localVariableRequestBuilder: RequestBuilder<Int64>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Generate email change code
+     
+     - parameter updateEmailRequest: (body)  
+     - parameter force: (query)  (optional, default to false)
+     - returns: UserResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func generateEmailCode(updateEmailRequest: UpdateEmailRequest, force: Bool? = nil) async throws -> UserResponse {
+        return try await generateEmailCodeWithRequestBuilder(updateEmailRequest: updateEmailRequest, force: force).execute().body
+    }
+
+    /**
+     Generate email change code
+     - PUT /mobile/api/sp/generate-email-code
+     - Request to change the email of the user. We sent a one-time verification code in verification email
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter updateEmailRequest: (body)  
+     - parameter force: (query)  (optional, default to false)
+     - returns: RequestBuilder<UserResponse> 
+     */
+    open class func generateEmailCodeWithRequestBuilder(updateEmailRequest: UpdateEmailRequest, force: Bool? = nil) -> RequestBuilder<UserResponse> {
+        let localVariablePath = "/mobile/api/sp/generate-email-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateEmailRequest)
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "force": (wrappedValue: force?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Generate change password code
+     
+     - returns: UserResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func generatePasswordCode() async throws -> UserResponse {
+        return try await generatePasswordCodeWithRequestBuilder().execute().body
+    }
+
+    /**
+     Generate change password code
+     - PUT /mobile/api/sp/generate-password-code
+     - Sent the user a mail with a one-time code for the user to change his / hers password. 
+     - :
+       - type: openIdConnect
+       - name: openId
+     - returns: RequestBuilder<UserResponse> 
+     */
+    open class func generatePasswordCodeWithRequestBuilder() -> RequestBuilder<UserResponse> {
+        let localVariablePath = "/mobile/api/sp/generate-password-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -630,6 +711,80 @@ open class UserControllerAPI {
     }
 
     /**
+     Resend email change code
+     
+     - returns: String
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func resendSpCodeMail() async throws -> String {
+        return try await resendSpCodeMailWithRequestBuilder().execute().body
+    }
+
+    /**
+     Resend email change code
+     - GET /mobile/api/sp/resend-email-code
+     - Resend the one-time verification code in verification email
+     - :
+       - type: openIdConnect
+       - name: openId
+     - returns: RequestBuilder<String> 
+     */
+    open class func resendSpCodeMailWithRequestBuilder() -> RequestBuilder<String> {
+        let localVariablePath = "/mobile/api/sp/resend-email-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Resend password change code
+     
+     - returns: String
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func resendSpCodePassword() async throws -> String {
+        return try await resendSpCodePasswordWithRequestBuilder().execute().body
+    }
+
+    /**
+     Resend password change code
+     - GET /mobile/api/sp/resend-password-code
+     - Resend the one-time verification code in password change email
+     - :
+       - type: openIdConnect
+       - name: openId
+     - returns: RequestBuilder<String> 
+     */
+    open class func resendSpCodePasswordWithRequestBuilder() -> RequestBuilder<String> {
+        let localVariablePath = "/mobile/api/sp/resend-password-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Validate password hash
      
      - parameter hash: (query)  
@@ -842,7 +997,7 @@ open class UserControllerAPI {
     /**
      Update password
      - PUT /mobile/api/sp/update-password
-     - Update or delete the user's password using the hash from the 'h' query param in the validation email. If 'newPassword' is null / empty than the password is removed.
+     - Update or delete the user's password using the hash from the 'h' query param in the validation email or the hash returned after the correct one-time code is verified. If 'newPassword' is null / empty than the password is removed. 
      - :
        - type: openIdConnect
        - name: openId
@@ -902,6 +1057,84 @@ open class UserControllerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UserResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Verify change email code
+     
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: [String: String]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func verifyChangeEmailCode(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) async throws -> [String: String] {
+        return try await verifyChangeEmailCodeWithRequestBuilder(verifyOneTimeLoginCode: verifyOneTimeLoginCode).execute().body
+    }
+
+    /**
+     Verify change email code
+     - PUT /mobile/api/sp/verify-email-code
+     - If the email code is valid, then return the hash to change the email 
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: RequestBuilder<[String: String]> 
+     */
+    open class func verifyChangeEmailCodeWithRequestBuilder(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) -> RequestBuilder<[String: String]> {
+        let localVariablePath = "/mobile/api/sp/verify-email-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: verifyOneTimeLoginCode)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Verify change password code
+     
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: [String: String]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func verifyPasswordResetCode(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) async throws -> [String: String] {
+        return try await verifyPasswordResetCodeWithRequestBuilder(verifyOneTimeLoginCode: verifyOneTimeLoginCode).execute().body
+    }
+
+    /**
+     Verify change password code
+     - PUT /mobile/api/sp/verify-password-code
+     - If the password code is valid, then return the hash to change the password 
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: RequestBuilder<[String: String]> 
+     */
+    open class func verifyPasswordResetCodeWithRequestBuilder(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) -> RequestBuilder<[String: String]> {
+        let localVariablePath = "/mobile/api/sp/verify-password-code"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: verifyOneTimeLoginCode)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

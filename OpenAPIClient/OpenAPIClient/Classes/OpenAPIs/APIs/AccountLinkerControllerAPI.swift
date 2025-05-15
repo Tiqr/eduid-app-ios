@@ -117,7 +117,7 @@ open class AccountLinkerControllerAPI {
     /**
      Start verify ID flow for signicat from SP flow
      - GET /mobile/api/sp/verify/link
-     - Start the verify ID flow for the current user.<br/>After the account has been linked the user is redirect to one the following URL's:<ul><li>Success: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-account-linked</a></li><li>Failure, something went wrong: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-error</a></li></ul>
+     - Start the verify ID flow for the current user.<br/>After the account has been linked the user is redirect to one the following URL's:<ul><li>Success: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-account-linked</a></li><li>Failure, something went wrong: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/verify-error</a></li><li>Failure, account already linked: <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/subject-already-linked?idp_scoping=idin?email=jdoe%40example.com</a></li></ul>
      - :
        - type: openIdConnect
        - name: openId
