@@ -66,7 +66,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         
         let spacer: UIView = .init()
         let posterLabel = UILabel.posterTextLabel(text: L.MagicLink.Header.localization, size: 24)
-        let description: UILabel = .subtitleLabel(text: "Enter the code sent to")
+        let description: UILabel = .subtitleLabel(text: L.LoginCode.Info.localization.components(separatedBy: "<").first ?? "")
         let emailLabel: UILabel = .subtitleLabel(text: viewModel.email, partBold: viewModel.email)
         
         let stackView = UIStackView(arrangedSubviews: [spacer,
@@ -83,6 +83,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         
         // Code stack view with containers
         let codeStackViewContainerView = UIView()
+        codeStackViewContainerView.backgroundColor = .clear
         codeStackViewContainerView.translatesAutoresizingMaskIntoConstraints = false
         
         let codeStackView: UIStackView = .init(frame: .init(origin: .zero, size: ViewConstants.textfieldContainerSize))
@@ -171,6 +172,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
             codeStackViewContainerView.heightAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.height),
             resendContainerView.heightAnchor.constraint(equalToConstant: 30),
             codeStackViewContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            codeStackView.centerXAnchor.constraint(equalTo: codeStackViewContainerView.centerXAnchor),
             resendContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: ViewConstants.topAnchorConstant),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ViewConstants.sidePaddingConstant),
