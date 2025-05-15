@@ -9,11 +9,37 @@ import Foundation
 import UIKit
 import Combine
 
+protocol EmailCodeTextFieldDelegate: AnyObject {
+    func didPressBackspace(on textField: EmailCodeTextFieldTextField)
+}
+
+class EmailCodeTextFieldTextField: UITextField {
+    weak var backspaceDelegate: EmailCodeTextFieldDelegate?
+    
+    override func deleteBackward() {
+        if text?.isEmpty ?? true {
+            backspaceDelegate?.didPressBackspace(on: self)
+        }
+        super.deleteBackward()
+    }
+}
+
 class EmailCodeViewController: CreateEduIDBaseViewController {
     
     private enum ViewConstants {
         static let topAnchorConstant: CGFloat = 60
         static let sidePaddingConstant: CGFloat = 24
+        static let numberOfFields = 5
+        static let containerSpacing: CGFloat = 12
+        static let containerCornerRadius: CGFloat = 8
+        static let containerBorderWidth: CGFloat = 1.0
+        static let textfieldContainerSize: CGSize = .init(width: 51, height: 51)
+    }
+    
+    private var textFields: [EmailCodeTextFieldTextField] = []
+    private var textFieldContainers: [UIView] = []
+    private var code: String {
+        return textFields.compactMap { $0.text }.joined()
     }
     
     private let viewModel: EmailCodeViewModel
@@ -36,13 +62,13 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
     
     
     private func setupUI() {
-        
         view.subviews.forEach { $0.removeFromSuperview() }
         
         let spacer: UIView = .init()
         let posterLabel = UILabel.posterTextLabel(text: L.MagicLink.Header.localization, size: 24)
         let description: UILabel = .subtitleLabel(text: "Enter the code sent to")
         let emailLabel: UILabel = .subtitleLabel(text: viewModel.email, partBold: viewModel.email)
+        
         let stackView = UIStackView(arrangedSubviews: [spacer,
                                                        posterLabel,
                                                        description,
@@ -54,11 +80,169 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         stackView.setCustomSpacing(.zero, after: description)
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Code stack view with containers
+        let codeStackView: UIStackView = .init(frame: .init(origin: .zero, size: ViewConstants.textfieldContainerSize))
+        codeStackView.axis = .horizontal
+        codeStackView.spacing = ViewConstants.containerSpacing
+        codeStackView.distribution = .fillEqually
+        codeStackView.alignment = .center
+        codeStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        for i in 0..<ViewConstants.numberOfFields {
+            // Container setup
+            let container = UIView()
+            container.layer.cornerRadius = ViewConstants.containerCornerRadius
+            container.layer.borderWidth = ViewConstants.containerBorderWidth
+            container.layer.borderColor = UIColor.gray.cgColor
+            container.translatesAutoresizingMaskIntoConstraints = false
+            container.heightAnchor.constraint(equalTo: container.widthAnchor).isActive = true
+            
+            // Text field setup
+            let textField = EmailCodeTextFieldTextField()
+            textField.delegate = self
+            textField.textAlignment = .center
+            textField.font = UIFont.systemFont(ofSize: 27)
+            textField.keyboardType = .asciiCapable
+            textField.autocorrectionType = .no
+            textField.spellCheckingType = .no
+            textField.autocapitalizationType = .allCharacters
+            textField.borderStyle = .none
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+            textField.tag = i
+            textField.backspaceDelegate = self
+            
+            // Add text field to container
+            container.addSubview(textField)
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                container.widthAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.width),
+                container.heightAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.height),
+                textField.topAnchor.constraint(equalTo: container.topAnchor),
+                textField.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+                textField.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                textField.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+            ])
+            
+            codeStackView.addArrangedSubview(container)
+            textFieldContainers.append(container)
+            textFields.append(textField)
+        }
+        
+        // Resend code labels
+        let resendContainerView = UIView()
+        resendContainerView.translatesAutoresizingMaskIntoConstraints = false
+
+        let problemsLabel = UILabel()
+        problemsLabel.text = "Problems?"
+        problemsLabel.font = UIFont.sourceSansProRegular(size: 16)
+        problemsLabel.textColor = UIColor.darkGray
+
+        let resendTheCode = UILabel()
+        resendTheCode.attributedText = NSAttributedString(
+            string: "Resend the code",
+            attributes: [
+                .font: UIFont.sourceSansProRegular(size: 16),
+                .foregroundColor: UIColor.backgroundColor,
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .underlineColor: UIColor.backgroundColor
+            ]
+        )
+        resendTheCode.isUserInteractionEnabled = true
+        resendTheCode.addGestureRecognizer(gestureRecognizerForResendTheCode())
+
+        let resendStackView = UIStackView(arrangedSubviews: [problemsLabel, resendTheCode])
+        resendStackView.axis = .horizontal
+        resendStackView.alignment = .center
+        resendStackView.spacing = 2
+        resendStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        resendContainerView.addSubview(resendStackView)
+        stackView.addArrangedSubview(codeStackView)
+        stackView.addArrangedSubview(resendContainerView)
+        
         NSLayoutConstraint.activate([
+            resendStackView.centerXAnchor.constraint(equalTo: resendContainerView.centerXAnchor),
+            resendStackView.centerYAnchor.constraint(equalTo: resendContainerView.centerYAnchor),
+            resendContainerView.heightAnchor.constraint(equalToConstant: 50),
+            resendContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: ViewConstants.topAnchorConstant),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ViewConstants.sidePaddingConstant),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: ViewConstants.sidePaddingConstant)
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -ViewConstants.sidePaddingConstant)
         ])
     }
     
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text.count > 1 {
+            textField.text = String(text.prefix(1))
+        }
+        
+        let currentIndex = textField.tag
+        if text.count == 1 {
+            if currentIndex < ViewConstants.numberOfFields - 1 {
+                textFields[currentIndex + 1].becomeFirstResponder()
+                highlightActiveField(index: currentIndex + 1)
+            } else {
+                textField.resignFirstResponder()
+                print("Code Entered: \(code)")
+            }
+        }
+    }
+    
+    private func highlightActiveField(index: Int) {
+        for (i, container) in textFieldContainers.enumerated() {
+            let isActive = i == index
+            container.layer.borderColor = isActive ? UIColor.systemBlue.cgColor : UIColor.gray.cgColor
+            container.layer.shadowColor = isActive ? UIColor.systemBlue.cgColor : UIColor.clear.cgColor
+            container.layer.shadowRadius = isActive ? 4 : 0
+            container.layer.shadowOpacity = isActive ? 0.6 : 0
+            container.layer.shadowOffset = CGSize(width: 0, height: 0)
+        }
+    }
+    
+    // Resend code related
+    private func gestureRecognizerForResendTheCode() -> UITapGestureRecognizer {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resendAction))
+        gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.numberOfTapsRequired = 1
+        return gestureRecognizer
+    }
+    
+    @objc private func resendAction() {
+        // Resend logic
+    }
+}
+
+extension EmailCodeViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return string.count <= 1
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        highlightActiveField(index: textField.tag)
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let isLastField = textField.tag == ViewConstants.numberOfFields - 1
+        let allFilled = textFields.allSatisfy { ($0.text?.count ?? 0) == 1 }
+        if isLastField && allFilled {
+            textField.resignFirstResponder()
+            return true
+        }
+        return false
+    }
+}
+
+extension EmailCodeViewController: EmailCodeTextFieldDelegate {
+    func didPressBackspace(on textField: EmailCodeTextFieldTextField) {
+        let currentIndex = textField.tag
+        if currentIndex > 0 {
+            let previous = textFields[currentIndex - 1]
+            previous.text = ""
+            previous.becomeFirstResponder()
+            highlightActiveField(index: currentIndex - 1)
+        }
+    }
 }

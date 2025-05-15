@@ -33,8 +33,9 @@ final class CreateEduIDCoordinator: CoordinatorType {
     
     //MARK: - start
     func startWithLanding() {
-        let landingScreen = CreateEduIDLandingPageViewController()
-        landingScreen.delegate = self
+//        let landingScreen = CreateEduIDLandingPageViewController()
+        let landingScreen = EmailCodeViewController(viewModel: .init(email: "jp.dikhout@planken.com"))
+//        landingScreen.delegate = self
         navigationController.setViewControllers([landingScreen], animated: false)
     }
     
