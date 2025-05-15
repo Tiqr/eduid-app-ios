@@ -910,8 +910,8 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "LoginCode.Title.COPY" = "Eenmalige verificatiecode";
 "LoginCode.Info.COPY" = "Voer de code in die verstuurd is naar <strong>%%1$s</strong>";
 "LoginCode.Continue.COPY" = "Doorgaan";
-"LoginCode.Resend.COPY" = "E-mail niet ontvangen? Controleer uw spamfolder of ";
-"LoginCode.ResendLink.COPY" = "klik om opnieuw te versturen";
+"LoginCode.Resend.COPY" = "Problemen? ";
+"LoginCode.ResendLink.COPY" = "Code opnieuw versturen";
 "LoginCode.Error.COPY" = "Verkeerde code. Probeer het opnieuw.";
 "LoginCode.ErrorHeader.COPY" = "Maximale pogingen bereikt";
 "LoginCode.ErrorInfo.COPY" = "Je hebt het maximale aantal pogingen bereikt en je account is voor 15 minuten geschorst.";
