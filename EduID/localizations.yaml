@@ -4262,12 +4262,12 @@ SHARED:
         nl: "Doorgaan"
     Resend:
       COPY:
-        en: "Didn’t receive the email? Check your spam folder, or "
-        nl: "E-mail niet ontvangen? Controleer uw spamfolder of "
+        en: "Problems? "
+        nl: "Problemen? "
     ResendLink:
       COPY:
-        en: "click to resend"
-        nl: "klik om opnieuw te versturen"
+        en: "Resend the code"
+        nl: "Code opnieuw versturen"
     Error:
       COPY:
         en: "Wrong code. Please try again."
