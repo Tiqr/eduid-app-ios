@@ -3651,6 +3651,14 @@ public struct L {
             translationKey: "Sms.Here.COPY",
             translationArgs: []
         )
+        public static let MaxAttemptsPostNoReEnter = LocaliciousData(
+            accessibilityIdentifier: "Sms.MaxAttemptsPostNoReEnter",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Sms.MaxAttemptsPostNoReEnter.COPY",
+            translationArgs: []
+        )
     }
     public struct EnrollApp {
         public static let Header = LocaliciousData(
@@ -3835,16 +3843,14 @@ public struct L {
             translationKey: "Congrats.Info.COPY",
             translationArgs: []
         )
-        public static func Next(args: CVarArg...) -> LocaliciousData {
-            return LocaliciousData(
+        public static let Next = LocaliciousData(
             accessibilityIdentifier: "Congrats.Next",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Congrats.Next.COPY",
-            translationArgs: args
+            translationArgs: []
         )
-        }
     }
     public struct Deactivate {
         public static let TitleDelete = LocaliciousData(
