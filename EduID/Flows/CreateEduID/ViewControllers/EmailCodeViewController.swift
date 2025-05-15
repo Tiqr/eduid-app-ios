@@ -138,13 +138,13 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         resendContainerView.translatesAutoresizingMaskIntoConstraints = false
 
         let problemsLabel = UILabel()
-        problemsLabel.text = "Problems?"
+        problemsLabel.text = L.LoginCode.Resend.localization
         problemsLabel.font = UIFont.sourceSansProRegular(size: 16)
         problemsLabel.textColor = UIColor.darkGray
 
         let resendTheCode = UILabel()
         resendTheCode.attributedText = NSAttributedString(
-            string: "Resend the code",
+            string: L.LoginCode.ResendLink.localization,
             attributes: [
                 .font: UIFont.sourceSansProRegular(size: 16),
                 .foregroundColor: UIColor.backgroundColor,
