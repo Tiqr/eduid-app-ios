@@ -82,6 +82,9 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // Code stack view with containers
+        let codeStackViewContainerView = UIView()
+        codeStackViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        
         let codeStackView: UIStackView = .init(frame: .init(origin: .zero, size: ViewConstants.textfieldContainerSize))
         codeStackView.axis = .horizontal
         codeStackView.spacing = ViewConstants.containerSpacing
@@ -158,13 +161,16 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         resendStackView.translatesAutoresizingMaskIntoConstraints = false
         
         resendContainerView.addSubview(resendStackView)
-        stackView.addArrangedSubview(codeStackView)
+        codeStackViewContainerView.addSubview(codeStackView)
+        stackView.addArrangedSubview(codeStackViewContainerView)
         stackView.addArrangedSubview(resendContainerView)
         
         NSLayoutConstraint.activate([
             resendStackView.centerXAnchor.constraint(equalTo: resendContainerView.centerXAnchor),
             resendStackView.centerYAnchor.constraint(equalTo: resendContainerView.centerYAnchor),
-            resendContainerView.heightAnchor.constraint(equalToConstant: 50),
+            codeStackViewContainerView.heightAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.height),
+            resendContainerView.heightAnchor.constraint(equalToConstant: 30),
+            codeStackViewContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             resendContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: ViewConstants.topAnchorConstant),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ViewConstants.sidePaddingConstant),
