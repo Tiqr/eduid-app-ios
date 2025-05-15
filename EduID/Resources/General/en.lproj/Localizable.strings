@@ -908,8 +908,8 @@ Which phone number would you like to use for this?
 "LoginCode.Title.COPY" = "One-time verification code";
 "LoginCode.Info.COPY" = "Enter the code sent to <strong>%%1$s</strong>";
 "LoginCode.Continue.COPY" = "Continue";
-"LoginCode.Resend.COPY" = "Didn’t receive the email? Check your spam folder, or ";
-"LoginCode.ResendLink.COPY" = "click to resend";
+"LoginCode.Resend.COPY" = "Problems? ";
+"LoginCode.ResendLink.COPY" = "Resend the code";
 "LoginCode.Error.COPY" = "Wrong code. Please try again.";
 "LoginCode.ErrorHeader.COPY" = "Maximum attempts reached";
 "LoginCode.ErrorInfo.COPY" = "You've reached the maximum attempts and your account is suspended for 15 minutes.";
