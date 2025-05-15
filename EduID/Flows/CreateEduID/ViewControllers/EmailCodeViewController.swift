@@ -1,5 +1,5 @@
 //
-//  EmailCodeViewController.swift
+//  EmailLoginCodeViewController.swift
 //  eduID
 //
 //  Created by Yasser Farahi on 08/05/2025.
@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 import Combine
 
-protocol EmailCodeTextFieldDelegate: AnyObject {
-    func didPressBackspace(on textField: EmailCodeTextFieldTextField)
+protocol EmailLoginCodeTextFieldDelegate: AnyObject {
+    func didPressBackspace(on textField: EmailLoginCodeTextFieldTextField)
 }
 
-class EmailCodeTextFieldTextField: UITextField {
-    weak var backspaceDelegate: EmailCodeTextFieldDelegate?
+class EmailLoginCodeTextFieldTextField: UITextField {
+    weak var backspaceDelegate: EmailLoginCodeTextFieldDelegate?
     
     override func deleteBackward() {
         if text?.isEmpty ?? true {
@@ -24,7 +24,7 @@ class EmailCodeTextFieldTextField: UITextField {
     }
 }
 
-class EmailCodeViewController: CreateEduIDBaseViewController {
+class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     
     private enum ViewConstants {
         static let topAnchorConstant: CGFloat = 60
@@ -36,7 +36,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         static let textfieldContainerSize: CGSize = .init(width: 51, height: 51)
     }
     
-    private var textFields: [EmailCodeTextFieldTextField] = []
+    private var textFields: [EmailLoginCodeTextFieldTextField] = []
     private var textFieldContainers: [UIView] = []
     private var code: String {
         return textFields.compactMap { $0.text }.joined()
@@ -47,6 +47,25 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
     init(viewModel: EmailCodeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        
+        viewModel.resendCodeSuccessClosure = { [weak self] in
+            guard let self else { return }
+        }
+        
+        
+        viewModel.resendCodeErrorClosure = { [weak self] title, message in
+            guard let self else { return }
+        }
+        
+        viewModel.userCodeInPutSuccessClosure = { [weak self] in
+            guard let self else { return }
+        }
+        
+        
+        viewModel.userCodeInPutErrorClosure = { [weak self] title, message in
+            guard let self else { return }
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +74,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenType = .checkMailScreen
+        screenType = .emailLoginCodeScreen
         NotificationCenter.default.addObserver(self, selector: #selector(showNextScreen), name: .createEduIDDidReturnFromMagicLink, object: nil)
         setupUI()
     }
@@ -67,7 +86,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
         let spacer: UIView = .init()
         let posterLabel = UILabel.posterTextLabel(text: L.MagicLink.Header.localization, size: 24)
         let description: UILabel = .subtitleLabel(text: L.LoginCode.Info.localization.components(separatedBy: "<").first ?? "")
-        let emailLabel: UILabel = .subtitleLabel(text: viewModel.email, partBold: viewModel.email)
+        let emailLabel: UILabel = .subtitleLabel(text: viewModel.email ?? "", partBold: viewModel.email)
         
         let stackView = UIStackView(arrangedSubviews: [spacer,
                                                        posterLabel,
@@ -103,7 +122,7 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
             container.heightAnchor.constraint(equalTo: container.widthAnchor).isActive = true
             
             // Text field setup
-            let textField = EmailCodeTextFieldTextField()
+            let textField = EmailLoginCodeTextFieldTextField()
             textField.delegate = self
             textField.textAlignment = .center
             textField.font = UIFont.systemFont(ofSize: 27)
@@ -192,8 +211,12 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
                 textFields[currentIndex + 1].becomeFirstResponder()
                 highlightActiveField(index: currentIndex + 1)
             } else {
-                textField.resignFirstResponder()
-                print("Code Entered: \(code)")
+                if code.trimmingCharacters(in: .whitespaces).count >= 5 {
+                    textField.resignFirstResponder()
+                    viewModel.userCodeInPut(code)
+                } else {
+                    // Maybe show an aler
+                }
             }
         }
     }
@@ -218,11 +241,11 @@ class EmailCodeViewController: CreateEduIDBaseViewController {
     }
     
     @objc private func resendAction() {
-        // Resend logic
+        viewModel.resendCode()
     }
 }
 
-extension EmailCodeViewController: UITextFieldDelegate {
+extension EmailLoginCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return string.count <= 1
     }
@@ -243,8 +266,8 @@ extension EmailCodeViewController: UITextFieldDelegate {
     }
 }
 
-extension EmailCodeViewController: EmailCodeTextFieldDelegate {
-    func didPressBackspace(on textField: EmailCodeTextFieldTextField) {
+extension EmailLoginCodeViewController: EmailLoginCodeTextFieldDelegate {
+    func didPressBackspace(on textField: EmailLoginCodeTextFieldTextField) {
         let currentIndex = textField.tag
         if currentIndex > 0 {
             let previous = textFields[currentIndex - 1]
