@@ -455,6 +455,9 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "PhoneVerification.Verify.COPY" = "Stuur code";
 "PhoneVerification.PlaceHolder.COPY" = "+31 612345678";
 "PhoneVerification.PhoneIncorrect.COPY" = "Telefoonnummer is onjuist";
+"PhoneVerification.RateLimited.COPY" = "Te veel pogingen";
+"PhoneVerification.RateLimitedInfo.COPY" = "Je hebt te vaak een onjuiste verificatiecode ingevoerd. Wacht alstublieft even voordat je het opnieuw probeert.";
+"PhoneVerification.Ok.COPY" = "Ok";
 "Congrats.Header.COPY" = "Gelukt";
 "Congrats.Info.COPY" = "Je kunt nu de eduID app gebruiken om snel in te loggen bij diensten waarvoor je eduID nodig is.";
 "Congrats.Next.COPY" = "Verder";
@@ -910,8 +913,8 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "LoginCode.Title.COPY" = "Eenmalige verificatiecode";
 "LoginCode.Info.COPY" = "Voer de code in die verstuurd is naar <strong>%%1$s</strong>";
 "LoginCode.Continue.COPY" = "Doorgaan";
-"LoginCode.Resend.COPY" = "Problemen? ";
-"LoginCode.ResendLink.COPY" = "Code opnieuw versturen";
+"LoginCode.Resend.COPY" = "E-mail niet ontvangen? Controleer uw spamfolder of ";
+"LoginCode.ResendLink.COPY" = "klik om opnieuw te versturen";
 "LoginCode.Error.COPY" = "Verkeerde code. Probeer het opnieuw.";
 "LoginCode.ErrorHeader.COPY" = "Maximale pogingen bereikt";
 "LoginCode.ErrorInfo.COPY" = "Je hebt het maximale aantal pogingen bereikt en je account is voor 15 minuten geschorst.";
