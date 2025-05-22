@@ -3843,6 +3843,30 @@ public struct L {
             translationKey: "PhoneVerification.PhoneIncorrect.COPY",
             translationArgs: []
         )
+        public static let RateLimited = LocaliciousData(
+            accessibilityIdentifier: "PhoneVerification.RateLimited",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PhoneVerification.RateLimited.COPY",
+            translationArgs: []
+        )
+        public static let RateLimitedInfo = LocaliciousData(
+            accessibilityIdentifier: "PhoneVerification.RateLimitedInfo",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PhoneVerification.RateLimitedInfo.COPY",
+            translationArgs: []
+        )
+        public static let Ok = LocaliciousData(
+            accessibilityIdentifier: "PhoneVerification.Ok",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "PhoneVerification.Ok.COPY",
+            translationArgs: []
+        )
     }
     public struct Congrats {
         public static let Header = LocaliciousData(

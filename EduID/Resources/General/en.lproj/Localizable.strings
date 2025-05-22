@@ -206,7 +206,7 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
 "Security.NotSupported.COPY" = "Not supported";
 "Security.UseMagicLink.COPY" = "Magic link email";
-"Security.UseCode.COPY" = "Verificationcode email";
+"Security.UseCode.COPY" = "Verification code email";
 "Security.AddSecurityKeyInfo.COPY" = "You can add a passkey to your eduIDto log in. You can use, for example, the built-in sensor of your device (TouchID, FaceID) or a separate hardware key (YubiKey).";
 "Security.RememberMeInfo.COPY" = "<strong>Your device is currently remembered. You will be automatically logged in to eduID.</strong>";
 "Security.NoRememberMeInfo.COPY" = "When logging in with your eduID, you can choose to <strong>stay logged in</strong>. This remembers your login on the device you use at that moment.";
@@ -454,6 +454,9 @@ Would you like to unconnect that app and connect this one?
 "PhoneVerification.Verify.COPY" = "Send code";
 "PhoneVerification.PlaceHolder.COPY" = "+31 612345678";
 "PhoneVerification.PhoneIncorrect.COPY" = "Phone number is incorrect";
+"PhoneVerification.RateLimited.COPY" = "Too many attempts";
+"PhoneVerification.RateLimitedInfo.COPY" = "You've entered incorrect verification codes too many times. Please wait before trying again.";
+"PhoneVerification.Ok.COPY" = "Ok";
 "Congrats.Header.COPY" = "Success";
 "Congrats.Info.COPY" = "You can now use the eduID app to quickly log in to services that require eduID.";
 "Congrats.Next.COPY" = "Continue";
@@ -908,8 +911,8 @@ Which phone number would you like to use for this?
 "LoginCode.Title.COPY" = "One-time verification code";
 "LoginCode.Info.COPY" = "Enter the code sent to <strong>%%1$s</strong>";
 "LoginCode.Continue.COPY" = "Continue";
-"LoginCode.Resend.COPY" = "Problems? ";
-"LoginCode.ResendLink.COPY" = "Resend the code";
+"LoginCode.Resend.COPY" = "Didn’t receive the email? Check your spam folder, or ";
+"LoginCode.ResendLink.COPY" = "click to resend";
 "LoginCode.Error.COPY" = "Wrong code. Please try again.";
 "LoginCode.ErrorHeader.COPY" = "Maximum attempts reached";
 "LoginCode.ErrorInfo.COPY" = "You've reached the maximum attempts and your account is suspended for 15 minutes.";
