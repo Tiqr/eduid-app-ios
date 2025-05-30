@@ -13,21 +13,31 @@ class EduIdError: Error {
         self.statusCode = statusCode
     }
     
+    enum EduIdErrorKind {
+        case regular
+        case createAccountEmailCode
+    }
+    
     // Factory method to generate CustomError from ErrorResponse
-    static func from(_ error: Error) -> EduIdError {
+    static func from(_ error: Error, kind: EduIdErrorKind = .regular) -> EduIdError {
         if let response = error as? ErrorResponse {
             switch response {
             case let .error(statusCode, data, _, _):
-                if let errorFromResponse = tryParseResponseError(data) {
+                if let errorFromResponse = tryParseResponseError(data, kind: kind) {
                     return errorFromResponse
                 }
-                return EduIdError.generateError(for: statusCode)
+                switch kind {
+                case .createAccountEmailCode:
+                    return EduIdError.generateErrorCreateAccountEmailCode(for: statusCode)
+                default:
+                    return EduIdError.generateError(for: statusCode)
+                }
             }
         }
         return EduIdError(title: "Unknown Error", message: "An unknown error occurred.", statusCode: -1)
     }
     
-    private static func tryParseResponseError(_ data: Data?) -> EduIdError? {
+    private static func tryParseResponseError(_ data: Data?, kind: EduIdErrorKind = .regular) -> EduIdError? {
         guard let data else {
             return nil
         }
@@ -36,11 +46,16 @@ class EduIdError: Error {
         if let title = errorResponse?.error,
            let message = errorResponse?.message,
            let code = errorResponse?.status {
-            return EduIdError(
-                title: title,
-                message: message,
-                statusCode: code
-            )
+            switch kind {
+            case .createAccountEmailCode:
+                return EduIdError.generateErrorCreateAccountEmailCode(for: code)
+            default:
+                return EduIdError(
+                    title: title,
+                    message: message,
+                    statusCode: code
+                )
+            }
         }
         return nil
     }
@@ -91,5 +106,36 @@ class EduIdError: Error {
         let error: String?
         let message: String?
         let status: Int?
+    }
+}
+
+extension EduIdError {
+    private static func generateErrorCreateAccountEmailCode(for statusCode: Int) -> EduIdError {
+        switch statusCode {
+        case 400: // Expired. Dead end, need to start again
+            return EduIdError(
+                title: L.ResponseErrors.EmailCodeError.Title.localization,
+                message: L.ResponseErrors.EmailCodeError.Expired.localization,
+                statusCode: statusCode
+            )
+        case 401: // Wrong code. The user can try again
+            return EduIdError(
+                title: L.ResponseErrors.EmailCodeError.Title.localization,
+                message: L.ResponseErrors.EmailCodeError.Incorrect.localization,
+                statusCode: statusCode
+            )
+        case 403: // Rate limited. Dead end
+            return EduIdError(
+                title: L.ResponseErrors.EmailCodeError.Title.localization,
+                message: L.ResponseErrors.EmailCodeError.RateLimited.localization,
+                statusCode: statusCode
+            )
+        default:
+            return EduIdError(
+                title: "\(statusCode) \(L.ResponseErrors.NoInternetAccessTitle.localization)",
+                message: "\(L.ResponseErrors.UnknownErrorText.localization) \(statusCode)",
+                statusCode: statusCode
+            )
+        }
     }
 }

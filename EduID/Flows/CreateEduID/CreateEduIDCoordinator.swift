@@ -126,6 +126,7 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
         }
         (nextViewController as? CreateEduIDBaseViewController)?.delegate = self
         (nextViewController as? CreateEduIDEnterPersonalInfoViewController)?.delegate = self
+        (nextViewController as? EmailLoginCodeViewController)?.createEduIDViewControllerDelegate = self
         navController.pushViewController(nextViewController, animated: true)
         currentScreenType = currentScreenType.nextCreateEduIDScreen()
     }
@@ -178,6 +179,5 @@ extension CreateEduIDCoordinator: AccountLinkingErrorDelegate {
             vc.launchAddInstitutions()
         }
     }
-    
     
 }

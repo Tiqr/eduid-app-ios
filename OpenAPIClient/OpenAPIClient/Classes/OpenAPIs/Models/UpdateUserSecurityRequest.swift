@@ -12,6 +12,8 @@ import AnyCodable
 
 public struct UpdateUserSecurityRequest: Codable, JSONEncodable, Hashable {
 
+    static let newPasswordRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let hashRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var newPassword: String
     public var hash: String
 

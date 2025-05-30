@@ -12,6 +12,9 @@ import AnyCodable
 
 public struct ControlCode: Codable, JSONEncodable, Hashable {
 
+    static let firstNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let lastNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let dayOfBirthRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var firstName: String
     public var lastName: String
     public var dayOfBirth: String

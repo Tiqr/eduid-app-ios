@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **external** | **Bool** |  | [optional] 
 **preferred** | **Bool** |  | [optional] 
 **documentId** | **String** |  | [optional] 
-**familyName** | **String** |  | [optional] 
 **givenName** | **String** |  | [optional] 
+**familyName** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

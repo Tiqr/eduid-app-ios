@@ -12,7 +12,7 @@ enum ScreenType: Int, CaseIterable {
     case landingScreen
     case explanationScreen
     case enterInfoScreen
-    case checkMailScreen
+    case emailLoginCodeScreen
     case enterPhoneScreen
     case enterEmail
     case registrationCheck
@@ -80,8 +80,8 @@ enum ScreenType: Int, CaseIterable {
         case .explanationScreen:
             return .enterInfoScreen
         case .enterInfoScreen:
-            return .checkMailScreen
-        case .checkMailScreen:
+            return .emailLoginCodeScreen
+        case .emailLoginCodeScreen:
             return .eduIDCreatedScreen
         case .redirect:
             return .registrationCheck
@@ -124,8 +124,9 @@ enum ScreenType: Int, CaseIterable {
             return CreateEduIDExplanationViewController()
         case .enterInfoScreen:
             return CreateEduIDEnterPersonalInfoViewController(viewModel: CreateEduIDEnterPersonalInfoViewModel())
-        case .checkMailScreen:
-            return CheckEmailViewController()
+        case .emailLoginCodeScreen:
+            return EmailLoginCodeViewController(viewModel: .init())
+            
         case .registrationCheck:
             return CreateEduIDRegistrationCheckViewController()
         case .enterPhoneScreen:

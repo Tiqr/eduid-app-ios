@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct UpdateEmailRequest: Codable, JSONEncodable, Hashable {
 
+    static let emailRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var email: String
 
     public init(email: String) {

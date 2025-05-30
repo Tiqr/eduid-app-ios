@@ -10,7 +10,7 @@ class CheckEmailViewController: CreateEduIDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        screenType = .checkMailScreen
+        screenType = .emailLoginCodeScreen
         setupUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(showNextScreen), name: .createEduIDDidReturnFromMagicLink, object: nil)

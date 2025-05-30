@@ -34,8 +34,9 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var registration: [String: AnyCodable]?
     public var controlCode: ControlCode?
     public var serviceDeskMember: Bool?
+    public var preferredLanguage: String?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil, controlCode: ControlCode? = nil, serviceDeskMember: Bool? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil, controlCode: ControlCode? = nil, serviceDeskMember: Bool? = nil, preferredLanguage: String? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName
@@ -58,6 +59,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         self.registration = registration
         self.controlCode = controlCode
         self.serviceDeskMember = serviceDeskMember
+        self.preferredLanguage = preferredLanguage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -83,6 +85,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         case registration
         case controlCode
         case serviceDeskMember
+        case preferredLanguage
     }
 
     // Encodable protocol methods
@@ -111,6 +114,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(registration, forKey: .registration)
         try container.encodeIfPresent(controlCode, forKey: .controlCode)
         try container.encodeIfPresent(serviceDeskMember, forKey: .serviceDeskMember)
+        try container.encodeIfPresent(preferredLanguage, forKey: .preferredLanguage)
     }
 }
 

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .swiftformat
 Cartfile
 OpenAPIClient.podspec
@@ -19,6 +18,7 @@ OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AuthorizationURL.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ControlCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateAccount.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CreateEduIDResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeactivateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteService.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteServiceTokens.swift
@@ -35,6 +35,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/IdentityProvider.swift
 OpenAPIClient/Classes/OpenAPIs/Models/LinkedAccount.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ManualResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NewExternalEduID.swift
+OpenAPIClient/Classes/OpenAPIs/Models/OneTimeLoginCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneVerification.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PollAuthenticationResult.swift
@@ -54,6 +55,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/UpdateUserSecurityRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/User.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UserResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VerifyIssuer.swift
+OpenAPIClient/Classes/OpenAPIs/Models/VerifyOneTimeLoginCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VerifyPhoneCode.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
@@ -65,6 +67,7 @@ docs/AccountLinkerControllerAPI.md
 docs/AuthorizationURL.md
 docs/ControlCode.md
 docs/CreateAccount.md
+docs/CreateEduIDResponse.md
 docs/DeactivateRequest.md
 docs/DeleteService.md
 docs/DeleteServiceTokens.md
@@ -82,6 +85,7 @@ docs/InviteControllerAPI.md
 docs/LinkedAccount.md
 docs/ManualResponse.md
 docs/NewExternalEduID.md
+docs/OneTimeLoginCode.md
 docs/PhoneCode.md
 docs/PhoneVerification.md
 docs/PollAuthenticationResult.md
@@ -104,6 +108,7 @@ docs/User.md
 docs/UserControllerAPI.md
 docs/UserResponse.md
 docs/VerifyIssuer.md
+docs/VerifyOneTimeLoginCode.md
 docs/VerifyPhoneCode.md
 git_push.sh
 project.yml

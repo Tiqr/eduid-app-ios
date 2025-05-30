@@ -12,6 +12,8 @@ import AnyCodable
 
 public struct EduIDInstitutionPseudonym: Codable, JSONEncodable, Hashable {
 
+    static let brinCodeRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let eduIDRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     /** Must be pre-provisioned in Manage for a valid IdP */
     public var brinCode: String
     /** Previous assigned eduID scoped on external remote API user */
