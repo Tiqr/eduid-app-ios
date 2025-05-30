@@ -23,20 +23,21 @@ class EduIdError: Error {
         if let response = error as? ErrorResponse {
             switch response {
             case let .error(statusCode, data, _, _):
-                if let errorFromResponse = tryParseResponseError(data) {
+                if let errorFromResponse = tryParseResponseError(data, kind: kind) {
                     return errorFromResponse
                 }
                 switch kind {
                 case .createAccountEmailCode:
                     return EduIdError.generateErrorCreateAccountEmailCode(for: statusCode)
                 default:
-                    return EduIdError.generateError(for: statusCode)                }
+                    return EduIdError.generateError(for: statusCode)
+                }
             }
         }
         return EduIdError(title: "Unknown Error", message: "An unknown error occurred.", statusCode: -1)
     }
     
-    private static func tryParseResponseError(_ data: Data?) -> EduIdError? {
+    private static func tryParseResponseError(_ data: Data?, kind: EduIdErrorKind = .regular) -> EduIdError? {
         guard let data else {
             return nil
         }
@@ -45,11 +46,16 @@ class EduIdError: Error {
         if let title = errorResponse?.error,
            let message = errorResponse?.message,
            let code = errorResponse?.status {
-            return EduIdError(
-                title: title,
-                message: message,
-                statusCode: code
-            )
+            switch kind {
+            case .createAccountEmailCode:
+                return EduIdError.generateErrorCreateAccountEmailCode(for: code)
+            default:
+                return EduIdError(
+                    title: title,
+                    message: message,
+                    statusCode: code
+                )
+            }
         }
         return nil
     }
@@ -122,13 +128,6 @@ extension EduIdError {
             return EduIdError(
                 title: L.ResponseErrors.EmailCodeError.Title.localization,
                 message: L.ResponseErrors.EmailCodeError.RateLimited.localization,
-                statusCode: statusCode
-            )
-
-        case 404: // Not Found. User is not found
-            return EduIdError(
-                title: L.ResponseErrors.EmailCodeError.Title.localization,
-                message: L.ResponseErrors.EmailInUse.Description.localization,
                 statusCode: statusCode
             )
         default:
