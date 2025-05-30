@@ -168,9 +168,7 @@ bestaande inschrijving
 "OneTimePassword.GenerateError.Title.COPY" = "Eenmalig wachtwoord aanmaken is mislukt";
 "OneTimePassword.GenerateError.Description.COPY" = "Er is iets misgegaan bij het aanmaken van je eenmalige wachtwoord.";
 "OneTimePassword.Title.COPY" = "Je apparaat lijkt offline te zijn";
-"OneTimePassword.Description.COPY" = "Gelukkig kan je ook op een andere manier inloggen:
-  1. Druk op ‘Code invoeren’ onder de QR-code op je computer.
-  2. Voer daarna deze code in:";
+"OneTimePassword.Description.COPY" = "Maak je geen zorgen! Klik op de QR-code op de website. Je wordt gevraagd de volgende eenmalige gegevens in te voeren:";
 "OneTimePassword.YourId.COPY" = "Je ID:";
 "OneTimePassword.OneTimePassword.COPY" = "Eénmalige code:";
 "OneTimePassword.PinNotVerified.Title.COPY" = "Opmerking: Je PIN is nog niet geverifieerd.";

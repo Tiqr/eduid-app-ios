@@ -65,13 +65,13 @@ class OneTimeCodeViewController : BaseViewController {
         let closeButton = EduIDButton(type: .primary, buttonTitle: L.OneTimePassword.CloseButton.localization)
         closeButton.addTarget(self, action: #selector(closeFlow), for: .touchUpInside)
 
-        let mainStackView = UIStackView(arrangedSubviews: [posterLabel, textLabel, otcLabel, pinStack, yourIdLabel, unverifiedPinLabel, retryLabel, spacer, closeButton])
+        let mainStackView = UIStackView(arrangedSubviews: [posterLabel, textLabel, yourIdLabel, otcLabel, pinStack, unverifiedPinLabel, retryLabel, spacer, closeButton])
         mainStackView.alignment = .leading
         mainStackView.axis = .vertical
         mainStackView.distribution = .fill
         mainStackView.spacing = 16
         mainStackView.setCustomSpacing(24, after: posterLabel)
-        mainStackView.setCustomSpacing(24, after: textLabel)
+        mainStackView.setCustomSpacing(16, after: textLabel)
         mainStackView.setCustomSpacing(32, after: pinStack)
 
         
