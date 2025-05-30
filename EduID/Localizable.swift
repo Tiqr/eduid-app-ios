@@ -6861,6 +6861,56 @@ public struct L {
             translationKey: "ResponseErrors.GenerateControlCodeError.COPY",
             translationArgs: []
         )
+        public static let SendOneTimeCodeError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.SendOneTimeCodeError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.SendOneTimeCodeError.COPY",
+            translationArgs: []
+        )
+        public static let VerifyOneTimeCodeError = LocaliciousData(
+            accessibilityIdentifier: "ResponseErrors.VerifyOneTimeCodeError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ResponseErrors.VerifyOneTimeCodeError.COPY",
+            translationArgs: []
+        )
+        public struct EmailCodeError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailCodeError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailCodeError.Title.COPY",
+                translationArgs: []
+            )
+            public static let Expired = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailCodeError.Expired",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailCodeError.Expired.COPY",
+                translationArgs: []
+            )
+            public static let Incorrect = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailCodeError.Incorrect",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailCodeError.Incorrect.COPY",
+                translationArgs: []
+            )
+            public static let RateLimited = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.EmailCodeError.RateLimited",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.EmailCodeError.RateLimited.COPY",
+                translationArgs: []
+            )
+        }
         public struct Auth {
             public struct Invalid {
                 public static let Title = LocaliciousData(
@@ -7669,6 +7719,48 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "LoginCode.MailResend.COPY",
+            translationArgs: []
+        )
+    }
+    public struct LogInWithEmailCode {
+        public static let CheckYourEmail = LocaliciousData(
+            accessibilityIdentifier: "LogInWithEmailCode.CheckYourEmail",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LogInWithEmailCode.CheckYourEmail.COPY",
+            translationArgs: []
+        )
+        public static let EnterTheCodeSentTo = LocaliciousData(
+            accessibilityIdentifier: "LogInWithEmailCode.EnterTheCodeSentTo",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LogInWithEmailCode.EnterTheCodeSentTo.COPY",
+            translationArgs: []
+        )
+        public static let Problems = LocaliciousData(
+            accessibilityIdentifier: "LogInWithEmailCode.Problems",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LogInWithEmailCode.Problems.COPY",
+            translationArgs: []
+        )
+        public static let ResendTheCode = LocaliciousData(
+            accessibilityIdentifier: "LogInWithEmailCode.ResendTheCode",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LogInWithEmailCode.ResendTheCode.COPY",
+            translationArgs: []
+        )
+        public static let CodeHasBeenResent = LocaliciousData(
+            accessibilityIdentifier: "LogInWithEmailCode.CodeHasBeenResent",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "LogInWithEmailCode.CodeHasBeenResent.COPY",
             translationArgs: []
         )
     }
