@@ -35,7 +35,7 @@ class EmailCodeViewModel: NSObject {
                 _ = try await UserControllerAPI.resendCodeMailMobile(hash: createEduIDResponseHash ?? "")
                 resendCodeSuccessClosure?()
             } catch {
-                let error = EduIdError.from(error)
+                let error = EduIdError.from(error, kind: .createAccountEmailCode)
                 resendCodeErrorClosure?(error.title, error.message)
             }
         }
@@ -54,7 +54,7 @@ class EmailCodeViewModel: NSObject {
                     userCodeInPutSuccessClosure?(url)
                 }
             } catch {
-                let error = EduIdError.from(error)
+                let error = EduIdError.from(error, kind: .createAccountEmailCode)
                 userCodeInPutErrorClosure?(error.title, error.message)
             }
         }

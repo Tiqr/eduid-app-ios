@@ -53,9 +53,8 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         
         viewModel.resendCodeSuccessClosure = { [weak self] in
             guard let self else { return }
-            self.showAlert(title: "title", message: "message")
+            self.showAlert(message: L.LogInWithEmailCode.CodeHasBeenResent.localization)
         }
-        
         
         viewModel.resendCodeErrorClosure = { [weak self] title, message in
             guard let self else { return }
@@ -147,6 +146,9 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
 
             container.addSubview(textField)
             textField.edgesToSuperview()
+
+            textFields.append(textField)
+            textFieldContainers.append(container)
         }
 
         let resendLabel: EduIDLinkLabel = .init()
@@ -170,7 +172,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
                 textFields[currentIndex + 1].becomeFirstResponder()
                 highlightActiveField(index: currentIndex + 1)
             } else {
-                if code.trimmingCharacters(in: .whitespaces).count >= 6 {
+                if code.trimmingCharacters(in: .whitespaces).count >= ViewConstants.numberOfFields {
                     textField.resignFirstResponder()
                     viewModel.userCodeInPut(code)
                 }
@@ -223,8 +225,12 @@ extension EmailLoginCodeViewController: UITextFieldDelegate {
 }
 
 extension EmailLoginCodeViewController {
-    private func showAlert(title: String, message: String) {
-        
+    private func showAlert(title: String = "", message: String, buttonTitle: String = L.PinAndBioMetrics.OKButton.localization) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: buttonTitle, style: .default))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertViewController, animated: true)
+        }
     }
 }
 
