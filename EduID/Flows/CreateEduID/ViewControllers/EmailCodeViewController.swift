@@ -158,6 +158,10 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             self.resendAction()
         }
         stackView.addArrangedSubview(resendLabel)
+        
+        if let firstTextField = textFields.first {
+            firstTextField.becomeFirstResponder()
+        }
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
