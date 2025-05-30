@@ -11,8 +11,15 @@ import Combine
 import OpenAPIClient
 
 class EmailCodeViewModel: NSObject {
+
+    private var createEduIDResponseHash: String? {
+        return UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewModel.createEduIDResponseKeyUserDefaults)
+    }
     
-    var email: String?
+    var email: String? {
+        return UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
+    }
+    
     var resendCodeSuccessClosure: (() -> Void)?
     var resendCodeErrorClosure: ((String, String ) -> Void)?
     var userCodeInPutSuccessClosure: (() -> Void)?
@@ -22,10 +29,10 @@ class EmailCodeViewModel: NSObject {
         super.init()
     }
     
-    func resendCode(email: String) {
+    func resendCode() {
         Task {
             do {
-                _ = try await UserControllerAPI.resendSpCodeMail()
+                _ = try await UserControllerAPI.resendCodeMailMobile(hash: createEduIDResponseHash ?? "")
                 resendCodeSuccessClosure?()
             } catch {
                 let error = EduIdError.from(error)
@@ -38,8 +45,15 @@ class EmailCodeViewModel: NSObject {
     func userCodeInPut(_ code: String) {
         Task {
             do {
-                _ = try await UserControllerAPI.verifyChangeEmailCode(verifyOneTimeLoginCode: .init(code: code))
-                userCodeInPutSuccessClosure?()
+                let status = try await UserControllerAPI.verifyCodeMobileUser(verifyOneTimeLoginCode: .init(code: code))
+                switch status {
+                case "201":
+                    userCodeInPutSuccessClosure?()
+                case "400", "401", "403":
+                    userCodeInPutErrorClosure?("Failed", "Failed")
+                default:
+                    break
+                }
             } catch {
                 let error = EduIdError.from(error)
                 userCodeInPutErrorClosure?(error.title, error.message)

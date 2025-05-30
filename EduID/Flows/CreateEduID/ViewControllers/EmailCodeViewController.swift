@@ -29,7 +29,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     private enum ViewConstants {
         static let topAnchorConstant: CGFloat = 60
         static let sidePaddingConstant: CGFloat = 24
-        static let numberOfFields = 5
+        static let numberOfFields = 6
         static let containerSpacing: CGFloat = 12
         static let containerCornerRadius: CGFloat = 8
         static let containerBorderWidth: CGFloat = 1.0
@@ -50,6 +50,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         
         viewModel.resendCodeSuccessClosure = { [weak self] in
             guard let self else { return }
+            
         }
         
         
@@ -126,7 +127,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             textField.delegate = self
             textField.textAlignment = .center
             textField.font = UIFont.systemFont(ofSize: 27)
-            textField.keyboardType = .asciiCapable
+            textField.keyboardType = .numberPad
             textField.autocorrectionType = .no
             textField.spellCheckingType = .no
             textField.autocapitalizationType = .allCharacters
@@ -211,11 +212,9 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
                 textFields[currentIndex + 1].becomeFirstResponder()
                 highlightActiveField(index: currentIndex + 1)
             } else {
-                if code.trimmingCharacters(in: .whitespaces).count >= 5 {
+                if code.trimmingCharacters(in: .whitespaces).count >= 6 {
                     textField.resignFirstResponder()
                     viewModel.userCodeInPut(code)
-                } else {
-                    // Maybe show an aler
                 }
             }
         }
