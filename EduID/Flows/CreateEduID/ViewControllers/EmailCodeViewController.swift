@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import TinyConstraints
 import Combine
 
 protocol EmailLoginCodeTextFieldDelegate: AnyObject {
@@ -27,7 +28,7 @@ class EmailLoginCodeTextFieldTextField: UITextField {
 class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     
     private enum ViewConstants {
-        static let topAnchorConstant: CGFloat = 60
+        static let topAnchorConstant: CGFloat = 150
         static let sidePaddingConstant: CGFloat = 24
         static let numberOfFields = 6
         static let containerSpacing: CGFloat = 12
@@ -52,25 +53,25 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         
         viewModel.resendCodeSuccessClosure = { [weak self] in
             guard let self else { return }
-            
+            self.showAlert(title: "title", message: "message")
         }
         
         
         viewModel.resendCodeErrorClosure = { [weak self] title, message in
             guard let self else { return }
+            self.showAlert(title: title, message: message)
         }
         
         viewModel.userCodeInPutSuccessClosure = { [weak self] url in
             guard let self else { return }
             DispatchQueue.main.async {
-                if let navigationController = self.navigationController {
-                    UserDefaults.standard.set(url?.absoluteString, forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
-                    self.createEduIDViewControllerDelegate?.createEduIDViewControllerShowNextScreen(viewController: self)
-                }
+                UserDefaults.standard.set(url?.absoluteString, forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+                self.createEduIDViewControllerDelegate?.createEduIDViewControllerShowNextScreen(viewController: self)
             }
         }
         viewModel.userCodeInPutErrorClosure = { [weak self] title, message in
             guard let self else { return }
+            self.showAlert(title: title, message: message)
         }
         
     }
@@ -89,46 +90,48 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     
     private func setupUI() {
         view.subviews.forEach { $0.removeFromSuperview() }
-        
-        let spacer: UIView = .init()
+
+        let spacer = UIView()
         let posterLabel = UILabel.posterTextLabel(text: L.MagicLink.Header.localization, size: 24)
-        let description: UILabel = .subtitleLabel(text: L.LoginCode.Info.localization.components(separatedBy: "<").first ?? "")
-        let emailLabel: UILabel = .subtitleLabel(text: viewModel.email ?? "", partBold: viewModel.email)
-        
+        let description = UILabel.subtitleLabel(text: L.LoginCode.Info.localization.components(separatedBy: "<").first ?? "")
+        let emailLabel = UILabel.subtitleLabel(text: viewModel.email ?? "", partBold: viewModel.email)
+
         let stackView = UIStackView(arrangedSubviews: [spacer,
                                                        posterLabel,
                                                        description,
                                                        emailLabel])
         stackView.axis = .vertical
         stackView.spacing = 20
-        stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.setCustomSpacing(.zero, after: description)
+        stackView.setCustomSpacing(0, after: description)
         view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Code stack view with containers
-        let codeStackViewContainerView = UIView()
-        codeStackViewContainerView.backgroundColor = .clear
-        codeStackViewContainerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let codeStackView: UIStackView = .init(frame: .init(origin: .zero, size: ViewConstants.textfieldContainerSize))
-        codeStackView.axis = .horizontal
-        codeStackView.spacing = ViewConstants.containerSpacing
-        codeStackView.distribution = .fillEqually
-        codeStackView.alignment = .center
-        codeStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        stackView.topToSuperview(offset: ViewConstants.topAnchorConstant)
+        stackView.leadingToSuperview(offset: ViewConstants.sidePaddingConstant)
+        stackView.trailingToSuperview(offset: ViewConstants.sidePaddingConstant)
+
+        let codeContainer = UIView()
+        codeContainer.backgroundColor = .clear
+        stackView.addArrangedSubview(codeContainer)
+        codeContainer.height(ViewConstants.textfieldContainerSize.height)
+        codeContainer.centerXToSuperview()
+
+        let codeStack = UIStackView()
+        codeStack.axis = .horizontal
+        codeStack.distribution = .fillEqually
+        codeStack.spacing = ViewConstants.containerSpacing
+        codeContainer.addSubview(codeStack)
+        codeStack.edgesToSuperview()
+
         for i in 0..<ViewConstants.numberOfFields {
-            // Container setup
             let container = UIView()
             container.layer.cornerRadius = ViewConstants.containerCornerRadius
             container.layer.borderWidth = ViewConstants.containerBorderWidth
             container.layer.borderColor = UIColor.gray.cgColor
-            container.translatesAutoresizingMaskIntoConstraints = false
-            container.heightAnchor.constraint(equalTo: container.widthAnchor).isActive = true
+            codeStack.addArrangedSubview(container)
+            container.width(ViewConstants.textfieldContainerSize.width)
+            container.height(container.frame.width)
             
-            // Text field setup
             let textField = EmailLoginCodeTextFieldTextField()
             textField.delegate = self
             textField.textAlignment = .center
@@ -141,71 +144,20 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
             textField.tag = i
             textField.backspaceDelegate = self
-            
-            // Add text field to container
+
             container.addSubview(textField)
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                container.widthAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.width),
-                container.heightAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.height),
-                textField.topAnchor.constraint(equalTo: container.topAnchor),
-                textField.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-                textField.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-                textField.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-            ])
-            
-            codeStackView.addArrangedSubview(container)
-            textFieldContainers.append(container)
-            textFields.append(textField)
+            textField.edgesToSuperview()
         }
-        
-        // Resend code labels
-        let resendContainerView = UIView()
-        resendContainerView.translatesAutoresizingMaskIntoConstraints = false
 
-        let problemsLabel = UILabel()
-        problemsLabel.text = L.LoginCode.Resend.localization
-        problemsLabel.font = UIFont.sourceSansProRegular(size: 16)
-        problemsLabel.textColor = UIColor.darkGray
-
-        let resendTheCode = UILabel()
-        resendTheCode.attributedText = NSAttributedString(
-            string: L.LoginCode.ResendLink.localization,
-            attributes: [
-                .font: UIFont.sourceSansProRegular(size: 16),
-                .foregroundColor: UIColor.backgroundColor,
-                .underlineStyle: NSUnderlineStyle.single.rawValue,
-                .underlineColor: UIColor.backgroundColor
-            ]
-        )
-        resendTheCode.isUserInteractionEnabled = true
-        resendTheCode.addGestureRecognizer(gestureRecognizerForResendTheCode())
-
-        let resendStackView = UIStackView(arrangedSubviews: [problemsLabel, resendTheCode])
-        resendStackView.axis = .horizontal
-        resendStackView.alignment = .center
-        resendStackView.spacing = 2
-        resendStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        resendContainerView.addSubview(resendStackView)
-        codeStackViewContainerView.addSubview(codeStackView)
-        stackView.addArrangedSubview(codeStackViewContainerView)
-        stackView.addArrangedSubview(resendContainerView)
-        
-        NSLayoutConstraint.activate([
-            resendStackView.centerXAnchor.constraint(equalTo: resendContainerView.centerXAnchor),
-            resendStackView.centerYAnchor.constraint(equalTo: resendContainerView.centerYAnchor),
-            codeStackViewContainerView.heightAnchor.constraint(equalToConstant: ViewConstants.textfieldContainerSize.height),
-            resendContainerView.heightAnchor.constraint(equalToConstant: 30),
-            codeStackViewContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            codeStackView.centerXAnchor.constraint(equalTo: codeStackViewContainerView.centerXAnchor),
-            resendContainerView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: ViewConstants.topAnchorConstant),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ViewConstants.sidePaddingConstant),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -ViewConstants.sidePaddingConstant)
-        ])
+        let resendLabel: EduIDLinkLabel = .init()
+        resendLabel.set(normalText: L.LoginCode.Resend.localization,
+                        linkText: L.LoginCode.ResendLink.localization) { [weak self] in
+            guard let self else { return }
+            self.resendAction()
+        }
+        stackView.addArrangedSubview(resendLabel)
     }
-    
+
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard let text = textField.text else { return }
         if text.count > 1 {
@@ -237,7 +189,6 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         }
     }
     
-    // Resend code related
     private func gestureRecognizerForResendTheCode() -> UITapGestureRecognizer {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resendAction))
         gestureRecognizer.cancelsTouchesInView = false
@@ -268,6 +219,12 @@ extension EmailLoginCodeViewController: UITextFieldDelegate {
             return true
         }
         return false
+    }
+}
+
+extension EmailLoginCodeViewController {
+    private func showAlert(title: String, message: String) {
+        
     }
 }
 

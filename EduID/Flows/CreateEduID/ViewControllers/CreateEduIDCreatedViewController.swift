@@ -67,6 +67,9 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         let url = URL(string: registrationUrlString ?? "")
         AppAuthController.shared.registrationUrl = url
         AppAuthController.shared.authorize(navigationController: navigationController) { [weak self] in
+            UserDefaults.standard.removeObject(forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+            UserDefaults.standard.removeObject(forKey: CreateEduIDEnterPersonalInfoViewModel.createEduIDResponseKeyUserDefaults)
+            UserDefaults.standard.removeObject(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
             self?.showNextScreen()
         }
     }

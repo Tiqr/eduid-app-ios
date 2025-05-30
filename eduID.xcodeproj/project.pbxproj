@@ -217,6 +217,7 @@
 		739FCE162D6EEE630051CD8B /* OpenAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 739FCE152D6EEE630051CD8B /* OpenAPIClient */; };
 		73A111A02A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */; };
 		73A111A22A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */; };
+		73D87ABF2DE9B45E00AA9997 /* EduIDLinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D87ABE2DE9B45E00AA9997 /* EduIDLinkLabel.swift */; };
 		73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */; };
 		73FD4FCC2D93D68500CE0369 /* String+Extension+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD4FCB2D93D68500CE0369 /* String+Extension+AttributedString.swift */; };
 		8C5ACEDCBC230E4EF54734AC /* VerifyWithIdVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF06711C6F50A5F74AEEFE /* VerifyWithIdVerificationCodeViewModel.swift */; };
@@ -500,6 +501,7 @@
 		73910F9C2A3C8299003A40BD /* EduIDPinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDPinField.swift; sourceTree = "<group>"; };
 		73A1119F2A6147F700F9D310 /* CreateEduIDRegistrationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewModel.swift; sourceTree = "<group>"; };
 		73A111A12A61480900F9D310 /* CreateEduIDRegistrationCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEduIDRegistrationCheckViewController.swift; sourceTree = "<group>"; };
+		73D87ABE2DE9B45E00AA9997 /* EduIDLinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduIDLinkLabel.swift; sourceTree = "<group>"; };
 		73DD92342A334FCC0065956E /* VerifyPinCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPinCodeViewController.swift; sourceTree = "<group>"; };
 		73FD4FCB2D93D68500CE0369 /* String+Extension+AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension+AttributedString.swift"; sourceTree = "<group>"; };
 		7A82F1C0C8982C134E294735 /* VerifyWithIdIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyWithIdIntroViewController.swift; sourceTree = "<group>"; };
@@ -807,6 +809,7 @@
 		4F909E7A2A31CDDC00FC1506 /* Styling */ = {
 			isa = PBXGroup;
 			children = (
+				73D87ABE2DE9B45E00AA9997 /* EduIDLinkLabel.swift */,
 				4F909E7B2A31CDDC00FC1506 /* UIView+Styling.swift */,
 				4F909E7C2A31CDDC00FC1506 /* UIFont+Styling.swift */,
 				4F909E7D2A31CDDC00FC1506 /* QRTransition */,
@@ -1599,6 +1602,7 @@
 				4F8E50B42CAC1CE20018D05E /* SelectBankOptionControl.swift in Sources */,
 				4F909EA42A31CDDC00FC1506 /* UIView+Styling.swift in Sources */,
 				4FF567C22A31D32E00616341 /* CreateEduIDEnterSMSViewModel.swift in Sources */,
+				73D87ABF2DE9B45E00AA9997 /* EduIDLinkLabel.swift in Sources */,
 				4FF567D42A31D32E00616341 /* CreateEduIDAddInstitutionViewController.swift in Sources */,
 				4FF567AB2A31D32E00616341 /* SecurityCoordinatorDelegate.swift in Sources */,
 				4FF567B12A31D32E00616341 /* ActivityItemControl.swift in Sources */,
