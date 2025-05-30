@@ -51,6 +51,7 @@ Class | Method | HTTP request | Description
 *TiqrControllerAPI* | [**startEnrollment**](docs/TiqrControllerAPI.md#startenrollment) | **GET** /mobile/tiqr/sp/start-enrollment | Start enrollment
 *UserControllerAPI* | [**confirmUpdateEmail**](docs/UserControllerAPI.md#confirmupdateemail) | **GET** /mobile/api/sp/confirm-email | Confirm email change
 *UserControllerAPI* | [**createEduIDAccount**](docs/UserControllerAPI.md#createeduidaccount) | **POST** /mobile/api/idp/create | Create eduID account
+*UserControllerAPI* | [**createEduIDAccountWithVerificationCode**](docs/UserControllerAPI.md#createeduidaccountwithverificationcode) | **POST** /mobile/api/idp/v2/create | Create eduID account with one-time verification code
 *UserControllerAPI* | [**createUserControlCode**](docs/UserControllerAPI.md#createusercontrolcode) | **POST** /mobile/api/sp/control-code | Create verification control code password link
 *UserControllerAPI* | [**deleteUser**](docs/UserControllerAPI.md#deleteuser) | **DELETE** /mobile/api/sp/delete | Delete
 *UserControllerAPI* | [**deleteUserControlCode**](docs/UserControllerAPI.md#deleteusercontrolcode) | **DELETE** /mobile/api/sp/control-code | Delete existing verification control code
@@ -67,6 +68,7 @@ Class | Method | HTTP request | Description
 *UserControllerAPI* | [**removeTokens**](docs/UserControllerAPI.md#removetokens) | **PUT** /mobile/api/sp/tokens | Remove user tokens
 *UserControllerAPI* | [**removeUserLinkedAccounts**](docs/UserControllerAPI.md#removeuserlinkedaccounts) | **PUT** /mobile/api/sp/institution | Remove linked account
 *UserControllerAPI* | [**removeUserService**](docs/UserControllerAPI.md#removeuserservice) | **PUT** /mobile/api/sp/service | Remove user service
+*UserControllerAPI* | [**resendCodeMailMobile**](docs/UserControllerAPI.md#resendcodemailmobile) | **GET** /mobile/api/idp/v2/resend_code_request | Re-send the one-time verification code
 *UserControllerAPI* | [**resendSpCodeMail**](docs/UserControllerAPI.md#resendspcodemail) | **GET** /mobile/api/sp/resend-email-code | Resend email change code
 *UserControllerAPI* | [**resendSpCodePassword**](docs/UserControllerAPI.md#resendspcodepassword) | **GET** /mobile/api/sp/resend-password-code | Resend password change code
 *UserControllerAPI* | [**resetPasswordHashValid**](docs/UserControllerAPI.md#resetpasswordhashvalid) | **GET** /mobile/api/sp/password-reset-hash-valid | Validate password hash
@@ -77,6 +79,7 @@ Class | Method | HTTP request | Description
 *UserControllerAPI* | [**updateUserPassword**](docs/UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
 *UserControllerAPI* | [**updateUserProfile**](docs/UserControllerAPI.md#updateuserprofile) | **PUT** /mobile/api/sp/update | Change names
 *UserControllerAPI* | [**verifyChangeEmailCode**](docs/UserControllerAPI.md#verifychangeemailcode) | **PUT** /mobile/api/sp/verify-email-code | Verify change email code
+*UserControllerAPI* | [**verifyCodeMobileUser**](docs/UserControllerAPI.md#verifycodemobileuser) | **PUT** /mobile/api/idp/v2/verify_code_request | Validate the one-time verification code
 *UserControllerAPI* | [**verifyPasswordResetCode**](docs/UserControllerAPI.md#verifypasswordresetcode) | **PUT** /mobile/api/sp/verify-password-code | Verify change password code
 
 
@@ -85,6 +88,7 @@ Class | Method | HTTP request | Description
  - [AuthorizationURL](docs/AuthorizationURL.md)
  - [ControlCode](docs/ControlCode.md)
  - [CreateAccount](docs/CreateAccount.md)
+ - [CreateEduIDResponse](docs/CreateEduIDResponse.md)
  - [DeactivateRequest](docs/DeactivateRequest.md)
  - [DeleteService](docs/DeleteService.md)
  - [DeleteServiceTokens](docs/DeleteServiceTokens.md)

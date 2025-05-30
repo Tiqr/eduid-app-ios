@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**confirmUpdateEmail**](UserControllerAPI.md#confirmupdateemail) | **GET** /mobile/api/sp/confirm-email | Confirm email change
 [**createEduIDAccount**](UserControllerAPI.md#createeduidaccount) | **POST** /mobile/api/idp/create | Create eduID account
+[**createEduIDAccountWithVerificationCode**](UserControllerAPI.md#createeduidaccountwithverificationcode) | **POST** /mobile/api/idp/v2/create | Create eduID account with one-time verification code
 [**createUserControlCode**](UserControllerAPI.md#createusercontrolcode) | **POST** /mobile/api/sp/control-code | Create verification control code password link
 [**deleteUser**](UserControllerAPI.md#deleteuser) | **DELETE** /mobile/api/sp/delete | Delete
 [**deleteUserControlCode**](UserControllerAPI.md#deleteusercontrolcode) | **DELETE** /mobile/api/sp/control-code | Delete existing verification control code
@@ -22,6 +23,7 @@ Method | HTTP request | Description
 [**removeTokens**](UserControllerAPI.md#removetokens) | **PUT** /mobile/api/sp/tokens | Remove user tokens
 [**removeUserLinkedAccounts**](UserControllerAPI.md#removeuserlinkedaccounts) | **PUT** /mobile/api/sp/institution | Remove linked account
 [**removeUserService**](UserControllerAPI.md#removeuserservice) | **PUT** /mobile/api/sp/service | Remove user service
+[**resendCodeMailMobile**](UserControllerAPI.md#resendcodemailmobile) | **GET** /mobile/api/idp/v2/resend_code_request | Re-send the one-time verification code
 [**resendSpCodeMail**](UserControllerAPI.md#resendspcodemail) | **GET** /mobile/api/sp/resend-email-code | Resend email change code
 [**resendSpCodePassword**](UserControllerAPI.md#resendspcodepassword) | **GET** /mobile/api/sp/resend-password-code | Resend password change code
 [**resetPasswordHashValid**](UserControllerAPI.md#resetpasswordhashvalid) | **GET** /mobile/api/sp/password-reset-hash-valid | Validate password hash
@@ -32,6 +34,7 @@ Method | HTTP request | Description
 [**updateUserPassword**](UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
 [**updateUserProfile**](UserControllerAPI.md#updateuserprofile) | **PUT** /mobile/api/sp/update | Change names
 [**verifyChangeEmailCode**](UserControllerAPI.md#verifychangeemailcode) | **PUT** /mobile/api/sp/verify-email-code | Verify change email code
+[**verifyCodeMobileUser**](UserControllerAPI.md#verifycodemobileuser) | **PUT** /mobile/api/idp/v2/verify_code_request | Validate the one-time verification code
 [**verifyPasswordResetCode**](UserControllerAPI.md#verifypasswordresetcode) | **PUT** /mobile/api/sp/verify-password-code | Verify change password code
 
 
@@ -125,6 +128,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createEduIDAccountWithVerificationCode**
+```swift
+    open class func createEduIDAccountWithVerificationCode(createAccount: CreateAccount, completion: @escaping (_ data: CreateEduIDResponse?, _ error: Error?) -> Void)
+```
+
+Create eduID account with one-time verification code
+
+Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>There is a one-time verification code in the email.<br/>Together with the hash returned in this endpoint, this code can be verified (and possible resend)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let createAccount = CreateAccount(email: "email_example", givenName: "givenName_example", familyName: "familyName_example", relyingPartClientId: "relyingPartClientId_example") // CreateAccount | 
+
+// Create eduID account with one-time verification code
+UserControllerAPI.createEduIDAccountWithVerificationCode(createAccount: createAccount) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createAccount** | [**CreateAccount**](CreateAccount.md) |  | 
+
+### Return type
+
+[**CreateEduIDResponse**](CreateEduIDResponse.md)
 
 ### Authorization
 
@@ -899,6 +952,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **resendCodeMailMobile**
+```swift
+    open class func resendCodeMailMobile(hash: String, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Re-send the one-time verification code
+
+Send the one-time verification code to the user, based on the hash<br/>returned in '/idp/v2/create'
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let hash = "hash_example" // String | 
+
+// Re-send the one-time verification code
+UserControllerAPI.resendCodeMailMobile(hash: hash) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hash** | **String** |  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **resendSpCodeMail**
 ```swift
     open class func resendSpCodeMail(completion: @escaping (_ data: String?, _ error: Error?) -> Void)
@@ -1373,6 +1476,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 **[String: String]**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verifyCodeMobileUser**
+```swift
+    open class func verifyCodeMobileUser(verifyOneTimeLoginCode: VerifyOneTimeLoginCode, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Validate the one-time verification code
+
+Validate the one-time verification code send to user in the email.<br/>Together with the validation code, also send the hash returned in '/idp/v2/create'<br/>If the response is 201, then finalize with this url: /mobile/api/create-from-mobile-api/in-app/h={hash}
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let verifyOneTimeLoginCode = VerifyOneTimeLoginCode(code: "code_example", authenticationRequestId: "authenticationRequestId_example", hash: "hash_example") // VerifyOneTimeLoginCode | 
+
+// Validate the one-time verification code
+UserControllerAPI.verifyCodeMobileUser(verifyOneTimeLoginCode: verifyOneTimeLoginCode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifyOneTimeLoginCode** | [**VerifyOneTimeLoginCode**](VerifyOneTimeLoginCode.md) |  | 
+
+### Return type
+
+**String**
 
 ### Authorization
 

@@ -15,23 +15,23 @@ public struct OneTimeLoginCode: Codable, JSONEncodable, Hashable {
     public var code: String?
     public var createdAt: Int64?
     public var delay: Int64?
-    public var expired: Bool?
     public var codeAlmostExpired: Bool?
+    public var expired: Bool?
 
-    public init(code: String? = nil, createdAt: Int64? = nil, delay: Int64? = nil, expired: Bool? = nil, codeAlmostExpired: Bool? = nil) {
+    public init(code: String? = nil, createdAt: Int64? = nil, delay: Int64? = nil, codeAlmostExpired: Bool? = nil, expired: Bool? = nil) {
         self.code = code
         self.createdAt = createdAt
         self.delay = delay
-        self.expired = expired
         self.codeAlmostExpired = codeAlmostExpired
+        self.expired = expired
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case code
         case createdAt
         case delay
-        case expired
         case codeAlmostExpired
+        case expired
     }
 
     // Encodable protocol methods
@@ -41,8 +41,8 @@ public struct OneTimeLoginCode: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(delay, forKey: .delay)
-        try container.encodeIfPresent(expired, forKey: .expired)
         try container.encodeIfPresent(codeAlmostExpired, forKey: .codeAlmostExpired)
+        try container.encodeIfPresent(expired, forKey: .expired)
     }
 }
 

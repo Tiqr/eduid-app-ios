@@ -35,9 +35,9 @@ Name | Type | Description | Notes
 **oneTimeLoginCode** | [**OneTimeLoginCode**](OneTimeLoginCode.md) |  | [optional] 
 **rateLimited** | **Bool** |  | [optional] 
 **derivedDateOfBirth** | **Date** |  | [optional] 
-**eduPersonPrincipalName** | **String** |  | [optional] 
 **derivedGivenName** | **String** |  | [optional] 
 **derivedFamilyName** | **String** |  | [optional] 
+**eduPersonPrincipalName** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

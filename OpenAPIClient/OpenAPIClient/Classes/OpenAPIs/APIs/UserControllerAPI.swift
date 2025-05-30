@@ -99,6 +99,45 @@ open class UserControllerAPI {
     }
 
     /**
+     Create eduID account with one-time verification code
+     
+     - parameter createAccount: (body)  
+     - returns: CreateEduIDResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func createEduIDAccountWithVerificationCode(createAccount: CreateAccount) async throws -> CreateEduIDResponse {
+        return try await createEduIDAccountWithVerificationCodeWithRequestBuilder(createAccount: createAccount).execute().body
+    }
+
+    /**
+     Create eduID account with one-time verification code
+     - POST /mobile/api/idp/v2/create
+     - Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>There is a one-time verification code in the email.<br/>Together with the hash returned in this endpoint, this code can be verified (and possible resend)
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter createAccount: (body)  
+     - returns: RequestBuilder<CreateEduIDResponse> 
+     */
+    open class func createEduIDAccountWithVerificationCodeWithRequestBuilder(createAccount: CreateAccount) -> RequestBuilder<CreateEduIDResponse> {
+        let localVariablePath = "/mobile/api/idp/v2/create"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createAccount)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CreateEduIDResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Create verification control code password link
      
      - parameter controlCode: (body)  
@@ -711,6 +750,48 @@ open class UserControllerAPI {
     }
 
     /**
+     Re-send the one-time verification code
+     
+     - parameter hash: (query)  
+     - returns: String
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func resendCodeMailMobile(hash: String) async throws -> String {
+        return try await resendCodeMailMobileWithRequestBuilder(hash: hash).execute().body
+    }
+
+    /**
+     Re-send the one-time verification code
+     - GET /mobile/api/idp/v2/resend_code_request
+     - Send the one-time verification code to the user, based on the hash<br/>returned in '/idp/v2/create'
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter hash: (query)  
+     - returns: RequestBuilder<String> 
+     */
+    open class func resendCodeMailMobileWithRequestBuilder(hash: String) -> RequestBuilder<String> {
+        let localVariablePath = "/mobile/api/idp/v2/resend_code_request"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "hash": (wrappedValue: hash.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Resend email change code
      
      - returns: String
@@ -1096,6 +1177,45 @@ open class UserControllerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<[String: String]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Validate the one-time verification code
+     
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: String
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func verifyCodeMobileUser(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) async throws -> String {
+        return try await verifyCodeMobileUserWithRequestBuilder(verifyOneTimeLoginCode: verifyOneTimeLoginCode).execute().body
+    }
+
+    /**
+     Validate the one-time verification code
+     - PUT /mobile/api/idp/v2/verify_code_request
+     - Validate the one-time verification code send to user in the email.<br/>Together with the validation code, also send the hash returned in '/idp/v2/create'<br/>If the response is 201, then finalize with this url: /mobile/api/create-from-mobile-api/in-app/h={hash}
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter verifyOneTimeLoginCode: (body)  
+     - returns: RequestBuilder<String> 
+     */
+    open class func verifyCodeMobileUserWithRequestBuilder(verifyOneTimeLoginCode: VerifyOneTimeLoginCode) -> RequestBuilder<String> {
+        let localVariablePath = "/mobile/api/idp/v2/verify_code_request"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: verifyOneTimeLoginCode)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

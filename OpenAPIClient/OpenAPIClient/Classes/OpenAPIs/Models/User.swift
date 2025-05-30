@@ -50,11 +50,11 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var oneTimeLoginCode: OneTimeLoginCode?
     public var rateLimited: Bool?
     public var derivedDateOfBirth: Date?
-    public var eduPersonPrincipalName: String?
     public var derivedGivenName: String?
     public var derivedFamilyName: String?
+    public var eduPersonPrincipalName: String?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, dateOfBirth: Int64? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: AnyCodable]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, lastLogin: Int64? = nil, nudgeAppMailSend: Bool? = nil, trackingUuid: String? = nil, userInactivity: UserInactivity? = nil, serviceDeskMember: Bool? = nil, controlCode: ControlCode? = nil, oneTimeLoginCode: OneTimeLoginCode? = nil, rateLimited: Bool? = nil, derivedDateOfBirth: Date? = nil, eduPersonPrincipalName: String? = nil, derivedGivenName: String? = nil, derivedFamilyName: String? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, givenName: String? = nil, familyName: String? = nil, dateOfBirth: Int64? = nil, uid: String? = nil, schacHomeOrganization: String? = nil, password: String? = nil, newUser: Bool? = nil, preferredLanguage: String? = nil, webAuthnIdentifier: String? = nil, userHandle: String? = nil, forgottenPassword: Bool? = nil, enrollmentVerificationKey: String? = nil, createFromInstitutionKey: String? = nil, attributes: [String: AnyCodable]? = nil, surfSecureId: [String: AnyCodable]? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, eduIDS: [EduID]? = nil, created: Int64? = nil, lastLogin: Int64? = nil, nudgeAppMailSend: Bool? = nil, trackingUuid: String? = nil, userInactivity: UserInactivity? = nil, serviceDeskMember: Bool? = nil, controlCode: ControlCode? = nil, oneTimeLoginCode: OneTimeLoginCode? = nil, rateLimited: Bool? = nil, derivedDateOfBirth: Date? = nil, derivedGivenName: String? = nil, derivedFamilyName: String? = nil, eduPersonPrincipalName: String? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName
@@ -87,9 +87,9 @@ public struct User: Codable, JSONEncodable, Hashable {
         self.oneTimeLoginCode = oneTimeLoginCode
         self.rateLimited = rateLimited
         self.derivedDateOfBirth = derivedDateOfBirth
-        self.eduPersonPrincipalName = eduPersonPrincipalName
         self.derivedGivenName = derivedGivenName
         self.derivedFamilyName = derivedFamilyName
+        self.eduPersonPrincipalName = eduPersonPrincipalName
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -125,9 +125,9 @@ public struct User: Codable, JSONEncodable, Hashable {
         case oneTimeLoginCode
         case rateLimited
         case derivedDateOfBirth
-        case eduPersonPrincipalName
         case derivedGivenName
         case derivedFamilyName
+        case eduPersonPrincipalName
     }
 
     // Encodable protocol methods
@@ -166,9 +166,9 @@ public struct User: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(oneTimeLoginCode, forKey: .oneTimeLoginCode)
         try container.encodeIfPresent(rateLimited, forKey: .rateLimited)
         try container.encodeIfPresent(derivedDateOfBirth, forKey: .derivedDateOfBirth)
-        try container.encodeIfPresent(eduPersonPrincipalName, forKey: .eduPersonPrincipalName)
         try container.encodeIfPresent(derivedGivenName, forKey: .derivedGivenName)
         try container.encodeIfPresent(derivedFamilyName, forKey: .derivedFamilyName)
+        try container.encodeIfPresent(eduPersonPrincipalName, forKey: .eduPersonPrincipalName)
     }
 }
 

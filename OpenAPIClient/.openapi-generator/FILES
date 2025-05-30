@@ -18,6 +18,7 @@ OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AuthorizationURL.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ControlCode.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateAccount.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CreateEduIDResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeactivateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteService.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DeleteServiceTokens.swift
@@ -66,6 +67,7 @@ docs/AccountLinkerControllerAPI.md
 docs/AuthorizationURL.md
 docs/ControlCode.md
 docs/CreateAccount.md
+docs/CreateEduIDResponse.md
 docs/DeactivateRequest.md
 docs/DeleteService.md
 docs/DeleteServiceTokens.md
