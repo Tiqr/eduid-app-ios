@@ -22,7 +22,7 @@ class EmailCodeViewModel: NSObject {
     
     var resendCodeSuccessClosure: (() -> Void)?
     var resendCodeErrorClosure: ((String, String ) -> Void)?
-    var userCodeInPutSuccessClosure: (() -> Void)?
+    var userCodeInPutSuccessClosure: ((URL?) -> Void)?
     var userCodeInPutErrorClosure: ((String, String ) -> Void)?
     
     override init() {
@@ -45,14 +45,13 @@ class EmailCodeViewModel: NSObject {
     func userCodeInPut(_ code: String) {
         Task {
             do {
-                let status = try await UserControllerAPI.verifyCodeMobileUser(verifyOneTimeLoginCode: .init(code: code))
-                switch status {
-                case "201":
-                    userCodeInPutSuccessClosure?()
-                case "400", "401", "403":
-                    userCodeInPutErrorClosure?("Failed", "Failed")
-                default:
-                    break
+                struct VerifyCodeMobileUserResponse: Codable {
+                    let url: URL
+                }
+                if let data = try await UserControllerAPI.verifyCodeMobileUser(verifyOneTimeLoginCode: .init(code: code, hash: createEduIDResponseHash)).data(using: .utf8) {
+                    let response = try JSONDecoder().decode(VerifyCodeMobileUserResponse.self, from: data)
+                    let url = response.url
+                    userCodeInPutSuccessClosure?(url)
                 }
             } catch {
                 let error = EduIdError.from(error)

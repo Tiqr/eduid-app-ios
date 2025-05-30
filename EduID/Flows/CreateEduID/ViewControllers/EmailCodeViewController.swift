@@ -43,6 +43,8 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     }
     
     private let viewModel: EmailCodeViewModel
+    weak var createEduIDViewControllerDelegate: CreateEduIDViewControllerDelegate?
+    public static let registrationUrlUserDefaultsKey: String = "registrationUrl"
     
     init(viewModel: EmailCodeViewModel) {
         self.viewModel = viewModel
@@ -58,11 +60,15 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             guard let self else { return }
         }
         
-        viewModel.userCodeInPutSuccessClosure = { [weak self] in
+        viewModel.userCodeInPutSuccessClosure = { [weak self] url in
             guard let self else { return }
+            DispatchQueue.main.async {
+                if let navigationController = self.navigationController {
+                    UserDefaults.standard.set(url?.absoluteString, forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+                    self.createEduIDViewControllerDelegate?.createEduIDViewControllerShowNextScreen(viewController: self)
+                }
+            }
         }
-        
-        
         viewModel.userCodeInPutErrorClosure = { [weak self] title, message in
             guard let self else { return }
         }

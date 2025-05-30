@@ -63,6 +63,9 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
             assertionFailure("Navigation controller could not be found!")
             return
         }
+        let registrationUrlString = UserDefaults.standard.string(forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+        let url = URL(string: registrationUrlString ?? "")
+        AppAuthController.shared.registrationUrl = url
         AppAuthController.shared.authorize(navigationController: navigationController) { [weak self] in
             self?.showNextScreen()
         }
