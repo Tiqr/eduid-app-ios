@@ -208,7 +208,18 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
 }
 
 extension EmailLoginCodeViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string.count > 1 {
+            let pasted = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard pasted.count == ViewConstants.numberOfFields, CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: pasted)) else {
+                return false
+            }
+            
+            fillAllFields(with: pasted)
+            return false
+        }
         return string.count <= 1
     }
     
@@ -246,6 +257,20 @@ extension EmailLoginCodeViewController: EmailLoginCodeTextFieldDelegate {
             previous.text = ""
             previous.becomeFirstResponder()
             highlightActiveField(index: currentIndex - 1)
+        }
+    }
+}
+
+extension EmailLoginCodeViewController {
+    private func fillAllFields(with code: String) {
+        let digits = Array(code)
+        for (index, textField) in textFields.enumerated() {
+            textField.text = index < digits.count ? String(digits[index]) : ""
+        }
+        highlightActiveField(index: min(digits.count, textFields.count) - 1)
+        if digits.count == ViewConstants.numberOfFields {
+            viewModel.userCodeInPut(code)
+            textFields.last?.resignFirstResponder()
         }
     }
 }
