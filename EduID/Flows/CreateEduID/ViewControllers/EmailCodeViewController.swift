@@ -31,6 +31,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         static let topAnchorConstant: CGFloat = 150
         static let sidePaddingConstant: CGFloat = 24
         static let numberOfFields = 6
+        static let secondsToWait = 30
         static let containerSpacing: CGFloat = 12
         static let containerCornerRadius: CGFloat = 8
         static let containerBorderWidth: CGFloat = 1.0
@@ -42,6 +43,11 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
     private var code: String {
         return textFields.compactMap { $0.text }.joined()
     }
+    
+    private var stackView: UIStackView?
+    
+    private var timer: Timer?
+    private var seconds: Int = .zero
     
     private let viewModel: EmailCodeViewModel
     weak var createEduIDViewControllerDelegate: CreateEduIDViewControllerDelegate?
@@ -84,8 +90,37 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         screenType = .emailLoginCodeScreen
         NotificationCenter.default.addObserver(self, selector: #selector(showNextScreen), name: .createEduIDDidReturnFromMagicLink, object: nil)
         setupUI()
+        setupTimer()
     }
     
+    private func setupTimer() {
+        timer = .scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        if seconds < ViewConstants.secondsToWait {
+            seconds += 1
+        } else {
+            timer?.invalidate()
+            setupResendLabel()
+        }
+    }
+    
+    private func setupResendLabel() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self, let stackView else { return }
+            let resendLabel: EduIDLinkLabel = .init()
+            resendLabel.alpha = 0
+            resendLabel.set(normalText: L.LoginCode.Resend.localization,
+                            linkText: L.LoginCode.ResendLink.localization) {
+                self.resendAction()
+            }
+            stackView.addArrangedSubview(resendLabel)
+            UIView.animate(withDuration: 0.5) {
+                resendLabel.alpha = 1.0
+            }
+        }
+    }
     
     private func setupUI() {
         view.subviews.forEach { $0.removeFromSuperview() }
@@ -95,10 +130,11 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         let description = UILabel.subtitleLabel(text: L.LoginCode.Info.localization.components(separatedBy: "<").first ?? "")
         let emailLabel = UILabel.subtitleLabel(text: viewModel.email ?? "", partBold: viewModel.email)
 
-        let stackView = UIStackView(arrangedSubviews: [spacer,
+        stackView = UIStackView(arrangedSubviews: [spacer,
                                                        posterLabel,
                                                        description,
                                                        emailLabel])
+        guard let stackView else { return }
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.alignment = .leading
@@ -150,14 +186,6 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             textFields.append(textField)
             textFieldContainers.append(container)
         }
-
-        let resendLabel: EduIDLinkLabel = .init()
-        resendLabel.set(normalText: L.LoginCode.Resend.localization,
-                        linkText: L.LoginCode.ResendLink.localization) { [weak self] in
-            guard let self else { return }
-            self.resendAction()
-        }
-        stackView.addArrangedSubview(resendLabel)
         
         if let firstTextField = textFields.first {
             firstTextField.becomeFirstResponder()
@@ -208,7 +236,18 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
 }
 
 extension EmailLoginCodeViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string.count > 1 {
+            let pasted = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard pasted.count == ViewConstants.numberOfFields, CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: pasted)) else {
+                return false
+            }
+            
+            fillAllFields(with: pasted)
+            return false
+        }
         return string.count <= 1
     }
     
@@ -246,6 +285,20 @@ extension EmailLoginCodeViewController: EmailLoginCodeTextFieldDelegate {
             previous.text = ""
             previous.becomeFirstResponder()
             highlightActiveField(index: currentIndex - 1)
+        }
+    }
+}
+
+extension EmailLoginCodeViewController {
+    private func fillAllFields(with code: String) {
+        let digits = Array(code)
+        for (index, textField) in textFields.enumerated() {
+            textField.text = index < digits.count ? String(digits[index]) : ""
+        }
+        highlightActiveField(index: min(digits.count, textFields.count) - 1)
+        if digits.count == ViewConstants.numberOfFields {
+            viewModel.userCodeInPut(code)
+            textFields.last?.resignFirstResponder()
         }
     }
 }
