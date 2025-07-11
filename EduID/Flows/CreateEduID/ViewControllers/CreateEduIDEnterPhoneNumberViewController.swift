@@ -10,7 +10,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     // - phone textfield
     let validatedPhoneTextField = TextFieldViewWithValidationAndTitle(title: L.CreateEduID.EnterPhoneNumber.PhoneFieldTitle.localization,
                                                                       placeholder: L.CreateEduID.EnterPhoneNumber.PhoneFieldPlaceholder.localization,
-                                                                      field: .phone, keyboardType: .numberPad)
+                                                                      field: .phone, keyboardType: .phonePad)
     
     // - verify button
     let verifyButton = EduIDButton(type: .primary, buttonTitle: L.CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.localization)
@@ -87,6 +87,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textViewParent.addSubview(textLabel)
         textLabel.edges(to: textViewParent)
         textLabel.sizeToFit()
+        
         
         // - Space
         spaceView = UIView()
