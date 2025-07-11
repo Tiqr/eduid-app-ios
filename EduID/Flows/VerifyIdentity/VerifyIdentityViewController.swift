@@ -212,6 +212,12 @@ class VerifyIdentityViewController: BaseViewController {
                 verifyWithBankingApp.widthToSuperview(offset: -48)
                 verifyWithEuId.widthToSuperview(offset: -48)
                 supportLabel.widthToSuperview(offset: -48)
+            
+                let spacer = UIView()
+                spacer.height(30)
+                stack.addArrangedSubview(spacer)
+                
+                stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
             }
             
         } else if !viewModel.isLinkedAccount {

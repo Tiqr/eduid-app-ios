@@ -10,7 +10,6 @@ import UIKit
 
 class EnvironmentSwitcherController: UIViewController {
     
-    private var idSwitch: UISwitch!
     private var fallbackSwitch: UISwitch!
     
     required init?(coder: NSCoder) {
@@ -74,18 +73,7 @@ class EnvironmentSwitcherController: UIViewController {
         // Feature flags
         let featureFlagsTitle = UILabel.posterTextLabelBicolor(text: L.FeatureFlags.Title.localization, primary: "")
         stack.addArrangedSubview(featureFlagsTitle)
-        // Identity verification
-        idSwitch = UISwitch()
-        idSwitch.isOn = EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.identityVerification)
-        let idLabel = UILabel.plainTextLabelPartlyBold(text: L.FeatureFlags.IdentityVerification.localization)
-        let switchStack = UIStackView(arrangedSubviews: [idLabel, idSwitch])
-        switchStack.axis = .horizontal
-        switchStack.alignment = .center
-        let switchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleIdSwitch))
-        switchStack.addGestureRecognizer(switchStackGesture)
-        stack.addArrangedSubview(switchStack)
-        
-        
+
         // fallback
         fallbackSwitch = UISwitch()
         fallbackSwitch.isOn = EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback)
@@ -94,7 +82,6 @@ class EnvironmentSwitcherController: UIViewController {
         fallbackSwitchStack.axis = .horizontal
         fallbackSwitchStack.alignment = .center
         let fallbackSwitchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFallbackSwitch))
-        switchStack.addGestureRecognizer(fallbackSwitchStackGesture)
         stack.addArrangedSubview(fallbackSwitchStack)
         
         stack.setCustomSpacing(0, after: featureFlagsTitle)
@@ -104,18 +91,12 @@ class EnvironmentSwitcherController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.identityVerification, enabled: idSwitch.isOn)
         EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.fallback, enabled: fallbackSwitch.isOn)
     }
     
     @objc
     func dismissPopup() {
         self.dismiss(animated: true)
-    }
-    
-    @objc
-    func toggleIdSwitch() {
-        self.idSwitch.isOn = !self.idSwitch.isOn
     }
     
     @objc

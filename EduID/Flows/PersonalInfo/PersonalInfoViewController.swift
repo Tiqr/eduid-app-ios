@@ -131,7 +131,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
-
+        
         // - Main title
         let mainTitle = UILabel.posterTextLabelBicolor(text: L.Profile.Title.localization, size: 24, primary:  L.Profile.Title.localization)
         
@@ -249,7 +249,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             var hasVerifiedGivenName = false
             var hasVerifiedFamilyName = false
             var hasVerifiedBirthDate = false
-
+            
             // First name
             for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
                 if !hasVerifiedGivenName, let givenName = linkedAccount.givenName, givenName == model.userResponse.givenName  {
@@ -337,7 +337,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 lastNameControl.widthToSuperview(offset: -48)
                 lastNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
             }
-                
+            
             if let email = model.userResponse.email {
                 let contactDetailsHeader = UILabel()
                 let contactDetailsString = NSAttributedString(
@@ -427,7 +427,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             addInstitutionButton.addTarget(self, action: #selector(addInstitutionClicked), for: .touchUpInside)
             
             stack.addArrangedSubview(addInstitutionButton)
-                
+            
             let manageAccountContainer: UIView = .init()
             manageAccountContainer.backgroundColor = .disabledGrayBackground
             let manageAccountButton = EduIDButton(type: .ghost, buttonTitle: L.Profile.ManageYourAccount.localization)
@@ -471,9 +471,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func addInstitutionClicked() {
-        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification), let userResponse = viewModel.userResponse {
+        if let userResponse = viewModel.userResponse {
             delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
-        } else {
             self.addInstitutionButton.isEnabled = false
             self.addInstitutionButton.isLoading = true
             startLinkingInstitution()
@@ -483,7 +482,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     @objc func verifyIdentityClicked() {
         self.verifyIdentityLoadingIndicator?.startAnimating()
         self.verifyIdentityLoadingIndicator?.isHidden = false
-        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification), let userResponse = viewModel.userResponse {
+        if let userResponse = viewModel.userResponse {
             delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
         } else {
             startLinkingInstitution()
@@ -559,7 +558,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             self.verifyIdentityLoadingIndicator?.isHidden = true
         }
     }
-
+    
     @objc func manageAccountClicked() {
         guard let personalInfo = viewModel.userResponse else {
             return
@@ -592,7 +591,7 @@ extension PersonalInfoViewController {
         disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
         let disclaimerButtonContainer = UIView()
         disclaimerButtonContainer.size(CGSize(width: eduIDButtonWidth, height: 40))
-
+        
         let disclaimerButton = EduIDButton(type: .empty, buttonTitle: disclaimerButtonTitle, frame: CGRect(origin: .zero, size: CGSize(width: eduIDButtonWidth, height: 40)))
         disclaimerButtonContainer.addSubview(disclaimerButton)
         disclaimerButton.edgesToSuperview()
