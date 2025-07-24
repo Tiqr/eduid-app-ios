@@ -2,6 +2,10 @@ import UIKit
 import TinyConstraints
 
 class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, ValidatedTextFieldDelegate {
+    
+    static var emailKeyUserDefaults = "emailKeyUserDefaults"
+    
+    private var viewModel: SecurityEnterEmailViewModel = .init()
 
     // - screen type
     var screenType: ScreenType = .enterEmail
@@ -123,6 +127,10 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
     
     @objc
     func verifyEmail() {
+        if let email = validatedEmailTextField.textField.text {
+            viewModel.requestChange(email: email)
+        }
+        UserDefaults.standard.set(validatedEmailTextField.textField.text, forKey: SecurityEnterEmailViewController.emailKeyUserDefaults)
         delegate?.securityViewController(viewController: self, verify: "")
     }
 
