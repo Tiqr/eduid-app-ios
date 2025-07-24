@@ -39,7 +39,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     //MARK: - verify email flow
     
     func securityViewController(viewController: UIViewController, verify email: String) {
-        let checkEmailViewController = CheckEmailViewController()
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(changeEmailFlow: true))
         checkEmailViewController.delegate = self
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }

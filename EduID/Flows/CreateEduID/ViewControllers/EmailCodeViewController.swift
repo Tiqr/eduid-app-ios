@@ -67,6 +67,13 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             self.showAlert(title: title, message: message)
         }
         
+        viewModel.userEmailChangeSuccessClosure = { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        
         viewModel.userCodeInPutSuccessClosure = { [weak self] url in
             guard let self else { return }
             DispatchQueue.main.async {
