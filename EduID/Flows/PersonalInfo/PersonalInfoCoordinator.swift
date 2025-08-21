@@ -221,7 +221,7 @@ extension PersonalInfoCoordinator: WebViewControllerDelegate {
 extension PersonalInfoCoordinator: SecurityViewControllerDelegate {
     
     func securityViewController(viewController: UIViewController, verify email: String) {
-        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(changeEmailFlow: true))
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(emailCodeFlow: .changeEmail))
         checkEmailViewController.delegate = self
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }

@@ -16,8 +16,8 @@ class PasswordResetLinkViewModel {
         self.personalInfo = personalInfo
     }
     
-    func requestPasswordResetLink() async throws -> UserResponse {
-        return try await UserControllerAPI.resetPasswordLink()
+    func generatePasswordCode() async throws -> UserResponse {
+        return try await UserControllerAPI.generatePasswordCode()
     }
     
 }
