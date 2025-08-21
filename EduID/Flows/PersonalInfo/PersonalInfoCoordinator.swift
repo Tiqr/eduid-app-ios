@@ -33,9 +33,9 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
     }
     
     func goToEmailEditor(viewController: UIViewController) {
-        let emailEditorViewController = EmailEditorViewController(viewModel: EmailEditorViewModel())
-        emailEditorViewController.delegate = self
-        navigationController!.pushViewController(emailEditorViewController, animated: true)
+        let emailViewController = SecurityEnterEmailViewController()
+        emailViewController.delegate = self
+        navigationController!.pushViewController(emailViewController, animated: true)
     }
     
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?) {
@@ -215,5 +215,14 @@ extension PersonalInfoCoordinator: WebViewControllerDelegate {
     func webViewControllerDidFinish(_ webViewController: WebViewController, with alreadyVerifyUsedEmail: String?) {
         let verifyAlreadyUsedViewController = VerifyAlreadyUsedViewController(email: alreadyVerifyUsedEmail)
         navigationController?.pushViewController(verifyAlreadyUsedViewController, animated: true)
+    }
+}
+
+extension PersonalInfoCoordinator: SecurityViewControllerDelegate {
+    
+    func securityViewController(viewController: UIViewController, verify email: String) {
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(changeEmailFlow: true))
+        checkEmailViewController.delegate = self
+        navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
 }
