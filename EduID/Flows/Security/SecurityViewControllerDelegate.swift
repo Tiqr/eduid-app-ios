@@ -20,6 +20,7 @@ protocol SecurityViewControllerDelegate: AnyObject, NavigationDelegate {
     func requestPasswordResetLink(viewController: UIViewController, personalInfo: UserResponse)
     func securityViewController(viewController: UIViewController, verify email: String)
     func securityViewController(viewController: UIViewController, reset password: String)
+    func goToEmailCodeScreen(viewController: UIViewController)
 }
 
 
@@ -37,4 +38,5 @@ extension SecurityViewControllerDelegate {
     func goToDeleteKeyConfirmationScreen(viewController: UIViewController, identity: Identity) { }
     func requestPasswordResetLink(viewController: UIViewController, personalInfo: UserResponse) { }
     func securityViewController(viewController: UIViewController, reset password: String) { }
+    func goToEmailCodeScreen(viewController: UIViewController) { }
 }

@@ -149,8 +149,10 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
             loadingIndicator.isHidden = false
             loadingIndicator.startAnimating()
             do {
-                _ = try await viewModel.requestPasswordResetLink()
-                delegate?.goToCheckEmail(viewController: self, email: viewModel.personalInfo.email)
+                let userResponse = try await viewModel.requestPasswordResetLink()
+                UserDefaults.standard.set(userResponse.email, forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
+                delegate?.goToEmailCodeScreen(viewController: self)
+                
             } catch {
                 let alert = UIAlertController(
                     title: L.Generic.RequestError.Title.localization,

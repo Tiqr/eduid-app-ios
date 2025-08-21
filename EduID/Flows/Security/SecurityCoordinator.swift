@@ -44,6 +44,12 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
+    func goToEmailCodeScreen(viewController: UIViewController) {
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(changeEmailFlow: true))
+        checkEmailViewController.delegate = self
+        navigationController?.pushViewController(checkEmailViewController, animated: true)
+    }
+    
     func goToVerifyEmailFlow(viewController: UIViewController) {
         let emailViewController = SecurityEnterEmailViewController()
         emailViewController.delegate = self
