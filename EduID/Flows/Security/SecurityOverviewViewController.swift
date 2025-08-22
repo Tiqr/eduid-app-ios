@@ -29,7 +29,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                         }
                         AppAuthController.shared.authorize(navigationController: navigationController)
                         self.dismiss(animated: false)
-                        self.refreshDelegate?.requestScreenRefresh(for: .security)
+                        self.refreshDelegate?.requestScreenRefresh(for: .security, screenRefreshWasRequested: true)
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
@@ -76,7 +76,6 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             }
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

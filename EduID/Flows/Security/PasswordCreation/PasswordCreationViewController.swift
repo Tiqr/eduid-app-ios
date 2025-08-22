@@ -8,7 +8,7 @@
 import UIKit
 import OpenAPIClient
 
-class PasswordCreationViewController: UIViewController {
+class PasswordCreationViewController: CreateEduIDBaseViewController {
     
     private var viewModel: PasswordCreationViewModel
     
@@ -96,14 +96,27 @@ class PasswordCreationViewController: UIViewController {
         NSLayoutConstraint.activate([
             setPasswordButton.widthAnchor.constraint(equalToConstant: 180),
             cancelButton.widthAnchor.constraint(equalToConstant: 120),
-            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
         ])
         
+        firstPasswordField.textField.delegate = self
+        secondPasswordField.textField.delegate = self
+        
+        addTapGestureToView()
     }
     
+    private func addTapGestureToView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func endEditing() {
+        view.endEditing(true)
+    }
     
     @objc func setNewPassword() {
         guard firstPasswordField.textField.text == secondPasswordField.textField.text else {
@@ -133,5 +146,15 @@ class PasswordCreationViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.present(alertController, animated: true)
         }
+    }
+    
+    override func goBack() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension PasswordCreationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        true
     }
 }

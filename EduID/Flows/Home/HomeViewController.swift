@@ -3,7 +3,7 @@ import TinyConstraints
 import KeychainSwift
 
 protocol RefreshChildScreenDelegate: AnyObject {
-    func requestScreenRefresh(for childScreen: HomeViewChildScreensType)
+    func requestScreenRefresh(for childScreen: HomeViewChildScreensType, screenRefreshWasRequested: Bool)
 }
 
 class HomeViewController: UIViewController, ScreenWithScreenType {
@@ -230,8 +230,8 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
 }
 
 extension HomeViewController: RefreshChildScreenDelegate {
-    func requestScreenRefresh(for childScreen: HomeViewChildScreensType) {
-        screenRefreshWasRequested = false
+    func requestScreenRefresh(for childScreen: HomeViewChildScreensType, screenRefreshWasRequested: Bool) {
+        self.screenRefreshWasRequested = screenRefreshWasRequested
         childScreenMode = childScreen
     }
 }

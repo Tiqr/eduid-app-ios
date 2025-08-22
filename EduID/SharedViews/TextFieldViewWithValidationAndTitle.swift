@@ -110,9 +110,9 @@ class TextFieldViewWithValidationAndTitle: UIStackView, UITextFieldDelegate {
         // - validationMessage
         if let validationType {
             validLabel.font = .sourceSansProSemiBold(size: 12)
-            validLabel.height(12)
             validLabel.textColor = .red
             validLabel.text = provideCorrectError(for: validationType)
+            validLabel.numberOfLines = 3
             validLabel.alpha = 0
             validLabel.clipsToBounds = false
             addArrangedSubview(validLabel)
