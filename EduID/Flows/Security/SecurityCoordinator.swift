@@ -92,8 +92,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     }
     
     func goToCheckEmail(viewController: UIViewController, email: String?) {
-        let checkEmailViewController = CheckEmailViewController()
-        checkEmailViewController.emailToCheck = email
+        let checkEmailViewController = CheckEmailViewController(emailToCheck: email)
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
