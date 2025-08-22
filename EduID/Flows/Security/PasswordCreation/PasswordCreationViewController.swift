@@ -25,12 +25,14 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
     private lazy var firstPasswordField: TextFieldViewWithValidationAndTitle = {
         let field: TextFieldViewWithValidationAndTitle = .init(title: L.Password.NewPassword.localization, placeholder: "", field: .password, keyboardType: .default)
         field.textField.isSecureTextEntry = true
+        field.textField.returnKeyType = .next
         return field
     }()
     
     private lazy var secondPasswordField: TextFieldViewWithValidationAndTitle = {
         let field: TextFieldViewWithValidationAndTitle = .init(title: L.Password.ConfirmPassword.localization, placeholder: "", field: .password, keyboardType: .default)
         field.textField.isSecureTextEntry = true
+        field.textField.returnKeyType = .done
         return field
     }()
     
@@ -68,6 +70,10 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.requesting = false
     }
     
     private func setupUI() {
@@ -155,6 +161,11 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
 
 extension PasswordCreationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        true
+        if textField === firstPasswordField.textField {
+            secondPasswordField.textField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }

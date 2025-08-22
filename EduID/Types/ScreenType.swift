@@ -204,7 +204,7 @@ enum ScreenType: Int, CaseIterable {
     func addLogoTo(item: UINavigationItem) {
         let logo = UIImageView(image: .eduIDLogo)
         logo.width(92)
-        logo.height(36)
+        logo.height(40)
         item.titleView = logo
     }
 }
