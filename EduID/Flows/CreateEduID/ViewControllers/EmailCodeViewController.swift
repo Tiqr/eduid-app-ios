@@ -87,14 +87,14 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
             self.showAlert(title: title, message: message)
         }
         
-        viewModel.addPasswordSuccessClosure = { [weak self] in
+        viewModel.addPasswordSuccessClosure = { [weak self] hash in
             guard let self else { return }
-            // TODO: Move to next screen
+            self.createEduIDViewControllerDelegate?.goToAddPasswordScreen(hash: hash)
         }
         
         viewModel.resendAddPasswordSuccessClosure = { [weak self] in
             guard let self else { return }
-            
+            self.showAlert(message: L.LogInWithEmailCode.CodeHasBeenResent.localization)
         }
         
     }

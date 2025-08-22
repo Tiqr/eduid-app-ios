@@ -32,7 +32,7 @@ class EmailCodeViewModel: NSObject {
     var userCodeInPutSuccessClosure: ((URL?) -> Void)?
     var userEmailChangeSuccessClosure: (() -> Void)?
     var userCodeInPutErrorClosure: ((String, String ) -> Void)?
-    var addPasswordSuccessClosure: (() -> Void)?
+    var addPasswordSuccessClosure: ((String) -> Void)?
     var resendAddPasswordSuccessClosure: (() -> Void)?
     
     init(emailCodeFlow: EmailCodeFlow = .unknown) {
@@ -105,7 +105,7 @@ class EmailCodeViewModel: NSObject {
     private func addPassword(with code: String) async throws {
         let result = try await UserControllerAPI.verifyPasswordResetCode(verifyOneTimeLoginCode: .init(code: code))
         if let hash = result["hash"] {
-            addPasswordSuccessClosure?()
+            addPasswordSuccessClosure?(hash)
         }
     }
 }
