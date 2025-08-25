@@ -1,8 +1,8 @@
 "About.Info.COPY" = "App-informatie";
 "Sidebar.Home.COPY" = "Home";
-"Sidebar.PersonalInfo.COPY" = "Persoonlijke info";
-"Sidebar.DataActivity.COPY" = "Data & activiteit";
-"Sidebar.Security.COPY" = "Beveiling";
+"Sidebar.PersonalInfo.COPY" = "Je gegevens";
+"Sidebar.DataActivity.COPY" = "Activiteit";
+"Sidebar.Security.COPY" = "Veiligheid";
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hoi %1$@!";
 "Start.Manage.COPY" = "Beheer je persoonlijke gegevens, privacy en de beveiliging van je eduID.";
@@ -204,7 +204,7 @@ bestaande inschrijving
 "Security.ProvidedBy.COPY" = "Gedeeld door";
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";
 "Security.NotSupported.COPY" = "Niet ondersteund";
-"Security.UseMagicLink.COPY" = "Link via e-mail";
+"Security.UseMagicLink.COPY" = "Verificatie-code e-mail";
 "Security.UseCode.COPY" = "Verificatie-code e-mail";
 "Security.AddSecurityKeyInfo.COPY" = "Je kunt een passkey toevoegen aan je eduID om in te loggen.
  Dit kan bijv. de ingebouwde sensor van je apparaat
@@ -276,8 +276,8 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeleteKey.Button.Cancel.COPY" = "Nee, ga terug";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
-"Home.DataAndActivity.COPY" = "Data & activiteit";
-"Home.Personal.COPY" = "Persoonlijke info";
+"Home.DataAndActivity.COPY" = "Activiteit";
+"Home.Personal.COPY" = "Je gegevens";
 "Home.Security.COPY" = "Beveiliging";
 "Home.Account.COPY" = "Account";
 "Home.Institutions.COPY" = "Koppelingen";
@@ -553,7 +553,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Login.UseCode.COPY" = "E-mail een login code";
 "Login.UsePassword.COPY" = "typ een wachtwoord";
 "Login.UsePasswordNoWebAuthn.COPY" = "Typ een wachtwoord";
-"Login.UseMagicLink.COPY" = "Gebruik magische link";
+"Login.UseMagicLink.COPY" = "Verificatie-code e-mail";
 "Login.UseMagicLinkNoWebAuthn.COPY" = "Gebruik magische link.";
 "Login.UseWebAuth.COPY" = "Log in in met een beveiligingssleutel";
 "Login.UseOr.COPY" = " of ";
