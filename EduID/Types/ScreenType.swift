@@ -33,7 +33,6 @@ enum ScreenType: Int, CaseIterable {
     
     // personal info screens
     case personalInfoLandingScreen
-    case personalInfoEditEmailScreen
     case personalInfoNameUpdatedScreen
     case personalInfoNameEditorScreen
     case personalInfoYourVerifiedInformationScreen
@@ -143,8 +142,6 @@ enum ScreenType: Int, CaseIterable {
             return ScanViewController(viewModel: ScanViewModel())
         case .personalInfoLandingScreen:
             return PersonalInfoViewController(viewModel: PersonalInfoViewModel(false))
-        case .personalInfoEditEmailScreen:
-            return EmailEditorViewController(viewModel: EmailEditorViewModel())
         case .firstTimeDialogScreen:
             return CreateEduIDFirstTimeDialogViewController(viewModel: CreateEduIDFirstTimeDialogViewViewModel())
         case .securityOverviewScreen:
@@ -207,7 +204,7 @@ enum ScreenType: Int, CaseIterable {
     func addLogoTo(item: UINavigationItem) {
         let logo = UIImageView(image: .eduIDLogo)
         logo.width(92)
-        logo.height(36)
+        logo.height(40)
         item.titleView = logo
     }
 }

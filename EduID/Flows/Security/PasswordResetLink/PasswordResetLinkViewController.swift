@@ -76,17 +76,18 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissInfoScreen))
         
         let titleString: String
-        let subtitleString: String
+        let subTitle: UILabel
         if viewModel.personalInfo.usePassword == true {
             titleString = L.PasswordResetLink.Title.ChangePassword.localization
-            subtitleString = L.PasswordResetLink.Description.ChangePassword.localization
+            subTitle = UILabel.plainTextLabelPartlyBold(text: L.PasswordResetLink.Description.ChangePassword.localization)
         } else {
             titleString = L.PasswordResetLink.Title.AddPassword.localization
-            subtitleString = L.PasswordResetLink.Description.AddPassword.localization
+            let parsedString = parseStrongTags(from: L.Password.AddInfo.localization)
+            subTitle = UILabel.plainTextLabelPartlyBold(text: parsedString.clean, partBold: parsedString.partBold ?? "")
         }
         
         let mainTitle = UILabel.posterTextLabelBicolor(text: titleString, size: 24, primary: titleString)
-        let subTitle = UILabel.plainTextLabelPartlyBold(text: subtitleString)
+        
         let bottomSpacer = UIView()
 
         let topStackView = UIStackView(arrangedSubviews: [
@@ -98,7 +99,7 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         topStackView.addArrangedSubview(bottomSpacer)
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.PasswordResetLink.Button.Cancel.localization)
-        sendEmailButton = EduIDButton(type: .primary, buttonTitle: L.PasswordResetLink.Button.SendEmail.localization)
+        sendEmailButton = EduIDButton(type: .primary, buttonTitle: L.Modal.Confirm.localization)
         
         let sendEmailContainer = UIView()
         sendEmailContainer.addSubview(sendEmailButton)
@@ -148,8 +149,14 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
             loadingIndicator.isHidden = false
             loadingIndicator.startAnimating()
             do {
-                _ = try await viewModel.requestPasswordResetLink()
-                delegate?.goToCheckEmail(viewController: self, email: viewModel.personalInfo.email)
+                if viewModel.personalInfo.usePassword == true {
+                    let userResponse = try await viewModel.sendResetPasswordLink()
+                    delegate?.goToCheckEmail(viewController: self, email: userResponse.email)
+                } else {
+                    let userResponse = try await viewModel.generatePasswordCode()
+                    UserDefaults.standard.set(userResponse.email, forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
+                    delegate?.goToEmailCodeScreen(viewController: self)
+                }
             } catch {
                 let alert = UIAlertController(
                     title: L.Generic.RequestError.Title.localization,
@@ -165,5 +172,18 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
             }
 
         }
+    }
+}
+
+extension PasswordResetLinkViewController {
+    private func parseStrongTags(from text: String) -> (clean: String, partBold: String?) {
+        let regex = try! NSRegularExpression(pattern: "<strong>(.*?)</strong>")
+        let range = NSRange(text.startIndex..., in: text)
+
+        let partBold = regex.firstMatch(in: text, range: range)
+            .flatMap { Range($0.range(at: 1), in: text).map { String(text[$0]) } }
+
+        let clean = regex.stringByReplacingMatches(in: text, range: range, withTemplate: "$1")
+        return (clean, partBold)
     }
 }

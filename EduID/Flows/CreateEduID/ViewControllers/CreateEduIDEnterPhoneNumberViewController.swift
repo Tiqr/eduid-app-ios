@@ -81,7 +81,7 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.font = .sourceSansProLight(size: 16)
         textLabel.textColor = .secondaryColor
         let attributedText = NSMutableAttributedString(string: L.CreateEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
-        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreateEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
+        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: (Int(L.CreateEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero) + 2))
         textLabel.attributedText = attributedText
         
         textViewParent.addSubview(textLabel)

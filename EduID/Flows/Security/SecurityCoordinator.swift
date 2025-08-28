@@ -39,8 +39,15 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     //MARK: - verify email flow
     
     func securityViewController(viewController: UIViewController, verify email: String) {
-        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(changeEmailFlow: true))
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(emailCodeFlow: .changeEmail))
         checkEmailViewController.delegate = self
+        navigationController?.pushViewController(checkEmailViewController, animated: true)
+    }
+    
+    func goToEmailCodeScreen(viewController: UIViewController) {
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(emailCodeFlow: .addPassword))
+        checkEmailViewController.delegate = self
+        checkEmailViewController.createEduIDViewControllerDelegate = self
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
@@ -85,8 +92,7 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     }
     
     func goToCheckEmail(viewController: UIViewController, email: String?) {
-        let checkEmailViewController = CheckEmailViewController()
-        checkEmailViewController.emailToCheck = email
+        let checkEmailViewController = CheckEmailViewController(emailToCheck: email)
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
@@ -120,3 +126,12 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
     }
 }
 
+extension SecurityCoordinator: CreateEduIDViewControllerDelegate {
+    func goToAddPasswordScreen(hash: String) {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            let passwordCreationViewController = PasswordCreationViewController(viewModel: .init(hash: hash))
+            self.navigationController?.pushViewController(passwordCreationViewController, animated: true)
+        }
+    }
+}

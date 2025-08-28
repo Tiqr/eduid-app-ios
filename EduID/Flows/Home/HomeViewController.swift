@@ -231,7 +231,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
 
 extension HomeViewController: RefreshChildScreenDelegate {
     func requestScreenRefresh(for childScreen: HomeViewChildScreensType) {
-        screenRefreshWasRequested = false
+        self.screenRefreshWasRequested = false
         childScreenMode = childScreen
     }
 }

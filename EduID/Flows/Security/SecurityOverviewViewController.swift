@@ -71,12 +71,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     guard let self = self else { return }
                     alert.dismiss(animated: true)
                     self.delegate?.dismissSecurityFlow(viewController: self)
+                    self.updateData()
                 })
                 present(alert, animated: true)
             }
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -153,7 +153,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             
             // Email - magic link
             let email = personalInfo.email ?? "?"
-            let magicLinkTitle = NSMutableAttributedString(string: "\(L.Security.UseMagicLink.localization)\n\(email)",attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
+            let magicLinkTitle = NSMutableAttributedString(string: "\(L.Security.UseCode.localization)\n\(email)",attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
             magicLinkTitle.setAttributeTo(part: email, attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
             let magicLinkControl = ActionableControlWithBodyAndTitle(
                 attributedBodyText: magicLinkTitle,

@@ -129,8 +129,6 @@
 		4FB51EF42AF3EA5600069B13 /* OneTimeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */; };
 		4FB7DB582C5BCC46007CD6E7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB7DB572C5BCC46007CD6E7 /* Tiqr */; };
 		4FB7DB5A2C5BCC4E007CD6E7 /* Tiqr in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB7DB592C5BCC4E007CD6E7 /* Tiqr */; };
-		4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */; };
-		4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */; };
 		4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */; };
 		4FC37C2A2A3C47A80036A94C /* PasswordResetLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C292A3C47A80036A94C /* PasswordResetLinkViewModel.swift */; };
 		4FC37C2C2A3C47F60036A94C /* PasswordResetLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC37C2B2A3C47F60036A94C /* PasswordResetLinkViewController.swift */; };
@@ -210,6 +208,8 @@
 		732512B92DCCF330002BB521 /* EmailCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732512B82DCCF329002BB521 /* EmailCodeViewModel.swift */; };
 		7330FF572D9E77A900944924 /* VerifyAlreadyUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7330FF562D9E77A900944924 /* VerifyAlreadyUsedViewController.swift */; };
 		7364BACA2A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */; };
+		736E7AF72E58424A00DBAEAA /* PasswordCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E7AF62E58424A00DBAEAA /* PasswordCreationViewController.swift */; };
+		736E7AF92E5842B600DBAEAA /* PasswordCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E7AF82E5842AF00DBAEAA /* PasswordCreationViewModel.swift */; };
 		73762F472A418B4300E37D96 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73762F462A418B4300E37D96 /* Error+Extension.swift */; };
 		73910F992A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */; };
 		73910F9B2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */; };
@@ -419,8 +419,6 @@
 		4FADBCE22A4094DC002311E4 /* TwoFactorKeyControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoFactorKeyControlCollapsible.swift; sourceTree = "<group>"; };
 		4FB51EF32AF3EA5600069B13 /* OneTimeCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTimeCodeViewController.swift; sourceTree = "<group>"; };
 		4FB7DB552C5BC0E5007CD6E7 /* Notifications.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Notifications.entitlements; sourceTree = "<group>"; };
-		4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewController.swift; sourceTree = "<group>"; };
-		4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditorViewModel.swift; sourceTree = "<group>"; };
 		4FC37C242A3C27550036A94C /* SecurityOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityOverviewViewModel.swift; sourceTree = "<group>"; };
 		4FC37C292A3C47A80036A94C /* PasswordResetLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetLinkViewModel.swift; sourceTree = "<group>"; };
 		4FC37C2B2A3C47F60036A94C /* PasswordResetLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetLinkViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +494,8 @@
 		732512B82DCCF329002BB521 /* EmailCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCodeViewModel.swift; sourceTree = "<group>"; };
 		7330FF562D9E77A900944924 /* VerifyAlreadyUsedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAlreadyUsedViewController.swift; sourceTree = "<group>"; };
 		7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		736E7AF62E58424A00DBAEAA /* PasswordCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCreationViewController.swift; sourceTree = "<group>"; };
+		736E7AF82E5842AF00DBAEAA /* PasswordCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCreationViewModel.swift; sourceTree = "<group>"; };
 		73762F462A418B4300E37D96 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		73910F982A3C5DEB003A40BD /* CreateReturnToBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReturnToBrowserViewController.swift; sourceTree = "<group>"; };
 		73910F9A2A3C5FEC003A40BD /* ShowNextScreenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNextScreenDelegate.swift; sourceTree = "<group>"; };
@@ -953,15 +953,6 @@
 			path = TwoFactorKeys;
 			sourceTree = "<group>";
 		};
-		4FC350B02A373B05003CB086 /* EmailEditor */ = {
-			isa = PBXGroup;
-			children = (
-				4FC350AE2A373AA7003CB086 /* EmailEditorViewController.swift */,
-				4FC350B12A373B1B003CB086 /* EmailEditorViewModel.swift */,
-			);
-			path = EmailEditor;
-			sourceTree = "<group>";
-		};
 		4FC37C232A3C22E30036A94C /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,7 +1029,6 @@
 				4F958BD52A39C20900DD0779 /* MyAccount */,
 				4F958BD02A39A74A00DD0779 /* NameEditor */,
 				4FEBF53C2A38A1C0004BF3C8 /* NameUpdated */,
-				4FC350B02A373B05003CB086 /* EmailEditor */,
 				4FF5675F2A31D32E00616341 /* PersonalInfoViewModel.swift */,
 				4FF567602A31D32E00616341 /* PersonalInfoViewController.swift */,
 				4FF567612A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift */,
@@ -1051,6 +1041,7 @@
 		4FF567642A31D32E00616341 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				736E7AF52E58422900DBAEAA /* PasswordCreation */,
 				4FA824642B06476600B0D802 /* DeleteKeyConfirmation */,
 				4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */,
 				4FC37C282A3C479A0036A94C /* PasswordResetLink */,
@@ -1192,6 +1183,15 @@
 				7364BAC92A389AE8003FB978 /* VerifyAuthenticationCoordinator.swift */,
 			);
 			path = VerifyAuthentication;
+			sourceTree = "<group>";
+		};
+		736E7AF52E58422900DBAEAA /* PasswordCreation */ = {
+			isa = PBXGroup;
+			children = (
+				736E7AF82E5842AF00DBAEAA /* PasswordCreationViewModel.swift */,
+				736E7AF62E58424A00DBAEAA /* PasswordCreationViewController.swift */,
+			);
+			path = PasswordCreation;
 			sourceTree = "<group>";
 		};
 		73DD92302A334FCC0065956E /* VerifyPinCode */ = {
@@ -1487,6 +1487,7 @@
 			files = (
 				4F909EB02A31CDDC00FC1506 /* TextFieldValidationType.swift in Sources */,
 				4FF567BE2A31D32E00616341 /* ScanCoordinator.swift in Sources */,
+				736E7AF72E58424A00DBAEAA /* PasswordCreationViewController.swift in Sources */,
 				4FFA8A8B2A3B138A00F8F033 /* LocalizedError+errorDescription.swift in Sources */,
 				4F909EB92A31CDDC00FC1506 /* AppAuthController.swift in Sources */,
 				4FF567C02A31D32E00616341 /* CreateEduIDEnterPhoneNumberViewModel.swift in Sources */,
@@ -1513,6 +1514,7 @@
 				4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */,
 				4F909EBA2A31CDDC00FC1506 /* ActivityControlCollapsible.swift in Sources */,
 				4FF567B22A31D32E00616341 /* ActivityViewControllerDelegate.swift in Sources */,
+				736E7AF92E5842B600DBAEAA /* PasswordCreationViewModel.swift in Sources */,
 				4FE78D362CE76ABB002E7B0D /* VerifyIssuer+normalizedName.swift in Sources */,
 				4FF567A22A31D32E00616341 /* PersonalInfoViewModel.swift in Sources */,
 				4F909EC42A31CDDC00FC1506 /* BasicStackView.swift in Sources */,
@@ -1588,7 +1590,6 @@
 				4FC37C252A3C27550036A94C /* SecurityOverviewViewModel.swift in Sources */,
 				4FF567A32A31D32E00616341 /* PersonalInfoViewController.swift in Sources */,
 				4F4A3D652CAAD1510007FCE6 /* VerifyIdentityControl.swift in Sources */,
-				4FC350B22A373B1B003CB086 /* EmailEditorViewModel.swift in Sources */,
 				4FF567A62A31D32E00616341 /* PersonalInfoCoordinator.swift in Sources */,
 				4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */,
 				4F909EAF2A31CDDC00FC1506 /* ScreenType.swift in Sources */,
@@ -1621,7 +1622,6 @@
 				4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */,
 				4FF567BC2A31D32E00616341 /* ScanViewController.swift in Sources */,
 				4F909EC52A31CDDC00FC1506 /* ActionableControlWithBodyAndTitle.swift in Sources */,
-				4FC350AF2A373AA7003CB086 /* EmailEditorViewController.swift in Sources */,
 				0AFD9E052745579900D48C01 /* AppDelegate.swift in Sources */,
 				4F83FB0E2A4DB50000C2930E /* EnvironmentSwitcherController.swift in Sources */,
 				4FF567AA2A31D32E00616341 /* ChangePasswordViewController.swift in Sources */,

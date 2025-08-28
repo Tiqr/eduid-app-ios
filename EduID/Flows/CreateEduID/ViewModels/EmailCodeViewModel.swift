@@ -10,6 +10,12 @@ import UIKit
 import Combine
 import OpenAPIClient
 
+public enum EmailCodeFlow {
+    case changeEmail
+    case addPassword
+    case unknown
+}
+
 class EmailCodeViewModel: NSObject {
     
     private var createEduIDResponseHash: String? {
@@ -20,24 +26,32 @@ class EmailCodeViewModel: NSObject {
         return UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
     }
     
-    private var changeEmailFlow: Bool
+    private var emailCodeFlow: EmailCodeFlow
     var resendCodeSuccessClosure: (() -> Void)?
     var resendCodeErrorClosure: ((String, String ) -> Void)?
     var userCodeInPutSuccessClosure: ((URL?) -> Void)?
     var userEmailChangeSuccessClosure: (() -> Void)?
     var userCodeInPutErrorClosure: ((String, String ) -> Void)?
+    var addPasswordSuccessClosure: ((String) -> Void)?
+    var resendAddPasswordSuccessClosure: (() -> Void)?
     
-    init(changeEmailFlow: Bool = false) {
-        self.changeEmailFlow = changeEmailFlow
+    init(emailCodeFlow: EmailCodeFlow = .unknown) {
+        self.emailCodeFlow = emailCodeFlow
     }
     
     func resendCode() {
         Task {
             do {
-                if changeEmailFlow {
+                switch emailCodeFlow {
+                case .changeEmail:
                     _ = try await UserControllerAPI.resendSpCodeMail()
                     resendCodeSuccessClosure?()
-                } else {
+                    
+                case .addPassword:
+                    _ = try await UserControllerAPI.resendSpCodePassword()
+                    resendAddPasswordSuccessClosure?()
+                    
+                default:
                     _ = try await UserControllerAPI.resendCodeMailMobile(hash: createEduIDResponseHash ?? "")
                     resendCodeSuccessClosure?()
                 }
@@ -51,12 +65,17 @@ class EmailCodeViewModel: NSObject {
     func userCodeInPut(_ code: String) {
         Task {
             do {
-                if changeEmailFlow {
+                switch emailCodeFlow {
+                case .changeEmail:
                     try await changeEmail(with: code)
                     
-                } else {
+                case .addPassword:
+                    try await addPassword(with: code)
+                    
+                default:
                     try await createAccount(with: code)
                 }
+                
             } catch {
                 let error = EduIdError.from(error, kind: .createAccountEmailCode)
                 userCodeInPutErrorClosure?(error.title, error.message)
@@ -80,6 +99,13 @@ class EmailCodeViewModel: NSObject {
             let response = try JSONDecoder().decode(VerifyCodeMobileUserResponse.self, from: data)
             let url = response.url
             userCodeInPutSuccessClosure?(url)
+        }
+    }
+    
+    private func addPassword(with code: String) async throws {
+        let result = try await UserControllerAPI.verifyPasswordResetCode(verifyOneTimeLoginCode: .init(code: code))
+        if let hash = result["hash"] {
+            addPasswordSuccessClosure?(hash)
         }
     }
 }

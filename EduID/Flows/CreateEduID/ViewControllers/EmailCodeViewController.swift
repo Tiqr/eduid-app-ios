@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import TinyConstraints
 import Combine
+import OpenAPIClient
 
 protocol EmailLoginCodeTextFieldDelegate: AnyObject {
     func didPressBackspace(on textField: EmailLoginCodeTextFieldTextField)
@@ -84,6 +85,16 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         viewModel.userCodeInPutErrorClosure = { [weak self] title, message in
             guard let self else { return }
             self.showAlert(title: title, message: message)
+        }
+        
+        viewModel.addPasswordSuccessClosure = { [weak self] hash in
+            guard let self else { return }
+            self.createEduIDViewControllerDelegate?.goToAddPasswordScreen(hash: hash)
+        }
+        
+        viewModel.resendAddPasswordSuccessClosure = { [weak self] in
+            guard let self else { return }
+            self.showAlert(message: L.LogInWithEmailCode.CodeHasBeenResent.localization)
         }
         
     }
