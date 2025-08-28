@@ -29,7 +29,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                         }
                         AppAuthController.shared.authorize(navigationController: navigationController)
                         self.dismiss(animated: false)
-                        self.refreshDelegate?.requestScreenRefresh(for: .security, screenRefreshWasRequested: true)
+                        self.refreshDelegate?.requestScreenRefresh(for: .security)
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }

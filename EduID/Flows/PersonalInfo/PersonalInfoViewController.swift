@@ -45,7 +45,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                         }
                         AppAuthController.shared.authorize(navigationController: navigationController)
                         self.dismiss(animated: false)
-                        self.refreshDelegate?.requestScreenRefresh(for: .personalInfo, screenRefreshWasRequested: true)
+                        self.refreshDelegate?.requestScreenRefresh(for: .personalInfo)
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
