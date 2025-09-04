@@ -3679,8 +3679,8 @@ SHARED:
             Welk telefoonnummer wil je hiervoor gebruiken?
       BoldRange:
         COPY:
-          en: "34"
-          nl: "38"
+          en: "33"
+          nl: "37"
       VerifyPhoneNumber:
         COPY:
           en: Send SMS code
