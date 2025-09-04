@@ -772,7 +772,7 @@ Would you like to unconnect that app and connect this one?
 
 Which phone number would you like to use for this?
 ";
-"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
+"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "33";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Send SMS code";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Your educational institution has been successfully connected";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Your educational institution";
