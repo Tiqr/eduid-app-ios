@@ -49,9 +49,12 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
+                    self.viewModel.getData()
                 }
             })
-            self.present(alert, animated: true)
+            DispatchQueue.main.async {
+                self.present(alert, animated: true)
+            }
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
