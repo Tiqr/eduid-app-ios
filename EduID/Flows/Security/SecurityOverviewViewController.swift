@@ -23,12 +23,9 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
                     if eduidError.statusCode == 401 {
-                        guard let navigationController = self.navigationController else {
-                            assertionFailure("Navigation controller could not be found!")
-                            return
-                        }
-                        AppAuthController.shared.authorize(navigationController: navigationController)
-                        self.dismiss(animated: false)
+                        AppAuthController.shared.performWithFreshTokens(completion: { _ in
+                            self.updateData()
+                        })
                         self.refreshDelegate?.requestScreenRefresh(for: .security)
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
