@@ -35,26 +35,7 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
         
         viewModel.dataFetchErrorClosure = { [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                alert.dismiss(animated: true) {
-                    if eduidError.statusCode == 401 {
-                        guard let navigationController = self.navigationController else {
-                            assertionFailure("Navigation controller could not be found!")
-                            return
-                        }
-                        AppAuthController.shared.authorize(navigationController: navigationController)
-                        self.dismiss(animated: false)
-                        self.refreshDelegate?.requestScreenRefresh(for: .personalInfo)
-                    } else if eduidError.statusCode == -1 {
-                        self.dismiss(animated: true)
-                    }
-                    self.viewModel.getData()
-                }
-            })
-            DispatchQueue.main.async {
-                self.present(alert, animated: true)
-            }
+            requestRefreshToken()
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(showLinkingErrorScreen), name: .accountAlreadyLinked, object: nil)
@@ -649,4 +630,11 @@ extension PersonalInfoViewController {
         delegate?.showControlCode(viewController: self, controlCode: controlCode)
     }
     
+    private func requestRefreshToken() {
+        AppAuthController.shared.performWithFreshTokens(completion: { [weak self] _ in
+            guard let self else { return }
+            self.viewModel.getData()
+        })
+        self.refreshDelegate?.requestScreenRefresh(for: .security)
+    }
 }
