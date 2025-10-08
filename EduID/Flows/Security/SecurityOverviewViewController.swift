@@ -19,20 +19,14 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         super.init(nibName: nil, bundle: nil)
         viewModel.dataFetchErrorClosure = {  [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                alert.dismiss(animated: true) {
-                    if eduidError.statusCode == 401 {
-                        AppAuthController.shared.performWithFreshTokens(completion: { _ in
-                            self.updateData()
-                        })
-                        self.refreshDelegate?.requestScreenRefresh(for: .security)
-                    } else if eduidError.statusCode == -1 {
-                        self.dismiss(animated: true)
-                    }
-                }
-            })
-            self.present(alert, animated: true)
+            if eduidError.statusCode == 401 {
+                AppAuthController.shared.performWithFreshTokens(completion: { _ in
+                    self.updateData()
+                })
+                self.refreshDelegate?.requestScreenRefresh(for: .security)
+            } else if eduidError.statusCode == -1 {
+                self.dismiss(animated: true)
+            }
         }
     }
     
