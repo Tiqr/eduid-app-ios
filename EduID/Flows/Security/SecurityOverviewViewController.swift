@@ -19,20 +19,11 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         super.init(nibName: nil, bundle: nil)
         viewModel.dataFetchErrorClosure = {  [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
-                alert.dismiss(animated: true) {
-                    if eduidError.statusCode == 401 {
-                        AppAuthController.shared.performWithFreshTokens(completion: { _ in
-                            self.updateData()
-                        })
-                        self.refreshDelegate?.requestScreenRefresh(for: .security)
-                    } else if eduidError.statusCode == -1 {
-                        self.dismiss(animated: true)
-                    }
-                }
-            })
-            self.present(alert, animated: true)
+            if eduidError.statusCode == 401 {
+                requestRefreshToken()
+            } else if eduidError.statusCode == -1 {
+                self.dismiss(animated: true)
+            }
         }
     }
     
@@ -59,30 +50,15 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 let personalInfo = try await viewModel.getData()
                 setupUI(personalInfo: personalInfo)
             } catch {
-                let alert = UIAlertController(
-                    title: L.Generic.RequestError.Title.localization,
-                    message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
-                    preferredStyle: .alert
-                )
-                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { [weak self] _ in
-                    guard let self = self else { return }
-                    alert.dismiss(animated: true)
-                    self.delegate?.dismissSecurityFlow(viewController: self)
-                    self.updateData()
-                })
-                present(alert, animated: true)
+                requestRefreshToken()
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissSecurityScreen))
-        
-        AppAuthController.shared.performWithFreshTokens(completion: { _ in
-            self.updateData()
-        })
+        requestRefreshToken()
     }
     
     deinit {
@@ -253,5 +229,13 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     @objc
     func requestPasswordResetLink() {
         delegate?.requestPasswordResetLink(viewController: self, personalInfo: viewModel.personalInfo!)
+    }
+    
+    private func requestRefreshToken() {
+        AppAuthController.shared.performWithFreshTokens(completion: { [weak self] _ in
+            guard let self else { return }
+            self.updateData()
+        })
+        self.refreshDelegate?.requestScreenRefresh(for: .security)
     }
 }
