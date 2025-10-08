@@ -80,11 +80,9 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         
         screenType.configureNavigationItem(item: navigationItem, target: self, action: #selector(dismissSecurityScreen))
         
-        if delegate?.hasPendingPersonalInfo() == true {
-            setupUI(personalInfo: delegate?.getAndRemovePendingPersonalInfo()!)
-        } else {
-            updateData()
-        }
+        AppAuthController.shared.performWithFreshTokens(completion: { _ in
+            self.updateData()
+        })
     }
     
     deinit {

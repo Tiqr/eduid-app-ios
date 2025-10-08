@@ -10,7 +10,6 @@ import UIKit
 
 class EnvironmentSwitcherController: UIViewController {
     
-    private var fallbackSwitch: UISwitch!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -70,40 +69,20 @@ class EnvironmentSwitcherController: UIViewController {
             button.tag = index
             button.addTarget(self, action: #selector(environmentButtonClicked), for: .touchUpInside)
         }
-        // Feature flags
-        let featureFlagsTitle = UILabel.posterTextLabelBicolor(text: L.FeatureFlags.Title.localization, primary: "")
-        stack.addArrangedSubview(featureFlagsTitle)
-
-        // fallback
-        fallbackSwitch = UISwitch()
-        fallbackSwitch.isOn = EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback)
-        let fallbackLabel = UILabel.plainTextLabelPartlyBold(text: "Fallback")
-        let fallbackSwitchStack = UIStackView(arrangedSubviews: [fallbackLabel, fallbackSwitch])
-        fallbackSwitchStack.axis = .horizontal
-        fallbackSwitchStack.alignment = .center
-        let fallbackSwitchStackGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFallbackSwitch))
-        stack.addArrangedSubview(fallbackSwitchStack)
         
-        stack.setCustomSpacing(0, after: featureFlagsTitle)
-        stack.setCustomSpacing(0, after: title)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
         view.addGestureRecognizer(gesture)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        EnvironmentService.shared.setFeatureFlagEnabled(FeatureFlag.fallback, enabled: fallbackSwitch.isOn)
+        super.viewWillDisappear(animated)
     }
     
     @objc
     func dismissPopup() {
         self.dismiss(animated: true)
     }
-    
-    @objc
-    func toggleFallbackSwitch() {
-        self.fallbackSwitch.isOn = !self.fallbackSwitch.isOn
-    }
-    
+
     @objc
     func environmentButtonClicked(_ sender: UIButton) {
         let environmentIndex = sender.tag

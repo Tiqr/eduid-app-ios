@@ -169,56 +169,22 @@ class VerifyIdentityViewController: BaseViewController {
             stack.addArrangedSubview(verifyWithBankingApp)
             stack.addArrangedSubview(verifyWithEuId)
             
-            //- fallback feature flag start
-            if EnvironmentService.shared.isFeatureFlagEnabled(FeatureFlag.fallback) {
-                // Fallback container and button
-                let fallbackButtonContainer: UIView = .init()
-                fallbackButtonContainer.backgroundColor = .disabledGrayBackground
-                let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.ServiceDesk.ControlCode.CantUse.localization)
-                fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
-                fallbackButtonContainer.addSubview(fallbackButton)
-                fallbackButton.center(in: fallbackButtonContainer)
-                fallbackButton.widthToSuperview(offset: -48)
-                let spacer = UIView()
-                spacer.height(80)
-                stack.addArrangedSubview(spacer)
-                stack.addArrangedSubview(fallbackButtonContainer)
-                verifyWithBankingApp.widthToSuperview(offset: -48)
-                verifyWithEuId.widthToSuperview(offset: -48)
-                fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
-                fallbackButtonContainer.widthToSuperview()
-                stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
-                
-            } else {
-                // - support link
-                let supportLabel = UILabel()
-                supportLabel.numberOfLines = 0
-                let supportString = NSMutableAttributedString(
-                    string: L.VerifyIdentity.VisitSupport.Full.localization,
-                    attributes: [
-                        .foregroundColor: UIColor.grayGhost,
-                        .font: UIFont.sourceSansProRegular(size: 16)
-                    ])
-                supportString.setAttributes([
-                    .underlineStyle: NSUnderlineStyle.single.rawValue,
-                    .font: UIFont.sourceSansProRegular(size: 16),
-                    .foregroundColor: UIColor.backgroundColor
-                ], range: supportString.nsRange(of: L.VerifyIdentity.VisitSupport.HighlightedPart.localization)!)
-                supportLabel.attributedText = supportString
-                supportLabel.isUserInteractionEnabled = true
-                supportLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onVisitSupportTapped)))
-                
-                stack.addArrangedSubview(supportLabel)
-                verifyWithBankingApp.widthToSuperview(offset: -48)
-                verifyWithEuId.widthToSuperview(offset: -48)
-                supportLabel.widthToSuperview(offset: -48)
-            
-                let spacer = UIView()
-                spacer.height(30)
-                stack.addArrangedSubview(spacer)
-                
-                stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
-            }
+            let fallbackButtonContainer: UIView = .init()
+            fallbackButtonContainer.backgroundColor = .disabledGrayBackground
+            let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.ServiceDesk.ControlCode.CantUse.localization)
+            fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
+            fallbackButtonContainer.addSubview(fallbackButton)
+            fallbackButton.center(in: fallbackButtonContainer)
+            fallbackButton.widthToSuperview(offset: -48)
+            let spacer = UIView()
+            spacer.height(80)
+            stack.addArrangedSubview(spacer)
+            stack.addArrangedSubview(fallbackButtonContainer)
+            verifyWithBankingApp.widthToSuperview(offset: -48)
+            verifyWithEuId.widthToSuperview(offset: -48)
+            fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
+            fallbackButtonContainer.widthToSuperview()
+            stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
             
         } else if !viewModel.isLinkedAccount {
             let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
