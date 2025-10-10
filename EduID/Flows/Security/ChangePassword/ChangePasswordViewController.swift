@@ -82,6 +82,7 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
     private func setupUI() {
         // - scrollView
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edges(to: view)
         
@@ -186,7 +187,7 @@ class ChangePasswordViewController: ScrollingTextFieldsViewController {
         }
         
         // - constraints
-        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 40, left: 24, bottom: 24, right: -24))
+        stack.edges(to: scrollView, insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
         stack.width(to: scrollView, offset: -48)
         posterLabel.width(to: stack)
         textLabel.width(to: stack)

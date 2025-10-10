@@ -4,22 +4,29 @@ import OpenAPIClient
 class ActivityViewModel: NSObject {
     
     var userResponse: UserResponse?
+    var tokensResponse: [Token]?
     
     // - closures
     var dataAvailableClosure: ((PersonalInfoDataCallbackModel) -> Void)?
     var serviceRemovedClosure: ((LinkedAccount) -> Void)?
-    var dataFetchErrorClosure: ((String, String, Int) -> Void)?
+    var dataFetchErrorClosure: ((EduIdError) -> Void)?
     
     override init() {
         super.init()
     }
     
     func getData() {
+        if AppAuthController.shared.hasPendingAuthFlow {
+            AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
+                self?.getData()
+            }
+            return
+        }
         Task {
             do {
-                try await userResponse = UserControllerAPI.meWithRequestBuilder()
-                    .execute()
-                    .body
+                try await userResponse = UserControllerAPI.me()
+                try await tokensResponse = UserControllerAPI.tokens()
+                
                 await processUserData()
                 
             } catch {
@@ -30,27 +37,38 @@ class ActivityViewModel: NSObject {
     
     @MainActor
     private func processError(with error: Error) {
-        dataFetchErrorClosure?(error.eduIdResponseError().title,
-                               error.eduIdResponseError().message,
-                               error.eduIdResponseError().statusCode)
+        dataFetchErrorClosure?(EduIdError.from(error))
     }
     
     @MainActor
     private func processUserData() {
-        guard let userResponse = userResponse else {
+        guard let userResponse,
+            let tokensResponse else {
             return
         }
-        
+        let name: String
         if userResponse.linkedAccounts?.isEmpty ?? true {
-            let name = "\(userResponse.givenName?.first ?? "X"). \(userResponse.familyName ?? "")"
             let nameProvidedBy = L.Profile.Me.localization
-            dataAvailableClosure?(PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: false))
+            dataAvailableClosure?(
+                PersonalInfoDataCallbackModel(
+                    userResponse: userResponse,
+                    tokensResponse: tokensResponse,
+                    firstName: userResponse.givenName,
+                    lastName: userResponse.familyName,
+                    nameProvidedBy: nameProvidedBy,
+                    isNameProvidedByInstitution: false
+            ))
         } else {
             guard let firstLinkedAccount = userResponse.linkedAccounts?.first else { return }
-            
-            let name = "\(firstLinkedAccount.givenName?.first ?? "X"). \(firstLinkedAccount.familyName ?? "")"
             let nameProvidedBy = firstLinkedAccount.schacHomeOrganization ?? ""
-            let model = PersonalInfoDataCallbackModel(userResponse: userResponse, name: name, nameProvidedBy: nameProvidedBy, isNameProvidedByInstitution: true)
+            let model = PersonalInfoDataCallbackModel(
+                userResponse: userResponse,
+                tokensResponse: tokensResponse,
+                firstName: firstLinkedAccount.givenName,
+                lastName: firstLinkedAccount.familyName,
+                nameProvidedBy: nameProvidedBy,
+                isNameProvidedByInstitution: true
+            )
             
             dataAvailableClosure?(model)
         }
@@ -59,9 +77,13 @@ class ActivityViewModel: NSObject {
     func removeLinkedAccount(linkedAccount: LinkedAccount) {
         Task {
             do {
-                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(linkedAccount: linkedAccount)
-                    .execute()
-                    .body
+                let result = try await UserControllerAPI.removeUserLinkedAccountsWithRequestBuilder(updateLinkedAccountRequest: UpdateLinkedAccountRequest(
+                    eduPersonPrincipalName: linkedAccount.eduPersonPrincipalName,
+                    subjectId: linkedAccount.subjectId,
+                    external: linkedAccount.external,
+                    idpScoping: nil
+                    )
+                ).execute().body
                 
                 if !(result.linkedAccounts?.contains(linkedAccount) ?? true) {
                     DispatchQueue.main.async { [weak self] in

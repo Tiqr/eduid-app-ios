@@ -16,31 +16,48 @@ class NameEditorViewModel: ValidatedTextFieldDelegate {
     var setSaveButtonEnabled: ((Bool) -> Void)?
     var hideKeyboard: (() -> Void)?
 
-    private var firstNameIsValid = false
-    private var lastNameIsValid = false
-    
     var currentFirstName: String
+    var modifiedFirstName: String?
     var currentLastName: String
+    var modifiedLastName: String?
+    
+    let editLastNameAllowed: Bool
     
     init(personalInfo: UserResponse) {
-        currentFirstName = personalInfo.givenName ?? ""
+        currentFirstName = personalInfo.chosenName ?? personalInfo.givenName ?? ""
         currentLastName = personalInfo.familyName ?? ""
+        editLastNameAllowed = personalInfo.linkedAccounts?.isEmpty != false
     }
     
     func updateValidation(with value: String, isValid: Bool, from tag: Int) {
         if tag == NameEditorViewModel.TAG_FIRST_NAME {
-            currentFirstName = value
-            firstNameIsValid = isValid
+            modifiedFirstName = value
         } else if tag == NameEditorViewModel.TAG_LAST_NAME {
-            currentLastName = value
-            lastNameIsValid = isValid
+            modifiedLastName = value
         }
-        setSaveButtonEnabled?(firstNameIsValid && lastNameIsValid)
+        
+        let effectiveFirstName = modifiedFirstName ?? currentFirstName
+        let effectiveLastName = modifiedLastName ?? currentLastName
+
+        let firstNameChanged = modifiedFirstName != nil && modifiedFirstName != currentFirstName
+        let lastNameChanged = modifiedLastName != nil && modifiedLastName != currentLastName
+
+        let firstNameIsValid = !effectiveFirstName.trimmingCharacters(in: .whitespaces).isEmpty
+        let lastNameIsValid = editLastNameAllowed
+            ? !effectiveLastName.trimmingCharacters(in: .whitespaces).isEmpty
+            : true
+
+        
+        let shouldEnableButton = firstNameIsValid
+            && lastNameIsValid
+            && (firstNameChanged || lastNameChanged)
+
+        setSaveButtonEnabled?(shouldEnableButton)
     }
     
     func saveNameChange(firstName: String, lastName: String) async throws -> UserResponse {
         return try await UserControllerAPI.updateUserProfile(
-            updateUserNameRequest: UpdateUserNameRequest(givenName: firstName, familyName: lastName)
+            updateUserNameRequest: UpdateUserNameRequest(chosenName: firstName, givenName: firstName, familyName: lastName)
         )
     }
     

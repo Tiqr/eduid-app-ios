@@ -8,7 +8,8 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
     let viewModel: PinViewModel
     // - verify button
     let verifyButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.VerifyPin.localization)
-    
+    let loadingIndicator = UIActivityIndicatorView()
+
     // - pin stack view
     let pinStack = AnimatedHStackView()
     
@@ -112,8 +113,19 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         // - Space
         let spaceView = UIView()
         
+        // Verify container
+        let verifyContainer = UIView()
+        verifyContainer.addSubview(verifyButton)
+                
+        verifyButton.edgesToSuperview()
+        verifyContainer.addSubview(loadingIndicator)
+        loadingIndicator.centerXToSuperview(offset: 115)
+        loadingIndicator.heightToSuperview()
+        loadingIndicator.width(30)
+        loadingIndicator.isHidden = true
+        
         // - create the stackview
-        mainStack = UIStackView(arrangedSubviews: [posterParent, textLabelParent, pinStack, activity, spaceView, verifyButton])
+        mainStack = UIStackView(arrangedSubviews: [posterParent, textLabelParent, pinStack, activity, spaceView, verifyContainer])
         mainStack.axis = .vertical
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         mainStack.distribution = .fill
@@ -122,11 +134,11 @@ class PincodeBaseViewController: CreateEduIDBaseViewController {
         view.addSubview(mainStack)
         
         // - add constraints
-        mainStack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        mainStack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         textLabel.width(to: mainStack)
         posterLabel.height(34)
         posterParent.width(to: mainStack)
-        verifyButton.width(to: mainStack, offset: -24)
+        verifyContainer.width(to: mainStack, offset: -24)
         pinStack.width(to: mainStack)
         
         pinStack.hideAndTriggerAll()

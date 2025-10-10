@@ -8,9 +8,11 @@ final class EduIDButton: UIButton {
         case ghost
         case naked
         case borderedRed
+        case borderedGray
         case filledRed
+        case empty
     }
-
+    
     let type: ButtonType
     var buttonTitle: String {
         didSet {
@@ -25,6 +27,10 @@ final class EduIDButton: UIButton {
                 setupWithBorderedRedStyle()
             case .filledRed:
                 setupWithFilledRedStyle()
+            case .empty:
+                setupWithEmptyStyle()
+            case .borderedGray:
+                setupWithBorderedGrayStyle()
             }
         }
     }
@@ -40,8 +46,10 @@ final class EduIDButton: UIButton {
                     layer.borderColor = UIColor.disabledGray.cgColor
                 case .filledRed:
                     backgroundColor = UIColor.alertsRedColor.withAlphaComponent(0.5)
-                case .naked:
+                case .naked, .empty:
                     break
+                case .borderedGray:
+                    backgroundColor = UIColor.disabledGrayBackground
                 }
             case true:
                 switch type {
@@ -51,8 +59,10 @@ final class EduIDButton: UIButton {
                     layer.borderColor = UIColor.grayGhost.cgColor
                 case .filledRed:
                     backgroundColor = UIColor.alertsRedColor
-                case .naked:
+                case .naked, .empty:
                     break
+                case .borderedGray:
+                    backgroundColor = UIColor.disabledGrayBackground
                 }
             }
         }
@@ -75,7 +85,7 @@ final class EduIDButton: UIButton {
             }
         }
     }
-
+    
     
     init(type: ButtonType, buttonTitle: String, frame: CGRect? = nil) {
         self.type = type
@@ -102,6 +112,10 @@ final class EduIDButton: UIButton {
             setupWithBorderedRedStyle()
         case .filledRed:
             setupWithFilledRedStyle()
+        case .empty:
+            setupWithEmptyStyle()
+        case .borderedGray:
+            setupWithBorderedGrayStyle()
         }
     }
     
@@ -129,6 +143,16 @@ final class EduIDButton: UIButton {
         layer.borderColor = UIColor.grayGhost.cgColor
     }
     
+    private func setupWithEmptyStyle() {
+        backgroundColor = .clear
+        
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.textColor])
+        setAttributedTitle(attributedTitleNormal, for: .normal)
+        
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.grayGhost.cgColor
+    }
+    
     private func setupWithBorderedRedStyle() {
         backgroundColor = .clear
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor.alertsRedColor])
@@ -150,5 +174,12 @@ final class EduIDButton: UIButton {
         let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.primaryColor])
         setAttributedTitle(attributedTitleNormal, for: .normal)
     }
-
+    
+    private func setupWithBorderedGrayStyle() {
+        let attributedTitleNormal = NSAttributedString(string: buttonTitle, attributes: [.font : UIFont.sourceSansProSemiBold(size: 16), .foregroundColor: UIColor(resource: .fallbackButtonTitleAndStroke)])
+        setAttributedTitle(attributedTitleNormal, for: .normal)
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(resource: .fallbackButtonTitleAndStroke).cgColor
+    }
+    
 }

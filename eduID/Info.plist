@@ -69,6 +69,8 @@
 	<string>$(TIQR_ENROLLMENT_URL_PATH_PARAMETER)</string>
 	<key>TIQREnrollmentURLScheme</key>
 	<string>$(TIQR_ENROLLMENT_URL_SCHEME)</string>
+	<key>TiqrAppGroup</key>
+	<string>$(TIQR_APP_GROUP)</string>
 	<key>TIQRGitReleaseVersion</key>
 	<string>?</string>
 	<key>TIQRLibraryVersion</key>

@@ -41,13 +41,17 @@ class BearerDecodableRequestBuilder<T: Decodable>: URLSessionDecodableRequestBui
 
 class BearerTokenHandler {
     
+    static func setAccessTokenOnHeaders(accessToken: String?) {
+        if let accessToken {
+            OpenAPIClientAPI.customHeaders[Constants.Headers.authorization] = "Bearer \(accessToken)"
+        } else {
+            OpenAPIClientAPI.customHeaders[Constants.Headers.authorization] = ""
+        }
+    }
+    
     static func performWithFreshTokens(completionHandler: @escaping () -> Void) {
         AppAuthController.shared.performWithFreshTokens { accessToken in
-            if let accessToken = accessToken {
-                OpenAPIClientAPI.customHeaders[Constants.Headers.authorization] = "Bearer \(accessToken)"
-            } else {
-                OpenAPIClientAPI.customHeaders[Constants.Headers.authorization] = ""
-            }
+            setAccessTokenOnHeaders(accessToken: accessToken)
             completionHandler()
         }
     }

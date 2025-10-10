@@ -23,6 +23,8 @@ final class ScanCoordinator: NSObject, CoordinatorType {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(scanViewcontroller, animated: false)
+        navigationController.isModalInPresentation = false
+        navigationController.modalPresentationStyle = .fullScreen
         viewControllerToPresentOn?.present(navigationController, animated: true)
     }
 }

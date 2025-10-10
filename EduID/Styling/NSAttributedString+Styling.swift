@@ -13,13 +13,17 @@ extension RangeExpression where Bound == String.Index  {
 
 struct AttributedStringHelper {
     
-    static func attributes(font: UIFont, color: UIColor, lineSpacing: CGFloat) -> [NSAttributedString.Key: Any] {
+    static func attributes(font: UIFont, color: UIColor, lineSpacing: CGFloat, underline: Bool = false) -> [NSAttributedString.Key: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
-        return [
+        var mutableDict: [NSAttributedString.Key: Any] = [
             .font: font,
             .foregroundColor: color,
             .paragraphStyle: paragraphStyle
         ]
+        if underline {
+            mutableDict[.underlineStyle] = NSUnderlineStyle.single.rawValue
+        }
+        return mutableDict
     }
 }

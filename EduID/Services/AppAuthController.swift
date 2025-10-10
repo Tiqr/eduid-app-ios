@@ -11,6 +11,7 @@ public class AppAuthController: NSObject {
     private var currentAuthorizationFlow: OIDExternalUserAgentSession?
     private var authState: OIDAuthState? {
         didSet {
+            BearerTokenHandler.setAccessTokenOnHeaders(accessToken: authState?.lastTokenResponse?.accessToken)
             if let state = authState {
                 _ = OIDTokenStorage
                     .storeAuthState(state, forService: authConfig.clientId)
@@ -61,6 +62,7 @@ public class AppAuthController: NSObject {
             authConfig.clientId
         }
     }
+    var registrationUrl: URL?
     
     //MARK: - init
     private override init() {
@@ -152,8 +154,15 @@ public class AppAuthController: NSObject {
         return authState != nil
     }
     
-    public func authorize(viewController: UIViewController, completion: (() -> Void)? = nil) {
-        let externalUserAgent = OIDExternalUserAgentIOSSafari(presentingViewController: viewController)
+    public func authorize(
+        navigationController: UINavigationController,
+        completion: (() -> Void)? = nil
+    ) {
+        let externalUserAgent = OIDExternalUserAgentUsingWebViewController(
+            navigationController: navigationController,
+            registrationURL: registrationUrl
+        )
+        registrationUrl = nil
         currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalUserAgent) {
             [weak self] authState, error in
             guard let self else { return }
@@ -182,10 +191,10 @@ public class AppAuthController: NSObject {
             })
         }
     }
-    
+
     /// Ends user session by clearing the auth state
     public func clearAuthState() {
-       self.authState = nil
+        self.authState = nil
    }
     
 }

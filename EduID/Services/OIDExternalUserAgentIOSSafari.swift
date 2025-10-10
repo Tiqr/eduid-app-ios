@@ -1,8 +1,9 @@
 import UIKit
 import AppAuth
 
-class OIDExternalUserAgentIOSSafari: NSObject {
-    var _presentingViewController: UIViewController = UIViewController.init()
+class OIDExternalUserAgentUsingWebViewController: NSObject {
+    var _navigationController: UINavigationController!
+    var _registrationURL: URL? = nil
     var _externalUserAgentFlowInProgress: Bool = false
     weak var _session: OIDExternalUserAgentSession?
 
@@ -19,10 +20,13 @@ class OIDExternalUserAgentIOSSafari: NSObject {
      The designated initializer.
      - Parameter presentingViewController: The view controller from which to present the SFSafariViewController.
      */
-    required init(presentingViewController: UIViewController) {
+    required init(
+        navigationController: UINavigationController,
+        registrationURL: URL?
+    ) {
         super.init()
-
-        self._presentingViewController = presentingViewController
+        self._navigationController = navigationController
+        self._registrationURL = registrationURL
     }
 
     func cleanUp() {
@@ -32,7 +36,7 @@ class OIDExternalUserAgentIOSSafari: NSObject {
 }
 
 // MARK: OIDExternalUserAgent
-extension OIDExternalUserAgentIOSSafari: OIDExternalUserAgent {
+extension OIDExternalUserAgentUsingWebViewController: OIDExternalUserAgent {
     func present(_ request: OIDExternalUserAgentRequest, session: OIDExternalUserAgentSession) -> Bool {
         if _externalUserAgentFlowInProgress {
             return false
@@ -41,26 +45,21 @@ extension OIDExternalUserAgentIOSSafari: OIDExternalUserAgent {
         _externalUserAgentFlowInProgress = true
         _session = session
 
-        var openedSafari = false
-        let requestURL = request.externalUserAgentRequestURL()
-
-        if #available(iOS 10.0, *) {
-            openedSafari = UIApplication.shared.canOpenURL(requestURL!)
-
-            UIApplication.shared.open(requestURL!, options: [:], completionHandler: nil)
+        
+        if let requestURL = request.externalUserAgentRequestURL() {
+            let webViewController = WebViewController(startURL: requestURL, registrationURL: _registrationURL)
+            webViewController.modalPresentationStyle = .pageSheet
+            if #available(iOS 15.0, *),
+               let sheet = _navigationController.sheetPresentationController {
+                sheet.detents = [.large()]
+            }
+            let wrappingNavController = UINavigationController(rootViewController: webViewController)
+            _navigationController.present(wrappingNavController, animated: true)
+            return true
         } else {
-            openedSafari = UIApplication.shared.openURL(requestURL!)
-        }
-
-        if !openedSafari {
             self.cleanUp()
-
-            let error = OIDErrorUtilities.error(with: .safariOpenError, underlyingError: nil, description: "Unable to open Safari.")
-
-            session.failExternalUserAgentFlowWithError(error)
+            return false
         }
-
-        return openedSafari
     }
 
 
@@ -68,6 +67,12 @@ extension OIDExternalUserAgentIOSSafari: OIDExternalUserAgent {
         if !_externalUserAgentFlowInProgress {
             // Ignore this call if there is no authorization flow in progress.
             return
+        }
+        
+        if _navigationController.presentedViewController is WebViewController ||
+            (_navigationController.presentedViewController is UINavigationController &&
+             (_navigationController.presentedViewController as! UINavigationController).topViewController is WebViewController) {
+            _navigationController.dismiss(animated: true)
         }
 
         completion()

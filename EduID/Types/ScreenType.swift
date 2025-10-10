@@ -12,7 +12,7 @@ enum ScreenType: Int, CaseIterable {
     case landingScreen
     case explanationScreen
     case enterInfoScreen
-    case checkMailScreen
+    case emailLoginCodeScreen
     case enterPhoneScreen
     case enterEmail
     case registrationCheck
@@ -33,14 +33,25 @@ enum ScreenType: Int, CaseIterable {
     
     // personal info screens
     case personalInfoLandingScreen
-    case personalInfoEditEmailScreen
-    case personalInfoNameOverviewScreen
     case personalInfoNameUpdatedScreen
     case personalInfoNameEditorScreen
+    case personalInfoYourVerifiedInformationScreen
+    case accountLinkingError
     
     case yourAccountScreen
     case deleteAccountScreen
-    case confirmDeleteScreen
+    case confirmDeleteAccountScreen
+    case confirmDeleteServiceScreen
+    case confirmDeleteTokensScreen
+    
+    case verifyIdentityScreen
+    case verifyIdentityIntroScreen
+    case verifyWithIdInputScreen
+    case verifyWithIdVerificationCodeScreen
+    case verifyAlreadyUsedScreen
+    case selectYourBankScreen
+    case linkingSuccessScreen
+    case externalAccountLinkingError
     
     // security screens
     case securityOverviewScreen
@@ -57,6 +68,8 @@ enum ScreenType: Int, CaseIterable {
     case pincodeScreen
     case oneTimeCodeScreen
     
+    case webView
+    
     case none
     
     func nextCreateEduIDScreen() -> ScreenType {
@@ -66,8 +79,8 @@ enum ScreenType: Int, CaseIterable {
         case .explanationScreen:
             return .enterInfoScreen
         case .enterInfoScreen:
-            return .checkMailScreen
-        case .checkMailScreen:
+            return .emailLoginCodeScreen
+        case .emailLoginCodeScreen:
             return .eduIDCreatedScreen
         case .redirect:
             return .registrationCheck
@@ -90,7 +103,11 @@ enum ScreenType: Int, CaseIterable {
         case .smsChallengeScreen:
             return .welcomeScreen
         case .welcomeScreen:
-            return .firstTimeDialogScreen
+            if AppAuthController.shared.isLoggedIn() {
+                return .firstTimeDialogScreen
+            } else {
+                return .none
+            }
         case .firstTimeDialogScreen:
             return .addInstitutionScreen
         default:
@@ -106,8 +123,9 @@ enum ScreenType: Int, CaseIterable {
             return CreateEduIDExplanationViewController()
         case .enterInfoScreen:
             return CreateEduIDEnterPersonalInfoViewController(viewModel: CreateEduIDEnterPersonalInfoViewModel())
-        case .checkMailScreen:
-            return CheckEmailViewController()
+        case .emailLoginCodeScreen:
+            return EmailLoginCodeViewController(viewModel: .init())
+            
         case .registrationCheck:
             return CreateEduIDRegistrationCheckViewController()
         case .enterPhoneScreen:
@@ -124,8 +142,6 @@ enum ScreenType: Int, CaseIterable {
             return ScanViewController(viewModel: ScanViewModel())
         case .personalInfoLandingScreen:
             return PersonalInfoViewController(viewModel: PersonalInfoViewModel(false))
-        case .personalInfoEditEmailScreen:
-            return EmailEditorViewController(viewModel: EmailEditorViewModel())
         case .firstTimeDialogScreen:
             return CreateEduIDFirstTimeDialogViewController(viewModel: CreateEduIDFirstTimeDialogViewViewModel())
         case .securityOverviewScreen:
@@ -164,11 +180,19 @@ enum ScreenType: Int, CaseIterable {
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
                 .firstTimeDialogScreen, .eduIDCreatedScreen, .registrationCheck,
-                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser:
+                .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser,
+                .externalAccountLinkingError:
             addLogoTo(item: item)
             item.hidesBackButton = true
             
-            // Back button
+        case .webView:
+            // No logo, no button
+            break
+            
+            // Back button with logo
+        case .verifyAlreadyUsedScreen:
+            addLogoTo(item: item)
+            item.hidesBackButton = true
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true
@@ -180,7 +204,7 @@ enum ScreenType: Int, CaseIterable {
     func addLogoTo(item: UINavigationItem) {
         let logo = UIImageView(image: .eduIDLogo)
         logo.width(92)
-        logo.height(36)
+        logo.height(40)
         item.titleView = logo
     }
 }

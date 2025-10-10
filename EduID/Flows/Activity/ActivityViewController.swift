@@ -1,5 +1,6 @@
 import UIKit
 import TinyConstraints
+import OpenAPIClient
 
 class ActivityViewController: BaseViewController {
     
@@ -12,16 +13,20 @@ class ActivityViewController: BaseViewController {
     init(viewModel: ActivityViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.dataFetchErrorClosure = { [weak self] title, message, statusCode in
+        viewModel.dataFetchErrorClosure = { [weak self] eduidError in
             guard let self else { return }
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
-                    if statusCode == 401 {
-                        AppAuthController.shared.authorize(viewController: self)
+                    if eduidError.statusCode == 401 {
+                        guard let navigationController = self.navigationController else {
+                            assertionFailure("Navigation controller could not be found!")
+                            return
+                        }
+                        AppAuthController.shared.authorize(navigationController: navigationController)
                         self.dismiss(animated: false)
                         self.refreshDelegate?.requestScreenRefresh(for: .activity)
-                    } else if statusCode == -1 {
+                    } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }
                 }
@@ -78,22 +83,47 @@ class ActivityViewController: BaseViewController {
         
         let description = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.Info.localization, partBold: "")
         
-        let appsHeader = UILabel.plainTextLabelPartlyBold(text: L.DataActivity.AppsHeader.localization, partBold:  L.DataActivity.AppsHeader.localization)
+        let infoImageView = UIImageView(image: .info)
+        infoImageView.contentMode = .scaleAspectFit
+        infoImageView.size(CGSize(width: 24, height:  36))
         
-        let stack = AnimatedVStackView(arrangedSubviews: [posterParent, description, appsHeader])
+        let infoExplanation = UILabel()
+        infoExplanation.numberOfLines = 0
+        infoExplanation.attributedText = NSAttributedString(
+            string: L.DataActivity.ExplainIcon.localization,
+            attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 15), color: .charcoalColor, lineSpacing: 6)
+        )
+        let infoExplanationContainer = UIStackView(arrangedSubviews: [infoImageView, infoExplanation])
+        infoExplanationContainer.axis = .horizontal
+        infoExplanationContainer.spacing = 11
+        infoExplanationContainer.distribution = .fill
+        infoExplanationContainer.alignment = .top
+        
+        let separator = UIView()
+        separator.backgroundColor = .lightGray
+        separator.height(1)
+        
+        let stack = AnimatedVStackView(arrangedSubviews: [posterParent, description, infoExplanationContainer, separator])
         
         if let model = model {
             var addedKeysCount = 0
             if let keys = model.userResponse.eduIdPerServiceProvider?.keys {
                 for key in keys {
                     if let eduID = model.userResponse.eduIdPerServiceProvider?[key] {
+                        let serviceRelatedTokens = model.tokensResponse.filter({ $0.clientId == eduID.serviceProviderEntityId })
+                        let firstToken = serviceRelatedTokens.first(where: { $0.type == .refresh}) ?? serviceRelatedTokens.first(where: { $0.type == .access })
+                        let tokens: [Token] = firstToken == nil ? [] : [firstToken!]
                         let control = ActivityControlCollapsible(
                             logoImageURL: eduID.serviceLogoUrl ?? "",
                             institutionTitle: eduID.serviceName ?? "",
                             date: Date(timeIntervalSince1970: Double((eduID.createdAt ?? 0) / 1000)),
                             uniqueId: eduID.serviceInstutionGuid ?? eduID.value ?? "",
-                            removeAction: { [weak self] in
+                            accessTokens: tokens,
+                            removeDetailsButtonAction: { [weak self] in
                                 self?.delegate?.goToDeleteService(service: eduID)
+                            },
+                            revokeTokenButtonAction: { [weak self] token in
+                                self?.delegate?.goToDeleteTokens(serviceName: eduID.serviceName ?? "eduID", tokensToDelete: serviceRelatedTokens)
                             }
                         )
                         addedKeysCount += 1
@@ -121,6 +151,7 @@ class ActivityViewController: BaseViewController {
         }
         stack.spacing = 16
         stack.setCustomSpacing(24, after: description)
+        stack.setCustomSpacing(22, after: separator)
         stack.alignment = .center
         
         // - constraints
@@ -129,7 +160,8 @@ class ActivityViewController: BaseViewController {
         stack.width(to: scrollView)
         posterParent.widthToSuperview(offset: -48)
         description.widthToSuperview(offset: -48)
-        appsHeader.widthToSuperview(offset: -48)
+        infoExplanationContainer.widthToSuperview(offset: -48)
+        separator.widthToSuperview(offset: -48)
     }
     
     @objc

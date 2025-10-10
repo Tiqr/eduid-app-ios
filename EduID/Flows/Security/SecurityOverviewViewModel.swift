@@ -11,7 +11,7 @@ import OpenAPIClient
 class SecurityOverviewViewModel {
     
     var personalInfo: UserResponse? = nil
-    var dataFetchErrorClosure: ((String, String, Int) -> Void)?
+    var dataFetchErrorClosure: ((EduIdError) -> Void)?
     
     func getData() async throws -> UserResponse? {
         do {
@@ -25,8 +25,6 @@ class SecurityOverviewViewModel {
     
     @MainActor
     private func processError(with error: Error) {
-        dataFetchErrorClosure?(error.eduIdResponseError().title,
-                               error.eduIdResponseError().message,
-                               error.eduIdResponseError().statusCode)
+        dataFetchErrorClosure?(EduIdError.from(error))
     }
 }

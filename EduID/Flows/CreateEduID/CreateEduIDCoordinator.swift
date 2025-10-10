@@ -74,6 +74,12 @@ extension CreateEduIDCoordinator: ScanCoordinatorDelegate {
 }
 
 extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
+    func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?) {
+        let accountLinkingErrorViewController = AccountLinkingErrorViewController(viewModel: AccountLinkingErrorViewModel(linkedAccountEmail: linkedAccountEmail))
+        accountLinkingErrorViewController.delegate = self
+        navigationController.pushViewController(accountLinkingErrorViewController, animated: true)
+    }
+    
     
     func createEduIDViewControllerShowScanScreen(viewController: UIViewController) {
         let scanCoordinator = ScanCoordinator(viewControllerToPresentOn: navigationController)
@@ -113,12 +119,14 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
             }
         }
         
-        guard let navController = navigationController, let nextViewController = currentScreenType.nextCreateEduIDScreen().viewController() else {
+        guard let navController = navigationController,
+              let nextViewController = currentScreenType.nextCreateEduIDScreen().viewController() else {
+            delegate?.createEduIDCoordinatorDismissOnBoarding(coordinator: self)
             return
-            
         }
         (nextViewController as? CreateEduIDBaseViewController)?.delegate = self
         (nextViewController as? CreateEduIDEnterPersonalInfoViewController)?.delegate = self
+        (nextViewController as? EmailLoginCodeViewController)?.createEduIDViewControllerDelegate = self
         navController.pushViewController(nextViewController, animated: true)
         currentScreenType = currentScreenType.nextCreateEduIDScreen()
     }
@@ -160,3 +168,16 @@ extension CreateEduIDCoordinator: CreateEduIDViewControllerDelegate {
 extension CreateEduIDCoordinator: BiometricApprovalViewControllerDelegate {
 }
 
+extension CreateEduIDCoordinator: AccountLinkingErrorDelegate {
+    func accountLinkingErrorGoBack(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+    }
+    
+    func accountLinkingErrorRetryLinking(viewController: UIViewController) {
+        self.goBack(viewController: viewController)
+        if let vc = navigationController.topViewController as? CreateEduIDFirstTimeDialogViewController {
+            vc.launchAddInstitutions()
+        }
+    }
+    
+}

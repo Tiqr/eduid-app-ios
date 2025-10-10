@@ -18,7 +18,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     private var viewModel: NameEditorViewModel
     
     private var firstNameField: TextFieldViewWithValidationAndTitle!
-    private var lastNameField: TextFieldViewWithValidationAndTitle!
+    private var lastNameField: TextFieldViewWithValidationAndTitle?
     private var saveButton: EduIDButton!
 
     init(viewModel: NameEditorViewModel) {
@@ -40,6 +40,8 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         viewModel.setSaveButtonEnabled = { [weak self] enabled in
             self?.saveButton.isEnabled = enabled
         }
+        
+        saveButton.isEnabled = false
     }
     
     private func setupUI(isLoading: Bool) {
@@ -52,12 +54,12 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         // - scroll view
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
-        scrollView.edges(to: view)
+        scrollView.edgesToSuperview()
         
-        let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.FullName.localization)"
-        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.FullName.localization)
-        
+        let fullTitleString = "\(L.EditName.Title.Edit.localization)\n\(L.EditName.Title.YourName.localization)"
+        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitleString, size: 24, primary: L.EditName.Title.YourName.localization)
         
         let topStackView = UIStackView(arrangedSubviews: [
             mainTitle
@@ -81,23 +83,24 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
             firstNameField.textField.text = viewModel.currentFirstName
             firstNameField.tag = NameEditorViewModel.TAG_FIRST_NAME
             firstNameField.delegate = viewModel
-            
-            lastNameField = TextFieldViewWithValidationAndTitle(
-                title: L.EditName.LastName.localization,
-                placeholder: "",
-                field: .name,
-                keyboardType: .namePhonePad,
-                isPassword: false
-            )
-            lastNameField.textField.text = viewModel.currentLastName
-            lastNameField.tag = NameEditorViewModel.TAG_LAST_NAME
-            lastNameField.delegate = viewModel
-            
             topStackView.addArrangedSubview(firstNameField)
-            topStackView.addArrangedSubview(lastNameField)
-            
             firstNameField.widthToSuperview()
-            lastNameField.widthToSuperview()
+            if viewModel.editLastNameAllowed {
+                let lastNameField = TextFieldViewWithValidationAndTitle(
+                    title: L.EditName.LastName.localization,
+                    placeholder: "",
+                    field: .name,
+                    keyboardType: .namePhonePad,
+                    isPassword: false
+                )
+                lastNameField.textField.text = viewModel.currentLastName
+                lastNameField.tag = NameEditorViewModel.TAG_LAST_NAME
+                lastNameField.delegate = viewModel
+                
+                topStackView.addArrangedSubview(lastNameField)
+                lastNameField.widthToSuperview()
+                self.lastNameField = lastNameField
+            }
         }
 
         let bottomSpacer = UIView()
@@ -105,7 +108,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         
         scrollView.addSubview(topStackView)
         topStackView.width(to: scrollView, offset: -48)
-        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(32))
+        topStackView.edgesToSuperview(insets: .horizontal(24) + .top(24))
 
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.EditName.Button.Cancel.localization)
@@ -127,7 +130,7 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
         bottomStackView.spacing = 20
         
         view.addSubview(bottomStackView)
-        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
+        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16), usingSafeArea: true)
 
         // Add click targets
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
@@ -137,13 +140,16 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
 
     @objc func saveNameChange() {
         Task {
-            guard let firstName = firstNameField.textField.text,
-                  let lastName = lastNameField.textField.text else {
+            guard let firstName = firstNameField.textField.text else {
+                return
+            }
+            let lastName = lastNameField?.textField.text
+            if lastName == nil && viewModel.editLastNameAllowed {
                 return
             }
             setupUI(isLoading: true)
             do {
-                _ = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName)
+                _ = try await viewModel.saveNameChange(firstName: firstName, lastName: lastName ?? viewModel.currentLastName)
                 delegate?.goBackToInfoScreen(updateData: true)
             } catch {
                 NSLog("Unable to update name of the user: \(error)")
@@ -176,6 +182,6 @@ class NameEditorViewController : UIViewController, ScreenWithScreenType {
     
     @objc func resignKeyboardResponder() {
         _ = firstNameField.resignFirstResponder()
-        _ = lastNameField.resignFirstResponder()
+        _ = lastNameField?.resignFirstResponder()
     }
 }

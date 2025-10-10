@@ -35,6 +35,14 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
                 action: #selector(openEnvironmentSwitcher)
             )
         }
+        navigationItem.leftBarButtonItem = .init(
+            image: .init(systemName: "info.circle")!.withRenderingMode(.alwaysTemplate),
+            style: .plain,
+            target: self,
+            action: #selector(openInfoPopup)
+        )
+        navigationItem.rightBarButtonItem?.tintColor = .disabledGray
+        navigationItem.leftBarButtonItem?.tintColor = .disabledGray
     }
     
     func setupUI() {
@@ -162,9 +170,18 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         present(switcher, animated: true)
     }
     
+    @objc func openInfoPopup() {
+        let infoVc = InfoViewController()
+        present(infoVc, animated: true)
+    }
+    
     private func askForAuthorisationIfNeeded() -> Bool {
         if !AppAuthController.shared.isLoggedIn() {
-            AppAuthController.shared.authorize(viewController: self)
+            guard let navigationController else {
+                assertionFailure("Navigation controller could not be found!")
+                return false
+            }
+            AppAuthController.shared.authorize(navigationController: navigationController)
             return true
         }
         return false
@@ -214,7 +231,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
 
 extension HomeViewController: RefreshChildScreenDelegate {
     func requestScreenRefresh(for childScreen: HomeViewChildScreensType) {
-        screenRefreshWasRequested = false
+        self.screenRefreshWasRequested = false
         childScreenMode = childScreen
     }
 }

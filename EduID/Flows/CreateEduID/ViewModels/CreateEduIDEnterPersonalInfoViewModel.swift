@@ -7,6 +7,7 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
     var setRequestButtonEnabled: ((Bool) -> Void)?
     var makeNextTextFieldFirstResponderClosure: ((Int) -> Void)?
     var textFieldBecameFirstResponderClosure: ((Int) -> Void)?
+    static var createEduIDResponseKeyUserDefaults = "createEduIDResponseKeyUserDefaults"
     
     var textFieldModels: [TextFieldModelWithTagAndValid] = [
         TextFieldModelWithTagAndValid(tag: CreateEduIDEnterPersonalInfoViewController.emailFieldTag, text: "", isValid: false),
@@ -37,12 +38,11 @@ class CreateEduIDEnterPersonalInfoViewModel: NSObject {
         Task {
             do {
                 let account = CreateAccount(email: email, givenName: givenName, familyName: familyName, relyingPartClientId: AppAuthController.shared.clientId)
-                try await UserControllerAPI.createEduIDAccountWithRequestBuilder(createAccount: account)
-                    .execute()
-                    .body
+                let createEduIDResponse = try await UserControllerAPI.createEduIDAccountWithVerificationCode(createAccount: account)
+                UserDefaults.standard.set(createEduIDResponse.hash, forKey: CreateEduIDEnterPersonalInfoViewModel.createEduIDResponseKeyUserDefaults)
                 createEduIDSuccessClosure?()
             } catch {
-                let errorResponse = error.eduIdResponseError()
+                let errorResponse = EduIdError.from(error)
                 createEduIDErrorClosure?(errorResponse.title, errorResponse.message)
             }
         }

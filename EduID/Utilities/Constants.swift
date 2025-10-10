@@ -38,10 +38,17 @@ enum Constants {
         static let tiqrAuthObject = "tiqrAuthenticationObject"
         static let emailUpdateUrl = "emailUpdateUrl"
         static let passwordChangeUrl = "passwordChangeUrl"
+        static let linkedAccountEmail = "linkedAccountEmail"
+        static let linkedAccountInstitution = "linkedAccountInstitution"
+        static let magicLinkUrl = "magicLinkUrl"
     }
     
     enum RegistrationCheck {
         static let useApp = "useApp"
         static let phoneVerified = "phoneVerified"
+    }
+    
+    enum Urls {
+        static let OrganizationLogo = "https://static.surfconext.nl/logos/org/"
     }
 }

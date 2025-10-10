@@ -10,6 +10,7 @@ import UIKit
 
 class EnvironmentSwitcherController: UIViewController {
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -21,18 +22,32 @@ class EnvironmentSwitcherController: UIViewController {
     }
     
     private func setup() {
-        self.modalPresentationStyle = .overCurrentContext
-        self.modalTransitionStyle = .crossDissolve
+        if #available(iOS 15.0, *) {
+            self.modalPresentationStyle = .pageSheet
+        } else {
+            self.modalPresentationStyle = .overCurrentContext
+            self.modalTransitionStyle = .crossDissolve
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black.withAlphaComponent(0.2)
+        if #available(iOS 15.0, *) {
+            view.backgroundColor = .clear
+        } else {
+            view.backgroundColor = .black.withAlphaComponent(0.2)
+        }
         let insetView = UIView()
         insetView.backgroundColor = .white
         view.addSubview(insetView)
-        insetView.horizontalToSuperview(insets: .horizontal(20))
-        insetView.centerYToSuperview()
+        if #available(iOS 15.0, *) {
+            insetView.bottomToSuperview()
+            insetView.widthToSuperview()
+        } else {
+            insetView.centerYToSuperview()
+            insetView.horizontalToSuperview(insets: .horizontal(20))
+        }
+        
         let title = UILabel.posterTextLabelBicolor(text: L.EnvironmentSwitcher.Title.localization, primary: "")
         let subtitle = UILabel.plainTextLabelPartlyBold(text: L.EnvironmentSwitcher.Subtitle.localization)
         let stack = UIStackView(arrangedSubviews: [title, subtitle])
@@ -40,7 +55,7 @@ class EnvironmentSwitcherController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 16
         insetView.addSubview(stack)
-        stack.edgesToSuperview(insets: .uniform(20))
+        stack.edgesToSuperview(insets: .uniform(20), usingSafeArea: true)
         EnvironmentService.shared.environments.enumerated().forEach { (index, environment) in
             let isCurrent = EnvironmentService.shared.currentEnvironment.name == environment.name
             let button = EduIDButton(type: .ghost, buttonTitle: environment.name)
@@ -54,15 +69,20 @@ class EnvironmentSwitcherController: UIViewController {
             button.tag = index
             button.addTarget(self, action: #selector(environmentButtonClicked), for: .touchUpInside)
         }
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
         view.addGestureRecognizer(gesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     @objc
     func dismissPopup() {
         self.dismiss(animated: true)
     }
-    
+
     @objc
     func environmentButtonClicked(_ sender: UIButton) {
         let environmentIndex = sender.tag

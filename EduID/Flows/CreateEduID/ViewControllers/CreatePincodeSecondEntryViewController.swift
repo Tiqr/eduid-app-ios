@@ -17,18 +17,24 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
         createPincodeViewModel.showErrorDialogClosure = { [weak self] error in
             guard let self = self else { return }
             let alert = UIAlertController(
-                title: L.Generic.RequestError.Title.localization,
-                message: error.localizedFromApi,
+                title: error.title,
+                message: error.message,
                 preferredStyle: .alert)
             alert.addAction(.init(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { _ in
                 alert.dismiss(animated: true)
             })
             self.present(alert, animated: true)
+            self.loadingIndicator.stopAnimating()
+            self.loadingIndicator.isHidden = true
+            self.verifyButton.isEnabled = true
         }
         
         createPincodeViewModel.redoCreatePincodeClosure = { [weak self] in
             guard let self = self else { return }
             (self.delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerRedoCreatePin(viewController: self)
+            self.loadingIndicator.stopAnimating()
+            self.loadingIndicator.isHidden = true
+            self.verifyButton.isEnabled = true
         }
     }
     
@@ -50,6 +56,9 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
     
     override func showNextScreen(_ sender: UIButton? = nil) {
         createPincodeViewModel.secondEnteredPin = viewModel.pinValue
+        verifyButton.isEnabled = false
+        self.loadingIndicator.startAnimating()
+        self.loadingIndicator.isHidden = false
         createPincodeViewModel.verifyPinSimilarity()
     }
 }

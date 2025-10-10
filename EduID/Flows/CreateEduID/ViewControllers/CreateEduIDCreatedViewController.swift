@@ -45,7 +45,7 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
         view.addSubview(stack)
         
         // constraints
-        stack.edgesToSuperview(insets: TinyEdgeInsets(top: 24, left: 24, bottom: 24, right: 24), usingSafeArea: true)
+        stack.edgesToSuperview(insets: .uniform(24), usingSafeArea: true)
         imageView.width(to: view)
         imageParent.width(to: stack)
         imageView.width(to: view)
@@ -59,8 +59,19 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
     @objc
     func authorize() {
         continueButton.isUserInteractionEnabled = false
-        AppAuthController.shared.authorize(viewController: self)
-        showNextScreen()
+        guard let navigationController else {
+            assertionFailure("Navigation controller could not be found!")
+            return
+        }
+        let registrationUrlString = UserDefaults.standard.string(forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+        let url = URL(string: registrationUrlString ?? "")
+        AppAuthController.shared.registrationUrl = url
+        AppAuthController.shared.authorize(navigationController: navigationController) { [weak self] in
+            UserDefaults.standard.removeObject(forKey: EmailLoginCodeViewController.registrationUrlUserDefaultsKey)
+            UserDefaults.standard.removeObject(forKey: CreateEduIDEnterPersonalInfoViewModel.createEduIDResponseKeyUserDefaults)
+            UserDefaults.standard.removeObject(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
+            self?.showNextScreen()
+        }
     }
 
 }

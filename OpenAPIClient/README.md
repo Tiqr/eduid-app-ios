@@ -25,7 +25,16 @@ All URIs are relative to *https://login.test2.eduid.nl*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountLinkerControllerAPI* | [**issuers**](docs/AccountLinkerControllerAPI.md#issuers) | **GET** /mobile/api/sp/idin/issuers | All verify issuers
 *AccountLinkerControllerAPI* | [**startSPLinkAccountFlow**](docs/AccountLinkerControllerAPI.md#startsplinkaccountflow) | **GET** /mobile/api/sp/oidc/link | Start link account flow
+*AccountLinkerControllerAPI* | [**startSPVerifyIDLinkAccountFlow**](docs/AccountLinkerControllerAPI.md#startspverifyidlinkaccountflow) | **GET** /mobile/api/sp/verify/link | Start verify ID flow for signicat from SP flow
+*InviteControllerAPI* | [**provisionEduid**](docs/InviteControllerAPI.md#provisioneduid) | **POST** /myconext/api/invite/provision-eduid | 
+*RemoteCreationControllerAPI* | [**createEduID**](docs/RemoteCreationControllerAPI.md#createeduid) | **POST** /api/remote-creation/eduid-create | Create an eduID
+*RemoteCreationControllerAPI* | [**deleteEduID**](docs/RemoteCreationControllerAPI.md#deleteeduid) | **DELETE** /api/remote-creation/eduid-delete/{eduid} | Delete an eduID
+*RemoteCreationControllerAPI* | [**eduIDForInstitution**](docs/RemoteCreationControllerAPI.md#eduidforinstitution) | **POST** /api/remote-creation/eduid-institution-pseudonym | Return a eduID pseudonym for an institution
+*RemoteCreationControllerAPI* | [**emailEduIDExists**](docs/RemoteCreationControllerAPI.md#emaileduidexists) | **GET** /api/remote-creation/email-eduid-exists | Does an eduID exists
+*RemoteCreationControllerAPI* | [**remoteCreation**](docs/RemoteCreationControllerAPI.md#remotecreation) | **GET** /api/remote-creation/eduid-exists | Does an eduID exists
+*RemoteCreationControllerAPI* | [**updateEduID**](docs/RemoteCreationControllerAPI.md#updateeduid) | **PUT** /api/remote-creation/eduid-update | Update an eduID
 *TiqrControllerAPI* | [**deactivateApp**](docs/TiqrControllerAPI.md#deactivateapp) | **POST** /mobile/tiqr/sp/deactivate-app | De-activate the app
 *TiqrControllerAPI* | [**enrollmentStatus**](docs/TiqrControllerAPI.md#enrollmentstatus) | **GET** /mobile/tiqr/poll-enrollment | Poll enrollment
 *TiqrControllerAPI* | [**finishEnrollment**](docs/TiqrControllerAPI.md#finishenrollment) | **GET** /mobile/tiqr/sp/finish-enrollment | Finish enrollment
@@ -42,8 +51,13 @@ Class | Method | HTTP request | Description
 *TiqrControllerAPI* | [**startEnrollment**](docs/TiqrControllerAPI.md#startenrollment) | **GET** /mobile/tiqr/sp/start-enrollment | Start enrollment
 *UserControllerAPI* | [**confirmUpdateEmail**](docs/UserControllerAPI.md#confirmupdateemail) | **GET** /mobile/api/sp/confirm-email | Confirm email change
 *UserControllerAPI* | [**createEduIDAccount**](docs/UserControllerAPI.md#createeduidaccount) | **POST** /mobile/api/idp/create | Create eduID account
+*UserControllerAPI* | [**createEduIDAccountWithVerificationCode**](docs/UserControllerAPI.md#createeduidaccountwithverificationcode) | **POST** /mobile/api/idp/v2/create | Create eduID account with one-time verification code
+*UserControllerAPI* | [**createUserControlCode**](docs/UserControllerAPI.md#createusercontrolcode) | **POST** /mobile/api/sp/control-code | Create verification control code password link
 *UserControllerAPI* | [**deleteUser**](docs/UserControllerAPI.md#deleteuser) | **DELETE** /mobile/api/sp/delete | Delete
+*UserControllerAPI* | [**deleteUserControlCode**](docs/UserControllerAPI.md#deleteusercontrolcode) | **DELETE** /mobile/api/sp/control-code | Delete existing verification control code
 *UserControllerAPI* | [**forgetMe**](docs/UserControllerAPI.md#forgetme) | **DELETE** /mobile/api/sp/forget | Forget me
+*UserControllerAPI* | [**generateEmailCode**](docs/UserControllerAPI.md#generateemailcode) | **PUT** /mobile/api/sp/generate-email-code | Generate email change code
+*UserControllerAPI* | [**generatePasswordCode**](docs/UserControllerAPI.md#generatepasswordcode) | **PUT** /mobile/api/sp/generate-password-code | Generate change password code
 *UserControllerAPI* | [**institutionNames**](docs/UserControllerAPI.md#institutionnames) | **GET** /mobile/api/sp/institution/names | Institution displaynames
 *UserControllerAPI* | [**institutionalDomains**](docs/UserControllerAPI.md#institutionaldomains) | **GET** /mobile/api/sp/create-from-institution/domain/institutional | All institutional domains
 *UserControllerAPI* | [**institutionalDomains1**](docs/UserControllerAPI.md#institutionaldomains1) | **GET** /mobile/api/idp/email/domain/institutional | All institutional domains
@@ -54,49 +68,80 @@ Class | Method | HTTP request | Description
 *UserControllerAPI* | [**removeTokens**](docs/UserControllerAPI.md#removetokens) | **PUT** /mobile/api/sp/tokens | Remove user tokens
 *UserControllerAPI* | [**removeUserLinkedAccounts**](docs/UserControllerAPI.md#removeuserlinkedaccounts) | **PUT** /mobile/api/sp/institution | Remove linked account
 *UserControllerAPI* | [**removeUserService**](docs/UserControllerAPI.md#removeuserservice) | **PUT** /mobile/api/sp/service | Remove user service
+*UserControllerAPI* | [**resendCodeMailMobile**](docs/UserControllerAPI.md#resendcodemailmobile) | **GET** /mobile/api/idp/v2/resend_code_request | Re-send the one-time verification code
+*UserControllerAPI* | [**resendSpCodeMail**](docs/UserControllerAPI.md#resendspcodemail) | **GET** /mobile/api/sp/resend-email-code | Resend email change code
+*UserControllerAPI* | [**resendSpCodePassword**](docs/UserControllerAPI.md#resendspcodepassword) | **GET** /mobile/api/sp/resend-password-code | Resend password change code
 *UserControllerAPI* | [**resetPasswordHashValid**](docs/UserControllerAPI.md#resetpasswordhashvalid) | **GET** /mobile/api/sp/password-reset-hash-valid | Validate password hash
 *UserControllerAPI* | [**resetPasswordLink**](docs/UserControllerAPI.md#resetpasswordlink) | **PUT** /mobile/api/sp/reset-password-link | Reset password link
 *UserControllerAPI* | [**tokens**](docs/UserControllerAPI.md#tokens) | **GET** /mobile/api/sp/tokens | Get all OpenID Connect tokens
 *UserControllerAPI* | [**updateEmail**](docs/UserControllerAPI.md#updateemail) | **PUT** /mobile/api/sp/email | Change email
+*UserControllerAPI* | [**updateLinkedAccount**](docs/UserControllerAPI.md#updatelinkedaccount) | **PUT** /mobile/api/sp/prefer-linked-account | Mark linkedAccount as preferred
 *UserControllerAPI* | [**updateUserPassword**](docs/UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
 *UserControllerAPI* | [**updateUserProfile**](docs/UserControllerAPI.md#updateuserprofile) | **PUT** /mobile/api/sp/update | Change names
+*UserControllerAPI* | [**verifyChangeEmailCode**](docs/UserControllerAPI.md#verifychangeemailcode) | **PUT** /mobile/api/sp/verify-email-code | Verify change email code
+*UserControllerAPI* | [**verifyCodeMobileUser**](docs/UserControllerAPI.md#verifycodemobileuser) | **PUT** /mobile/api/idp/v2/verify_code_request | Validate the one-time verification code
+*UserControllerAPI* | [**verifyPasswordResetCode**](docs/UserControllerAPI.md#verifypasswordresetcode) | **PUT** /mobile/api/sp/verify-password-code | Verify change password code
 
 
 ## Documentation For Models
 
  - [AuthorizationURL](docs/AuthorizationURL.md)
+ - [ControlCode](docs/ControlCode.md)
  - [CreateAccount](docs/CreateAccount.md)
+ - [CreateEduIDResponse](docs/CreateEduIDResponse.md)
  - [DeactivateRequest](docs/DeactivateRequest.md)
  - [DeleteService](docs/DeleteService.md)
  - [DeleteServiceTokens](docs/DeleteServiceTokens.md)
  - [EduID](docs/EduID.md)
+ - [EduIDInstitutionPseudonym](docs/EduIDInstitutionPseudonym.md)
+ - [EduIDProvision](docs/EduIDProvision.md)
+ - [EduIDValue](docs/EduIDValue.md)
+ - [EmailExistsResponse](docs/EmailExistsResponse.md)
  - [EnrollmentVerificationKey](docs/EnrollmentVerificationKey.md)
+ - [ExternalLinkedAccount](docs/ExternalLinkedAccount.md)
  - [FinishEnrollment](docs/FinishEnrollment.md)
  - [GeneratedBackupCode](docs/GeneratedBackupCode.md)
  - [IdentityProvider](docs/IdentityProvider.md)
  - [LinkedAccount](docs/LinkedAccount.md)
  - [ManualResponse](docs/ManualResponse.md)
+ - [NewExternalEduID](docs/NewExternalEduID.md)
+ - [OneTimeLoginCode](docs/OneTimeLoginCode.md)
  - [PhoneCode](docs/PhoneCode.md)
  - [PhoneVerification](docs/PhoneVerification.md)
  - [PollAuthenticationResult](docs/PollAuthenticationResult.md)
  - [PublicKeyCredentials](docs/PublicKeyCredentials.md)
  - [Scope](docs/Scope.md)
+ - [ServiceProvider](docs/ServiceProvider.md)
  - [StartAuthentication](docs/StartAuthentication.md)
  - [StartEnrollment](docs/StartEnrollment.md)
  - [StatusResponse](docs/StatusResponse.md)
  - [Token](docs/Token.md)
  - [TokenRepresentation](docs/TokenRepresentation.md)
  - [UpdateEmailRequest](docs/UpdateEmailRequest.md)
+ - [UpdateExternalEduID](docs/UpdateExternalEduID.md)
+ - [UpdateLinkedAccountRequest](docs/UpdateLinkedAccountRequest.md)
  - [UpdateUserNameRequest](docs/UpdateUserNameRequest.md)
  - [UpdateUserSecurityRequest](docs/UpdateUserSecurityRequest.md)
  - [User](docs/User.md)
  - [UserResponse](docs/UserResponse.md)
+ - [VerifyIssuer](docs/VerifyIssuer.md)
+ - [VerifyOneTimeLoginCode](docs/VerifyOneTimeLoginCode.md)
  - [VerifyPhoneCode](docs/VerifyPhoneCode.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+<a id="openId"></a>
+### openId
+
+
+<a id="basic"></a>
+### basic
+
+- **Type**: HTTP basic authentication
 
 
 ## Author

@@ -6,8 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**confirmUpdateEmail**](UserControllerAPI.md#confirmupdateemail) | **GET** /mobile/api/sp/confirm-email | Confirm email change
 [**createEduIDAccount**](UserControllerAPI.md#createeduidaccount) | **POST** /mobile/api/idp/create | Create eduID account
+[**createEduIDAccountWithVerificationCode**](UserControllerAPI.md#createeduidaccountwithverificationcode) | **POST** /mobile/api/idp/v2/create | Create eduID account with one-time verification code
+[**createUserControlCode**](UserControllerAPI.md#createusercontrolcode) | **POST** /mobile/api/sp/control-code | Create verification control code password link
 [**deleteUser**](UserControllerAPI.md#deleteuser) | **DELETE** /mobile/api/sp/delete | Delete
+[**deleteUserControlCode**](UserControllerAPI.md#deleteusercontrolcode) | **DELETE** /mobile/api/sp/control-code | Delete existing verification control code
 [**forgetMe**](UserControllerAPI.md#forgetme) | **DELETE** /mobile/api/sp/forget | Forget me
+[**generateEmailCode**](UserControllerAPI.md#generateemailcode) | **PUT** /mobile/api/sp/generate-email-code | Generate email change code
+[**generatePasswordCode**](UserControllerAPI.md#generatepasswordcode) | **PUT** /mobile/api/sp/generate-password-code | Generate change password code
 [**institutionNames**](UserControllerAPI.md#institutionnames) | **GET** /mobile/api/sp/institution/names | Institution displaynames
 [**institutionalDomains**](UserControllerAPI.md#institutionaldomains) | **GET** /mobile/api/sp/create-from-institution/domain/institutional | All institutional domains
 [**institutionalDomains1**](UserControllerAPI.md#institutionaldomains1) | **GET** /mobile/api/idp/email/domain/institutional | All institutional domains
@@ -18,12 +23,19 @@ Method | HTTP request | Description
 [**removeTokens**](UserControllerAPI.md#removetokens) | **PUT** /mobile/api/sp/tokens | Remove user tokens
 [**removeUserLinkedAccounts**](UserControllerAPI.md#removeuserlinkedaccounts) | **PUT** /mobile/api/sp/institution | Remove linked account
 [**removeUserService**](UserControllerAPI.md#removeuserservice) | **PUT** /mobile/api/sp/service | Remove user service
+[**resendCodeMailMobile**](UserControllerAPI.md#resendcodemailmobile) | **GET** /mobile/api/idp/v2/resend_code_request | Re-send the one-time verification code
+[**resendSpCodeMail**](UserControllerAPI.md#resendspcodemail) | **GET** /mobile/api/sp/resend-email-code | Resend email change code
+[**resendSpCodePassword**](UserControllerAPI.md#resendspcodepassword) | **GET** /mobile/api/sp/resend-password-code | Resend password change code
 [**resetPasswordHashValid**](UserControllerAPI.md#resetpasswordhashvalid) | **GET** /mobile/api/sp/password-reset-hash-valid | Validate password hash
 [**resetPasswordLink**](UserControllerAPI.md#resetpasswordlink) | **PUT** /mobile/api/sp/reset-password-link | Reset password link
 [**tokens**](UserControllerAPI.md#tokens) | **GET** /mobile/api/sp/tokens | Get all OpenID Connect tokens
 [**updateEmail**](UserControllerAPI.md#updateemail) | **PUT** /mobile/api/sp/email | Change email
+[**updateLinkedAccount**](UserControllerAPI.md#updatelinkedaccount) | **PUT** /mobile/api/sp/prefer-linked-account | Mark linkedAccount as preferred
 [**updateUserPassword**](UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
 [**updateUserProfile**](UserControllerAPI.md#updateuserprofile) | **PUT** /mobile/api/sp/update | Change names
+[**verifyChangeEmailCode**](UserControllerAPI.md#verifychangeemailcode) | **PUT** /mobile/api/sp/verify-email-code | Verify change email code
+[**verifyCodeMobileUser**](UserControllerAPI.md#verifycodemobileuser) | **PUT** /mobile/api/idp/v2/verify_code_request | Validate the one-time verification code
+[**verifyPasswordResetCode**](UserControllerAPI.md#verifypasswordresetcode) | **PUT** /mobile/api/sp/verify-password-code | Verify change password code
 
 
 # **confirmUpdateEmail**
@@ -33,7 +45,7 @@ Method | HTTP request | Description
 
 Confirm email change
 
-Confirm the user has clicked on the link in the email sent after requesting to change the users email<br/>A confirmation email is sent to notify the user of the security change with a link to the security settings <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/security</a>. <br/>If this URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/security</a>
+Confirm the user has entered the correct one-time code or has clicked on the link in the email sent after requesting to change the users email <br/>A confirmation email is sent to notify the user of the security change with a link to the security settings <a href=\"/#\">https://login.{environment}.eduid.nl/client/mobile/security</a>. <br/>If this URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"/#\">eduid://client/mobile/security</a> 
 
 ### Example
 ```swift
@@ -67,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -78,12 +90,64 @@ No authorization required
 
 # **createEduIDAccount**
 ```swift
-    open class func createEduIDAccount(createAccount: CreateAccount, completion: @escaping (_ data: StatusResponse?, _ error: Error?) -> Void)
+    open class func createEduIDAccount(createAccount: CreateAccount, inApp: Bool? = nil, completion: @escaping (_ data: StatusResponse?, _ error: Error?) -> Void)
 ```
 
 Create eduID account
 
-Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>Link in the validation email is <a href=\"\">https://login.{environment}.eduid.nl/mobile/api/create-from-mobile-api?h=={{hash}}</a> whichmust NOT be captured by the eduID app.<br/>After the account is finalized server-side the user is logged in and the server redirects to <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/created</a><br/>If the URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/created?new=true</a>
+Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>Link in the validation email is <a href=\"\">https://login.{environment}.eduid.nl/mobile/api/in-app/create-from-mobile-api?h=={{hash}}</a> whichmust be captured by the eduID app webview.<br/>After the account is finalized server-side the user is logged in and the server redirects to <a href=\"\">https://login.{environment}.eduid.nl/client/mobile/created</a><br/>If the URL is not properly intercepted by the eduID app, then the browser app redirects to <a href=\"\">eduid://client/mobile/created?new=true</a>
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let createAccount = CreateAccount(email: "email_example", givenName: "givenName_example", familyName: "familyName_example", relyingPartClientId: "relyingPartClientId_example") // CreateAccount | 
+let inApp = true // Bool |  (optional) (default to false)
+
+// Create eduID account
+UserControllerAPI.createEduIDAccount(createAccount: createAccount, inApp: inApp) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createAccount** | [**CreateAccount**](CreateAccount.md) |  | 
+ **inApp** | **Bool** |  | [optional] [default to false]
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createEduIDAccountWithVerificationCode**
+```swift
+    open class func createEduIDAccountWithVerificationCode(createAccount: CreateAccount, completion: @escaping (_ data: CreateEduIDResponse?, _ error: Error?) -> Void)
+```
+
+Create eduID account with one-time verification code
+
+Create an eduID account and sent a verification mail to the user to confirm the ownership of the email. <br/>There is a one-time verification code in the email.<br/>Together with the hash returned in this endpoint, this code can be verified (and possible resend)
 
 ### Example
 ```swift
@@ -92,8 +156,8 @@ import OpenAPIClient
 
 let createAccount = CreateAccount(email: "email_example", givenName: "givenName_example", familyName: "familyName_example", relyingPartClientId: "relyingPartClientId_example") // CreateAccount | 
 
-// Create eduID account
-UserControllerAPI.createEduIDAccount(createAccount: createAccount) { (response, error) in
+// Create eduID account with one-time verification code
+UserControllerAPI.createEduIDAccountWithVerificationCode(createAccount: createAccount) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -113,11 +177,61 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusResponse**](StatusResponse.md)
+[**CreateEduIDResponse**](CreateEduIDResponse.md)
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createUserControlCode**
+```swift
+    open class func createUserControlCode(controlCode: ControlCode, completion: @escaping (_ data: ControlCode?, _ error: Error?) -> Void)
+```
+
+Create verification control code password link
+
+Create a verification control code which users can use to prove their identity at the Service Desk. The code is also send by email to the user. The required field are firstName,  lastName and dayOfBirth. There are no input validations, if the user's dayOfBirth can not be parsed, then this is solved in the approval proces in the Serivce Desk 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let controlCode = ControlCode(firstName: "firstName_example", lastName: "lastName_example", dayOfBirth: "dayOfBirth_example", code: "code_example", documentId: "documentId_example", createdAt: 123, userUid: "userUid_example") // ControlCode | 
+
+// Create verification control code password link
+UserControllerAPI.createUserControlCode(controlCode: controlCode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **controlCode** | [**ControlCode**](ControlCode.md) |  | 
+
+### Return type
+
+[**ControlCode**](ControlCode.md)
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -163,7 +277,53 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteUserControlCode**
+```swift
+    open class func deleteUserControlCode(completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Delete existing verification control code
+
+Delete an existing verification control code for a user 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Delete existing verification control code
+UserControllerAPI.deleteUserControlCode() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -209,7 +369,105 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateEmailCode**
+```swift
+    open class func generateEmailCode(updateEmailRequest: UpdateEmailRequest, force: Bool? = nil, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Generate email change code
+
+Request to change the email of the user. We sent a one-time verification code in verification email
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let updateEmailRequest = UpdateEmailRequest(email: "email_example") // UpdateEmailRequest | 
+let force = true // Bool |  (optional) (default to false)
+
+// Generate email change code
+UserControllerAPI.generateEmailCode(updateEmailRequest: updateEmailRequest, force: force) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateEmailRequest** | [**UpdateEmailRequest**](UpdateEmailRequest.md) |  | 
+ **force** | **Bool** |  | [optional] [default to false]
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generatePasswordCode**
+```swift
+    open class func generatePasswordCode(completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Generate change password code
+
+Sent the user a mail with a one-time code for the user to change his / hers password. 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Generate change password code
+UserControllerAPI.generatePasswordCode() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -259,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -270,7 +528,7 @@ No authorization required
 
 # **institutionalDomains**
 ```swift
-    open class func institutionalDomains(completion: @escaping (_ data: Set<String>?, _ error: Error?) -> Void)
+    open class func institutionalDomains(completion: @escaping (_ data: [String]?, _ error: Error?) -> Void)
 ```
 
 All institutional domains
@@ -301,11 +559,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Set<String>**
+**[String]**
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -316,7 +574,7 @@ No authorization required
 
 # **institutionalDomains1**
 ```swift
-    open class func institutionalDomains1(completion: @escaping (_ data: Set<String>?, _ error: Error?) -> Void)
+    open class func institutionalDomains1(completion: @escaping (_ data: [String]?, _ error: Error?) -> Void)
 ```
 
 All institutional domains
@@ -347,11 +605,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Set<String>**
+**[String]**
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -397,7 +655,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -443,7 +701,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -489,7 +747,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -535,7 +793,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -585,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -596,7 +854,7 @@ No authorization required
 
 # **removeUserLinkedAccounts**
 ```swift
-    open class func removeUserLinkedAccounts(linkedAccount: LinkedAccount, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+    open class func removeUserLinkedAccounts(updateLinkedAccountRequest: UpdateLinkedAccountRequest, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
 ```
 
 Remove linked account
@@ -608,10 +866,10 @@ Remove linked account for a logged in user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let linkedAccount = LinkedAccount(institutionIdentifier: "institutionIdentifier_example", schacHomeOrganization: "schacHomeOrganization_example", eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", givenName: "givenName_example", familyName: "familyName_example", eduPersonAffiliations: ["eduPersonAffiliations_example"], createdAt: 123, expiresAt: 123) // LinkedAccount | 
+let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", external: false, idpScoping: "idpScoping_example", schacHomeOrganization: "schacHomeOrganization_example") // UpdateLinkedAccountRequest | 
 
 // Remove linked account
-UserControllerAPI.removeUserLinkedAccounts(linkedAccount: linkedAccount) { (response, error) in
+UserControllerAPI.removeUserLinkedAccounts(updateLinkedAccountRequest: updateLinkedAccountRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -627,7 +885,7 @@ UserControllerAPI.removeUserLinkedAccounts(linkedAccount: linkedAccount) { (resp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkedAccount** | [**LinkedAccount**](LinkedAccount.md) |  | 
+ **updateLinkedAccountRequest** | [**UpdateLinkedAccountRequest**](UpdateLinkedAccountRequest.md) |  | 
 
 ### Return type
 
@@ -635,7 +893,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -685,11 +943,153 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **resendCodeMailMobile**
+```swift
+    open class func resendCodeMailMobile(hash: String, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Re-send the one-time verification code
+
+Send the one-time verification code to the user, based on the hash<br/>returned in '/idp/v2/create'
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let hash = "hash_example" // String | 
+
+// Re-send the one-time verification code
+UserControllerAPI.resendCodeMailMobile(hash: hash) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hash** | **String** |  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **resendSpCodeMail**
+```swift
+    open class func resendSpCodeMail(completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Resend email change code
+
+Resend the one-time verification code in verification email
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Resend email change code
+UserControllerAPI.resendSpCodeMail() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**String**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **resendSpCodePassword**
+```swift
+    open class func resendSpCodePassword(completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Resend password change code
+
+Resend the one-time verification code in password change email
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Resend password change code
+UserControllerAPI.resendSpCodePassword() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**String**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -735,7 +1135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -781,7 +1181,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -827,7 +1227,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -879,7 +1279,57 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateLinkedAccount**
+```swift
+    open class func updateLinkedAccount(updateLinkedAccountRequest: UpdateLinkedAccountRequest, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Mark linkedAccount as preferred
+
+Mark linkedAccount as preferred
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let updateLinkedAccountRequest = UpdateLinkedAccountRequest(eduPersonPrincipalName: "eduPersonPrincipalName_example", subjectId: "subjectId_example", external: false, idpScoping: "idpScoping_example", schacHomeOrganization: "schacHomeOrganization_example") // UpdateLinkedAccountRequest | 
+
+// Mark linkedAccount as preferred
+UserControllerAPI.updateLinkedAccount(updateLinkedAccountRequest: updateLinkedAccountRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateLinkedAccountRequest** | [**UpdateLinkedAccountRequest**](UpdateLinkedAccountRequest.md) |  | 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -895,7 +1345,7 @@ No authorization required
 
 Update password
 
-Update or delete the user's password using the hash from the 'h' query param in the validation email. If 'newPassword' is null / empty than the password is removed.
+Update or delete the user's password using the hash from the 'h' query param in the validation email or the hash returned after the correct one-time code is verified. If 'newPassword' is null / empty than the password is removed. 
 
 ### Example
 ```swift
@@ -929,7 +1379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
@@ -945,14 +1395,14 @@ No authorization required
 
 Change names
 
-Update the givenName and / or familyName of the User
+Update the givenName, chosenName and / or the familyName of the User
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let updateUserNameRequest = UpdateUserNameRequest(givenName: "givenName_example", familyName: "familyName_example") // UpdateUserNameRequest | 
+let updateUserNameRequest = UpdateUserNameRequest(chosenName: "chosenName_example", givenName: "givenName_example", familyName: "familyName_example") // UpdateUserNameRequest | 
 
 // Change names
 UserControllerAPI.updateUserProfile(updateUserNameRequest: updateUserNameRequest) { (response, error) in
@@ -979,7 +1429,157 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verifyChangeEmailCode**
+```swift
+    open class func verifyChangeEmailCode(verifyOneTimeLoginCode: VerifyOneTimeLoginCode, completion: @escaping (_ data: [String: String]?, _ error: Error?) -> Void)
+```
+
+Verify change email code
+
+If the email code is valid, then return the hash to change the email 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let verifyOneTimeLoginCode = VerifyOneTimeLoginCode(code: "code_example", authenticationRequestId: "authenticationRequestId_example", hash: "hash_example") // VerifyOneTimeLoginCode | 
+
+// Verify change email code
+UserControllerAPI.verifyChangeEmailCode(verifyOneTimeLoginCode: verifyOneTimeLoginCode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifyOneTimeLoginCode** | [**VerifyOneTimeLoginCode**](VerifyOneTimeLoginCode.md) |  | 
+
+### Return type
+
+**[String: String]**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verifyCodeMobileUser**
+```swift
+    open class func verifyCodeMobileUser(verifyOneTimeLoginCode: VerifyOneTimeLoginCode, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+```
+
+Validate the one-time verification code
+
+Validate the one-time verification code send to user in the email.<br/>Together with the validation code, also send the hash returned in '/idp/v2/create'<br/>If the response is 201, then finalize with this url: /mobile/api/create-from-mobile-api/in-app/h={hash}
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let verifyOneTimeLoginCode = VerifyOneTimeLoginCode(code: "code_example", authenticationRequestId: "authenticationRequestId_example", hash: "hash_example") // VerifyOneTimeLoginCode | 
+
+// Validate the one-time verification code
+UserControllerAPI.verifyCodeMobileUser(verifyOneTimeLoginCode: verifyOneTimeLoginCode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifyOneTimeLoginCode** | [**VerifyOneTimeLoginCode**](VerifyOneTimeLoginCode.md) |  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verifyPasswordResetCode**
+```swift
+    open class func verifyPasswordResetCode(verifyOneTimeLoginCode: VerifyOneTimeLoginCode, completion: @escaping (_ data: [String: String]?, _ error: Error?) -> Void)
+```
+
+Verify change password code
+
+If the password code is valid, then return the hash to change the password 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let verifyOneTimeLoginCode = VerifyOneTimeLoginCode(code: "code_example", authenticationRequestId: "authenticationRequestId_example", hash: "hash_example") // VerifyOneTimeLoginCode | 
+
+// Verify change password code
+UserControllerAPI.verifyPasswordResetCode(verifyOneTimeLoginCode: verifyOneTimeLoginCode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifyOneTimeLoginCode** | [**VerifyOneTimeLoginCode**](VerifyOneTimeLoginCode.md) |  | 
+
+### Return type
+
+**[String: String]**
+
+### Authorization
+
+[openId](../README.md#openId)
 
 ### HTTP request headers
 
