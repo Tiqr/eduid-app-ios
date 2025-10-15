@@ -1,8 +1,8 @@
 "About.Info.COPY" = "App-informatie";
 "Sidebar.Home.COPY" = "Home";
-"Sidebar.PersonalInfo.COPY" = "Je gegevens";
-"Sidebar.DataActivity.COPY" = "Activiteit";
-"Sidebar.Security.COPY" = "Veiligheid";
+"Sidebar.PersonalInfo.COPY" = "Persoonlijke info";
+"Sidebar.DataActivity.COPY" = "Data & activiteit";
+"Sidebar.Security.COPY" = "Beveiling";
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hoi %1$@!";
 "Start.Manage.COPY" = "Beheer je persoonlijke gegevens, privacy en de beveiliging van je eduID.";
@@ -276,8 +276,8 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeleteKey.Button.Cancel.COPY" = "Nee, ga terug";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
-"Home.DataAndActivity.COPY" = "Activiteit";
-"Home.Personal.COPY" = "Je gegevens";
+"Home.DataAndActivity.COPY" = "Data & activiteit";
+"Home.Personal.COPY" = "Persoonlijke info";
 "Home.Security.COPY" = "Beveiliging";
 "Home.Account.COPY" = "Account";
 "Home.Institutions.COPY" = "Koppelingen";
@@ -773,7 +773,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 
 Welk telefoonnummer wil je hiervoor gebruiken?
 ";
-"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
+"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "38";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Stuur sms-code";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Je onderwijsinstelling is succesvol gekoppeld";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je onderwijsinstelling";
