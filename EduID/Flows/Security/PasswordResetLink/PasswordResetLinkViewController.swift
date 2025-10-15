@@ -16,7 +16,7 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
     
     private let viewModel: PasswordResetLinkViewModel
     
-    private var sendEmailButton: EduIDButton!
+    private var confirmButton: EduIDButton!
     private var loadingIndicator: UIActivityIndicatorView!
     
     // - delegate
@@ -43,8 +43,8 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !sendEmailButton.isEnabled && !loadingIndicator.isHidden {
-            sendEmailButton.isEnabled = true
+        if !confirmButton.isEnabled && !loadingIndicator.isHidden {
+            confirmButton.isEnabled = true
             loadingIndicator.isHidden = true
         }
     }
@@ -79,7 +79,9 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         let subTitle: UILabel
         if viewModel.personalInfo.usePassword == true {
             titleString = L.PasswordResetLink.Title.ChangePassword.localization
-            subTitle = UILabel.plainTextLabelPartlyBold(text: L.PasswordResetLink.Description.ChangePassword.localization)
+            let text = parseStrongTags(from: L.Password.UpdateInfo.localization).clean
+            let partBold = parseStrongTags(from: L.Password.UpdateInfo.localization).partBold ?? ""
+            subTitle = UILabel.plainTextLabelPartlyBold(text: text, partBold: partBold)
         } else {
             titleString = L.PasswordResetLink.Title.AddPassword.localization
             let parsedString = parseStrongTags(from: L.Password.AddInfo.localization)
@@ -98,12 +100,12 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         bottomSpacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
         topStackView.addArrangedSubview(bottomSpacer)
         
-        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.PasswordResetLink.Button.Cancel.localization)
-        sendEmailButton = EduIDButton(type: .primary, buttonTitle: L.Modal.Confirm.localization)
+        let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.YourVerifiedInformation.ConfirmRemoval.Button.Cancel.localization)
+        confirmButton = EduIDButton(type: .primary, buttonTitle: L.Modal.Confirm.localization)
         
         let sendEmailContainer = UIView()
-        sendEmailContainer.addSubview(sendEmailButton)
-        sendEmailButton.edgesToSuperview()
+        sendEmailContainer.addSubview(confirmButton)
+        confirmButton.edgesToSuperview()
         
         loadingIndicator = UIActivityIndicatorView()
         sendEmailContainer.addSubview(loadingIndicator)
@@ -136,42 +138,15 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
 
         // Add click targets
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
-        sendEmailButton.addTarget(self, action: #selector(sendEmail), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmAction), for: .touchUpInside)
     }
     
     @objc func dismissInfoScreen() {
         delegate?.goBack(viewController: self)
     }
     
-    @objc func sendEmail() {
-        Task {
-            sendEmailButton.isEnabled = false
-            loadingIndicator.isHidden = false
-            loadingIndicator.startAnimating()
-            do {
-                if viewModel.personalInfo.usePassword == true {
-                    let userResponse = try await viewModel.sendResetPasswordLink()
-                    delegate?.goToCheckEmail(viewController: self, email: userResponse.email)
-                } else {
-                    let userResponse = try await viewModel.generatePasswordCode()
-                    UserDefaults.standard.set(userResponse.email, forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
-                    delegate?.goToEmailCodeScreen(viewController: self)
-                }
-            } catch {
-                let alert = UIAlertController(
-                    title: L.Generic.RequestError.Title.localization,
-                    message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
-                    preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
-                    alert.dismiss(animated: true)
-                })
-                self.present(alert, animated: true)
-                sendEmailButton.isEnabled = true
-                loadingIndicator.isHidden = true
-                loadingIndicator.stopAnimating()
-            }
-
-        }
+    @objc func confirmAction() {
+        // Go to code screen
     }
 }
 
