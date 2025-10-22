@@ -134,7 +134,7 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         
         topStackView.edgesToSuperview(insets: .horizontal(24) + .top(24), usingSafeArea: true)
         
-        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(16))
+        bottomStackView.edgesToSuperview(excluding: .top, insets: .horizontal(24) + .bottom(55))
 
         // Add click targets
         cancelButton.addTarget(self, action: #selector(dismissInfoScreen), for: .touchUpInside)
@@ -146,7 +146,29 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func confirmAction() {
-        // Go to code screen
+        Task {
+            confirmButton.isEnabled = false
+            loadingIndicator.isHidden = false
+            loadingIndicator.startAnimating()
+            do {
+                let userResponse = try await viewModel.generatePasswordCode()
+                UserDefaults.standard.set(userResponse.email, forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
+                delegate?.goToEmailCodeScreen(viewController: self, changePassword: userResponse.usePassword ?? false)
+            } catch {
+                let alert = UIAlertController(
+                    title: L.Generic.RequestError.Title.localization,
+                    message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
+                    preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                    alert.dismiss(animated: true)
+                })
+                self.present(alert, animated: true)
+                confirmButton.isEnabled = true
+                loadingIndicator.isHidden = true
+                loadingIndicator.stopAnimating()
+            }
+
+        }
     }
 }
 

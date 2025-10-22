@@ -13,6 +13,7 @@ import OpenAPIClient
 public enum EmailCodeFlow {
     case changeEmail
     case addPassword
+    case changePassword
     case unknown
 }
 
@@ -26,7 +27,7 @@ class EmailCodeViewModel: NSObject {
         return UserDefaults.standard.string(forKey: CreateEduIDEnterPersonalInfoViewController.emailKeyUserDefaults)
     }
     
-    private var emailCodeFlow: EmailCodeFlow
+    public private(set) var emailCodeFlow: EmailCodeFlow
     var resendCodeSuccessClosure: (() -> Void)?
     var resendCodeErrorClosure: ((String, String ) -> Void)?
     var userCodeInPutSuccessClosure: ((URL?) -> Void)?
@@ -47,7 +48,7 @@ class EmailCodeViewModel: NSObject {
                     _ = try await UserControllerAPI.resendSpCodeMail()
                     resendCodeSuccessClosure?()
                     
-                case .addPassword:
+                case .addPassword, .changePassword:
                     _ = try await UserControllerAPI.resendSpCodePassword()
                     resendAddPasswordSuccessClosure?()
                     
@@ -69,7 +70,7 @@ class EmailCodeViewModel: NSObject {
                 case .changeEmail:
                     try await changeEmail(with: code)
                     
-                case .addPassword:
+                case .addPassword, .changePassword:
                     try await addPassword(with: code)
                     
                 default:

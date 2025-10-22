@@ -12,8 +12,10 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
     
     private var viewModel: PasswordCreationViewModel
     
+    private let changePassword: Bool
+    
     private lazy var mainTitle: UILabel = {
-        let title: String = L.ChangePassword.Title.AddPassword.localization
+        let title: String = changePassword ? L.ChangePassword.Title.ChangePassword.localization : L.ChangePassword.Title.AddPassword.localization
         return .posterTextLabelBicolor(text: title, size: 24, primary: title)
     }()
     
@@ -43,23 +45,66 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
     }()
     
     private lazy var setPasswordButton: EduIDButton = {
-        let button: EduIDButton = .init(type: .primary, buttonTitle: L.Password.SetUpdate.localization)
+        let buttonTitle: String = changePassword ? L.Password.UpdateUpdate.localization : L.Password.SetUpdate.localization
+        let button: EduIDButton = .init(type: .primary, buttonTitle: buttonTitle)
         button.addTarget(self, action: #selector(setNewPassword), for: .allEvents)
         return button
     }()
     
-    init(viewModel: PasswordCreationViewModel) {
+    private lazy var deletePasswordButton: UIView = {
+        let button: UIView = .init()
+        button.isUserInteractionEnabled = true
+        button.layer.cornerRadius = 6
+        button.backgroundColor = .lightGray
+        
+        let imageFrame: CGRect = .init(origin: .zero, size: .init(width: 28, height: 28))
+        let imageView: UIImageView = .init(frame: imageFrame)
+        imageView.image = .bin.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .alertsRedColor
+        
+        button.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(equalToConstant: imageView.frame.height),
+            imageView.widthAnchor.constraint(equalToConstant: imageView.frame.width),
+            imageView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(deletePassword))
+        gesture.numberOfTapsRequired = 1
+        button.addGestureRecognizer(gesture)
+        
+        
+        return button
+    }()
+    
+    init(viewModel: PasswordCreationViewModel, changePassword: Bool) {
+        self.changePassword = changePassword
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
-        viewModel.successClosure = { [weak self] in
-            DispatchQueue.main.async {
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
+        viewModel.createPasswordSuccessClosure = { [weak self] in
+            guard let self else { return }
+            self.popBackToRoot()
+        }
+        
+        viewModel.deletePasswordSuccessClosure = { [weak self] in
+            guard let self else { return }
+            self.popBackToRoot()
         }
         
         viewModel.errorClosure = { [weak self] title, message in
-            self?.showAlert(title: title, message: message, buttonTitle: L.PhoneVerification.Ok.localization)
+            guard let self else { return }
+            self.showAlert(title: title, message: message, buttonTitle: L.PhoneVerification.Ok.localization)
+        }
+    }
+    
+    private func popBackToRoot() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     
@@ -80,11 +125,16 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
         view.backgroundColor = .white
         view.subviews.forEach { $0.removeFromSuperview() }
         
-        let buttonSpacer: UIView = .init()
         let spacer: UIView = .init()
         let buttonsStackView: UIStackView = .init(arrangedSubviews: [cancelButton,
-                                                                     buttonSpacer ,
                                                                      setPasswordButton])
+        if changePassword {
+            buttonsStackView.spacing = 15
+            buttonsStackView.insertArrangedSubview(deletePasswordButton, at: 0)
+        } else {
+            buttonsStackView.spacing = 25
+        }
+        
         buttonsStackView.axis = .horizontal
         
         let mainStackView: UIStackView = .init(arrangedSubviews: [mainTitle,
@@ -100,8 +150,9 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            setPasswordButton.widthAnchor.constraint(equalToConstant: 180),
+            setPasswordButton.widthAnchor.constraint(equalToConstant: 200),
             cancelButton.widthAnchor.constraint(equalToConstant: 120),
+            deletePasswordButton.widthAnchor.constraint(equalToConstant: 50),
             mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
@@ -151,6 +202,12 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
         alertController.addAction(UIAlertAction(title: buttonTitle, style: .default))
         DispatchQueue.main.async { [weak self] in
             self?.present(alertController, animated: true)
+        }
+    }
+    
+    @objc private func deletePassword() {
+        Task {
+            await viewModel.deletePassword()
         }
     }
     

@@ -8,7 +8,7 @@ protocol CreateEduIDViewControllerDelegate: AnyObject, NavigationDelegate {
     func createEduIDViewControllerShowBiometricUsageScreen(viewController: CreatePincodeSecondEntryViewController, viewModel: CreatePincodeAndBiometricAccessViewModel)
     func createEduIDViewControllerRedoCreatePin(viewController: CreatePincodeSecondEntryViewController)
     func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?)
-    func goToAddPasswordScreen(hash: String)
+    func goToAddPasswordScreen(hash: String, changePassword: Bool)
 }
 
 extension CreateEduIDViewControllerDelegate {
@@ -19,5 +19,5 @@ extension CreateEduIDViewControllerDelegate {
     func createEduIDViewControllerShowBiometricUsageScreen(viewController: CreatePincodeSecondEntryViewController, viewModel: CreatePincodeAndBiometricAccessViewModel) { }
     func createEduIDViewControllerRedoCreatePin(viewController: CreatePincodeSecondEntryViewController) { }
     func createEduIDViewControllerShowLinkingErrorScreen(linkedAccountEmail: String?) { }
-    func goToAddPasswordScreen(hash: String) { }
+    func goToAddPasswordScreen(hash: String, changePassword: Bool) { }
 }

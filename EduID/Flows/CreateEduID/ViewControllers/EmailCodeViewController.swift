@@ -89,7 +89,7 @@ class EmailLoginCodeViewController: CreateEduIDBaseViewController {
         
         viewModel.addPasswordSuccessClosure = { [weak self] hash in
             guard let self else { return }
-            self.createEduIDViewControllerDelegate?.goToAddPasswordScreen(hash: hash)
+            self.createEduIDViewControllerDelegate?.goToAddPasswordScreen(hash: hash, changePassword: viewModel.emailCodeFlow == .changePassword)
         }
         
         viewModel.resendAddPasswordSuccessClosure = { [weak self] in

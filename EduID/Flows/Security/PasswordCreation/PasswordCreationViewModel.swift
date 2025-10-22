@@ -12,7 +12,8 @@ final class PasswordCreationViewModel {
     
     var hash: String
     
-    public var successClosure: (() -> Void)?
+    public var createPasswordSuccessClosure: (() -> Void)?
+    public var deletePasswordSuccessClosure: (() -> Void)?
     public var requesting: Bool = false
     public var errorClosure: ((String, String) -> Void)?
     
@@ -26,7 +27,16 @@ final class PasswordCreationViewModel {
             guard !requesting else { return }
             requesting = true
             _ = try await UserControllerAPI.updateUserPassword(updateUserSecurityRequest: .init(newPassword: password, hash: hash))
-            successClosure?()
+            createPasswordSuccessClosure?()
+        } catch {
+            errorClosure?(error.localizedFromApi, error.localizedDescription)
+        }
+    }
+    
+    public func deletePassword() async {
+        do {
+            _ = try await UserControllerAPI.updateUserPassword(updateUserSecurityRequest: .init(newPassword: "", hash: hash))
+            deletePasswordSuccessClosure?()
         } catch {
             errorClosure?(error.localizedFromApi, error.localizedDescription)
         }
