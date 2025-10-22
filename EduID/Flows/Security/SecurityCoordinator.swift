@@ -44,8 +44,8 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(checkEmailViewController, animated: true)
     }
     
-    func goToEmailCodeScreen(viewController: UIViewController) {
-        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(emailCodeFlow: .addPassword))
+    func goToEmailCodeScreen(viewController: UIViewController, changePassword: Bool) {
+        let checkEmailViewController = EmailLoginCodeViewController(viewModel: .init(emailCodeFlow: changePassword ? .changePassword : .addPassword))
         checkEmailViewController.delegate = self
         checkEmailViewController.createEduIDViewControllerDelegate = self
         navigationController?.pushViewController(checkEmailViewController, animated: true)
@@ -127,10 +127,10 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
 }
 
 extension SecurityCoordinator: CreateEduIDViewControllerDelegate {
-    func goToAddPasswordScreen(hash: String) {
+    func goToAddPasswordScreen(hash: String, changePassword: Bool) {
         Task { @MainActor [weak self] in
             guard let self else { return }
-            let passwordCreationViewController = PasswordCreationViewController(viewModel: .init(hash: hash))
+            let passwordCreationViewController = PasswordCreationViewController(viewModel: .init(hash: hash), changePassword: changePassword)
             self.navigationController?.pushViewController(passwordCreationViewController, animated: true)
         }
     }
