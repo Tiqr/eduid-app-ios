@@ -1,7 +1,7 @@
 "About.Info.COPY" = "App information";
 "Sidebar.Home.COPY" = "Home";
 "Sidebar.PersonalInfo.COPY" = "Personal info";
-"Sidebar.DataActivity.COPY" = "Data & activity";
+"Sidebar.DataActivity.COPY" = "Activity";
 "Sidebar.Security.COPY" = "Security";
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hi %1$@!";
@@ -275,7 +275,7 @@ Would you like to unconnect that app and connect this one?
 "ConfirmDeleteKey.Button.Cancel.COPY" = "No, back";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
-"Home.DataAndActivity.COPY" = "Data & activity";
+"Home.DataAndActivity.COPY" = "Activity";
 "Home.Personal.COPY" = "Personal info";
 "Home.Security.COPY" = "Security";
 "Home.Account.COPY" = "Account";
@@ -384,7 +384,7 @@ Would you like to unconnect that app and connect this one?
 "Password.Back.COPY" = "/security";
 "Password.PasswordDisclaimer.COPY" = "Make sure it's at least 15 characters OR at least 8 characters including a number and an uppercase letter.";
 "Password.InvalidCurrentPassword.COPY" = "Your current password is invalid.";
-"Password.PasswordResetHashExpired.COPY" = "Your password reset code has expired. ";
+"Password.PasswordResetHashExpired.COPY" = "Your password code has expired. ";
 "Password.ForgotPassword.COPY" = "I forgot my password";
 "Password.PasswordResetSendAgain.COPY" = "Send an email to reset my password.";
 "Password.ForgotPasswordConfirmation.COPY" = "Forgot your password? Press 'Confirm' below to instantly receive an email with a code to reset your current password.";
@@ -772,7 +772,7 @@ Would you like to unconnect that app and connect this one?
 
 Which phone number would you like to use for this?
 ";
-"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
+"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "32";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Send SMS code";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Your educational institution has been successfully connected";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Your educational institution";
