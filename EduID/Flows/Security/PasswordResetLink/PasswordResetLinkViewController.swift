@@ -101,7 +101,7 @@ class PasswordResetLinkViewController: UIViewController, ScreenWithScreenType {
         topStackView.addArrangedSubview(bottomSpacer)
         
         let cancelButton = EduIDButton(type: .ghost, buttonTitle: L.YourVerifiedInformation.ConfirmRemoval.Button.Cancel.localization)
-        confirmButton = EduIDButton(type: .primary, buttonTitle: L.Modal.Confirm.localization)
+        confirmButton = EduIDButton(type: .primary, buttonTitle: L.ConfirmDelete.Button.Confirm.localization)
         
         let sendEmailContainer = UIView()
         sendEmailContainer.addSubview(confirmButton)
