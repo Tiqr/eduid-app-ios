@@ -773,7 +773,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 
 Welk telefoonnummer wil je hiervoor gebruiken?
 ";
-"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
+"CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "38";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Stuur sms-code";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Je onderwijsinstelling is succesvol gekoppeld";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je onderwijsinstelling";
