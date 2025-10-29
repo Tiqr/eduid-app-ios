@@ -1,8 +1,8 @@
 "About.Info.COPY" = "App-informatie";
 "Sidebar.Home.COPY" = "Home";
-"Sidebar.PersonalInfo.COPY" = "Persoonlijke info";
-"Sidebar.DataActivity.COPY" = "Data & activiteit";
-"Sidebar.Security.COPY" = "Beveiling";
+"Sidebar.PersonalInfo.COPY" = "Je gegevens";
+"Sidebar.DataActivity.COPY" = "Activiteit";
+"Sidebar.Security.COPY" = "Veiligheid";
 "Sidebar.Account.COPY" = "Account";
 "Start.Hi.COPY" = "Hoi %1$@!";
 "Start.Manage.COPY" = "Beheer je persoonlijke gegevens, privacy en de beveiliging van je eduID.";
@@ -276,8 +276,8 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeleteKey.Button.Cancel.COPY" = "Nee, ga terug";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
-"Home.DataAndActivity.COPY" = "Data & activiteit";
-"Home.Personal.COPY" = "Persoonlijke info";
+"Home.DataAndActivity.COPY" = "Activiteit";
+"Home.Personal.COPY" = "Je gegevens";
 "Home.Security.COPY" = "Beveiliging";
 "Home.Account.COPY" = "Account";
 "Home.Institutions.COPY" = "Koppelingen";
@@ -385,7 +385,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Password.Back.COPY" = "/security";
 "Password.PasswordDisclaimer.COPY" = "Kies een wachtwoord van tenminste 8 karakters met minimaal een hoofdletter en een cijfer. Een langer wachtwoord van minimaal 15 karakters mag ook.";
 "Password.InvalidCurrentPassword.COPY" = "Je huidige wachtwoord is niet correct.";
-"Password.PasswordResetHashExpired.COPY" = "De code om je wachtwoord opnieuw in te stellen is verlopen. ";
+"Password.PasswordResetHashExpired.COPY" = "De code om je wachtwoord in te stellen is verlopen. ";
 "Password.ForgotPassword.COPY" = "Ik ben mijn wachtwoord vergeten";
 "Password.PasswordResetSendAgain.COPY" = "Stuur een e-mail om mijn wachtwoord opnieuw in te stellen.";
 "Password.ForgotPasswordConfirmation.COPY" = "Wachtwoord vergeten? Druk hieronder op 'Bevestigen' om direct een e-mail te ontvangen met een code, waarmee je je huidige wachtwoord opnieuw kunt instellen.";
