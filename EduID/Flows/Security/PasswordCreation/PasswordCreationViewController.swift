@@ -45,7 +45,7 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
     }()
     
     private lazy var setPasswordButton: EduIDButton = {
-        let buttonTitle: String = changePassword ? L.Password.UpdateUpdate.localization : L.Password.SetUpdate.localization
+        let buttonTitle: String = changePassword ? L.Password.SetUpdate.localization : L.Password.ConfirmPassword.localization
         let button: EduIDButton = .init(type: .primary, buttonTitle: buttonTitle)
         button.addTarget(self, action: #selector(setNewPassword), for: .allEvents)
         return button
@@ -87,12 +87,13 @@ class PasswordCreationViewController: CreateEduIDBaseViewController {
         
         viewModel.createPasswordSuccessClosure = { [weak self] in
             guard let self else { return }
-            self.popBackToRoot()
+            let message: String = changePassword ? L.Password.Updated.localization : L.Password.Set.localization
+            showConfirmationAlert(with: message)
         }
         
         viewModel.deletePasswordSuccessClosure = { [weak self] in
             guard let self else { return }
-            self.popBackToRoot()
+            showConfirmationAlert(with: L.Password.Deleted.localization)
         }
         
         viewModel.errorClosure = { [weak self] title, message in
@@ -224,5 +225,20 @@ extension PasswordCreationViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension PasswordCreationViewController {
+    func showConfirmationAlert(with message: String) {
+        let alert: UIAlertController = .init(title: nil, message: message, preferredStyle: .alert)
+        let alertAction: UIAlertAction = .init(title: L.PhoneVerification.Ok.localization, style: .default) { [weak self] _ in
+            guard let self else { return }
+            self.popBackToRoot()
+        }
+        alert.addAction(alertAction)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.present(alert, animated: true)
+        }
     }
 }
