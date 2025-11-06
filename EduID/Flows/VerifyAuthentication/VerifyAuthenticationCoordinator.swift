@@ -1,5 +1,6 @@
 import UIKit
 import TiqrCoreObjC
+import Tiqr
 
 protocol VerifyAuthenticationDelegate: AnyObject {
     func verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: CoordinatorType)
@@ -21,6 +22,10 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
     func start(with payload: String) {
         self.payload = payload
         authenticate()
+        // Next to that, we also clear the recent notifications cache, making sure this screen is not triggered twice
+        // (by getting it, we also clear it)
+        let appGroup = Bundle.main.object(forInfoDictionaryKey: "TiqrAppGroup") as! String
+        _ = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge()
     }
     
     private func authenticate() {
