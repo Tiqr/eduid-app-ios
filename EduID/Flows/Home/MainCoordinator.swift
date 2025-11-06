@@ -63,6 +63,15 @@ extension MainCoordinator: HomeViewControllerDelegate  {
     }
     
     func homeViewControllerShowAuthenticationScreen(with payload: String) {
+        // If there are any screens already open, close them
+        children.removeAll()
+        if homeNavigationController.presentedViewController != nil {
+            homeNavigationController.dismiss(animated: true) { [weak self] in
+                self?.homeNavigationController.popToRootViewController(animated: true)
+            }
+        } else {
+            homeNavigationController.popToRootViewController(animated: true)
+        }
         let verifyAuthenticationCoordinator = VerifyAuthenticationCoordinator(viewControllerToPresentOn: homeNavigationController)
         verifyAuthenticationCoordinator.delegate = self
         children.append(verifyAuthenticationCoordinator)
