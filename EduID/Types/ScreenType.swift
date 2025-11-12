@@ -21,7 +21,6 @@ enum ScreenType: Int, CaseIterable {
     case welcomeScreen
     case createPincodefirstEntryScreen
     case createPincodeSecondEntryScreen
-    case firstTimeDialogScreen
     case addInstitutionScreen
     case biometricApprovalScreen
     case eduIDCreatedScreen
@@ -103,13 +102,8 @@ enum ScreenType: Int, CaseIterable {
         case .smsChallengeScreen:
             return .welcomeScreen
         case .welcomeScreen:
-            if AppAuthController.shared.isLoggedIn() {
-                return .firstTimeDialogScreen
-            } else {
                 return .none
-            }
-        case .firstTimeDialogScreen:
-            return .addInstitutionScreen
+            
         default:
             return .none
         }
@@ -142,8 +136,6 @@ enum ScreenType: Int, CaseIterable {
             return ScanViewController(viewModel: ScanViewModel())
         case .personalInfoLandingScreen:
             return PersonalInfoViewController(viewModel: PersonalInfoViewModel(false))
-        case .firstTimeDialogScreen:
-            return CreateEduIDFirstTimeDialogViewController(viewModel: CreateEduIDFirstTimeDialogViewViewModel())
         case .securityOverviewScreen:
             return SecurityOverviewViewController(viewModel: SecurityOverviewViewModel())
         case .createPincodefirstEntryScreen:
@@ -179,7 +171,7 @@ enum ScreenType: Int, CaseIterable {
             // Just logo, no back button
         case .homeScreen, .confirmScreen, .verifyLoginScreen, .createPincodefirstEntryScreen,
                 .createPincodeSecondEntryScreen,.biometricApprovalScreen,
-                .firstTimeDialogScreen, .eduIDCreatedScreen, .registrationCheck,
+                .eduIDCreatedScreen, .registrationCheck,
                 .enterPhoneScreen, .addInstitutionScreen, .welcomeScreen, .returnToBrowser,
                 .externalAccountLinkingError:
             addLogoTo(item: item)
