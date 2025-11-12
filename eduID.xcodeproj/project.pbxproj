@@ -181,7 +181,6 @@
 		4FF567CA2A31D32E00616341 /* CreateEduIDWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567902A31D32E00616341 /* CreateEduIDWelcomeViewController.swift */; };
 		4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567912A31D32E00616341 /* PincodeBaseViewController.swift */; };
 		4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567922A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift */; };
-		4FF567CD2A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567932A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift */; };
 		4FF567CE2A31D32E00616341 /* CreateEduIDExplanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567942A31D32E00616341 /* CreateEduIDExplanationViewController.swift */; };
 		4FF567CF2A31D32E00616341 /* CreateEduIDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567952A31D32E00616341 /* CreateEduIDBaseViewController.swift */; };
 		4FF567D02A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567962A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift */; };
@@ -471,7 +470,6 @@
 		4FF567902A31D32E00616341 /* CreateEduIDWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDWelcomeViewController.swift; sourceTree = "<group>"; };
 		4FF567912A31D32E00616341 /* PincodeBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PincodeBaseViewController.swift; sourceTree = "<group>"; };
 		4FF567922A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDEnterSMSViewController.swift; sourceTree = "<group>"; };
-		4FF567932A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDFirstTimeDialogViewController.swift; sourceTree = "<group>"; };
 		4FF567942A31D32E00616341 /* CreateEduIDExplanationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDExplanationViewController.swift; sourceTree = "<group>"; };
 		4FF567952A31D32E00616341 /* CreateEduIDBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEduIDBaseViewController.swift; sourceTree = "<group>"; };
 		4FF567962A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePincodeSecondEntryViewController.swift; sourceTree = "<group>"; };
@@ -1135,7 +1133,6 @@
 				4FF567902A31D32E00616341 /* CreateEduIDWelcomeViewController.swift */,
 				4FF567912A31D32E00616341 /* PincodeBaseViewController.swift */,
 				4FF567922A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift */,
-				4FF567932A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift */,
 				4FF567942A31D32E00616341 /* CreateEduIDExplanationViewController.swift */,
 				4FF567952A31D32E00616341 /* CreateEduIDBaseViewController.swift */,
 				4FF567962A31D32E00616341 /* CreatePincodeSecondEntryViewController.swift */,
@@ -1544,7 +1541,6 @@
 				4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */,
 				4FF567D22A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewController.swift in Sources */,
 				4F909EBB2A31CDDC00FC1506 /* AlertMessageViewController.swift in Sources */,
-				4FF567CD2A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift in Sources */,
 				4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */,
 				4FF567B92A31D32E00616341 /* ConfirmViewController.swift in Sources */,
 				4FF567A82A31D32E00616341 /* ChangePasswordViewModel.swift in Sources */,
