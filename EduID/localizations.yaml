@@ -3954,7 +3954,7 @@ SHARED:
     Subtitle:
       COPY:
         en: Use one of the following services to prove to us who you are
-        nl: Gebruik een van de volgende methodes om je bewijzen wie je bent
+        nl: Gebruik een van de volgende methodes om te bewijzen wie je bent
     DoYouOwnAnAccount:
       Text:
         COPY:

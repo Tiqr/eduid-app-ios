@@ -837,7 +837,7 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "ResponseErrors.Auth.Failed.TokenFailedDescription.Generic.COPY" = "Autorisatiecode-uitwisseling mislukt";
 "ResponseErrors.Auth.Failed.TokenFailedDescription.WithException.COPY" = "Autorisatiecode-uitwisseling mislukt: %1$@.";
 "VerifyIdentity.Title.COPY" = "Bevestig wie je bent";
-"VerifyIdentity.Subtitle.COPY" = "Gebruik een van de volgende methodes om je bewijzen wie je bent";
+"VerifyIdentity.Subtitle.COPY" = "Gebruik een van de volgende methodes om te bewijzen wie je bent";
 "VerifyIdentity.DoYouOwnAnAccount.Text.COPY" = "Heb je een account bij een Nederlands school of onderzoeksinstelling?";
 "VerifyIdentity.DoYouOwnAnAccount.BoldPart.COPY" = "Heb je een account";
 "VerifyIdentity.DoYouOwnAnAccount.Button.COPY" = "Gebruik je school- of werkaccount";
