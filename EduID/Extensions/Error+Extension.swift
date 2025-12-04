@@ -20,6 +20,9 @@ class EduIdError: Error {
     
     // Factory method to generate CustomError from ErrorResponse
     static func from(_ error: Error, kind: EduIdErrorKind = .regular) -> EduIdError {
+        if let eduidError = error as? EduIdError {
+            return eduidError
+        }
         if let response = error as? ErrorResponse {
             switch response {
             case let .error(statusCode, data, _, _):
