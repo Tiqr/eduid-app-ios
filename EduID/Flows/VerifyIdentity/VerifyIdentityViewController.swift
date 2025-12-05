@@ -10,9 +10,7 @@ import TinyConstraints
 class VerifyIdentityViewController: BaseViewController {
     
     private var stack: UIStackView!
-    
-    private var moreOptionsExpanded = false
-    
+        
     var viewModel: VerifyIdentityViewModel!
     
     weak var delegate: PersonalInfoViewControllerDelegate?
@@ -80,52 +78,83 @@ class VerifyIdentityViewController: BaseViewController {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
         
-        let mainTitle: UILabel
-        let mainDescriptionParent: UIView
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.VerifyIdentity.Title.localization, size: 24, primary: L.VerifyIdentity.Title.localization)
         
-        if viewModel.isLinkedAccount {
-            mainTitle = UILabel.posterTextLabelBicolor(
-                text: L.VerifyIdentity.TitleHasInternalLink.localization,
-                size: 24,
-                primary: L.VerifyIdentity.TitleHasInternalLink.localization
-            )
-            
-            // Description below title
-            mainDescriptionParent = UIView()
-            let mainDescription = UILabel.subtitleLabel(text:L.VerifyIdentity.SubtitleHasInternalLink.localization)
-            mainDescriptionParent.addSubview(mainDescription)
-            mainDescription.edges(to: mainDescriptionParent)
-        } else {
-            let firstLine = L.VerifyIdentity.Title.FirstLine.localization
-            let secondLine = L.VerifyIdentity.Title.SecondLine.localization
-            let fullTitle = "\(firstLine)\n\(secondLine)"
-            mainTitle = UILabel.posterTextLabelBicolor(text: fullTitle, size: 24, primary:  firstLine)
-            
-            // Description below title
-            mainDescriptionParent = UIView()
-            let mainDescription = UILabel.subtitleLabel(text: L.VerifyIdentity.Subtitle.localization)
-            mainDescriptionParent.addSubview(mainDescription)
-            mainDescription.edges(to: mainDescriptionParent)
-        }
+        // Description below title
+        let mainDescriptionParent = UIView()
+        let mainDescription = UILabel.subtitleLabel(text: L.VerifyIdentity.Subtitle.localization)
+        mainDescriptionParent.addSubview(mainDescription)
+        mainDescription.edges(to: mainDescriptionParent)
         
-        // Verify via dutch institution
-        let verifyInstituteButtonTitle: String
-        if viewModel.isLinkedAccount {
-            verifyInstituteButtonTitle = L.VerifyIdentity.VerifyViaDutchInstitution.TitleHasInternalLink.localization
-        } else {
-            verifyInstituteButtonTitle = L.VerifyIdentity.VerifyViaDutchInstitution.Title.localization
-        }
-        let verifyViaDutchInstitution = VerifyIdentityControl(
-            title: verifyInstituteButtonTitle,
-            icon: .verifyIdentityInstitution,
-            buttonTitle: L.VerifyIdentity.VerifyViaDutchInstitution.Button.localization,
-            buttonIcon: nil,
+        // Verify via institution
+        let verifyInstitutionText = UILabel.subtitleLabel(
+            text: L.VerifyIdentity.DoYouOwnAnAccount.Text.localization,
+            partBold: L.VerifyIdentity.DoYouOwnAnAccount.BoldPart.localization
+        )
+        let verifyInstitutionButton = VerifyIdentityButton(
+            title: L.VerifyIdentity.DoYouOwnAnAccount.Button.localization,
+            icon: nil,
+            highlighted: true,
             clickHandler: { [weak self] control in
                 self?.viewModel.startLinkingInstitution(control)
             })
-
+        let verifyInstitutionControl = UIStackView(arrangedSubviews: [verifyInstitutionText, verifyInstitutionButton])
+        verifyInstitutionText.widthToSuperview(offset: -20)
+        verifyInstitutionButton.widthToSuperview(offset: -20)
+        verifyInstitutionControl.axis = .vertical
+        verifyInstitutionControl.translatesAutoresizingMaskIntoConstraints = false
+        verifyInstitutionControl.distribution = .fill
+        verifyInstitutionControl.alignment = .center
+        verifyInstitutionControl.spacing = 16
+        verifyInstitutionControl.layoutMargins = .vertical(20)
+        verifyInstitutionControl.isLayoutMarginsRelativeArrangement = true
+        verifyInstitutionControl.layer.backgroundColor = UIColor.primaryColor.withAlphaComponent(0.2).cgColor
+        verifyInstitutionControl.layer.cornerRadius = 4
+        
+        // If you don't own an account
+        let dontOwnAccountText = UILabel.subtitleLabel(
+            text: L.VerifyIdentity.IfYouDontOwnAnAccount.Text.localization,
+            partBold: L.VerifyIdentity.IfYouDontOwnAnAccount.BoldPart.localization
+        )
+        
+        // Verify with banking app
+        let verifyWithBankingAppButton = VerifyIdentityButton(
+            title: L.VerifyIdentity.Button.UseADutchBank.localization,
+            icon: .verifyButtonIdin,
+            highlighted: false,
+            clickHandler: { [weak self] _ in
+                guard let self else {
+                    return
+                }
+                self.delegate?.goToSelectYourBankScreen(viewController: self)
+                
+            })
+        // Verify via EU ID
+        let verifyWithEuIdButton = VerifyIdentityButton(
+            title: L.VerifyIdentity.Button.UseAEuropeanId.localization,
+            icon: .verifyButtonEidas,
+            highlighted: false,
+            clickHandler: { [weak self] control in
+                guard let self else {
+                    return
+                }
+                self.viewModel.openEidasLink(control)
+            })
+        
+        // Contact support
+        let contactSupportButton = VerifyIdentityButton(
+            title: L.VerifyIdentity.Button.ContactServiceDesk.localization,
+            icon: .verifyContactSupport,
+            highlighted: false,
+            clickHandler: { [weak self] control in
+                guard let self else {
+                    return
+                }
+                self.onVisitSupportTapped()
+            })
+        
         // - create the stackview
-        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, verifyViaDutchInstitution])
+        stack = UIStackView(arrangedSubviews: [mainTitle, mainDescriptionParent, verifyInstitutionControl, dontOwnAccountText])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fill
@@ -133,70 +162,21 @@ class VerifyIdentityViewController: BaseViewController {
         stack.spacing = 20
         scrollView.addSubview(stack)
         
+        stack.addArrangedSubview(verifyWithBankingAppButton)
+        stack.addArrangedSubview(verifyWithEuIdButton)
+        stack.addArrangedSubview(contactSupportButton)
+
         stack.width(to: scrollView, offset: 0)
         
         mainTitle.widthToSuperview(offset: -48)
         mainDescriptionParent.widthToSuperview(offset: -48)
-        verifyViaDutchInstitution.widthToSuperview(offset: -48)
-        
-        if moreOptionsExpanded {
-            // Verify with banking app
-            let verifyWithBankingApp = VerifyIdentityControl(
-                title: L.VerifyIdentity.VerifyWithBankApp.Title.localization,
-                icon: .verifyIdentityBankingApp,
-                buttonTitle: L.VerifyIdentity.VerifyWithBankApp.Button.localization,
-                buttonIcon: .verifyButtonIdin,
-                clickHandler: { [weak self] _ in
-                    guard let self else {
-                        return
-                    }
-                    self.delegate?.goToSelectYourBankScreen(viewController: self)
-                    
-                })
-            // Verify via EU ID
-            let verifyWithEuId = VerifyIdentityControl(
-                title: L.VerifyIdentity.VerifyWithAEuropianId.Title.localization,
-                icon: .verifyIdentityEuId,
-                buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
-                buttonIcon: .verifyButtonEidas,
-                clickHandler: { [weak self] control in
-                    guard let self else {
-                        return
-                    }
-                    self.viewModel.openEidasLink(control)
-                })
-            
-            stack.addArrangedSubview(verifyWithBankingApp)
-            stack.addArrangedSubview(verifyWithEuId)
-            
-            let fallbackButtonContainer: UIView = .init()
-            fallbackButtonContainer.backgroundColor = .disabledGrayBackground
-            let fallbackButton = EduIDButton(type: .borderedGray, buttonTitle: L.ServiceDesk.ControlCode.CantUse.localization)
-            fallbackButton.addTarget(self, action: #selector(onFallbackButtonTapped), for: .touchUpInside)
-            fallbackButtonContainer.addSubview(fallbackButton)
-            fallbackButton.center(in: fallbackButtonContainer)
-            fallbackButton.widthToSuperview(offset: -48)
-            let spacer = UIView()
-            spacer.height(80)
-            stack.addArrangedSubview(spacer)
-            stack.addArrangedSubview(fallbackButtonContainer)
-            verifyWithBankingApp.widthToSuperview(offset: -48)
-            verifyWithEuId.widthToSuperview(offset: -48)
-            fallbackButtonContainer.height(100 + view.safeAreaInsets.bottom)
-            fallbackButtonContainer.widthToSuperview()
-            stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom, right: .zero))
-            
-        } else if !viewModel.isLinkedAccount {
-            let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
-            moreOptionsButton.addTarget(self, action: #selector(expandMoreOptions), for: .touchUpInside)
-            stack.addArrangedSubview(moreOptionsButton)
-            moreOptionsButton.widthToSuperview(offset: -48)
-        }
-    }
-    
-    @objc func expandMoreOptions() {
-        moreOptionsExpanded = true
-        setupUI()
+        verifyInstitutionControl.widthToSuperview(offset: -48)
+        dontOwnAccountText.widthToSuperview(offset: -48)
+        verifyWithBankingAppButton.widthToSuperview(offset: -48)
+        verifyWithEuIdButton.widthToSuperview(offset: -48)
+        contactSupportButton.widthToSuperview(offset: -48)
+        stack.setCustomSpacing(44, after: verifyInstitutionControl)
+        stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: -view.safeAreaInsets.bottom + 20, right: .zero))
     }
     
     @objc func dismissInfoScreen() {
@@ -204,7 +184,7 @@ class VerifyIdentityViewController: BaseViewController {
     }
     
     @objc func onVisitSupportTapped() {
-        if let supportUrl = URL(string: L.VerifyIdentity.VisitSupport.Link.localization) {
+        if let supportUrl = URL(string: L.VerifyIdentity.SupportLink.localization) {
             UIApplication.shared.open(supportUrl)
         }
     }

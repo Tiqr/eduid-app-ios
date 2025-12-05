@@ -7,9 +7,9 @@
 import UIKit
 import TinyConstraints
 
-class VerifyIdentityControl: UIControl {
+class VerifyIdentityButton: UIControl {
     
-    private var clickHandler: (VerifyIdentityControl) -> ()
+    private var clickHandler: (VerifyIdentityButton) -> ()
     private var loadingIndicator: UIActivityIndicatorView
     
     var isLoading: Bool {
@@ -25,51 +25,23 @@ class VerifyIdentityControl: UIControl {
     }
     
     init(title: String,
-         icon: UIImage,
-         buttonTitle: String,
-         buttonIcon: UIImage? = nil,
-         clickHandler: @escaping (VerifyIdentityControl) -> ()
+         icon: UIImage? = nil,
+         highlighted: Bool,
+         clickHandler: @escaping (VerifyIdentityButton) -> ()
     ) {
         self.clickHandler = clickHandler
         self.isLoading = false
         self.loadingIndicator = UIActivityIndicatorView(style: .medium)
         super.init(frame: .zero)
-        
-        // - top title
-        let titleLabel = UILabel()
-        titleLabel.numberOfLines = 0
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.3
-        titleLabel.attributedText = NSAttributedString(
-            string: title,
-            attributes: [
-                .font: UIFont.proximaNovaSoftSemiBold(size: 20),
-                .foregroundColor: UIColor.textColor,
-                .paragraphStyle: paragraphStyle
-            ]
-        )
-        let iconView = UIImageView()
-        iconView.contentMode = .scaleAspectFit
-        iconView.image = icon
-        // - top horizontal stack
-        let topHorizontalStack = UIStackView(arrangedSubviews: [titleLabel, iconView])
-        topHorizontalStack.axis = .horizontal
-        topHorizontalStack.alignment = .top
-        topHorizontalStack.spacing = 28
-        topHorizontalStack.distribution = .fill
-        
-        iconView.width(40)
-        iconView.height(40)
-        
-        let button = EduIDButton(type: .primary, buttonTitle: buttonTitle)
+        let button = EduIDButton(type: highlighted ? .primary : .ghost, buttonTitle: title)
         let buttonContainer = UIView()
         buttonContainer.addSubview(button)
         button.edgesToSuperview()
         
-        if buttonIcon != nil {
+        if icon != nil {
             let buttonIconView = UIImageView()
             buttonContainer.addSubview(buttonIconView)
-            buttonIconView.image = buttonIcon
+            buttonIconView.image = icon
             buttonIconView.contentMode = .scaleAspectFit
             buttonIconView.size(CGSize(width: 30, height: 30))
             buttonIconView.leftToSuperview(offset: 20)
@@ -80,20 +52,11 @@ class VerifyIdentityControl: UIControl {
         loadingIndicator.centerYToSuperview()
         loadingIndicator.rightToSuperview(offset: -12)
         
-        // - the master stack
-        let stack = UIStackView(arrangedSubviews: [topHorizontalStack, buttonContainer])
-        stack.axis = .vertical
-        stack.spacing = 22
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stack)
-        stack.edges(to: self, insets: .uniform(20))
+
         button.widthToSuperview()
         button.addTarget(self, action: #selector(onButtonTouchUpInside), for: .touchUpInside)
-                
-        layer.borderColor = UIColor.grayGhost.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 6
-        layer.masksToBounds = true
+        addSubview(buttonContainer)
+        buttonContainer.edgesToSuperview()
     }
     
     required init?(coder: NSCoder) {

@@ -93,7 +93,7 @@ class LinkingSuccessViewController: BaseViewController {
         buttonStack.widthToSuperview(offset: -48)
         buttonStack.centerXToSuperview()
         buttonStack.spacing = 24
-        buttonStack.bottomToSuperview(usingSafeArea: true)
+        buttonStack.bottomToSuperview(offset: -20, usingSafeArea: true)
         
         stack.edges(to: scrollView, excluding: .bottom, insets: TinyEdgeInsets(top: 24, left: 0, bottom: 0, right: 0))
         stack.bottomToTop(of: buttonStack)

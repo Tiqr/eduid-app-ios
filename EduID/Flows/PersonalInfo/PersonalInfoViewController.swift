@@ -456,19 +456,24 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     
     @objc func addInstitutionClicked() {
         if let userResponse = viewModel.userResponse {
-            delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
-            self.addInstitutionButton.isEnabled = false
-            self.addInstitutionButton.isLoading = true
-            startLinkingInstitution()
+            if userResponse.linkedAccounts?.count ?? 0 > 0 {
+                // User already has a linked account. External account linking disabled, start linking institution
+                self.addInstitutionButton.isEnabled = false
+                self.addInstitutionButton.isLoading = true
+                startLinkingInstitution()
+            } else {
+                delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
+            }
+            
         }
     }
     
     @objc func verifyIdentityClicked() {
-        self.verifyIdentityLoadingIndicator?.startAnimating()
         self.verifyIdentityLoadingIndicator?.isHidden = false
         if let userResponse = viewModel.userResponse {
             delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
         } else {
+            self.verifyIdentityLoadingIndicator?.startAnimating()
             startLinkingInstitution()
         }
     }

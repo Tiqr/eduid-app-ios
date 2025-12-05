@@ -23,7 +23,7 @@ class VerifyIdentityViewModel: NSObject {
         self.userResponse = userResponse
     }
     
-    func startLinkingInstitution(_ control: VerifyIdentityControl) {
+    func startLinkingInstitution(_ control: VerifyIdentityButton) {
         control.isLoading = true
         Task {
             do {
@@ -35,7 +35,7 @@ class VerifyIdentityViewModel: NSObject {
         }
     }
     
-    func openEidasLink(_ control: VerifyIdentityControl) {
+    func openEidasLink(_ control: VerifyIdentityButton) {
         control.isLoading = true
         Task {
             do {
@@ -43,7 +43,15 @@ class VerifyIdentityViewModel: NSObject {
                     idpScoping: AccountLinkerControllerAPI.IdpScoping_startSPVerifyIDLinkAccountFlow.eherkenning,
                     bankId: nil
                 ).url
-                await openAuthUrl(URL(string: authUrl!)!, control: control)
+                if let authUrl, let url = URL(string: authUrl) {
+                    await openAuthUrl(url, control: control)
+                } else {
+                    await processError(with: EduIdError(
+                        title: L.ResponseErrors.UnknownErrorTitle.localization,
+                        message: L.ResponseErrors.InvalidLinkError.localization,
+                        statusCode: 400
+                    ), control: control)
+                }
             } catch {
                 await processError(with: error, control: control)
             }
@@ -51,13 +59,13 @@ class VerifyIdentityViewModel: NSObject {
     }
     
     @MainActor
-    func openAuthUrl(_ url: URL, control: VerifyIdentityControl) {
+    func openAuthUrl(_ url: URL, control: VerifyIdentityButton) {
         control.isLoading = false
         openLinkingURLClosure?(url)
     }
     
     @MainActor
-    private func processError(with error: Error, control: VerifyIdentityControl) {
+    private func processError(with error: Error, control: VerifyIdentityButton) {
         control.isLoading = false
         dataFetchErrorClosure?(EduIdError.from(error))
     }
