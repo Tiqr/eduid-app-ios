@@ -210,7 +210,7 @@ class VerifyWithIdInputViewController: BaseViewController {
         firstNameTextField.widthToSuperview()
         dateOfBirthTextField.widthToSuperview()
         generateVerificationCodeButton.widthToSuperview(offset: -48)
-        stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: scrollView.safeAreaInsets.bottom, right: .zero))
+        stack.edges(to: scrollView, insets: .init(top: 24, left: .zero, bottom: scrollView.safeAreaInsets.bottom - 10, right: .zero))
     }
     
     @objc private func dismissInfoScreen() {

@@ -182,7 +182,7 @@ class VerifyWithIdIntroViewController: BaseViewController {
         enterDetailsButton.addTarget(self, action: #selector(onEnterDetailsButtonTapped), for: .touchUpInside)
         stack.addArrangedSubview(enterDetailsButton)
         enterDetailsButton.widthToSuperview(offset: -48)
-        enterDetailsButton.bottom(to: scrollView, offset: view.safeAreaInsets.bottom)
+        enterDetailsButton.bottom(to: scrollView, offset: view.safeAreaInsets.bottom - 10)
         
     }
     
