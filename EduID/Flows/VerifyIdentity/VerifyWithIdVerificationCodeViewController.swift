@@ -291,7 +291,7 @@ class VerifyWithIdVerificationCodeViewController: BaseViewController {
         scrollView.addSubview(stack)
         
         // - setup constraints
-        stack.edges(to: scrollView, insets: .init(top: 24, left: 0, bottom: scrollView.safeAreaInsets.bottom, right: 0))
+        stack.edges(to: scrollView, insets: .init(top: 24, left: 0, bottom: scrollView.safeAreaInsets.bottom - 10, right: 0))
         stack.width(to: scrollView, offset: 0)
         mainTitle.widthToSuperview(offset: -48)
         mainDescription.widthToSuperview(offset: -48)

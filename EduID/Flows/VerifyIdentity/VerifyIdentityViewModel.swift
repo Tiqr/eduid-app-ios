@@ -11,6 +11,12 @@ class VerifyIdentityViewModel: NSObject {
     
     private let userResponse: UserResponse
     
+    var controlCode: ControlCode? {
+        get {
+            userResponse.controlCode
+        }
+    }
+    
     var dataFetchErrorClosure: ((EduIdError) -> Void)?
     
     var openLinkingURLClosure: ((URL) -> Void)?

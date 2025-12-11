@@ -150,7 +150,7 @@ class VerifyIdentityViewController: BaseViewController {
                 guard let self else {
                     return
                 }
-                self.onVisitSupportTapped()
+                self.onContactSupportTapped()
             })
         
         // - create the stackview
@@ -183,13 +183,12 @@ class VerifyIdentityViewController: BaseViewController {
         delegate?.goBack(viewController: self)
     }
     
-    @objc func onVisitSupportTapped() {
-        if let supportUrl = URL(string: L.VerifyIdentity.SupportLink.localization) {
-            UIApplication.shared.open(supportUrl)
+    @objc private func onContactSupportTapped() {
+        
+        if let controlCode = viewModel.controlCode {
+            delegate?.showControlCode(viewController: self, controlCode: controlCode)
+            return
         }
-    }
-    
-    @objc private func onFallbackButtonTapped() {
         delegate?.goToVerifyIdentityIntroScreen(viewController: self)
     }
 }
