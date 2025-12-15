@@ -845,7 +845,7 @@ Which phone number would you like to use for this?
 "VerifyIdentity.Button.UseADutchBank.COPY" = "Use a Dutch bank";
 "VerifyIdentity.Button.UseAEuropeanId.COPY" = "Use a European ID";
 "VerifyIdentity.Button.ContactServiceDesk.COPY" = "Contact the Service Desk";
-"VerifyIdentity.SupportLink.COPY" = "https://eduid.nl/help-en/";
+"VerifyIdentity.SupportLink.COPY" = "https://eduid.nl/support/?lang=en";
 "SelectYourBank.Title.COPY" = "Select your bank";
 "SelectYourBank.Subtitle.Full.COPY" = "Through iDIN, we receive your name and date of birth from your bank. This ensures we know who you are. You are not making a payment. Learn more about iDIN.";
 "SelectYourBank.Subtitle.HighlightedPart.COPY" = "You are not making a payment";

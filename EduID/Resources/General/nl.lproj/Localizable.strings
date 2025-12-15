@@ -846,7 +846,7 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "VerifyIdentity.Button.UseADutchBank.COPY" = "Gebruik je bank";
 "VerifyIdentity.Button.UseAEuropeanId.COPY" = "Gebruik een Europees ID";
 "VerifyIdentity.Button.ContactServiceDesk.COPY" = "Neem contact op met de Service Desk";
-"VerifyIdentity.SupportLink.COPY" = "https://eduid.nl/help/";
+"VerifyIdentity.SupportLink.COPY" = "https://eduid.nl/support/?lang=nl";
 "SelectYourBank.Title.COPY" = "Kies je bank";
 "SelectYourBank.Subtitle.Full.COPY" = "Via iDIN krijgen we je naam en geboortedatum van je bank. Zo weten we zeker wie je bent. Je doet geen betaling. Meer informatie over iDIN";
 "SelectYourBank.Subtitle.HighlightedPart.COPY" = "Je doet geen betaling";
