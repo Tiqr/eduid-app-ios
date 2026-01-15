@@ -3988,21 +3988,8 @@ SHARED:
           nl: Gebruik een Europees ID
     OtherOptions:
       COPY:
-        en: Show other options
-        nl: Toon andere manieren
-    VisitSupport:
-      Full:
-        COPY:
-          en: Can’t use these methods? Visit our Help page.
-          nl: "Kun je deze manieren niet gebruiken? Bezoek dan onze Hulp-pagina."
-      HighlightedPart:
-        COPY:
-          en: "Help page"
-          nl: "Hulp-pagina"
-      Link:
-        COPY:
-          en: "https://eduid.nl/help-en/"
-          nl: "https://eduid.nl/help/"
+        en: "https://eduid.nl/support/?lang=en"
+        nl: "https://eduid.nl/support/?lang=nl"
   SelectYourBank:
     Title:
       COPY:
