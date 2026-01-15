@@ -7097,32 +7097,6 @@ public struct L {
             translationKey: "VerifyIdentity.OtherOptions.COPY",
             translationArgs: []
         )
-        public struct VisitSupport {
-            public static let Full = LocaliciousData(
-                accessibilityIdentifier: "VerifyIdentity.VisitSupport.Full",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "VerifyIdentity.VisitSupport.Full.COPY",
-                translationArgs: []
-            )
-            public static let HighlightedPart = LocaliciousData(
-                accessibilityIdentifier: "VerifyIdentity.VisitSupport.HighlightedPart",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "VerifyIdentity.VisitSupport.HighlightedPart.COPY",
-                translationArgs: []
-            )
-            public static let Link = LocaliciousData(
-                accessibilityIdentifier: "VerifyIdentity.VisitSupport.Link",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "VerifyIdentity.VisitSupport.Link.COPY",
-                translationArgs: []
-            )
-        }
     }
     public struct SelectYourBank {
         public static let Title = LocaliciousData(
