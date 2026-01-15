@@ -50,7 +50,7 @@ class BiometricAccessApprovalViewController: CreateEduIDBaseViewController {
         
         // buttons
         let setupButton = EduIDButton(type: .primary, buttonTitle: L.PinAndBioMetrics.SetupBiometrics.localization)
-        let skipButton = EduIDButton(type: .ghost, buttonTitle: L.CreateEduID.FirstTimeDialog.SkipButtonTitle.localization)
+        let skipButton = EduIDButton(type: .ghost, buttonTitle: L.PinAndBioMetrics.Skip.localization)
         
         // stack
         let stack = BasicStackView(arrangedSubviews: [posterParent, textParent, imageParent, setupButton, skipButton])
