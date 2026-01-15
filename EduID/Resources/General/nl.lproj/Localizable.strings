@@ -20,7 +20,7 @@
 "HomeView.ActivityButton.COPY" = "Activiteit";
 "HomeView.ScanQRButton.COPY" = "Scan QR";
 "ScanView.Title.COPY" = "Scan de QR-code";
-"ScanView.MainText.COPY" = "<b>Zie je geen QR-code?</b><br/>
+"ScanView.MainText.COPY" = "<strong>Zie je geen QR-code?</strong><br/>
 Ga naar <a href=\"https://eduid.nl/security\" target=\"_blank\">eduid.nl/security</a> op je computer<br/>
 Maak een QR-code<br/>
 Scan de code hier
@@ -200,6 +200,8 @@ bestaande inschrijving
 "Security.AddPassword.COPY" = "Wachtwoord toevoegen";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Wachtwoord";
+"Security.PasswordActivated.COPY" = "Geactiveerd op %1$@";
+"Security.CredentialActivated.COPY" = "%1$@: Geactiveerd op %2$@";
 "Security.TwoFAKey.COPY" = "Inloggen met app";
 "Security.ProvidedBy.COPY" = "Gedeeld door";
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";
@@ -226,7 +228,7 @@ zijn (TouchID, FaceID) of een los hardwaretoken (YubiKey).";
 "Security.Tiqr.FCM_DIRECT.COPY" = "Android";
 "Security.Tiqr.AppCode.COPY" = "App-code";
 "Security.Tiqr.LastLogin.COPY" = "Laatst ingelogd op";
-"Security.Tiqr.Activated.COPY" = "Geactiveerd op";
+"Security.Tiqr.Activated.COPY" = "Geactiveerd op %1$@";
 "Security.Tiqr.DateTimeOn.COPY" = "om";
 "Security.Tiqr.BackupMethod.COPY" = "Hersteloptie";
 "Security.Tiqr.Sms.COPY" = "sms";
@@ -512,7 +514,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "LinkFromInstitution.EmailInUse2.COPY" = "Probeer een andere, of ";
 "LinkFromInstitution.EmailInUse3.COPY" = " koppel met deze eduID.";
 "LinkFromInstitution.InvalidEmail.COPY" = "Ongeldig e-mailadres";
-"LinkFromInstitution.InstitutionDomainNameWarning.COPY" = "Dit lijkt op een e-mailadres van een onderwijs- of onderzoeks instelling. Let op: als je in de toekomst niet meer studeert of werkt bij deze instelling, heb je geen toegang meer tot dit e-mailadres.";
+"LinkFromInstitution.InstitutionDomainNameWarning.COPY" = "Dit lijkt een school- of werkmail. Gebruik een <b>persoonlijk e-mailadres</b>, omdat dat ook blijft werken als je van school of baan veranderd.";
 "LinkFromInstitution.InstitutionDomainNameWarning2.COPY" = "We raden je aan om je persoonlijke e-mailadres te gebruiken voor eduID.";
 "LinkFromInstitution.AllowedDomainNamesError.COPY" = "Domeinnaam %1$@ niet toegestaan.";
 "LinkFromInstitution.AllowedDomainNamesError2.COPY" = "eduID is beperkt om alleen te worden gebruikt voor toegestane domeinen.";
@@ -530,8 +532,11 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "PollFromInstitution.Resend.COPY" = "E-mail nog steeds niet gevonden?";
 "PollFromInstitution.ResendLink.COPY" = "Stuur de e-mail opnieuw.";
 "PollFromInstitution.MailResend.COPY" = "Controleer je inbox. We hebben je de e-mail met de link opnieuw verzonden.";
+"Login.RequestSuccessHeader.COPY" = "Je eduID is aangemaakt";
+"Login.RequestSuccessInfo.COPY" = "We hebben je ook een bevestigingsmail gestuurd.";
+"Login.RequestSuccessNext.COPY" = "Volgende";
 "Login.RequestEduId.COPY" = "Nog geen eduID?";
-"Login.RequestEduId2.COPY" = "eduID aanmaken";
+"Login.RequestEduId2.COPY" = "Direct aanmaken";
 "Login.LoginEduId.COPY" = "Inloggen";
 "Login.Whatis.COPY" = "Wat is eduID?";
 "Login.Header.COPY" = "Log in met eduID";
@@ -594,6 +599,8 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Login.UseAnother.COPY" = "Gebruik een andere";
 "Login.OptionsLink.COPY" = "inlogmethode.";
 "Login.RateLimited.COPY" = "Je bent nog steeds geschorst. Probeer het over %%1$s minuten opnieuw.";
+"Login.TryOtherEmail.COPY" = "Probeer een ander emailadres";
+"Login.OrDivider.COPY" = "of";
 "Options.Header.COPY" = "Hoe wil je inloggen?";
 "Options.NoLogin.COPY" = "Kun je nog niet inloggen?";
 "Options.Learn.COPY" = "Zie hoe je jouw";
@@ -668,9 +675,11 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "StepUpExplanation.Linked_institution.COPY" = "Je eduID moet gekoppeld zijn aan een officiële instelling.";
 "StepUpExplanation.Validate_names.COPY" = "Je voornaam en achternaam moeten worden bevestigd door een officiële instelling.";
 "StepUpExplanation.Affiliation_student.COPY" = "Je moet aantonen dat je student bent. Dit doe je door je eduID te koppelen aan een officiële instelling.";
+"StepUpExplanation.Profile_mfa.COPY" = "Je moet inloggen met de eduID app voor multi-factor authenticatie.";
 "StepUpVerification.Linked_institution.COPY" = "Je eduID is gekoppeld aan een officiële instelling.";
 "StepUpVerification.Validate_names.COPY" = "Je voornaam en achternaam zijn bevestigd door een officiële instelling.";
 "StepUpVerification.Affiliation_student.COPY" = "Je hebt aangetoond dat je student bent, doordat je eduID is gekoppeld aan een officiële instelling.";
+"StepUpVerification.Profile_mfa.COPY" = "Je bent succesvol ingelogd met de eduID app met multi-factor authenticatie.";
 "NudgeApp.New.COPY" = "Je eduID is aangemaakt";
 "NudgeApp.Header.COPY" = "Wil je de volgende keer sneller en veiliger inloggen?";
 "NudgeApp.Info.COPY" = "Met de <strong>eduID app</strong> log je extra veilig in, zonder wachtwoord. Het installeren van de app is zo gebeurd.";
@@ -740,18 +749,9 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "CreateEduID.LandingPage.SignInButton.COPY" = "Inloggen";
 "CreateEduID.LandingPage.ScanQrButton.COPY" = "QR-code scannen";
 "CreateEduID.LandingPage.NoEduIdButton.COPY" = "Ik heb nog geen eduID";
-"CreateEduID.FirstTimeDialog.ConnectButtonTitle.COPY" = "Koppel je onderwijsinstelling";
-"CreateEduID.FirstTimeDialog.MainTextTitle.FirstPart.COPY" = "Studeer je in Nederland?";
-"CreateEduID.FirstTimeDialog.MainTextTitle.SecondPart.COPY" = "Koppel je onderwijsinstelling";
-"CreateEduID.FirstTimeDialog.MainText.COPY" = "We moeten eerst zeker zijn wie je bent. Alleen zo kun je eduID gebruiken voor diensten in het Nederlandse onderwijs.";
 "CreateEduID.FirstTimeDialog.MainTextPoint1.COPY" = "Je volledige naam, bevestigd door een officiële partij";
 "CreateEduID.FirstTimeDialog.MainTextPoint2.COPY" = "Bewijs dat je student bent";
 "CreateEduID.FirstTimeDialog.MainTextPoint3.COPY" = "Je huidige instelling";
-"CreateEduID.FirstTimeDialog.MainTextFirstBoldPart.COPY" = "Wanneer je in Nederland studeert";
-"CreateEduID.FirstTimeDialog.MainTextSecondBoldPart.COPY" = "Voeg deze gegevens toe";
-"CreateEduID.FirstTimeDialog.AddInformationText.COPY" = "Je voegt deze gegevens toe door je onderwijsinstelling te koppelen via SURFconext.";
-"CreateEduID.FirstTimeDialog.AddInformationBoldPart.COPY" = "Voeg deze informatie toe";
-"CreateEduID.FirstTimeDialog.SkipButtonTitle.COPY" = "Overslaan";
 "CreateEduID.Explanation.MainTitleLabel.COPY" = "Heb je nog geen eduID?";
 "CreateEduID.Explanation.MainExplanationText.COPY" = "eduID is een account om te bewijzen wie je bent aan Nederlandse onderwijs- en onderzoekinstellingen. Het is van jou en dus niet van de instellingen zelf.
 
@@ -825,7 +825,6 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "ResponseErrors.GenerateControlCodeError.COPY" = "Kan geen controlecode genereren";
 "ResponseErrors.SendOneTimeCodeError.COPY" = "Verzenden van eenmalige code mislukt";
 "ResponseErrors.VerifyOneTimeCodeError.COPY" = "Verifiëren van eenmalige code mislukt";
-"ResponseErrors.InvalidLinkError.COPY" = "Ontvangen link is ongeldig, probeer later opnieuw";
 "ResponseErrors.EmailCodeError.Title.COPY" = "Verificatie van code mislukt";
 "ResponseErrors.EmailCodeError.Expired.COPY" = "De code is verlopen";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "De code is onjuist";
