@@ -3883,6 +3883,10 @@ SHARED:
       COPY:
         en: Could not verify one-time code
         nl: Verifiëren van eenmalige code mislukt
+    InvalidLinkError:
+      COPY:
+        en: Invalid link received, please try again later
+        nl: Ontvangen link is ongeldig, probeer later opnieuw
     EmailCodeError:
       Title:
         COPY:
@@ -3929,64 +3933,50 @@ SHARED:
               en: "Authorization code exchange failed: %1{{s}}."
               nl: "Autorisatiecode-uitwisseling mislukt: %1{{s}}."
   VerifyIdentity:
-    TitleHasInternalLink:
-      COPY:
-        en: Add an institution
-        nl: Voeg een instelling toe
-    SubtitleHasInternalLink:
-      COPY:
-        en: By adding an educational or research institution, you prove to eduID that you are a student or employee of that institution.
-        nl: Door een onderwijs- of onderzoeksinstelling toe te voegen, bewijs je aan eduID dat je een student of medewerker bent van die instelling.
     Title:
-      FirstLine:
-        COPY:
-          en: Confirm your identity
-          nl: Bevestig wie je bent
-      SecondLine:
-        COPY:
-          en: Quick and easy
-          nl: Snel en eenvoudig
+      COPY:
+        en: Confirm your identity
+        nl: Bevestig wie je bent
     Subtitle:
       COPY:
-        en: Select a method to confirm who you are. Your first name, surname, and possibly your date of birth will be added to your eduID afterwards.
-        nl: Kies een manier om te bewijzen wie je bent. Daarna worden je voornaam, achternaam en eventueel geboortedatum aan je eduID toegevoegd.
-    VerifyViaDutchInstitution:
-      Title:
+        en: Use one of the following services to prove to us who you are
+        nl: Gebruik een van de volgende methodes om te bewijzen wie je bent
+    DoYouOwnAnAccount:
+      Text:
         COPY:
-          en: <strong>Do you own</strong> an account at a Dutch educational or research institute?
-          nl: <strong>Heb je</strong> een account bij een Nederlands school of onderzoeksinstelling?
-      TitleHasInternalLink:
+          en: Do you own an account at a Dutch educational or research institute?
+          nl: Heb je een account bij een Nederlands school of onderzoeksinstelling?
+      BoldPart:
         COPY:
-          en: Add your institution by logging in
-          nl: Voeg je instelling toe door in te loggen
+          en: Do you own
+          nl: Heb je een account
       Button:
         COPY:
           en: Use your school or work account
-          nl: Gebruik je school- of werkaccount
-    VerifyViaOptions:
-      Title:
+          nl: "Gebruik je school- of werkaccount"
+    IfYouDontOwnAnAccount:
+      Text:
         COPY:
-          en: <strong>If you don't own</strong> an account at a Dutch educational or research insitute, choose one of the following alternatives
-          nl: <strong>Als je geen</strong> account hebt bij een Nederlandse school of onderzoeksinstelling, kies dan een van de volgende mogelijkheden
-    VerifyWithBankApp:
-      Title:
+          en: "If you don't own an account at a Dutch educational or research insitute, choose one of the following alternatives"
+          nl: Als je geen account hebt bij een Nederlandse school of onderzoeksinstelling, kies dan een van de volgende mogelijkheden
+      BoldPart:
         COPY:
-          en: Dutch bank app
-          nl: Nederlandse bank-app
-      Button:
+          en: "If you don't own"
+          nl: Als je geen account hebt
+    Button:
+      UseADutchBank:
         COPY:
           en: Use a Dutch bank
           nl: Gebruik je bank
-    VerifyWithAEuropianId:
-      Title:
-        COPY:
-          en: European ID
-          nl: Europese identiteit
-      Button:
+      UseAEuropeanId:
         COPY:
           en: Use a European ID
           nl: Gebruik een Europees ID
-    OtherOptions:
+      ContactServiceDesk:
+        COPY:
+          en: Contact the Service Desk
+          nl: Contact met de Service Desk
+    SupportLink:
       COPY:
         en: "https://eduid.nl/support/?lang=en"
         nl: "https://eduid.nl/support/?lang=nl"
