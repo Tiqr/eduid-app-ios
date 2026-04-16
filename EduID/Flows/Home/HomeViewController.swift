@@ -210,7 +210,10 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     @objc private func loadViewWhenReceivingNotification(_ notification: Notification) {
         if let notificationObject = notification.userInfo?[Constants.UserInfoKey.tiqrAuthObject] as? String,
            !notificationObject.isEmpty {
-            delegate?.homeViewControllerShowAuthenticationScreen(with: notificationObject)
+            delegate?.homeViewControllerShowAuthenticationScreen(
+                payload: notificationObject,
+                serviceName: notification.userInfo?[Constants.UserInfoKey.notificationServiceName] as? String
+            )
         } else if AppAuthController.shared.isLoggedIn() {
             openPendingScreen(animated: self.screenRefreshWasRequested)
         } else if AppAuthController.shared.hasPendingAuthFlow {

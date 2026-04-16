@@ -138,11 +138,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge(),
+        if let data = RecentNotifications(appGroup: appGroup).getLastNotificationData(),
            !appDelegate.didHandleNotification {
-            let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
-            NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
-                                            object: nil, userInfo: notificationObject)
+            var notificationObject: [String: Any] = [
+                Constants.UserInfoKey.tiqrAuthObject: data.challenge
+            ]
+            if let servicename = data.serviceName {
+                notificationObject[Constants.UserInfoKey.notificationServiceName] = data.serviceName
+            }
+            NotificationCenter.default.post(
+                name: .firstTimeAuthorizationCompleteWithSecretPresent,
+                object: nil,
+                userInfo: notificationObject
+            )
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             appDelegate.didHandleNotification = false

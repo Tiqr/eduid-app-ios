@@ -26,9 +26,11 @@ class NotificationService: UNNotificationServiceExtension {
         let payload = bestAttemptContent?.userInfo
         let challenge = payload?["challenge"]
         let authenticationTimeout = payload?["authenticationTimeout"]
+        let serviceName = payload?["serviceName"] as? String
         RecentNotifications(appGroup: appGroup).onNewNotification(
             timeOut: authenticationTimeout,
             challenge: challenge,
+            serviceName: serviceName,
             notificationId: request.identifier
         )
         contentHandler(bestAttemptContent ?? UNMutableNotificationContent())

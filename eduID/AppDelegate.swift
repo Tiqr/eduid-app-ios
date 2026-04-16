@@ -55,14 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
+        if let data = RecentNotifications(appGroup: appGroup).getLastNotificationData() {
             // Home will listen to the notification, so we add a bit of delay to make sure it has been started.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
                 guard let self else {
                     return
                 }
                 if !self.didHandleNotification {
-                    self.getNotificationObject(from: challenge)
+                    self.getNotificationObject(challenge: data.challenge, serviceName: data.serviceName)
                 }
                 // Reset back to default value
                 self.didHandleNotification = false
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         //TIQR challenge
-        Tiqr.shared.startChallenge(challenge: url.absoluteString)
+        Tiqr.shared.startChallenge(challenge: url.absoluteString, serviceName: nil)
         
         //AppAuth redirect
         if AppAuthController.shared.isRedirectURI(url) {
@@ -115,7 +115,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             let userInfo = notification.request.content.userInfo
             if let challenge = userInfo["challenge"] as? String {
                 DispatchQueue.main.async { [weak self] in
-                    self?.getNotificationObject(from: challenge)
+                    self?.getNotificationObject(challenge: challenge, serviceName: userInfo["serviceName"] as? String)
                 }
             }
             completionHandler([])
@@ -128,13 +128,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if let challenge = userInfo["challenge"] as? String {
             didHandleNotification = true
             DispatchQueue.main.async { [weak self] in
-                self?.getNotificationObject(from: challenge)
+                self?.getNotificationObject(challenge: challenge, serviceName: userInfo["serviceName"] as? String)
             }
         }
     }
     
-    private func getNotificationObject(from challenge: String) {
-        let notificationObject: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: challenge]
+    private func getNotificationObject(challenge: String, serviceName: String?) {
+        var notificationObject: [String: Any] = [
+            Constants.UserInfoKey.tiqrAuthObject: challenge,
+        ]
+        if let serviceName {
+            notificationObject[Constants.UserInfoKey.notificationServiceName] = serviceName
+        }
         NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                         object: nil, userInfo: notificationObject)
     }
@@ -144,8 +149,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if let challenge = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge() {
-            self.getNotificationObject(from: challenge)
+        if let data = RecentNotifications(appGroup: appGroup).getLastNotificationData() {
+            self.getNotificationObject(challenge: data.challenge, serviceName: data.serviceName)
         }
     }
 }
