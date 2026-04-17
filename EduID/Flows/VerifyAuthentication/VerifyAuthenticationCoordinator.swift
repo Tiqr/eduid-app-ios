@@ -39,7 +39,7 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
                 case .enrollment, .authentication:
                     let viewModel = ScanViewModel()
                     viewModel.challenge = challengeObject
-                    viewModel.serviceName = serviceName
+                    viewModel.serviceName = self.serviceName
                     viewModel.challengeType = type
                     self.handleAuthenticationResult(with: viewModel)
                 case .invalid:

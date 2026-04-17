@@ -129,7 +129,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             didHandleNotification = true
             DispatchQueue.main.async { [weak self] in
                 self?.getNotificationObject(challenge: challenge, serviceName: userInfo["serviceName"] as? String)
+                completionHandler()
             }
+        } else {
+            completionHandler()
         }
     }
     

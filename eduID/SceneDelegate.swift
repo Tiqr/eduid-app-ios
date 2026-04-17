@@ -143,8 +143,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             var notificationObject: [String: Any] = [
                 Constants.UserInfoKey.tiqrAuthObject: data.challenge
             ]
-            if let servicename = data.serviceName {
-                notificationObject[Constants.UserInfoKey.notificationServiceName] = data.serviceName
+            if let serviceName = data.serviceName {
+                notificationObject[Constants.UserInfoKey.notificationServiceName] = serviceName
             }
             NotificationCenter.default.post(
                 name: .firstTimeAuthorizationCompleteWithSecretPresent,
