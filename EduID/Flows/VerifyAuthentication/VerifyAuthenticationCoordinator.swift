@@ -11,7 +11,7 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
     var viewControllerToPresentOn: UIViewController?
     weak var delegate: VerifyAuthenticationDelegate?
     private var payload: String?
-    var challenge: NSObject?
+    private var serviceName: String?
     var challengeType: TIQRChallengeType?
     private var dismissVerifyAuthentication: (() -> Void)?
     
@@ -19,13 +19,14 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
         self.viewControllerToPresentOn = viewControllerToPresentOn
     }
     
-    func start(with payload: String) {
+    func start(payload: String, serviceName: String?) {
         self.payload = payload
+        self.serviceName = serviceName
         authenticate()
         // Next to that, we also clear the recent notifications cache, making sure this screen is not triggered twice
         // (by getting it, we also clear it)
         let appGroup = Bundle.main.object(forInfoDictionaryKey: "TiqrAppGroup") as! String
-        _ = RecentNotifications(appGroup: appGroup).getLastNotificationChallenge()
+        _ = RecentNotifications(appGroup: appGroup).getLastNotificationData()
     }
     
     private func authenticate() {
@@ -38,6 +39,7 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
                 case .enrollment, .authentication:
                     let viewModel = ScanViewModel()
                     viewModel.challenge = challengeObject
+                    viewModel.serviceName = self.serviceName
                     viewModel.challengeType = type
                     self.handleAuthenticationResult(with: viewModel)
                 case .invalid:

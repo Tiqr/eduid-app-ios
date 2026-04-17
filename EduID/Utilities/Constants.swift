@@ -36,6 +36,7 @@ enum Constants {
     
     enum UserInfoKey {
         static let tiqrAuthObject = "tiqrAuthenticationObject"
+        static let notificationServiceName = "notificationServiceName"
         static let emailUpdateUrl = "emailUpdateUrl"
         static let passwordChangeUrl = "passwordChangeUrl"
         static let linkedAccountEmail = "linkedAccountEmail"

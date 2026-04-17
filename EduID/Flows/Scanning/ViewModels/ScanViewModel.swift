@@ -13,6 +13,7 @@ final class ScanViewModel: NSObject {
     
     // - challenge object and type
     var challenge: NSObject?
+    var serviceName: String?
     var challengeType: TIQRChallengeType?
     
     let frameSize: CGFloat = 275

@@ -62,7 +62,7 @@ extension MainCoordinator: HomeViewControllerDelegate  {
         scanCoordinator.start()
     }
     
-    func homeViewControllerShowAuthenticationScreen(with payload: String) {
+    func homeViewControllerShowAuthenticationScreen(payload: String, serviceName: String?) {
         // If there are any screens already open, close them
         children.removeAll()
         if homeNavigationController.presentedViewController != nil {
@@ -75,7 +75,7 @@ extension MainCoordinator: HomeViewControllerDelegate  {
         let verifyAuthenticationCoordinator = VerifyAuthenticationCoordinator(viewControllerToPresentOn: homeNavigationController)
         verifyAuthenticationCoordinator.delegate = self
         children.append(verifyAuthenticationCoordinator)
-        verifyAuthenticationCoordinator.start(with: payload)
+        verifyAuthenticationCoordinator.start(payload: payload, serviceName: serviceName)
     }
 
 }

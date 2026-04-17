@@ -6,5 +6,5 @@ protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerShowSecurityScreen(viewController: HomeViewController, animated: Bool)
     func homeViewControllerShowActivityScreen(viewController: HomeViewController, animated: Bool)
     func homeViewControllerShowScanScreen(viewController: HomeViewController)
-    func homeViewControllerShowAuthenticationScreen(with payload: String)
+    func homeViewControllerShowAuthenticationScreen(payload: String, serviceName: String?)
 }
