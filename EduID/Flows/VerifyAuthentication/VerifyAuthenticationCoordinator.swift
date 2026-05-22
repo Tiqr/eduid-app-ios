@@ -64,7 +64,8 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
     }
     
     private func handleAuthenticationError(error: NSError?) {
-        let title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        let rawTitle = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        let title = rawTitle == "unknown_error" ? L.AuthenticationFailed.Title.localization : rawTitle
         let description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
 
         let alert = UIAlertController(
