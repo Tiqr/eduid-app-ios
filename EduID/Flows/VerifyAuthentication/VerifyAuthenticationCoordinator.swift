@@ -43,8 +43,12 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
                     viewModel.challengeType = type
                     self.handleAuthenticationResult(with: viewModel)
                 case .invalid:
+                    self.handleAuthenticationError(error: error as? NSError)
                     break
                 default:
+                    if let error {
+                        self.handleAuthenticationError(error: error as NSError)
+                    }
                     break
                 }
             }
@@ -57,5 +61,23 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
             self.delegate?.verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: self)
         }
         (viewControllerToPresentOn as? UINavigationController)?.pushViewController(viewController, animated: true)
+    }
+    
+    private func handleAuthenticationError(error: NSError?) {
+        let title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        let description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
+
+        let alert = UIAlertController(
+            title: title,
+            message: description,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+            alert.dismiss(animated: true)
+        })
+        DispatchQueue.main.async { [weak self] in
+            self?.viewControllerToPresentOn?.present(alert, animated: true, completion: nil)
+        }
     }
 }
