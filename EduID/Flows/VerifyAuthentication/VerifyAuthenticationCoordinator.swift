@@ -64,10 +64,12 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
     }
     
     private func handleAuthenticationError(error: NSError?) {
-        let rawTitle = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
-        let title = rawTitle == "unknown_error" ? L.AuthenticationFailed.Title.localization : rawTitle
-        let description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
-
+        var title = (error?.userInfo[NSLocalizedDescriptionKey] as? String) ?? error?.domain ?? L.Generic.RequestError.Title.localization
+        var description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
+        if title == "unknown_error" {
+            title = L.ResponseErrors.AuthenticationFailedTitle.localization
+            description = L.ResponseErrors.AuthenticationFailedMessage.localization
+        }
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(
                 title: title,
@@ -75,8 +77,10 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
                 preferredStyle: .alert
             )
             
-            alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+            alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { [weak self] _ in
+                guard let self = self else { return }
                 alert.dismiss(animated: true)
+                self.delegate?.verifyAuthenticationCoordinatorDismissActivityFlow(coordinator: self)
             })
             self?.viewControllerToPresentOn?.present(alert, animated: true, completion: nil)
         }
