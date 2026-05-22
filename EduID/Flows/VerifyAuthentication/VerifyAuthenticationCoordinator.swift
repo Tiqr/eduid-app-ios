@@ -68,16 +68,16 @@ class VerifyAuthenticationCoordinator: CoordinatorType {
         let title = rawTitle == "unknown_error" ? L.AuthenticationFailed.Title.localization : rawTitle
         let description = (error?.userInfo[NSLocalizedFailureReasonErrorKey] as? String) ?? error?.localizedDescription ?? L.Generic.RequestError.Description(args: String(error?.code ?? 0)).localization
 
-        let alert = UIAlertController(
-            title: title,
-            message: description,
-            preferredStyle: .alert
-        )
-        
-        alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
-            alert.dismiss(animated: true)
-        })
         DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(
+                title: title,
+                message: description,
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                alert.dismiss(animated: true)
+            })
             self?.viewControllerToPresentOn?.present(alert, animated: true, completion: nil)
         }
     }
