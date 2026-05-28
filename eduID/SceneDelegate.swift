@@ -30,6 +30,7 @@
 import UIKit
 import Tiqr
 import TiqrCore
+import TiqrCoreObjC
 import AppAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -66,7 +67,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func handleURLFromRedirect(url: URL?) -> Bool {
         guard let url = url else { return false }
-        if (url.absoluteString.range(of: "tiqrauth") != nil) {
+        if TiqrConfig.isValidAuthenticationURL(url.absoluteString) {
             getAppropriateLaunchOption(with: url.absoluteString)
             return true
         } else if (url.absoluteString.range(of: "created") != nil) {
