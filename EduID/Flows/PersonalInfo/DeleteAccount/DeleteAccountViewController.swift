@@ -47,15 +47,16 @@ class DeleteAccountViewController: UIViewController, ScreenWithScreenType {
         let warningImage = UIImageView()
         warningImage.image = .warning
         warningImage.size(CGSize(width: 22.5, height: 21))
-        let disclaimerString = NSMutableAttributedString(
-            string: L.DeleteAccount.Disclaimer.localization,
-            attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 14), color: .charcoalColor, lineSpacing: 6)
+        let disclaimerString = L.DeleteAccount.Disclaimer.localization.htmlAttributedString(
+            fontFamily: "SourceSansPro-Regular",
+            fontSize: 14
         )
         disclaimerContainer.addSubview(disclaimerLabel)
         disclaimerContainer.addSubview(warningImage)
         warningImage.leftToSuperview(offset: 12)
         warningImage.topToSuperview(offset: 18)
         disclaimerLabel.attributedText = disclaimerString
+        disclaimerLabel.textColor = .charcoalColor
         disclaimerLabel.leftToRight(of: warningImage, offset: 12)
         disclaimerLabel.rightToSuperview(offset: -12)
         disclaimerLabel.verticalToSuperview(insets: .vertical(12))
