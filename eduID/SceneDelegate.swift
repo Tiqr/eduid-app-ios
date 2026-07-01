@@ -126,11 +126,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func getAppropriateLaunchOption(with object: Any? = nil) {
         let userInfo: [String: Any] = [Constants.UserInfoKey.tiqrAuthObject: object ?? ""]
-        if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
+        let launchOption = OnboardingManager.shared.getAppropriateLaunchOption()
+        if launchOption == .newUser {
             NotificationCenter.default.post(name: .firstTimeAuthorizationComplete,
                                             object: nil, userInfo: userInfo)
-        } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret ||
-                    OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithoutSecret {
+        } else if launchOption == .existingUserWithSecret || launchOption == .existingUserWithoutSecret {
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: userInfo)
         }

@@ -24,6 +24,7 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if AppAuthController.shared.isLoggedIn() {
             checkForAnyExistingUser()
         } else if AppAuthController.shared.hasPendingAuthFlow {
@@ -105,8 +106,7 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
                                           forKey: OnboardingManager.userdefaultsFlowTypeKey)
                 self?.dismiss(animated: true)
             } else {
-                alertController.dismiss(animated: true)
-                // Also navigate back
+                // Alert will be dismissed, now navigate back
                 self?.dismiss(animated: true)
             }
         }
