@@ -129,7 +129,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if OnboardingManager.shared.getAppropriateLaunchOption() == .newUser {
             NotificationCenter.default.post(name: .firstTimeAuthorizationComplete,
                                             object: nil, userInfo: userInfo)
-        } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret {
+        } else if OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithSecret ||
+                    OnboardingManager.shared.getAppropriateLaunchOption() == .existingUserWithoutSecret {
             NotificationCenter.default.post(name: .firstTimeAuthorizationCompleteWithSecretPresent,
                                             object: nil, userInfo: userInfo)
         }
