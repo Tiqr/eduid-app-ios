@@ -30,6 +30,9 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
             AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self] _ in
                 self?.checkForAnyExistingUser()
             }
+        } else {
+            // This will throw an error, since there is no logged-in user
+            checkForAnyExistingUser()
         }
     }
     
@@ -103,6 +106,8 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
                 self?.dismiss(animated: true)
             } else {
                 alertController.dismiss(animated: true)
+                // Also navigate back
+                self?.dismiss(animated: true)
             }
         }
         
