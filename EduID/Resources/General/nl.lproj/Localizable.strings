@@ -197,11 +197,15 @@ bestaande inschrijving
 "Security.Title.COPY" = "Beveiliging";
 "Security.SubTitle.COPY" = "Hoe je kunt inloggen bij eduID";
 "Security.OtherMethods.COPY" = "Andere manieren";
+"Security.RecoveryOptions.COPY" = "Herstelopties";
+"Security.SMS.COPY" = "sms";
+"Security.ReceiveCodeAt.COPY" = "Je ontvangt eenmalige codes op: ** ** *** %1$@";
 "Security.AddPassword.COPY" = "Wachtwoord toevoegen";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Wachtwoord";
 "Security.PasswordActivated.COPY" = "Geactiveerd op %1$@";
 "Security.CredentialActivated.COPY" = "%1$@: Geactiveerd op %2$@";
+"Security.Passkey.COPY" = "Passkey";
 "Security.TwoFAKey.COPY" = "Inloggen met app";
 "Security.ProvidedBy.COPY" = "Gedeeld door";
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";
