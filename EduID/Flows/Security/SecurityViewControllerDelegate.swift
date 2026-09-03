@@ -20,6 +20,8 @@ protocol SecurityViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToDeletePasskeyConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse, passkey: PublicKeyCredentials)
     func goBackAfterRemovingPasskey(_ personalInfo: UserResponse)
     func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse)
+    func goToChangeSMSRecoveryPhoneNumberScreen(viewController: UIViewController, personalInfo: UserResponse)
+    func goBackAfterChangingSMSRecovery()
     func requestPasswordResetLink(viewController: UIViewController, personalInfo: UserResponse)
     func securityViewController(viewController: UIViewController, verify email: String)
     func securityViewController(viewController: UIViewController, reset password: String)
@@ -42,6 +44,8 @@ extension SecurityViewControllerDelegate {
     func goToDeletePasskeyConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse, passkey: PublicKeyCredentials) { }
     func goBackAfterRemovingPasskey(_ personalInfo: UserResponse) { }
     func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse) { }
+    func goToChangeSMSRecoveryPhoneNumberScreen(viewController: UIViewController, personalInfo: UserResponse) { }
+    func goBackAfterChangingSMSRecovery() { }
     func requestPasswordResetLink(viewController: UIViewController, personalInfo: UserResponse) { }
     func securityViewController(viewController: UIViewController, reset password: String) { }
     func goToEmailCodeScreen(viewController: UIViewController, changePassword: Bool) { }

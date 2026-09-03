@@ -795,6 +795,11 @@ Which phone number would you like to use for this?
 ";
 "CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Send SMS code";
+"CreateEduID.EnterPhoneNumber.ReVerificationTitle.COPY" = "Add a phone number";
+"CreateEduID.EnterPhoneNumber.ReVerificationMainText.COPY" = "Your phone number will be used for security purposes, so that you can re-register the eduID app if you lose it.
+
+We will send you a code to verify your phone number.
+";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Your educational institution has been successfully connected";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Your educational institution";
 "CreateEduID.AddInstitution.MainText.COPY" = "The following information has been added to your eduID and can now be shared with other services:";

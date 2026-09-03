@@ -3761,6 +3761,20 @@ SHARED:
         COPY:
           en: Send SMS code
           nl: Stuur sms-code
+      ReVerificationTitle:
+        COPY:
+          en: Add a phone number
+          nl: Telefoonnummer toevoegen
+      ReVerificationMainText:
+        COPY:
+          en: |
+            Your phone number will be used for security purposes, so that you can re-register the eduID app if you lose it.
+
+            We will send you a code to verify your phone number.
+          nl: |
+            Je telefoonnummer wordt gebruikt voor beveiligingsdoeleinden, zodat je de eduID-app opnieuw kunt registreren als je deze kwijtraakt.
+
+            We sturen je een code om je telefoonnummer te verifiëren.
     AddInstitution:
       MainTitle:
         COPY:

@@ -124,6 +124,45 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(changeSMSRecoveryExplanationViewController, animated: true)
     }
     
+    func goToChangeSMSRecoveryPhoneNumberScreen(viewController: UIViewController, personalInfo: UserResponse) {
+        let phoneNumberViewController = CreateEduIDEnterPhoneNumberViewController(viewModel: CreateEduIDEnterPhoneNumberViewModel(isReVerification: true))
+        phoneNumberViewController.delegate = self
+        phoneNumberViewController.onPhoneNumberVerified = { [weak self] in
+            self?.goToChangeSMSRecoverySMSCodeScreen()
+        }
+        navigationController?.pushViewController(phoneNumberViewController, animated: true)
+    }
+    
+    private func goToChangeSMSRecoverySMSCodeScreen() {
+        let smsViewController = CreateEduIDEnterSMSViewController(viewModel: PinViewModel(isReVerification: true), isSecure: false)
+        smsViewController.delegate = self
+        smsViewController.onSMSVerified = { [weak self] in
+            self?.showChangeSMSRecoverySuccessDialog()
+        }
+        navigationController?.pushViewController(smsViewController, animated: true)
+    }
+    
+    private func showChangeSMSRecoverySuccessDialog() {
+        let alert = UIAlertController(
+            title: L.ChangeSMSRecovery.Success.Title.localization,
+            message: L.ChangeSMSRecovery.Success.Description.localization,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: L.ChangeSMSRecovery.Success.Button.localization, style: .default) { [weak self] _ in
+            self?.goBackAfterChangingSMSRecovery()
+        })
+        navigationController?.topViewController?.present(alert, animated: true)
+    }
+    
+    func goBackAfterChangingSMSRecovery() {
+        // Pop back to the security overview screen, past the explanation, phone number and code entry screens.
+        if let securityOverviewVc = navigationController?.viewControllers.first(where: { $0 is SecurityOverviewViewController }) {
+            navigationController?.popToViewController(securityOverviewVc, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func hasPendingPersonalInfo() -> Bool {
         return pendingPersonalInfo != nil
     }

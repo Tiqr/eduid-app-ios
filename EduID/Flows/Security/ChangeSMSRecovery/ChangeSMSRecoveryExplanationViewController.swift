@@ -88,7 +88,7 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
                 DispatchQueue.main.async {
                     guard let self else { return }
                     if success {
-                        self.showSuccessDialog()
+                        self.goToPhoneVerificationCodeScreen()
                     } else {
                         self.presentPinCodeVerifyScreen()
                     }
@@ -107,17 +107,8 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
         present(pinCodeVC, animated: true)
     }
     
-    private func showSuccessDialog() {
-        let alert = UIAlertController(
-            title: L.ChangeSMSRecovery.Success.Title.localization,
-            message: L.ChangeSMSRecovery.Success.Description.localization,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: L.ChangeSMSRecovery.Success.Button.localization, style: .default) { [weak self] _ in
-            guard let self else { return }
-            self.delegate?.goBack(viewController: self)
-        })
-        present(alert, animated: true)
+    private func goToPhoneVerificationCodeScreen() {
+        delegate?.goToChangeSMSRecoveryPhoneNumberScreen(viewController: self, personalInfo: viewModel.personalInfo)
     }
     
     private func showVerificationFailedDialog() {
@@ -138,7 +129,7 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
 extension ChangeSMSRecoveryExplanationViewController: VerifyPinCodeDelegate {
     func get(pinCode: String) {
         if viewModel.verifyWithPIN(pinCode) {
-            showSuccessDialog()
+            goToPhoneVerificationCodeScreen()
         } else {
             showVerificationFailedDialog()
         }

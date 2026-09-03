@@ -6642,6 +6642,22 @@ public struct L {
                 translationKey: "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY",
                 translationArgs: []
             )
+            public static let ReVerificationTitle = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.EnterPhoneNumber.ReVerificationTitle",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.EnterPhoneNumber.ReVerificationTitle.COPY",
+                translationArgs: []
+            )
+            public static let ReVerificationMainText = LocaliciousData(
+                accessibilityIdentifier: "CreateEduID.EnterPhoneNumber.ReVerificationMainText",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "CreateEduID.EnterPhoneNumber.ReVerificationMainText.COPY",
+                translationArgs: []
+            )
         }
         public struct AddInstitution {
             public static let MainTitle = LocaliciousData(

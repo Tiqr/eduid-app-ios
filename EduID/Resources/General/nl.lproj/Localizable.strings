@@ -796,6 +796,11 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 ";
 "CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "38";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Stuur sms-code";
+"CreateEduID.EnterPhoneNumber.ReVerificationTitle.COPY" = "Telefoonnummer toevoegen";
+"CreateEduID.EnterPhoneNumber.ReVerificationMainText.COPY" = "Je telefoonnummer wordt gebruikt voor beveiligingsdoeleinden, zodat je de eduID-app opnieuw kunt registreren als je deze kwijtraakt.
+
+We sturen je een code om je telefoonnummer te verifiëren.
+";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Je onderwijsinstelling is succesvol gekoppeld";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je onderwijsinstelling";
 "CreateEduID.AddInstitution.MainText.COPY" = "De volgende gegevens zijn aan je eduID toegevoegd en kun je nu delen met andere diensten:";

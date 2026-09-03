@@ -7,8 +7,13 @@ class CreateEduIDEnterPhoneNumberViewModel: NSObject {
     var phoneNumberReceivedClosure: ((FinishEnrollment) -> Void)?
     weak var alertErrorHandlerDelegate: AlertErrorHandlerDelegate?
     
+    /// When `true`, the phone code is (re)sent using the re-verification endpoint (used when the user
+    /// is confirming an already-registered SMS recovery number), instead of the initial onboarding endpoint.
+    let isReVerification: Bool
+    
     //MARK: - init
-    override init() {
+    init(isReVerification: Bool = false) {
+        self.isReVerification = isReVerification
         super.init()
     }
     
@@ -16,9 +21,16 @@ class CreateEduIDEnterPhoneNumberViewModel: NSObject {
     func sendPhoneNumber(number: String) {
         Task {
             do {
-                let result = try await TiqrControllerAPI.sendPhoneCodeForSpWithRequestBuilder(phoneCode: PhoneCode(phoneNumber: number))
-                    .execute()
-                    .body
+                let result: FinishEnrollment
+                if isReVerification {
+                    result = try await TiqrControllerAPI.resendPhoneCodeForSpWithRequestBuilder(phoneCode: PhoneCode(phoneNumber: number))
+                        .execute()
+                        .body
+                } else {
+                    result = try await TiqrControllerAPI.sendPhoneCodeForSpWithRequestBuilder(phoneCode: PhoneCode(phoneNumber: number))
+                        .execute()
+                        .body
+                }
                 phoneNumberReceivedClosure?(result)
             } catch let error {
                 alertErrorHandlerDelegate?.presentAlert(with: error)
