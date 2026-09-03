@@ -281,6 +281,11 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeleteKey.Description.COPY" = "Weet je zeker dat je deze sleutel wil verwijderen?";
 "ConfirmDeleteKey.Button.Confirm.COPY" = "Ja, verwijder";
 "ConfirmDeleteKey.Button.Cancel.COPY" = "Nee, ga terug";
+"ConfirmDeletePasskey.Title.COPY" = "Verwijder passkey";
+"ConfirmDeletePasskey.Subtitle.COPY" = "Je kunt dit niet ongedaan maken";
+"ConfirmDeletePasskey.Description.COPY" = "Weet je zeker dat je de passkey \"%1$@\" wil verwijderen?";
+"ConfirmDeletePasskey.Button.Confirm.COPY" = "Ja, verwijder";
+"ConfirmDeletePasskey.Button.Cancel.COPY" = "Nee, ga terug";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Activiteit";

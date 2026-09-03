@@ -103,6 +103,20 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         navigationController?.pushViewController(confirmDeleteKeyViewController, animated: true)
     }
     
+    func goToDeletePasskeyConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse, passkey: PublicKeyCredentials) {
+        let viewModel = DeletePasskeyConfirmationViewModel(personalInfo: personalInfo, passkey: passkey)
+        let confirmDeletePasskeyViewController = DeletePasskeyConfirmationViewController(viewModel: viewModel)
+        confirmDeletePasskeyViewController.delegate = self
+        navigationController?.pushViewController(confirmDeletePasskeyViewController, animated: true)
+    }
+    
+    func goBackAfterRemovingPasskey(_ personalInfo: UserResponse) {
+        navigationController?.popViewController(animated: true)
+        if let securityOverviewVc = navigationController?.topViewController as? SecurityOverviewViewController {
+            securityOverviewVc.setupUI(personalInfo: personalInfo)
+        }
+    }
+    
     func hasPendingPersonalInfo() -> Bool {
         return pendingPersonalInfo != nil
     }

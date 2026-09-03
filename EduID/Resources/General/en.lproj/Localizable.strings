@@ -280,6 +280,11 @@ Would you like to unconnect that app and connect this one?
 "ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
 "ConfirmDeleteKey.Button.Confirm.COPY" = "Yes, delete";
 "ConfirmDeleteKey.Button.Cancel.COPY" = "No, back";
+"ConfirmDeletePasskey.Title.COPY" = "Delete passkey";
+"ConfirmDeletePasskey.Subtitle.COPY" = "You can't undo this action";
+"ConfirmDeletePasskey.Description.COPY" = "Are you sure you want to delete the passkey \"%1$@\"?";
+"ConfirmDeletePasskey.Button.Confirm.COPY" = "Yes, delete";
+"ConfirmDeletePasskey.Button.Cancel.COPY" = "No, back";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Activity";

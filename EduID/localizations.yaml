@@ -1319,6 +1319,28 @@ SHARED:
         COPY:
           en: No, back
           nl: Nee, ga terug
+  ConfirmDeletePasskey:
+    Title:
+      COPY:
+        en: Delete passkey
+        nl: Verwijder passkey
+    Subtitle:
+      COPY:
+        en: You can't undo this action
+        nl: Je kunt dit niet ongedaan maken
+    Description:
+      COPY:
+        en: "Are you sure you want to delete the passkey \"%1{{s}}\"?"
+        nl: "Weet je zeker dat je de passkey \"%1{{s}}\" wil verwijderen?"
+    Button:
+      Confirm:
+        COPY:
+          en: Yes, delete
+          nl: Ja, verwijder
+      Cancel:
+        COPY:
+          en: No, back
+          nl: Nee, ga terug
   Home:
     Home:
       COPY:

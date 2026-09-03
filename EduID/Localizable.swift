@@ -2422,6 +2422,52 @@ public struct L {
             )
         }
     }
+    public struct ConfirmDeletePasskey {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeletePasskey.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeletePasskey.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeletePasskey.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeletePasskey.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static func Description(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "ConfirmDeletePasskey.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmDeletePasskey.Description.COPY",
+            translationArgs: args
+        )
+        }
+        public struct Button {
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDeletePasskey.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDeletePasskey.Button.Confirm.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "ConfirmDeletePasskey.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmDeletePasskey.Button.Cancel.COPY",
+                translationArgs: []
+            )
+        }
+    }
     public struct Home {
         public static let Home = LocaliciousData(
             accessibilityIdentifier: "Home.Home",
