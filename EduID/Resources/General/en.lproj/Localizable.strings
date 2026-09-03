@@ -285,6 +285,14 @@ Would you like to unconnect that app and connect this one?
 "ConfirmDeletePasskey.Description.COPY" = "Are you sure you want to delete the passkey \"%1$@\"?";
 "ConfirmDeletePasskey.Button.Confirm.COPY" = "Yes, delete";
 "ConfirmDeletePasskey.Button.Cancel.COPY" = "No, back";
+"ChangeSMSRecovery.Title.COPY" = "Change SMS recovery number";
+"ChangeSMSRecovery.Description.COPY" = "To change your SMS recovery number, we first need to verify it's really you. Confirm with your PIN code or biometrics to continue.";
+"ChangeSMSRecovery.VerificationFailed.COPY" = "We could not verify your identity. Please try again.";
+"ChangeSMSRecovery.Button.Back.COPY" = "No, go back";
+"ChangeSMSRecovery.Button.Change.COPY" = "Change";
+"ChangeSMSRecovery.Success.Title.COPY" = "Identity verified";
+"ChangeSMSRecovery.Success.Description.COPY" = "Your identity has been verified. Changing your SMS recovery number will be possible here soon.";
+"ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Activity";
@@ -743,6 +751,9 @@ Would you like to unconnect that app and connect this one?
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
+"Generic.SessionExpired.Title.COPY" = "Session expired";
+"Generic.SessionExpired.Description.COPY" = "Your session has expired and you have been logged out. Please log in again.";
+"Generic.SessionExpired.CloseButton.COPY" = "OK";
 "WelcomeToApp.Title.COPY" = "Welcome! You can use the eduID app for";
 "WelcomeToApp.Quickly.Text.COPY" = "to educational services";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Logging in quickly";

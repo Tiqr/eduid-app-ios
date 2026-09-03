@@ -286,6 +286,14 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeletePasskey.Description.COPY" = "Weet je zeker dat je de passkey \"%1$@\" wil verwijderen?";
 "ConfirmDeletePasskey.Button.Confirm.COPY" = "Ja, verwijder";
 "ConfirmDeletePasskey.Button.Cancel.COPY" = "Nee, ga terug";
+"ChangeSMSRecovery.Title.COPY" = "Wijzig sms-herstelnummer";
+"ChangeSMSRecovery.Description.COPY" = "Om je sms-herstelnummer te wijzigen, moeten we eerst verifiëren dat jij het echt bent. Bevestig met je pincode of biometrie om verder te gaan.";
+"ChangeSMSRecovery.VerificationFailed.COPY" = "We konden je identiteit niet verifiëren. Probeer het opnieuw.";
+"ChangeSMSRecovery.Button.Back.COPY" = "Nee, ga terug";
+"ChangeSMSRecovery.Button.Change.COPY" = "Wijzig";
+"ChangeSMSRecovery.Success.Title.COPY" = "Identiteit geverifieerd";
+"ChangeSMSRecovery.Success.Description.COPY" = "Je identiteit is geverifieerd. Binnenkort kun je hier je sms-herstelnummer wijzigen.";
+"ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Activiteit";
@@ -743,6 +751,9 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
+"Generic.SessionExpired.Title.COPY" = "Sessie verlopen";
+"Generic.SessionExpired.Description.COPY" = "Je sessie is verlopen en je bent uitgelogd. Log opnieuw in.";
+"Generic.SessionExpired.CloseButton.COPY" = "OK";
 "WelcomeToApp.Title.COPY" = "Welkom! Je kunt de eduID app gebruiken voor";
 "WelcomeToApp.Quickly.Text.COPY" = "bij diensten in het onderwijs";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";

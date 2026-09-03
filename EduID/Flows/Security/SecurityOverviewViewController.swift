@@ -271,11 +271,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     attributedTitle: recoveryOptionsTitle,
                     attributedBodyText: smsText,
                     leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: nil,
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
                     isFilled: true
                 )
                 stack.addArrangedSubview(smsControl)
                 smsControl.widthToSuperview()
+                smsControl.addTarget(self, action: #selector(changeSMSRecoveryTapped), for: .touchUpInside)
             }
         } else {
             let loadingIndicator = UIActivityIndicatorView()
@@ -328,6 +329,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
               sender.tag >= 0, sender.tag < credentials.count else { return }
         let passkey = credentials[sender.tag]
         delegate?.goToDeletePasskeyConfirmationScreen(viewController: self, personalInfo: personalInfo, passkey: passkey)
+    }
+    
+    @objc
+    func changeSMSRecoveryTapped() {
+        guard let personalInfo = currentPersonalInfo else { return }
+        delegate?.goToChangeSMSRecoveryExplanationScreen(viewController: self, personalInfo: personalInfo)
     }
     
     private func requestRefreshToken() {

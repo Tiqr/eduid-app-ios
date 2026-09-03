@@ -117,6 +117,13 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         }
     }
     
+    func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse) {
+        let viewModel = ChangeSMSRecoveryExplanationViewModel(personalInfo: personalInfo)
+        let changeSMSRecoveryExplanationViewController = ChangeSMSRecoveryExplanationViewController(viewModel: viewModel)
+        changeSMSRecoveryExplanationViewController.delegate = self
+        navigationController?.pushViewController(changeSMSRecoveryExplanationViewController, animated: true)
+    }
+    
     func hasPendingPersonalInfo() -> Bool {
         return pendingPersonalInfo != nil
     }

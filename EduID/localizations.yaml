@@ -1341,6 +1341,41 @@ SHARED:
         COPY:
           en: No, back
           nl: Nee, ga terug
+  ChangeSMSRecovery:
+    Title:
+      COPY:
+        en: Change SMS recovery number
+        nl: Wijzig sms-herstelnummer
+    Description:
+      COPY:
+        en: "To change your SMS recovery number, we first need to verify it's really you. Confirm with your PIN code or biometrics to continue."
+        nl: "Om je sms-herstelnummer te wijzigen, moeten we eerst verifiëren dat jij het echt bent. Bevestig met je pincode of biometrie om verder te gaan."
+    VerificationFailed:
+      COPY:
+        en: "We could not verify your identity. Please try again."
+        nl: "We konden je identiteit niet verifiëren. Probeer het opnieuw."
+    Button:
+      Back:
+        COPY:
+          en: No, go back
+          nl: Nee, ga terug
+      Change:
+        COPY:
+          en: Change
+          nl: Wijzig
+    Success:
+      Title:
+        COPY:
+          en: Identity verified
+          nl: Identiteit geverifieerd
+      Description:
+        COPY:
+          en: "Your identity has been verified. Changing your SMS recovery number will be possible here soon."
+          nl: "Je identiteit is geverifieerd. Binnenkort kun je hier je sms-herstelnummer wijzigen."
+      Button:
+        COPY:
+          en: OK
+          nl: OK
   Home:
     Home:
       COPY:
@@ -3549,6 +3584,19 @@ SHARED:
         COPY:
           en: "Close"
           nl: "Sluiten"
+    SessionExpired:
+      Title:
+        COPY:
+          en: "Session expired"
+          nl: "Sessie verlopen"
+      Description:
+        COPY:
+          en: "Your session has expired and you have been logged out. Please log in again."
+          nl: "Je sessie is verlopen en je bent uitgelogd. Log opnieuw in."
+      CloseButton:
+        COPY:
+          en: "OK"
+          nl: "OK"
   WelcomeToApp:
     Title:
       COPY:
