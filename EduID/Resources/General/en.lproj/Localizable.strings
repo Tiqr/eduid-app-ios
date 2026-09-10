@@ -291,7 +291,7 @@ Would you like to unconnect that app and connect this one?
 "ChangeSMSRecovery.Button.Back.COPY" = "No, go back";
 "ChangeSMSRecovery.Button.Change.COPY" = "Change";
 "ChangeSMSRecovery.Success.Title.COPY" = "Identity verified";
-"ChangeSMSRecovery.Success.Description.COPY" = "Your identity has been verified. Changing your SMS recovery number will be possible here soon.";
+"ChangeSMSRecovery.Success.Description.COPY" = "Your identity has been verified and your SMS recovery number has been updated.";
 "ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";

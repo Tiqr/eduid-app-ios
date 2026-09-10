@@ -1370,8 +1370,8 @@ SHARED:
           nl: Identiteit geverifieerd
       Description:
         COPY:
-          en: "Your identity has been verified. Changing your SMS recovery number will be possible here soon."
-          nl: "Je identiteit is geverifieerd. Binnenkort kun je hier je sms-herstelnummer wijzigen."
+          en: "Your identity has been verified and your SMS recovery number has been updated."
+          nl: "Je identiteit is geverifieerd en je sms-herstelnummer is bijgewerkt."
       Button:
         COPY:
           en: OK

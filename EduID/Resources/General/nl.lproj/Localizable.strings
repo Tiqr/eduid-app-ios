@@ -292,7 +292,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ChangeSMSRecovery.Button.Back.COPY" = "Nee, ga terug";
 "ChangeSMSRecovery.Button.Change.COPY" = "Wijzig";
 "ChangeSMSRecovery.Success.Title.COPY" = "Identiteit geverifieerd";
-"ChangeSMSRecovery.Success.Description.COPY" = "Je identiteit is geverifieerd. Binnenkort kun je hier je sms-herstelnummer wijzigen.";
+"ChangeSMSRecovery.Success.Description.COPY" = "Je identiteit is geverifieerd en je sms-herstelnummer is bijgewerkt.";
 "ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";

@@ -13,65 +13,107 @@ class ChangeSMSRecoveryExplanationViewModel {
     
     let personalInfo: UserResponse
     
+    /// The TIQR authentication challenge started via `startAuthenticationChallenge`. Its `identity` is
+    /// resolved by the TIQR protocol itself (from the identity provider embedded in the challenge URL),
+    /// so it is always correct - unlike matching `personalInfo.id` against locally stored identities.
+    private var challenge: AuthenticationChallenge?
+    
     init(personalInfo: UserResponse) {
         self.personalInfo = personalInfo
     }
     
-    /// Looks up the local TIQR identity (PIN/biometrics secret) to use for the "confirm it's you" check.
-    ///
-    /// `IdentityService.findIdentity(withIdentifier:)` only ever returns a match when the `identifier`
-    /// stored on the local `Identity` matches `personalInfo.id` *and* there is exactly one such match.
-    /// In practice, devices can end up with multiple locally stored identities (e.g. from re-enrolling
-    /// the eduID mobile app), where the identifier used during enrollment doesn't necessarily match
-    /// `personalInfo.id`, or is duplicated. Since PIN correctness cannot be validated locally anyway
-    /// (see `verifyWithPIN` below), which identity's secret we use doesn't affect security here, so we
-    /// fall back to any identity available on the device rather than failing the whole flow.
     private var identity: Identity? {
-        if let match = ServiceContainer.sharedInstance().identityService.findIdentity(withIdentifier: personalInfo.id) {
-            return match
-        }
-        guard let controller = ServiceContainer.sharedInstance().identityService.createFetchedResultsControllerForIdentities() else {
-            return nil
-        }
-        try? controller.performFetch()
-        let identities = controller.sections?.first?.objects as? [Identity]
-        return identities?.first
+        challenge?.identity
     }
     
     /// Whether the user's identity can be verified using biometrics (Face ID / Touch ID) instead of a PIN code.
+    /// Only meaningful after `startAuthenticationChallenge` has succeeded.
     var isBiometricVerificationAvailable: Bool {
         return identity?.biometricIDEnabled == 1 && ServiceContainer.sharedInstance().secretService.biometricIDAvailable
     }
     
-    /// Verifies the user's identity using biometrics (Face ID / Touch ID).
+    /// Starts a new TIQR authentication for the current user: asks the server for an authentication URL
+    /// (which also establishes the `SESSION_KEY` the backend needs for the following phone re-verification
+    /// calls), then parses that URL into a real `AuthenticationChallenge`, the same way scanning a QR code
+    /// would. Must succeed before `verifyWithBiometrics`/`verifyWithPIN` can be used.
+    @MainActor
+    func startAuthenticationChallenge(completion: @escaping (Bool) -> Void) {
+        Task {
+            do {
+                let result = try await TiqrControllerAPI.startAuthenticationForSP()
+                guard let url = result.url else {
+                    NSLog("Could not start SMS recovery change authentication: no url in response")
+                    completion(false)
+                    return
+                }
+                ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: url) { [weak self] type, challengeObject, error in
+                    guard let self else { return }
+                    guard type == .authentication, let challenge = challengeObject as? AuthenticationChallenge else {
+                        NSLog("Could not start SMS recovery change authentication: \(error?.localizedDescription ?? "unknown error")")
+                        completion(false)
+                        return
+                    }
+                    self.challenge = challenge
+                    completion(true)
+                }
+            } catch let ErrorResponse.error(statusCode, data, _, underlyingError) {
+                let bodyString = data.flatMap { String(data: $0, encoding: .utf8) } ?? "<no body>"
+                NSLog("Could not start SMS recovery change authentication: status=\(statusCode), body=\(bodyString), error=\(underlyingError)")
+                completion(false)
+            } catch {
+                NSLog("Could not start SMS recovery change authentication: \(error)")
+                completion(false)
+            }
+        }
+    }
+    
+    /// Verifies the user's identity using biometrics (Face ID / Touch ID), completing the started
+    /// authentication challenge server-side with the decrypted secret.
     func verifyWithBiometrics(completion: @escaping (Bool) -> Void) {
         guard let identity else {
             completion(false)
             return
         }
-        ServiceContainer.sharedInstance().secretService.secret(for: identity, touchIDPrompt: L.PinAndBioMetrics.BiometricsPrompt.localization) { data in
-            completion(data != nil)
+        ServiceContainer.sharedInstance().secretService.secret(for: identity, touchIDPrompt: L.PinAndBioMetrics.BiometricsPrompt.localization) { [weak self] data in
+            guard let self, let data else {
+                completion(false)
+                return
+            }
+            self.completeChallenge(withSecret: data, completion: completion)
         } failureHandler: { _ in
             completion(false)
         }
     }
     
-    /// Verifies the user's identity using the given PIN code.
-    ///
-    /// Note: `SecretService.secret(for:withPIN:)` decrypts the locally stored secret using the given PIN,
-    /// but per its own documentation "there is no way in telling if the PIN was correct or not" - it will
-    /// return decrypted (but potentially garbage) data even for a wrong PIN. The only way to truly validate
-    /// a PIN is to complete a real TIQR challenge against the server, which doesn't apply here. So the
-    /// meaningful check we *can* do locally is simply whether this device has a paired identity at all.
-    func verifyWithPIN(_ pin: String) -> Bool {
+    /// Verifies the user's identity using the given PIN code, completing the started authentication
+    /// challenge server-side with the decrypted secret. This is a real server round-trip (via the TIQR
+    /// authentication-confirmation request), so - unlike a purely local check - it will actually reject
+    /// an incorrect PIN.
+    func verifyWithPIN(_ pin: String, completion: @escaping (Bool) -> Void) {
         guard let identity else {
-            NSLog("Could not verify SMS recovery change: no local identity found for user id \(personalInfo.id ?? "nil")")
-            return false
+            NSLog("Could not verify SMS recovery change: no identity on the current authentication challenge")
+            completion(false)
+            return
         }
-        let secret = ServiceContainer.sharedInstance().secretService.secret(for: identity, withPIN: pin)
-        if secret == nil {
-            NSLog("Could not verify SMS recovery change: secretService returned no secret for the found identity")
+        guard let secret = ServiceContainer.sharedInstance().secretService.secret(for: identity, withPIN: pin) else {
+            completion(false)
+            return
         }
-        return true
+        completeChallenge(withSecret: secret, completion: completion)
+    }
+    
+    private func completeChallenge(withSecret secret: Data, completion: @escaping (Bool) -> Void) {
+        guard let challenge else {
+            completion(false)
+            return
+        }
+        ServiceContainer.sharedInstance().challengeService.complete(challenge, withSecret: secret) { success, _, error in
+            if !success {
+                NSLog("Could not complete SMS recovery change authentication challenge: \(error.localizedDescription ?? "unknown error")")
+            }
+            DispatchQueue.main.async {
+                completion(success)
+            }
+        }
     }
 }

@@ -83,19 +83,28 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
     }
     
     @objc func startVerification() {
-        if viewModel.isBiometricVerificationAvailable {
-            viewModel.verifyWithBiometrics { [weak self] success in
-                DispatchQueue.main.async {
-                    guard let self else { return }
-                    if success {
-                        self.goToPhoneVerificationCodeScreen()
-                    } else {
-                        self.presentPinCodeVerifyScreen()
+        viewModel.startAuthenticationChallenge { [weak self] success in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                guard success else {
+                    self.showVerificationFailedDialog()
+                    return
+                }
+                if self.viewModel.isBiometricVerificationAvailable {
+                    self.viewModel.verifyWithBiometrics { [weak self] success in
+                        DispatchQueue.main.async {
+                            guard let self else { return }
+                            if success {
+                                self.goToPhoneVerificationCodeScreen()
+                            } else {
+                                self.presentPinCodeVerifyScreen()
+                            }
+                        }
                     }
+                } else {
+                    self.presentPinCodeVerifyScreen()
                 }
             }
-        } else {
-            presentPinCodeVerifyScreen()
         }
     }
     
@@ -128,10 +137,15 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
 
 extension ChangeSMSRecoveryExplanationViewController: VerifyPinCodeDelegate {
     func get(pinCode: String) {
-        if viewModel.verifyWithPIN(pinCode) {
-            goToPhoneVerificationCodeScreen()
-        } else {
-            showVerificationFailedDialog()
+        viewModel.verifyWithPIN(pinCode) { [weak self] success in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                if success {
+                    self.goToPhoneVerificationCodeScreen()
+                } else {
+                    self.showVerificationFailedDialog()
+                }
+            }
         }
     }
 }
