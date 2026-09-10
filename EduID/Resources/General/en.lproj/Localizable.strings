@@ -198,11 +198,16 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "Security.Title.COPY" = "Security";
 "Security.SubTitle.COPY" = "How to log in to eduID";
 "Security.OtherMethods.COPY" = "Other methods";
+"Security.MobileApp.COPY" = "eduID mobile app";
+"Security.RecoveryOptions.COPY" = "Recovery options";
+"Security.SMS.COPY" = "SMS";
+"Security.ReceiveCodeAt.COPY" = "You'll receive one-time codes at: ** ** *** %1$@";
 "Security.AddPassword.COPY" = "Add a password";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Password";
 "Security.PasswordActivated.COPY" = "Activated on %1$@";
 "Security.CredentialActivated.COPY" = "%1$@: Activated on %2$@";
+"Security.Passkey.COPY" = "Passkey";
 "Security.TwoFAKey.COPY" = "Login with app";
 "Security.ProvidedBy.COPY" = "Provided by";
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";

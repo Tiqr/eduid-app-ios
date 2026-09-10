@@ -34,6 +34,7 @@ extension UIImage {
     static let password = UIImage(named: "password")!
     static let securityKey = UIImage(named: "security_key")!
     static let magicLink = UIImage(named: "magic_link")!
+    static let phone = UIImage(named: "phone")!
     static let verifyButtonEidas = UIImage(named: "verify_button_eidas")!
     static let verifyButtonIdin = UIImage(named: "verify_button_idin")!
     static let verifyContactSupport = UIImage(named: "verify_contact_support")!

@@ -1735,6 +1735,40 @@ public struct L {
             translationKey: "Security.OtherMethods.COPY",
             translationArgs: []
         )
+        public static let MobileApp = LocaliciousData(
+            accessibilityIdentifier: "Security.MobileApp",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.MobileApp.COPY",
+            translationArgs: []
+        )
+        public static let RecoveryOptions = LocaliciousData(
+            accessibilityIdentifier: "Security.RecoveryOptions",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.RecoveryOptions.COPY",
+            translationArgs: []
+        )
+        public static let SMS = LocaliciousData(
+            accessibilityIdentifier: "Security.SMS",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.SMS.COPY",
+            translationArgs: []
+        )
+        public static func ReceiveCodeAt(args: CVarArg...) -> LocaliciousData {
+            return LocaliciousData(
+            accessibilityIdentifier: "Security.ReceiveCodeAt",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.ReceiveCodeAt.COPY",
+            translationArgs: args
+        )
+        }
         public static let AddPassword = LocaliciousData(
             accessibilityIdentifier: "Security.AddPassword",
             accessibilityHintKey: nil,
@@ -1779,6 +1813,14 @@ public struct L {
             translationArgs: args
         )
         }
+        public static let Passkey = LocaliciousData(
+            accessibilityIdentifier: "Security.Passkey",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.Passkey.COPY",
+            translationArgs: []
+        )
         public static let TwoFAKey = LocaliciousData(
             accessibilityIdentifier: "Security.TwoFAKey",
             accessibilityHintKey: nil,

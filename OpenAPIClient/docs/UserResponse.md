@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **uid** | **String** |  | [optional] 
 **rememberMe** | **Bool** |  | [optional] 
 **created** | **Int64** |  | [optional] 
+**passwordUpdatedAt** | **Int64** |  | [optional] 
 **eduIdPerServiceProvider** | [String: EduID] |  | [optional] 
 **loginOptions** | **[String]** |  | [optional] 
 **registration** | **[String: AnyCodable]** |  | [optional] 

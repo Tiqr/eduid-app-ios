@@ -122,6 +122,61 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 hasTwoFactorKey = true
             }
             
+            // eduID mobile app - shown when the user has registered/linked the eduID mobile app as a login option
+            if personalInfo.loginOptions?.contains("useApp") == true {
+                let appName = L.Security.MobileApp.localization
+                let appSubtitle: String
+                if let createdAt = personalInfo.registration?.created {
+                    let createdAtDate = Date(timeIntervalSince1970: Double(createdAt / 1000))
+                    let dateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: createdAtDate)
+                    appSubtitle = L.Security.PasswordActivated(args: dateString).localization
+                } else {
+                    appSubtitle = ""
+                }
+                let appText = NSMutableAttributedString(
+                    string: appSubtitle.isEmpty ? appName : "\(appName)\n\(appSubtitle)",
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
+                appText.setAttributeTo(
+                    part: appSubtitle,
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                let appControl = ActionableControlWithBodyAndTitle(
+                    attributedBodyText: appText,
+                    leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                    rightIcon: nil,
+                    isFilled: true
+                )
+                stack.addArrangedSubview(appControl)
+                appControl.widthToSuperview()
+            }
+            
+            // Change or add password
+            if personalInfo.usePassword == true {
+                let passwordSubtitle: String
+                if let passwordUpdatedAt = personalInfo.passwordUpdatedAt {
+                    let passwordUpdatedAtDate = Date(timeIntervalSince1970: Double(passwordUpdatedAt / 1000))
+                    let dateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: passwordUpdatedAtDate)
+                    passwordSubtitle = L.Security.PasswordActivated(args: dateString).localization
+                } else {
+                    passwordSubtitle = L.Security.PasswordPlaceholder.localization
+                }
+                let passwordText = NSMutableAttributedString(
+                    string: "\(L.Security.ChangePassword.localization)\n\(passwordSubtitle)",
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
+                passwordText.setAttributeTo(
+                    part: passwordSubtitle,
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                let passwordControl = ActionableControlWithBodyAndTitle(
+                    attributedBodyText: passwordText,
+                    leftIcon: .password.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                    isFilled: true
+                )
+                stack.addArrangedSubview(passwordControl)
+                passwordControl.widthToSuperview()
+                passwordControl.addTarget(self, action: #selector(requestPasswordResetLink), for: .touchUpInside)
+                hasPassword = true
+            }
+            
             // Email - magic link
             let email = personalInfo.email ?? "?"
             let magicLinkTitle = NSMutableAttributedString(string: "\(L.Security.UseCode.localization)\n\(email)",attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
@@ -136,24 +191,31 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             magicLinkControl.widthToSuperview()
             magicLinkControl.addTarget(self, action: #selector(enterEmailFlow), for: .touchUpInside)
             
-            // Change or add password
-            if personalInfo.usePassword == true {
-                let passwordText = NSMutableAttributedString(
-                    string: "\(L.Security.ChangePassword.localization)\n\(L.Security.PasswordPlaceholder.localization)",
+            // Passkeys - not usable on mobile, but must be visible so they can be managed via the browser
+            for passkey in personalInfo.publicKeyCredentials ?? [] {
+                let name = passkey.name ?? "?"
+                let dateString: String
+                if let createdAt = passkey.createdAt {
+                    let createdAtDate = Date(timeIntervalSince1970: Double(createdAt / 1000))
+                    dateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: createdAtDate)
+                } else {
+                    dateString = "?"
+                }
+                let credentialSubtitle = L.Security.CredentialActivated(args: name, dateString).localization
+                let passkeyText = NSMutableAttributedString(
+                    string: "\(L.Security.Passkey.localization)\n\(credentialSubtitle)",
                     attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
-                passwordText.setAttributeTo(
-                    part: L.Security.PasswordPlaceholder.localization,
+                passkeyText.setAttributeTo(
+                    part: credentialSubtitle,
                     attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
-                let passwordControl = ActionableControlWithBodyAndTitle(
-                    attributedBodyText: passwordText,
-                    leftIcon: .password.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                let passkeyControl = ActionableControlWithBodyAndTitle(
+                    attributedBodyText: passkeyText,
+                    leftIcon: .securityKey.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                    rightIcon: nil,
                     isFilled: true
                 )
-                stack.addArrangedSubview(passwordControl)
-                passwordControl.widthToSuperview()
-                passwordControl.addTarget(self, action: #selector(requestPasswordResetLink), for: .touchUpInside)
-                hasPassword = true
+                stack.addArrangedSubview(passkeyControl)
+                passkeyControl.widthToSuperview()
             }
             
             if !hasTwoFactorKey && false { // Disabled on purpose - adding a security key is not possible yet. See TIQR-450 for more info.
@@ -186,6 +248,30 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 stack.addArrangedSubview(passwordControl)
                 passwordControl.widthToSuperview()
                 passwordControl.addTarget(self, action: #selector(requestPasswordResetLink), for: .touchUpInside)
+            }
+            
+            // Recovery options - SMS
+            if let phoneNumber = personalInfo.registration?.phoneNumber, !phoneNumber.isEmpty {
+                let recoveryOptionsTitle = NSAttributedString(
+                    string: L.Security.RecoveryOptions.localization,
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.secondaryColor]
+                )
+                let smsSubtitle = L.Security.ReceiveCodeAt(args: phoneNumber).localization
+                let smsText = NSMutableAttributedString(
+                    string: "\(L.Security.SMS.localization)\n\(smsSubtitle)",
+                    attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
+                smsText.setAttributeTo(
+                    part: smsSubtitle,
+                    attributes: [.font: UIFont.sourceSansProRegular(size: 12), .foregroundColor: UIColor.grayGhost])
+                let smsControl = ActionableControlWithBodyAndTitle(
+                    attributedTitle: recoveryOptionsTitle,
+                    attributedBodyText: smsText,
+                    leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
+                    rightIcon: nil,
+                    isFilled: true
+                )
+                stack.addArrangedSubview(smsControl)
+                smsControl.widthToSuperview()
             }
         } else {
             let loadingIndicator = UIActivityIndicatorView()
