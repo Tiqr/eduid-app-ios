@@ -198,7 +198,6 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "Security.Title.COPY" = "Security";
 "Security.SubTitle.COPY" = "How to log in to eduID";
 "Security.OtherMethods.COPY" = "Other methods";
-"Security.MobileApp.COPY" = "eduID mobile App";
 "Security.RecoveryOptions.COPY" = "Recovery options";
 "Security.SMS.COPY" = "SMS";
 "Security.ReceiveCodeAt.COPY" = "You'll receive one-time codes at: ** ** *** %1$@";
@@ -206,8 +205,8 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Password";
 "Security.PasswordActivated.COPY" = "Activated on %1$@";
-"Security.CredentialActivated.COPY" = "%1$@: Activated on %2$@";
 "Security.Passkey.COPY" = "Passkey";
+"Security.CredentialActivated.COPY" = "%1$@: Activated on %2$@";
 "Security.TwoFAKey.COPY" = "Login with app";
 "Security.ProvidedBy.COPY" = "Provided by";
 "Security.NotAddedYet.COPY" = "Not added to your eduID yet";
@@ -486,6 +485,7 @@ Would you like to unconnect that app and connect this one?
 "UseApp.Info.COPY" = "We have sent a push-notification to your app, to check it's you trying to log in.";
 "UseApp.Scan.COPY" = "Scan this QR code with your eduID app";
 "UseApp.NoNotification.COPY" = "No notification?";
+"UseApp.NotificationsNotPossible.COPY" = "Note: push notifications are disabled on this phone";
 "UseApp.QrCodeLink.COPY" = "Create a QR-code";
 "UseApp.QrCodePostfix.COPY" = "and scan it.";
 "UseApp.Offline.COPY" = "Is your phone displaying a code?";

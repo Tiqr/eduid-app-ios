@@ -1735,14 +1735,6 @@ public struct L {
             translationKey: "Security.OtherMethods.COPY",
             translationArgs: []
         )
-        public static let MobileApp = LocaliciousData(
-            accessibilityIdentifier: "Security.MobileApp",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.MobileApp.COPY",
-            translationArgs: []
-        )
         public static let RecoveryOptions = LocaliciousData(
             accessibilityIdentifier: "Security.RecoveryOptions",
             accessibilityHintKey: nil,
@@ -1803,6 +1795,14 @@ public struct L {
             translationArgs: args
         )
         }
+        public static let Passkey = LocaliciousData(
+            accessibilityIdentifier: "Security.Passkey",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.Passkey.COPY",
+            translationArgs: []
+        )
         public static func CredentialActivated(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
             accessibilityIdentifier: "Security.CredentialActivated",
@@ -1813,14 +1813,6 @@ public struct L {
             translationArgs: args
         )
         }
-        public static let Passkey = LocaliciousData(
-            accessibilityIdentifier: "Security.Passkey",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.Passkey.COPY",
-            translationArgs: []
-        )
         public static let TwoFAKey = LocaliciousData(
             accessibilityIdentifier: "Security.TwoFAKey",
             accessibilityHintKey: nil,
@@ -4113,6 +4105,14 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "UseApp.NoNotification.COPY",
+            translationArgs: []
+        )
+        public static let NotificationsNotPossible = LocaliciousData(
+            accessibilityIdentifier: "UseApp.NotificationsNotPossible",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "UseApp.NotificationsNotPossible.COPY",
             translationArgs: []
         )
         public static let QrCodeLink = LocaliciousData(
