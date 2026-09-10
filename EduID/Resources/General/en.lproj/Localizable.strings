@@ -198,7 +198,7 @@ When you create a new eduID with the same email address, you’ll receive a new 
 "Security.Title.COPY" = "Security";
 "Security.SubTitle.COPY" = "How to log in to eduID";
 "Security.OtherMethods.COPY" = "Other methods";
-"Security.MobileApp.COPY" = "eduID mobile App";
+"Security.MobileApp.COPY" = "eduID mobile app";
 "Security.RecoveryOptions.COPY" = "Recovery options";
 "Security.SMS.COPY" = "SMS";
 "Security.ReceiveCodeAt.COPY" = "You'll receive one-time codes at: ** ** *** %1$@";
