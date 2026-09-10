@@ -1735,6 +1735,14 @@ public struct L {
             translationKey: "Security.OtherMethods.COPY",
             translationArgs: []
         )
+        public static let MobileApp = LocaliciousData(
+            accessibilityIdentifier: "Security.MobileApp",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.MobileApp.COPY",
+            translationArgs: []
+        )
         public static let RecoveryOptions = LocaliciousData(
             accessibilityIdentifier: "Security.RecoveryOptions",
             accessibilityHintKey: nil,

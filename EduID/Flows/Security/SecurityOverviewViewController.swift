@@ -123,10 +123,10 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             }
             
             // eduID mobile app - shown when the user has registered/linked the eduID mobile app as a login option
-            if let appService = personalInfo.eduIdPerServiceProvider?.values.first(where: { $0.serviceName == "eduID mobile app" }) {
-                let appName = appService.serviceName ?? "?"
+            if personalInfo.loginOptions?.contains("useApp") == true {
+                let appName = L.Security.MobileApp.localization
                 let appSubtitle: String
-                if let createdAt = appService.createdAt {
+                if let createdAt = personalInfo.registration?.created {
                     let createdAtDate = Date(timeIntervalSince1970: Double(createdAt / 1000))
                     let dateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: createdAtDate)
                     appSubtitle = L.Security.PasswordActivated(args: dateString).localization
@@ -134,7 +134,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     appSubtitle = ""
                 }
                 let appText = NSMutableAttributedString(
-                    string: "\(appName)\n\(appSubtitle)",
+                    string: appSubtitle.isEmpty ? appName : "\(appName)\n\(appSubtitle)",
                     attributes: [.font: UIFont.sourceSansProBold(size: 16), .foregroundColor: UIColor.backgroundColor])
                 appText.setAttributeTo(
                     part: appSubtitle,
@@ -251,7 +251,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             }
             
             // Recovery options - SMS
-            if let phoneNumber = personalInfo.registration?["phoneNumber"]?.value as? String, !phoneNumber.isEmpty {
+            if let phoneNumber = personalInfo.registration?.phoneNumber, !phoneNumber.isEmpty {
                 let recoveryOptionsTitle = NSAttributedString(
                     string: L.Security.RecoveryOptions.localization,
                     attributes: [.font: UIFont.sourceSansProRegular(size: 16), .foregroundColor: UIColor.secondaryColor]

@@ -957,6 +957,10 @@ SHARED:
       COPY:
         en: Other methods
         nl: Andere manieren
+    MobileApp:
+      COPY:
+        en: "eduID mobile App"
+        nl: "eduID mobiele app"
     RecoveryOptions:
       COPY:
         en: Recovery options

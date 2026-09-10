@@ -197,6 +197,7 @@ bestaande inschrijving
 "Security.Title.COPY" = "Beveiliging";
 "Security.SubTitle.COPY" = "Hoe je kunt inloggen bij eduID";
 "Security.OtherMethods.COPY" = "Andere manieren";
+"Security.MobileApp.COPY" = "eduID mobiele app";
 "Security.RecoveryOptions.COPY" = "Herstelopties";
 "Security.SMS.COPY" = "sms";
 "Security.ReceiveCodeAt.COPY" = "Je ontvangt eenmalige codes op: ** ** *** %1$@";

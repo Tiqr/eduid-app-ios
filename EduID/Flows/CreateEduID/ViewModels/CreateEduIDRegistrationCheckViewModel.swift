@@ -21,7 +21,7 @@ class CreateEduIDRegistrationCheckViewModel: NSObject {
             let userResponse = try await UserControllerAPI.me()
             if let loginOptions = userResponse.loginOptions,
                 let registration = userResponse.registration {
-                if loginOptions.contains(Constants.RegistrationCheck.useApp) && registration[Constants.RegistrationCheck.phoneVerified] == true {
+                if loginOptions.contains(Constants.RegistrationCheck.useApp) && registration.phoneVerified == true {
                     existingUser.send(true)
                 } else {
                     existingUser.send(false)

@@ -32,12 +32,12 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var passwordUpdatedAt: Int64?
     public var eduIdPerServiceProvider: [String: EduID]?
     public var loginOptions: [String]?
-    public var registration: [String: AnyCodable]?
+    public var registration: Registration?
     public var controlCode: ControlCode?
     public var serviceDeskMember: Bool?
     public var preferredLanguage: String?
 
-    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, passwordUpdatedAt: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: [String: AnyCodable]? = nil, controlCode: ControlCode? = nil, serviceDeskMember: Bool? = nil, preferredLanguage: String? = nil) {
+    public init(id: String? = nil, email: String? = nil, chosenName: String? = nil, familyName: String? = nil, givenName: String? = nil, dateOfBirth: Int64? = nil, displayName: String? = nil, usePassword: Bool? = nil, usePublicKey: Bool? = nil, forgottenPassword: Bool? = nil, publicKeyCredentials: [PublicKeyCredentials]? = nil, linkedAccounts: [LinkedAccount]? = nil, externalLinkedAccounts: [ExternalLinkedAccount]? = nil, schacHomeOrganization: String? = nil, uid: String? = nil, rememberMe: Bool? = nil, created: Int64? = nil, passwordUpdatedAt: Int64? = nil, eduIdPerServiceProvider: [String: EduID]? = nil, loginOptions: [String]? = nil, registration: Registration? = nil, controlCode: ControlCode? = nil, serviceDeskMember: Bool? = nil, preferredLanguage: String? = nil) {
         self.id = id
         self.email = email
         self.chosenName = chosenName
