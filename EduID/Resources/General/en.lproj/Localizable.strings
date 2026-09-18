@@ -856,12 +856,12 @@ We will send you a code to verify your phone number.
 "ResponseErrors.SendOneTimeCodeError.COPY" = "Could not send one-time code";
 "ResponseErrors.VerifyOneTimeCodeError.COPY" = "Could not verify one-time code";
 "ResponseErrors.InvalidLinkError.COPY" = "Invalid link received, please try again later";
-"ResponseErrors.SMSCodeError.Title.COPY" = "Code verification failed";
-"ResponseErrors.SMSCodeError.Incorrect.COPY" = "The code you entered is incorrect. Please check the SMS message and try again.";
 "ResponseErrors.EmailCodeError.Title.COPY" = "Code verification failed";
 "ResponseErrors.EmailCodeError.Expired.COPY" = "The code has expired";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "The code is incorrect";
 "ResponseErrors.EmailCodeError.RateLimited.COPY" = "Too many attempts, please try again later";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Code verification failed";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "The code you entered is incorrect. Please check the SMS message and try again.";
 "ResponseErrors.Auth.Invalid.Title.COPY" = "Authorization invalid";
 "ResponseErrors.Auth.Invalid.Description.COPY" = "Did not receive valid authentication.";
 "ResponseErrors.Auth.Failed.Title.COPY" = "Authorization failed";

@@ -7133,24 +7133,6 @@ public struct L {
             translationKey: "ResponseErrors.InvalidLinkError.COPY",
             translationArgs: []
         )
-        public struct SMSCodeError {
-            public static let Title = LocaliciousData(
-                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Title",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "ResponseErrors.SMSCodeError.Title.COPY",
-                translationArgs: []
-            )
-            public static let Incorrect = LocaliciousData(
-                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Incorrect",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "ResponseErrors.SMSCodeError.Incorrect.COPY",
-                translationArgs: []
-            )
-        }
         public struct EmailCodeError {
             public static let Title = LocaliciousData(
                 accessibilityIdentifier: "ResponseErrors.EmailCodeError.Title",
@@ -7182,6 +7164,24 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "ResponseErrors.EmailCodeError.RateLimited.COPY",
+                translationArgs: []
+            )
+        }
+        public struct SMSCodeError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.SMSCodeError.Title.COPY",
+                translationArgs: []
+            )
+            public static let Incorrect = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Incorrect",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.SMSCodeError.Incorrect.COPY",
                 translationArgs: []
             )
         }

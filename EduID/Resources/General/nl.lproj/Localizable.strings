@@ -857,12 +857,12 @@ We sturen je een code om je telefoonnummer te verifiëren.
 "ResponseErrors.SendOneTimeCodeError.COPY" = "Verzenden van eenmalige code mislukt";
 "ResponseErrors.VerifyOneTimeCodeError.COPY" = "Verifiëren van eenmalige code mislukt";
 "ResponseErrors.InvalidLinkError.COPY" = "Ontvangen link is ongeldig, probeer later opnieuw";
-"ResponseErrors.SMSCodeError.Title.COPY" = "Verificatie van code mislukt";
-"ResponseErrors.SMSCodeError.Incorrect.COPY" = "De ingevoerde code is onjuist. Controleer het sms-bericht en probeer het opnieuw.";
 "ResponseErrors.EmailCodeError.Title.COPY" = "Verificatie van code mislukt";
 "ResponseErrors.EmailCodeError.Expired.COPY" = "De code is verlopen";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "De code is onjuist";
 "ResponseErrors.EmailCodeError.RateLimited.COPY" = "Te veel pogingen, probeer het later opnieuw";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Verificatie van code mislukt";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "De ingevoerde code is onjuist. Controleer het sms-bericht en probeer het opnieuw.";
 "ResponseErrors.Auth.Invalid.Title.COPY" = "Autorisatie ongeldig";
 "ResponseErrors.Auth.Invalid.Description.COPY" = "Ontvangen verificatie is ongeldig.";
 "ResponseErrors.Auth.Failed.Title.COPY" = "Autorisatie mislukt";
