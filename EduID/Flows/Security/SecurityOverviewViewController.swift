@@ -9,6 +9,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     var screenType: ScreenType = .securityOverviewScreen
     
     private let viewModel: SecurityOverviewViewModel
+    private var currentPersonalInfo: UserResponse?
     
     // - delegate
     weak var delegate: SecurityViewControllerDelegate?
@@ -44,7 +45,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         updateData()
     }
     
-    private func updateData() {
+    func updateData() {
         Task {
             do {
                 let personalInfo = try await viewModel.getData()
@@ -67,6 +68,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     
     //MARK: - setup UI
     func setupUI(personalInfo: UserResponse?) {
+        currentPersonalInfo = personalInfo
         view.subviews.forEach { $0.removeFromSuperview() }
         // - scroll view
         let scrollView = UIScrollView()
@@ -142,11 +144,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 let appControl = ActionableControlWithBodyAndTitle(
                     attributedBodyText: appText,
                     leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: nil,
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
                     isFilled: true
                 )
                 stack.addArrangedSubview(appControl)
                 appControl.widthToSuperview()
+                appControl.addTarget(self, action: #selector(removeMobileAppTapped), for: .touchUpInside)
             }
             
             // Change or add password
@@ -192,7 +195,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
             magicLinkControl.addTarget(self, action: #selector(enterEmailFlow), for: .touchUpInside)
             
             // Passkeys - not usable on mobile, but must be visible so they can be managed via the browser
-            for passkey in personalInfo.publicKeyCredentials ?? [] {
+            for (passkeyIndex, passkey) in (personalInfo.publicKeyCredentials ?? []).enumerated() {
                 let name = passkey.name ?? "?"
                 let dateString: String
                 if let createdAt = passkey.createdAt {
@@ -211,11 +214,13 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 let passkeyControl = ActionableControlWithBodyAndTitle(
                     attributedBodyText: passkeyText,
                     leftIcon: .securityKey.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: nil,
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
                     isFilled: true
                 )
                 stack.addArrangedSubview(passkeyControl)
                 passkeyControl.widthToSuperview()
+                passkeyControl.tag = passkeyIndex
+                passkeyControl.addTarget(self, action: #selector(passkeyTapped(_:)), for: .touchUpInside)
             }
             
             if !hasTwoFactorKey && false { // Disabled on purpose - adding a security key is not possible yet. See TIQR-450 for more info.
@@ -267,11 +272,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                     attributedTitle: recoveryOptionsTitle,
                     attributedBodyText: smsText,
                     leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: nil,
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
                     isFilled: true
                 )
                 stack.addArrangedSubview(smsControl)
                 smsControl.widthToSuperview()
+                smsControl.addTarget(self, action: #selector(changeSMSRecoveryTapped), for: .touchUpInside)
             }
         } else {
             let loadingIndicator = UIActivityIndicatorView()
@@ -315,6 +321,27 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
     @objc
     func requestPasswordResetLink() {
         delegate?.requestPasswordResetLink(viewController: self, personalInfo: viewModel.personalInfo!)
+    }
+    
+    @objc
+    func passkeyTapped(_ sender: UIControl) {
+        guard let personalInfo = currentPersonalInfo,
+              let credentials = personalInfo.publicKeyCredentials,
+              sender.tag >= 0, sender.tag < credentials.count else { return }
+        let passkey = credentials[sender.tag]
+        delegate?.goToDeletePasskeyConfirmationScreen(viewController: self, personalInfo: personalInfo, passkey: passkey)
+    }
+    
+    @objc
+    func removeMobileAppTapped() {
+        guard let personalInfo = currentPersonalInfo else { return }
+        delegate?.goToRemoveMobileAppConfirmationScreen(viewController: self, personalInfo: personalInfo)
+    }
+    
+    @objc
+    func changeSMSRecoveryTapped() {
+        guard let personalInfo = currentPersonalInfo else { return }
+        delegate?.goToChangeSMSRecoveryExplanationScreen(viewController: self, personalInfo: personalInfo)
     }
     
     private func requestRefreshToken() {

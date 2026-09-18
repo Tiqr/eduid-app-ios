@@ -120,6 +120,12 @@
 		4FA153162CC14B97001AE759 /* ImageView+downloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */; };
 		4FA824662B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */; };
 		4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */; };
+		E82D1CF4E5AEACA86DB1369C /* DeletePasskeyConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522CA6AF65B6B27565B83BD /* DeletePasskeyConfirmationViewController.swift */; };
+		F9263A5D9022DD56E441265A /* DeletePasskeyConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EA122447B322AA2A6ACCD0 /* DeletePasskeyConfirmationViewModel.swift */; };
+		4735D6C0E061469DAD7FF06D /* RemoveMobileAppConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06367482621A488C8D9EA9FA /* RemoveMobileAppConfirmationViewController.swift */; };
+		ED84281C7A2F4B39B43CE8D8 /* RemoveMobileAppConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76979C5D54A64A62B3724EDB /* RemoveMobileAppConfirmationViewModel.swift */; };
+		67317C582771FCEB7A42D37A /* ChangeSMSRecoveryExplanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE6426A98ACA984153CABED /* ChangeSMSRecoveryExplanationViewController.swift */; };
+		66FF26F38D8CF601EA83549D /* ChangeSMSRecoveryExplanationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FEF9E6AB7DA3FEBC58AED /* ChangeSMSRecoveryExplanationViewModel.swift */; };
 		4FAA35492B74ED6900422949 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA35482B74ED6900422949 /* URL+Extension.swift */; };
 		4FAA354C2B74EF3900422949 /* AccountLinkingErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA354B2B74EF3900422949 /* AccountLinkingErrorViewController.swift */; };
 		4FAA354E2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA354D2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift */; };
@@ -410,6 +416,12 @@
 		4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+downloadImage.swift"; sourceTree = "<group>"; };
 		4FA824652B06478E00B0D802 /* DeleteKeyConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteKeyConfirmationViewController.swift; sourceTree = "<group>"; };
 		4FA824672B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteKeyConfirmationViewModel.swift; path = EduID/Flows/Security/DeleteKeyConfirmation/DeleteKeyConfirmationViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8522CA6AF65B6B27565B83BD /* DeletePasskeyConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePasskeyConfirmationViewController.swift; sourceTree = "<group>"; };
+		E0EA122447B322AA2A6ACCD0 /* DeletePasskeyConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePasskeyConfirmationViewModel.swift; sourceTree = "<group>"; };
+		06367482621A488C8D9EA9FA /* RemoveMobileAppConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveMobileAppConfirmationViewController.swift; sourceTree = "<group>"; };
+		76979C5D54A64A62B3724EDB /* RemoveMobileAppConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveMobileAppConfirmationViewModel.swift; sourceTree = "<group>"; };
+		FDE6426A98ACA984153CABED /* ChangeSMSRecoveryExplanationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSMSRecoveryExplanationViewController.swift; sourceTree = "<group>"; };
+		466FEF9E6AB7DA3FEBC58AED /* ChangeSMSRecoveryExplanationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSMSRecoveryExplanationViewModel.swift; sourceTree = "<group>"; };
 		4FAA35482B74ED6900422949 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		4FAA354B2B74EF3900422949 /* AccountLinkingErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingErrorViewController.swift; sourceTree = "<group>"; };
 		4FAA354D2B74F7BF00422949 /* AccountLinkingErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingErrorViewModel.swift; sourceTree = "<group>"; };
@@ -932,6 +944,33 @@
 			path = DeleteKeyConfirmation;
 			sourceTree = "<group>";
 		};
+		6DF62DFE498F36AFA9199319 /* DeletePasskeyConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				8522CA6AF65B6B27565B83BD /* DeletePasskeyConfirmationViewController.swift */,
+				E0EA122447B322AA2A6ACCD0 /* DeletePasskeyConfirmationViewModel.swift */,
+			);
+			path = DeletePasskeyConfirmation;
+			sourceTree = "<group>";
+		};
+		6E24CC81F8644951A01F6192 /* RemoveMobileAppConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				06367482621A488C8D9EA9FA /* RemoveMobileAppConfirmationViewController.swift */,
+				76979C5D54A64A62B3724EDB /* RemoveMobileAppConfirmationViewModel.swift */,
+			);
+			path = RemoveMobileAppConfirmation;
+			sourceTree = "<group>";
+		};
+		27E8ABFF8600F466A2161BFC /* ChangeSMSRecovery */ = {
+			isa = PBXGroup;
+			children = (
+				FDE6426A98ACA984153CABED /* ChangeSMSRecoveryExplanationViewController.swift */,
+				466FEF9E6AB7DA3FEBC58AED /* ChangeSMSRecoveryExplanationViewModel.swift */,
+			);
+			path = ChangeSMSRecovery;
+			sourceTree = "<group>";
+		};
 		4FAA354A2B74EF1E00422949 /* AccountLinkingError */ = {
 			isa = PBXGroup;
 			children = (
@@ -1041,6 +1080,9 @@
 			children = (
 				736E7AF52E58422900DBAEAA /* PasswordCreation */,
 				4FA824642B06476600B0D802 /* DeleteKeyConfirmation */,
+				6DF62DFE498F36AFA9199319 /* DeletePasskeyConfirmation */,
+				6E24CC81F8644951A01F6192 /* RemoveMobileAppConfirmation */,
+				27E8ABFF8600F466A2161BFC /* ChangeSMSRecovery */,
 				4FADBCDB2A4090B1002311E4 /* TwoFactorKeys */,
 				4FC37C282A3C479A0036A94C /* PasswordResetLink */,
 				4FC37C232A3C22E30036A94C /* ChangePassword */,
@@ -1539,6 +1581,12 @@
 				4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */,
 				4FF567A52A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift in Sources */,
 				4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */,
+				F9263A5D9022DD56E441265A /* DeletePasskeyConfirmationViewModel.swift in Sources */,
+				E82D1CF4E5AEACA86DB1369C /* DeletePasskeyConfirmationViewController.swift in Sources */,
+				4735D6C0E061469DAD7FF06D /* RemoveMobileAppConfirmationViewController.swift in Sources */,
+				ED84281C7A2F4B39B43CE8D8 /* RemoveMobileAppConfirmationViewModel.swift in Sources */,
+				66FF26F38D8CF601EA83549D /* ChangeSMSRecoveryExplanationViewModel.swift in Sources */,
+				67317C582771FCEB7A42D37A /* ChangeSMSRecoveryExplanationViewController.swift in Sources */,
 				4FF567D22A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewController.swift in Sources */,
 				4F909EBB2A31CDDC00FC1506 /* AlertMessageViewController.swift in Sources */,
 				4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */,

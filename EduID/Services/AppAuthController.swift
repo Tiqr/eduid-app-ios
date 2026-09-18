@@ -183,9 +183,13 @@ public class AppAuthController: NSObject {
         if authState == nil {
             completion(nil)
         } else {
-            authState!.performAction(freshTokens: { accessToken, idToken, error in
+            authState!.performAction(freshTokens: { [weak self] accessToken, idToken, error in
                 if let error {
                     NSLog("Could not refresh tokens: \(error)")
+                    // The refresh token itself is no longer valid, so the user's session has expired.
+                    // Clear the auth state and notify the app so it can inform the user and log them out.
+                    self?.clearAuthState()
+                    NotificationCenter.default.post(name: .sessionExpired, object: nil)
                 }
                 completion(accessToken)
             })

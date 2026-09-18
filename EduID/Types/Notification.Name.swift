@@ -13,5 +13,6 @@ extension Notification.Name {
     public static let onMagicLinkOpened = Notification.Name("magicLinkOpened")
     public static let firstTimeAuthorizationComplete = Notification.Name(rawValue: "firstTimeAuthorizationComplete")
     public static let firstTimeAuthorizationCompleteWithSecretPresent = Notification.Name(rawValue: "firstTimeAuthorizationCompleteWithSecretPresent")
+    public static let sessionExpired = Notification.Name("sessionExpired")
     
 }

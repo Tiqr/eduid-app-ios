@@ -15,6 +15,10 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
     
     var isDeactivationMode: Bool?
     
+    /// When set, this is called instead of the default `CreateEduIDViewControllerDelegate` navigation,
+    /// so this screen can be reused outside of the onboarding flow (e.g. re-verifying an SMS recovery number).
+    var onSMSVerified: (() -> Void)?
+    
     //MARK: - init
     override init(viewModel: PinViewModel, isSecure: Bool) {
         super.init(viewModel: viewModel, isSecure: isSecure)
@@ -40,7 +44,7 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
 extension CreateEduIDEnterSMSViewController: AlertErrorHandlerDelegate {
     
     func presentAlert(with error: Error) {
-        let eduIdError = EduIdError.from(error)
+        let eduIdError = EduIdError.from(error, kind: .smsCode)
         let alertController = UIAlertController(title: eduIdError.title,
                                                 message: eduIdError.message,
                                                 preferredStyle: .alert)
@@ -67,11 +71,20 @@ extension CreateEduIDEnterSMSViewController: AlertErrorHandlerDelegate {
     
     func smsDeactivationWasSuccess() {
         DispatchQueue.main.async { [weak self] in
-            self?.dismiss(animated: true)
+            guard let self else { return }
+            if let onSMSVerified = self.onSMSVerified {
+                onSMSVerified()
+            } else {
+                self.dismiss(animated: true)
+            }
         }
     }
     
     func smsEntryWasCorrect() {
-        (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+        if let onSMSVerified {
+            onSMSVerified()
+        } else {
+            (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+        }
     }
 }

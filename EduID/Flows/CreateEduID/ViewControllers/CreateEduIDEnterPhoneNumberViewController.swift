@@ -17,6 +17,10 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     var bottomConstraint: Constraint? = nil
     private var viewModel: CreateEduIDEnterPhoneNumberViewModel
     
+    /// When set, this is called instead of the default `CreateEduIDViewControllerDelegate` navigation,
+    /// so this screen can be reused outside of the onboarding flow (e.g. re-verifying an SMS recovery number).
+    var onPhoneNumberVerified: (() -> Void)?
+    
     //MARK: - init
     init(viewModel: CreateEduIDEnterPhoneNumberViewModel) {
         self.viewModel = viewModel
@@ -69,7 +73,10 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         verifyButton.isEnabled = false
         
         // - posterLabel
-        let posterLabel = UILabel.posterTextLabel(text: L.CreateEduID.Created.MainTitleLabel.localization, size: 24)
+        let titleText = viewModel.isReVerification
+            ? L.CreateEduID.EnterPhoneNumber.ReVerificationTitle.localization
+            : L.CreateEduID.Created.MainTitleLabel.localization
+        let posterLabel = UILabel.posterTextLabel(text: titleText, size: 24)
         
         // - textView Parent
         let textViewParent = UIView()
@@ -80,9 +87,16 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = .sourceSansProLight(size: 16)
         textLabel.textColor = .secondaryColor
-        let attributedText = NSMutableAttributedString(string: L.CreateEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
-        attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreateEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
-        textLabel.attributedText = attributedText
+        if viewModel.isReVerification {
+            textLabel.attributedText = NSAttributedString(
+                string: L.CreateEduID.EnterPhoneNumber.ReVerificationMainText.localization,
+                attributes: [.font: UIFont.sourceSansProLight(size: 16)]
+            )
+        } else {
+            let attributedText = NSMutableAttributedString(string: L.CreateEduID.EnterPhoneNumber.MainText.localization,attributes: [.font : UIFont.sourceSansProLight(size: 16)])
+            attributedText.setAttributes([.font : UIFont.sourceSansProSemiBold(size: 16)], range: NSRange(location: 0, length: Int(L.CreateEduID.EnterPhoneNumber.BoldRange.localization) ?? .zero))
+            textLabel.attributedText = attributedText
+        }
         
         textViewParent.addSubview(textLabel)
         textLabel.edges(to: textViewParent)
@@ -140,7 +154,11 @@ class CreateEduIDEnterPhoneNumberViewController: CreateEduIDBaseViewController, 
     }
     
     func goToConfirmSmsScreen() {
-        (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+        if let onPhoneNumberVerified {
+            onPhoneNumberVerified()
+        } else {
+            (delegate as? CreateEduIDViewControllerDelegate)?.createEduIDViewControllerShowNextScreen(viewController: self)
+        }
     }
 }
 

@@ -7,4 +7,5 @@ protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerShowActivityScreen(viewController: HomeViewController, animated: Bool)
     func homeViewControllerShowScanScreen(viewController: HomeViewController)
     func homeViewControllerShowAuthenticationScreen(payload: String, serviceName: String?)
+    func homeViewControllerSessionDidExpire(viewController: HomeViewController, completion: @escaping () -> Void)
 }

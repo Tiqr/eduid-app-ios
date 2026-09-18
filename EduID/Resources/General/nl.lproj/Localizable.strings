@@ -281,6 +281,24 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeleteKey.Description.COPY" = "Weet je zeker dat je deze sleutel wil verwijderen?";
 "ConfirmDeleteKey.Button.Confirm.COPY" = "Ja, verwijder";
 "ConfirmDeleteKey.Button.Cancel.COPY" = "Nee, ga terug";
+"ConfirmDeletePasskey.Title.COPY" = "Verwijder passkey";
+"ConfirmDeletePasskey.Subtitle.COPY" = "Je kunt dit niet ongedaan maken";
+"ConfirmDeletePasskey.Description.COPY" = "Weet je zeker dat je de passkey \"%1$@\" wil verwijderen?";
+"ConfirmDeletePasskey.Button.Confirm.COPY" = "Ja, verwijder";
+"ConfirmDeletePasskey.Button.Cancel.COPY" = "Nee, ga terug";
+"ConfirmRemoveMobileApp.Title.COPY" = "Verwijder eduID mobiele app";
+"ConfirmRemoveMobileApp.Subtitle.COPY" = "Je kunt dit niet ongedaan maken";
+"ConfirmRemoveMobileApp.Description.COPY" = "Weet je zeker dat je de eduID mobiele app als inlogmethode wil verwijderen? We sturen een verificatiecode naar je telefoonnummer om dit te bevestigen.";
+"ConfirmRemoveMobileApp.Button.Confirm.COPY" = "Ja, verwijder";
+"ConfirmRemoveMobileApp.Button.Cancel.COPY" = "Nee, ga terug";
+"ChangeSMSRecovery.Title.COPY" = "Wijzig sms-herstelnummer";
+"ChangeSMSRecovery.Description.COPY" = "Om je sms-herstelnummer te wijzigen, moeten we eerst verifiëren dat jij het echt bent. Bevestig met je pincode of biometrie om verder te gaan.";
+"ChangeSMSRecovery.VerificationFailed.COPY" = "We konden je identiteit niet verifiëren. Probeer het opnieuw.";
+"ChangeSMSRecovery.Button.Back.COPY" = "Nee, ga terug";
+"ChangeSMSRecovery.Button.Change.COPY" = "Wijzig";
+"ChangeSMSRecovery.Success.Title.COPY" = "Identiteit geverifieerd";
+"ChangeSMSRecovery.Success.Description.COPY" = "Je identiteit is geverifieerd en je sms-herstelnummer is bijgewerkt.";
+"ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welkom %1$@";
 "Home.DataAndActivity.COPY" = "Activiteit";
@@ -738,6 +756,9 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
+"Generic.SessionExpired.Title.COPY" = "Sessie verlopen";
+"Generic.SessionExpired.Description.COPY" = "Je sessie is verlopen en je bent uitgelogd. Log opnieuw in.";
+"Generic.SessionExpired.CloseButton.COPY" = "OK";
 "WelcomeToApp.Title.COPY" = "Welkom! Je kunt de eduID app gebruiken voor";
 "WelcomeToApp.Quickly.Text.COPY" = "bij diensten in het onderwijs";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";
@@ -780,6 +801,11 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 ";
 "CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "38";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Stuur sms-code";
+"CreateEduID.EnterPhoneNumber.ReVerificationTitle.COPY" = "Telefoonnummer toevoegen";
+"CreateEduID.EnterPhoneNumber.ReVerificationMainText.COPY" = "Je telefoonnummer wordt gebruikt voor beveiligingsdoeleinden, zodat je de eduID-app opnieuw kunt registreren als je deze kwijtraakt.
+
+We sturen je een code om je telefoonnummer te verifiëren.
+";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Je onderwijsinstelling is succesvol gekoppeld";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Je onderwijsinstelling";
 "CreateEduID.AddInstitution.MainText.COPY" = "De volgende gegevens zijn aan je eduID toegevoegd en kun je nu delen met andere diensten:";
@@ -835,6 +861,8 @@ Welk telefoonnummer wil je hiervoor gebruiken?
 "ResponseErrors.EmailCodeError.Expired.COPY" = "De code is verlopen";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "De code is onjuist";
 "ResponseErrors.EmailCodeError.RateLimited.COPY" = "Te veel pogingen, probeer het later opnieuw";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Verificatie van code mislukt";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "De ingevoerde code is onjuist. Controleer het sms-bericht en probeer het opnieuw.";
 "ResponseErrors.Auth.Invalid.Title.COPY" = "Autorisatie ongeldig";
 "ResponseErrors.Auth.Invalid.Description.COPY" = "Ontvangen verificatie is ongeldig.";
 "ResponseErrors.Auth.Failed.Title.COPY" = "Autorisatie mislukt";
