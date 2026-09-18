@@ -19,6 +19,9 @@ protocol SecurityViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToDeleteKeyConfirmationScreen(viewController: UIViewController, identity: Identity)
     func goToDeletePasskeyConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse, passkey: PublicKeyCredentials)
     func goBackAfterRemovingPasskey(_ personalInfo: UserResponse)
+    func goToRemoveMobileAppConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse)
+    func goToRemoveMobileAppSMSCodeScreen(viewController: UIViewController)
+    func goBackAfterRemovingMobileApp()
     func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse)
     func goToChangeSMSRecoveryPhoneNumberScreen(viewController: UIViewController, personalInfo: UserResponse)
     func goBackAfterChangingSMSRecovery()
@@ -43,6 +46,9 @@ extension SecurityViewControllerDelegate {
     func goToDeleteKeyConfirmationScreen(viewController: UIViewController, identity: Identity) { }
     func goToDeletePasskeyConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse, passkey: PublicKeyCredentials) { }
     func goBackAfterRemovingPasskey(_ personalInfo: UserResponse) { }
+    func goToRemoveMobileAppConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse) { }
+    func goToRemoveMobileAppSMSCodeScreen(viewController: UIViewController) { }
+    func goBackAfterRemovingMobileApp() { }
     func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse) { }
     func goToChangeSMSRecoveryPhoneNumberScreen(viewController: UIViewController, personalInfo: UserResponse) { }
     func goBackAfterChangingSMSRecovery() { }

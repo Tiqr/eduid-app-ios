@@ -285,6 +285,11 @@ Would you like to unconnect that app and connect this one?
 "ConfirmDeletePasskey.Description.COPY" = "Are you sure you want to delete the passkey \"%1$@\"?";
 "ConfirmDeletePasskey.Button.Confirm.COPY" = "Yes, delete";
 "ConfirmDeletePasskey.Button.Cancel.COPY" = "No, back";
+"ConfirmRemoveMobileApp.Title.COPY" = "Remove eduID mobile app";
+"ConfirmRemoveMobileApp.Subtitle.COPY" = "You can't undo this action";
+"ConfirmRemoveMobileApp.Description.COPY" = "Are you sure you want to remove the eduID mobile app as a login method? We'll send a verification code to your phone number to confirm this.";
+"ConfirmRemoveMobileApp.Button.Confirm.COPY" = "Yes, remove";
+"ConfirmRemoveMobileApp.Button.Cancel.COPY" = "No, back";
 "ChangeSMSRecovery.Title.COPY" = "Change SMS recovery number";
 "ChangeSMSRecovery.Description.COPY" = "To change your SMS recovery number, we first need to verify it's really you. Confirm with your PIN code or biometrics to continue.";
 "ChangeSMSRecovery.VerificationFailed.COPY" = "We could not verify your identity. Please try again.";
@@ -851,6 +856,8 @@ We will send you a code to verify your phone number.
 "ResponseErrors.SendOneTimeCodeError.COPY" = "Could not send one-time code";
 "ResponseErrors.VerifyOneTimeCodeError.COPY" = "Could not verify one-time code";
 "ResponseErrors.InvalidLinkError.COPY" = "Invalid link received, please try again later";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Code verification failed";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "The code you entered is incorrect. Please check the SMS message and try again.";
 "ResponseErrors.EmailCodeError.Title.COPY" = "Code verification failed";
 "ResponseErrors.EmailCodeError.Expired.COPY" = "The code has expired";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "The code is incorrect";

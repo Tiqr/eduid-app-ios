@@ -44,7 +44,7 @@ class CreateEduIDEnterSMSViewController: PincodeBaseViewController {
 extension CreateEduIDEnterSMSViewController: AlertErrorHandlerDelegate {
     
     func presentAlert(with error: Error) {
-        let eduIdError = EduIdError.from(error)
+        let eduIdError = EduIdError.from(error, kind: .smsCode)
         let alertController = UIAlertController(title: eduIdError.title,
                                                 message: eduIdError.message,
                                                 preferredStyle: .alert)
@@ -71,7 +71,12 @@ extension CreateEduIDEnterSMSViewController: AlertErrorHandlerDelegate {
     
     func smsDeactivationWasSuccess() {
         DispatchQueue.main.async { [weak self] in
-            self?.dismiss(animated: true)
+            guard let self else { return }
+            if let onSMSVerified = self.onSMSVerified {
+                onSMSVerified()
+            } else {
+                self.dismiss(animated: true)
+            }
         }
     }
     

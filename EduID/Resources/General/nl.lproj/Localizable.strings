@@ -286,6 +286,11 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "ConfirmDeletePasskey.Description.COPY" = "Weet je zeker dat je de passkey \"%1$@\" wil verwijderen?";
 "ConfirmDeletePasskey.Button.Confirm.COPY" = "Ja, verwijder";
 "ConfirmDeletePasskey.Button.Cancel.COPY" = "Nee, ga terug";
+"ConfirmRemoveMobileApp.Title.COPY" = "Verwijder eduID mobiele app";
+"ConfirmRemoveMobileApp.Subtitle.COPY" = "Je kunt dit niet ongedaan maken";
+"ConfirmRemoveMobileApp.Description.COPY" = "Weet je zeker dat je de eduID mobiele app als inlogmethode wil verwijderen? We sturen een verificatiecode naar je telefoonnummer om dit te bevestigen.";
+"ConfirmRemoveMobileApp.Button.Confirm.COPY" = "Ja, verwijder";
+"ConfirmRemoveMobileApp.Button.Cancel.COPY" = "Nee, ga terug";
 "ChangeSMSRecovery.Title.COPY" = "Wijzig sms-herstelnummer";
 "ChangeSMSRecovery.Description.COPY" = "Om je sms-herstelnummer te wijzigen, moeten we eerst verifiëren dat jij het echt bent. Bevestig met je pincode of biometrie om verder te gaan.";
 "ChangeSMSRecovery.VerificationFailed.COPY" = "We konden je identiteit niet verifiëren. Probeer het opnieuw.";
@@ -852,6 +857,8 @@ We sturen je een code om je telefoonnummer te verifiëren.
 "ResponseErrors.SendOneTimeCodeError.COPY" = "Verzenden van eenmalige code mislukt";
 "ResponseErrors.VerifyOneTimeCodeError.COPY" = "Verifiëren van eenmalige code mislukt";
 "ResponseErrors.InvalidLinkError.COPY" = "Ontvangen link is ongeldig, probeer later opnieuw";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Verificatie van code mislukt";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "De ingevoerde code is onjuist. Controleer het sms-bericht en probeer het opnieuw.";
 "ResponseErrors.EmailCodeError.Title.COPY" = "Verificatie van code mislukt";
 "ResponseErrors.EmailCodeError.Expired.COPY" = "De code is verlopen";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "De code is onjuist";

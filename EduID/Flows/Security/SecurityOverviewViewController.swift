@@ -45,7 +45,7 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
         updateData()
     }
     
-    private func updateData() {
+    func updateData() {
         Task {
             do {
                 let personalInfo = try await viewModel.getData()
@@ -144,11 +144,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
                 let appControl = ActionableControlWithBodyAndTitle(
                     attributedBodyText: appText,
                     leftIcon: UIImage.phone.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
-                    rightIcon: nil,
+                    rightIcon: chevronImage.withRenderingMode(.alwaysOriginal).withTintColor(.backgroundColor),
                     isFilled: true
                 )
                 stack.addArrangedSubview(appControl)
                 appControl.widthToSuperview()
+                appControl.addTarget(self, action: #selector(removeMobileAppTapped), for: .touchUpInside)
             }
             
             // Change or add password
@@ -329,6 +330,12 @@ class SecurityOverviewViewController: UIViewController, ScreenWithScreenType {
               sender.tag >= 0, sender.tag < credentials.count else { return }
         let passkey = credentials[sender.tag]
         delegate?.goToDeletePasskeyConfirmationScreen(viewController: self, personalInfo: personalInfo, passkey: passkey)
+    }
+    
+    @objc
+    func removeMobileAppTapped() {
+        guard let personalInfo = currentPersonalInfo else { return }
+        delegate?.goToRemoveMobileAppConfirmationScreen(viewController: self, personalInfo: personalInfo)
     }
     
     @objc

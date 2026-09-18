@@ -117,6 +117,32 @@ class SecurityCoordinator: CoordinatorType, SecurityViewControllerDelegate {
         }
     }
     
+    func goToRemoveMobileAppConfirmationScreen(viewController: UIViewController, personalInfo: UserResponse) {
+        let viewModel = RemoveMobileAppConfirmationViewModel(personalInfo: personalInfo)
+        let confirmViewController = RemoveMobileAppConfirmationViewController(viewModel: viewModel)
+        confirmViewController.delegate = self
+        navigationController?.pushViewController(confirmViewController, animated: true)
+    }
+    
+    func goToRemoveMobileAppSMSCodeScreen(viewController: UIViewController) {
+        let smsViewController = CreateEduIDEnterSMSViewController(viewModel: PinViewModel(), isSecure: false)
+        smsViewController.isDeactivationMode = true
+        smsViewController.delegate = self
+        smsViewController.onSMSVerified = { [weak self] in
+            self?.goBackAfterRemovingMobileApp()
+        }
+        navigationController?.pushViewController(smsViewController, animated: true)
+    }
+    
+    func goBackAfterRemovingMobileApp() {
+        if let securityOverviewVc = navigationController?.viewControllers.first(where: { $0 is SecurityOverviewViewController }) as? SecurityOverviewViewController {
+            navigationController?.popToViewController(securityOverviewVc, animated: true)
+            securityOverviewVc.updateData()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func goToChangeSMSRecoveryExplanationScreen(viewController: UIViewController, personalInfo: UserResponse) {
         let viewModel = ChangeSMSRecoveryExplanationViewModel(personalInfo: personalInfo)
         let changeSMSRecoveryExplanationViewController = ChangeSMSRecoveryExplanationViewController(viewModel: viewModel)

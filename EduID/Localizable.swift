@@ -2468,6 +2468,50 @@ public struct L {
             )
         }
     }
+    public struct ConfirmRemoveMobileApp {
+        public static let Title = LocaliciousData(
+            accessibilityIdentifier: "ConfirmRemoveMobileApp.Title",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmRemoveMobileApp.Title.COPY",
+            translationArgs: []
+        )
+        public static let Subtitle = LocaliciousData(
+            accessibilityIdentifier: "ConfirmRemoveMobileApp.Subtitle",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmRemoveMobileApp.Subtitle.COPY",
+            translationArgs: []
+        )
+        public static let Description = LocaliciousData(
+            accessibilityIdentifier: "ConfirmRemoveMobileApp.Description",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmRemoveMobileApp.Description.COPY",
+            translationArgs: []
+        )
+        public struct Button {
+            public static let Confirm = LocaliciousData(
+                accessibilityIdentifier: "ConfirmRemoveMobileApp.Button.Confirm",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmRemoveMobileApp.Button.Confirm.COPY",
+                translationArgs: []
+            )
+            public static let Cancel = LocaliciousData(
+                accessibilityIdentifier: "ConfirmRemoveMobileApp.Button.Cancel",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ConfirmRemoveMobileApp.Button.Cancel.COPY",
+                translationArgs: []
+            )
+        }
+    }
     public struct ChangeSMSRecovery {
         public static let Title = LocaliciousData(
             accessibilityIdentifier: "ChangeSMSRecovery.Title",
@@ -7089,6 +7133,24 @@ public struct L {
             translationKey: "ResponseErrors.InvalidLinkError.COPY",
             translationArgs: []
         )
+        public struct SMSCodeError {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.SMSCodeError.Title.COPY",
+                translationArgs: []
+            )
+            public static let Incorrect = LocaliciousData(
+                accessibilityIdentifier: "ResponseErrors.SMSCodeError.Incorrect",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "ResponseErrors.SMSCodeError.Incorrect.COPY",
+                translationArgs: []
+            )
+        }
         public struct EmailCodeError {
             public static let Title = LocaliciousData(
                 accessibilityIdentifier: "ResponseErrors.EmailCodeError.Title",
