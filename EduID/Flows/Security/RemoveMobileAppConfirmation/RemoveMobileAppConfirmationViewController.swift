@@ -134,8 +134,11 @@ class RemoveMobileAppConfirmationViewController: UIViewController, ScreenWithScr
                 confirmButton.isEnabled = true
                 loadingIndicator.isHidden = true
                 loadingIndicator.stopAnimating()
+                // The user might have navigated back while the request was in progress
+                guard isTopViewController else { return }
                 delegate?.goToRemoveMobileAppSMSCodeScreen(viewController: self)
             } catch {
+                guard isTopViewController else { return }
                 let alert = UIAlertController(
                     title: L.Generic.RequestError.Title.localization,
                     message: L.Generic.RequestError.Description(args: error.localizedDescription).localization,
@@ -150,6 +153,10 @@ class RemoveMobileAppConfirmationViewController: UIViewController, ScreenWithScr
                 loadingIndicator.stopAnimating()
             }
         }
+    }
+    
+    private var isTopViewController: Bool {
+        navigationController?.topViewController === self
     }
     
     @objc func dismissInfoScreen() {

@@ -19,6 +19,8 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
     // - delegate
     weak var delegate: SecurityViewControllerDelegate?
     
+    private let changeButton = EduIDButton(type: .primary, buttonTitle: L.ChangeSMSRecovery.Button.Change.localization)
+    
     init(viewModel: ChangeSMSRecoveryExplanationViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -55,7 +57,6 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
         bottomSpacer.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         let backButton = EduIDButton(type: .ghost, buttonTitle: L.ChangeSMSRecovery.Button.Back.localization)
-        let changeButton = EduIDButton(type: .primary, buttonTitle: L.ChangeSMSRecovery.Button.Change.localization)
            
         topStackView.alignment = .leading
         topStackView.axis = .vertical
@@ -83,6 +84,9 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
     }
     
     @objc func startVerification() {
+        // Prevent starting multiple challenges (e.g. on double tap) while one is already in progress
+        guard changeButton.isEnabled else { return }
+        changeButton.isEnabled = false
         viewModel.startAuthenticationChallenge { [weak self] success in
             DispatchQueue.main.async {
                 guard let self else { return }
@@ -109,6 +113,8 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
     }
     
     private func presentPinCodeVerifyScreen() {
+        // The PIN screen can be cancelled without notifying us, so allow restarting the verification afterwards
+        changeButton.isEnabled = true
         let pinCodeVC = VerifyPinCodeViewController()
         pinCodeVC.pinDelegate = self
         pinCodeVC.screenType = .pincodeScreen
@@ -117,10 +123,12 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
     }
     
     private func goToPhoneVerificationCodeScreen() {
+        changeButton.isEnabled = true
         delegate?.goToChangeSMSRecoveryPhoneNumberScreen(viewController: self, personalInfo: viewModel.personalInfo)
     }
     
     private func showVerificationFailedDialog() {
+        changeButton.isEnabled = true
         let alert = UIAlertController(
             title: L.Generic.RequestError.Title.localization,
             message: L.ChangeSMSRecovery.VerificationFailed.localization,
@@ -137,6 +145,7 @@ class ChangeSMSRecoveryExplanationViewController: UIViewController, ScreenWithSc
 
 extension ChangeSMSRecoveryExplanationViewController: VerifyPinCodeDelegate {
     func get(pinCode: String) {
+        changeButton.isEnabled = false
         viewModel.verifyWithPIN(pinCode) { [weak self] success in
             DispatchQueue.main.async {
                 guard let self else { return }

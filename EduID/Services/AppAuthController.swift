@@ -179,6 +179,9 @@ public class AppAuthController: NSObject {
         }
     }
     
+    /// Performs the completion with a fresh access token.
+    /// The completion receives `nil` if there is no valid session (not logged in, or the refresh token has expired).
+    /// In that case, callers should not retry requests, as they would fail again.
     public func performWithFreshTokens(completion: @escaping((String?) -> Void)) {
         if authState == nil {
             completion(nil)
@@ -190,6 +193,8 @@ public class AppAuthController: NSObject {
                     // Clear the auth state and notify the app so it can inform the user and log them out.
                     self?.clearAuthState()
                     NotificationCenter.default.post(name: .sessionExpired, object: nil)
+                    completion(nil)
+                    return
                 }
                 completion(accessToken)
             })

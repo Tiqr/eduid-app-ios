@@ -18,6 +18,9 @@ class ChangeSMSRecoveryExplanationViewModel {
     /// so it is always correct - unlike matching `personalInfo.id` against locally stored identities.
     private var challenge: AuthenticationChallenge?
     
+    /// Identifies the most recent `startAuthenticationChallenge` call, so callbacks of earlier (stale) requests can be ignored.
+    private var currentChallengeRequestId = UUID()
+    
     init(personalInfo: UserResponse) {
         self.personalInfo = personalInfo
     }
@@ -38,16 +41,20 @@ class ChangeSMSRecoveryExplanationViewModel {
     /// would. Must succeed before `verifyWithBiometrics`/`verifyWithPIN` can be used.
     @MainActor
     func startAuthenticationChallenge(completion: @escaping (Bool) -> Void) {
+        let requestId = UUID()
+        currentChallengeRequestId = requestId
+        challenge = nil
         Task {
             do {
                 let result = try await TiqrControllerAPI.startAuthenticationForSP()
+                guard requestId == currentChallengeRequestId else { return }
                 guard let url = result.url else {
                     NSLog("Could not start SMS recovery change authentication: no url in response")
                     completion(false)
                     return
                 }
                 ServiceContainer.sharedInstance().challengeService.startChallenge(fromScanResult: url) { [weak self] type, challengeObject, error in
-                    guard let self else { return }
+                    guard let self, requestId == self.currentChallengeRequestId else { return }
                     guard type == .authentication, let challenge = challengeObject as? AuthenticationChallenge else {
                         NSLog("Could not start SMS recovery change authentication: \(error?.localizedDescription ?? "unknown error")")
                         completion(false)
@@ -57,10 +64,12 @@ class ChangeSMSRecoveryExplanationViewModel {
                     completion(true)
                 }
             } catch let ErrorResponse.error(statusCode, data, _, underlyingError) {
+                guard requestId == currentChallengeRequestId else { return }
                 let bodyString = data.flatMap { String(data: $0, encoding: .utf8) } ?? "<no body>"
                 NSLog("Could not start SMS recovery change authentication: status=\(statusCode), body=\(bodyString), error=\(underlyingError)")
                 completion(false)
             } catch {
+                guard requestId == currentChallengeRequestId else { return }
                 NSLog("Could not start SMS recovery change authentication: \(error)")
                 completion(false)
             }
