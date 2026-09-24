@@ -1,11 +1,11 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "OpenAPIClient",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v15),
         .macOS(.v10_13),
         .tvOS(.v11),
         .watchOS(.v4),
