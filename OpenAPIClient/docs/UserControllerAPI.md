@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**resetPasswordHashValid**](UserControllerAPI.md#resetpasswordhashvalid) | **GET** /mobile/api/sp/password-reset-hash-valid | Validate password hash
 [**resetPasswordLink**](UserControllerAPI.md#resetpasswordlink) | **PUT** /mobile/api/sp/reset-password-link | Reset password link
 [**tokens**](UserControllerAPI.md#tokens) | **GET** /mobile/api/sp/tokens | Get all OpenID Connect tokens
+[**updateCredentials**](UserControllerAPI.md#updatecredentials) | **PUT** /mobile/api/sp/credential | Remove a public key credential (passkey)
 [**updateEmail**](UserControllerAPI.md#updateemail) | **PUT** /mobile/api/sp/email | Change email
 [**updateLinkedAccount**](UserControllerAPI.md#updatelinkedaccount) | **PUT** /mobile/api/sp/prefer-linked-account | Mark linkedAccount as preferred
 [**updateUserPassword**](UserControllerAPI.md#updateuserpassword) | **PUT** /mobile/api/sp/update-password | Update password
@@ -1232,6 +1233,56 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateCredentials**
+```swift
+    open class func updateCredentials(publicKeyCredentials: PublicKeyCredentials, completion: @escaping (_ data: UserResponse?, _ error: Error?) -> Void)
+```
+
+Remove a public key credential (passkey)
+
+Remove the given public key credential (passkey) from the user's account
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let publicKeyCredentials = PublicKeyCredentials(identifier: "identifier_example", credential: "credential_example", name: "name_example", createdAt: 123) // PublicKeyCredentials | The credential to remove
+
+// Remove a public key credential (passkey)
+UserControllerAPI.updateCredentials(publicKeyCredentials: publicKeyCredentials) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicKeyCredentials** | [**PublicKeyCredentials**](PublicKeyCredentials.md) | The credential to remove | 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[openId](../README.md#openId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

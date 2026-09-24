@@ -16,6 +16,7 @@ class EduIdError: Error {
     enum EduIdErrorKind {
         case regular
         case createAccountEmailCode
+        case smsCode
     }
     
     // Factory method to generate CustomError from ErrorResponse
@@ -32,6 +33,8 @@ class EduIdError: Error {
                 switch kind {
                 case .createAccountEmailCode:
                     return EduIdError.generateErrorCreateAccountEmailCode(for: statusCode)
+                case .smsCode:
+                    return EduIdError.generateErrorSmsCode(for: statusCode)
                 default:
                     return EduIdError.generateError(for: statusCode)
                 }
@@ -52,6 +55,8 @@ class EduIdError: Error {
             switch kind {
             case .createAccountEmailCode:
                 return EduIdError.generateErrorCreateAccountEmailCode(for: code)
+            case .smsCode:
+                return EduIdError.generateErrorSmsCode(for: code)
             default:
                 return EduIdError(
                     title: title,
@@ -109,6 +114,21 @@ class EduIdError: Error {
         let error: String?
         let message: String?
         let status: Int?
+    }
+}
+
+extension EduIdError {
+    private static func generateErrorSmsCode(for statusCode: Int) -> EduIdError {
+        switch statusCode {
+        case 403: // Wrong/expired code. The user can try again
+            return EduIdError(
+                title: L.ResponseErrors.SMSCodeError.Title.localization,
+                message: L.ResponseErrors.SMSCodeError.Incorrect.localization,
+                statusCode: statusCode
+            )
+        default:
+            return EduIdError.generateError(for: statusCode)
+        }
     }
 }
 

@@ -8,7 +8,16 @@ class PinViewModel: NSObject {
     var focusPinField: ((Int) -> Void)?
     weak var smsActivationHandlerDelegate: AlertErrorHandlerDelegate?
     
+    /// When `true`, entering the SMS code uses the re-verification endpoint (used when the user is
+    /// confirming an already-registered SMS recovery number), instead of the initial onboarding endpoint.
+    private let isReVerification: Bool
+    
     var pinValue: [Character] = ["0", "0", "0", "0", "0", "0"]
+    
+    init(isReVerification: Bool = false) {
+        self.isReVerification = isReVerification
+        super.init()
+    }
     
     var pinIsEnteredOnTextFieldIndex: [Int: Bool] = [:] {
         didSet {
@@ -26,9 +35,15 @@ class PinViewModel: NSObject {
     func enterSMS(code: String) {
         Task {
                 do {
-                    let _ = try await TiqrControllerAPI.spVerifyPhoneCodeWithRequestBuilder(phoneVerification: PhoneVerification(phoneVerification: code))
-                        .execute()
-                        .body
+                    if isReVerification {
+                        let _ = try await TiqrControllerAPI.spReverifyPhoneCodeWithRequestBuilder(phoneVerification: PhoneVerification(phoneVerification: code))
+                            .execute()
+                            .body
+                    } else {
+                        let _ = try await TiqrControllerAPI.spVerifyPhoneCodeWithRequestBuilder(phoneVerification: PhoneVerification(phoneVerification: code))
+                            .execute()
+                            .body
+                    }
                     smsActivationHandlerDelegate?.smsEntryWasCorrect()
                 } catch {
                     smsActivationHandlerDelegate?.presentAlert(with: error)

@@ -280,6 +280,24 @@ Would you like to unconnect that app and connect this one?
 "ConfirmDeleteKey.Description.COPY" = "Are you sure you want to delete your key?";
 "ConfirmDeleteKey.Button.Confirm.COPY" = "Yes, delete";
 "ConfirmDeleteKey.Button.Cancel.COPY" = "No, back";
+"ConfirmDeletePasskey.Title.COPY" = "Delete passkey";
+"ConfirmDeletePasskey.Subtitle.COPY" = "You can't undo this action";
+"ConfirmDeletePasskey.Description.COPY" = "Are you sure you want to delete the passkey \"%1$@\"?";
+"ConfirmDeletePasskey.Button.Confirm.COPY" = "Yes, delete";
+"ConfirmDeletePasskey.Button.Cancel.COPY" = "No, back";
+"ConfirmRemoveMobileApp.Title.COPY" = "Remove eduID mobile app";
+"ConfirmRemoveMobileApp.Subtitle.COPY" = "You can't undo this action";
+"ConfirmRemoveMobileApp.Description.COPY" = "Are you sure you want to remove the eduID mobile app as a login method? We'll send a verification code to your phone number to confirm this.";
+"ConfirmRemoveMobileApp.Button.Confirm.COPY" = "Yes, remove";
+"ConfirmRemoveMobileApp.Button.Cancel.COPY" = "No, back";
+"ChangeSMSRecovery.Title.COPY" = "Change SMS recovery number";
+"ChangeSMSRecovery.Description.COPY" = "To change your SMS recovery number, we first need to verify it's really you. Confirm with your PIN code or biometrics to continue.";
+"ChangeSMSRecovery.VerificationFailed.COPY" = "We could not verify your identity. Please try again.";
+"ChangeSMSRecovery.Button.Back.COPY" = "No, go back";
+"ChangeSMSRecovery.Button.Change.COPY" = "Change";
+"ChangeSMSRecovery.Success.Title.COPY" = "Identity verified";
+"ChangeSMSRecovery.Success.Description.COPY" = "Your identity has been verified and your SMS recovery number has been updated.";
+"ChangeSMSRecovery.Success.Button.COPY" = "OK";
 "Home.Home.COPY" = "Home";
 "Home.Welcome.COPY" = "Welcome %1$@";
 "Home.DataAndActivity.COPY" = "Activity";
@@ -738,6 +756,9 @@ Would you like to unconnect that app and connect this one?
 "Generic.RequestError.Title.COPY" = "Cannot complete request";
 "Generic.RequestError.Description.COPY" = "Unexpected error: %1$@, please retry.";
 "Generic.RequestError.CloseButton.COPY" = "Close";
+"Generic.SessionExpired.Title.COPY" = "Session expired";
+"Generic.SessionExpired.Description.COPY" = "Your session has expired and you have been logged out. Please log in again.";
+"Generic.SessionExpired.CloseButton.COPY" = "OK";
 "WelcomeToApp.Title.COPY" = "Welcome! You can use the eduID app for";
 "WelcomeToApp.Quickly.Text.COPY" = "to educational services";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Logging in quickly";
@@ -779,6 +800,11 @@ Which phone number would you like to use for this?
 ";
 "CreateEduID.EnterPhoneNumber.BoldRange.COPY" = "34";
 "CreateEduID.EnterPhoneNumber.VerifyPhoneNumber.COPY" = "Send SMS code";
+"CreateEduID.EnterPhoneNumber.ReVerificationTitle.COPY" = "Add a phone number";
+"CreateEduID.EnterPhoneNumber.ReVerificationMainText.COPY" = "Your phone number will be used for security purposes, so that you can re-register the eduID app if you lose it.
+
+We will send you a code to verify your phone number.
+";
 "CreateEduID.AddInstitution.MainTitle.COPY" = "Your educational institution has been successfully connected";
 "CreateEduID.AddInstitution.MainTitleBoldPart.COPY" = "Your educational institution";
 "CreateEduID.AddInstitution.MainText.COPY" = "The following information has been added to your eduID and can now be shared with other services:";
@@ -834,6 +860,8 @@ Which phone number would you like to use for this?
 "ResponseErrors.EmailCodeError.Expired.COPY" = "The code has expired";
 "ResponseErrors.EmailCodeError.Incorrect.COPY" = "The code is incorrect";
 "ResponseErrors.EmailCodeError.RateLimited.COPY" = "Too many attempts, please try again later";
+"ResponseErrors.SMSCodeError.Title.COPY" = "Code verification failed";
+"ResponseErrors.SMSCodeError.Incorrect.COPY" = "The code you entered is incorrect. Please check the SMS message and try again.";
 "ResponseErrors.Auth.Invalid.Title.COPY" = "Authorization invalid";
 "ResponseErrors.Auth.Invalid.Description.COPY" = "Did not receive valid authentication.";
 "ResponseErrors.Auth.Failed.Title.COPY" = "Authorization failed";

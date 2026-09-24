@@ -636,8 +636,9 @@ extension PersonalInfoViewController {
     }
     
     private func requestRefreshToken() {
-        AppAuthController.shared.performWithFreshTokens(completion: { [weak self] _ in
-            guard let self else { return }
+        AppAuthController.shared.performWithFreshTokens(completion: { [weak self] accessToken in
+            // No token means the session is gone, retrying would only fail again and loop
+            guard let self, accessToken != nil else { return }
             self.viewModel.getData()
         })
         self.refreshDelegate?.requestScreenRefresh(for: .security)

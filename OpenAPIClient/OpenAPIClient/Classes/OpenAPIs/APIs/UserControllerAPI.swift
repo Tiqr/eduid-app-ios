@@ -982,6 +982,45 @@ open class UserControllerAPI {
     }
 
     /**
+     Update the list of remaining public key credentials (passkeys)
+     
+     - parameter publicKeyCredentials: (body)  
+     - returns: UserResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func updateCredentials(publicKeyCredentials: PublicKeyCredentials) async throws -> UserResponse {
+        return try await updateCredentialsWithRequestBuilder(publicKeyCredentials: publicKeyCredentials).execute().body
+    }
+
+    /**
+     Remove a public key credential (passkey)
+     - PUT /mobile/api/sp/credential
+     - Remove the given public key credential (passkey) from the user's account
+     - :
+       - type: openIdConnect
+       - name: openId
+     - parameter publicKeyCredentials: (body) The credential to remove 
+     - returns: RequestBuilder<UserResponse> 
+     */
+    open class func updateCredentialsWithRequestBuilder(publicKeyCredentials: PublicKeyCredentials) -> RequestBuilder<UserResponse> {
+        let localVariablePath = "/mobile/api/sp/credential"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: publicKeyCredentials)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Change email
      
      - parameter updateEmailRequest: (body)  

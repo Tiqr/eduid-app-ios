@@ -77,6 +77,20 @@ extension MainCoordinator: HomeViewControllerDelegate  {
         children.append(verifyAuthenticationCoordinator)
         verifyAuthenticationCoordinator.start(payload: payload, serviceName: serviceName)
     }
+    
+    func homeViewControllerSessionDidExpire(viewController: HomeViewController, completion: @escaping () -> Void) {
+        // The user was logged out because their session expired. Close any open screens and go back to the home screen.
+        children.removeAll()
+        if homeNavigationController.presentedViewController != nil {
+            homeNavigationController.dismiss(animated: true) { [weak self] in
+                self?.homeNavigationController.popToRootViewController(animated: true)
+                completion()
+            }
+        } else {
+            homeNavigationController.popToRootViewController(animated: true)
+            completion()
+        }
+    }
 
 }
 

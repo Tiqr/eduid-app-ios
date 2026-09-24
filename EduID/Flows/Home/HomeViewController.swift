@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
         super.viewDidLoad()
         view.backgroundColor = .white
         NotificationCenter.default.addObserver(self, selector: #selector(loadViewWhenReceivingNotification), name: .firstTimeAuthorizationCompleteWithSecretPresent, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sessionDidExpire), name: .sessionExpired, object: nil)
         setupUI()
     }
     
@@ -220,6 +221,20 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
             AppAuthController.shared.pendingTaskUntilAuthCompletes = { [weak self ]_ in
                 self?.openPendingScreen(animated: self?.screenRefreshWasRequested)
             }
+        }
+    }
+    
+    @objc private func sessionDidExpire() {
+        childScreenMode = .none
+        delegate?.homeViewControllerSessionDidExpire(viewController: self) { [weak self] in
+            guard let self else { return }
+            let alert = UIAlertController(
+                title: L.Generic.SessionExpired.Title.localization,
+                message: L.Generic.SessionExpired.Description.localization,
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: L.Generic.SessionExpired.CloseButton.localization, style: .default))
+            self.present(alert, animated: true)
         }
     }
     
