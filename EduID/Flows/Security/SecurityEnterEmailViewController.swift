@@ -30,6 +30,7 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         view.backgroundColor = .white
         
         setupUI()
+        setupViewModel()
         verifyButton.addTarget(self, action: #selector(verifyEmail), for: .touchUpInside)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignKeyboardResponder)))
     }
@@ -46,6 +47,23 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
         super.viewDidAppear(animated)
         
         _ = validatedEmailTextField.becomeFirstResponder()
+    }
+    
+    //MARK: - setup view model
+    private func setupViewModel() {
+        viewModel.changeEmailSuccessClosure = { [weak self] in
+            guard let self else { return }
+            self.verifyButton.isEnabled = true
+            UserDefaults.standard.set(self.validatedEmailTextField.textField.text, forKey: SecurityEnterEmailViewController.emailKeyUserDefaults)
+            self.delegate?.securityViewController(viewController: self, verify: "")
+        }
+        viewModel.changeEmailErrorClosure = { [weak self] title, message in
+            guard let self else { return }
+            self.verifyButton.isEnabled = true
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default))
+            self.present(alert, animated: true)
+        }
     }
     
     //MARK: - setup UI
@@ -127,11 +145,10 @@ class SecurityEnterEmailViewController: UIViewController, ScreenWithScreenType, 
     
     @objc
     func verifyEmail() {
-        if let email = validatedEmailTextField.textField.text {
-            viewModel.requestChange(email: email)
-        }
-        UserDefaults.standard.set(validatedEmailTextField.textField.text, forKey: SecurityEnterEmailViewController.emailKeyUserDefaults)
-        delegate?.securityViewController(viewController: self, verify: "")
+        guard let email = validatedEmailTextField.textField.text else { return }
+        resignKeyboardResponder()
+        verifyButton.isEnabled = false
+        viewModel.requestChange(email: email)
     }
 
 }
