@@ -24,11 +24,17 @@ class SecurityEnterEmailViewModel: NSObject {
     func requestChange(email: String) {
         Task {
             do {
-                let result = try await UserControllerAPI.generateEmailCode(updateEmailRequest: .init(email: email))
+                _ = try await UserControllerAPI.generateEmailCode(updateEmailRequest: .init(email: email))
                 changeEmailSuccessClosure?()
             } catch {
                 let errorResponse = EduIdError.from(error)
-                changeEmailErrorClosure?(errorResponse.title, errorResponse.message)
+                if errorResponse.statusCode == 409 {
+                    // There is already a user with this email address (can also be the current user)
+                    changeEmailErrorClosure?(L.ResponseErrors.EmailInUse.Title.localization,
+                                             L.ResponseErrors.EmailInUse.Description.localization)
+                } else {
+                    changeEmailErrorClosure?(errorResponse.title, errorResponse.message)
+                }
             }
         }
     }
