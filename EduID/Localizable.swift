@@ -1735,14 +1735,6 @@ public struct L {
             translationKey: "Security.OtherMethods.COPY",
             translationArgs: []
         )
-        public static let MobileApp = LocaliciousData(
-            accessibilityIdentifier: "Security.MobileApp",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.MobileApp.COPY",
-            translationArgs: []
-        )
         public static let RecoveryOptions = LocaliciousData(
             accessibilityIdentifier: "Security.RecoveryOptions",
             accessibilityHintKey: nil,
@@ -1757,6 +1749,22 @@ public struct L {
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
             translationKey: "Security.SMS.COPY",
+            translationArgs: []
+        )
+        public static let RecoveryCode = LocaliciousData(
+            accessibilityIdentifier: "Security.RecoveryCode",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.RecoveryCode.COPY",
+            translationArgs: []
+        )
+        public static let RecoveryCodeHopeful = LocaliciousData(
+            accessibilityIdentifier: "Security.RecoveryCodeHopeful",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.RecoveryCodeHopeful.COPY",
             translationArgs: []
         )
         public static func ReceiveCodeAt(args: CVarArg...) -> LocaliciousData {
@@ -1803,6 +1811,14 @@ public struct L {
             translationArgs: args
         )
         }
+        public static let Passkey = LocaliciousData(
+            accessibilityIdentifier: "Security.Passkey",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.Passkey.COPY",
+            translationArgs: []
+        )
         public static func CredentialActivated(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
             accessibilityIdentifier: "Security.CredentialActivated",
@@ -1813,14 +1829,6 @@ public struct L {
             translationArgs: args
         )
         }
-        public static let Passkey = LocaliciousData(
-            accessibilityIdentifier: "Security.Passkey",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Security.Passkey.COPY",
-            translationArgs: []
-        )
         public static let TwoFAKey = LocaliciousData(
             accessibilityIdentifier: "Security.TwoFAKey",
             accessibilityHintKey: nil,
@@ -4275,6 +4283,14 @@ public struct L {
             translationKey: "UseApp.NoNotification.COPY",
             translationArgs: []
         )
+        public static let NotificationsNotPossible = LocaliciousData(
+            accessibilityIdentifier: "UseApp.NotificationsNotPossible",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "UseApp.NotificationsNotPossible.COPY",
+            translationArgs: []
+        )
         public static let QrCodeLink = LocaliciousData(
             accessibilityIdentifier: "UseApp.QrCodeLink",
             accessibilityHintKey: nil,
@@ -6368,32 +6384,6 @@ public struct L {
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: "Generic.RequestError.CloseButton.COPY",
-                translationArgs: []
-            )
-        }
-        public struct SessionExpired {
-            public static let Title = LocaliciousData(
-                accessibilityIdentifier: "Generic.SessionExpired.Title",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Generic.SessionExpired.Title.COPY",
-                translationArgs: []
-            )
-            public static let Description = LocaliciousData(
-                accessibilityIdentifier: "Generic.SessionExpired.Description",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Generic.SessionExpired.Description.COPY",
-                translationArgs: []
-            )
-            public static let CloseButton = LocaliciousData(
-                accessibilityIdentifier: "Generic.SessionExpired.CloseButton",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: "Generic.SessionExpired.CloseButton.COPY",
                 translationArgs: []
             )
         }
