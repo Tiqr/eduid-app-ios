@@ -1889,6 +1889,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1991,6 +1992,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2163,6 +2165,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2201,6 +2204,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eduID/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = eduID;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access camera to scan QR codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "eduID uses Face ID to login without a PIN";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2698,7 +2702,7 @@
 			repositoryURL = "https://github.com/Tiqr/tiqr-app-core-ios";
 			requirement = {
 				kind = revision;
-				revision = 938739958adc992dc136daef6bb7d90d2791adc2;
+				revision = 078fe54dc86047c86e62c48f5083ff43d9782961;
 			};
 		};
 		4FF567D92A31D3FA00616341 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
