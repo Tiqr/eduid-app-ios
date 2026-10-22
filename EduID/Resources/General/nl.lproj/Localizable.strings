@@ -197,16 +197,17 @@ bestaande inschrijving
 "Security.Title.COPY" = "Beveiliging";
 "Security.SubTitle.COPY" = "Hoe je kunt inloggen bij eduID";
 "Security.OtherMethods.COPY" = "Andere manieren";
-"Security.MobileApp.COPY" = "eduID mobiele app";
 "Security.RecoveryOptions.COPY" = "Herstelopties";
 "Security.SMS.COPY" = "sms";
+"Security.RecoveryCode.COPY" = "Back-upcode";
+"Security.RecoveryCodeHopeful.COPY" = "Hopelijk ergens veilig opgeborgen";
 "Security.ReceiveCodeAt.COPY" = "Je ontvangt eenmalige codes op: ** ** *** %1$@";
 "Security.AddPassword.COPY" = "Wachtwoord toevoegen";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
 "Security.ChangePassword.COPY" = "Wachtwoord";
 "Security.PasswordActivated.COPY" = "Geactiveerd op %1$@";
-"Security.CredentialActivated.COPY" = "%1$@: Geactiveerd op %2$@";
 "Security.Passkey.COPY" = "Passkey";
+"Security.CredentialActivated.COPY" = "%1$@: Geactiveerd op %2$@";
 "Security.TwoFAKey.COPY" = "Inloggen met app";
 "Security.ProvidedBy.COPY" = "Gedeeld door";
 "Security.NotAddedYet.COPY" = "Nog niet toegevoegd aan je eduID";
@@ -504,6 +505,7 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "UseApp.Info.COPY" = "We hebben een pushmelding naar je app gestuurd om te controleren dat jij het bent die probeert in te loggen.";
 "UseApp.Scan.COPY" = "Scan deze QR-code met je eduID app";
 "UseApp.NoNotification.COPY" = "Geen melding?";
+"UseApp.NotificationsNotPossible.COPY" = "Let op: pushberichten zijn uitgeschakeld op deze telefoon";
 "UseApp.QrCodeLink.COPY" = "Maak een QR-code";
 "UseApp.QrCodePostfix.COPY" = "en scan deze.";
 "UseApp.Offline.COPY" = "Toont je telefoon een code?";
@@ -756,9 +758,6 @@ Wil je de bestaande app-koppeling verwijderen en deze app koppelen?
 "Generic.RequestError.Title.COPY" = "Het verzoek kan niet worden voltooid";
 "Generic.RequestError.Description.COPY" = "Onverwachte fout: %1$@, probeer het opnieuw.";
 "Generic.RequestError.CloseButton.COPY" = "Sluiten";
-"Generic.SessionExpired.Title.COPY" = "Sessie verlopen";
-"Generic.SessionExpired.Description.COPY" = "Je sessie is verlopen en je bent uitgelogd. Log opnieuw in.";
-"Generic.SessionExpired.CloseButton.COPY" = "OK";
 "WelcomeToApp.Title.COPY" = "Welkom! Je kunt de eduID app gebruiken voor";
 "WelcomeToApp.Quickly.Text.COPY" = "bij diensten in het onderwijs";
 "WelcomeToApp.Quickly.Highlight.COPY" = "Snel inloggen";
