@@ -1,6 +1,11 @@
 ---
 # yamllint disable rule:line-length
 ANDROID:
+  UseApp:
+    NotificationsNotPossible:
+      COPY:
+        en: "Note: push notifications are disabled on this phone"
+        nl: "Let op: pushberichten zijn uitgeschakeld op deze telefoon"
   Button:
     OK:
       COPY:
@@ -969,6 +974,14 @@ SHARED:
       COPY:
         en: SMS
         nl: sms
+    RecoveryCode:
+      COPY:
+        en: Backup Code
+        nl: Back-upcode
+    RecoveryCodeHopeful:
+      COPY:
+        en: Stored somewhere safe hopefully
+        nl: Hopelijk ergens veilig opgeborgen
     ReceiveCodeAt:
       COPY:
         en: "You'll receive one-time codes at: ** ** *** %1{{s}}"
