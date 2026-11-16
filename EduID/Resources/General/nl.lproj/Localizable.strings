@@ -200,6 +200,8 @@ bestaande inschrijving
 "Security.MobileApp.COPY" = "eduID mobiele app";
 "Security.RecoveryOptions.COPY" = "Herstelopties";
 "Security.SMS.COPY" = "sms";
+"Security.RecoveryCode.COPY" = "Back-upcode";
+"Security.RecoveryCodeHopeful.COPY" = "Hopelijk ergens veilig opgeborgen";
 "Security.ReceiveCodeAt.COPY" = "Je ontvangt eenmalige codes op: ** ** *** %1$@";
 "Security.AddPassword.COPY" = "Wachtwoord toevoegen";
 "Security.PasswordPlaceholder.COPY" = "• • • • • • • • • •";
