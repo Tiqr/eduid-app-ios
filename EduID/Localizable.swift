@@ -1759,6 +1759,22 @@ public struct L {
             translationKey: "Security.SMS.COPY",
             translationArgs: []
         )
+        public static let RecoveryCode = LocaliciousData(
+            accessibilityIdentifier: "Security.RecoveryCode",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.RecoveryCode.COPY",
+            translationArgs: []
+        )
+        public static let RecoveryCodeHopeful = LocaliciousData(
+            accessibilityIdentifier: "Security.RecoveryCodeHopeful",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "Security.RecoveryCodeHopeful.COPY",
+            translationArgs: []
+        )
         public static func ReceiveCodeAt(args: CVarArg...) -> LocaliciousData {
             return LocaliciousData(
             accessibilityIdentifier: "Security.ReceiveCodeAt",
